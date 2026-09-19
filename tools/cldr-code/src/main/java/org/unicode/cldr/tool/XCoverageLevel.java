@@ -466,6 +466,11 @@ class XCoverageLevel {
                 int debug = 0;
             }
             switch (type) {
+                case "import":
+                    // ignore for now, since the imports are hard coded in our tooling
+                    // include for client software to check
+                    break;
+
                 case "path":
                     if (lastPath != null) {
                         addPath(
@@ -541,28 +546,44 @@ class XCoverageLevel {
 
     @Override
     public String toString() {
+        return toString(null);
+    }
+
+    public String toString(String importValue) {
         StringBuilder result = new StringBuilder();
 
         result.append(
-                "# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.\n\n"
-                        + "# Variables\n\n");
+                "# Tech Preview data for locale coverage levels."
+                + " For the file format, see the README.md in this directory.\n\n");
+
+        if (importValue != null) {
+            result.append("import=" + importValue + "\n\n");
+        }
 
         Map<String, String> valueToVariable = Maps.newTreeMap();
 
-        for (Entry<String, String> entry : variableToValue.entrySet()) {
-            String value = entry.getValue();
-            String variable = entry.getKey();
-            result.append(variable).append('=').append(value).append('\n');
-            valueToVariable.put(value, variable);
+        if (!variableToValue.isEmpty()) {
+            result.append("# Variables\n\n");
+
+            for (Entry<String, String> entry : variableToValue.entrySet()) {
+                String value = entry.getValue();
+                String variable = entry.getKey();
+                result.append(variable).append('=').append(value).append('\n');
+                valueToVariable.put(value, variable);
+            }
+            result.append("\n");
         }
 
-        result.append("\n# Rules\n");
+        if (!pathChassisToAttributeMatcherToLevel.keySet().isEmpty()) {
 
-        for (Entry<String, Map<AttributesMatcher, Level>> entry :
-                pathChassisToAttributeMatcherToLevel.getMapMap().entrySet()) {
-            result.append('\n');
-            result.append("path=").append(entry.getKey()).append('\n');
-            getString(entry, valueToVariable, result);
+            result.append("# Rules\n");
+
+            for (Entry<String, Map<AttributesMatcher, Level>> entry :
+                    pathChassisToAttributeMatcherToLevel.getMapMap().entrySet()) {
+                result.append('\n');
+                result.append("path=").append(entry.getKey()).append('\n');
+                getString(entry, valueToVariable, result);
+            }
         }
 
         return result.toString();

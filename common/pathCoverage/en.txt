@@ -1,4 +1,6 @@
-# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=root
 
 # Variables
 
@@ -156,7 +158,7 @@ path=//ldml/localeDisplayNames/territories/territory[@type]
   elseLevel=moderate
 
 path=//ldml/localeDisplayNames/territories/territory[@type][@alt]
- attr0=CC,CZ,FK,GB,HK,IO,MO,NZ,PN,SH,SZ,US
+ attr0=CC,CZ,FK,GB,HK,IO,MO,NR,NZ,PN,SH,SZ,US
   level=basic
   elseLevel=moderate
 

@@ -1,4 +1,6 @@
-# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=root
 
 # Variables
 
@@ -7,7 +9,7 @@
 %language36=ar,ar_001,bn,de,de_AT,de_CH,en_AU,en_CA,en_GB,en_US,es,es_419,es_ES,es_MX,fr,fr_CA,fr_CH,hi,hi_Latn,id,it,ja,ko,nl,nl_BE,pl,pt,pt_BR,pt_PT,ru,th,tr,und,zh,zh_Hans,zh_Hant
 %type39o=arab,arabext,armn,armnlow,beng,cakm,deva,ethi,fullwide,geor,grek,greklow,gujr,guru,hanidec,hans,hansfin,hant,hantfin,hebr,java,jpan,jpanfin,khmr,knda,laoo,mlym,mtei,mymr,native,olck,roman,romanlow,taml,tamldec,telu,thai,tibt,vaii
 %language144cg=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,cs,csw,cv,cy,da,doi,dsb,ee,el,eo,et,eu,fa,ff,fi,fil,fo,fy,ga,gaa,gd,gl,gu,ha,he,hr,hsb,hu,hy,ia,ie,ig,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,lv,mai,mi,mk,ml,mn,mni,mr,ms,mt,mul,my,nds,ne,nn,no,nqo,nso,oc,om,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,sk,sl,so,sq,sr,st,su,sv,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yo,yrl,yue,za,zu,zxx
-%dateFormatItem44a=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yMMMM,yQQQ,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem44b=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yMMMM,yQQQ,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
 
 # Rules
 
@@ -19,7 +21,7 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dat
  attr1=%dateFormatItem51a
   level=moderate
  attr0=generic
- attr1=%dateFormatItem44a
+ attr1=%dateFormatItem44b
   level=moderate
  attr0=generic
  attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms

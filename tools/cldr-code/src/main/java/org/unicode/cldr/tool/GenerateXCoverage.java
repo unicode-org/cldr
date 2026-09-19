@@ -59,7 +59,7 @@ public class GenerateXCoverage {
     private static final boolean DEBUG = XCoverageLevel.DEBUG;
     private static Set<String> TEST_PATHS = XCoverageLevel.TEST_PATHS;
     private static final boolean SHOW_PROGRESS = false;
-    private static final boolean GENERATE_DEBUG_FILES = true;
+    private static final boolean GENERATE_DEBUG_FILES = false;
 
     /** Simple enum for testing. Normally "all" is used */
     private enum Run {
@@ -179,7 +179,7 @@ public class GenerateXCoverage {
             // now write compact version
 
             XCoverageLevel reducedByRoot = fullBaseLanguageCoverage.subtractSame(rootXCoverage);
-            writeFileOrDeleteIfEmpty(baseLanguage, reducedByRoot);
+            writeFileOrDeleteIfEmpty(baseLanguage, reducedByRoot, root);
 
             // open file and check
 
@@ -208,7 +208,7 @@ public class GenerateXCoverage {
 
                 XCoverageLevel reducedByBase =
                         fullLocaleCoverage.subtractSame(fullBaseLanguageCoverage);
-                writeFileOrDeleteIfEmpty(child, reducedByBase);
+                writeFileOrDeleteIfEmpty(child, reducedByBase, baseLanguage);
 
                 // open file and check
                 if (GENERATE_DEBUG_FILES) {
@@ -274,10 +274,10 @@ public class GenerateXCoverage {
         }
     }
 
-    private static void writeFileOrDeleteIfEmpty(String locale, XCoverageLevel reduced)
-            throws IOException {
+    private static void writeFileOrDeleteIfEmpty(
+            String locale, XCoverageLevel reduced, String importLocale) throws IOException {
         if (!reduced.isEmpty()) {
-            writeXCoverageLevel(reduced, OUTPUT_COMPACTED, locale + FILE_SUFFIX);
+            writeXCoverageLevel(reduced, OUTPUT_COMPACTED, locale + FILE_SUFFIX, importLocale);
         } else {
             Files.deleteIfExists(OUTPUT_COMPACTED.resolve(locale + FILE_SUFFIX));
         }
@@ -334,12 +334,17 @@ public class GenerateXCoverage {
         return false;
     }
 
-    /** Writes an XCoverageLevel to a file */
     private static void writeXCoverageLevel(
             XCoverageLevel xCoverage, Path outputDir, String fileName) {
+        writeXCoverageLevel(xCoverage, outputDir, fileName, null);
+    }
+
+    /** Writes an XCoverageLevel to a file */
+    private static void writeXCoverageLevel(
+            XCoverageLevel xCoverage, Path outputDir, String fileName, String importValue) {
         Path fullFileName = outputDir.resolve(fileName);
         try (PrintStream out2 = new PrintStream(Files.newOutputStream(fullFileName))) {
-            out2.print(xCoverage.toString());
+            out2.print(xCoverage.toString(importValue));
             System.out.println("Writing:\t" + fullFileName);
         } catch (IOException e) {
             throw new UncheckedIOException(e);

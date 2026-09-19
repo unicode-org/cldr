@@ -1,9 +1,11 @@
-# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=es
 
 # Variables
 
-%dateFormatItem55=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmsvvvv,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,MMMdd,MMd,MMdd,Md,d,h,hmsvvvv,hmv,hv,ms,y,yM,yMEd,yMM,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
 %dateFormatItem49c=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yMEd,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMMEd,yyyyMMMMd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem55a=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmsvvvv,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,MMMdd,MMd,MMdd,Md,d,h,hmsvvvv,hmv,hv,ms,y,yM,yMEd,yMM,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
 
 # Rules
 
@@ -12,7 +14,7 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dat
  attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
   level=basic
  attr0=gregorian
- attr1=%dateFormatItem55
+ attr1=%dateFormatItem55a
   level=moderate
  attr0=generic
  attr1=%dateFormatItem49c

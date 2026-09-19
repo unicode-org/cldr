@@ -1,4 +1,6 @@
-# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=zh
 
 # Variables
 
@@ -47,7 +49,7 @@ path=//ldml/numbers/currencies/currency[@type]/symbol[@alt]
  attr0=TRY
  attr1=narrow,variant
   level=moderate
- attr0=SAR
+ attr0=AED,MVR,OMR,SAR
  attr1=variant
   level=moderate
   elseLevel=comprehensive

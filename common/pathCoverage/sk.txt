@@ -1,10 +1,12 @@
-# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=root
 
 # Variables
 
+%dateFormatItem50c=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hmv,hv,mmss,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
 %language134=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,csw,cv,cy,doi,dsb,ee,eo,eu,fa,ff,fil,fo,fy,ga,gaa,gd,gl,gu,ha,he,hr,hsb,hy,ia,ie,ig,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,mai,mi,mk,ml,mn,mni,mr,ms,mul,my,nds,ne,nn,no,nqo,nso,oc,om,or,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,so,sq,sr,st,su,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yo,yrl,yue,za,zu,zxx
 %intervalFormatItem32=Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hmv,Hv,M,MEd,MMM,MMMEd,MMMM,MMMMd,MMMd,Md,d,h,hm,hmv,hv,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMd,yMd
-%dateFormatItem50d=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hmv,hv,mmss,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
 %language46n=ar,ar_001,bn,cs,da,de,de_AT,de_CH,el,en_AU,en_CA,en_GB,en_US,es,es_419,es_ES,es_MX,et,fi,fr,fr_CA,fr_CH,hi,hi_Latn,hu,id,it,ja,ko,lv,mt,nl,nl_BE,pl,pt,pt_BR,pt_PT,ru,sl,sv,th,tr,und,zh,zh_Hans,zh_Hant
 %dateFormatItem45d=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMMd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
 %script49=Adlm,Aran,Armn,Beng,Bopo,Brai,Cakm,Cans,Cher,Deva,Ethi,Geor,Grek,Gujr,Guru,Hanb,Hang,Hani,Hebr,Hira,Hrkt,Jamo,Kana,Khmr,Knda,Laoo,Mlym,Mong,Mtei,Mymr,Nkoo,Olck,Orya,Rohg,Sinh,Sund,Syrc,Taml,Telu,Tfng,Thaa,Thai,Tibt,Vaii,Yiii,Zmth,Zsye,Zsym,Zyyy
@@ -20,7 +22,7 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dat
  attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
   level=basic
  attr0=gregorian
- attr1=%dateFormatItem50d
+ attr1=%dateFormatItem50c
   level=moderate
  attr0=generic
  attr1=%dateFormatItem45d

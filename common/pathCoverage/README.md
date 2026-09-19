@@ -1,13 +1,44 @@
 # Path Coverage Data
 These are **Tech Preview** data files that can be used to find the coverage levels for each path in each locale file.
 The format of these files is provisional; the final format might be different.
-For example, it could be in JSON or XML
+For example, the syntax could be changed, or it could be recast into JSON or XML.
 
 ## File Format
-The Tech Preview format is a series of lines, where blank lines and lines starting with '#' are ignored, and lines are trimmed.
-The lines have the following format:
 
-### Variables
+The Tech Preview format is a series of lines, where blank lines and lines starting with '#' are ignored, and lines are trimmed.
+
+fileLines := import | variableAssignment | rule
+
+Each type of `fileLines` is in one of the categories defined below. The `\n` notion indicates where newlines must appear.
+
+## Terminology
+
+A _chassis_ is an XPath where the attribute values have been removed, along with the preceding '='.
+A _rule_ is an multi-line expression that maps a given chassis and sets of possible attribute values to a coverage level.
+A file is ill-formed if it has two rules with the same chassis or two variableAssignments that have the same variable.
+
+## Imports
+
+Imports are used to reduce repetition of rules and variables in the files.
+
+```
+import := 'import=' locale
+```
+
+Logically, an import statement adds all imports, rules, and variables from the `locale` into the file at that point.
+
+However, any conflicting rules or variables in the file override those imported rules and variables.
+    * Two rules conflict if they have the same `chassis`.
+    * Two variableAssignments conflict if they have the same `variable`
+
+Imports are recursive. Suppose `en_CA` imports `en`, and `en` imports `root`.
+Then the interpretation of the `en_CA` file logically consists of
+* the rules in the `root` file, 
+* plus new and overriding rules and variables from the `en` file,
+* plus new and overriding rules and variables from the `en_CA`file.
+
+## Variables
+
 Variables can be assigned for use in later rules.
 
 ```
@@ -18,18 +49,23 @@ values := value (',' value)*
 value := cp+ // a list of cldr attribute values
 ```
 
-### Rules
+### Example
+
+```
+%var13=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+```
+
+## Rules
 Rules are used to find the coverage for a path. 
 The structure is the following.
 
-A _chassis_ is an XPath in CLDR, where the attribute values have been removed, along with the preceding '='.
-A rule for a chassis is of the following form:
 
 ```
-rule := 'path=' chassis levelTest* \n elseLevel
+rule := 'path=' chassis \n levelTest* elseLevel
 
 levelTest := (attributesMatch* 'level=' level)* \n
-attributesMatch := attribute ('='|'≠') variable | values \n
+attributesMatch := attribute ('='|'≠') attributeValue (',' attributeValue)* \n
+attributeValue := variable | value
 attribute := 'attr' attributeNumber
 attributeNumber := \d
 
@@ -37,11 +73,10 @@ level := 'core'|'basic'|'moderate'|'modern'|'comprehensive'
 elseLevel := 'elseLevel=' level \n
 ```
 
-[ wfc: The chassis within an attributesMatch must be unique and in ascending order, and must be valid according to CLDR ]
 [ wfc: The attributeNumbers within an attributesMatch must be unique and in ascending order ]
 [ wfc: The levels within a level test must be in non-descending order (eg, moderate..moderate is ok, but not moderate..basic ]
 
-Example:
+### Example:
 
 ```
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
@@ -58,8 +93,8 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/inte
 ```
 Notice that levels can occur multiple times with different conditions, as with level=moderate above.
 
-Logically, this is read into a main map from chassis to a submap from attributeMatchers to levels.
-Thus the above corresponds to:
+Logically, this is read into a main map from chassis to a submap from attributesMatches to levels,
+where any variable is replaced by its value. Thus the above corresponds to:
 
 ```
 chassis → 
@@ -75,8 +110,8 @@ chassis →
 The expression attrN=!… is equivalent to attrN ∉ {…}
 
 To use that information to get a level from a path, 
-that path is first converted to a chassis plus an attribute map from attributeNumber to a set of attributeValues 
-(or a variable that resolves to a set of attributeValues).
+that path is first converted to a pair <chassis, attributeMap>, where attributeMap maps from attributeNumber to a set of attributeValues
+(In that conversion, any variables amon the  are resolved to a set of values: ).
 
 1. The chassis is looked up in the main map to get the submap. 
 2. If there is none, the resulting level is `comprehensive`.
@@ -87,8 +122,8 @@ that path is first converted to a chassis plus an attribute map from attributeNu
 Notes: 
 - While the value associated with an attrN is logically a set,
 it could be transformed by an implementation into another format, such as a regex.
-- No set of attribute conditions need have all of the possible attributes.
-For the second set of attribute conditions in the following example, the attr1 is missing: that means that _any_ attr1 matches.
+- No attributesMatch need have all of the possible attributes from the original path.
+For the second attributesMatch in the following example, the attr1 is missing: that means that _any_ attr1 matches.
 
 ```
  attr0=gregorian
@@ -97,35 +132,3 @@ For the second set of attribute conditions in the following example, the attr1 i
  attr0=generic
   level=moderate
 ```
-
-## Compaction
-
-The data is compacted in the following way.
-
-1. The root.txt file is complete
-2. Base language files (en.xm, zh.xml, etc.) remove all rules and variables that are identical to those in root.txt
-3. Non-base language files (en_CA.txt, zh_Hant.txt, zh_Hant_HK, etc.) remove all rules and variables that are identical to the base language files.
-Note that for simplicity the base file is derived by using the first subtag,
-*not* by using the CLDR inheritance (`parentLocale`).
-4. If the removal results in no rules and no variables, then the file is not produced.
-(All variable IDs are globally unique, but may change across releases.)
-
-So to use these files, the processing logically interprets the files by adding any missing rules according to the above.
-This can be by concatenating lines from the files, or can be done at runtime such as the following process.
-
-Assume the following:
-    * getSimpleCoverageLevel(locale,path) returns the coverage level according to the compacted file locale.txt.
-If the locale.txt file does not exist, or if the chassis is not found in the file, then `undetermined` is returned.
-    * getBaseLanguage(locale) returns locale if there is no "-" or "_" in it,
-otherwise the initial substring of locale up to but not including the first "-" or "_". 
-
-Given that, then the high-level function getCoverageLevel(locale,path) can return the coverage level for the path
-by using the following:
-
-1. If locale == root, return getSimpleCoverageLevel(locale,path).
-2. Else if the locale ID is a base language (it contains neither "-" nor "_")
-    1. Let result = getSimpleCoverageLevel(locale,path).
-    2. If result == `undetermined`, return getCoverageLevel("root", path)
-3. Else the locale is not a base language, so
-    1. Let result = getSimpleCoverageLevel(locale,path).
-    2. If result == `undetermined`, return getCoverageLevel(baseLanguage(locale), path)

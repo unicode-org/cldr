@@ -43,7 +43,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations in menus and locale display names
 <!-- CLDR-19394 -->
 * [TBD LINK] In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
-Also changed the table from HDML into Markdown, with each Key description (such as `co` for collation) having its own H5.
+Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own H5.
 
 ### Dates
 * [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit

@@ -973,27 +973,27 @@ For example, the English rules that produce "Jan 10–12, 2008", "Jan 10 – Feb
 
 There are three types of interval format range separator patterns: `numeric`, `non-numeric`, `mixed`, and `fallback`. 
 The `intervalFormatFallback` has its own element, while the others use different types of `intervalFormatRange`.
-Depending on the locale, some or all of these could be the same, or they all could be different.
+Depending on the locale, some or all of these could be the same, or they could all be different.
 
-Here is the difference between them. 
+Here are the differences between them. 
 
 | Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
-| fallback | {0} – {1} | n/a | Used to join _whole_ patterns when nothing is repeated,<br>such as in “Dec 10 2025 – July 20 2026” or "Tuesday, October 20th – Friday, October 23rd". |
-| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields,<br>such as in “Dec 5–15”. |
-| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields,<br>such as in “June–July 2026”. |
-| mixed	| {0} – {1} | d vs y or MMM | Used in all other cases (neither whole patterns or the same date fields),<br>such as in “Dec 10 – July 20 2026”: notice that "10" and "July" are different fields. |
+| fallback | {0} – {1} | n/a | Used to join _whole_ patterns when nothing is repeated, such as in “Dec 10 2025 – July 20 2026” or "Tuesday, October 20th – Friday, October 23rd". |
+| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15”. |
+| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026”. |
+| mixed	| {0} – {1} | d vs y or MMM | Used in all other cases (neither whole patterns or the same date fields), such as in “Dec 10 – July 20 2026”: notice that "10" and "July" are different fields. |
 
 The `intervalFormatRange` patterns are used internally in synthesizing example patterns for non-numeric date intervals for comparison, but not in production data.
 There are circumstances where they don't work properly,
 such as with literals that are semantically “part” of a field and thus need to be repeated.
-For example, in Japanese the synthesized result (where the greatestDifference is d) would be 2026年5月3～5日, while the expected result would be 2026年5月3日～5日.
+For example, in Japanese the synthesized result (where the `greatestDifference` is `d`) would be 2026年5月3～5日, while the expected result would be 2026年5月3日～5日.
 
 The following describes how these are used to create those examples.
 
 1. Working from the _start_ of the pattern, find the offset `S` _before_ the first field that is less than or equal to the greatest difference.
 2. Do the same from the _end_ of the pattern, finding the offset `E` _after_ the first field (going backwards) that is less than or equal to the greatest difference.
-(Note that variants like `E` and `L` in the pattern are considered to have the same greatest difference, as are E and d.)
+(Note that variants like `M` and `L` in the pattern are considered to have the same greatest difference, as are `EEE` and `ccc`.)
 3. Form a pattern from start to `E`, and from `S` to end, using the appropriate Format Range Separator Pattern.
 
 For example, using …⟫ to mark start to `E` and ❮… `S` to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:

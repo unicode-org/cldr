@@ -51,8 +51,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-5717 updated some example -->
 * [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 * [TBD LINK] Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
-This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
-* [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns, and how they are used to produce fallback patterns.
+This includes a clarification of the differences between date fields and time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
+* [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns and how they are used to produce fallback patterns.
 * [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
 <!-- CLDR-9980 -->
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
@@ -60,7 +60,7 @@ This includes a clarification of what are date fields and what are time fields, 
 #### MessageFormat
 
 * [TBD LINK] The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
-* [TBD LINK] The `u:locale` option (previously in Draft) was dropped from the specification.
+* [TBD LINK] The `u:locale` option (previously in Draft) has been dropped from the specification.
 * [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
 
 ### Numbers

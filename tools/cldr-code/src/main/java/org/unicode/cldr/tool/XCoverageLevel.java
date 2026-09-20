@@ -554,7 +554,7 @@ class XCoverageLevel {
 
         result.append(
                 "# Tech Preview data for locale coverage levels."
-                + " For the file format, see the README.md in this directory.\n\n");
+                        + " For the file format, see the README.md in this directory.\n\n");
 
         if (importValue != null) {
             result.append("import=" + importValue + "\n\n");

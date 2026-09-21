@@ -1,0 +1,40 @@
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=pa
+
+# Variables
+
+%dateFormatItem51i=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,HHmmss,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hmv,hv,mmss,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
+%dateFormatItem44c=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yMMM,yQQQ,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+
+# Rules
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem51i
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem44c
+  level=moderate
+ attr0=generic
+ attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
+  level=modern
+ attr0=islamic
+ attr1=E,Ed,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,y,yMMM,yQQQ,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
+ attr0=numbers
+ attr1=arabext
+  level=moderate
+ attr0=calendar
+ attr1=gregorian,indian,islamic,islamic-civil,islamic-tbla,iso8601
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+  elseLevel=modern

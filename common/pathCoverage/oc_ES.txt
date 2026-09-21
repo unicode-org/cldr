@@ -1,0 +1,37 @@
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=oc
+
+# Variables
+
+%intervalFormatItem34=Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hmv,hv,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yMMMd,yMd
+%dateFormatItem48=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMMEd,yyyyMMMMd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem49=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
+
+# Rules
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem49
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem48
+  level=moderate
+ attr0=generic
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
+ attr0=gregorian
+ attr1=%intervalFormatItem34
+  level=moderate
+ attr0=generic
+ attr1=Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMd,yMd
+  level=moderate
+ attr0=generic,gregorian
+ attr1=Bh,Bhm
+  level=modern
+  elseLevel=comprehensive

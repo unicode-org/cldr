@@ -1,0 +1,17 @@
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=uz
+
+# Rules
+
+path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
+ attr0=numbers
+ attr1=arabext
+  level=moderate
+ attr0=calendar
+ attr1=gregorian,islamic,islamic-civil,islamic-tbla,iso8601,persian
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+  elseLevel=modern

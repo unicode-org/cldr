@@ -12,4 +12,5 @@ public class Joiners {
     public static final Joiner ES = Joiner.on("").useForNull("null");
     public static final Joiner ES_BLANK_NULLS = Joiner.on("").useForNull("");
     public static final Joiner SEMI = Joiner.on(';').useForNull("null");
+    public static final Joiner COMMA = Joiner.on(",").useForNull("null");
 }

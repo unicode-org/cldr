@@ -69,6 +69,8 @@ This includes a clarification of the differences between date fields and time fi
 
 * [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
+* [`Plural rules syntax`](tr35-numbers.html#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
+<!-- CLDR-19012 -->
 
 ### Units
 

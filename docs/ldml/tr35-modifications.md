@@ -55,6 +55,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 ### Numbers
 * [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
+* [`Plural rules syntax`](tr35-numbers.html#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
+<!-- CLDR-19012 -->
 
 ### Units
 * [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent

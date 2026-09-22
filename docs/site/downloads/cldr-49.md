@@ -26,20 +26,16 @@ The most significant changes in this release are:
   - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
   - Ordinal days in dates — e.g., Sept 3rd
   - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
-  - UTC Timezone Display Patterns
   - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7
   - Deprecated Japanese era data before Meiji
-  - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时'
+  - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时' → '2026/1/29 GMT-8 17时'
   - Additional skeleton-patterns added for flexible and interval date formats
-  - New units (conversions and formatting)
+- New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
-    - 14 new display names in English
-  - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
-  - Many additional localized locale option names for use in menus, such as calendar and number-system names
-- [Basic coverage level locale data][] for 11 new locales: Coptic (moderate), Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) 
+    - 14 new display names (limited locales)
+- Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
+- Many additional localized locale option names for use in menus, such as calendar and number-system names
  
-Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
-
 For more details, see below.
 
 ### Locale Coverage Status
@@ -59,76 +55,92 @@ Note: This includes just the base language and script. There are many more regio
 | ± | New Level | Locales |
 | -- | -- | -- |
 | 📈 | Modern | Akan |
-| 📈 | Moderate | Breton, _Coptic_ |
-| 📈 | Basic | **Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar)** |
+| 📈 | Moderate | Breton, Coptic‡ |
+| 📈 | Basic | Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) |
 | 📉 | Moderate* | Romansh, Shan, Tigrinya |
 | 📉 | Basic* | Bashkir, Faroese, Interlingua, Sardinian, Tajik, Venetian |
 
-\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level. Locales that were below Basic before are bolded.
+Notes:
+
+\* Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level. Locales that were below Basic before are bolded.
+
+‡ Indicates locales that have raised or lowered by more than one level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
 ## Specification Changes
 
-Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
+The following are the most significant changes to the specification (LDML), aside from those covered under DTD changes below 
 
-The following are the most significant changes to the specification (LDML).
+- Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
+    - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
+- In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
+   - Also changed the table from HTML into Markdown, with each Key description (such as co for collation) having its own subheader.
+- For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
+- Revised the numberFormat description
+- For Units, made the formatting and phrasing more internally consistent
 
-- Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields. This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
-
-<!-- There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.-->
 See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
 
-## Data Changes
+### Message Format Specification
+
+* The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+* The `u:locale` option (previously in Draft) has been dropped from the specification.
+* Clarified the computation of the exemplar city for non-location zones
 
 ### DTD Changes
 
-- TBD
+Added:
+- `placeholderBoundarySpacing` to allow characters to be inserted where necessary, such as between digits in Chinese dates
+- `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”
+- `Date-Timezone` and `Time-Day-Of-Week` as fallback options for `appendItem` in dates.
+- `intervalFormatRange` for constructing ranges (used internally for consistency checks)
+- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031)
+- `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to force use of localized equivalents of the term “UTC” instead of “GMT” (limited locales)
+- `dualOffsetFormat` so that the Localized GMT format can express important differences (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6)
+- `typeValue` for localized menus with locale ID options
+- `numberSystem` in currency formats, to allow for different formats for locales with multiple number systems
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
+## Data Changes
+
 ### Supplemental Data Changes
 
-- TBD
+Updates for:
+- BCP47 codes
+- ISO 636 changes
+- Unit conversions
+- Likely subtags (eg, abj → abj_Latn_IN)
+- Language matches
+- Language population data
+- Language group data (from Wikidata)
+- Language script data
+- Metazone and timezone data
+- Plural/Ordinal rules (fr, gl, tg, vi, af, bg, es, tg, nn — see [Language Plural Rules chart][] for more information)
+     - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
+- Currencies
+- Deprecate of Japanese eras (pre Meiji)
+- Time preferences (12 vs 24, day periods)
+    - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time 
+- Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
 ### Locale Changes
 
 - Updated en-AU and en-NZ to include exemplar characters for Indigenous languages
-- Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
-- Changes to plural and ordinal rules (see [Language Plural Rules chart][] for more information):
-   - New plural case `many` for Galician (`gl`)
-   - Added plural rules for Tajik (`tg`), and Vietnamese (`vi`)
-   - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
-   - Added ordinal rules for Afrikaans (`af`) and Bulgarian (`bg`)
-   - Updated ordinal rules for Spanish (`es`)
-   - See [plurals tickets for full list][]
-- Fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
+- Added many localized names for locale ID options, for menus and formatting locale names (for example, `c12` → “12-Stunden-Format”)
+- Added many additional date patterns for more consistency across locales
+- Additional timezone names (and removal of obsolete ones)
+- Names and search keywords for the new Unicode 18.0 emoji
+- Other spot fixes for specific locales
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
-
-### Message Format Specification
-
-- TBD
-
-### Collation Data Changes
-
-- TBD
 
 ### Number Spellout Data Changes
 
 Addition or improvement of RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more. See [RBNF tickets for full list][]. 
-
-
-
-### Segmentation Data Changes
-
-- TBD
-
-### Transform Data Changes
-
-- TBD
 
 ### JSON Data Changes
 

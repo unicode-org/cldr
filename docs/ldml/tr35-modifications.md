@@ -71,8 +71,6 @@ This includes a clarification of the differences between date fields and time fi
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.html#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
-* [`Boundary Spacing`](tr35-numbers.md#Boundary_Spacing) Added new description of `placeholderBoundarySpacing`
-<!-- CLDR-19227 -->
 
 ### Units
 
@@ -110,6 +108,7 @@ CLDR does not closely monitor all ISO 3166-2 changes.
 
 #### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
+* [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
 * [DTD Annotations](tr35.md#DTD_Annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
 * [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
 * [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data) For the `language` subelement of `languageData`, the `territory`

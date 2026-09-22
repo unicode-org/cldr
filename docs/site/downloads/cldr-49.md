@@ -15,13 +15,13 @@ CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
-
 ### Changes
 
 The most significant changes in this release are:
 
 - Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- Reflects the most recent updates to external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- Updates to the most recent versions of external standards and data sources,
+such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New date & time formatting features including:
   - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
   - Ordinal days in dates — e.g., Sept 3rd
@@ -32,7 +32,7 @@ The most significant changes in this release are:
   - Additional skeleton-patterns added for flexible and interval date formats
 - New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
-    - 14 new display names (limited locales)
+    - 14 new display names (only English: poundal and mil are only US units, while dyne is obsolete)
 - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 - Many additional localized locale option names for use in menus, such as calendar and number-system names
  
@@ -62,7 +62,7 @@ Note: This includes just the base language and script. There are many more regio
 
 Notes:
 
-\* Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level. Locales that were below Basic before are bolded.
+\* Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
 
 ‡ Indicates locales that have raised or lowered by more than one level.
 
@@ -70,7 +70,7 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 ## Specification Changes
 
-The following are the most significant changes to the specification (LDML), aside from those covered under DTD changes below 
+The following are the most significant changes to the specification (LDML), aside from those covered under DTD changes below.
 
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
@@ -79,14 +79,12 @@ The following are the most significant changes to the specification (LDML), asid
 - For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
 - Revised the numberFormat description
 - For Units, made the formatting and phrasing more internally consistent
+- For MessageFormat
+    * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+    * The `u:locale` option (previously in Draft) has been dropped from the specification.
+    * Clarified the computation of the exemplar city for non-location zones
 
 See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
-
-### Message Format Specification
-
-* The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
-* The `u:locale` option (previously in Draft) has been dropped from the specification.
-* Clarified the computation of the exemplar city for non-location zones
 
 ### DTD Changes
 
@@ -124,10 +122,12 @@ Updates for:
 - Time preferences (12 vs 24, day periods)
     - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time 
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
+- Number Spellout: Added or improved RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more.
+See [RBNF tickets for full list][]. 
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### Locale Changes
+### Locale Data Changes
 
 - Updated en-AU and en-NZ to include exemplar characters for Indigenous languages
 - Added many localized names for locale ID options, for menus and formatting locale names (for example, `c12` → “12-Stunden-Format”)
@@ -138,11 +138,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 
-### Number Spellout Data Changes
-
-Addition or improvement of RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more. See [RBNF tickets for full list][]. 
-
-### JSON Data Changes
+### Keyboard Changes
 
 - TBD
 
@@ -156,6 +152,10 @@ Addition or improvement of RBNF rules for many locales including Catalan, Italia
 * MessageFormat tests/functions (1 file, math.json)
 * New keyboard files (4 files)
 * Many new or modified readme files.
+
+### JSON Data Changes
+
+- TBD
 
 ### Tooling Changes
 
@@ -198,18 +198,12 @@ Addition or improvement of RBNF rules for many locales including Catalan, Italia
 * Fixed some issues to make generating vXML less time-consuming.
 * Updated to automatically set CLDR_DIR to make using CLDRUtility's easier.
 
-
-### Keyboard Changes
-
-- TBD
-
 ## Migration
 
 The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
-- The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
+- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
-
  
 ### Advanced warnings CLDR 50 and beyond
 
@@ -217,19 +211,31 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 
 - Locales which do not have Core data will be removed if still missing core data by alpha. [CLDR-16004]
 - Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
-- The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday), instead of being based on the start of the calendar week. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
+- The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday),
+instead of being based on the start of the calendar week.
+The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
-      - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
-- For line breaking (and other segmentation types), the UTC is considering publishing new data files that will (a) allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance, and (b) provide for tailorings (e.g., for CSS profiles) without data duplication. CLDR plans to adopt this tailoring mechanism once the UTC has approved its publication. [UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
-[CLDR-18624]
-- [UTC][] is planning on a new specification for [UnicodeSet][], because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4*). See [UTS #61][]: Unicode Set Notation (currently in draft). It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
+      - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
+This will not affect the data, just which file it is located in.
+Please plan to update XML and JSON parsers accordingly.
+- For line breaking (and other segmentation types), the UTC is considering publishing new data files.
+CLDR plans [CLDR-18624] to adopt this tailoring mechanism once the UTC has approved its publication.
+[UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
+The data files will:
+    - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
+    - provide for tailorings (e.g., for CSS profiles) without data duplication.
+- For [UnicodeSet][], then [UTC][] is planning on a new specification,
+because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
+See [UTS #61][]: Unicode Set Notation (currently in draft).
+    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][].
+    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][].
+    - [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
 - Emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50. If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
 
 ## Known Issues
 
 - ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060][] for more details.
 - Keyboard: Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
-
 
 ## Acknowledgments
 

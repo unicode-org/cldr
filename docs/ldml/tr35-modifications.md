@@ -71,12 +71,13 @@ This includes a clarification of the differences between date fields and time fi
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.html#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [`Boundary Spacing`](tr35-numbers.md#Boundary_Spacing) Added new description of `placeholderBoundarySpacing`
+<!-- CLDR-19227 -->
 
 ### Units
 
 * [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
-
 
 ## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
 

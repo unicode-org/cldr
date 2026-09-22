@@ -1931,6 +1931,31 @@ These heuristics may be refined in the future.
 
 To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.
 
+## <a name="Boundary_Spacing" href="#Boundary_Spacing">Boundary Spacing</a>
+
+
+```xml
+<!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
+<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >Expand commentComment on line R652Resolved
+<!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
+    <!--@METADATA-->
+<!ATTLIST placeholderBoundarySpacing alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST placeholderBoundarySpacing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+```
+
+Example:
+
+```xml
+<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve"> </placeholderBoundarySpacing>
+```
+
+The `placeholderBoundarySpacing` element indicates a character to be inserted to prevent inappropriate digit-digit concatenations that could result from placeholder substitution.
+
+This issue can occur in dates and times, especially in languages that don’t use spaces between words. For example, there are patterns like “vHH:mm” where a timezone placeholder (v symbol) is adjacent to an hour placeholder (h or H symbol). When the timezone value is a word this may be intended: “育空时间13:59”. However, when the timezone is represented by an offset format, the Placeholder Boundary Spacing value prevents inappropriate digit-digit concatenations such as “UTC+113:59”.
+
 * * *
 
 © 2001–2026 Unicode, Inc.

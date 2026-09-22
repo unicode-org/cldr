@@ -36,11 +36,14 @@ such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies,
 - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 - Many additional localized locale option names for use in menus, such as calendar and number-system names
  
+Note: Some changes are in Tech Preview, 
+while others were in a dot version of 48 and so may be new for implementers that didn't update beyond version 48.
+
 For more details, see below.
 
 ### Locale Coverage Status
 
-#### Current Levels
+#### Coverage Levels
 
 Count | Level | Usage | Examples
 -- | -- | -- | --
@@ -50,7 +53,7 @@ Count | Level | Usage | Examples
 
 Note: This includes just the base language and script. There are many more regional variants.
 
-#### Changes
+#### Coverage Changes
 
 | ± | New Level | Locales |
 | -- | -- | -- |
@@ -95,9 +98,10 @@ Added:
 - `intervalFormatRange` for constructing ranges (used internally for consistency checks)
 - `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031)
 - `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to force use of localized equivalents of the term “UTC” instead of “GMT” (limited locales)
-- `dualOffsetFormat` so that the Localized GMT format can express important differences (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6)
+- `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6)
 - `typeValue` for localized menus with locale ID options
 - `numberSystem` in currency formats, to allow for different formats for locales with multiple number systems
+- `nestedBracketReplacement` (48.2) for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 

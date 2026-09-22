@@ -1936,7 +1936,7 @@ To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 
 
 ```xml
 <!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
-<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >Expand commentComment on line R652Resolved
+<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >
 <!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
 <!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
     <!--@METADATA-->

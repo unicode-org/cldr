@@ -77,7 +77,6 @@ This includes a clarification of the differences between date fields and time fi
 * [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
-
 ## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
 
 ### Changes in LDML Version 48.2 (Differences from Version 48.1)
@@ -109,6 +108,7 @@ CLDR does not closely monitor all ISO 3166-2 changes.
 
 #### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
+* [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
 * [DTD Annotations](tr35.md#DTD_Annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
 * [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
 * [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data) For the `language` subelement of `languageData`, the `territory`

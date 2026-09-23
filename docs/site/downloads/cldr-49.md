@@ -78,7 +78,7 @@ The following are the most significant changes to the specification (LDML), asid
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 - In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
-   - Also changed the table from HTML into Markdown, with each Key description (such as co for collation) having its own subheader.
+   - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
 - [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) will be updated to accurately reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-54.html#Modifications) as part of Unicode 18.0
 - Revised the numberFormat description.
@@ -98,7 +98,7 @@ Added:
 - `Date-Timezone` and `Time-Day-Of-Week` as fallback options for `appendItem` in dates.
 - `intervalFormatRange` for constructing ranges (used internally for consistency checks).
 - `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031).
-- `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to force use of localized equivalents of the term “UTC” instead of “GMT” (limited locales)
+- `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to request use of localized equivalents of the term “UTC” instead of “GMT” (limited locales).
 - `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6).
 - `typeValue` for localized menus with locale ID options.
 - `numberSystem` in currency formats to allow for different formats for locales with multiple number systems.

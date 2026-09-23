@@ -29,16 +29,16 @@ The most significant changes in this release are:
   - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时' → '2026/1/29 GMT-8 17时'
   - Additional skeleton-patterns added for flexible and interval date formats
 - New units (conversions and formatting)
-    - 3 new units: Poundal, Dyne, and Milliinch (US mil)
+    - 3 new units: poundal, syne, and milliinch (US mil)
     - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
 - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 - Many additional localized locale option names for use in menus, such as calendar and number-system names
-- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][].
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
 - Updates to the most recent versions of external standards and data sources,
 such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
  
 Note: Some features are in *Technical Preview*, 
-while others were in a dot version of 48 and so may be new for implementers that didn't update beyond version 48.
+while others were included in dot releases of 48 and may be new for implementers that didn't update beyond version 48.0.
 
 For more details, see below.
 
@@ -81,8 +81,8 @@ The following are the most significant changes to the specification (LDML), asid
 - In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) will be updated to accurately reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-54.html#Modifications) as part of Unicode 18.0
-- Revised the numberFormat description.
+- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) will be updated to accurately reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-54.html#Modifications) as part of Unicode 18.0.
+- Revised the `numberFormat` description.
 - For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat
     * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
@@ -156,7 +156,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 * New test data
     * Date/time, decimal, messageFormat (10 files)
     * Person name formatting (1 file, br.txt)
-    * Rule-based number formatting (99 files, e.g., af.ssv)
+    * Rule-based number formatting (99 files, e.g. af.ssv)
 * MessageFormat tests/functions (1 file, math.json)
 * New keyboard files (4 files)
 * Many new or modified readme files

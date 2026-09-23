@@ -55,16 +55,19 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit and clarified format.
 <!-- CLDR-5717 updated some example -->
-* [Missing Skeleton Fields](tr35-dates.md#missing-skeleton-fields) Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
-This includes a clarification of the differences between date fields and time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
+
+* [Date Field Symbols & Skeletons](tr35-dates.md#availableFormats_appendItems) Document that pattern-only symbols (`L`, `q`, `c`), non-canonical hour symbols (`K`, `k`), and invalid day period combinations are discouraged in skeletons and planned for deprecation in CLDR 50.
+<!-- CLDR-19757 -->
+* [Missing Skeleton Fields](tr35-dates.md#Missing_Skeleton_Fields) Added `Date-Timezone` pattern for gluing date and time zone fields together, evaluated before `Time-Day-Of-Week`, and clarified placeholder assignments and usage in `appendItems`.
+<!-- CLDR-19066 -->
 * [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns and how they are used to produce fallback patterns.
 * [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
 <!-- CLDR-9980 -->
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol in technical preview.
-* [Missing Skeleton Fields](tr35-dates.md#Missing_Skeleton_Fields) Added `Date-Timezone` pattern for gluing date and time zone fields together, evaluated before `Time-Day-Of-Week`, and clarified placeholder assignments and usage in `appendItems`.
-<!-- CLDR-19066 -->
+
 * [Hour Cycle Pattern Variations](tr35-dates.md#Semantic_Hour_Cycle_Pattern_Variations) Specified how semantic skeleton hour cycle options (`Clock12`, `Clock24`, `H11`, `H12`, `H23`, `H24`) adjust the matched pattern after standard skeleton matching.
 <!-- CLDR-18894 -->
+
 * [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 * [`Time_Zone_Format_Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified that not all timeszones have location (or location format)
 * [`Time_Zone_Goals`](tr35-dates.md#Time_Zone_Goals) Modified the location format construction

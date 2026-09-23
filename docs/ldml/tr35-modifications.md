@@ -46,7 +46,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 -->
 
-### Changes in LDML Version 49 (Differences from Version 48.2)
+### Changes in LDML Version 49 (Differences from Version 48.0)
 <!-- Updated spec date -->
 
 ### Locales
@@ -55,6 +55,13 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-19394 -->
 * [TBD LINK] In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
 Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own H5.
+* [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
+* (48.2) New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
+* (48.2) [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
+    * As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
+* (48.2) Specify that missing `<keys>` translations should fall back to the key identifier
+* (48.2) The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
+
 
 #### Date and Time
 
@@ -90,95 +97,14 @@ This includes a clarification of the differences between date fields and time fi
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
-## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
-
-### Changes in LDML Version 48.2 (Differences from Version 48.1)
-
-<!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->
-
-* New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
-* [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
-    * As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
-* Specify that missing `<keys>` translations should fall back to the key identifier
-* The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
-
-### Changes in LDML Version 48.1 (Differences from Version 48)
-
-* [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
-
-### Changes in LDML Version 48 (Differences from Version 47) 
-
-#### Locale Identifiers and Names
-* [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
-Also revamped the description of how to construct names for locale IDs, for clarity.
-* [Special Script Codes](tr35.md#special-script-codes) Added the `Hntl` compound script. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
-* [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
-* [Unicode Locale Identifier](tr35.md#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
-and to reduce confusion with XML attributes.
-* [Unicode Subdivision Codes](tr35.md#Unicode_Subdivision_Codes) Added more
-explanation about the potential reuse of ISO 3166-2 codes, and clarified that
-CLDR does not closely monitor all ISO 3166-2 changes.
-
-#### Misc.
-* [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
-* [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
-* [DTD Annotations](tr35.md#DTD_Annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
-* [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
-* [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data) For the `language` subelement of `languageData`, the `territory`
-attribute has been deprecated (and data using it has been removed). A better source for such information is the more detailed data
-in [Supplemental Territory Information](tr35-info.md#Supplemental_Territory_Information).
-
-#### DateTime formats
-
-* [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
-and updated the guidelines for using the different `dateTimeFormat` types.
-* [Using Time Zone Names](tr35-dates.md#using-time-zone-names) Removed the "specific location format".
-* [timeZoneNames Elements Used for Fallback](tr35-dates.md#timeZoneNames_Elements_Used_for_Fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
-* [Metazone Names](tr35-dates.md#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
-* [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format** (replacing the **Specific location format**).
-This affects the behavior of the `z` timezone format symbol.
-There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
-* [Calendar Data](tr35-dates.md#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
-
-#### Numbers
-* [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
-The order of execution is also clearly specified.
-* [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
-* [Rule-Based Number Formatting](tr35-numbers.md#) Added a full specification.
-The rules have been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
-* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½ in technical preview.
-
-#### Units of Measurement
-* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
-* [Unit Identifier Normalization](tr35-info.md#Unit_Identifier_Normalization) Modified the normalization process
-* [Mixed Units](tr35-general.md#Unit_Sequences) Modified the guidance for handling precision.
-
-#### Collation
-* [Collation](tr35-collation.md) Added the new `FractionalUCA_blanked.txt` to the root collation data files.
-
-#### MessageFormat
-* Syntax and data model errors must now be prioritized over other errors <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
-* The Default Bidi Strategy is now required and default <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
-* The `:offset` function (previously named `:math`) is now available as Stable <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
-* The `:datetime`, `:date`, and `:time` _draft_ functions are updated to build on top of semantic skeletons <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
-* `:percent` is added as a new _draft_ function <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
-* The format is renamed to "Unicode MessageFormat" for clarity <!-- ([\#1064](https://github.com/unicode-org/message-format-wg/pull/1064)) -->
-* The pattern selection definition is refactored to be easier to understand without changing its meaning <!-- ([\#1080](https://github.com/unicode-org/message-format-wg/pull/1080)) -->
-
-#### Keyboards
-
-* [`display`](tr35-keyboards.md#element-display): Noted that a key without output may be indicated by means of the `keyId=` attribute on the display.
-* [`layer`](tr35-keyboards.md#element-layer): Noted the use of the `modifiers=` attribute for hardware layouts being used as touch layouts.
+### Keyboard
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.
 * Normalization for the default backspace transform was clarified, and authors were encouraged to add backspace transforms to avoid the default.
 
-#### Modifications section
+### Segmentation
+* (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
-* The Modifications section was split out to its own file, [Appendix A, Modifications](tr35-modifications.md)
-
-#### Acknowledgments section
-
-* The Acknowledgments section was split out to its own file, [Appendix B, Acknowledgments](tr35-acknowledgments.md)
+----
 
 Note that small changes such as typos and link fixes are not listed above.
 Modifications in previous versions are listed in those respective versions.

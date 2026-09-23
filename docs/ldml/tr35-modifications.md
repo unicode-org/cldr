@@ -71,6 +71,8 @@ This includes a clarification of the differences between date fields and time fi
 <!-- CLDR-19066 -->
 * [Hour Cycle Pattern Variations](tr35-dates.md#Semantic_Hour_Cycle_Pattern_Variations) Specified how semantic skeleton hour cycle options (`Clock12`, `Clock24`, `H11`, `H12`, `H23`, `H24`) adjust the matched pattern after standard skeleton matching.
 <!-- CLDR-18894 -->
+* [Date Field Symbols & Skeletons](tr35-dates.md#availableFormats_appendItems) Document that pattern-only symbols (`L`, `q`, `c`), non-canonical hour symbols (`K`, `k`), and invalid day period combinations are discouraged in skeletons and planned for deprecation in CLDR 50.
+<!-- CLDR-19757 -->
 
 #### MessageFormat
 

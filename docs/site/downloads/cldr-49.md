@@ -65,9 +65,9 @@ Note: This includes just the base language and script. There are many more regio
 
 Notes:
 
-\* Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
+\* For every release, the number of items needed for Modern and Moderate increases. Therefore, locales without active contributors may drop down in coverage level.
 
-‡ Indicates locales that have raised or lowered by more than one level.
+‡ Indicates locales that have gone up or down by more than one level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
@@ -77,31 +77,32 @@ The following are the most significant changes to the specification (LDML), asid
 
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
-- In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
+- In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
    - Also changed the table from HTML into Markdown, with each Key description (such as co for collation) having its own subheader.
 - For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- Revised the numberFormat description
-- For Units, made the formatting and phrasing more internally consistent
+- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) will be updated to accurately reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-54.html#Modifications) as part of Unicode 18.0
+- Revised the numberFormat description.
+- For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat
     * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
     * The `u:locale` option (previously in Draft) has been dropped from the specification.
-    * Clarified the computation of the exemplar city for non-location zones
+    * Clarified the computation of the exemplar city for non-location zones.
 
 See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
 
 ### DTD Changes
 
 Added:
-- `placeholderBoundarySpacing` to allow characters to be inserted where necessary, such as between digits in Chinese dates
-- `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”
+- `placeholderBoundarySpacing` to allow characters to be inserted where necessary, such as between digits in Chinese dates.
+- `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”.
 - `Date-Timezone` and `Time-Day-Of-Week` as fallback options for `appendItem` in dates.
-- `intervalFormatRange` for constructing ranges (used internally for consistency checks)
-- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031)
+- `intervalFormatRange` for constructing ranges (used internally for consistency checks).
+- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031).
 - `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to force use of localized equivalents of the term “UTC” instead of “GMT” (limited locales)
-- `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6)
-- `typeValue` for localized menus with locale ID options
-- `numberSystem` in currency formats, to allow for different formats for locales with multiple number systems
-- `nestedBracketReplacement` (48.2) for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
+- `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6).
+- `typeValue` for localized menus with locale ID options.
+- `numberSystem` in currency formats to allow for different formats for locales with multiple number systems.
+- `nestedBracketReplacement` (48.2) for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/49/supplemental/dtd_deltas.html).
 
@@ -119,10 +120,10 @@ Updates for:
 - Language group data (from Wikidata)
 - Language script data
 - Metazone and timezone data
-- Plural/Ordinal rules (fr, gl, tg, vi, af, bg, es, tg, nn — see [Language Plural Rules chart][] for more information)
+- Plural/Ordinal rules (af, bg, es, fr, gl, nn, tg, vi — see [Language Plural Rules chart][] for more information)
      - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
 - Currencies
-- Deprecate of Japanese eras (pre Meiji)
+- Deprecation of Japanese eras (pre Meiji)
 - Time preferences (12 vs 24, day periods)
     - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time 
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
@@ -144,19 +145,19 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### Keyboard Changes
 
-- Four new keyboard layouts: Egyptian Hieroglyphic, Gandhari, Sanskrit, Classical Tibetan
-- Spec clarifications were made for the `display`, `layer`, and backspace `transform` elements. For a full list of spec changes, see [Keyboard Spec Changes in v49]
+- Four new keyboard layouts: Egyptian Hieroglyphic, Gandhari, Sanskrit, Classical Tibetan.
+- Spec clarifications were made for the `display`, `layer`, and backspace `transform` elements. For a full list of spec changes, see [Keyboard Spec Changes in v49].
 
 ### File Changes
 
-* New locale files (28 files, eg. brh.xml)
+* New locale files (28 files, e.g. brh.xml)
 * New test data
     * Date/time, decimal, messageFormat (10 files)
     * Person name formatting (1 file, br.txt)
-    * Rule-based number formatting (99 files, eg, af.ssv)
+    * Rule-based number formatting (99 files, e.g., af.ssv)
 * MessageFormat tests/functions (1 file, math.json)
 * New keyboard files (4 files)
-* Many new or modified readme files.
+* Many new or modified readme files
 
 ### JSON Data Changes
 #### Package: cldr-localenames-full
@@ -171,7 +172,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 * Migrated the spec and site to generate previews to Cloudflare.
 * Automated updates to the header for key elements such as Date.
-* Added support for symbolic links (e.g. using the CLDR version such as 48 in the link will take you to the latest version for that major release e.g. [tr35-78](https://www.unicode.org/reports/tr35/tr35-78/tr35.html) for 48.2.
+* Added support for symbolic links (e.g. using the CLDR version such as 48 in the link will take you to the latest version for that major release, such as [tr35-78](https://www.unicode.org/reports/tr35/tr35-78/tr35.html) for 48.2.
 * Added a check to require edits to modifications when the spec is updated.
 
 ####  Survey Tool improvements
@@ -195,7 +196,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 #### Access changes based on Survey Tool phase
 
-* Added the ability for the CLDR TC to allow specific locale(s) to continue submitting new data items during the [Vetting][] phase.
+* Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting][] phase.
 * Updated READONLY phase to only allow creating and responding to posts in the forum.
 
 #### Other Tooling improvements
@@ -210,7 +211,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
 - The pre-Meiji Japanese eras were removed:
-There was too much uncertainty in the exact values and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
+There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
  
 ### Advanced warnings CLDR 50 and beyond
 

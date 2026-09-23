@@ -209,8 +209,8 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
-- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values
-and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
+- The pre-Meiji Japanese eras were removed:
+There was too much uncertainty in the exact values and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
  
 ### Advanced warnings CLDR 50 and beyond
 

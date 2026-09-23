@@ -42,14 +42,14 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations in menus and locale display names
 <!-- CLDR-19394 -->
 * [Key/Type Descriptions](tr35.md#Key_And_Type_Definitions) In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
-Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own H5.
+    * These elements are not present in root.xml. When not present in a top-level locale, they fall back to the key or value identifier.
+    * Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own H5.
 * [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
-* (48.2) New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
+* (48.2) New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement).
 * (48.2) [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
     * As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
 * (48.2) Specify that missing `<keys>` translations should fall back to the key identifier
 * (48.2) The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
-
 
 #### Date and Time
 
@@ -68,16 +68,16 @@ This includes a clarification of the differences between date fields and time fi
 * [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 * [`Time_Zone_Format_Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified that not all timeszones have location (or location format)
 * [`Time_Zone_Goals`](tr35-dates.md#Time_Zone_Goals) Modified the location format construction
+* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
 
 #### MessageFormat
 
-* [TBD LINK] The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
-* [TBD LINK] The `u:locale` option (previously in Draft) has been dropped from the specification.
-* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
+* [:currency](tr35-messageFormat.md#the-currency-function), [:percent](tr35-messageFormat.md#the-percent-function) The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+* The `u:locale` option (previously in Draft) has been dropped from the specification.
 
 ### Numbers
 
-* [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
+* [`Currencies`](tr35-numbers.md#Currencies) Revised the numberFormat description for currencies
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
@@ -89,7 +89,8 @@ This includes a clarification of the differences between date fields and time fi
 
 ### Keyboard
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.
-* Normalization for the default backspace transform was clarified, and authors were encouraged to add backspace transforms to avoid the default.
+* [Default Backspace Transform](tr35-keyboards.md#default-Backspace-transform) Normalization for the default backspace transform was clarified,
+and authors were encouraged to add backspace transforms to avoid the default.
 
 ### Segmentation
 * (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.

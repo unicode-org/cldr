@@ -20,8 +20,6 @@ adapting software to the conventions of different languages.
 The most significant changes in this release are:
 
 - Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- Updates to the most recent versions of external standards and data sources,
-such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New date & time formatting features including:
   - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
   - Ordinal days in dates — e.g., Sept 3rd
@@ -32,11 +30,14 @@ such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies,
   - Additional skeleton-patterns added for flexible and interval date formats
 - New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
-    - 14 new display names (only English: poundal and mil are only US units, while dyne is obsolete)
+    - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
 - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 - Many additional localized locale option names for use in menus, such as calendar and number-system names
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][].
+- Updates to the most recent versions of external standards and data sources,
+such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
  
-Note: Some changes are in Tech Preview, 
+Note: Some features are in *Technical Preview*, 
 while others were in a dot version of 48 and so may be new for implementers that didn't update beyond version 48.
 
 For more details, see below.
@@ -94,10 +95,10 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-mod
 
 Added:
 - `placeholderBoundarySpacing` to allow characters to be inserted where necessary, such as between digits in Chinese dates.
-- `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”.
+- `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”. *Technical Preview*
 - `Date-Timezone` and `Time-Day-Of-Week` as fallback options for `appendItem` in dates.
 - `intervalFormatRange` for constructing ranges (used internally for consistency checks).
-- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031).
+- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031). *Technical Preview* 
 - `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to request use of localized equivalents of the term “UTC” instead of “GMT” (limited locales).
 - `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6).
 - `typeValue` for localized menus with locale ID options.
@@ -128,7 +129,8 @@ Updates for:
     - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time 
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 - Number Spellout: Added or improved RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more.
-See [RBNF tickets for full list][]. 
+See [RBNF tickets for full list][].
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview* 
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
@@ -278,3 +280,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
 [Keyboard Spec Changes in v49]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#keyboards
 [CLDR-19774]: https://unicode-org.atlassian.net/browse/CLDR-19774
+[pathcoverage]: https://github.com/unicode-org/cldr/blob/main/common/pathCoverage/README.md

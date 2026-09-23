@@ -50,16 +50,21 @@ The LDML specification is divided into the following parts:
   * [Elements months, days, quarters, eras](#months_days_quarters_eras)
   * [Elements monthPatterns, cyclicNameSets](#monthPatterns_cyclicNameSets)
   * [Element dayPeriods](#dayPeriods)
+  * [Element dayOfMonth](#element-dayofmonth)
+    * [**Guidelines**](#guidelines)
   * [Element dateFormats](#dateFormats)
   * [Element timeFormats](#timeFormats)
   * [Element dateTimeFormats](#dateTimeFormats)
     * [Element dateTimeFormat](#dateTimeFormat)
       * Table: [Date-Time Combination Examples](#Date_Time_Combination_Examples)
+    * [Elements numericDateSeparator, numericTimeSeparator](#elements-numericdateseparator-numerictimeseparator)
     * [Elements availableFormats, appendItems](#availableFormats_appendItems)
       * Table: [Mapping Requested Time Skeletons To Patterns](#Mapping_Requested_Time_Skeletons_To_Patterns)
       * [Matching Skeletons](#Matching_Skeletons)
       * [Missing Skeleton Fields](#Missing_Skeleton_Fields)
     * [Element intervalFormats](#intervalFormats)
+      * [Format Range Separator Patterns](#format-range-separator-patterns)
+      * [Interval Format Algorithm](#interval-format-algorithm)
 * [Calendar Fields](#Calendar_Fields)
 * [Supplemental Calendar Data](#Supplemental_Calendar_Data)
   * [Calendar Data](#Calendar_Data)
@@ -497,7 +502,7 @@ either the locales don't use ordinal-days in dates,
 or they use invariant affixes, such as in German with “**1.** März 2006”.
 Since the latter are invariant, they can be handled simply by adding them to the patterns, and the locale does not need the `dayOfMonth` elements.
 
-For the [ordinal forms](tr35-numbers.html#language-plural-rules), the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
+For the [ordinal forms](tr35-numbers.md#language-plural-rules), the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
 The value substituted for `{0}` in each pattern will always be an integer, such as English “**3**rd”.  
 
 Not all ordinal forms need to be present. 

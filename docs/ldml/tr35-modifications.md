@@ -15,17 +15,26 @@ This is a partial document, describing only the changes to the LDML since the pr
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [MessageFormat](#messageformat)
-  * [Locale Identifiers and Names](#locale-identifiers-and-names)
-  * [Misc.](#misc)
-  * [DateTime formats](#datetime-formats)
+  * [Changes in LDML Version 49 (Differences from Version 48.2)](#changes-in-ldml-version-49-differences-from-version-482)
+  * [Locales](#locales)
+    * [Date and Time](#date-and-time)
+    * [MessageFormat](#messageformat)
   * [Numbers](#numbers)
-  * [Units of Measurement](#units-of-measurement)
-  * [Collation](#collation)
-  * [MessageFormat](#messageformat)
-  * [Keyboards](#keyboards)
-  * [Modifications section](#modifications-section)
-  * [Acknowledgments section](#acknowledgments-section)
+  * [Units](#units)
+* [TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.](#tbd-delete-the-following-changes-in-48x-before-spec-beta-they-are-only-retained-temporarily-for-comparison)
+  * [Changes in LDML Version 48.2 (Differences from Version 48.1)](#changes-in-ldml-version-482-differences-from-version-481)
+  * [Changes in LDML Version 48.1 (Differences from Version 48)](#changes-in-ldml-version-481-differences-from-version-48)
+  * [Changes in LDML Version 48 (Differences from Version 47)](#changes-in-ldml-version-48-differences-from-version-47)
+    * [Locale Identifiers and Names](#locale-identifiers-and-names)
+    * [Misc.](#misc)
+    * [DateTime formats](#datetime-formats)
+    * [Numbers](#numbers)
+    * [Units of Measurement](#units-of-measurement)
+    * [Collation](#collation)
+    * [MessageFormat](#messageformat)
+    * [Keyboards](#keyboards)
+    * [Modifications section](#modifications-section)
+    * [Acknowledgments section](#acknowledgments-section)
 
 ## Modifications
 
@@ -69,12 +78,12 @@ This includes a clarification of the differences between date fields and time fi
 
 * [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
-* [`Plural rules syntax`](tr35-numbers.html#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
+* [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
 
 ### Units
 
-* [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
+* [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
 ## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.

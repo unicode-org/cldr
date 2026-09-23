@@ -61,6 +61,7 @@ The LDML specification is divided into the following parts:
   * [Nested Bracket Replacement](#Character_Nested_Bracket_Replacement)
   * [More Information](#Character_More_Info)
   * [Parse Lenient](#Character_Parse_Lenient)
+  * [Boundary Spacing](#Character_Boundary_Spacing)
 * [Delimiter Elements](#Delimiter_Elements)
   * [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
 * [Measurement System Data](#Measurement_System_Data)

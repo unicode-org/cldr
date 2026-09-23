@@ -41,15 +41,15 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations in menus and locale display names
 <!-- CLDR-19394 -->
-* [Key/Type Descriptions](tr35.md#Key_And_Type_Definitions) In the Key/Type Description table, added a description which key/types use constructed values, and a brief description of the typeValue element.
+* [Key/Type Descriptions](tr35.md#Key_And_Type_Definitions) In the Key/Type Description table, added a description of which keys/types use constructed values, and a brief description of the `typeValue` element.
     * These elements are not present in root.xml. When not present in a top-level locale, they fall back to the key or value identifier.
-    * Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own H5.
+    * Also changed the table from HTML into Markdown, with each Key description (such as `co` for collation) having its own level-five section heading.
 * [Boundary Spacing](tr35-general.md#Character_Boundary_Spacing) Added new description of `placeholderBoundarySpacing`. <!-- CLDR-19227 -->
 * (48.2) New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement).
 * (48.2) [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
     * As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
-* (48.2) Specify that missing `<keys>` translations should fall back to the key identifier
-* (48.2) The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
+* (48.2) Specified that missing `<keys>` translations should fall back to the key identifier.
+* (48.2) The section "Enhanced Language Matching" was retitled to [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
 
 #### Date and Time
 
@@ -68,10 +68,10 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [Hour Cycle Pattern Variations](tr35-dates.md#Semantic_Hour_Cycle_Pattern_Variations) Specified how semantic skeleton hour cycle options (`Clock12`, `Clock24`, `H11`, `H12`, `H23`, `H24`) adjust the matched pattern after standard skeleton matching.
 <!-- CLDR-18894 -->
 
-* [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
-* [`Time_Zone_Format_Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified that not all timeszones have location (or location format)
-* [`Time_Zone_Goals`](tr35-dates.md#Time_Zone_Goals) Modified the location format construction
-* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
+* [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item.
+* [`Time_Zone_Format_Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified that not all timezones have location (or location format).
+* [`Time_Zone_Goals`](tr35-dates.md#Time_Zone_Goals) Modified the location format construction.
+* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified the computation of the exemplar city for non-location zones.
 
 #### MessageFormat
 
@@ -80,9 +80,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 ### Numbers
 
-* [`Currencies`](tr35-numbers.md#Currencies) Revised the numberFormat description for currencies
+* [`Currencies`](tr35-numbers.md#Currencies) Revised the `numberFormat` description for currencies.
 <!-- CLDR-18963 -->
-* [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Make it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
+* [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
 
 ### Units
@@ -96,7 +96,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 and authors were encouraged to add backspace transforms to avoid the default.
 
 ### Segmentation
-* (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it is no longer accurate.
+* (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X`.
 
 ----
 

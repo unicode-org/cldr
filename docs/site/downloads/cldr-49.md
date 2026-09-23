@@ -103,7 +103,7 @@ Added:
 - `numberSystem` in currency formats, to allow for different formats for locales with multiple number systems
 - `nestedBracketReplacement` (48.2) for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 
-For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/49/supplemental/dtd_deltas.html).
 
 ## Data Changes
 
@@ -144,7 +144,8 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### Keyboard Changes
 
-- TBD
+- Four new keyboard layouts: Egyptian Hieroglyphic, Gandhari, Sanskrit, Classical Tibetan
+- Spec clarifications were made for the `display`, `layer`, and backspace `transform` elements. For a full list of spec changes, see [Keyboard Spec Changes in v49]
 
 ### File Changes
 
@@ -158,8 +159,10 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 * Many new or modified readme files.
 
 ### JSON Data Changes
+#### Package: cldr-localenames-full
 
-- TBD
+- New file: `typeValues.json`. [CLDR-19774]
+- `localeDisplayNames.json` now has `core`-scoped types in a subkey `_core`.  [CLDR-19774]
 
 ### Tooling Changes
 
@@ -270,3 +273,5 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [UnicodeSet]: https://unicode.org/reports/tr35/#Unicode_Sets
 [UTC]: https://www.unicode.org/consortium/utc.html
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[Keyboard Spec Changes in v49]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#keyboards
+[CLDR-19774]: https://unicode-org.atlassian.net/browse/CLDR-19774

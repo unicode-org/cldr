@@ -4132,6 +4132,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:choice>
     </xs:complexType>
   </xs:element>
+  
   <xs:element name="numericDateSeparator">
     <xs:complexType mixed="true">
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
@@ -4151,6 +4152,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
+  
   <xs:element name="numericTimeSeparator">
     <xs:complexType mixed="true">
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
@@ -4167,6 +4169,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
+  
   
   
   

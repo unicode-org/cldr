@@ -238,6 +238,7 @@ See [UTS #61][]: Unicode Set Notation (currently in draft).
     - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][].
     - [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
 - Emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50. If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
+- **Deprecation of pattern-only fields in date/time skeletons**: Pattern-only field symbols—specifically stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`)—as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage, are slated for deprecation in skeletons in CLDR 50 (use `M`, `Q`, `E`/`e`, and `h`/`H` instead). [CLDR-19757][]
 
 ## Known Issues
 
@@ -263,6 +264,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
 [CLDR-19752]: https://unicode-org.atlassian.net/browse/CLDR-19752
+[CLDR-19757]: https://unicode-org.atlassian.net/browse/CLDR-19757
 [Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
 [UTS #35]: https://www.unicode.org/reports/tr35/
 [UTS #61]: https://www.unicode.org/reports/tr61/

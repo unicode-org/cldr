@@ -32,10 +32,11 @@ such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies,
   - Additional skeleton-patterns added for flexible and interval date formats
 - New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
-    - 14 new display names (only English: poundal and mil are only US units, while dyne is obsolete)
+    - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
 - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
 - Many additional localized locale option names for use in menus, such as calendar and number-system names
- 
+- Client coverage data — *Technical Preview* coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][].
+
 Note: Some changes are in Tech Preview, 
 while others were in a dot version of 48 and so may be new for implementers that didn't update beyond version 48.
 
@@ -269,4 +270,5 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC
 [UnicodeSet]: https://unicode.org/reports/tr35/#Unicode_Sets
 [UTC]: https://www.unicode.org/consortium/utc.html
+[pathcoverage]: https://github.com/unicode-org/cldr/blob/main/common/pathCoverage/README.md
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting

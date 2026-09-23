@@ -772,6 +772,8 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
 
 #### Elements numericDateSeparator, numericTimeSeparator
 
+> Numeric date and time separators (this section) are in technical preview.
+
 ```
 <!ELEMENT numericSeparators ( alias | ( default*, numericDateSeparator*, numericTimeSeparator*, special*)) >
 +<!ELEMENT numericDateSeparator ( #PCDATA ) >

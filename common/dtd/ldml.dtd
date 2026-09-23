@@ -1041,8 +1041,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:literal/variant-->
 
 <!ELEMENT dayOfMonth ( #PCDATA ) >
-    <!--@TECHPREVIEW-->
     <!-- There must be at least one of type or ordinal, but that constraint can't be expressed in the DTD -->
+    <!--@TECHPREVIEW-->
 <!ATTLIST dayOfMonth type NMTOKEN #IMPLIED >
     <!--@MATCH:literal/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32-->
 <!ATTLIST dayOfMonth ordinal (zero | one | two | few | many | other) #IMPLIED >

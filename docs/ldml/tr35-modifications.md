@@ -93,7 +93,7 @@ This includes a clarification of the differences between date fields and time fi
 and authors were encouraged to add backspace transforms to avoid the default.
 
 ### Segmentation
-* (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
+* (48.1) [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it is no longer accurate.
 
 ----
 

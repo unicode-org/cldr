@@ -54,6 +54,10 @@
 < (.*/metazone)\[@type="([^"]*)"\]/(.*)$
 > $1/$2/$3
 
+# Split out types into its various fields including core
+< (.*)/types/type\[@key="([^"]*)"\]\[@type="([^"]*)"\]\[@scope="([^"]*)"\](.*)$
+> $1/types/_$4/$2/$3$5
+
 # Split out types into its various fields
 < (.*)/types/type\[@key="([^"]*)"\]\[@type="([^"]*)"\](.*)$
 > $1/types/$2/$3$4

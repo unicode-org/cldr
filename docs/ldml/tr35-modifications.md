@@ -92,7 +92,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 ### Keyboard
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.
-* [Default Backspace Transform](tr35-keyboards.md#default-Backspace-transform) Normalization for the default backspace transform was clarified,
+* [Default Backspace Transform](tr35-keyboards.md#default-backspace-transform) Normalization for the default backspace transform was clarified,
 and authors were encouraged to add backspace transforms to avoid the default.
 
 ### Segmentation

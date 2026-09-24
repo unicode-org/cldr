@@ -1297,12 +1297,25 @@ condition     // as below
 samples       // as below
 ```
 
-In order to determine the plural category for a given number, each `pluralRule` is evaluated in the order: {`zero`, `one`, `two`, `few`, `many`}
+In order to determine the plural category for a given number, each `pluralRule` is evaluated in semantic order: first `zero`, then `one`, `two`, `few`, and `many`. 
+The `other` category is determined by whatever is left over.
 - If any rule evaluates to `true`, then the corresponding plural category is returned.
 - If no other category is returned, then `other` is.
 
 It is possible for two rules in {`zero`, `one`, `two`, `few`, `many`} to _overlap_, to both evaluate to `true` for the same number.
 (That is generally avoided for the CLDR rules, except in cases where a later condition (in evaluation order) would be overly complicated.)
+
+The semantic order of execution is vital because the rules may overlap.
+For example, consider the following textual form of two rules for categories.
+Because they both would return `true` for the number 1, the order matters.
+```
+   <pluralRule count="one">i = 1 …</pluralRule>
+   <pluralRule count="few">i = 0..3 …</pluralRule>
+```
+If these two rules are interpreted in the **wrong** order (`few` first), then the number 1 would have the category `few` instead of `one`.
+That would result in ungrammatical phrases, such as "1 books are here".
+
+
 The rules should be constructed so that each listed plural category is non-empty.
 (This is true for the CLDR data.)
 
@@ -1339,7 +1352,7 @@ digitPos        = [1-9]
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
   * For example, c = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or c != 0..5 is parsed as if it were (c = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (c != 0..5)
-* Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements). Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
+* Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
 

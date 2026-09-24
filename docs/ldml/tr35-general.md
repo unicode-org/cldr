@@ -61,6 +61,7 @@ The LDML specification is divided into the following parts:
   * [Nested Bracket Replacement](#Character_Nested_Bracket_Replacement)
   * [More Information](#Character_More_Info)
   * [Parse Lenient](#Character_Parse_Lenient)
+  * [Boundary Spacing](#Character_Boundary_Spacing)
 * [Delimiter Elements](#Delimiter_Elements)
   * [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
 * [Measurement System Data](#Measurement_System_Data)
@@ -778,6 +779,25 @@ Example:
 The `parseLenient` elements are used to indicate that characters within a particular UnicodeSet are normally to be treated as equivalent when doing a lenient parse. The `scope` attribute value defines where the lenient sets are intended for use. The `level` attribute value is included for future expansion; currently the only value is "lenient".
 
 The `sample` attribute value is a paradigm element of that UnicodeSet, but the only reason for pulling it out separately is so that different classes of characters are separated, and to enable inheritance overriding. The first version of this data is populated with the data used for lenient parsing from ICU.
+
+### <a name="Character_Boundary_Spacing" href="#Character_Boundary_Spacing">Boundary Spacing</a>
+
+```xml
+<!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
+<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
+```
+
+Example:
+
+```xml
+<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve"> </placeholderBoundarySpacing>
+```
+
+The `placeholderBoundarySpacing` element indicates a character to be inserted in some circumstances when placeholder substitution takes place.
+
+One such circumstance is to prevent inappropriate digit-digit concatenations that could result from placeholder substitution. This issue can occur in dates and times, especially in languages that don’t use spaces between words. For example, there are patterns like “vHH:mm” where a timezone placeholder (v symbol) is adjacent to an hour placeholder (h or H symbol). When the timezone value is a word this may be intended: “育空时间13:59”. However, when the timezone is represented by an offset format, the Placeholder Boundary Spacing value prevents inappropriate digit-digit concatenations such as “UTC+113:59”.
 
 ## <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter Elements</a>
 

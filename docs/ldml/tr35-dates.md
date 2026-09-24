@@ -50,16 +50,21 @@ The LDML specification is divided into the following parts:
   * [Elements months, days, quarters, eras](#months_days_quarters_eras)
   * [Elements monthPatterns, cyclicNameSets](#monthPatterns_cyclicNameSets)
   * [Element dayPeriods](#dayPeriods)
+  * [Element dayOfMonth](#element-dayofmonth)
+    * [**Guidelines**](#guidelines)
   * [Element dateFormats](#dateFormats)
   * [Element timeFormats](#timeFormats)
   * [Element dateTimeFormats](#dateTimeFormats)
     * [Element dateTimeFormat](#dateTimeFormat)
       * Table: [Date-Time Combination Examples](#Date_Time_Combination_Examples)
+    * [Elements numericDateSeparator, numericTimeSeparator](#elements-numericdateseparator-numerictimeseparator)
     * [Elements availableFormats, appendItems](#availableFormats_appendItems)
       * Table: [Mapping Requested Time Skeletons To Patterns](#Mapping_Requested_Time_Skeletons_To_Patterns)
       * [Matching Skeletons](#Matching_Skeletons)
       * [Missing Skeleton Fields](#Missing_Skeleton_Fields)
     * [Element intervalFormats](#intervalFormats)
+      * [Format Range Separator Patterns](#format-range-separator-patterns)
+      * [Interval Format Algorithm](#interval-format-algorithm)
 * [Calendar Fields](#Calendar_Fields)
 * [Supplemental Calendar Data](#Supplemental_Calendar_Data)
   * [Calendar Data](#Calendar_Data)
@@ -112,6 +117,7 @@ The LDML specification is divided into the following parts:
     * [Mapping to Standard Skeletons](#mapping-to-standard-skeletons)
       * [Time Precision Skeleton Variations](#Semantic_Time_Precision_Skeleton_Variations)
       * [Year Style Skeleton Variations](#Semantic_Year_Style_Skeleton_Variations)
+    * [Hour Cycle Pattern Variations](#Semantic_Hour_Cycle_Pattern_Variations)
   * [Semantic Skeleton Conformance](#Semantic_Skeleton_Conformance)
 
 ## <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a>
@@ -141,7 +147,7 @@ The relevant top-level supplemental elements are listed above.
 
 ```xml
 <!ELEMENT calendars (alias | (calendar*, special*)) >
-<!ELEMENT calendar (alias | (months?, monthPatterns?, days?, quarters?, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
+<!ELEMENT calendar ( alias | ( months?, monthNames?, monthAbbr?, monthPatterns?, dayOfMonths?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special* ) ) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 ```
 
@@ -175,6 +181,19 @@ The primary difference between Gregorian and "generic" format data is that date 
 <!ATTLIST dayWidth type NMTOKEN #REQUIRED >
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
+
+<!ELEMENT dayOfMonths ( alias | ( default*, dayOfMonthContext*, special* ) ) >
+    <!--@TECHPREVIEW-->
+<!ELEMENT dayOfMonthContext ( alias | ( default*, dayOfMonthWidth*, special* ) ) >
+    <!--@TECHPREVIEW-->
+<!ATTLIST dayOfMonthContext type (format) #REQUIRED >
+<!ELEMENT dayOfMonthWidth ( alias | ( dayOfMonth*, special* ) ) >
+    <!--@TECHPREVIEW-->
+<!ATTLIST dayOfMonthWidth type (abbreviated | wide) #REQUIRED >
+<!ELEMENT dayOfMonth ( #PCDATA ) >
+    <!--@TECHPREVIEW-->
+<!ATTLIST dayOfMonth type NMTOKEN #IMPLIED >
+<!ATTLIST dayOfMonth ordinal (zero | one | two | few | many | other) #IMPLIED >
 
 <!ELEMENT quarters ( alias | (quarterContext*, special*)) >
 <!ELEMENT quarterContext ( alias | (default*, quarterWidth*, special*)) >
@@ -479,6 +498,55 @@ Example:
     </dayPeriods>
 ```
 
+### Element dayOfMonth
+
+> Ordinal days of the month (this section) are in technical preview.
+
+The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text).
+The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
+Most locales/calendars do not use these elements;
+either the locales don't use ordinal-days in dates, 
+or they use invariant affixes, such as in German with “**1.** März 2006”.
+Since the latter are invariant, they can be handled simply by adding them to the patterns, and the locale does not need the `dayOfMonth` elements.
+
+For the [ordinal forms](tr35-numbers.md#language-plural-rules), the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
+The value substituted for `{0}` in each pattern will always be an integer, such as English “**3**rd”.  
+
+Not all ordinal forms need to be present. 
+For example, French only uses an ordinal form corresponding to “1st”.
+
+The pattern field symbol `ddd` is used to get the ordinal form, where it exists.
+When formatting a skeleton with `ddd`:
+
+* If there is no available format or interval format with `ddd` in the skeleton, or if the `dayOfMonths` element does not exist,
+    * the best match is a skeleton with `d`, and
+    * the width of the `d` field in the pattern is **not** adjusted in width.
+That is, when the desired skeleton is contains `ddd`,
+and the best available (or interval) skeleton  has just `d` or `dd`, then the width of the `d` or `dd` in the pattern is **not** to be changed to `ddd`. 
+
+In the future, this may expand to longer `dayOfMonth` elements that are used in some calendars. An example is the traditional Hindu calendar, with days of the month such as __Chaturthi Shukla Paksha__ (the 4th day of the waxing moon)
+
+##### **Guidelines**
+
+*For DayOfMonth-abbreviated-Formatting:*
+
+* These ordinal forms are *specific to dates*; they are *not* general-purpose.  
+* They should have the appropriate grammatical form for a nominative date.  
+  * For example, suppose that a locale uses a “er” suffix just on `one` in dates. In that case, the `one` form would be {0}er, but all other forms would have just {0}.  
+* If a locale *never* uses ordinals in dates, then:  
+  * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
+
+*For Formats-Flexible-Date\_Formats:*
+
+* The `ddd` is ignored in any pattern with a _numeric month_ (M, MM).
+It will only appear and be used with _non-numeric months_ (MMM, MMMM); for example, Dec or December.
+[See Date/Time Symbols](https://cldr.unicode.org/date-time/date-time-symbols) for more information about symbol length.  
+* When the locale *always* uses ordinals with _non-numeric months_, then the patterns where they are should *always* have `ddd` in them (instead of `d` or `dd`.  
+  * For example, suppose that a form like “March 3, 2026” is not acceptable; the locale always uses a form like “March 3rd, 2026”.
+In that case, for the code `yMMMMd` the pattern should have `ddd` in it to force the use of ordinals, something like: “MMMM ddd, y” .
+* If a locale *sometimes* uses ordinals with _non-numeric months_, then generally when a skeleton has `ddd` in it, the pattern should also have it; when a skeleton has `d` in it, the pattern should also have it. 
+
+
 ### <a name="dateFormats" href="#dateFormats">Element dateFormats</a>
 
 ```xml
@@ -702,6 +770,22 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
     * However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the `standard` combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
 * For all other uses of these patterns, use the `standard` pattern.
 
+#### Elements numericDateSeparator, numericTimeSeparator
+
+> Numeric date and time separators (this section) are in technical preview.
+
+```
+<!ELEMENT numericSeparators ( alias | ( default*, numericDateSeparator*, numericTimeSeparator*, special*)) >
++<!ELEMENT numericDateSeparator ( #PCDATA ) >
++<!ELEMENT numericTimeSeparator ( #PCDATA ) >
+```
+
+The numericTimeSeparator is used in time format patterns, while the numericDateSeparator is used in date format patterns with numeric months `MM` and `M`.
+When an implementation wants to allow either of these separators to be customized (e.g., dates appearing as 05/06/2006 vs 05-06-2007, or times appearing as 23:59 vs 23.59),
+that can be done by processing the patterns produced from available formats, stock formats, or interval formats.
+They are processed by replacing these separators by characters (or strings) supplied by the implementation.
+Typically those replacements will originate in a UI that allows choice of certain separators.
+
 #### <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
 ```xml
@@ -719,14 +803,19 @@ The `id` attribute is a so-called "skeleton", containing only field information,
 * The fields are from the [Date Field Symbol Table](#Date_Field_Symbol_Table) in _[Date Format Patterns](#Date_Format_Patterns)_.
 * The canonical order is from top to bottom in that table; that is, "yM" not "My".
 * Only one field of each type is allowed; that is, "Hh" is not valid.
+* **Planned deprecation of pattern-only fields in skeletons**: Certain pattern fields are intended only for formatted patterns, not skeletons. Their use in skeletons is strongly discouraged in CLDR 49 and **planned for deprecation in CLDR 50** (they are already absent from `availableFormats` and `intervalFormats`, and any remaining occurrences in other skeleton contexts are slated for removal in CLDR 50):
+  * **Stand-alone fields** (`L`, `q`, `c`): Use `M`, `Q`, `E` (or `e`) in skeletons instead. Context (stand-alone vs. format) is determined by the pattern generator and locale patterns.
+  * **Non-canonical hour fields** (`K`, `k`): Use `h` (for 12-hour cycle) or `H` (for 24-hour cycle) in skeletons instead. In skeletons, `h` and `H` behave like `Clock12` and `Clock24` (requesting the locale's preferred 12-hour or 24-hour format) rather than specifically `H12` and `H23`. While allowed in CLDR 49, `K` and `k` are discouraged in skeletons and planned for deprecation in CLDR 50.
+  * **Day period fields** (`a`, `b`, `B`): Day period symbols in skeletons are intended to be used either on their own as a standalone day period request (e.g., `a`, `b`, `B`, `BBBB`), or when combined with `h` or `j` (e.g., `Bh`, `hB`, `Bhm`, `jB`). Combining day period symbols with 24-hour hour fields (`H`, `k`), hour-without-day-period (`J`), or non-hour fields without an accompanying hour field (for example, `Ha`, `HB`, `yMa`, `am`, or `EB`) is discouraged and planned for deprecation in CLDR 50. In skeletons, `a` is optional when combined with `h` or `j` (where `ha` is treated as equivalent to `h`), whereas `b` and `B` explicitly specify alternate day period styles (`hb`, `Bh`, `jB`).
+  * **Deprecated symbols** (`l`, `:`): Already deprecated in patterns and must not occur in skeletons.
 
-In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (using h or K) and 24-hour-cycle time formats (using H or k), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the [Time Data](#Time_Data) as described above in [timeFormats](#timeFormats). Thus skeletons using h or K should have patterns that only use h or K for hours, while skeletons using H or k should have patterns that only use H or k for hours.
+In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (skeletons using h) and 24-hour-cycle time formats (skeletons using H), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the [Time Data](#Time_Data) as described above in [timeFormats](#timeFormats). Thus skeletons using h should have patterns that only use h or K for hours, while skeletons using H should have patterns that only use H or k for hours.
 
 The rules governing use of day period pattern characters in patterns and skeletons are as follows:
 
-* Patterns and skeletons for 24-hour-cycle time formats (using H or k) currently _should not_ include fields with day period characters (a, b, or B); these pattern characters should be ignored if they appear in skeletons. However, in the future, CLDR may allow use of B (but not a or b) in 24-hour-cycle time formats.
+* Patterns for 24-hour-cycle time formats (using H or k) and skeletons (using H) currently _should not_ include fields with day period characters (a, b, or B); these pattern characters should be ignored if they appear in skeletons. However, in the future, CLDR may allow use of B (but not a or b) in 24-hour-cycle time formats.
 * Patterns for 12-hour-cycle time formats (using h or K) _must_ include a day period field using one of a, b, or B.
-* Skeletons for 12-hour-cycle time formats (using h or K) _may_ include a day period field using one of a, b, or B. If they do not, the skeleton will be treated as implicitly containing a.
+* Skeletons for 12-hour-cycle time formats (using h) _may_ include a day period field using one of a, b, or B. If they do not, the skeleton will be treated as implicitly containing a.
 
 Locales should generally provide availableFormats data for a fairly complete set of time skeletons without B, typically the following:
 
@@ -766,7 +855,7 @@ It is not necessary to supply `dateFormatItem`s with skeletons for every field l
 Typically a “best match” from requested skeleton to the `id` portion of a `dateFormatItem` is found using a closest distance match, such as:
 
 1. Skeleton symbols requesting a best choice for the locale are replaced.
-   * j → one of {H, k, h, K}; C → one of {a, b, B}
+   * j → one of {H, h}; C → one of {a, b, B}
 
 2. For skeleton and `id` fields with symbols representing the same type (year, month, day, etc):
    1. Most symbols have a small distance from each other.
@@ -839,13 +928,13 @@ If a client-requested set of fields includes both date and time fields, and if t
 2. For each part, find the matching `dateFormatItem`, and expand the pattern as above.
     * If there is still no `dateFormatItem` whose skeleton matches the same set of fields, select the one with the greatest number of matching fields (but no extra fields), then use `appendItems` to append any missing fields (see below).
     * If multiple `dateFormatItem`s with missing fields have the same distance, rank them by their matching fields in the order listed in step 1. For example, if the request is for "HBv", and the locale has `dateFormatItem`s for only "HB" and "Hv", select the "HB" pattern, because "B" has a higher weight than "v", and then use the `appendItem` for "v" (time zone).
-3. Combine the patterns for the two `dateFormatItem`s using the appropriate glue pattern, determined as follows from the requested date fields:
-   * If the date fields part contains *only* a weekday, use `<appendItem request="Time-Day-Of-Week">`.
-   * Otherwise, if the time fields part contains *only* a time zone, use `<appendItem request="Date-Timezone">`.
-   * Otherwise, if the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`
-   * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`
-   * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`
-   * Otherwise use `<dateTimeFormatLength type="short">`
+3. Combine the patterns for the two `dateFormatItem`s using the appropriate glue pattern, determined as follows:
+   * If the time fields part contains *only* a time zone, use `<appendItem request="Date-Timezone">`, with {0} as the date pattern and {1} as the time zone pattern.
+   * Otherwise, if the date fields part contains *only* a weekday, use `<appendItem request="Time-Day-Of-Week">`, with {0} as the time pattern and {1} as the weekday pattern.
+   * Otherwise, if the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise use `<dateTimeFormatLength type="short">`, with {1} as the date pattern and {0} as the time pattern.
 
 ```xml
 <!ELEMENT appendItems (alias | (appendItem*, special*))>
@@ -853,9 +942,9 @@ If a client-requested set of fields includes both date and time fields, and if t
 <!ATTLIST appendItem request CDATA >
 ```
 
-In case the best match does not include all the requested calendar fields, the `appendItems` element describes how to append needed fields to one of the existing formats. Each `appendItem` element covers a single calendar field. In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of the field (see [Calendar Fields](#Calendar_Fields)).
+In case the best match does not include all the requested calendar fields, the `appendItems` element describes how to append needed fields to one of the existing formats. Except for `Date-Timezone` and `Time-Day-Of-Week` (which combine two patterns without using {2}; see step 3 above), each `appendItem` element covers a single calendar field. In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of the field (see [Calendar Fields](#Calendar_Fields)).
 
-Note: as described above `appendItems` for date fields should be appended to the date, and `appendItems` for time fields should be appended to the time, _before_ combining them with the `dateTimeFormat`.
+Note: as described above `appendItems` for date fields should be appended to the date, and `appendItems` for time fields should be appended to the time, _before_ combining them with the glue pattern in step 3.
 
 #### <a name="intervalFormats" href="#intervalFormats">Element intervalFormats</a>
 
@@ -894,20 +983,63 @@ For example, the English rules that produce "Jan 10–12, 2008", "Jan 10 – Feb
     <greatestDifference id="y">MMM d, yyyy – MMM d, yyyy</greatestDifference>
 </intervalFormatItem>
 ```
+##### Format Range Separator Patterns
+```
+<!ELEMENT intervalFormatRange ( #PCDATA ) >
+<!ATTLIST intervalFormatRange type NMTOKEN #REQUIRED >
+    <!--@MATCH:literal/numeric, non-numeric, mixed -->
+```
+
+There are three types of interval format range separator patterns: `numeric`, `non-numeric`, `mixed`, and `fallback`. 
+The `intervalFormatFallback` has its own element, while the others use different types of `intervalFormatRange`.
+Depending on the locale, some or all of these could be the same, or they could all be different.
+
+Here are the differences between them. 
+
+| Code | Example | 🚨 Base | Description |
+| -- | -- | -- | -- |
+| fallback | {0} – {1} | n/a | Used to join _whole_ patterns when nothing is repeated, such as in “Dec 10 2025 – July 20 2026” or "Tuesday, October 20th – Friday, October 23rd". |
+| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15”. |
+| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026”. |
+| mixed	| {0} – {1} | d vs y or MMM | Used in all other cases (neither whole patterns or the same date fields), such as in “Dec 10 – July 20 2026”: notice that "10" and "July" are different fields. |
+
+The `intervalFormatRange` patterns are used internally in synthesizing example patterns for non-numeric date intervals for comparison, but not in production data.
+There are circumstances where they don't work properly,
+such as with literals that are semantically “part” of a field and thus need to be repeated.
+For example, in Japanese the synthesized result (where the `greatestDifference` is `d`) would be 2026年5月3～5日, while the expected result would be 2026年5月3日～5日.
+
+The following describes how these are used to create those examples.
+
+1. Working from the _start_ of the pattern, find the offset `S` _before_ the first field that is less than or equal to the greatest difference.
+2. Do the same from the _end_ of the pattern, finding the offset `E` _after_ the first field (going backwards) that is less than or equal to the greatest difference.
+(Note that variants like `M` and `L` in the pattern are considered to have the same greatest difference, as are `EEE` and `ccc`.)
+3. Form a pattern from start to `E`, and from `S` to end, using the appropriate Format Range Separator Pattern.
+
+For example, using …⟫ to mark start to `E` and ❮… `S` to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
+
+| `greatestDifference` | Available pattern | `S`/`E` marked | Combined pattern | Example |
+| - | - | - | - | - |
+| d | MMM d y | MMM ❮d⟫ y | MMM d – d y | May 3–5 2026 |
+| d | d MMM y | ❮d⟫ MMM y | d – d MMM y | 3–5 May 2026 |
+| MMM | MMM d y| ❮MMM d⟫ y | MMM d – MMM d y | May 3 – Jun 5 2026 |
+
+##### Interval Format Algorithm
 
 To format a start and end datetime, given a particular "skeleton":
 
 1. Look for the `intervalFormatItem` element that matches the "skeleton", starting in the current locale and then following the locale fallback chain up to, but not including root (better results are obtained by following steps 2-6 below with locale- or language-specific data than by using matching intervalFormats from root).
 2. If no match was found from the previous step, check what the closest match is in the fallback locale chain, as in `availableFormats`. That is, this allows for adjusting the string value field's width, including adjusting between "MMM" and "MMMM", and using different variants of the same field, such as 'v' and 'z'.
 3. If no match was found from the previous steps and the skeleton combines date fields such as y,M,d with time fields such as H,h,m,s, then an `intervalFormatItem` can be synthesized as follows:
-   1. For `greatestDifference` values corresponding to the date fields in the skeleton, use the mechanisms described under [availableFormats](#availableFormats_appendItems) to generate the complete date-time pattern corresponding to the skeleton, and then combine two such patterns using the `intervalFormatFallback` pattern (the result will be the same for each `greatestDifference` of a day or longer). For example:
-      MMMdHm/d → "MMM d 'at' H:mm – MMM d 'at' H:mm" → "Jan 3 at 9:00 – Jan 6 at 11:00"
-   2. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifference` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value. For example:
-      MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"
+   1. For `greatestDifference` values corresponding to the date fields in the skeleton, use the mechanisms described under [availableFormats](#availableFormats_appendItems) to generate the complete date-time pattern corresponding to the skeleton, and then combine two such patterns using the intervalFormatFallback pattern (the result will be the same for each `greatestDifference` of a day or longer).
+<br>For example:
+      * MMMdHm/d → "MMM d 'at' H:mm – MMM d 'at' H:mm" → "Jan 3 at 9:00 – Jan 6 at 11:00"
+   2. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifference` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value.
+<br>For example:
+      * MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"
 4. If a match is found from previous steps, compute the calendar field with the greatest difference between start and end datetime. If there is no difference among any of the fields in the pattern, format as a single date using `availableFormats`, and return.
-5. Otherwise, look for `greatestDifference` element that matches this particular greatest difference.
-6. If there is a match, use the pieces of the corresponding pattern to format the start and end datetime, as above.
-7. Otherwise, format the start and end datetime using the fallback pattern.
+6. Otherwise, look for `greatestDifference` element that matches this particular greatest difference.
+7. If there is a match, use the pieces of the corresponding pattern to format the start and end datetime, as above.
+8. Otherwise, format the start and end datetime using the fallback pattern.
 
 ## <a name="Calendar_Fields" href="#Calendar_Fields">Calendar Fields</a>
 
@@ -1738,7 +1870,7 @@ The following terminology defines more precisely the formats that are used.
   + New York Time
 + United Kingdom Time
 
-Note: A generic location format is constructed by a part of time zone ID representing an exemplar city name or its country as the final fallback. However, there are Unicode time zones which are not associated with any locations, such as "Etc/GMT+5" and "PST8PDT". Although the date format pattern "VVVV" specifies the generic location format, but it displays localized GMT format for these. Some of these time zones observe daylight saving time, so the result (localized GMT format) may change depending on input date. For generating a list for user selection of time zone with format "VVVV", these non-location zones should be excluded.
+Note: Not all timezones have a location (city/country); time zones that do not have a region as defined in [Time Zone Identifiers](tr35.md#time-zone-identifiers), such as "Etc/GMT+5" and "PST8PDT", do not. For these time zones, this format falls back to the localized offset format. For generating a list for user selection of time zone with format "VVVV", these non-location zones should be excluded.
 
 **Specific non-location format:** Reflects a specific standard or daylight time, which may or may not be the wall time. For example, "10 am Pacific Standard Time" will be GMT-8 in the winter and in the summer.
 
@@ -1940,7 +2072,9 @@ Some of the examples are drawn from real data, while others are for illustration
    1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
    2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)).
       1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
-      2. Otherwise, continue with the localized name of the exemplar city for the zone.
+      2. If there is a localized exemplar city, continue with it.
+      3. If the time zone has a region associated with it (see [Time Zone Identifiers](tr35.md#time-zone-identifiers)), use as the exemplar city the last field of the raw TZID, turning _ into space.
+      4. Otherwise, continue with the localized name of the exemplar city for the Etc/Unknown timezone.
    3. Format the region format obtained in step 1 with the location obtained in step 2.
       * Examples:
         * America/Buenos_Aires, generic → "Buenos Aires Time" // multiple zones in AR
@@ -1948,6 +2082,8 @@ Some of the examples are drawn from real data, while others are for illustration
         * Europe/Rome, daylight → "Italy Summer Time" // Europe/Rome is the only zone in IT
         * Africa/Monrovia, generic → "Hora de Liberja"
         * America/Havana, generic → "Hora de CU" // if CU is not localized
+        * Etc/UTC-3, standard → "UTC+3" // non-location time zone
+        * PST8PDT, generic → "Unknown Location Time" // non-location time zone
 
 > **Note:** If a language does require grammatical changes when composing strings, then the _regionFormat_ should either use a neutral format such as "Heure: {0}", or put all exceptional cases in explicitly translated strings.
 
@@ -1975,7 +2111,7 @@ In composing the metazone + city or country:
      * → "Pacific Time (Phoenix)"
 2. If the localized country name is not available, use the code:
    * CU (country code) → "CU" _// no localized country name for Cuba_
-3. If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
+3. If the localized exemplar city is not available, and the time zone has a region, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
    * America/Los_Angeles → "Los Angeles" _// no localized exemplar city_
 
 **Note:** As with the _regionFormat_, exceptional cases need to be explicitly translated.
@@ -2153,7 +2289,7 @@ Notes for the table below:
     <tr><td>QQQQ</td><td>2nd quarter</td><td>Wide</td></tr>
     <tr><td>QQQQQ</td><td>2</td><td>Narrow</td></tr>
     <!--  q  -->
-    <tr><td rowspan="5">q</td><td>q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><b>Stand-Alone</b> Quarter number/name.</td></tr>
+    <tr><td rowspan="5">q</td><td>q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/><b>Stand-Alone</b> Quarter number/name. In skeletons, this symbol is discouraged and slated for deprecation in CLDR 50; use ‘Q’ instead.</td></tr>
     <tr><td>qq</td><td>02</td><td>Numeric: 2 digits + zero pad</td></tr>
     <tr><td>qqq</td><td>Q2</td><td>Abbreviated</td></tr>
     <tr><td>qqqq</td><td>2nd quarter</td><td>Wide</td></tr>
@@ -2166,14 +2302,15 @@ Notes for the table below:
     <tr><td>MMMM</td><td>September</td><td>Wide</td></tr>
     <tr><td>MMMMM</td><td>S</td><td>Narrow</td></tr>
     <!--  L  -->
-    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of <a href="#months_days_quarters_eras">month element</a>.</td></tr>
+    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of <a href="#months_days_quarters_eras">month element</a>. In skeletons, this symbol is discouraged and slated for deprecation in CLDR 50; use ‘M’ instead.</td></tr>
     <tr><td>LL</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>LLL</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>LLLL</td><td>September</td><td>Wide</td></tr>
     <tr><td>LLLLL</td><td>S</td><td>Narrow</td></tr>
     <!--  l  -->
     <tr><td>l</td><td>l</td><td>[nothing]</td>
-        <td colspan="2">This pattern character is deprecated, and should be ignored in patterns.
+        <td colspan="2"><em><strong>Pattern-only symbol</strong></em><br/>
+                        This pattern character is deprecated, and should be ignored in patterns; it must not occur in skeletons.
                         It was originally intended to be used in combination with M to indicate placement of the symbol for leap month in the Chinese calendar.
                         Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt; data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td></tr>
 
@@ -2184,8 +2321,22 @@ Notes for the table below:
     <tr><td>W</td><td>W</td><td>3</td><td>Numeric: 1 digit</td><td>Week of Month (numeric)</td></tr>
 
 <!-- == == == DAY == == == -->
-<tr><th rowspan="5"><a name="dfst-day" id="dfst-day" href="#dfst-day">day</a></th><td rowspan="2">d</td><td>d</td><td>1</td><td>Numeric: minimum digits</td><td rowspan="2">Day of month (numeric).</td></tr>
-    <tr><td>dd</td><td>01</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
+<tr><th rowspan="6"><a name="dfst-day" id="dfst-day" href="#dfst-day">day</a></th>
+      <td rowspan="3">d</td>
+      <td>d</td>
+      <td>1</td><td>Numeric: minimum digits</td>
+      <td rowspan="2">Day of month (numeric).</td>
+    </tr>
+    <tr>
+     <td>dd</td>
+     <td>01</td>
+     <td>Numeric: 2 digits, zero pad if needed</td>
+    </tr>
+    <tr>
+     <td>ddd</td>
+     <td>1st</td>
+     <td colSpan='2'><b>Technical Preview:</b> Longer, not only digits format for days. Currently the data used is ordinals (such as Nov. 3rd) without zero padding. The `ddd` in a skeleton is a request for this form. Where not available in the locale, `ddd` in a skeleton falls back to a single `d`.</td>
+    </tr>
     <tr><td>D</td><td>D...DDD</td><td>345</td><td colspan="2">Day of year (numeric). The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
     <tr><td>F</td><td>F</td><td>2</td><td colspan="2">Day of Week in Month (numeric). The example is for the 2nd Wed in July</td></tr>
     <tr><td>g</td><td>g+</td><td>2451334</td>
@@ -2212,7 +2363,7 @@ Notes for the table below:
     <tr><td>eeeee</td><td>T</td><td>Narrow</td></tr>
     <tr><td>eeeeee</td><td>Tu</td><td>Short</td></tr>
     <!--  c  -->
-    <tr><td rowspan="5">c</td><td>c..cc</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><b>Stand-Alone</b> local day of week number/name.</td></tr>
+    <tr><td rowspan="5">c</td><td>c..cc</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/><b>Stand-Alone</b> local day of week number/name. In skeletons, this symbol is discouraged and slated for deprecation in CLDR 50; use ‘E’ (or ‘e’) instead.</td></tr>
     <tr><td>ccc</td><td>Tue</td><td>Abbreviated</td></tr>
     <tr><td>cccc</td><td>Tuesday</td><td>Wide</td></tr>
     <tr><td>ccccc</td><td>T</td><td>Narrow</td></tr>
@@ -2223,6 +2374,7 @@ Notes for the table below:
         <td rowspan="3"><strong>AM, PM<br/></strong>May be upper or lowercase depending on the locale and other options.
                                                     The wide form may be the same as the short form if the “real” long form (eg <em>ante meridiem</em>) is not customarily used.
                                                     The narrow form must be unique, unlike some other fields.
+                                                    When used in skeletons, ‘a’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (where ‘ha’ is treated as equivalent to ‘h’); combining ‘a’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.
                                                     See also <a href="#Parsing_Dates_Times">Parsing Dates and Times</a>.</td></tr>
     <tr><td>aaaa</td><td>am. [e.g. 12 am.]</td><td>Wide</td></tr>
     <tr><td>aaaaa</td><td>a [e.g. 12a]</td><td>Narrow</td></tr>
@@ -2231,32 +2383,38 @@ Notes for the table below:
         <td rowspan="3"><strong>am, pm, noon, midnight</strong><br/>May be upper or lowercase depending on the locale and other options.
                         If the locale doesn't have the notion of a unique "noon" = 12:00, then the PM form may be substituted.
                         Similarly for "midnight" = 00:00 and the AM form.
-                        The narrow form must be unique, unlike some other fields.</td></tr>
+                        The narrow form must be unique, unlike some other fields.
+                        When used in skeletons, ‘b’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (e.g. ‘hb’); combining ‘b’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
     <tr><td>bbbb</td><td>midnight<br/>[e.g. 12 midnight]</td><td>Wide</td></tr>
     <tr><td>bbbbb</td><td>md [e.g. 12 md]</td><td>Narrow</td></tr>
     <!--  B  -->
     <tr><td rowspan="3">B</td><td>B..BBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Abbreviated</td>
         <td rowspan="3"><strong>flexible day periods</strong><br/>
                         May be upper or lowercase depending on the locale and other options.
-                        Often there is only one width that is customarily used.</td></tr>
+                        Often there is only one width that is customarily used.
+                        When used in skeletons, ‘B’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (e.g. ‘Bh’, ‘Bhm’, ‘jB’); combining ‘B’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
     <tr><td>BBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Wide</td></tr>
     <tr><td>BBBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Narrow</td></tr>
 
 <!-- == == == HOUR == == == -->
 <tr><th rowspan="22"><a name="dfst-hour" id="dfst-hour" href="#dfst-hour">hour</a></th><td rowspan="2">h</td><td>h</td><td>1, 12</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k).</td></tr>
+        <td rowspan="2">Hour [1-12] in patterns (<code>H12</code>). When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, ‘h’ behaves like <code>Clock12</code> (<code>c12</code>) rather than specifically <code>H12</code>: it matches the 12-hour-cycle format preferred by the locale (‘h’ or ‘K’ in patterns) and does not match a 24-hour-cycle format (‘H’ or ‘k’).</td></tr>
 <tr><td>hh</td><td>01, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  H  -->
     <tr><td rowspan="2">H</td><td>H</td><td>0, 23</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [0-23]. When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, it should match the 24-hour-cycle format preferred by the locale (H or k); it should not match a 12-hour-cycle format (h or K).</td></tr>
+        <td rowspan="2">Hour [0-23] in patterns (<code>H23</code>). When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, ‘H’ behaves like <code>Clock24</code> (<code>c24</code>) rather than specifically <code>H23</code>: it matches the 24-hour-cycle format preferred by the locale (‘H’ or ‘k’ in patterns) and does not match a 12-hour-cycle format (‘h’ or ‘K’).</td></tr>
     <tr><td>HH</td><td>00, 23</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  K  -->
     <tr><td rowspan="2">K</td><td>K</td><td>0, 11</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [0-11]. When used in a skeleton, only matches K or h, see above.</td></tr>
+        <td rowspan="2"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/>
+                        Hour [0-11] in patterns (<code>H11</code>). When used in a skeleton, behaves identically to ‘h’ (<code>Clock12</code>).
+                        In skeletons, ‘K’ is discouraged in CLDR 49 and slated for deprecation in CLDR 50; use ‘h’ instead.</td></tr>
     <tr><td>KK</td><td>00, 11</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  k  -->
     <tr><td rowspan="2">k</td><td>k</td><td>1, 24</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [1-24]. When used in a skeleton, only matches k or H, see above.</td></tr>
+        <td rowspan="2"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/>
+                        Hour [1-24] in patterns (<code>H24</code>). When used in a skeleton, behaves identically to ‘H’ (<code>Clock24</code>).
+                        In skeletons, ‘k’ is discouraged in CLDR 49 and slated for deprecation in CLDR 50; use ‘H’ instead.</td></tr>
     <tr><td>kk</td><td>01, 24</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  j  -->
     <tr><td rowspan="6">j</td><td>j</td><td>8<br/>8 AM<br/>13<br/>1 PM</td><td>Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
@@ -2264,7 +2422,7 @@ Notes for the table below:
                         It must not occur in pattern or skeleton data.
                         Instead, it is reserved for use in skeletons passed to APIs doing flexible date pattern generation.
                         In such a context, it requests the preferred hour format for the locale (h, H, K, or k), as determined by the <strong>preferred</strong> attribute of the <strong>hours</strong> element in supplemental data.
-                        In the implementation of such an API, 'j' must be replaced by h, H, K, or k before beginning a match against availableFormats data.<br/>
+                        In the implementation of such an API, 'j' is replaced by 'h' (if the locale prefers 12-hour time) or 'H' (if the locale prefers 24-hour time) before beginning a match against availableFormats data.<br/>
                         Note that use of 'j' in a skeleton passed to an API is the only way to have a skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td></tr>
     <tr><td>jj</td><td>08<br/>08 AM<br/>13<br/>01 PM</td><td>Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td></tr>
     <tr><td>jjj</td><td>8<br/>8 A.M.<br/>13<br/>1 P.M.</td><td>Numeric hour (minimum digits), wide dayPeriod if used</td></tr>
@@ -2778,6 +2936,19 @@ The [year style](#Semantic_Skeleton_Year_Style) should change the skeleton for a
 - Auto: No change from datetimeSkeleton (note: could be "y", "yy", "yG", or another combination of year and era fields)
 - Full or Auto resolving to Full: Replace "yy" with "y"
 - WithEra or Auto/Full resolving to WithEra: Replace "yy" with "y" and add "G" if there is not already an era field
+
+#### <a name="Semantic_Hour_Cycle_Pattern_Variations" href="#Semantic_Hour_Cycle_Pattern_Variations">Hour Cycle Pattern Variations</a>
+
+Standard skeleton identifiers in `availableFormats` only use canonical keys (`h` for 12-hour time and `H` for 24-hour time), and the corresponding `dateFormatItem` patterns encode the locale-preferred hour cycle (for example, `aK:mm:ss` for `id="hms"` in Japanese).
+
+After mapping a semantic skeleton to a standard skeleton and matching it to a pattern according to [Matching Skeletons](#Matching_Skeletons):
+
+1. For `Clock12`, `Clock24`, or an unset hour cycle option, the matched pattern from `dateFormatItem` is used directly.
+2. For exact hour cycle options (`H11`, `H12`, `H23`, `H24`), implementations substitute the desired hour symbol into the matched pattern in place of whatever hour symbol is present in the pattern:
+   - **H11:** Substitute with `K`
+   - **H12:** Substitute with `h`
+   - **H23:** Substitute with `H`
+   - **H24:** Substitute with `k`
 
 ### <a name="Semantic_Skeleton_Conformance" href="#Semantic_Skeleton_Conformance">Semantic Skeleton Conformance</a>
 

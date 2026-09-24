@@ -432,13 +432,13 @@ public class CldrDateTimePatternGenerator {
         String timeSkeleton = getTimeSkeleton(canonicalSkeleton);
 
         if (dateSkeleton.length() > 0 && timeSkeleton.length() > 0) {
-            if (isOnlyDayOfWeek(dateSkeleton)) {
-                String timePattern = getBestPattern(timeSkeleton, log);
-                return appendFieldWithCustomName(timePattern, dateSkeleton, "Time-Day-Of-Week");
-            }
             if (isOnlyZone(timeSkeleton)) {
                 String datePattern = getBestPattern(dateSkeleton, log);
                 return appendFieldWithCustomName(datePattern, timeSkeleton, "Date-Timezone");
+            }
+            if (isOnlyDayOfWeek(dateSkeleton)) {
+                String timePattern = getBestPattern(timeSkeleton, log);
+                return appendFieldWithCustomName(timePattern, dateSkeleton, "Time-Day-Of-Week");
             }
             return combineDateAndTime(dateSkeleton, timeSkeleton, log);
         }

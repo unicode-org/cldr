@@ -261,8 +261,8 @@ public class GenerateDateTimeTestData {
     }
 
     enum HourCycle {
-        H12("H12"),
-        H23("H23");
+        CLOCK12("Clock12"),
+        CLOCK24("Clock24");
 
         public final String label;
 
@@ -559,7 +559,7 @@ public class GenerateDateTimeTestData {
         elem = new FieldStyleComboInput();
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
-        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.hourCycle = HourCycle.CLOCK12;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -567,7 +567,7 @@ public class GenerateDateTimeTestData {
         elem = new FieldStyleComboInput();
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
-        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.hourCycle = HourCycle.CLOCK12;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.MEDIUM;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -575,7 +575,7 @@ public class GenerateDateTimeTestData {
         elem = new FieldStyleComboInput();
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
-        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.hourCycle = HourCycle.CLOCK12;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -584,7 +584,7 @@ public class GenerateDateTimeTestData {
         elem = new FieldStyleComboInput();
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
-        elem.fieldStyleCombo.hourCycle = HourCycle.H23;
+        elem.fieldStyleCombo.hourCycle = HourCycle.CLOCK24;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -769,10 +769,10 @@ public class GenerateDateTimeTestData {
             } else {
                 // H M S
                 switch (fieldStyleCombo.hourCycle) {
-                    case H12:
+                    case CLOCK12:
                         sb.append("h");
                         break;
-                    case H23:
+                    case CLOCK24:
                         sb.append("H");
                         break;
                 }

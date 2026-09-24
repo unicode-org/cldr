@@ -268,7 +268,7 @@ The available number symbols are as follows:
 
 > The NaN sign. Corresponds to the IEEE NaN bit pattern.
 
-##### <a name="Currency_Symbols_Decimal_Group" href="#Currency_Symbols_Decimal_Group">Currency Decimal and Grouping Symbols</a>
+#### <a name="Currency_Symbols_Decimal_Group" href="#Currency_Symbols_Decimal_Group">Currency Decimal and Grouping Symbols</a>
 
 **currencyDecimal**
 
@@ -718,7 +718,7 @@ If there is an explicit negative subpattern, it serves only to specify the negat
 
 > **Note:** The thousands separator and decimal separator in patterns are always ASCII ',' and '.'. They are substituted by the code with the correct local values according to other fields in CLDR. The same is true of the - (ASCII minus sign) and other special characters listed above.
 
-##### <a name="Currency_Placeholder_Placement" href="#Currency_Placeholder_Placement">Currency Placeholder Placement</a>
+#### <a name="Currency_Placeholder_Placement" href="#Currency_Placeholder_Placement">Currency Placeholder Placement</a>
 
 A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
 

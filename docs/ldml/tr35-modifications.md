@@ -83,7 +83,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`Currencies`](tr35-numbers.md#Currencies) Revised the `numberFormat` description for currencies.
 <!-- CLDR-18963 -->
 * [`Currency Formats`](tr35-numbers.md#Currency_Formats), [`Currencies`](tr35-numbers.md#Currencies), [`Supplemental Currency Data`](tr35-numbers.md#Supplemental_Currency_Data) Added granular subsection headings and deep-link anchors for currency formatting rules, pattern variants (`alt="alphaNextToNumber"`, `alt="noCurrency"`, `currencyPatternAppendISO`), currency placeholders (`¤`..`¤¤¤¤¤`), `unitPattern` display name formatting, `currencySpacing`, and supplemental currency fractions and region mappings.
-<!-- CLDR-19681 -->
+<!-- CLDR-19814 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
 

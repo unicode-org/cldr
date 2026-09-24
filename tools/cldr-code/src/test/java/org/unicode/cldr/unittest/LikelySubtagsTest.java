@@ -346,6 +346,7 @@ public class LikelySubtagsTest extends TestFmwk {
 
         final VersionInfo lastReleaseVi = ToolConstants.LAST_RELEASE_VI;
         CalculatedCoverageLevels ccl = CalculatedCoverageLevels.forVersion(lastReleaseVi);
+        CalculatedCoverageLevels cc = CalculatedCoverageLevels.getInstance();
 
         for (String language : CLDR_CONFIG.getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
@@ -355,12 +356,14 @@ public class LikelySubtagsTest extends TestFmwk {
             if (likelyExpansion == null) {
                 errln("Missing likely subtags for: " + language);
             } else {
-                logln("Likely subtags for " + language + ":\t " + likely);
+                logln("Likely subtags for " + language + ":\t " + likelyExpansion);
             }
             String path = NameType.LANGUAGE.getKeyPath(language);
             String englishName = english.getStringValue(path);
+            // if(language.equals("suz")) System.err.println("suz = " + englishName);
             if (englishName == null) {
-                Level covLevel = ccl.getEffectiveCoverageLevel(language);
+                Level covLevel = ccl.getHighestCoverageLevelForLanguage(language);
+                Level covLevelCurrent = cc.getHighestCoverageLevelForLanguage(language);
                 if (covLevel != null && covLevel.isAtLeast(Level.BASIC)) {
                     errln(
                             "Missing English translation for: "
@@ -369,6 +372,20 @@ public class LikelySubtagsTest extends TestFmwk {
                                     + covLevel
                                     + " in "
                                     + lastReleaseVi);
+                } else if (covLevelCurrent != null && covLevelCurrent.isAtLeast(Level.BASIC)) {
+                    errln(
+                            "Missing English translation for newly-"
+                                    + covLevelCurrent
+                                    + " language "
+                                    + language);
+                } else {
+                    warnln(
+                            "Warning: Missing English translation for "
+                                    + language
+                                    + " - now at "
+                                    + covLevelCurrent
+                                    + ", previously "
+                                    + covLevel);
                 }
             }
         }

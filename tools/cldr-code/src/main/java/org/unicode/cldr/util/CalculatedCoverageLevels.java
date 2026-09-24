@@ -33,6 +33,17 @@ public class CalculatedCoverageLevels {
         return getEffectiveCoverageLevel(CLDRLocale.getInstance(locale));
     }
 
+    public Level getHighestCoverageLevelForLanguage(String language) {
+        Level highest = Level.UNDETERMINED;
+        for (final Map.Entry<String, Level> e : getLevels().entrySet()) {
+            if (e.getKey().startsWith(language)
+                    && CLDRLocale.getInstance(e.getKey()).getLanguage().equals(language)) {
+                highest = Level.max(highest, e.getValue());
+            }
+        }
+        return highest;
+    }
+
     public Level getEffectiveCoverageLevel(CLDRLocale locale) {
         // per spec, assumed level for the explicit root locale
         if (locale == CLDRLocale.ROOT) {

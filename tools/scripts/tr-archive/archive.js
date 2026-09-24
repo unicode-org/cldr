@@ -210,7 +210,7 @@ async function renderit(infile, info) {
   body.appendChild(
     getScript({
       // This invokes anchor.js
-      code: `anchors.add('${ELEMENTS.concat(["li[id]", "tr[id]", "p[id]", "dt[id]"]).join(", ")}');`,
+      code: `anchors.add('${ELEMENTS.join(", ")}');`,
     })
   );
   body.appendChild(document.createTextNode("\n"));

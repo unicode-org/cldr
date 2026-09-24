@@ -52,10 +52,8 @@ The LDML specification is divided into the following parts:
   * [Default Numbering System](#defaultNumberingSystem)
   * [Other Numbering Systems](#otherNumberingSystems)
   * [Number Symbols](#Number_Symbols)
-    * [Currency Decimal and Grouping Symbols](#Currency_Symbols_Decimal_Group)
   * [Number Formats](#Number_Formats)
     * [Compact Number Formats](#Compact_Number_Formats)
-      * [Compact Currency Formatting](#Compact_Currency_Formatting)
     * [Currency Formats](#Currency_Formats)
       * [Standard and Accounting Currency Format Types](#currency-format-types)
       * [The `alt="alphaNextToNumber"` Pattern Variant](#currency-alphaNextToNumber)
@@ -68,8 +66,7 @@ The LDML specification is divided into the following parts:
     * Table: [Number Pattern Examples](#Number_Pattern_Examples)
   * [Special Pattern Characters](#Special_Pattern_Characters)
     * Table: [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
-    * [Currency Placeholder Placement](#Currency_Placeholder_Placement)
-      * Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
+    * Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
     * [Explicit Plus Signs](#Explicit_Plus)
   * [Formatting](#Formatting)
   * [Scientific Notation](#sci)
@@ -83,9 +80,10 @@ The LDML specification is divided into the following parts:
   * [Formatting Currency Display Names (`unitPattern`)](#currency-unit-pattern-formatting)
   * [Currency Boundary Spacing (`currencySpacing`)](#currency-spacing)
   * [Currency-Specific Decimal and Grouping Overrides](#currency-custom-decimal-group)
+  * [Currency Codes and Currency Amounts](#currency-codes-and-amounts)
   * [Supplemental Currency Data](#Supplemental_Currency_Data)
     * [Currency Fraction Digits and Rounding (`fractions`)](#supplemental-currency-fractions)
-    * [Regional Legal Tender Currency Mappings (`region`)](#supplemental-currency-regions)
+    * [Regional Currency Mappings (`region`)](#supplemental-currency-regions)
 * [Language Plural Rules](#Language_Plural_Rules)
   * [Explicit 0 and 1 rules](#Explicit_0_1_rules)
   * [Plural rules syntax](#Plural_rules_syntax)
@@ -268,9 +266,7 @@ The available number symbols are as follows:
 
 > The NaN sign. Corresponds to the IEEE NaN bit pattern.
 
-#### <a name="Currency_Symbols_Decimal_Group" href="#Currency_Symbols_Decimal_Group">Currency Decimal and Grouping Symbols</a>
-
-**currencyDecimal**
+<a name="Currency_Symbols_Decimal_Group"></a>**currencyDecimal**
 
 > Optional. If specified, then for currency formatting/parsing this is used as the decimal separator instead of using the regular decimal separator; otherwise, the regular decimal separator is used.
 
@@ -442,8 +438,6 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 ```
 
 Formats can be supplied for numbers (as above) or for currencies or other units. They can also be used with ranges of numbers, resulting in formatting strings like “$10K” or “$3–7M”.
-
-##### <a name="Compact_Currency_Formatting" href="#Compact_Currency_Formatting">Compact Currency Formatting</a>
 
 To format a number N, use the following steps:
 
@@ -706,7 +700,7 @@ Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current C
 | % | Prefix or suffix | percentSign | Multiply by 100 and show as percentage |
 | ‰ (U+2030) | Prefix or suffix | perMille | Multiply by 1000 and show as per mille (aka “basis points”) |
 | ; | Subpattern boundary | _syntax_ | Separates positive and negative subpatterns. When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). |
-| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | <a name="currency-symbol-placeholders"></a>Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting for currency display names, steps 2 and 4 in [Currencies](#Currencies). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr id="currency-placeholder-symbol"><td rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr id="currency-placeholder-iso"><td rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr id="currency-placeholder-name"><td rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency, based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr id="currency-placeholder-narrow"><td rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
+| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | <a name="currency-symbol-placeholders"></a>Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting for currency display names, steps 2 and 4 in [Formatting Currency Display Names](#currency-unit-pattern-formatting). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td id="currency-placeholder-symbol" rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td id="currency-placeholder-iso" rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td id="currency-placeholder-name" rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency, based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td id="currency-placeholder-narrow" rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
 | * | Prefix or suffix boundary | _padding character specified in API_ | Pad escape, precedes pad character |
 | ' | Prefix or suffix | _syntax-only_ | Used to quote special characters in a prefix or suffix, for example, `"'#'#"` formats 123 to `"#123"`. To create a single quote itself, use two in a row: `"# o''clock"`. |
 
@@ -718,9 +712,7 @@ If there is an explicit negative subpattern, it serves only to specify the negat
 
 > **Note:** The thousands separator and decimal separator in patterns are always ASCII ',' and '.'. They are substituted by the code with the correct local values according to other fields in CLDR. The same is true of the - (ASCII minus sign) and other special characters listed above.
 
-#### <a name="Currency_Placeholder_Placement" href="#Currency_Placeholder_Placement">Currency Placeholder Placement</a>
-
-A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
+<a name="Currency_Placeholder_Placement"></a>A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
 
 | Placement | Examples                                                                         |
 |-----------|----------------------------------------------------------------------------------|
@@ -1044,6 +1036,8 @@ For more information on the matching used in the `currencyMatch` and `surroundin
 
 Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _[Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
 
+### <a name="currency-codes-and-amounts" href="#currency-codes-and-amounts">Currency Codes and Currency Amounts</a>
+
 > **Note:** _Currency values should **never** be interchanged without a known currency code. You never want the number 3.5 interpreted as $3.50 by one user and €3.50 by another._ Locale data contains localization information for currencies, not a currency value for a country. A currency amount logically consists of a numeric value, plus an accompanying currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD is implicit. But if the raw numeric value is transmitted without any context, then it has no definitive interpretation.
 
 Notice that the currency code is completely independent of the end-user's language or locale. For example, BGN is the code for Bulgarian Lev. A currency amount of <BGN, 1.23456×10³> would be localized for a Bulgarian user into "1 234,56 лв." (using Cyrillic letters). For an English user it would be localized into the string "BGN 1,234.56". The end-user's language is needed for doing this last localization step; but that language is completely orthogonal to the currency code needed in the data. After all, the same English user could be working with dozens of currencies. Notice also that the currency code is also independent of whether currency values are inter-converted, which requires more interesting financial processing: the rate of conversion may depend on a variety of factors.
@@ -1129,7 +1123,7 @@ For example, the following line
 
 should cause the value 2.006 to be displayed as “2.01”, not “2.00”.
 
-#### <a name="supplemental-currency-regions" href="#supplemental-currency-regions">Regional Legal Tender Currency Mappings (`region`)</a>
+#### <a name="supplemental-currency-regions" href="#supplemental-currency-regions">Regional Currency Mappings (`region`)</a>
 
 Each `region` element contains one attribute:
 

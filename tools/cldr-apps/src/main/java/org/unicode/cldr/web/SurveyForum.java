@@ -791,6 +791,7 @@ public class SurveyForum {
                         }
                         if (value != null) {
                             post.put("value", value);
+                            post.put("valueHash", DataPage.getValueHash(value));
                         }
                         post.put("open", open);
                         post.put("root", root);

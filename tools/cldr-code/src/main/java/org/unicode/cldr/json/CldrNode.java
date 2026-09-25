@@ -15,6 +15,9 @@ public class CldrNode {
      */
     public void throwIfDuplicate(JsonObject jo, String key) {
         if (jo.has(key)) {
+            if (getUntransformedPath().startsWith("//ldml/identity")) {
+                return; // TODO: CLDR-17790 means we get bad data here, continue (latest wins)
+            }
             throw new RuntimeException(
                     String.format(
                             "Internal Error: Ldml2Json tried to add a duplicate key '%s': At %s, XPath %s",

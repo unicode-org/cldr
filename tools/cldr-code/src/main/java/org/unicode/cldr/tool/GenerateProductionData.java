@@ -683,7 +683,9 @@ public class GenerateProductionData {
         }
         Set<String> sorted = new TreeSet<>(Arrays.asList(list));
         Factory factory = Factory.make(destDir.toString(), ".*");
-        sorted.forEach(file -> doubleCheckLocale(destDir, file, factory));
+        sorted.stream()
+                .filter(localeId -> (FILE_MATCH == null || FILE_MATCH.reset(localeId).matches()))
+                .forEach(file -> doubleCheckLocale(destDir, file, factory));
     }
 
     private static void doubleCheckLocale(File destDir, String file, Factory factory) {

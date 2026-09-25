@@ -56,7 +56,7 @@
 
 # Split out types into its various fields including core
 < (.*)/types/type\[@key="([^"]*)"\]\[@type="([^"]*)"\]\[@scope="([^"]*)"\](.*)$
-> $1/types/_$4/$2/$3$5
+> $1/types/$2/_$4/$3$5
 
 # Split out types into its various fields
 < (.*)/types/type\[@key="([^"]*)"\]\[@type="([^"]*)"\](.*)$

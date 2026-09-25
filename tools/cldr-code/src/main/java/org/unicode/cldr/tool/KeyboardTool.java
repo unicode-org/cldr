@@ -10,6 +10,7 @@ public class KeyboardTool {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
         UOption.create("flatten", 'F', UOption.REQUIRES_ARG),
+        UOption.create("reorders", 'R', UOption.REQUIRES_ARG)
     };
 
     public static void help() {
@@ -19,6 +20,7 @@ public class KeyboardTool {
                         + "Usage:\n"
                         + " -h | --help | -?                          print this help\n"
                         + " -F infile.xml | --flatten infile.xml > outfile.xml      print a flattened xml to stdout, without imports\n"
+                        + " -R reorders.xml                           update reorders\n"
                         + "");
     }
 
@@ -29,6 +31,9 @@ public class KeyboardTool {
         } else if (options[2].doesOccur) {
             System.err.println("Flatten: " + options[2].value);
             KeyboardFlatten.flatten(options[2].value, System.out);
+        } else if (options[3].doesOccur) {
+            System.err.println("Reorders: " + options[3].value);
+            KeyboardReorderUpdate.updateFrom(options[3].value);
         } else {
             help();
         }

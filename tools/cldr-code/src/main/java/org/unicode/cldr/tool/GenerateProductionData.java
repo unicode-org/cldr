@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.AnnotationUtil;
@@ -43,6 +44,8 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.ProgressTracker;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource;
@@ -73,6 +76,7 @@ public class GenerateProductionData {
     private static final SupplementalDataInfo SDI =
             CLDRConfig.getInstance().getSupplementalDataInfo();
     private static Set<String> skippedPreBasicLocales = new TreeSet<>();
+    private static boolean INCLUDE_EXEMPLAR_TREE = false;
 
     enum MyOptions {
         sourceDirectory(
@@ -85,42 +89,25 @@ public class GenerateProductionData {
                         .setHelp("destination common directory")
                         .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
                         .setMatch(".*")),
-        logicalGroups(
-                new Params()
-                        .setHelp("add path/values for logical groups")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        time(
-                new Params()
-                        .setHelp("add path/values for stock date/time/datetime")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        Sideways(
-                new Params()
-                        .setHelp("add path/values for sideways inheritance")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        root(
-                new Params()
-                        .setHelp("add path/values for root and code-fallback")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+        logicalGroups(new Params().setHelp("add path/values for logical groups").setBoolean()),
+        time(new Params().setHelp("add path/values for stock date/time/datetime").setBoolean()),
+        Sideways(new Params().setHelp("add path/values for sideways inheritance").setBoolean()),
+        root(new Params().setHelp("add path/values for root and code-fallback").setBoolean()),
         constrainedRestoration(
                 new Params()
                         .setHelp("only add inherited paths that were in original file")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+                        .setBoolean()),
         includeComprehensive(
                 new Params()
                         .setHelp("exclude comprehensive paths — otherwise just to modern level")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+                        .setBoolean()),
         keepPreBasic(
                 new Params()
                         .setHelp(
                                 "keep non-ICU locales below Basic coverage — otherwise they are skipped")
-                        .setDefault("false")
-                        .setMatch("true|false")),
+                        .setBoolean()),
+        includeExemplarTree(
+                new Params().setHelp("include the exemplar tree").setBoolean().setFlag('x')),
         verbose(new Params().setHelp("verbose debugging messages")),
         Debug(new Params().setHelp("debug")),
         fileMatch(new Params().setHelp("regex to match patterns").setMatch(".*")),
@@ -162,18 +149,16 @@ public class GenerateProductionData {
         }
 
         // controls for minimization
-        ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
-        ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
-        ADD_SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
-        ADD_ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
+        ADD_LOGICAL_GROUPS = MyOptions.logicalGroups.option.getBooleanValue();
+        ADD_DATETIME = MyOptions.time.option.getBooleanValue();
+        ADD_SIDEWAYS = MyOptions.Sideways.option.getBooleanValue();
+        ADD_ROOT = MyOptions.root.option.getBooleanValue();
 
         // constraints
-        INCLUDE_COMPREHENSIVE =
-                "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
-        KEEP_PRE_BASIC = "true".equalsIgnoreCase(MyOptions.keepPreBasic.option.getValue());
-        CONSTRAINED_RESTORATION =
-                "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
-
+        INCLUDE_COMPREHENSIVE = MyOptions.includeComprehensive.option.getBooleanValue();
+        KEEP_PRE_BASIC = MyOptions.keepPreBasic.option.getBooleanValue();
+        CONSTRAINED_RESTORATION = MyOptions.constrainedRestoration.option.getBooleanValue();
+        INCLUDE_EXEMPLAR_TREE = MyOptions.includeExemplarTree.option.getBooleanValue();
         // get directories
 
         Map<File, File> specialDirectories = new TreeMap<>();
@@ -304,25 +289,62 @@ public class GenerateProductionData {
         System.out.println(sourceFile + " => " + destinationFile);
         if (!destinationFile.mkdirs()) {
             // if created, remove old contents
+            System.out.println(" .. deleting previous contents");
             File[] list = destinationFile.listFiles();
             if (list != null) {
                 for (File file : list) {
+                    progress.decrement();
                     if (!file.delete()) {
                         System.out.println("Warning: could not delete " + file);
                     }
                 }
             }
         }
-        String[] list = sourceFile.list();
-        Set<String> sorted = (list == null) ? null : new TreeSet<>(Arrays.asList(list));
+        Set<String> sorted = null;
         if (COPY_ANYWAY.contains(sourceFile.getName())) { // special cases
             isLdmlDtdType = false;
         }
         Factory factory = null;
         if (isLdmlDtdType) {
             // if the factory is empty, then we just copy files
-            factory = Factory.make(sourceFile.toString(), ".*");
+            // Simple case: not including exemplars, OR, it's not the main tree.
+            // We don't pull in exemplars for annotations, etc.
+            if (!INCLUDE_EXEMPLAR_TREE || !sourceFile.getName().equals("main")) {
+                factory = Factory.make(sourceFile.toString(), ".*");
+            } else {
+                final File exemplarsFile = new File(CLDRPaths.EXEMPLARS_DIRECTORY);
+                if (!exemplarsFile.isDirectory()) {
+                    throw new ICUUncheckedIOException(
+                            "Could not read exemplars directory: " + exemplarsFile);
+                }
+                // For more on this pattern:
+                // See: CLDRConfig.CommonAndSeedAndMainAndAnnotationsFactoryHelper
+                // See: SurveyMain.getDiskFactory()
+                final File[] paths = {
+                    sourceFile, // we'll call this 'common/main'
+                    exemplarsFile
+                };
+                System.out.println("# Including examplar tree. Using sources:");
+                for (File f : paths) {
+                    System.out.println("# Source dir: " + f);
+                }
+                factory = SimpleFactory.make(paths, ".*");
+
+                // Calculate the list of 'files' from the factory
+                sorted =
+                        new TreeSet<>(
+                                factory.getAvailable().stream()
+                                        .map(s -> s + ".xml")
+                                        .collect(Collectors.toSet()));
+            }
         }
+        if (sorted == null) {
+            // calculate the list from sourceFile.
+            // this is the old behavior.
+            String[] list = sourceFile.list();
+            sorted = (list == null) ? null : new TreeSet<>(Arrays.asList(list));
+        }
+
         boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
         boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
         boolean isAnnotationsDir =
@@ -331,38 +353,45 @@ public class GenerateProductionData {
         final Stats stats2 = new Stats();
         final Factory theFactory = factory;
         final boolean isLdmlDtdType2 = isLdmlDtdType;
-        if (sorted != null) {
-            sorted
-                    // .parallelStream()
-                    .forEach(
-                    file -> {
-                        File sourceFile2 = new File(sourceFile, file);
-                        File destinationFile2 = new File(destinationFile, file);
-                        if (VERBOSE) System.out.println("\t" + file);
+        if (sorted != null)
+            try (final ProgressTracker progress =
+                    new ProgressTracker(sourceFile.getName(), sorted.size()); ) {
+                sorted
+                        // .parallelStream()
+                        .forEach(
+                        file -> {
+                            progress.decrement();
+                            File sourceFile2 = new File(sourceFile, file);
+                            File destinationFile2 = new File(destinationFile, file);
+                            if (VERBOSE) System.out.println("\t" + file);
 
-                        // special step to just copy certain files like main/root.xml file
-                        Factory currFactory = theFactory;
-                        if (isMainDir) {
-                            if (file.equals("root.xml")) {
+                            // special step to just copy certain files like main/root.xml file
+                            Factory currFactory = theFactory;
+                            if (isMainDir) {
+                                if (file.equals("root.xml")) {
+                                    currFactory = null;
+                                }
+                            } else if (isRbnfDir) {
                                 currFactory = null;
                             }
-                        } else if (isRbnfDir) {
-                            currFactory = null;
-                        }
 
-                        // when the currFactory is null, we just copy files as-is
-                        boolean isEmpty =
-                                copyFilesAndReturnIsEmpty(
-                                        sourceFile2,
-                                        destinationFile2,
-                                        currFactory,
-                                        isLdmlDtdType2,
-                                        stats2);
-                        if (isEmpty) { // only happens for ldml
-                            emptyLocales.add(getLocaleIdFromFileName(file));
-                        }
-                    });
-        }
+                            // when the currFactory is null, we just copy files as-is
+                            boolean isEmpty =
+                                    copyFilesAndReturnIsEmpty(
+                                            sourceFile2,
+                                            destinationFile2,
+                                            currFactory,
+                                            isLdmlDtdType2,
+                                            stats2);
+                            if (isEmpty) { // only happens for ldml
+                                emptyLocales.add(getLocaleIdFromFileName(file));
+                            }
+                        });
+            } catch (Exception e) {
+                throw new ICUUncheckedIOException(
+                        "Progress failed copying " + sourceFile.getName(), e);
+            }
+
         stats2.showNonZero("\tTOTAL:\t");
         // if there are empty ldml files, AND we aren't in /main/,
         // then remove any without children
@@ -683,7 +712,9 @@ public class GenerateProductionData {
         }
         Set<String> sorted = new TreeSet<>(Arrays.asList(list));
         Factory factory = Factory.make(destDir.toString(), ".*");
-        sorted.forEach(file -> doubleCheckLocale(destDir, file, factory));
+        sorted.stream()
+                .filter(localeId -> (FILE_MATCH == null || FILE_MATCH.reset(localeId).matches()))
+                .forEach(file -> doubleCheckLocale(destDir, file, factory));
     }
 
     private static void doubleCheckLocale(File destDir, String file, Factory factory) {

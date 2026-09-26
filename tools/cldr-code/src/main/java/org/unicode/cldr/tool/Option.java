@@ -39,6 +39,7 @@ public class Option {
     // private final Enum<?> optionEnumValue;
     private boolean doesOccur;
     private String value;
+    private boolean isBoolean = false;
 
     /**
      * Arguments for setting up options. Migration from UOption.create("generate_html", 'g',
@@ -54,6 +55,17 @@ public class Option {
         private String defaultArgument = null;
         private String helpString = null;
         private char flag = 0;
+        private boolean isBoolean = false;
+
+        /**
+         * mark as a boolean option. Use getBooleanValue() to retrieve. by default it is false,
+         * unless present: - missing ( false ) - --option (true ) --option=true ( true)
+         * --option=false (false)
+         */
+        public Params setBoolean() {
+            isBoolean = true;
+            return setDefault("true").setMatch("true|false");
+        }
 
         /**
          * @param match the match to set
@@ -109,6 +121,23 @@ public class Option {
         return value;
     }
 
+    public String valueToString() {
+        if (isBoolean) {
+            return getBooleanValue() ? "true" : "false";
+        } else {
+            return value;
+        }
+    }
+
+    /** true if present */
+    public Boolean getBooleanValue() {
+        if (doesOccur()) {
+            return "true".equalsIgnoreCase(getValue());
+        } else {
+            return false;
+        }
+    }
+
     public String getExplicitValue() {
         return doesOccur ? value : null;
     }
@@ -135,7 +164,8 @@ public class Option {
                 (optionEnumValue.name().charAt(0)),
                 null,
                 null,
-                helpText);
+                helpText,
+                false);
     }
 
     public Option(
@@ -149,7 +179,8 @@ public class Option {
                 (optionEnumValue.name().charAt(0)),
                 Pattern.compile(argumentPattern),
                 defaultArgument,
-                helpText);
+                helpText,
+                false);
     }
 
     public Option(
@@ -158,7 +189,8 @@ public class Option {
             Character flag,
             Object argumentPatternIn,
             String defaultArgument,
-            String helpString) {
+            String helpString,
+            boolean isBoolean) {
         Pattern argumentPattern = getPattern(argumentPatternIn);
 
         if (defaultArgument != null && argumentPattern != null) {
@@ -175,6 +207,7 @@ public class Option {
         this.tag = tag;
         this.flag = flag;
         this.defaultArgument = defaultArgument;
+        this.isBoolean = isBoolean;
     }
 
     public Option(Enum<?> optionEnumValue, Params optionList) {
@@ -184,7 +217,8 @@ public class Option {
                 optionList.flag != 0 ? optionList.flag : optionEnumValue.name().charAt(0),
                 optionList.match,
                 optionList.defaultArgument,
-                optionList.helpString);
+                optionList.helpString,
+                optionList.isBoolean);
     }
 
     private static Pattern getPattern(Object match) {
@@ -311,7 +345,8 @@ public class Option {
                     optionEnumValue.name().charAt(0),
                     argumentPattern,
                     defaultArgument,
-                    helpText);
+                    helpText,
+                    false);
             return get(optionEnumValue.name());
             // TODO cleanup
         }
@@ -322,7 +357,7 @@ public class Option {
                 Object argumentPattern,
                 String defaultArgument,
                 String helpText) {
-            return add(null, string, flag, argumentPattern, defaultArgument, helpText);
+            return add(null, string, flag, argumentPattern, defaultArgument, helpText, false);
         }
 
         public Options add(
@@ -331,7 +366,8 @@ public class Option {
                 Character flag,
                 Object argumentPattern,
                 String defaultArgument,
-                String helpText) {
+                String helpText,
+                boolean isBoolean) {
             Option option =
                     new Option(
                             optionEnumValue,
@@ -339,7 +375,8 @@ public class Option {
                             flag,
                             argumentPattern,
                             defaultArgument,
-                            helpText);
+                            helpText,
+                            isBoolean);
             return add(optionEnumValue, option);
         }
 
@@ -457,7 +494,7 @@ public class Option {
                                     + "\t"
                                     + option.tag
                                     + (option.doesOccur ? "\t≔\t" : "\t≝\t")
-                                    + option.value);
+                                    + option.valueToString());
                 }
             }
             return results;

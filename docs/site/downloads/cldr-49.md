@@ -271,11 +271,11 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18624]: https://unicode-org.atlassian.net/browse/CLDR-18624
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
-[CLDR-19086]: https://unicode-org.atlassian.net/browse/CLDR-19086
 [CLDR-19143]: https://unicode-org.atlassian.net/browse/CLDR-19143
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
 [CLDR-19752]: https://unicode-org.atlassian.net/browse/CLDR-19752
 [CLDR-19757]: https://unicode-org.atlassian.net/browse/CLDR-19757
+[CLDR-19806]: https://unicode-org.atlassian.net/browse/CLDR-19806
 [Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
 [UTS #35]: https://www.unicode.org/reports/tr35/
 [UTS #61]: https://www.unicode.org/reports/tr61/

@@ -36,8 +36,8 @@ The most significant changes in this release are:
 - Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
 - Updates to the most recent versions of external standards and data sources,
 such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
- 
-Note: Some features are in *Technical Preview*, 
+
+Note: Some features are in *Technical Preview*,
 while others were included in dot releases of 48 and may be new for implementers that didn't update beyond version 48.0.
 
 For more details, see below.
@@ -98,7 +98,7 @@ Added:
 - `dayOfMonth` (and parent elements) for days that are not purely numeric. This is used for ordinal dates, like “Sept 13th, 2026”. *Technical Preview*
 - `Date-Timezone` and `Time-Day-Of-Week` as fallback options for `appendItem` in dates.
 - `intervalFormatRange` for constructing ranges (used internally for consistency checks).
-- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031). *Technical Preview* 
+- `numericDateSeparator` and `numericTimeSeparator` for customization of numeric dates and times (3-10-2031 → 3/10/2031). *Technical Preview*
 - `alt` (alternative) forms of `gmtFormat` and `gmtUnknownFormat` to request use of localized equivalents of the term “UTC” instead of “GMT” (limited locales).
 - `dualOffsetFormat` so that the Localized GMT format can express differences more clearly (eg, Los Angeles → GMT-8/-7; Phoenix → GMT-7; Denver → GMT-7/-6).
 - `typeValue` for localized menus with locale ID options.
@@ -126,11 +126,11 @@ Updates for:
 - Currencies
 - Deprecation of Japanese eras (pre Meiji)
 - Time preferences (12 vs 24, day periods)
-    - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time 
+    - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 - Number Spellout: Added or improved RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more.
 See [RBNF tickets for full list][].
-- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview* 
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview*
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
@@ -182,13 +182,13 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 * Improved the ability to search for items including: value, English value, code.
 * Improved display and editing of hidden and ambiguous characters in the Survey Tool.
 * Updated the [Datetime](https://st.unicode.org/cldr-apps/v#r_datetime/ar//) and [Numbers](https://st.unicode.org/cldr-apps/v#r_compact/ar//) report so that vetters can see formats with both native digits and in the Latin script for locales in a script that has native digits that are still commonly used.
-* Added a [category of "New" in the Dashboard](/translation/getting-started/vetting-view#dashboard-categories) and Vetting participation to make it easier for vetters to see which items did not have a winning value in the previous release and thus are "New" in the current release. 
+* Added a [category of "New" in the Dashboard](/translation/getting-started/vetting-view#dashboard-categories) and Vetting participation to make it easier for vetters to see which items did not have a winning value in the previous release and thus are "New" in the current release.
 * Made it easier to see which items have forum posts in the voting view. 👁️‍🗨️ if there are any open discussions, and 💬 if there are discussions, but all are closed.
 * The Survey Tool has been revised to display a candidate item in the Winning column if it is currently winning, even if it has the status “missing” due to it not having enough recorded votes. Previously, such items were shown in the Others column. Items with the status “missing” may still be published in the final release.
 * Automatically generate minimal pair items based on a locale's plurals and ordinals so vetters can contribute data in the Survey Tool instead of requiring changes in XML.
 * Updated voting for [non-TC CLDR Organizations](/index/survey-tool/cldr-organization). We now calculate the winning vote for a non-TC organization to be the value with the most votes (instead of the most recent vote, as we do for TC organizations).
 * Improved error detection:
-  * Improved detection of non-date pattern characters in dates and times that are not marked as literals appropriately.  
+  * Improved detection of non-date pattern characters in dates and times that are not marked as literals appropriately.
   * Enabled tests to catch collisions in emoji short names and metazone names.
   * Fixed an issue where collisions were only visible if 3 items were colliding.
   * Improved consistency of error visibility between Survey Tool components (e.g. Dashboard, Voting View & Info Panel).
@@ -214,7 +214,13 @@ The following changes have been made in CLDR 49. Please plan accordingly to avoi
 
 - The pre-Meiji Japanese eras were removed:
 There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
- 
+
+- The .zip data file (production data) no longer includes data for locales not yet at Basic level. [CLDR-19143]  As noted below, this data is slated for removal from CLDR if the data does not progress.  [CLDR-16004]
+
+  - If you are able to contribute data to bring the locale to Basic, please do so, especially if as part of a [CLDR Organization].
+  - A new zip file named `cldr-all-49.zip` includes all locales, including from exemplar. This is a new data file, please provide your feedback [CLDR-19806]
+  - These 94 locales are being removed from the data: Abkhazian `ab`, Afar `aa`, Akoose `bss`, Aragonese `an`, Atsam `cch`, Azeri (Arabic) `az_Arab`, Bakhtiari `bqi`, Baluchi `bal`, Bambara (N’Ko) `bm_Nkoo`, Betawi `bew`, Blin `byn`, Brahui `brh`, Caddo `cad`, Chickasaw `cic`, Chinese (Latin) `zh_Latn`, Choctaw `cho`, Church Slavic `cu`, Corsican `co`, Divehi `dv`, English (Deseret) `en_Dsrt`, English (Shavian) `en_Shaw`, Erzya `myv`, Geez `gez`, Guarani `gn`, Haitian Creole `ht`, Hausa (Arabic) `ha_Arab`, Hmong Daw `mww`, Hmong Njua `hnj`, Hunsrik `hrx`, Ido `io`, Interslavic `isv`, Interslavic (Cyrillic) `isv_Cyrl`, Inuktitut `iu`, Inuktitut (Latin) `iu_Latn`, Jju `kaj`, Kaitag `xdq`, Kara-Kalpak `kaa`, Kara-Kalpak (Latin) `kaa_Latn`, Kenyang `ken`, Kpelle `kpe`, Kurdish (Arabic) `ku_Arab`, Latgalian `ltg`, Latin `la`, Laz `lzz`, Levantine Arabic `apc`, Lojban `jbo`, Lule Sami `smj`, Malay (Arabic) `ms_Arab`, Manipuri (Meitei Mayek) `mni_Mtei`, Mapuche `arn`, Mara `mrh`, Mi'kmaw `mic`, Mòcheno `mhn`, Mohawk `moh`, Moksha `mdf`, Mongolian (Mongolian) `mn_Mong`, Moroccan Arabic `ary`, Muscogee `mus`, Navajo `nv`, Northern Frisian `frr`, Nyanja `ny`, Obolo `ann`, Okanagan `oka`, Osage `osa`, Pali `pi`, Papiamento `pap`, Pijin `pis`, Riffian `rif`, Rohingya `rhg`, Saho `ssy`, Samogitian `sgs`, Santali (Devanagari) `sat_Deva`, Saraiki `skr`, Sidamo `sid`, Skolt Sami `sms`, South Ndebele `nr`, Southern Kurdish `sdh`, Southern Sami `sma`, Sunwar `suz`, Susu `sus`, Swati `ss`, Tai Dam `blt`, Taroko `trv`, Tigre `tig`, Tok Pisin `tpi`, Torwali `trw`, Tsonga `ts`, Tyap `kcg`, Venda `ve`, Volapük `vo`, Walloon `wa`, Warlpiri `wbp`, Western Balochi `bgn`, Wolaytta `wal`
+
 ### Advanced warnings CLDR 50 and beyond
 
 The following changes are planned for CLDR 50. Please plan accordingly to avoid disruption.
@@ -265,6 +271,8 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18624]: https://unicode-org.atlassian.net/browse/CLDR-18624
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
+[CLDR-19086]: https://unicode-org.atlassian.net/browse/CLDR-19086
+[CLDR-19143]: https://unicode-org.atlassian.net/browse/CLDR-19143
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
 [CLDR-19752]: https://unicode-org.atlassian.net/browse/CLDR-19752
 [CLDR-19757]: https://unicode-org.atlassian.net/browse/CLDR-19757
@@ -281,3 +289,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Keyboard Spec Changes in v49]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#keyboards
 [CLDR-19774]: https://unicode-org.atlassian.net/browse/CLDR-19774
 [pathcoverage]: https://github.com/unicode-org/cldr/blob/main/common/pathCoverage/README.md
+[CLDR Organization]: https://cldr.unicode.org/index/survey-tool/cldr-organization

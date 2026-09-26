@@ -82,6 +82,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`Currencies`](tr35-numbers.md#Currencies) Revised the `numberFormat` description for currencies.
 <!-- CLDR-18963 -->
+* [`currencyFormats`](tr35-numbers.md#Currency_Formats) Clarified that formatting ISO 4217 currency codes uses the standard `<currencyFormat>` pattern (`alt="alphaNextToNumber"` if present).
+<!-- CLDR-19649 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
 

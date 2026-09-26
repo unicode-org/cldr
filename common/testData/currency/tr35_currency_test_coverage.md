@@ -14,13 +14,10 @@ For each deep-linked currency section in UTS #35:
 | :--- | :--- |
 | Specification text (`docs/ldml/tr35-numbers.md`) | `f18139dfa2` (PR [#6169](https://github.com/unicode-org/cldr/pull/6169)) |
 | CLDR data (`common/main`, `common/supplemental`) | `f18139dfa2` |
-| Generator and TSV files (PR [#5808](https://github.com/unicode-org/cldr/pull/5808)) | `604c2bb2ac` |
-| ICU4J that produced the TSV `expected` values | `79.0.1-20260318.053439-2` |
+| Generator and TSV files (PR [#5808](https://github.com/unicode-org/cldr/pull/5808)) | `5e1d4b0ee3` |
+| ICU4J that produced the TSV `expected` values | `79.0.1-20260723.162400-4` (pinned in `tools/pom.xml` at `5e1d4b0ee3`) |
 
-Expected values in the breakdown tables are derived from the CLDR data and the specification, and cross-checked with ICU4J `78.3`.
-
-> [!NOTE]
-> PR #5808 is being rebased onto the ICU4J version pinned on `main` (`79.0.1-20260723.162400-4`), and its TSV files will be regenerated. The pinned inputs and witness rows will be updated then.
+Expected values in the breakdown tables are derived from the CLDR data and the specification, and cross-checked with the same ICU4J version.
 
 ### Coverage Status
 
@@ -110,7 +107,7 @@ The generator produces 12 styles (valid combinations of `currency_format_length`
 | **S1.4** | `locale` without `<currencyGroup>` × class A × `input` ≥ 1000 | ✅ **Covered** | W1.4 rows below. |
 | **S1.5** | Parsing | ⚪ **Out of scope** | — |
 
-**Witness rows** from `currencies.tsv` at `604c2bb2ac` (all with `currency_format_length = ""`, `currency_format_type = "standard"`, `currency_display = "symbol"`):
+**Witness rows** from `currencies.tsv` at `5e1d4b0ee3` (all with `currency_format_length = ""`, `currency_format_type = "standard"`, `currency_display = "symbol"`):
 
 | Row | `locale` | `currency` | `input` | `expected` | Escaped |
 | :---: | :--- | :--- | ---: | :--- | :--- |

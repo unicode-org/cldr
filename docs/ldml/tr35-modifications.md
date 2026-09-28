@@ -90,6 +90,13 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
+### Collation
+
+[Part 5: Collation](tr35-collation.md#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0:
+* The UCA DUCET now also includes the ten Tibetan contractions that had been added earlier in CLDR.
+* As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET. (There is still a difference in the default sets of “variable” characters, and CLDR defines a tailoring mechanism and additional features.)
+* The UCA now has the same mappings and behavior for U+FFFE and U+FFFF which had been defined earlier in CLDR.
+
 ### Keyboard
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.
 * [Default Backspace Transform](tr35-keyboards.md#default-backspace-transform) Normalization for the default backspace transform was clarified,

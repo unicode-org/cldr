@@ -81,7 +81,7 @@ The following are the most significant changes to the specification (LDML), asid
 - In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) will be updated to accurately reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-54.html#Modifications) as part of Unicode 18.0.
+- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
 - Revised the `numberFormat` description.
 - For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat

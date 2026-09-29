@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -33,6 +34,7 @@ import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
@@ -51,6 +53,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
+@CLDRTool(
+        alias = "production",
+        description = "Produces the final output .xml for release",
+        url = "https://cldr.unicode.org/tool/GenerateProductionData")
 public class GenerateProductionData {
     private static boolean DEBUG = false;
     private static boolean VERBOSE = false;
@@ -111,7 +117,11 @@ public class GenerateProductionData {
         verbose(new Params().setHelp("verbose debugging messages")),
         Debug(new Params().setHelp("debug")),
         fileMatch(new Params().setHelp("regex to match patterns").setMatch(".*")),
-        ;
+        delta(
+                new Params()
+                        .setHelp("delete files not present in this directory")
+                        .setMatch(".*")
+                        .setFlag('∂'));
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -133,7 +143,7 @@ public class GenerateProductionData {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO rbnf and segments don't have modern coverage; fix there.
 
         MyOptions.parse(args);
@@ -162,40 +172,74 @@ public class GenerateProductionData {
         // get directories
 
         Map<File, File> specialDirectories = new TreeMap<>();
+        if (!MyOptions.delta.option.doesOccur()) {
+            Arrays.asList(DtdType.values())
+                    // .parallelStream()
+                    // .unordered()
+                    .forEach(
+                            type -> {
+                                boolean isLdmlDtdType = type == DtdType.ldml;
 
-        Arrays.asList(DtdType.values())
-                // .parallelStream()
-                // .unordered()
-                .forEach(
-                        type -> {
-                            boolean isLdmlDtdType = type == DtdType.ldml;
+                                // bit of a hack, using the ldmlICU — otherwise unused! — to get the
+                                // nonXML files.
+                                Set<String> directories =
+                                        (type == DtdType.ldmlICU) ? NON_XML : type.directories;
 
-                            // bit of a hack, using the ldmlICU — otherwise unused! — to get the
-                            // nonXML files.
-                            Set<String> directories =
-                                    (type == DtdType.ldmlICU) ? NON_XML : type.directories;
-
-                            for (String dir : directories) {
-                                File sourceDir = new File(SOURCE_COMMON_DIR, dir);
-                                File destinationDir = new File(DEST_COMMON_DIR, dir);
-                                Stats stats = new Stats();
-                                copyFilesAndReturnIsEmpty(
-                                        sourceDir, destinationDir, null, isLdmlDtdType, stats);
-                                if (directoryIsSpecial(sourceDir.getAbsolutePath())) {
-                                    specialDirectories.put(sourceDir, destinationDir);
+                                for (String dir : directories) {
+                                    File sourceDir = new File(SOURCE_COMMON_DIR, dir);
+                                    File destinationDir = new File(DEST_COMMON_DIR, dir);
+                                    Stats stats = new Stats();
+                                    copyFilesAndReturnIsEmpty(
+                                            sourceDir, destinationDir, null, isLdmlDtdType, stats);
+                                    if (directoryIsSpecial(sourceDir.getAbsolutePath())) {
+                                        specialDirectories.put(sourceDir, destinationDir);
+                                    }
                                 }
+                            });
+
+            for (File source : specialDirectories.keySet()) {
+                File dest = specialDirectories.get(source);
+                doubleCheckSpecialPaths(source, dest);
+            }
+            if (!skippedPreBasicLocales.isEmpty()) {
+                System.out.println(
+                        "The following non-ICU pre-Basic locales were skipped: "
+                                + skippedPreBasicLocales);
+            }
+        }
+        if (MyOptions.delta.option.doesOccur()) {
+            processDelta(DEST_COMMON_DIR, MyOptions.delta.option.getValue());
+        }
+    }
+
+    private static void processDelta(String destCommon, String deltaCommon) throws IOException {
+        System.out.println("------ removing delta from " + deltaCommon);
+        Path destParent = Path.of(destCommon).getParent();
+        Path deltaParent = Path.of(deltaCommon).getParent();
+
+        java.nio.file.Files.walk(destParent)
+                .forEach(
+                        path -> {
+                            if (!path.toFile().isFile()) return; // only care about files
+
+                            // System.out.println(path.toFile().getAbsolutePath());
+                            /** path from static prefix */
+                            final String rel =
+                                    path.toFile()
+                                            .getAbsolutePath()
+                                            .substring(
+                                                    destParent
+                                                            .toFile()
+                                                            .getAbsolutePath()
+                                                            .toString()
+                                                            .length());
+                            final Path pathInDelta = new File(deltaParent.toFile(), rel).toPath();
+
+                            if (pathInDelta.toFile().isFile()) {
+                                // already exists in delta
+                                path.toFile().delete();
                             }
                         });
-
-        for (File source : specialDirectories.keySet()) {
-            File dest = specialDirectories.get(source);
-            doubleCheckSpecialPaths(source, dest);
-        }
-        if (!skippedPreBasicLocales.isEmpty()) {
-            System.out.println(
-                    "The following non-ICU pre-Basic locales were skipped: "
-                            + skippedPreBasicLocales);
-        }
     }
 
     private static class Stats {

@@ -554,6 +554,87 @@ Currency strings of the CORE values, resolved through the locale chain (skipping
 
 ---
 
+## Section 8: Placement of the Currency Symbol Placeholder (`#Currency_Placeholder_Placement`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#Currency_Placeholder_Placement`](../../../docs/ldml/tr35-numbers.md#Currency_Placeholder_Placement) (UTS #35 Part 3, Section 3.2: *Special Pattern Characters*; L715–L721 at `f18139dfa2`)
+* **Related specification text**: L702 and L707–L711 (a pattern has a positive subpattern and may have a negative one; without one, the negative subpattern is the positive one with a `-` prefix), L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders); see Section 7), L555–L557 ([`alt="noCurrency"`](../../../docs/ldml/tr35-numbers.md#currency-noCurrency), patterns without a placeholder; see Section 5), and L1035–L1037 ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-custom-decimal-group): a currency can have its own decimal separator)
+
+### 8.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> <a name="Currency_Placeholder_Placement"></a>A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
+>
+> | Placement | Examples                                                                         |
+> |-----------|----------------------------------------------------------------------------------|
+> | Before    | "¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" … |
+> | After     | "#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" … |
+> | Decimal   | "#,##0¤00"                                                                       |
+
+---
+
+### 8.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** The resolved non-compact patterns of the CORE locales, for their default numbering system (see Sections 3 and 4):
+
+| Locale | `type="standard"` | `type="accounting"` | `alt="alphaNextToNumber"` |
+| :--- | :--- | :--- | :--- |
+| `en`, `ja` | `¤#,##0.00` | `¤#,##0.00;(¤#,##0.00)` | `¤ #,##0.00` / `"¤\u00A0#,##0.00"` and `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` |
+| `de_CH` | `¤ #,##0.00;¤-#,##0.00` / `"¤\u00A0#,##0.00;¤-#,##0.00"` | The same as the standard pattern | The same |
+| `fy` | `¤ #,##0.00;¤ #,##0.00-` / `"¤\u00A0#,##0.00;¤\u00A0#,##0.00-"` | `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` | The same |
+| `de`, `ru` | `#,##0.00 ¤` / `"#,##0.00\u00A0¤"` | The same as the standard pattern | The same |
+| `pt_PT` | `#,##0.00 ¤` / `"#,##0.00\u00A0¤"` | `#,##0.00 ¤;(#,##0.00 ¤)` / `"#,##0.00\u00A0¤;(#,##0.00\u00A0¤)"` | The same |
+| `bn` | `#,##,##0.00¤` | `#,##,##0.00¤;(#,##,##0.00¤)` | `#,##,##0.00 ¤` / `"#,##,##0.00\u00A0¤"` and `#,##,##0.00 ¤;(#,##,##0.00 ¤)` / `"#,##,##0.00\u00A0¤;(#,##,##0.00\u00A0¤)"` |
+| `ar` | `‏#,##0.00 ¤;‏-#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤;\u200F-#,##0.00\u00A0¤"` | `؜#,##0.00¤;(؜#,##0.00¤)` / `"\u061C#,##0.00¤;(\u061C#,##0.00¤)"` | Standard: the same; accounting: `؜#,##0.00 ¤;(؜#,##0.00 ¤)` / `"\u061C#,##0.00\u00A0¤;(\u061C#,##0.00\u00A0¤)"` |
+| `ar_EG` (`arab`) | `‏#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤"` | The same as the standard pattern | The same |
+
+A scan of the resolved patterns of every locale in `common/main` (the positive and negative subpatterns of the standard and accounting patterns and of their `alt="alphaNextToNumber"` variants, for the default numbering system; bidi marks are ignored, and any space character counts as a space) finds the examples of the snippet in these locales:
+
+| Example (L719–L721) | CORE locales | Extended locales | Other locales |
+| :--- | :--- | :--- | :--- |
+| `"¤#,##0.00"` | `en`, `ja` | 44, such as `af` and `en_GB` | 324 |
+| `"¤ #,##0.00"` | `de_CH`, `fy`; `en` and `ja` (`alt="alphaNextToNumber"`) | 55 | 731 |
+| `"¤-#,##0.00"` | `de_CH` (negative subpattern) | `lo` | 10, such as `es_CL` and `it_CH` |
+| `"¤ -#,##0.00"` | — | `nl` | 13, such as `es_PY` and `nl_BE` |
+| `"-¤#,##0.00"` | `en`, `ja` (implicit negative subpattern) | 40 | 302 |
+| `"-¤ #,##0.00"` | `en`, `ja` (`alt="alphaNextToNumber"`) | 51 | 700 |
+| `"#,##0.00¤"` | `bn`; `ar` (accounting) | `km`, `uz` | 56 |
+| `"#,##0.00 ¤"` | `ar`, `ar_EG`, `de`, `pt_PT`, `ru`; `bn` (`alt="alphaNextToNumber"`) | 45 | 332 |
+| `"#,##0.00-¤"`, `"#,##0.00- ¤"`, `"#,##0.00¤-"`, `"#,##0.00 ¤-"` | — | — | — |
+| `"#,##0¤00"` | — | — | — |
+
+No pattern, compact or not, has `¤` between digits. Every non-compact currency pattern has a `¤`, except the `alt="noCurrency"` patterns (Section 5).
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S8.1** | *"A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤)."* | • **S8.1a**: any `¤` display: the pattern has a placeholder<br>• **S8.1b**: `currency_display = "noCurrency"`: the pattern has none | • S8.1a: CLDR patterns have `¤`, and `currency_display` chooses what replaces it (Section 7): `en` USD 1.2 → `$1.20`.<br>• S8.1b: the `alt="noCurrency"` pattern (Section 5): `en` USD 1.2 → `1.20`. |
+| **S8.2** | *"The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette")."* | • **S8.2a**: `¤` before the first digit (`en`)<br>• **S8.2b**: `¤` after the last digit (`de`)<br>• **S8.2c**: `¤` where the decimal separator would be | • S8.2a: `en` USD 1.2 → `$1.20`.<br>• S8.2b: `de` EUR 1.2 → `1,20 €` / `"1,20\u00A0€"`.<br>• S8.2c: no CLDR data (see 8.4). |
+| **S8.3** | *Before*: *"¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" …* | `currency_display = "symbol"` × a `locale` with:<br>• **S8.3a**: `"¤#,##0.00"` (`en`)<br>• **S8.3b**: `"¤ #,##0.00"` (`de_CH`; `en` × a symbol that ends with a letter)<br>• **S8.3c**: `"¤-#,##0.00"` (`de_CH` × a negative `input`)<br>• **S8.3d**: `"¤ -#,##0.00"` (`nl` × a negative `input`)<br>• **S8.3e**: `"-¤#,##0.00"` (`en` × a negative `input`)<br>• **S8.3f**: `"-¤ #,##0.00"` (`en` × a symbol that ends with a letter × a negative `input`) | • S8.3a: `en` USD 1.2 → `$1.20`.<br>• S8.3b: `de_CH` USD 1.2 → `$ 1.20` / `"$\u00A01.20"`; `en` RUB 1.2 → `RUB 1.20` / `"RUB\u00A01.20"`.<br>• S8.3c: `de_CH` USD −1230.05 → `$-1'230.05`.<br>• S8.3d: `nl` EUR −1230.05 → `€ -1.230,05` / `"€\u00A0-1.230,05"`.<br>• S8.3e: `en` USD −1230.05 → `-$1,230.05`.<br>• S8.3f: `en` RUB −1230.05 → `-RUB 1,230.05` / `"-RUB\u00A01,230.05"`. |
+| **S8.4** | *After*: *"#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" …* | `currency_display = "symbol"` × a `locale` with:<br>• **S8.4a**: `"#,##0.00¤"` (`ar` × `currency_format_type = "accounting"` × a symbol that does not start with a letter; `bn`)<br>• **S8.4b**: `"#,##0.00 ¤"` (`de`)<br>• **S8.4c**: a minus sign after the number: `"#,##0.00-¤"`, `"#,##0.00- ¤"`, `"#,##0.00¤-"`, `"#,##0.00 ¤-"` | • S8.4a: `ar` accounting EUR 1.2 → `؜1.20€` / `"\u061C1.20€"`.<br>• S8.4b: `de` EUR 1.2 → `1,20 €` / `"1,20\u00A0€"`.<br>• S8.4c: no CLDR data. |
+| **S8.5** | *Decimal*: *"#,##0¤00"* | `¤` where the decimal separator would be | No CLDR data (as S8.2c). |
+
+---
+
+### 8.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S8.1a** | Any `¤` display | ✅ **Covered** | CORE values: `"symbol"`, `"symbolNarrow"`, and `"code"`. |
+| **S8.1b** | `currency_display = "noCurrency"` | ✅ **Covered** | CORE value (see S5.1a–e). |
+| **S8.2a**, **S8.3a–c**, **S8.3e–f** | `¤` before the number, with the minus sign before `¤` or between `¤` and the number | ✅ **Covered** | CORE values: `en` and `de_CH` in `CORE_LOCALES`; `USD` and `RUB` in `CORE_CURRENCIES`; `1.2` and `-1230.05` in `CORE_NUMBERS`. |
+| **S8.2b**, **S8.4a–b** | `¤` after the number | ✅ **Covered** | CORE values: `ar`, `bn`, and `de`; `EUR`; `"accounting"`; `1.2`. |
+| **S8.3d** | `locale = "nl"` × a negative `input` | 🟡 **Missing: `locale` in CORE** | `nl` is an extended locale value: `currencies_modern_locales.tsv` combines it with its own currencies and `TINY_NUMBERS`. No CORE locale has a space between `¤` and the minus sign. **Action**: add `"nl"` to `CORE_LOCALES` (see the Summary). |
+| **S8.2c**, **S8.5** | `¤` where the decimal separator would be | ⚪ **Out of scope** | No CLDR data. |
+| **S8.4c** | `¤` and a minus sign after the number | ⚪ **Out of scope** | No CLDR data. |
+
+### 8.4 Notes
+
+* **"12€50"** (S8.2c, S8.5): CLDR has no pattern with `¤` between digits. A similar result comes from a currency's own decimal separator ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-custom-decimal-group)): `pt_CV` and `kea` give CVE the decimal separator `$` and the symbol U+200B ZERO WIDTH SPACE, so `pt_CV` CVE 12.5 → `"12$50\u00A0\u200B"`. `pt_PT` does the same for the former currency PTE.
+* **Spaces** (S8.3–S8.4): the examples have a U+0020 SPACE between `¤` and the number; CLDR patterns have U+00A0 NO-BREAK SPACE there.
+* **The minus sign** (S8.3c–f, S8.4c): in CLDR data, a minus sign between `¤` and the number comes only from explicit negative subpatterns (`de_CH`, `lo`, `nl`), and a minus sign after the number only from `fy`'s `¤ #,##0.00-` / `"¤\u00A0#,##0.00-"`. With an implicit negative subpattern, the minus sign comes first (`-¤#,##0.00`, `-#,##0.00 ¤` / `"-#,##0.00\u00A0¤"`).
+* **Other shapes** (the "…" of the table): CLDR data also has parentheses (`(¤#,##0.00)` in `en` and `ja`, `(¤ #,##0.00)` / `"(¤\u00A0#,##0.00)"` in `fy`, `(#,##0.00 ¤)` / `"(#,##0.00\u00A0¤)"` in `pt_PT`, and `(#,##0.00¤)` in `ar` and `bn`, all accounting patterns), and, in locales that are neither CORE nor extended values, `(#,##0.00) ¤` (`co`) and `¤- #,##0.00` (`luy`).
+* **Bidi marks** (S8.4): the patterns of `ar` start with U+200F RIGHT-TO-LEFT MARK or U+061C ARABIC LETTER MARK; the scan ignores them.
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
@@ -567,7 +648,8 @@ Currency strings of the CORE values, resolved through the locale chain (skipping
 | Add `"en_ZA"` to `CORE_LOCALES` (+300 rows): the only locale whose `alt="alphaNextToNumber"` pattern adds no space | S4.4b |
 | Generate `currency_format_length = "short"` with `currency_display = "noCurrency"` (and `currency_format_type = "standard"`) for the CORE values (+250 rows): the specification gives the result, the compact decimal format | S5.3a |
 | Add the `currency_pattern_append_iso` dimension with `true`, in a separate file: `TINY_LOCALES` and `"hi"` (whose pattern puts the ISO code first) × `CORE_CURRENCIES` × `TINY_NUMBERS` × `currency_display` = `"symbol"` and `"symbolNarrow"` × the 3 combinations of `currency_format_length` and `currency_format_type` that use them (+240 rows) | S6.1a–d, S6.2a–c, S6.3a–c |
+| Add `"nl"` to `CORE_LOCALES` (+300 rows): the only extended locale whose negative pattern has a space between `¤` and the minus sign (`¤ -#,##0.00` / `"¤\u00A0-#,##0.00"`) | S8.3d |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for each change alone. All changes except the `cf` and `currency_pattern_append_iso` dimensions add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 15 × 7 × 13 × 5 = 6,825. The 24 `cf` rows and the 240 `currency_pattern_append_iso` rows go in their own files.
+The row counts are for each change alone. All changes except the `cf` and `currency_pattern_append_iso` dimensions add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 16 × 7 × 13 × 5 = 7,280. The 24 `cf` rows and the 240 `currency_pattern_append_iso` rows go in their own files.

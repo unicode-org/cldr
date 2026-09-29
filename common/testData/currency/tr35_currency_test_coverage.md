@@ -48,7 +48,8 @@ Values at `5e1d4b0ee3`. `currencies.tsv` combines all CORE values with each othe
 | **`currency_display`** | How the currency is shown | `"symbol"`, `"symbolNarrow"`, `"code"`, `"name"`, `"noCurrency"` (generated with ICU4J `UnitWidth.HIDDEN`) | — |
 | **`input`** | Numeric currency amount | `CORE_NUMBERS`: `0.0`, `1.2`, `0.00831765`, `1234565.0`, `-1230.05` | 10ⁱ, 1.5 × 10ⁱ, and 5 × 10ⁱ for −6 ≤ i ≤ 12; `12`, `123`, `1234.56`, `1234567`, `0.000123`, `0.5`, `2.5`, `3.5`, `0.125`, `0.135`, `999.9`, `999999.9`; the negatives of all positive values, including the CORE ones; and `-0.0` (`getExtendedNumbers()` minus `CORE_NUMBERS`; `currencies_*_extended_numbers.tsv`) |
 | **`cf`** | `cf` key of the Unicode locale identifier, which selects the standard or accounting form ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier)) | **Needs to be added** (Section 3): `"standard"`, `"account"` | — |
-| **`currency_pattern_append_iso`** | Whether the result is combined with the ISO 4217 code through the locale's `currencyPatternAppendISO` pattern ([Combining Currency Symbols and ISO Codes](../../../docs/ldml/tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso)) | **Needs to be added** (Section 6): `true`, with `currency_display` = `"symbol"` or `"symbolNarrow"`; the current rows correspond to `false` | — |
+| **`currency_pattern_append_iso`** | Whether the result is combined with the ISO 4217 code through the locale's `currencyPatternAppendISO` pattern ([Combining Currency Symbols and ISO Codes](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso)) | **Needs to be added** (Section 6): `true`, with `currency_display` = `"symbol"` or `"symbolNarrow"`; the current rows correspond to `false` | — |
+| **`fraction_digits`** | Number of fraction digits requested through the API instead of the currency's number of decimals ([Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting), step 5.1) | **Needs to be added** (Section 9): `0`, with `currency_display = "name"`; the current rows use the currency's number of decimals | — |
 
 The generator produces 12 of the 20 combinations of `currency_format_length`, `currency_format_type`, and `currency_display`: it skips `"short"` with `"accounting"`, `"name"`, or `"noCurrency"`, and `"accounting"` with `"name"`. `"noCurrency"` is not combined with extended values. In the tables below, *any `¤` display* means `currency_display` = `"symbol"`, `"symbolNarrow"`, or `"code"`.
 
@@ -635,13 +636,157 @@ No pattern, compact or not, has `¤` between digits. Every non-compact currency 
 
 ---
 
+## Section 9: Formatting Currency Display Names (`#currency-unit-pattern-formatting`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-unit-pattern-formatting`](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting) (UTS #35 Part 3, Section 5.1: *Formatting Currency Display Names (`unitPattern`)*; L961–L1004 at `f18139dfa2`)
+* **Related specification text**: L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders): `¤¤¤` is the "Appropriate currency display name for the currency, based on the plural rules in effect for the locale"; see Section 7), L269–L275 ([`currencyDecimal` and `currencyGroup`](../../../docs/ldml/tr35-numbers.md#Currency_Symbols_Decimal_Group); see Section 1), L1047 (the number of decimal places of a currency is not locale data; see [Supplemental Currency Data](../../../docs/ldml/tr35-numbers.md#Supplemental_Currency_Data)), L1261 ("A source number represents the visual appearance of the digits of the result", in [Language Plural Rules](../../../docs/ldml/tr35-numbers.md#Language_Plural_Rules)), L469 (step 8 of compact formatting determines the plural category "based on the numeric precision settings"), and L1276–L1294 ([Explicit 0 and 1 rules](../../../docs/ldml/tr35-numbers.md#Explicit_0_1_rules): `count="0"` and `count="1"` apply to the exact values 0 and 1, and take precedence over `zero` and `one`)
+
+### 9.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> ### <a name="currency-unit-pattern-formatting" href="#currency-unit-pattern-formatting">Formatting Currency Display Names (`unitPattern`)</a>
+>
+> The `count` attribute distinguishes the different plural forms, such as in the following:
+>
+> ```xml
+> <currencyFormats>
+>     <unitPattern count="other">{0} {1}</unitPattern>
+>     …
+> </currencyFormats>
+> ```
+>
+> ```xml
+> <currency type="ZWD">
+>     <displayName>Zimbabwe Dollar</displayName>
+>     <displayName count="one">Zimbabwe dollar</displayName>
+>     <displayName count="other">Zimbabwe dollars</displayName>
+>     <symbol>Z$</symbol>
+> </currency>
+> ```
+>
+> Note on displayNames:
+> * In general the region portion of the displayName should match the territory name, see **Part 2** _[Locale Display Name Fields](../../../docs/ldml/tr35-general.md#locale_display_name_fields)_.
+> * As a result, the English currency displayName in CLDR may not match the name in ISO 4217.
+>
+> To format a particular currency value "ZWD" for a particular numeric value _n_ using the (long) display name:
+>
+> 1. If the numeric value is exactly 0 or 1, first see if there is a count with a matching explicit number (0 or 1). If so, use that string (see [Explicit 0 and 1 rules](../../../docs/ldml/tr35-numbers.md#Explicit_0_1_rules)).
+> 2. Otherwise, determine the `count` value that corresponds to _n_ using the rules in _[- Language Plural Rules](../../../docs/ldml/tr35-numbers.md#Language_Plural_Rules)_
+> 3. Next, get the currency unitPattern.
+>    1. Look for a `unitPattern` element that matches the `count` value, starting in the current locale and then following the locale fallback chain up to, but not including root.
+>    2. If no matching `unitPattern` element was found in the previous step, then look for a `unitPattern` element that matches `count="other"`, starting in the current locale and then following the locale fallback chain up to root (which has a `unitPattern` element with `count="other"` for every unit type).
+>    3. The resulting unitPattern element indicates the appropriate positioning of the numeric value and the currency display name.
+> 4. Next, get the `displayName` element for the currency.
+>    1. Look for a `displayName` element that matches the `count` value, starting in the current locale and then following the locale fallback chain up to, but not including root.
+>    2. If no matching `displayName` element was found in the previous step, then look for a `displayName` element that matches `count="other"`, starting in the current locale and then following the locale fallback chain up to, but not including root.
+>    3. If no matching `displayName` element was found in the previous step, then look for a `displayName` element with no count, starting in the current locale and then following the locale fallback chain up to root.
+>    4. If there is no `displayName` element, use the currency code itself (for example, "ZWD").
+> 5. Format the numeric value according to the locale. Use the locale’s `<decimalFormats …>` pattern, not the `<currencyFormats>` pattern that is used with the symbol (eg, Z$). As when formatting symbol currency values, reset the number of decimals according to the supplemental `<currencyData>` and use the currencyDecimal symbol if different from the decimal symbol.
+>    1. The number of decimals should be overridable in an API, so that clients can choose between “2 US dollars” and “2.00 US dollars”.
+> 6. Substitute the formatted numeric value for the {0} in the `unitPattern`, and the currency display name for the {1}.
+>
+> While for English this may seem overly complex, for some other languages different plural forms are used for different unit types; the plural forms for certain unit types may not use all of the plural-form tags defined for the language.
+>
+> For example, if the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars".
+
+---
+
+### 9.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** The currency `unitPattern` elements of the CORE locales, for their default numbering system (skipping `↑↑↑`, `draft="provisional"`, and `draft="unconfirmed"` values), and the plural categories of each locale (`common/supplemental/plurals.xml`):
+
+| Locale | `unitPattern` elements below `root` | Plural categories |
+| :--- | :--- | :--- |
+| `root` | `count="other"`: `{0} {1}` | — |
+| `en`, `fy` | `count="one"` and `count="other"`: `{0} {1}` | `one`, `other` |
+| `ja` | `count="other"`: `{0}{1}` | `other` |
+| `ar_EG` (`arab`) | `count` = `zero`, `one`, `two`, `few`, `many`, and `other`: `{0} {1}` (the `arab` data of `ar`) | `zero`, `one`, `two`, `few`, `many`, `other` |
+| `ar` (`latn`) | — | `zero`, `one`, `two`, `few`, `many`, `other` |
+| `bn`, `de`, `de_CH` | — | `one`, `other` |
+| `pt_PT` | — | `one`, `many`, `other` |
+| `ru` | — | `one`, `few`, `many`, `other` |
+
+Outside the CORE locales, `si` (`{1}{0}`) and `my` (`{1} {0}`), both extended locale values, and `blo` and `to` (`{1} {0}`) put the display name first. `ro`, an extended locale value, has `{0} {1}` for `count="one"` and `"few"` but `{0} de {1}` for `"other"`. No `unitPattern` or `displayName` in CLDR data has `count="0"` or `count="1"`.
+
+Display names of the CORE currencies in the CORE locales:
+* `en` and `pt_PT`: a name without `count` and names for `one` and `other` for all five currencies, such as `en` USD `US Dollar`, `US dollar`, and `US dollars`.
+* `de` (inherited by `de_CH`): JPY, RUB, and EGP have names for `one` and `other` (JPY `Japanischer Yen` and `Japanische Yen`); USD (`US-Dollar`) and EUR (`Euro`) have only the name without `count`.
+* `ru`: JPY, RUB, and EGP have names for `one`, `few`, `many`, and `other` (JPY `японская иена`, `японские иены`, `японских иен`, and `японской иены`); USD has `one`, `many`, and `other`, but no `few`; EUR (`евро`) has only the name without `count`.
+* `ar` (inherited by `ar_EG`): EGP has names for `two` (`جنيهان مصريان`), `few` (`جنيهات مصرية`), and `many` (`جنيهًا مصريًا`) and the name without `count` (`جنيه مصري`), but none for `zero`, `one`, or `other`; USD, EUR, JPY, and RUB have only the name without `count`.
+* `fy` EUR has a name for `other` (`euro`), and `ja` JPY one for `other` (`円`). The other currencies of `fy` and `ja`, and all currencies of `bn`, have only the name without `count`.
+
+Plural categories that the CORE inputs reach, with the currency's number of decimals applied (see 9.4):
+
+| Locale | Reached | Not reached |
+| :--- | :--- | :--- |
+| `ar`, `ar_EG` | `zero` (`0.0`), `one` (`JPY` × `1.2`, formatted as `1`), `many` (`1234565.0`), `other` (`1.2` with two decimals) | `two`, `few` |
+| `ru` | `one` (`JPY` × `1.2`), `many` (`JPY` × `1234565.0`), `other` (`1.2` with two decimals) | `few` |
+| `pt_PT` | `one` (`JPY` × `1.2`), `other` | `many` |
+| `bn`, `de`, `de_CH`, `en`, `fy` | `one` (`JPY` × `1.2`; in `bn` also `0.0`), `other` | — |
+| `ja` | `other` | — |
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S9.1** | *"The `count` attribute distinguishes the different plural forms, such as in the following:"* and the two XML samples (a `unitPattern` with `count="other"`, and the `displayName` elements of ZWD with and without `count`) | `currency_display = "name"` × inputs in different plural categories (`de` × `JPY` × `1.2` and `1234565.0`) | `de` JPY 1.2 → `1 Japanischer Yen` (`one`); 1234565.0 → `1.234.565 Japanische Yen` (`other`). The `unitPattern` sample is the value in `root`. |
+| **S9.2** | *"Note on displayNames:"*<br>• *"In general the region portion of the displayName should match the territory name, see Part 2 [Locale Display Name Fields](../../../docs/ldml/tr35-general.md#locale_display_name_fields)."*<br>• *"As a result, the English currency displayName in CLDR may not match the name in ISO 4217."* | — | Guidance for the display name data. |
+| **S9.3** | *"To format a particular currency value "ZWD" for a particular numeric value n using the (long) display name:"* | `currency_display = "name"` | The display name is the `¤¤¤` of Section 7: `en` USD 1.2 → `1.20 US dollars`. |
+| **S9.4** | Step 1: *"If the numeric value is exactly 0 or 1, first see if there is a count with a matching explicit number (0 or 1). If so, use that string (see [Explicit 0 and 1 rules](../../../docs/ldml/tr35-numbers.md#Explicit_0_1_rules))."* | • **S9.4a**: `input = 0.0` (e.g. `locale` = `en` or `ar`, `currency = "USD"`)<br>• **S9.4b**: `input = 1.0`<br>• **S9.4c**: a `displayName` or `unitPattern` with `count="0"` or `count="1"` | • S9.4a: there is no `count="0"` data, so step 2 applies: `en` USD 0.0 → `0.00 US dollars` (`other`); `ar` USD 0.0 → `0.00 دولار أمريكي` (`zero`).<br>• S9.4b: there is no `count="1"` data, so step 2 applies: `en` USD 1.0 → `1.00 US dollars` (`1.00` is `other` in English); `de` JPY 1.0 → `1 Japanischer Yen` (`one`).<br>• S9.4c: no CLDR data. |
+| **S9.5** | Step 2: *"Otherwise, determine the `count` value that corresponds to n using the rules in [- Language Plural Rules](../../../docs/ldml/tr35-numbers.md#Language_Plural_Rules)"* | • **S9.5a**: inputs that reach `zero`, `one`, `many`, and `other` (`ar` × `0.0`; `de` × `JPY` × `1.2`; `ru` × `JPY` × `1234565.0`; `en` × `USD` × `1.2`)<br>• **S9.5b**: `two` (`ar` × `EGP` × `2.0`)<br>• **S9.5c**: `few` (`ar` × `EGP` × `5.0`; `ru` × `JPY` × `2.0` or `123`)<br>• **S9.5d**: `many` in `pt_PT` (`pt_PT` × `JPY` × `1000000.0`) | • S9.5a: `ar` USD 0.0 → `0.00 دولار أمريكي` (`zero`); `de` JPY 1.2 → `1 Japanischer Yen` (`one`); `ru` JPY 1234565.0 → `1 234 565 японских иен` / `"1\u00A0234\u00A0565 японских иен"` (`many`); `en` USD 1.2 → `1.20 US dollars` (`other`).<br>• S9.5b: `ar` EGP 2.0 → `2.00 جنيهان مصريان`.<br>• S9.5c: `ar` EGP 5.0 → `5.00 جنيهات مصرية`; `ru` JPY 2.0 → `2 японские иены`, and 123 → `123 японские иены`.<br>• S9.5d: `pt_PT` JPY 1000000.0 → `1 000 000 ienes japoneses` / `"1\u00A0000\u00A0000 ienes japoneses"` (see S9.7b). |
+| **S9.6** | Step 3: *"Next, get the currency unitPattern."*<br>• 3.1: *"Look for a `unitPattern` element that matches the `count` value, starting in the current locale and then following the locale fallback chain up to, but not including root."*<br>• 3.2: *"If no matching `unitPattern` element was found in the previous step, then look for a `unitPattern` element that matches `count="other"`, starting in the current locale and then following the locale fallback chain up to root (which has a `unitPattern` element with `count="other"` for every unit type)."*<br>• 3.3: *"The resulting unitPattern element indicates the appropriate positioning of the numeric value and the currency display name."* | • **S9.6a**: step 3.1: a `unitPattern` for the category below `root` (`en` × `JPY` × `1.2`: `count="one"`; `ja`: `count="other"`)<br>• **S9.6b**: step 3.2: `count="other"` from `root` (`de` × `JPY` × `1.2`: `one`; `ar` × `0.0`: `zero`)<br>• **S9.6c**: step 3.3: a `unitPattern` that puts the display name first (`si`) | • S9.6a: `en` JPY 1.2 → `1 Japanese yen` (the `count="one"` `{0} {1}` of `en`); `ja` USD 1.2 → `1.20米ドル` (`{0}{1}`, without a space).<br>• S9.6b: `de` JPY 1.2 → `1 Japanischer Yen`; `ar` USD 0.0 → `0.00 دولار أمريكي` (both with the `{0} {1}` of `root`).<br>• S9.6c: `si` USD 1.2 → `ඇමරිකානු ඩොලර්1.20` (`{1}{0}`). |
+| **S9.7** | Step 4: *"Next, get the `displayName` element for the currency."*<br>• 4.1: *"Look for a `displayName` element that matches the `count` value, starting in the current locale and then following the locale fallback chain up to, but not including root."*<br>• 4.2: *"If no matching `displayName` element was found in the previous step, then look for a `displayName` element that matches `count="other"`, starting in the current locale and then following the locale fallback chain up to, but not including root."*<br>• 4.3: *"If no matching `displayName` element was found in the previous step, then look for a `displayName` element with no count, starting in the current locale and then following the locale fallback chain up to root."*<br>• 4.4: *"If there is no `displayName` element, use the currency code itself (for example, "ZWD")."* | • **S9.7a**: step 4.1 (`ru` × `JPY` × `1234565.0`; `ar` × `EGP` × `1234565.0`)<br>• **S9.7b**: step 4.2: a category without a name (`pt_PT` × `JPY` × `1000000.0`: `many`)<br>• **S9.7c**: step 4.3: no name for the category or for `other` (`de` × `USD`; `ar` × `EGP` × `0.0`)<br>• **S9.7d**: step 4.4: no name at all (`fy` × `XCG`) | • S9.7a: `ru` JPY 1234565.0 → `1 234 565 японских иен` / `"1\u00A0234\u00A0565 японских иен"`; `ar` EGP 1234565.0 → `1,234,565.00 جنيهًا مصريًا` (both `many`).<br>• S9.7b: `pt_PT` has no `many` names: `pt_PT` JPY 1000000.0 → `1 000 000 ienes japoneses` / `"1\u00A0000\u00A0000 ienes japoneses"`, with the `other` name.<br>• S9.7c: `de` USD 1.2 → `1,20 US-Dollar`; `ar` EGP 0.0 → `0.00 جنيه مصري` (`zero`, for which EGP has no name).<br>• S9.7d: the ISO code: `fy` XCG 1.2 → `1,20 XCG` (as S7.4c). |
+| **S9.8** | Step 5: *"Format the numeric value according to the locale. Use the locale’s `<decimalFormats …>` pattern, not the `<currencyFormats>` pattern that is used with the symbol (eg, Z$). As when formatting symbol currency values, reset the number of decimals according to the supplemental `<currencyData>` and use the currencyDecimal symbol if different from the decimal symbol."* | • **S9.8a**: the decimal pattern, where it differs from the currency pattern in more than `¤` (`fy` × `-1230.05`; `ar` × `-1230.05`)<br>• **S9.8b**: the currency's number of decimals (`en` × `USD` × `0.0`; `en` × `JPY` × `1.2`)<br>• **S9.8c**: a `locale` with `currencyDecimal` (`fr_CH`) | • S9.8a: `fy` EUR −1230.05 → `-1.230,05 euro`, where the currency pattern gives `€ 1.230,05-` / `"€\u00A01.230,05-"`; `ar` USD −1230.05 → `‎-1,230.05 دولار أمريكي` / `"\u200E-1,230.05 دولار أمريكي"`, without the U+200F RIGHT-TO-LEFT MARK of the currency pattern.<br>• S9.8b: `en` USD 0.0 → `0.00 US dollars` (2 decimals, where the decimal pattern `#,##0.###` alone gives `0`); `en` JPY 1.2 → `1 Japanese yen` (0 decimals).<br>• S9.8c: `fr_CH` EUR −1230.05 → `-1'230.05 euros` (S1.1c). |
+| **S9.9** | Step 5.1: *"The number of decimals should be overridable in an API, so that clients can choose between “2 US dollars” and “2.00 US dollars”."* | `fraction_digits = 0` × `currency_display = "name"` (e.g. `en` × `USD` × `1.2` and `-1230.05`) | `en` USD 1.2 → `1 US dollar` (the formatted number `1` is `one`); −1230.05 → `-1,230 US dollars`. For the example, `en` USD 2.0 → `2 US dollars` with 0 decimals, and `2.00 US dollars` with the currency's 2 decimals. |
+| **S9.10** | Step 6: *"Substitute the formatted numeric value for the {0} in the `unitPattern`, and the currency display name for the {1}."* | `currency_display = "name"` | Every example above; see S9.6 for the order and the space. |
+| **S9.11** | *"While for English this may seem overly complex, for some other languages different plural forms are used for different unit types; the plural forms for certain unit types may not use all of the plural-form tags defined for the language."* | A currency whose names do not use every plural category of the locale (`ar` × `EGP` × `0.0`; `ar` × `USD` × `1234565.0`) | `ar` has six categories. EGP has names for three of them, so `ar` EGP 0.0 (`zero`) uses the name without `count` (S9.7c); USD has none: `ar` USD 1234565.0 → `1,234,565.00 دولار أمريكي` (`many`). |
+| **S9.12** | *"For example, if the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars"."* | `locale = "en"` × a `currency` without decimals × an `input` with a grouping separator (`en` × `JPY` × `1234565.0`) | `en` JPY 1234565.0 → `1,234,565 Japanese yen` (`other`, with the `{0} {1}` of `en`). With CLDR data, `en` ZWD 1234 → `1,234 Zimbabwean dollars (1980–2008)` (see 9.4). |
+
+---
+
+### 9.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S9.1** | `currency_display = "name"` × inputs in different plural categories | ✅ **Covered** | CORE values: `"name"`; `de`; `JPY`; `1.2` and `1234565.0` (as S7.2c). |
+| **S9.2** | — | ⚪ **Out of scope** | Guidance for the display name data; nothing to test. |
+| **S9.3**, **S9.10** | `currency_display = "name"` | ✅ **Covered** | CORE value `"name"` (with `currency_format_length = ""` and `currency_format_type = "standard"`), combined with every CORE locale, currency, and input. |
+| **S9.4a** | `input = 0.0` | ✅ **Covered** | CORE value: `0.0` in `CORE_NUMBERS`. |
+| **S9.4b** | `input = 1.0` | 🟡 **Missing: `input` in CORE** | `1.0` (10⁰) is an extended number value, combined only with `TINY_LOCALES` and `TINY_CURRENCIES` (`currencies_name_extended_numbers.tsv`). **Action**: the `"name"` row of the Summary. |
+| **S9.4c** | `count="0"` or `count="1"` data | ⚪ **Out of scope** | No CLDR data. |
+| **S9.5a** | Inputs that reach `zero`, `one`, `many`, and `other` | ✅ **Covered** | CORE values: `ar`, `de`, `ru`, and `en`; `USD` and `JPY`; `0.0`, `1.2`, and `1234565.0`. |
+| **S9.5b** | `two` (`ar` × `EGP` × `2.0`) | 🟡 **Missing: `input`** | No CORE input is `two` in `ar`, and `2.0` is in neither `CORE_NUMBERS` nor the extended numbers. The extended `1.5` and `2.5` round to `2` only with a currency without decimals, and the extended numbers are combined only with `USD` and `EUR`. **Action**: the `"name"` row of the Summary. |
+| **S9.5c** | `few` (`ar` × `EGP` × `5.0`; `ru` × `JPY` × `2.0` or `123`) | 🟡 **Missing: `input` in CORE** | No CORE input is `few` in `ar` or `ru`. `5.0` and `123` are extended number values, combined only with `TINY_LOCALES` and `TINY_CURRENCIES`. **Action**: the `"name"` row of the Summary. |
+| **S9.5d** | `many` in `pt_PT` (`pt_PT` × `JPY` × `1000000.0`) | 🟡 **Missing: `input` in CORE** | `many` in `pt_PT` needs a multiple of 1,000,000 without visible decimals. `1000000.0` (10⁶) is an extended number value, and `pt_PT` is not in `TINY_LOCALES`. **Action**: the `"name"` row of the Summary. |
+| **S9.6a** | Step 3.1: a `unitPattern` for the category below `root` | ✅ **Covered** | CORE values: `en` and `ja`; `JPY` and `USD`; `1.2`. |
+| **S9.6b** | Step 3.2: the `count="other"` pattern of `root` | ✅ **Covered** | CORE values: `de` and `ar`; `JPY` and `USD`; `1.2` and `0.0`. |
+| **S9.6c** | Step 3.3: the display name before the number | 🟡 **Missing: `locale` in CORE** | Every CORE locale puts `{0}` first. `si` (`{1}{0}`) and `my` (`{1} {0}`) are extended locale values: `currencies_modern_locales.tsv` combines them with their own currencies and `TINY_NUMBERS`. **Action**: include `"si"` in the `"name"` row of the Summary. |
+| **S9.7a** | Step 4.1: a `displayName` for the category | ✅ **Covered** | CORE values: `ru` and `ar`; `JPY` and `EGP`; `1234565.0`. |
+| **S9.7b** | Step 4.2: the `count="other"` name for a category without a name | 🟡 **Missing: `input` in CORE** | No CORE combination reaches this step: each category that the CORE inputs reach has a name, or the currency has no `count="other"` name either (every CORE currency in `ar`; `fy` × `JPY`). `1000000.0` is an extended number value (as S9.5d). **Action**: the `"name"` row of the Summary. |
+| **S9.7c** | Step 4.3: the name without `count` | ✅ **Covered** | CORE values: `de` × `USD`; `ar` × `EGP` × `0.0`. |
+| **S9.7d** | Step 4.4: the ISO code | 🟡 **Missing: `currency` in CORE** | As S7.4c: every CORE locale has a name for every CORE currency. **Action**: the `XCG` row of the Summary covers it (`fy` × `XCG`). |
+| **S9.8a** | The decimal pattern, not the currency pattern | ✅ **Covered** | CORE values: `fy` and `ar`; `EUR` and `USD`; `-1230.05`. |
+| **S9.8b** | The currency's number of decimals | ✅ **Covered** | CORE values: `en`; `USD` (2 decimals) and `JPY` (0); `0.0` and `1.2`. |
+| **S9.8c** | `locale = "fr_CH"` × `currency_display = "name"` | 🟡 **Missing: `locale`** | As S1.1c. **Action**: the `fr_CH` row of the Summary. |
+| **S9.9** | `fraction_digits = 0` × `currency_display = "name"` | 🟡 **Missing: new dimension** | The generator always uses the currency's number of decimals. **Action**: add the `fraction_digits` dimension (see the dimensions table and the Summary). |
+| **S9.11** | A currency whose names do not use every plural category of the locale | ✅ **Covered** | CORE values: `ar`; `EGP` and `USD`; `0.0` and `1234565.0`. |
+| **S9.12** | `en` × a currency without decimals × an input with a grouping separator | ✅ **Covered** | CORE values: `en`; `JPY`; `1234565.0`. |
+
+### 9.4 Notes
+
+* **The plural category** (S9.4–S9.5, S9.9): step 2 determines the `count` "that corresponds to n". The expected values above use the formatted number, as the plural rules do ("A source number represents the visual appearance of the digits of the result", L1261) and as step 8 of compact formatting does (L469). The difference shows with a currency without decimals, with `1.0`, and with `fraction_digits`: `de` JPY 1.2 → `1 Japanischer Yen` (`1` is `one`), where the category of 1.2 would give `1 Japanische Yen`; `en` USD 1.0 → `1.00 US dollars` (`1.00` is `other`), where the category of 1 would give `1.00 US dollar`; `en` USD 1.2 with 0 decimals → `1 US dollar`.
+* **Unit patterns that depend on the category** (S9.6): `ro` JPY 1234565.0 → `1.234.565 de yeni japonezi` (`other`: `{0} de {1}`), but `ro` USD 1.2 → `1,20 dolari americani` (`few`: `{0} {1}`, with the `other` name of step 4.2). No CORE locale has unit patterns that differ by category.
+* **The grouping separator** (S9.8): step 5 mentions only `currencyDecimal`. Whether `currencyGroup` also applies to display names is part of [CLDR-19825](https://unicode-org.atlassian.net/browse/CLDR-19825) (S1.3c).
+* **The minus sign of `ar`** (S9.8a): the `minusSign` of `ar` (`latn`) is `‎-` / `"\u200E-"`, so the result keeps the U+200E LEFT-TO-RIGHT MARK; only the U+200F of the currency pattern is dropped.
+* **ZWD** (S9.12): ZWD has 0 decimals in `<currencyData>`, which matches `1,234`. The names in the sample (`Zimbabwe Dollar`, `Zimbabwe dollar`, `Zimbabwe dollars`) are not the current `en` data: `Zimbabwean Dollar (1980–2008)`, `Zimbabwean dollar (1980–2008)`, and `Zimbabwean dollars (1980–2008)`. ZWD is not legal tender, so it is not an extended currency value.
+* **Editorial**: the link text of step 2 (L988) starts with "- ", and the sentence has no final period.
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
 | :--- | :--- |
-| Add one locale with a monetary separator to `CORE_LOCALES` (+300 rows): `"fr_CH"` (recommended: unlike the `de_AT` override, it also shows with approved data only; see 1.2) or `"de_AT"` | S1.1a–c, S7.3a, S7.3c (`fr_CH`) or S1.3a–b, S7.3a (`de_AT`) |
+| Add one locale with a monetary separator to `CORE_LOCALES` (+300 rows): `"fr_CH"` (recommended: unlike the `de_AT` override, it also shows with approved data only; see 1.2) or `"de_AT"` | S1.1a–c, S7.3a, S7.3c, S9.8c (`fr_CH`) or S1.3a–b, S7.3a (`de_AT`) |
 | Add `"zh"` to `CORE_LOCALES` (+300 rows) | S2.1b |
-| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works for S2.2c and S4.1d once ICU4J has its `symbolNarrow` `Fr.` | S2.2c, S4.1d, S7.4b–c |
+| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works for S2.2c and S4.1d once ICU4J has its `symbolNarrow` `Fr.` | S2.2c, S4.1d, S7.4b–c, S9.7d |
 | Add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (+960 rows) | S2.2d, S4.1e |
 | Add `"id"` to `CORE_LOCALES` (+300 rows); `af` and `ha` also qualify, but the pinned ICU4J has older compact patterns for them | S2.4b |
 | Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |
@@ -649,7 +794,9 @@ No pattern, compact or not, has `¤` between digits. Every non-compact currency 
 | Generate `currency_format_length = "short"` with `currency_display = "noCurrency"` (and `currency_format_type = "standard"`) for the CORE values (+250 rows): the specification gives the result, the compact decimal format | S5.3a |
 | Add the `currency_pattern_append_iso` dimension with `true`, in a separate file: `TINY_LOCALES` and `"hi"` (whose pattern puts the ISO code first) × `CORE_CURRENCIES` × `TINY_NUMBERS` × `currency_display` = `"symbol"` and `"symbolNarrow"` × the 3 combinations of `currency_format_length` and `currency_format_type` that use them (+240 rows) | S6.1a–d, S6.2a–c, S6.3a–c |
 | Add `"nl"` to `CORE_LOCALES` (+300 rows): the only extended locale whose negative pattern has a space between `¤` and the minus sign (`¤ -#,##0.00` / `"¤\u00A0-#,##0.00"`) | S8.3d |
+| Add a separate file of `currency_display = "name"` rows: `CORE_LOCALES` and `"si"` (whose `unitPattern` puts the display name first) × `CORE_CURRENCIES` × the inputs `1.0` (exactly 1), `2.0` (`two` in `ar`; `few` in `ru` with `JPY`), `5.0` (`few` in `ar`), and `1000000.0` (`many` in `pt_PT` with `JPY`) (+220 rows) | S9.4b, S9.5b–d, S9.6c, S9.7b |
+| Add the `fraction_digits` dimension with `0`, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × `currency_display = "name"` (+12 rows) | S9.9 |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for each change alone. All changes except the `cf` and `currency_pattern_append_iso` dimensions add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 16 × 7 × 13 × 5 = 7,280. The 24 `cf` rows and the 240 `currency_pattern_append_iso` rows go in their own files.
+The row counts are for each change alone. All changes except the `cf`, `currency_pattern_append_iso`, and `fraction_digits` dimensions and the `"name"` rows of Section 9 add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 16 × 7 × 13 × 5 = 7,280. The 24 `cf` rows, the 240 `currency_pattern_append_iso` rows, the 220 `"name"` rows of Section 9, and the 12 `fraction_digits` rows go in their own files.

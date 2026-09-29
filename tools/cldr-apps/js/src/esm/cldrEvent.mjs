@@ -511,18 +511,27 @@ function toggleOverlay() {
   var overlay = $("#overlay");
   var sidebar = $("#left-sidebar");
   if (!sidebar.hasClass("active")) {
-    overlay.removeClass("active");
-    toToggleOverlay = true;
-
-    setTimeout(function () {
-      if (toToggleOverlay) {
-        overlay.css("z-index", "-10");
-      }
-    }, 500 /* half a second */);
+    hideOverlay(overlay);
   } else {
     toToggleOverlay = false;
     overlay.css("z-index", "800");
     overlay.addClass("active");
+  }
+}
+
+function hideOverlay(overlay, immediately) {
+  overlay.removeClass("active");
+  if (immediately) {
+    toToggleOverlay = false;
+    overlay.css("z-index", "-10");
+  } else {
+    toToggleOverlay = true;
+    setTimeout(function () {
+      if (toToggleOverlay) {
+        overlay.css("z-index", "-10");
+        toToggleOverlay = false;
+      }
+    }, 500);
   }
 }
 
@@ -532,7 +541,8 @@ function toggleOverlay() {
 function hideOverlayAndSidebar() {
   var sidebar = $("#left-sidebar");
   sidebar.removeClass("active");
-  toggleOverlay();
+  var overlay = $("#overlay");
+  hideOverlay(overlay, true); // hide immediately.
 }
 
 /**

@@ -46,6 +46,7 @@ Values at `5e1d4b0ee3`. `currencies.tsv` combines all CORE values with each othe
 | **`currency_format_type`** | `<currencyFormat>` type | `"standard"`, `"accounting"` | — |
 | **`currency_display`** | How the currency is shown | `"symbol"`, `"symbolNarrow"`, `"code"`, `"name"`, `"noCurrency"` (generated with ICU4J `UnitWidth.HIDDEN`) | — |
 | **`input`** | Numeric currency amount | `CORE_NUMBERS`: `0.0`, `1.2`, `0.00831765`, `1234565.0`, `-1230.05` | 10ⁱ, 1.5 × 10ⁱ, and 5 × 10ⁱ for −6 ≤ i ≤ 12; `12`, `123`, `1234.56`, `1234567`, `0.000123`, `0.5`, `2.5`, `3.5`, `0.125`, `0.135`, `999.9`, `999999.9`; the negatives of all positive values, including the CORE ones; and `-0.0` (`getExtendedNumbers()` minus `CORE_NUMBERS`; `currencies_*_extended_numbers.tsv`) |
+| **`cf`** | `cf` key of the Unicode locale identifier, which selects the standard or accounting form ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier)) | **Needs to be added** (Section 3): `"standard"`, `"account"` | — |
 
 The generator produces 12 of the 20 combinations of `currency_format_length`, `currency_format_type`, and `currency_display`: it skips `"short"` with `"accounting"`, `"name"`, or `"noCurrency"`, and `"accounting"` with `"name"`. `"noCurrency"` is not combined with extended values. In the tables below, *any `¤` display* means `currency_display` = `"symbol"`, `"symbolNarrow"`, or `"code"`.
 
@@ -186,6 +187,95 @@ Currency strings used below: `en` USD `$`, RUB `RUB`, EGP `symbolNarrow` `E£`, 
 
 ---
 
+## Section 3: Standard and Accounting Currency Format Types (`#currency-format-types`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-format-types`](../../../docs/ldml/tr35-numbers.md#currency-format-types) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L519–L549 at `f18139dfa2`)
+* **Related specification text**: L243 (`plusSign`: the standard number patterns "(except for type="accounting")" contain the `minusSign`), L503–L504 (DTD: the `currencyFormat` `type` is `standard` by default, or `accounting`), L696, L702, L707, and L709 ([Special Pattern Characters](../../../docs/ldml/tr35-numbers.md#Special_Pattern_Characters): a pattern without an explicit negative subpattern gets a prefixed `-`; an explicit negative subpattern is used as is; a `-` in a pattern is replaced by the `minusSign`), and `tr35.md` L1048–L1058 ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier): the `cf` values `standard` and `account`)
+
+### 3.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> ##### <a name="currency-format-types" href="#currency-format-types">Standard and Accounting Currency Format Types</a>
+>
+> In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”. The locale keyword "cf" can be used to select the standard or accounting form, see [Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier).
+>
+> ```xml
+> <currencyFormats>
+>     <currencyFormatLength>
+>         <currencyFormat type="standard">
+>             <pattern>¤#,##0.00</pattern>
+>             <pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+>             <pattern alt="noCurrency">#,##0.00</pattern>
+>         </currencyFormat>
+>         <currencyFormat type="accounting">
+>             <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+>             <pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+>             <pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+>         </currencyFormat>
+>     </currencyFormatLength>
+>     <currencyFormatLength type="short">
+>         <currencyFormat type="standard">
+>             <pattern type="1000" count="one">¤0K</pattern>
+>             <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+>             <pattern type="1000" count="other">¤0K</pattern>
+>             <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+>             ...
+>             <pattern type="100000000000000" count="other">¤000T</pattern>
+>             <pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
+>         </currencyFormat>
+>     </currencyFormatLength>
+> </currencyFormats>
+> ```
+
+The link target in the quote is adjusted to the location of this file.
+
+---
+
+### 3.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** Non-compact `currencyFormat` patterns without `alt`, resolved through inheritance and the `root` aliases. The default numbering system is `latn`, except for `ar_EG` (`arab`) and `bn` (`beng` digits with the `latn` patterns, through a `root` alias). `en_US` has no `currencyFormats` and inherits those of `en`.
+
+| Locale | `type="standard"` | `type="accounting"` |
+| :--- | :--- | :--- |
+| `root` | `¤ #,##0.00` / `"¤\u00A0#,##0.00"` | `<alias source="locale" path="../currencyFormat[@type='standard']"/>`: the standard pattern |
+| `en`, `ja` | `¤#,##0.00` | `¤#,##0.00;(¤#,##0.00)` |
+| `bn` | `#,##,##0.00¤` | `#,##,##0.00¤;(#,##,##0.00¤)` |
+| `pt_PT` | `#,##0.00 ¤` / `"#,##0.00\u00A0¤"` | `#,##0.00 ¤;(#,##0.00 ¤)` / `"#,##0.00\u00A0¤;(#,##0.00\u00A0¤)"` |
+| `fy` | `¤ #,##0.00;¤ #,##0.00-` / `"¤\u00A0#,##0.00;¤\u00A0#,##0.00-"` | `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` |
+| `ar` | `‏#,##0.00 ¤;‏-#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤;\u200F-#,##0.00\u00A0¤"` | `؜#,##0.00¤;(؜#,##0.00¤)` / `"\u061C#,##0.00¤;(\u061C#,##0.00¤)"` |
+| `de_CH` | `¤ #,##0.00;¤-#,##0.00` / `"¤\u00A0#,##0.00;¤-#,##0.00"` | none (`root` alias) |
+| `de`, `ru` | `#,##0.00 ¤` / `"#,##0.00\u00A0¤"` | none (`root` alias) |
+| `ar_EG` | `‏#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤"` (`arab`, from `ar`) | none (`root` alias) |
+
+Symbols and currency strings used below: the `minusSign` is `-`, except `ar` `‎-` / `"\u200E-"` and `ar_EG` (`arab`) `؜-` / `"\u061C-"`; `ar_EG` decimal `٫` and group `٬`; `de_CH` group `'`; `pt_PT` `minimumGroupingDigits` 2 (no group separator in `1230,05`); `de_CH` EUR `EUR`, `ja` JPY `￥`, `ru` RUB `₽`, and `ar_EG` EGP `ج.م.‏` / `"ج.م.\u200F"`.
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S3.1** | *"In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”,"* | `currency_format_type = "standard"` × a negative `input` (e.g. `-1230.05`) × a `locale` whose standard pattern has:<br>• **S3.1a**: no explicit negative subpattern (`en`, `ar_EG`)<br>• **S3.1b**: an explicit negative subpattern (`de_CH`, `fy`, `ar`) | • S3.1a: a `-` is prefixed to the pattern and replaced by the `minusSign`. −1230.05: `en` USD → `-$1,230.05` (the example); `ar_EG` EGP → `؜-‏١٬٢٣٠٫٠٥ ج.م.‏` / `"\u061C-\u200F١٬٢٣٠٫٠٥\u00A0ج.م.\u200F"`.<br>• S3.1b: the negative subpattern is used as is, and its `-` is replaced by the `minusSign`. −1230.05: `de_CH` EUR → `EUR-1'230.05`; `fy` EUR → `€ 1.230,05-` / `"€\u00A01.230,05-"`; `ar` EUR → `‏‎-1,230.05 €` / `"\u200F\u200E-1,230.05\u00A0€"`. |
+| **S3.2** | *"...locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”."* | `currency_format_type = "accounting"` and:<br>• **S3.2a**: `locale = "en"` × `currency = "USD"` × a negative `input`<br>• **S3.2b**: a `locale` with an accounting pattern × `input` ≥ 0 (`en`, `ar`)<br>• **S3.2c**: a `locale` without an accounting pattern × a negative `input` (`de`, `de_CH`, `ru`, `ar_EG`) | • S3.2a: `en` USD −1230.05 → `($1,230.05)`. The other locales with an accounting pattern, −1230.05: `ja` JPY → `(￥1,230)`; `bn` EUR → `(১,২৩০.০৫€)`; `ar` EUR → `(؜1,230.05€)` / `"(\u061C1,230.05€)"`; `fy` EUR → `(€ 1.230,05)` / `"(€\u00A01.230,05)"`; `pt_PT` EUR → `(1230,05 €)` / `"(1230,05\u00A0€)"`.<br>• S3.2b: the positive subpattern of the accounting pattern. `en` USD: 1234565.0 → `$1,234,565.00`, 0.0 → `$0.00`. `ar` EUR 1234565.0 → `؜1,234,565.00€` / `"\u061C1,234,565.00€"`, which differs from the standard `‏1,234,565.00 €` / `"\u200F1,234,565.00\u00A0€"`.<br>• S3.2c: the `root` alias gives the standard pattern. −1230.05: `de` EUR → `-1.230,05 €` / `"-1.230,05\u00A0€"`; `de_CH` EUR → `EUR-1'230.05`; `ru` RUB → `-1 230,05 ₽` / `"-1\u00A0230,05\u00A0₽"`; `ar_EG` EGP → as in S3.1a. |
+| **S3.3** | *"The locale keyword "cf" can be used to select the standard or accounting form, see [Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier)."* | `currency_format_type` not set, and:<br>• **S3.3a**: `cf = "account"` (e.g. `locale = "en"`, `currency = "USD"`, `input = -1230.05`)<br>• **S3.3b**: `cf = "standard"` (the same values) | • S3.3a: the accounting form. `en` USD −1230.05 → `($1,230.05)`; `de` EUR −1230.05 → `-1.230,05 €` / `"-1.230,05\u00A0€"` (`de` has no accounting pattern, S3.2c).<br>• S3.3b: the standard form. `en` USD −1230.05 → `-$1,230.05`. |
+
+---
+
+### 3.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S3.1a** | `currency_format_type = "standard"` × a negative `input` × a `locale` whose standard pattern has no explicit negative subpattern | ✅ **Covered** | CORE values: `en`, `ar_EG`, `bn`, `de`, `ja`, `pt_PT`, and `ru` in `CORE_LOCALES`; `-1230.05` in `CORE_NUMBERS`. |
+| **S3.1b** | `currency_format_type = "standard"` × a negative `input` × a `locale` whose standard pattern has an explicit negative subpattern | ✅ **Covered** | CORE values: `de_CH`, `fy`, and `ar` in `CORE_LOCALES`; `-1230.05`. |
+| **S3.2a** | `locale = "en"` × `currency = "USD"` × `currency_format_type = "accounting"` × a negative `input` | ✅ **Covered** | CORE values: `en` in `CORE_LOCALES`, `USD` in `CORE_CURRENCIES`, and `-1230.05` in `CORE_NUMBERS`. `ja`, `bn`, `ar`, `fy`, and `pt_PT` also have their own accounting patterns. |
+| **S3.2b** | `locale` with an accounting pattern × `currency_format_type = "accounting"` × `input` ≥ 0 | ✅ **Covered** | CORE values: `en` and `ar`; `0.0`, `1.2`, `0.00831765`, and `1234565.0` in `CORE_NUMBERS`. |
+| **S3.2c** | `locale` without an accounting pattern × `currency_format_type = "accounting"` × a negative `input` | ✅ **Covered** | CORE values: `de`, `de_CH`, `ru`, and `ar_EG`; `-1230.05`. |
+| **S3.3a–b** | `cf = "account"` or `"standard"` × `currency_format_type` not set | 🟡 **Missing: new dimension** | The generator has no `cf` dimension: `currency_format_type` selects the form, and no `locale` value has a Unicode locale extension (`-u-`). **Action**: add the `cf` dimension (see the dimensions table and the Summary). |
+
+### 3.4 Notes
+
+* **`cf` and `currency_format_type`** (S3.3): the specification does not say which applies when the `cf` keyword and a format type requested through an API disagree. `tr35.md` L1974 only says that "an API or other context" can indicate `type="accounting"`. The proposed `cf` rows leave `currency_format_type` unset.
+* **Non-negative amounts** (S3.2b): the `cf` descriptions (`tr35.md` L1057–L1058) mention only negative numbers, but the `ar` accounting pattern also differs for non-negative amounts: U+061C ARABIC LETTER MARK and no space, instead of U+200F RIGHT-TO-LEFT MARK and U+00A0 in the standard pattern. An implementation that uses the accounting pattern only for negative amounts fails S3.2b for `ar`.
+* **Compact and long-name formats**: CLDR has no `short` accounting patterns (none in `common/main`, and the example at L537–L547 has only `type="standard"`) and no accounting `unitPattern`, so the generator's skips of `"short"` and `"name"` with `"accounting"` leave out no CLDR data. The specification does not say how to format compact or long-name amounts in the accounting form.
+* **`alt` variants in the example**: Section 2 covers the compact `alt="alphaNextToNumber"` patterns, Section 4 the non-compact ones, and Section 5 `alt="noCurrency"` ([`#currency-noCurrency`](../../../docs/ldml/tr35-numbers.md#currency-noCurrency)).
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
@@ -195,7 +285,8 @@ Currency strings used below: `en` USD `$`, RUB `RUB`, EGP `symbolNarrow` `E£`, 
 | Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works once ICU4J has its `symbolNarrow` `Fr.` | S2.2c |
 | Add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (+960 rows) | S2.2d |
 | Add `"id"` to `CORE_LOCALES` (+300 rows); `af` and `ha` also qualify, but the pinned ICU4J has older compact patterns for them | S2.4b |
+| Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for `currencies.tsv` and for each change alone. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, it would have 14 × 7 × 12 × 5 = 5,880.
+The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, it would have 14 × 7 × 12 × 5 = 5,880. The 24 `cf` rows go in their own file.

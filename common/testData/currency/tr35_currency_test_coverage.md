@@ -26,6 +26,7 @@ Expected values in the breakdown tables are derived from the CLDR data and the s
 | ✅ **Covered** | At least one combination of CORE dimension values represents the clause |
 | 🟡 **Missing: *dimension* in CORE** | The needed value is only among the extended values of the dimension, so it is not combined with the other CORE values |
 | 🟡 **Missing: *dimension*** | The needed value is in neither the CORE nor the extended values of the dimension |
+| 🟡 **Missing: combination** | Each needed value is a CORE value of its dimension, but the generator skips this combination of values |
 | 🟡 **Missing: new dimension** | The generator does not have the dimension; the dimensions table below marks it **Needs to be added** |
 | ❓ **Spec unclear** | The specification does not determine the expected value; see the linked ticket |
 | ⚪ **Out of scope** | Not testable with formatting test data |
@@ -351,6 +352,78 @@ Currency strings used below: `en` USD `$`, JPY `¥`, RUB `RUB` (`symbol`) and `�
 
 ---
 
+## Section 5: The `alt="noCurrency"` Pattern Variant (`#currency-noCurrency`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-noCurrency`](../../../docs/ldml/tr35-numbers.md#currency-noCurrency) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L555–L557 at `f18139dfa2`)
+* **Related specification text**: L529 and L534 (the example's `alt="noCurrency"` patterns `#,##0.00` and `#,##0.00;(#,##0.00)`; see Section 3), L398–L412 (a `<decimalFormatLength type="short">` example), L476–L478 and L481–L489 (the precision of compact formats, and the special value `"0"`), L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders): the monetary separators are used "if present in a pattern"; see Section 1), L1047 ([Currency Codes and Currency Amounts](../../../docs/ldml/tr35-numbers.md#currency-codes-and-amounts): the number of decimal places and the rounding of each currency override the pattern), and `tr35.md` L1966, L1982, and L2078 ([Lateral Inheritance](../../../docs/ldml/tr35.md#Lateral_Inheritance); see Section 4)
+
+### 5.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> ##### <a name="currency-noCurrency" href="#currency-noCurrency">The `alt="noCurrency"` Pattern Variant</a>
+>
+> The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
+
+---
+
+### 5.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** Non-compact `alt="noCurrency"` patterns, resolved with CLDR's resolver, which looks for the `alt` path in every locale up to `root`, then follows the `root` aliases, and only then drops the `alt` (see 4.4 and 5.4). The patterns without `alt` are in 3.2 and 4.2.
+
+| Locale | `type="standard"` | `type="accounting"` |
+| :--- | :--- | :--- |
+| `root` | `#,##0.00` (for `latn` and `arab`) | `<alias source="locale" path="../currencyFormat[@type='standard']"/>`: the standard one |
+| `en` | Its own `#,##0.00` | Its own `#,##0.00;(#,##0.00)` |
+| `bn` | Its own `#,##,##0.00` | Its own `#,##,##0.00;(#,##,##0.00)` |
+| `ar` | Its own `‏#,##0.00;‏-#,##0.00` / `"\u200F#,##0.00;\u200F-#,##0.00"` | Its own `؜#,##0.00;(؜#,##0.00)` / `"\u061C#,##0.00;(\u061C#,##0.00)"` |
+| `fy` | Its own `#,##0.00;#,##0.00-` | None, although `fy` has an accounting pattern: the standard one, through the `root` alias |
+| `ja`, `pt_PT` | None: `root`'s `#,##0.00` | Its own `#,##0.00;(#,##0.00)` |
+| `de`, `de_CH`, `ru` | None: `root`'s `#,##0.00` | None: `root`'s `#,##0.00` |
+| `ar_EG` (`arab`) | None: `root`'s `#,##0.00` for `arab` | None: the same |
+
+A scan of `common/main` (skipping `draft="provisional"` and `draft="unconfirmed"` values) finds:
+* 127 locales with their own non-compact `alt="noCurrency"` pattern, and no compact (`<currencyFormatLength type="short">`) `alt="noCurrency"` pattern;
+* no locale whose resolved `alt="noCurrency"` pattern has a `¤`.
+
+Symbols used below (see 3.2): the `minusSign` is `-`, except `ar` `‎-` / `"\u200E-"` and `ar_EG` (`arab`) `؜-` / `"\u061C-"`; `ar_EG` decimal `٫` and group `٬`; `bn` `beng` digits; `de_CH` group `'`; `ru` group U+00A0; `pt_PT` `minimumGroupingDigits` 2. JPY has 0 decimal places.
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S5.1** | *"The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol."* | `currency_display = "noCurrency"` × `currency_format_length = ""` and:<br>• **S5.1a**: a `locale` with its own `alt="noCurrency"` pattern × `currency_format_type = "standard"` (`en`, `bn`, `ar`, `fy`)<br>• **S5.1b**: a `locale` with its own accounting `alt="noCurrency"` pattern × `currency_format_type = "accounting"` × a negative `input` (`en`, `ja`, `bn`, `ar`, `pt_PT`)<br>• **S5.1c**: a `locale` whose `alt="noCurrency"` pattern comes from `root`, while its pattern without `alt` does not (`de`, `de_CH`, `ru`, `ar_EG`; `ja` and `pt_PT` standard)<br>• **S5.1d**: `locale = "fy"` × `currency_format_type = "accounting"` × a negative `input`: an accounting pattern, but no accounting `alt="noCurrency"` pattern<br>• **S5.1e**: a `currency` with 0 decimal places (`JPY`) | • S5.1a: the pattern is used, without a currency symbol. −1230.05: `en` → `-1,230.05`; `ar` → `‏‎-1,230.05` / `"\u200F\u200E-1,230.05"`; `fy` → `1.230,05-`. `bn` 1234565.0 → `১২,৩৪,৫৬৫.০০`, with the grouping of its pattern `#,##,##0.00¤`.<br>• S5.1b: −1230.05: `en` USD → `(1,230.05)`; `ja` JPY → `(1,230)`; `bn` → `(১,২৩০.০৫)`; `ar` → `(؜1,230.05)` / `"(\u061C1,230.05)"`; `pt_PT` → `(1230,05)`.<br>• S5.1c: `root`'s `#,##0.00`. −1230.05: `de` → `-1.230,05`; `de_CH` → `-1'230.05`; `ru` → `-1 230,05` / `"-1\u00A0230,05"`; `ar_EG` → `؜-١٬٢٣٠٫٠٥` / `"\u061C-١٬٢٣٠٫٠٥"`. The lateral inheritance of TR35 Part 1 would give results with the currency symbol (see 5.4).<br>• S5.1d: the resolver reaches `fy`'s standard `alt="noCurrency"` pattern through the `root` alias from the accounting to the standard format: −1230.05 → `1.230,05-`, without the parentheses of the accounting pattern (see 5.4).<br>• S5.1e: the currency's decimal places replace those of the pattern (L1047). `en` JPY: 1234565.0 → `1,234,565`; −1230.05 → `-1,230`. |
+| **S5.2** | *"This sort of display may be used when formatting a large column of values all in the same currency, for example."* | — | An example of use. |
+| **S5.3** | *"For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats)."* | `currency_display = "noCurrency"` × `currency_format_length = "short"` and:<br>• **S5.3a**: a `locale` without a compact `alt="noCurrency"` pattern (every locale) × an `input` whose compact pattern is not `"0"` (`en` × `1234565.0` or `-1230.05`; `fy`, `ja`, `ru`, or `bn` × `1234565.0`)<br>• **S5.3b**: a `locale` with a compact `alt="noCurrency"` pattern | • S5.3a: the compact decimal pattern is used. `en`: 1234565.0 → `1.2M`; −1230.05 → `-1.2K`. 1234565.0: `fy` → `1,2 mln.` / `"1,2\u00A0mln."`; `ja` → `123万`; `ru` → `1,2 млн` / `"1,2\u00A0млн"`; `bn` → `১২ লা` / `"১২\u00A0লা"`. For `fy`, removing `¤` from the compact currency pattern `¤ 0M` / `"¤\u00A00M"` would give `1,2M` instead. The number of digits depends on the precision settings (L476–L478); these examples round to an integer but keep at least 2 significant digits, as in Section 2.<br>• S5.3b: no CLDR data. |
+
+---
+
+### 5.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S5.1a** | `locale` with its own `alt="noCurrency"` pattern × `currency_display = "noCurrency"` × `currency_format_length = ""` × `currency_format_type = "standard"` | ✅ **Covered** | CORE values: `en`, `bn`, `ar`, and `fy` in `CORE_LOCALES`; `"noCurrency"`; `-1230.05` and `1234565.0` in `CORE_NUMBERS`. |
+| **S5.1b** | `locale` with its own accounting `alt="noCurrency"` pattern × `"noCurrency"` × `currency_format_type = "accounting"` × a negative `input` | ✅ **Covered** | CORE values: `en`, `ja`, `bn`, `ar`, and `pt_PT`; `-1230.05`. |
+| **S5.1c** | `locale` whose `alt="noCurrency"` pattern comes from `root` × `"noCurrency"` | ✅ **Covered** | CORE values: `de`, `de_CH`, `ru`, and `ar_EG` (both types), and `ja` and `pt_PT` (`"standard"`). See 5.4 for the expected value. |
+| **S5.1d** | `locale = "fy"` × `"noCurrency"` × `"accounting"` × a negative `input` | ✅ **Covered** | CORE values: `fy`; `-1230.05`. See 5.4 for the expected value. |
+| **S5.1e** | `currency = "JPY"` × `"noCurrency"` | ✅ **Covered** | CORE values: `JPY` in `CORE_CURRENCIES`; `1234565.0` and `-1230.05`. |
+| **S5.2** | — | ⚪ **Out of scope** | An example of use; nothing to test. |
+| **S5.3a** | `currency_format_length = "short"` × `currency_display = "noCurrency"` × an `input` whose compact pattern is not `"0"` | 🟡 **Missing: combination** | `"short"` and `"noCurrency"` are CORE values, but the generator skips this combination (see the dimensions table), although the sentence specifies the result: the compact decimal format. The other values are CORE values (`en`, `fy`, `ja`, `ru`, `bn`; `1234565.0` and `-1230.05`). **Action**: generate `"short"` × `"noCurrency"` (see the Summary). |
+| **S5.3b** | `locale` with a compact `alt="noCurrency"` pattern | ⚪ **Out of scope** | No CLDR data. |
+
+### 5.4 Notes
+
+* **Inheritance of the `alt`** (S5.1c): the two readings of 4.4 differ here in whether the currency symbol appears.
+  * CLDR's resolver tries the `alt="noCurrency"` path in every parent locale first, so `de` gets `root`'s `#,##0.00`: EUR −1230.05 → `-1.230,05`.
+  * TR35 Part 1 falls back to the path without `alt` within the same locale, before the parent locale (`tr35.md` L1966, L1982), so `de` gets its own `#,##0.00 ¤` / `"#,##0.00\u00A0¤"`: `-1.230,05 €` / `"-1.230,05\u00A0€"`, with the currency symbol that S5.1 excludes.
+
+  With the resolver, no `alt="noCurrency"` pattern has a `¤`. With lateral inheritance, 626 locales would get a pattern with `¤` for `type="standard"`, and 393 for `type="accounting"` (skipping `draft="provisional"` and `draft="unconfirmed"` values), such as `ja` (JPY −1230.05 → `-￥1,230`) and `ar_EG` (EGP −1230.05 → `؜-‏١٬٢٣٠٫٠٥ ج.م.‏` / `"\u061C-\u200F١٬٢٣٠٫٠٥\u00A0ج.م.\u200F"`).
+* **Accounting without its own `alt`** (S5.1d): the resolver follows the `root` alias from the accounting to the standard `currencyFormat` before it drops the `alt` ([`XMLSource.java`](../../../tools/cldr-code/src/main/java/org/unicode/cldr/util/XMLSource.java)), so `fy` gets its standard `alt="noCurrency"` pattern `#,##0.00;#,##0.00-`, with a trailing minus instead of the parentheses of its accounting pattern `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"`. 60 locales, such as `fy`, `es_UY`, and `haw`, have parentheses in their accounting pattern but not in their resolved accounting `alt="noCurrency"` pattern. Lateral inheritance gives the accounting pattern itself, with the currency symbol: `(€ 1.230,05)` / `"(€\u00A01.230,05)"`.
+* **Other differences from the pattern without `alt`**: the resolved `alt="noCurrency"` pattern can also differ in:
+  * grouping, in 14 locales: `en_IN` has its own `¤#,##,##0.00`, but gets `en`'s `alt="noCurrency"` pattern `#,##0.00`, so INR 1234565.0 → `₹12,34,565.00` with the symbol and `1,234,565.00` without it; `dv` has the opposite difference;
+  * bidi marks, in the 21 `ar` locales whose default numbering system is `arab`, such as `ar_EG`: `root`'s `#,##0.00` has no U+200F RIGHT-TO-LEFT MARK, unlike their pattern `‏#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤"` from `ar`. The `ar` `alt="noCurrency"` pattern for `arab`, `‏#,##0.00` / `"\u200F#,##0.00"`, is `draft="provisional"`.
+
+  The specification does not say how closely an `alt="noCurrency"` pattern must follow the pattern without `alt`.
+* **Monetary separators** (S1.1d, S1.3c–d): "currency-style" could include `currencyDecimal` and `currencyGroup`, but the `¤` row (L703) uses them only "if present in a pattern", and `alt="noCurrency"` patterns have no `¤` ([CLDR-19825](https://unicode-org.atlassian.net/browse/CLDR-19825)).
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
@@ -362,7 +435,8 @@ Currency strings used below: `en` USD `$`, JPY `¥`, RUB `RUB` (`symbol`) and `�
 | Add `"id"` to `CORE_LOCALES` (+300 rows); `af` and `ha` also qualify, but the pinned ICU4J has older compact patterns for them | S2.4b |
 | Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |
 | Add `"en_ZA"` to `CORE_LOCALES` (+300 rows): the only locale whose `alt="alphaNextToNumber"` pattern adds no space | S4.4b |
+| Generate `currency_format_length = "short"` with `currency_display = "noCurrency"` (and `currency_format_type = "standard"`) for the CORE values (+250 rows): the specification gives the result, the compact decimal format | S5.3a |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, it would have 15 × 7 × 12 × 5 = 6,300. The 24 `cf` rows go in their own file.
+The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 15 × 7 × 13 × 5 = 6,825. The 24 `cf` rows go in their own file.

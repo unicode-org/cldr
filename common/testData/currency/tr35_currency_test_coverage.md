@@ -554,14 +554,14 @@ Currency strings of the CORE values, resolved through the locale chain (skipping
 
 ---
 
-## Section 8: Placement of the Currency Symbol Placeholder (`#Currency_Placeholder_Placement`)
+## Section 8: Placement of the Currency Symbol Placeholder (`#Special_Pattern_Characters`)
 
-* **TR35 Specification Link**: [`tr35-numbers.md#Currency_Placeholder_Placement`](../../../docs/ldml/tr35-numbers.md#Currency_Placeholder_Placement) (UTS #35 Part 3, Section 3.2: *Special Pattern Characters*; L715–L721 at `f18139dfa2`)
-* **Related specification text**: L702 and L707–L711 (a pattern has a positive subpattern and may have a negative one; without one, the negative subpattern is the positive one with a `-` prefix), L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders); see Section 7), L555–L557 ([`alt="noCurrency"`](../../../docs/ldml/tr35-numbers.md#currency-noCurrency), patterns without a placeholder; see Section 5), and L1035–L1037 ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-custom-decimal-group): a currency can have its own decimal separator)
+* **TR35 Specification Link**: [`tr35-numbers.md#Special_Pattern_Characters`](../../../docs/ldml/tr35-numbers.md#Special_Pattern_Characters) (UTS #35 Part 3, Section 3.2: *Special Pattern Characters*; L732–L738 at `2997bffaf0`)
+* **Related specification text**: L719 and L724–L728 (a pattern has a positive subpattern and may have a negative one; without one, the negative subpattern is the positive one with a `-` prefix), L720 ([`¤` row](../../../docs/ldml/tr35-numbers.md#Number_Pattern_Character_Definitions); see Section 7), L572–L574 ([`alt="noCurrency"`](../../../docs/ldml/tr35-numbers.md#the-altnocurrency-pattern-variant), patterns without a placeholder; see Section 5), and L1052–L1054 ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-specific-decimal-and-grouping-overrides): a currency can have its own decimal separator)
 
 ### 8.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
 
-> <a name="Currency_Placeholder_Placement"></a>A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
+> A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
 >
 > | Placement | Examples                                                                         |
 > |-----------|----------------------------------------------------------------------------------|
@@ -588,7 +588,7 @@ Currency strings of the CORE values, resolved through the locale chain (skipping
 
 A scan of the resolved patterns of every locale in `common/main` (the positive and negative subpatterns of the standard and accounting patterns and of their `alt="alphaNextToNumber"` variants, for the default numbering system; bidi marks are ignored, and any space character counts as a space) finds the examples of the snippet in these locales:
 
-| Example (L719–L721) | CORE locales | Extended locales | Other locales |
+| Example (L736–L738) | CORE locales | Extended locales | Other locales |
 | :--- | :--- | :--- | :--- |
 | `"¤#,##0.00"` | `en`, `ja` | 44, such as `af` and `en_GB` | 324 |
 | `"¤ #,##0.00"` | `de_CH`, `fy`; `en` and `ja` (`alt="alphaNextToNumber"`) | 55 | 731 |
@@ -627,7 +627,7 @@ No pattern, compact or not, has `¤` between digits. Every non-compact currency 
 
 ### 8.4 Notes
 
-* **"12€50"** (S8.2c, S8.5): CLDR has no pattern with `¤` between digits. A similar result comes from a currency's own decimal separator ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-custom-decimal-group)): `pt_CV` and `kea` give CVE the decimal separator `$` and the symbol U+200B ZERO WIDTH SPACE, so `pt_CV` CVE 12.5 → `"12$50\u00A0\u200B"`. `pt_PT` does the same for the former currency PTE.
+* **"12€50"** (S8.2c, S8.5): CLDR has no pattern with `¤` between digits. A similar result comes from a currency's own decimal separator ([Currency-Specific Decimal and Grouping Overrides](../../../docs/ldml/tr35-numbers.md#currency-specific-decimal-and-grouping-overrides)): `pt_CV` and `kea` give CVE the decimal separator `$` and the symbol U+200B ZERO WIDTH SPACE, so `pt_CV` CVE 12.5 → `"12$50\u00A0\u200B"`. `pt_PT` does the same for the former currency PTE.
 * **Spaces** (S8.3–S8.4): the examples have a U+0020 SPACE between `¤` and the number; CLDR patterns have U+00A0 NO-BREAK SPACE there.
 * **The minus sign** (S8.3c–f, S8.4c): in CLDR data, a minus sign between `¤` and the number comes only from explicit negative subpatterns (`de_CH`, `lo`, `nl`), and a minus sign after the number only from `fy`'s `¤ #,##0.00-` / `"¤\u00A0#,##0.00-"`. With an implicit negative subpattern, the minus sign comes first (`-¤#,##0.00`, `-#,##0.00 ¤` / `"-#,##0.00\u00A0¤"`).
 * **Other shapes** (the "…" of the table): CLDR data also has parentheses (`(¤#,##0.00)` in `en` and `ja`, `(¤ #,##0.00)` / `"(¤\u00A0#,##0.00)"` in `fy`, `(#,##0.00 ¤)` / `"(#,##0.00\u00A0¤)"` in `pt_PT`, and `(#,##0.00¤)` in `ar` and `bn`, all accounting patterns), and, in locales that are neither CORE nor extended values, `(#,##0.00) ¤` (`co`) and `¤- #,##0.00` (`luy`).

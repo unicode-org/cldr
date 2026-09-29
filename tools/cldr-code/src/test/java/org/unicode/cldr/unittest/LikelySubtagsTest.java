@@ -346,6 +346,7 @@ public class LikelySubtagsTest extends TestFmwk {
 
         final VersionInfo lastReleaseVi = ToolConstants.LAST_RELEASE_VI;
         CalculatedCoverageLevels ccl = CalculatedCoverageLevels.forVersion(lastReleaseVi);
+        CalculatedCoverageLevels cc = CalculatedCoverageLevels.getInstance();
 
         for (String language : CLDR_CONFIG.getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
@@ -355,12 +356,14 @@ public class LikelySubtagsTest extends TestFmwk {
             if (likelyExpansion == null) {
                 errln("Missing likely subtags for: " + language);
             } else {
-                logln("Likely subtags for " + language + ":\t " + likely);
+                logln("Likely subtags for " + language + ":\t " + likelyExpansion);
             }
             String path = NameType.LANGUAGE.getKeyPath(language);
             String englishName = english.getStringValue(path);
+            // if(language.equals("suz")) System.err.println("suz = " + englishName);
             if (englishName == null) {
-                Level covLevel = ccl.getEffectiveCoverageLevel(language);
+                Level covLevel = ccl.getHighestCoverageLevelForLanguage(language);
+                Level covLevelCurrent = cc.getHighestCoverageLevelForLanguage(language);
                 if (covLevel != null && covLevel.isAtLeast(Level.BASIC)) {
                     errln(
                             "Missing English translation for: "
@@ -369,6 +372,20 @@ public class LikelySubtagsTest extends TestFmwk {
                                     + covLevel
                                     + " in "
                                     + lastReleaseVi);
+                } else if (covLevelCurrent != null && covLevelCurrent.isAtLeast(Level.BASIC)) {
+                    errln(
+                            "Missing English translation for newly-"
+                                    + covLevelCurrent
+                                    + " language "
+                                    + language);
+                } else {
+                    warnln(
+                            "Warning: Missing English translation for "
+                                    + language
+                                    + " - now at "
+                                    + covLevelCurrent
+                                    + ", previously "
+                                    + covLevel);
                 }
             }
         }
@@ -415,16 +432,27 @@ public class LikelySubtagsTest extends TestFmwk {
     static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Cpmn", "Nshu");
 
     public void TestMissingInfoForScript() {
+        CLDRFile english = CLDR_CONFIG.getEnglish();
+        CalculatedCoverageLevels cc = CalculatedCoverageLevels.getInstance();
         VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();
         TreeSet<String> sorted = new TreeSet<>(ScriptMetadata.getScripts());
         Set<String> exceptions2 =
                 new HashSet<>(
                         Arrays.asList("zh_Hans_CN", "hnj_Hmnp_US", "hnj_Hmng_LA", "iu_Cans_CA"));
+        Set<String> missingInEnglish = new TreeSet<>();
         for (String script : sorted) {
             if (exceptions.contains(script) || script.equals("Latn") || script.equals("Dsrt")) {
                 // we minimize away und_X, when the code puts in en...US
                 continue;
             }
+            // verify in English
+            final Level covLevel = cc.getHighestCoverageLevelForScript(script);
+            final String path = NameType.SCRIPT.getKeyPath(script);
+            final String englishName = english.getStringValue(path);
+            if (englishName == null && covLevel != null && covLevel.isAtLeast(Level.BASIC)) {
+                missingInEnglish.add(script);
+            }
+
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
             String originCountry = i.originCountry;
@@ -459,6 +487,9 @@ public class LikelySubtagsTest extends TestFmwk {
             } else {
                 logln("OK: " + undScript + " => " + likelyExpansion);
             }
+        }
+        if (!missingInEnglish.isEmpty()) {
+            errln("Missing translations for scripts at Basic in English: " + missingInEnglish);
         }
     }
 

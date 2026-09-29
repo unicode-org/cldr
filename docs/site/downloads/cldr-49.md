@@ -215,7 +215,10 @@ The following changes have been made in CLDR 49. Please plan accordingly to avoi
 - The pre-Meiji Japanese eras were removed:
 There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
 
-- The `core.zip` / `cldr-common-49.zip` data file (production data) no longer includes data for locales not yet at Basic level. As noted below, this data is slated for removal from CLDR in version 50 if the data does not progress.If you are able to contribute data to bring a language up to Basic coverage in a future release, see [CLDR Organization] for how to contribute.
+- The `core.zip` / `cldr-common-49.zip` data file (production data) no longer includes data for locales not yet at Basic level.
+These are 94 locales in [Locale Coverage](https://www.unicode.org/cldr/charts/49/supplemental/locale_coverage.html) that do not have `basic` in the **Computed Level** column nor `ICU` in the ICU column.
+As noted below, this data is slated for removal from CLDR in version 50 if the data does not progress. 
+If you are able to help contribute data to bring a language up to Basic coverage in a future release, see [CLDR Organization] for how to contribute.
 
   - A new zip file named `cldr-exemplars-delta-49.zip` includes additional data files for CLDR locales that are below basic coverage, including from the exemplars directory. To use this file, first unpack the regular zip file, and then unpack the delta file in the same location. Any feedback on this new file is welcome, and can be submitted [as a new ticket][requesting_changes]. [CLDR-19806]
 

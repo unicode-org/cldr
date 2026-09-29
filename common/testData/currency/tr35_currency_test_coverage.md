@@ -48,6 +48,7 @@ Values at `5e1d4b0ee3`. `currencies.tsv` combines all CORE values with each othe
 | **`currency_display`** | How the currency is shown | `"symbol"`, `"symbolNarrow"`, `"code"`, `"name"`, `"noCurrency"` (generated with ICU4J `UnitWidth.HIDDEN`) | — |
 | **`input`** | Numeric currency amount | `CORE_NUMBERS`: `0.0`, `1.2`, `0.00831765`, `1234565.0`, `-1230.05` | 10ⁱ, 1.5 × 10ⁱ, and 5 × 10ⁱ for −6 ≤ i ≤ 12; `12`, `123`, `1234.56`, `1234567`, `0.000123`, `0.5`, `2.5`, `3.5`, `0.125`, `0.135`, `999.9`, `999999.9`; the negatives of all positive values, including the CORE ones; and `-0.0` (`getExtendedNumbers()` minus `CORE_NUMBERS`; `currencies_*_extended_numbers.tsv`) |
 | **`cf`** | `cf` key of the Unicode locale identifier, which selects the standard or accounting form ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier)) | **Needs to be added** (Section 3): `"standard"`, `"account"` | — |
+| **`currency_pattern_append_iso`** | Whether the result is combined with the ISO 4217 code through the locale's `currencyPatternAppendISO` pattern ([Combining Currency Symbols and ISO Codes](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso)) | **Needs to be added** (Section 6): `true`, with `currency_display` = `"symbol"` or `"symbolNarrow"`; the current rows correspond to `false` | — |
 
 The generator produces 12 of the 20 combinations of `currency_format_length`, `currency_format_type`, and `currency_display`: it skips `"short"` with `"accounting"`, `"name"`, or `"noCurrency"`, and `"accounting"` with `"name"`. `"noCurrency"` is not combined with extended values. In the tables below, *any `¤` display* means `currency_display` = `"symbol"`, `"symbolNarrow"`, or `"code"`.
 
@@ -424,6 +425,67 @@ Symbols used below (see 3.2): the `minusSign` is `-`, except `ar` `‎-` / `"\u2
 
 ---
 
+## Section 6: Combining Currency Symbols and ISO Codes (`#currency-pattern-append-iso`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-pattern-append-iso`](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L559–L568 at `f18139dfa2`)
+* **Related specification text**: L499 and L505 (DTD: `currencyPatternAppendISO` is a child of `currencyFormats`, next to the `currencyFormatLength` elements), and L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders): `¤` is the standard currency symbol, `¤¤` the ISO currency symbol, and `¤¤¤¤¤` the narrow currency symbol, which "may be ambiguous")
+
+### 6.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> ##### <a name="currency-pattern-append-iso" href="#currency-pattern-append-iso">Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)</a>
+>
+> ```xml
+> <currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
+> ```
+>
+> The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:
+> * The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
+> * The currency symbol does not have the same value as the ISO 4217 3-letter code.
+> Most locales will not need to override the pattern provided in root, shown in the xml sample above.
+
+---
+
+### 6.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** `currencyPatternAppendISO` values in `common/main` (skipping `↑↑↑`, `draft="provisional"`, and `draft="unconfirmed"` values):
+
+| Locale | `currencyPatternAppendISO` | Difference from `root` |
+| :--- | :--- | :--- |
+| `root` | `{0} ¤¤` / `"{0}\u00A0¤¤"` | — (the XML sample at L562 has the same value) |
+| `ar` and 16 other locales: `as`, `brx`, `cs`, `eu`, `gl`, `gu`, `ig`, `ml`, `ne`, `pa`, `ps`, `si`, `sq`, `tk`, `yo`, `yo_BJ` | `{0} ¤¤` | U+0020 SPACE instead of U+00A0 |
+| `eo`, `vec` | `{0} ¤¤` / `"{0}\u202F¤¤"` | U+202F NARROW NO-BREAK SPACE instead of U+00A0 |
+| `hi` | `¤¤ {0}` | The ISO code comes first, with U+0020 SPACE |
+
+The other CORE locales use `root`'s pattern; `ar_EG` inherits the pattern of `ar`.
+
+Currency strings used below: `en` USD `$`, EUR `€`, RUB `RUB` (`symbol`) and `₽` (`symbolNarrow`); `de` EUR `€`; `ar` USD `US$` (`symbol` and `symbolNarrow`), EGP `ج.م.‏` / `"ج.م.\u200F"` (`symbol`) and `E£` (`symbolNarrow`); `hi` USD `$`. The ISO code replaces `¤¤`.
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S6.1** | *"The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”."* | `currency_pattern_append_iso = true` and:<br>• **S6.1a**: `currency_display = "symbol"` (`¤`) (e.g. `locale = "en"`, `currency = "USD"`, `input = 1.2`)<br>• **S6.1b**: `currency_display = "symbolNarrow"` (`¤¤¤¤¤`) × a currency whose narrow symbol differs from its symbol (`en` × `RUB`)<br>• **S6.1c**: a result with a minus sign, parentheses, or `¤` after the number (`input = -1230.05`; `currency_format_type = "accounting"`; `locale = "de"`)<br>• **S6.1d**: `currency_format_length = "short"` | • S6.1a: `{0}` is replaced by the result of the currency format, and `¤¤` by the ISO code. `en` USD 1.2 → `$1.20 USD` / `"$1.20\u00A0USD"`.<br>• S6.1b: `en` RUB −1230.05 → `-₽1,230.05 RUB` / `"-₽1,230.05\u00A0RUB"`.<br>• S6.1c: `{0}` is the whole result, including the minus sign or the parentheses. −1230.05: `en` accounting USD → `($1,230.05) USD` / `"($1,230.05)\u00A0USD"`; `de` EUR → `-1.230,05 € EUR` / `"-1.230,05\u00A0€\u00A0EUR"`.<br>• S6.1d: `en` USD −1230.05 → `-$1.2K USD` / `"-$1.2K\u00A0USD"`. |
+| **S6.2** | *"Using such a format is only recommended to resolve ambiguity when:<br>• The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and<br>• The currency symbol does not have the same value as the ISO 4217 3-letter code."* | `currency_pattern_append_iso = true` × a currency string that:<br>• **S6.2a**: is the narrow symbol and differs from the ISO code (`en` × `RUB` × `symbolNarrow`: `₽`)<br>• **S6.2b**: is the symbol, equals the narrow symbol, and differs from the ISO code (`en` × `USD` × `symbol`: `$`)<br>• **S6.2c**: differs from the narrow symbol (`ar` × `EGP` × `symbol`: `ج.م.‏` / `"ج.م.\u200F"`, narrow `E£`) or equals the ISO code (`en` × `RUB` × `symbol`: `RUB`) | • S6.2a–b: the format is recommended; see S6.1a–b.<br>• S6.2c: the format is not recommended. The recommendation does not change the pattern, so if the format is used anyway, −1230.05: `ar` EGP → `‏‎-1,230.05 ج.م.‏ EGP` / `"\u200F\u200E-1,230.05\u00A0ج.م.\u200F EGP"`; `en` RUB → `-RUB 1,230.05 RUB` / `"-RUB\u00A01,230.05\u00A0RUB"`. |
+| **S6.3** | *"Most locales will not need to override the pattern provided in root, shown in the xml sample above."* | `currency_pattern_append_iso = true` × a `locale` that:<br>• **S6.3a**: uses `root`'s pattern (`en`, `de`)<br>• **S6.3b**: has its own pattern with another space (`ar`)<br>• **S6.3c**: has its own pattern that puts the ISO code first (`hi`) | • S6.3a: see S6.1.<br>• S6.3b: `ar` USD −1230.05 → `‏‎-1,230.05 US$ USD` / `"\u200F\u200E-1,230.05\u00A0US$ USD"`, with U+0020 before `USD`.<br>• S6.3c: `hi` USD −1230.05 → `USD -$1,230.05`. |
+
+---
+
+### 6.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S6.1a–d** | `currency_pattern_append_iso = true` × `currency_display = "symbol"` or `"symbolNarrow"` | 🟡 **Missing: new dimension** | The generator has no dimension that combines the result with the ISO code. The other values are CORE values (`en` and `de` in `CORE_LOCALES`; `USD` and `RUB` in `CORE_CURRENCIES`; `"accounting"`; `"short"`; `1.2` and `-1230.05` in `CORE_NUMBERS`). **Action**: add the `currency_pattern_append_iso` dimension (see the dimensions table and the Summary). |
+| **S6.2a–c** | `currency_pattern_append_iso = true` × a currency string for which the format is or is not recommended | 🟡 **Missing: new dimension** | As S6.1a–d. The other values are CORE values (`en` and `ar`; `USD`, `RUB`, and `EGP`; `-1230.05`). |
+| **S6.3a–b** | `currency_pattern_append_iso = true` × `locale` = `en`, `de`, or `ar` | 🟡 **Missing: new dimension** | As S6.1a–d. `en`, `de`, and `ar` are CORE values. |
+| **S6.3c** | `currency_pattern_append_iso = true` × `locale = "hi"` | 🟡 **Missing: new dimension** | As S6.1a–d. `hi` is an extended locale value (`currencies_modern_locales.tsv`), and the only locale whose pattern puts the ISO code first. **Action**: include `"hi"` in the rows of the new dimension (see the Summary). |
+
+### 6.4 Notes
+
+* **The space in the example** (S6.1): the example “$1,432.00 USD” (L565) has a U+0020 SPACE, but the XML sample (L562) and `root` have U+00A0 NO-BREAK SPACE, which gives `$1,432.00 USD` / `"$1,432.00\u00A0USD"`.
+* **A recommendation** (S6.2): the two conditions tell the caller when to use the format. The specification does not define an option that applies them, so the expected result of every row is the pattern's result, whether or not the format is recommended for its currency string.
+* **Displays and lengths** (S6.1): the snippet combines only `¤` and `¤¤¤¤¤` with the ISO code, so the proposed rows leave out `"code"` and `"name"`. It does not say whether the pattern also applies to compact formats; S6.1d assumes it does, because `currencyPatternAppendISO` is a child of `currencyFormats` and not of a `currencyFormatLength` (L499).
+* **Editorial**: the last sentence (L568) follows the list without a blank line, so Markdown renders it as part of the second list item, as in the quote above.
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
@@ -436,7 +498,8 @@ Symbols used below (see 3.2): the `minusSign` is `-`, except `ar` `‎-` / `"\u2
 | Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |
 | Add `"en_ZA"` to `CORE_LOCALES` (+300 rows): the only locale whose `alt="alphaNextToNumber"` pattern adds no space | S4.4b |
 | Generate `currency_format_length = "short"` with `currency_display = "noCurrency"` (and `currency_format_type = "standard"`) for the CORE values (+250 rows): the specification gives the result, the compact decimal format | S5.3a |
+| Add the `currency_pattern_append_iso` dimension with `true`, in a separate file: `TINY_LOCALES` and `"hi"` (whose pattern puts the ISO code first) × `CORE_CURRENCIES` × `TINY_NUMBERS` × `currency_display` = `"symbol"` and `"symbolNarrow"` × the 3 combinations of `currency_format_length` and `currency_format_type` that use them (+240 rows) | S6.1a–d, S6.2a–c, S6.3a–c |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 15 × 7 × 13 × 5 = 6,825. The 24 `cf` rows go in their own file.
+The row counts are for each change alone. All changes except the `cf` and `currency_pattern_append_iso` dimensions add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, including `"short"` × `"noCurrency"` as a 13th combination, it would have 15 × 7 × 13 × 5 = 6,825. The 24 `cf` rows and the 240 `currency_pattern_append_iso` rows go in their own files.

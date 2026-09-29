@@ -276,17 +276,93 @@ Symbols and currency strings used below: the `minusSign` is `-`, except `ar` `�
 
 ---
 
+## Section 4: The `alt="alphaNextToNumber"` Pattern Variant (`#currency-alphaNextToNumber`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-alphaNextToNumber`](../../../docs/ldml/tr35-numbers.md#currency-alphaNextToNumber) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L551–L553 at `f18139dfa2`)
+* **Related specification text**: L508 (since CLDR 42, the `alt="alphaNextToNumber"` variant is the preferred way to place the currency symbol), L523–L535 (the example gives both the standard and the accounting pattern an `alt="alphaNextToNumber"` variant; see Section 3), L445–L446 and L456–L461 ([compact step 4](../../../docs/ldml/tr35-numbers.md#compact-currency-alphaNextToNumber), which tests for a *letter grapheme cluster*; see Section 2), L1010 ([`currencySpacing`](../../../docs/ldml/tr35-numbers.md#currency-spacing), kept for implementations that do not support `alt="alphaNextToNumber"`), and `tr35.md` L1966, L1982, and L2078 ([Lateral Inheritance](../../../docs/ldml/tr35.md#Lateral_Inheritance): an `alt` falls back to the path without `alt` within the same locale, before the parent locale; the inheritance marker `↑↑↑` is equivalent to an absent value)
+
+### 4.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> ##### <a name="currency-alphaNextToNumber" href="#currency-alphaNextToNumber">The `alt="alphaNextToNumber"` Pattern Variant</a>
+>
+> The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
+
+---
+
+### 4.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** Non-compact patterns and their `alt="alphaNextToNumber"` variants, resolved with CLDR's resolver, which looks for the `alt` path in every locale up to `root` before it drops the `alt` (see 4.4 for `ja` and `kn`):
+
+| Locale | Pattern | `alt="alphaNextToNumber"` | Space between `¤` and the number |
+| :--- | :--- | :--- | :--- |
+| `root` | `¤ #,##0.00` / `"¤\u00A0#,##0.00"` | The same | Yes |
+| `en` | Standard `¤#,##0.00`; accounting `¤#,##0.00;(¤#,##0.00)` | Standard `¤ #,##0.00` / `"¤\u00A0#,##0.00"`; accounting `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` | Pattern: no; `alt`: yes |
+| `ja`, `kn` | Standard `¤#,##0.00`; accounting `¤#,##0.00;(¤#,##0.00)` | Standard: `↑↑↑`, resolved to `root`'s `¤ #,##0.00` / `"¤\u00A0#,##0.00"`; accounting: their own `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` | Pattern: no; `alt`: yes |
+| `bn` | Standard `#,##,##0.00¤`; accounting `#,##,##0.00¤;(#,##,##0.00¤)` | Standard `#,##,##0.00 ¤` / `"#,##,##0.00\u00A0¤"`; accounting `#,##,##0.00 ¤;(#,##,##0.00 ¤)` / `"#,##,##0.00\u00A0¤;(#,##,##0.00\u00A0¤)"` | Pattern: no; `alt`: yes |
+| `ar` | Standard `‏#,##0.00 ¤;‏-#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤;\u200F-#,##0.00\u00A0¤"`; accounting `؜#,##0.00¤;(؜#,##0.00¤)` / `"\u061C#,##0.00¤;(\u061C#,##0.00¤)"` | Standard: the same; accounting `؜#,##0.00 ¤;(؜#,##0.00 ¤)` / `"\u061C#,##0.00\u00A0¤;(\u061C#,##0.00\u00A0¤)"` | Standard: yes; accounting: pattern no, `alt` yes |
+| `ar_EG` (`arab`) | `‏#,##0.00 ¤` / `"\u200F#,##0.00\u00A0¤"` (both types) | None: neither `ar` nor `root` has one for `arab` | Yes |
+| `de`, `ru`, `pt_PT` | `#,##0.00 ¤` / `"#,##0.00\u00A0¤"` (`pt_PT` accounting: the same in parentheses for negative amounts) | The same | Yes |
+| `de_CH` | `¤ #,##0.00;¤-#,##0.00` / `"¤\u00A0#,##0.00;¤-#,##0.00"` | The same | Positive: yes; negative: `¤` is next to the `-` |
+| `fy` | Standard `¤ #,##0.00;¤ #,##0.00-` / `"¤\u00A0#,##0.00;¤\u00A0#,##0.00-"` | The same | Yes |
+| `en_ZA` | Standard `¤#,##0.00` and accounting `¤#,##0.00;(¤#,##0.00)`, both from `en` | Standard: its own `¤#,##0.00`; accounting: `en`'s `¤ #,##0.00;(¤ #,##0.00)` / `"¤\u00A0#,##0.00;(¤\u00A0#,##0.00)"` | Standard: no, and the `alt` adds none; accounting: `alt` yes |
+
+A scan of `common/main` (skipping `draft="provisional"` and `draft="unconfirmed"` values) finds:
+* one locale whose standard `alt` keeps `¤` next to the number: `en_ZA`;
+* 30 locales with no `alt` for their default numbering system, all `arab` (`ar_EG` and 20 other `ar` locales, plus `ckb`, `sd`, `sdh`, and their 6 sublocales), and all with a space between `¤` and the number;
+* no locale with `¤` next to the number and no `alt`.
+
+Currency strings used below: `en` USD `$`, JPY `¥`, RUB `RUB` (`symbol`) and `₽` (`symbolNarrow`), EGP `EGP` (`symbol`) and `E£` (`symbolNarrow`), and XCG `Cg.` (from `root`); `bn` and `ar` USD `US$`; `ar` EGP `ج.م.‏` / `"ج.م.\u200F"`; `kn` RON `symbolNarrow` `ಲೀ` (U+0CB2 KANNADA LETTER LA, U+0CC0 KANNADA VOWEL SIGN II, General Category Mc); `en_ZA` ZAR `R`, with decimal `,` and group U+00A0. For `currency_display = "code"`, the ISO code takes the place of `¤`. The character closest to the number is the last character of the currency string when `¤` is before the number, and the first one when `¤` is after it.
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S4.1** | *"The `alt="alphaNextToNumber"` pattern [...] should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter)."* | `currency_format_length = ""` × a `locale` whose pattern has no space between `¤` and the number × a currency string whose character closest to the number is:<br>• **S4.1a**: a letter, with `¤` before the number (`en` × `code`; `en` × `RUB` or `EGP` × `symbol`)<br>• **S4.1b**: a letter, with `¤` after the number (`bn` × `USD` × `symbol`; `ar` × `"accounting"` × `USD` or `EGP` × `symbol`)<br>• **S4.1c**: a currency sign, General Category Sc (`$`, `¥`, `€`, `₽`, `E£`)<br>• **S4.1d**: another non-letter (`en` × `XCG` × `symbol`: `Cg.` ends with U+002E, General Category Po)<br>• **S4.1e**: a combining mark (`kn` × `RON` × `symbolNarrow`: `ಲೀ` ends with U+0CC0, General Category Mc) | • S4.1a: switch. `en` −1230.05: USD `code` → `-USD 1,230.05` / `"-USD\u00A01,230.05"`; RUB → `-RUB 1,230.05` / `"-RUB\u00A01,230.05"`; EGP → `-EGP 1,230.05` / `"-EGP\u00A01,230.05"`. USD `code` 1234565.0 → `USD 1,234,565.00` / `"USD\u00A01,234,565.00"`.<br>• S4.1b: switch. −1230.05: `bn` USD → `-১,২৩০.০৫ US$` / `"-১,২৩০.০৫\u00A0US$"`; `ar` accounting USD → `(؜1,230.05 US$)` / `"(\u061C1,230.05\u00A0US$)"`, EGP → `(؜1,230.05 ج.م.‏)` / `"(\u061C1,230.05\u00A0ج.م.\u200F)"`.<br>• S4.1c: no switch. −1230.05: `en` → `-$1,230.05`, `-¥1,230`, `-₽1,230.05`, `-E£1,230.05`; `bn` EUR → `-১,২৩০.০৫€`; `ar` accounting EUR → `(؜1,230.05€)` / `"(\u061C1,230.05€)"`.<br>• S4.1d: no switch. `en` XCG −1230.05 → `-Cg.1,230.05`.<br>• S4.1e: no switch, although `ಲೀ` is a letter grapheme cluster (compact step 4 switches, S2.2d). `kn` RON −1230.05 → `-ಲೀ1,230.05`. |
+| **S4.2** | *"...if available..."* | • **S4.2a**: the `locale` has its own `alt` (`en`, `bn`; `ar` accounting)<br>• **S4.2b**: the `locale` has its own pattern, but `↑↑↑` for the `alt` (`ja`, `kn` standard) × a currency string that ends with a letter<br>• **S4.2c**: neither the `locale` nor its parents have an `alt` (`ar_EG`) × a currency string that starts with a letter | • S4.2a: see S4.1a–b.<br>• S4.2b: `ja` USD `code` −1230.05 → `-USD 1,230.05` / `"-USD\u00A01,230.05"` with the `alt` that CLDR's resolver takes from `root`, or `-USD1,230.05` with the lateral inheritance of TR35 Part 1 (see 4.4).<br>• S4.2c: the pattern is used. `ar_EG` USD `code` −1230.05 → `؜-‏١٬٢٣٠٫٠٥ USD` / `"\u061C-\u200F١٬٢٣٠٫٠٥\u00A0USD"`. |
+| **S4.3** | *"...instead of the standard pattern..."* | `currency_format_type = "accounting"` × a `locale` with an accounting `alt` × a currency string that ends with a letter (`en` × `code`) | The example (L531–L535) gives the accounting pattern its own `alt`, so "the standard pattern" means the pattern without `alt`, of either type. `en` accounting USD `code` −1230.05 → `(USD 1,230.05)` / `"(USD\u00A01,230.05)"`; the same in `ja`, from its own accounting `alt`. |
+| **S4.4** | *"The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale."* | • **S4.4a**: an `alt` that adds U+00A0 (S4.1a–b)<br>• **S4.4b**: an `alt` that adds no space (`locale = "en_ZA"`, standard) × a currency string that ends with a letter<br>• **S4.4c**: a pattern that already has a space, with the same `alt` (`de`, `de_CH`, `fy`, `pt_PT`, `ru`; `ar` standard) | • S4.4a: see S4.1a–b.<br>• S4.4b: the `alt` is used as is. `en_ZA` −1230.05: ZAR `symbol` → `-R1 230,05` / `"-R1\u00A0230,05"`; USD `code` → `-USD1 230,05` / `"-USD1\u00A0230,05"`.<br>• S4.4c: no change. USD `code` −1230.05: `de` → `-1.230,05 USD` / `"-1.230,05\u00A0USD"`; `de_CH` → `USD-1'230.05`; `fy` → `USD 1.230,05-` / `"USD\u00A01.230,05-"`. `ar` USD `symbol` −1230.05 → `‏‎-1,230.05 US$` / `"\u200F\u200E-1,230.05\u00A0US$"`. |
+
+---
+
+### 4.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S4.1a** | `locale` with `¤` right before the number × `currency_format_length = ""` × a currency string that ends with a letter | ✅ **Covered** | CORE values: `en` and `ja` in `CORE_LOCALES`; `currency_display = "code"`, or `"symbol"` with `RUB` or `EGP` from `CORE_CURRENCIES`; `-1230.05` and `1234565.0` in `CORE_NUMBERS`. |
+| **S4.1b** | `locale` with `¤` right after the number × `currency_format_length = ""` × a currency string that starts with a letter | ✅ **Covered** | CORE values: `bn` (both types) and `ar` (`"accounting"`); `"code"`, or `"symbol"` with `USD` (`US$`); `-1230.05`. |
+| **S4.1c** | `locale` with `¤` next to the number × `currency_format_length = ""` × a currency string whose closest character is a currency sign | ✅ **Covered** | CORE values: `en` and `ja` with `"symbol"` and `USD`, `EUR`, or `JPY`, or with `"symbolNarrow"` and `RUB` (`₽`) or `EGP` (`E£`); `bn` and `ar` (`"accounting"`) with `EUR`. |
+| **S4.1d** | `locale` with `¤` next to the number × `currency_format_length = ""` × a currency string whose closest character is another non-letter | 🟡 **Missing: `currency` in CORE** | No CORE currency has such a string in a CORE locale with `¤` next to the number. `XCG` (`Cg.` in `en`) is an extended currency value, as in S2.2c; `CHF` (`symbolNarrow` `Fr.`) would also work. **Action**: add `"XCG"` to `CORE_CURRENCIES` (see the Summary). |
+| **S4.1e** | `locale = "kn"` × `currency = "RON"` × `currency_display = "symbolNarrow"` × `currency_format_length = ""` | 🟡 **Missing: `locale` in CORE**<br>🟡 **Missing: `currency` in CORE** | As in S2.2d: `kn` and `RON` are extended values, but the generator never combines them. No other CLDR currency string ends with a combining mark in a locale with `¤` next to the number. **Action**: add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (see the Summary). |
+| **S4.2a** | `locale` with its own `alt` | ✅ **Covered** | CORE values: `en`, `bn`, and `ar` (S4.1a–b). |
+| **S4.2b** | `locale` with its own pattern and `↑↑↑` for the `alt` × a currency string that ends with a letter | ✅ **Covered** | CORE values: `ja` with `"code"`; `-1230.05` and `1234565.0`. See 4.4 for the expected value. |
+| **S4.2c** | `locale` without an `alt` × a currency string that starts with a letter | ✅ **Covered** | CORE values: `ar_EG` with `"code"`; `-1230.05`. |
+| **S4.3** | `locale` with an accounting `alt` × `currency_format_type = "accounting"` × a currency string that ends with a letter | ✅ **Covered** | CORE values: `en` and `ja` with `"accounting"` and `"code"`; `ar` (S4.1b). |
+| **S4.4a** | `locale` whose `alt` adds U+00A0 | ✅ **Covered** | CORE values: as in S4.1a–b. |
+| **S4.4b** | `locale = "en_ZA"` × `currency_format_length = ""` × `currency_format_type = "standard"` × a currency string that ends with a letter | 🟡 **Missing: `locale`** | `en_ZA` is in neither `CORE_LOCALES` nor the extended locales (no TSV file has `en_ZA` rows), and it is the only locale whose `alt` keeps `¤` next to the number. The other values are CORE values (`"code"`, or `"symbol"` with `RUB` or `EGP`; `-1230.05`). **Action**: add `"en_ZA"` to `CORE_LOCALES` (see the Summary). |
+| **S4.4c** | `locale` whose pattern already has a space | ✅ **Covered** | CORE values: `de`, `de_CH`, `fy`, `pt_PT`, `ru`, and `ar` (`"standard"`). |
+
+### 4.4 Notes
+
+* **Inheritance of the `alt`** (S4.2b): `ja` and `kn` have their own standard pattern `¤#,##0.00`, but `↑↑↑` for its `alt`. The two readings give different results:
+  * CLDR's resolver ([`XMLSource.java`](../../../tools/cldr-code/src/main/java/org/unicode/cldr/util/XMLSource.java): "alts are special; they act like there is a root alias to the path without the alt") tries the `alt` path in every parent locale first, so they get `root`'s `¤ #,##0.00` / `"¤\u00A0#,##0.00"`: `ja` USD `code` −1230.05 → `-USD 1,230.05` / `"-USD\u00A01,230.05"`.
+  * TR35 Part 1 falls back to the path without `alt` "within the same locale, before inheriting from the parent" (`tr35.md` L1966, L1982), and `↑↑↑` is equivalent to an absent value (L2078). That gives their own `¤#,##0.00`: `-USD1,230.05`.
+
+  The same applies to 193 locales with `¤` right before the number whose `alt` comes only from `root`, such as `ko`, `id`, and `fil` (skipping `draft="provisional"` and `draft="unconfirmed"` values). For 40 locales with `¤` right after the number, such as `agq` and `kab`, whose own `alt` is `draft="provisional"`, the resolver's result (`root`'s `¤ #,##0.00`) would move `¤` to the other side of the number.
+* **`en_ZA` accounting** (S4.4b): `en_ZA` has no accounting `alt` of its own, so it inherits `en`'s, which adds a space: ZAR accounting −1230.05 → `(R 1 230,05)` / `"(R\u00A01\u00A0230,05)"`, while the standard form gives `-R1 230,05` / `"-R1\u00A0230,05"`.
+* **Letter test** (S4.1e): compact step 4 tests for a letter grapheme cluster (L445), while this rule tests the General Category of the character closest to the number, so `kn` RON `ಲೀ` switches in compact formats (S2.2d) but not in non-compact ones.
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
 | :--- | :--- |
 | Add one locale with a monetary separator to `CORE_LOCALES` (+300 rows): `"fr_CH"` (recommended: unlike the `de_AT` override, it also shows with approved data only; see 1.2) or `"de_AT"` | S1.1a–c (`fr_CH`) or S1.3a–b (`de_AT`) |
 | Add `"zh"` to `CORE_LOCALES` (+300 rows) | S2.1b |
-| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works once ICU4J has its `symbolNarrow` `Fr.` | S2.2c |
-| Add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (+960 rows) | S2.2d |
+| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works once ICU4J has its `symbolNarrow` `Fr.` | S2.2c, S4.1d |
+| Add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (+960 rows) | S2.2d, S4.1e |
 | Add `"id"` to `CORE_LOCALES` (+300 rows); `af` and `ha` also qualify, but the pinned ICU4J has older compact patterns for them | S2.4b |
 | Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |
+| Add `"en_ZA"` to `CORE_LOCALES` (+300 rows): the only locale whose `alt="alphaNextToNumber"` pattern adds no space | S4.4b |
 
 For Section 1, one locale with a monetary separator is enough to exercise the override. `en` and the other CORE locales already cover the "otherwise" clauses (S1.2, S1.4). The clauses of the locale that is not added stay 🟡 **Missing: `locale`**.
 
-The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, it would have 14 × 7 × 12 × 5 = 5,880. The 24 `cf` rows go in their own file.
+The row counts are for each change alone. All changes except the `cf` dimension add rows to `currencies.tsv`. The file now has 10 locales × 5 currencies × 12 combinations of the format and display dimensions × 5 inputs = 3,000 rows; with all the changes above, it would have 15 × 7 × 12 × 5 = 6,300. The 24 `cf` rows go in their own file.

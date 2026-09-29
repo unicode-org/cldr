@@ -187,14 +187,14 @@ Currency strings used below: `en` USD `$`, RUB `RUB`, EGP `symbolNarrow` `E£`, 
 
 ---
 
-## Section 3: Standard and Accounting Currency Format Types (`#currency-format-types`)
+## Section 3: Standard and Accounting Currency Format Types (`#standard-and-accounting-currency-format-types`)
 
-* **TR35 Specification Link**: [`tr35-numbers.md#currency-format-types`](../../../docs/ldml/tr35-numbers.md#currency-format-types) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L519–L549 at `f18139dfa2`)
-* **Related specification text**: L243 (`plusSign`: the standard number patterns "(except for type="accounting")" contain the `minusSign`), L503–L504 (DTD: the `currencyFormat` `type` is `standard` by default, or `accounting`), L696, L702, L707, and L709 ([Special Pattern Characters](../../../docs/ldml/tr35-numbers.md#Special_Pattern_Characters): a pattern without an explicit negative subpattern gets a prefixed `-`; an explicit negative subpattern is used as is; a `-` in a pattern is replaced by the `minusSign`), and `tr35.md` L1048–L1058 ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier): the `cf` values `standard` and `account`)
+* **TR35 Specification Link**: [`tr35-numbers.md#standard-and-accounting-currency-format-types`](../../../docs/ldml/tr35-numbers.md#standard-and-accounting-currency-format-types) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L536–L566 at `2997bffaf0`)
+* **Related specification text**: L260 (`plusSign`: the standard number patterns "(except for type="accounting")" contain the `minusSign`), L520–L521 (DTD: the `currencyFormat` `type` is `standard` by default, or `accounting`), L713, L719, L724, and L726 ([Special Pattern Characters](../../../docs/ldml/tr35-numbers.md#Special_Pattern_Characters): a pattern without an explicit negative subpattern gets a prefixed `-`; an explicit negative subpattern is used as is; a `-` in a pattern is replaced by the `minusSign`), and `tr35.md` L1048–L1058 ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier): the `cf` values `standard` and `account`)
 
 ### 3.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
 
-> ##### <a name="currency-format-types" href="#currency-format-types">Standard and Accounting Currency Format Types</a>
+> ##### Standard and Accounting Currency Format Types
 >
 > In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”. The locale keyword "cf" can be used to select the standard or accounting form, see [Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier).
 >
@@ -271,8 +271,8 @@ Symbols and currency strings used below: the `minusSign` is `-`, except `ar` `�
 
 * **`cf` and `currency_format_type`** (S3.3): the specification does not say which applies when the `cf` keyword and a format type requested through an API disagree. `tr35.md` L1974 only says that "an API or other context" can indicate `type="accounting"`. The proposed `cf` rows leave `currency_format_type` unset.
 * **Non-negative amounts** (S3.2b): the `cf` descriptions (`tr35.md` L1057–L1058) mention only negative numbers, but the `ar` accounting pattern also differs for non-negative amounts: U+061C ARABIC LETTER MARK and no space, instead of U+200F RIGHT-TO-LEFT MARK and U+00A0 in the standard pattern. An implementation that uses the accounting pattern only for negative amounts fails S3.2b for `ar`.
-* **Compact and long-name formats**: CLDR has no `short` accounting patterns (none in `common/main`, and the example at L537–L547 has only `type="standard"`) and no accounting `unitPattern`, so the generator's skips of `"short"` and `"name"` with `"accounting"` leave out no CLDR data. The specification does not say how to format compact or long-name amounts in the accounting form.
-* **`alt` variants in the example**: Section 2 covers the compact `alt="alphaNextToNumber"` patterns, Section 4 the non-compact ones, and Section 5 `alt="noCurrency"` ([`#currency-noCurrency`](../../../docs/ldml/tr35-numbers.md#currency-noCurrency)).
+* **Compact and long-name formats**: CLDR has no `short` accounting patterns (none in `common/main`, and the example at L554–L564 has only `type="standard"`) and no accounting `unitPattern`, so the generator's skips of `"short"` and `"name"` with `"accounting"` leave out no CLDR data. The specification does not say how to format compact or long-name amounts in the accounting form.
+* **`alt` variants in the example**: Section 2 covers the compact `alt="alphaNextToNumber"` patterns, Section 4 the non-compact ones, and Section 5 `alt="noCurrency"` ([`#the-altnocurrency-pattern-variant`](../../../docs/ldml/tr35-numbers.md#the-altnocurrency-pattern-variant)).
 
 ---
 

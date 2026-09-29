@@ -48,7 +48,7 @@ Values at `5e1d4b0ee3`. `currencies.tsv` combines all CORE values with each othe
 | **`currency_display`** | How the currency is shown | `"symbol"`, `"symbolNarrow"`, `"code"`, `"name"`, `"noCurrency"` (generated with ICU4J `UnitWidth.HIDDEN`) | — |
 | **`input`** | Numeric currency amount | `CORE_NUMBERS`: `0.0`, `1.2`, `0.00831765`, `1234565.0`, `-1230.05` | 10ⁱ, 1.5 × 10ⁱ, and 5 × 10ⁱ for −6 ≤ i ≤ 12; `12`, `123`, `1234.56`, `1234567`, `0.000123`, `0.5`, `2.5`, `3.5`, `0.125`, `0.135`, `999.9`, `999999.9`; the negatives of all positive values, including the CORE ones; and `-0.0` (`getExtendedNumbers()` minus `CORE_NUMBERS`; `currencies_*_extended_numbers.tsv`) |
 | **`cf`** | `cf` key of the Unicode locale identifier, which selects the standard or accounting form ([Unicode Currency Format Identifier](../../../docs/ldml/tr35.md#UnicodeCurrencyFormatIdentifier)) | **Needs to be added** (Section 3): `"standard"`, `"account"` | — |
-| **`currency_pattern_append_iso`** | Whether the result is combined with the ISO 4217 code through the locale's `currencyPatternAppendISO` pattern ([Combining Currency Symbols and ISO Codes](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso)) | **Needs to be added** (Section 6): `true`, with `currency_display` = `"symbol"` or `"symbolNarrow"`; the current rows correspond to `false` | — |
+| **`currency_pattern_append_iso`** | Whether the result is combined with the ISO 4217 code through the locale's `currencyPatternAppendISO` pattern ([Combining Currency Symbols and ISO Codes](../../../docs/ldml/tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso)) | **Needs to be added** (Section 6): `true`, with `currency_display` = `"symbol"` or `"symbolNarrow"`; the current rows correspond to `false` | — |
 
 The generator produces 12 of the 20 combinations of `currency_format_length`, `currency_format_type`, and `currency_display`: it skips `"short"` with `"accounting"`, `"name"`, or `"noCurrency"`, and `"accounting"` with `"name"`. `"noCurrency"` is not combined with extended values. In the tables below, *any `¤` display* means `currency_display` = `"symbol"`, `"symbolNarrow"`, or `"code"`.
 
@@ -425,14 +425,14 @@ Symbols used below (see 3.2): the `minusSign` is `-`, except `ar` `‎-` / `"\u2
 
 ---
 
-## Section 6: Combining Currency Symbols and ISO Codes (`#currency-pattern-append-iso`)
+## Section 6: Combining Currency Symbols and ISO Codes (`#combining-currency-symbols-and-iso-codes-currencypatternappendiso`)
 
-* **TR35 Specification Link**: [`tr35-numbers.md#currency-pattern-append-iso`](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L559–L568 at `f18139dfa2`)
-* **Related specification text**: L499 and L505 (DTD: `currencyPatternAppendISO` is a child of `currencyFormats`, next to the `currencyFormatLength` elements), and L703 ([`¤` row](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders): `¤` is the standard currency symbol, `¤¤` the ISO currency symbol, and `¤¤¤¤¤` the narrow currency symbol, which "may be ambiguous")
+* **TR35 Specification Link**: [`tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso`](../../../docs/ldml/tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso) (UTS #35 Part 3, Section 2.4.2: *Currency Formats*; L576–L585 at `2997bffaf0`)
+* **Related specification text**: L516 and L522 (DTD: `currencyPatternAppendISO` is a child of `currencyFormats`, next to the `currencyFormatLength` elements), and L720 ([`¤` row](../../../docs/ldml/tr35-numbers.md#Number_Pattern_Character_Definitions): `¤` is the standard currency symbol, `¤¤` the ISO currency symbol, and `¤¤¤¤¤` the narrow currency symbol, which "may be ambiguous")
 
 ### 6.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
 
-> ##### <a name="currency-pattern-append-iso" href="#currency-pattern-append-iso">Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)</a>
+> ##### Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)
 >
 > ```xml
 > <currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
@@ -451,7 +451,7 @@ Symbols used below (see 3.2): the `minusSign` is `-`, except `ar` `‎-` / `"\u2
 
 | Locale | `currencyPatternAppendISO` | Difference from `root` |
 | :--- | :--- | :--- |
-| `root` | `{0} ¤¤` / `"{0}\u00A0¤¤"` | — (the XML sample at L562 has the same value) |
+| `root` | `{0} ¤¤` / `"{0}\u00A0¤¤"` | — (the XML sample at L579 has the same value) |
 | `ar` and 16 other locales: `as`, `brx`, `cs`, `eu`, `gl`, `gu`, `ig`, `ml`, `ne`, `pa`, `ps`, `si`, `sq`, `tk`, `yo`, `yo_BJ` | `{0} ¤¤` | U+0020 SPACE instead of U+00A0 |
 | `eo`, `vec` | `{0} ¤¤` / `"{0}\u202F¤¤"` | U+202F NARROW NO-BREAK SPACE instead of U+00A0 |
 | `hi` | `¤¤ {0}` | The ISO code comes first, with U+0020 SPACE |
@@ -479,10 +479,10 @@ Currency strings used below: `en` USD `$`, EUR `€`, RUB `RUB` (`symbol`) and `
 
 ### 6.4 Notes
 
-* **The space in the example** (S6.1): the example “$1,432.00 USD” (L565) has a U+0020 SPACE, but the XML sample (L562) and `root` have U+00A0 NO-BREAK SPACE, which gives `$1,432.00 USD` / `"$1,432.00\u00A0USD"`.
+* **The space in the example** (S6.1): the example “$1,432.00 USD” (L582) has a U+0020 SPACE, but the XML sample (L579) and `root` have U+00A0 NO-BREAK SPACE, which gives `$1,432.00 USD` / `"$1,432.00\u00A0USD"`.
 * **A recommendation** (S6.2): the two conditions tell the caller when to use the format. The specification does not define an option that applies them, so the expected result of every row is the pattern's result, whether or not the format is recommended for its currency string.
-* **Displays and lengths** (S6.1): the snippet combines only `¤` and `¤¤¤¤¤` with the ISO code, so the proposed rows leave out `"code"` and `"name"`. It does not say whether the pattern also applies to compact formats; S6.1d assumes it does, because `currencyPatternAppendISO` is a child of `currencyFormats` and not of a `currencyFormatLength` (L499).
-* **Editorial**: the last sentence (L568) follows the list without a blank line, so Markdown renders it as part of the second list item, as in the quote above.
+* **Displays and lengths** (S6.1): the snippet combines only `¤` and `¤¤¤¤¤` with the ISO code, so the proposed rows leave out `"code"` and `"name"`. It does not say whether the pattern also applies to compact formats; S6.1d assumes it does, because `currencyPatternAppendISO` is a child of `currencyFormats` and not of a `currencyFormatLength` (L516).
+* **Editorial**: the last sentence (L585) follows the list without a blank line, so Markdown renders it as part of the second list item, as in the quote above.
 
 ---
 

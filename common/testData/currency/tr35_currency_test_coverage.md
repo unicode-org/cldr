@@ -486,13 +486,81 @@ Currency strings used below: `en` USD `$`, EUR `€`, RUB `RUB` (`symbol`) and `
 
 ---
 
+## Section 7: Currency Symbol Placeholders (`#currency-symbol-placeholders`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#currency-symbol-placeholders`](../../../docs/ldml/tr35-numbers.md#currency-symbol-placeholders) (UTS #35 Part 3, Section 3.2: *Special Pattern Characters*; the `¤` row of the table *Number Pattern Character Definitions*, L703 at `f18139dfa2`, quoted below with the header row of the table, L689–L690)
+* **Related specification text**: L685 (invalid sequences such as “¤¤¤¤¤¤” are handled as described in [Handling Invalid Patterns](../../../docs/ldml/tr35.md#Invalid_Patterns)), L695 and L697 (the pattern characters `.` and `,` are replaced by `currencyDecimal` and `currencyGroup`; see Section 1), L559–L568 ([`currencyPatternAppendISO`](../../../docs/ldml/tr35-numbers.md#currency-pattern-append-iso), whose pattern has `¤¤`; see Section 6), L715–L721 ([placement of the placeholder](../../../docs/ldml/tr35-numbers.md#Currency_Placeholder_Placement)), and L961–L1004 ([Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting))
+
+### 7.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> | Symbol | Location | Localized Replacement | Meaning |
+> | :-- | :-- | :-- | :-- |
+> | ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | <a name="currency-symbol-placeholders"></a>Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting for currency display names, steps 2 and 4 in [Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td id="currency-placeholder-symbol" rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td id="currency-placeholder-iso" rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td id="currency-placeholder-name" rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency, based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td id="currency-placeholder-narrow" rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
+
+---
+
+### 7.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** The currency patterns in `common/main` contain a single `¤`. The only other sequence in CLDR data is `¤¤`, in `currencyPatternAppendISO` (`root` and 20 locales; see Section 6); no CLDR data has `¤¤¤`, `¤¤¤¤`, `¤¤¤¤¤`, or a longer sequence. The generator chooses what replaces `¤` with `currency_display`:
+
+| Placeholder | `currency_display` | Replacement in CLDR data |
+| :--- | :--- | :--- |
+| `¤` | `"symbol"` | The `<symbol>` of the `<currency>` element |
+| `¤¤` | `"code"` | The ISO 4217 code: the `type` of the `<currency>` element |
+| `¤¤¤` | `"name"` | A `<displayName count="…">`, placed with a `unitPattern` ([Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting)) |
+| `¤¤¤¤¤` | `"symbolNarrow"` | The `<symbol alt="narrow">` |
+
+Currency strings of the CORE values, resolved through the locale chain (skipping `↑↑↑`, `draft="provisional"`, and `draft="unconfirmed"` values):
+* **Symbol**: 35 of the 50 pairs of `CORE_LOCALES` and `CORE_CURRENCIES` have a `<symbol>`, such as `en` USD `$` and RUB `RUB` (both `en`'s own), `ru` RUB `₽`, and `ar` EGP `ج.م.‏` / `"ج.م.\u200F"`. The other 15 have none: RUB in `ar`, `ar_EG`, `bn`, `de`, `de_CH`, `fy`, `ja`, and `pt_PT`, and EGP in `bn`, `de`, `de_CH`, `fy`, `ja`, `pt_PT`, and `ru`.
+* **Narrow symbol**: `root` has one for every CORE currency (USD `$`, EUR `€`, JPY `¥`, RUB `₽`, EGP `E£`), and `ar` (USD `US$`, JPY `JP¥`), `ja` (JPY `￥`), and `de_CH` (EUR `EUR`) have their own. The narrow symbol differs from the symbol for `en` RUB (`₽` and `RUB`), and for USD (`$` and `US$`) and JPY (`¥` and `JP¥`) in `bn`, `fy`, and `pt_PT`. 57 of the 148 extended currencies have no narrow symbol in `en` or `root`, such as `AED` and `XCG` (`root` has only the symbol `Cg.` for `XCG`).
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S7.1** | *"Prefix or suffix"* and *"currency symbol/name from currency specified in API"* (the Location and Localized Replacement cells) | `currency` (the currency specified in the API) × a `locale` with `¤` in the prefix (`en`) and one with `¤` in the suffix (`de`) | `en` USD 1.2 → `$1.20`; `de` EUR 1.2 → `1,20 €` / `"1,20\u00A0€"`. |
+| **S7.2** | *"Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below."*, and the table:<br>• ¤: *"Standard currency symbol"*, *"C$12.00"*<br>• ¤¤: *"ISO currency symbol (constant)"*, *"CAD 12.00"*<br>• ¤¤¤: *"Appropriate currency display name for the currency, based on the plural rules in effect for the locale"*, *"5.00 Canadian dollars"*<br>• ¤¤¤¤¤: *"Narrow currency symbol."*, *"$12.00"*<br>• *others*: *"Invalid in current CLDR. Reserved for future specification"* | • **S7.2a**: `currency_display = "symbol"` (e.g. `locale = "en"`, `currency = "USD"`, `input = 1.2`)<br>• **S7.2b**: `currency_display = "code"` (the same values)<br>• **S7.2c**: `currency_display = "name"` × inputs in different plural categories (`de` × `JPY` × `1.2` and `1234565.0`)<br>• **S7.2d**: `currency_display = "symbolNarrow"` × a currency whose narrow symbol differs from its symbol (`en` × `RUB`)<br>• **S7.2e**: a pattern with `¤¤¤¤` or more than five `¤` | • S7.2a: `en` USD 1.2 → `$1.20`.<br>• S7.2b: `en` USD 1.2 → `USD 1.20` / `"USD\u00A01.20"`: the code ends with a letter, so the `alt="alphaNextToNumber"` pattern `¤ #,##0.00` / `"¤\u00A0#,##0.00"` is used (Section 4).<br>• S7.2c: `de` JPY 1.2 → `1 Japanischer Yen` (`one`); 1234565.0 → `1.234.565 Japanische Yen` (`other`).<br>• S7.2d: `en` RUB 1.2 → `₽1.20`, where `¤` gives `RUB 1.20` / `"RUB\u00A01.20"`.<br>• S7.2e: no CLDR data.<br>See 7.4 for the examples of the table. |
+| **S7.3** | *"If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones."* | • **S7.3a**: a `locale` with `<currencyDecimal>` or `<currencyGroup>` (`fr_CH`, `de_AT`) × any `¤` display: the pattern has a `¤`<br>• **S7.3b**: a `locale` without them × any `¤` display<br>• **S7.3c**: `locale = "fr_CH"` × `currency_display = "name"`, whose pattern (the decimal pattern) has no `¤`<br>• **S7.3d**: `locale = "de_AT"` × `currency_display = "name"`; `fr_CH` or `de_AT` × `currency_display = "noCurrency"`: patterns without `¤` | • S7.3a: see S1.1a–b and S1.3a–b; `fr_CH` EUR −1230.05 → `-1'230.05 €` / `"-1'230.05\u00A0€"`.<br>• S7.3b: see S1.2 and S1.4.<br>• S7.3c: L998 (step 5 of the display name steps) requires `currencyDecimal`, although the pattern has no `¤`: `-1'230.05 euros` (S1.1c).<br>• S7.3d: this sentence excludes the monetary separators, L271 and L275 apply them to all currency formatting, and L998 mentions only `currencyDecimal` (S1.1d, S1.3c–d). |
+| **S7.4** | *"If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤."* | • **S7.4a**: `currency_display = "symbol"` × a `currency` without a symbol in the locale chain (`de` × `RUB`)<br>• **S7.4b**: `currency_display = "symbolNarrow"` × a `currency` without a narrow symbol (`de` × `XCG`)<br>• **S7.4c**: `currency_display = "name"` × a `currency` without a display name (`fy` × `XCG`) | • S7.4a: the ISO code (`¤¤`): `de` RUB 1.2 → `1,20 RUB` / `"1,20\u00A0RUB"`. `en` has its own symbol `RUB`, so `en` RUB is not a fallback.<br>• S7.4b: the symbol (`¤`) from `root`: `de` XCG 1.2 → `1,20 Cg.` / `"1,20\u00A0Cg."` (see 7.4).<br>• S7.4c: the ISO code (`¤¤`), as step 4.4 of [Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting) says: `fy` XCG 1.2 → `1,20 XCG`. |
+| **S7.5** | *"See also the formatting for currency display names, steps 2 and 4 in [Formatting Currency Display Names](../../../docs/ldml/tr35-numbers.md#currency-unit-pattern-formatting)."* | — | A cross-reference: step 2 chooses the plural category, and step 4 the display name, with its fallback to the ISO code (S7.4c). |
+| **S7.6** | *"The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear."* (the `¤¤¤¤¤` cell) | — | Advice on when to use the narrow symbol. In `root`, `$` is the narrow symbol of USD, CAD, and other dollars. |
+
+---
+
+### 7.3 Comparison Against `GenerateCurrencyFormatTestData.java` (PR [#5808](https://github.com/unicode-org/cldr/pull/5808))
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S7.1** | `currency` × `¤` before and after the number | ✅ **Covered** | CORE values: `USD` and `EUR` in `CORE_CURRENCIES`; `en` and `de` in `CORE_LOCALES`. |
+| **S7.2a** | `currency_display = "symbol"` | ✅ **Covered** | CORE values: `"symbol"`; `en`; `USD`; `1.2` in `CORE_NUMBERS`. |
+| **S7.2b** | `currency_display = "code"` | ✅ **Covered** | CORE values: `"code"`; `en`; `USD`. |
+| **S7.2c** | `currency_display = "name"` × inputs in different plural categories | ✅ **Covered** | CORE values: `"name"`; `de`; `JPY`; `1.2` and `1234565.0`. |
+| **S7.2d** | `currency_display = "symbolNarrow"` × a currency whose narrow symbol differs from its symbol | ✅ **Covered** | CORE values: `en` × `RUB`; `bn`, `fy`, and `pt_PT` × `USD` and `JPY`. |
+| **S7.2e** | A pattern with an invalid sequence of `¤` | ⚪ **Out of scope** | No CLDR data. |
+| **S7.3a** | `locale = "fr_CH"` or `"de_AT"` × any `¤` display | 🟡 **Missing: `locale`** | As S1.1a–b and S1.3a–b. **Action**: the `fr_CH` row of the Summary. |
+| **S7.3b** | A `locale` without monetary separators × any `¤` display | ✅ **Covered** | As S1.2 and S1.4. |
+| **S7.3c** | `locale = "fr_CH"` × `currency_display = "name"` | 🟡 **Missing: `locale`** | As S1.1c. |
+| **S7.3d** | `locale = "de_AT"` × `"name"`; `fr_CH` or `de_AT` × `"noCurrency"` | ❓ **Spec unclear** | [CLDR-19825](https://unicode-org.atlassian.net/browse/CLDR-19825) (as S1.1d and S1.3c–d). |
+| **S7.4a** | `currency_display = "symbol"` × a currency without a symbol | ✅ **Covered** | CORE values: 15 pairs of `CORE_LOCALES` and `CORE_CURRENCIES`, such as `de` × `RUB`. |
+| **S7.4b** | `currency_display = "symbolNarrow"` × a currency without a narrow symbol | 🟡 **Missing: `currency` in CORE** | Every CORE currency has a narrow symbol in `root`. `XCG` and `AED` are extended currency values, combined only with `TINY_LOCALES` and one or two related locales (`currencies_narrow_modern_currencies.tsv`). **Action**: the `XCG` row of the Summary covers it: no CORE locale has a narrow symbol for `XCG`. |
+| **S7.4c** | `currency_display = "name"` × a currency without a display name | 🟡 **Missing: `currency` in CORE** | Every CORE locale has a display name for every CORE currency. `XCG` is an extended currency value, and the locales that it is combined with (`en`, `ar`, `de`, `en_GB`) have a display name for it. **Action**: the `XCG` row of the Summary covers it (`fy` × `XCG`). |
+| **S7.5** | — | ⚪ **Out of scope** | A cross-reference; nothing to test. |
+| **S7.6** | — | ⚪ **Out of scope** | Advice on usage; nothing to test. |
+
+### 7.4 Notes
+
+* **The examples of the table** (S7.2a–d): they use CAD, an extended currency value. `en` has the CAD symbol `CA$`, so `¤` gives `CA$12.00`; `C$` is the CAD symbol of `fy` and `nl`, which put it before the number with a U+00A0 NO-BREAK SPACE: `C$ 12,00` / `"C$\u00A012,00"`. For the other rows, `en` gives `CAD 12.00` / `"CAD\u00A012.00"` (with U+00A0 instead of the example's U+0020 SPACE; see S7.2b), `5.00 Canadian dollars`, and `$12.00`.
+* **Fallback of the narrow symbol** (S7.4b): the sentence allows either `¤` or `¤¤`. CLDR's inheritance gives `¤`: a missing `alt="narrow"` symbol falls back to the symbol without `alt` ([Lateral Inheritance](../../../docs/ldml/tr35.md#Lateral_Inheritance)), and a currency without either gets the ISO code: `de` AED 1.2 → `1,20 AED` / `"1,20\u00A0AED"`.
+* **Monetary separators** (S7.3): the condition "If present in a pattern" is not in L271 and L275, and L998 requires `currencyDecimal` for display names, whose pattern has no `¤` ([CLDR-19825](https://unicode-org.atlassian.net/browse/CLDR-19825)).
+* **Editorial**: the `¤¤¤¤¤` cell says "should only be where the context is clear", without "used".
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
 | :--- | :--- |
-| Add one locale with a monetary separator to `CORE_LOCALES` (+300 rows): `"fr_CH"` (recommended: unlike the `de_AT` override, it also shows with approved data only; see 1.2) or `"de_AT"` | S1.1a–c (`fr_CH`) or S1.3a–b (`de_AT`) |
+| Add one locale with a monetary separator to `CORE_LOCALES` (+300 rows): `"fr_CH"` (recommended: unlike the `de_AT` override, it also shows with approved data only; see 1.2) or `"de_AT"` | S1.1a–c, S7.3a, S7.3c (`fr_CH`) or S1.3a–b, S7.3a (`de_AT`) |
 | Add `"zh"` to `CORE_LOCALES` (+300 rows) | S2.1b |
-| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works once ICU4J has its `symbolNarrow` `Fr.` | S2.2c, S4.1d |
+| Add `"XCG"` to `CORE_CURRENCIES` (+600 rows); `"CHF"` also works for S2.2c and S4.1d once ICU4J has its `symbolNarrow` `Fr.` | S2.2c, S4.1d, S7.4b–c |
 | Add `"kn"` to `CORE_LOCALES` and `"RON"` to `CORE_CURRENCIES` (+960 rows) | S2.2d, S4.1e |
 | Add `"id"` to `CORE_LOCALES` (+300 rows); `af` and `ha` also qualify, but the pinned ICU4J has older compact patterns for them | S2.4b |
 | Add the `cf` dimension with `"standard"` and `"account"`, with `currency_format_type` unset, in a separate file: `TINY_LOCALES` × `TINY_CURRENCIES` × `TINY_NUMBERS` × the 2 `cf` values, with `currency_format_length = ""` and `currency_display = "symbol"` (+24 rows) | S3.3a–b |

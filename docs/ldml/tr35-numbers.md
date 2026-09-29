@@ -52,6 +52,23 @@ The LDML specification is divided into the following parts:
   * [Default Numbering System](#defaultNumberingSystem)
   * [Other Numbering Systems](#otherNumberingSystems)
   * [Number Symbols](#Number_Symbols)
+    * [decimal](#decimal)
+    * [group](#group)
+    * [list](#list)
+    * [percentSign](#percentsign)
+    * [~~nativeZeroDigit~~](#nativezerodigit)
+    * [~~patternDigit~~](#patterndigit)
+    * [minusSign](#minussign)
+    * [plusSign](#plussign)
+    * [approximatelySign](#approximatelysign)
+    * [exponential](#exponential)
+    * [superscriptingExponent](#superscriptingexponent)
+    * [perMille](#permille)
+    * [infinity](#infinity)
+    * [nan - Not a number](#nan---not-a-number)
+    * [currencyDecimal](#currencydecimal)
+    * [currencyGroup](#currencygroup)
+    * [timeSeparator](#timeseparator)
   * [Number Formats](#Number_Formats)
     * [Compact Number Formats](#Compact_Number_Formats)
     * [Currency Formats](#Currency_Formats)
@@ -210,71 +227,71 @@ Number symbols define the localized symbols that are commonly used when formatti
 
 The available number symbols are as follows:
 
-**decimal**
+#### decimal
 
 > separates the integer and fractional part of the number.
 
-**group**
+#### group
 
 > separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g. "100,000,000") or in some locales, ten-thousands (grouping size 4, e.g. "1,0000,0000"). There may be two different grouping sizes: The _primary grouping size_ used for the least significant integer group, and the _secondary grouping size_ used for more significant groups; these are not the same in all locales (e.g. "12,34,56,789"). If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####".
 
-**list**
+#### list
 
 > symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](tr35-general.md#ListPatterns)_.
 
-**percentSign**
+#### percentSign
 
 > symbol used to indicate a percentage (1/100th) amount. (If present, the value is also multiplied by 100 before formatting. That way 1.23 → 123%)
 
-~~**nativeZeroDigit**~~
+#### ~~nativeZeroDigit~~
 
 > Deprecated - do not use.
 
-~~**patternDigit**~~
+#### ~~patternDigit~~
 
 > Deprecated. This was formerly used to provide the localized pattern character corresponding to '#', but localization of the pattern characters themselves has been deprecated for some time (determining the locale-specific _replacements_ for pattern characters is of course not deprecated and is part of normal number formatting).
 
-**minusSign**
+#### minusSign
 
 > Symbol used to denote negative value.
 
-**plusSign**
+#### plusSign
 
 > Symbol used to denote positive value.  It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted for the value of the minusSign to produce a pattern that has an explicit plus sign.
 
-**approximatelySign**
+#### approximatelySign
 
 > Symbol used to denote a value that is approximate but not exact. The symbol is substituted in place of the minusSign using the same semantics as plusSign substitution.
 
-**exponential**
+#### exponential
 
 > Symbol separating the mantissa and exponent values.
 
-**superscriptingExponent**
+#### superscriptingExponent
 
 > (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
 
-**perMille**
+#### perMille
 
 > symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
 
-**infinity**
+#### infinity
 
 > The infinity sign. Corresponds to the IEEE infinity bit pattern.
 
-**nan - Not a number**
+#### nan - Not a number
 
 > The NaN sign. Corresponds to the IEEE NaN bit pattern.
 
-**currencyDecimal**
+#### currencyDecimal
 
 > Optional. If specified, then for currency formatting/parsing this is used as the decimal separator instead of using the regular decimal separator; otherwise, the regular decimal separator is used.
 
-**currencyGroup**
+#### currencyGroup
 
 > Optional. If specified, then for currency formatting/parsing this is used as the group separator instead of using the regular group separator; otherwise, the regular group separator is used.
 
-**timeSeparator**
+#### timeSeparator
 
 > This replaces any use of the timeSeparator pattern character in a date-time format pattern (no timeSeparator pattern character is currently defined, see note below). This allows the same time format to be used for multiple number systems when the time separator depends on the number system. For example, the time format for Arabic should be COLON when using the Latin numbering system (0, 1, 2, …), but when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎ …), the traditional time separator in older print styles was often ARABIC COMMA.
 >

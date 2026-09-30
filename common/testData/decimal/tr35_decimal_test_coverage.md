@@ -45,6 +45,8 @@ Values at `c33251cf82`. `decimals.tsv` combines all CORE values with each other 
 | **`format_length`** | Compact length | `""` (non-compact), `"short"`, `"long"` (compact) | — |
 | **`input`** | Number to format | `CORE_NUMBERS`: `0.0`, `1.2`, `0.00831765`, `1234565.0`, `-1230.05` | 10ⁱ, 1.5 × 10ⁱ, and 5 × 10ⁱ for −6 ≤ i ≤ 12; `12`, `123`, `1234.56`, `1234567`, `0.000123`, `0.5`, `2.5`, `3.5`, `0.125`, `0.135`, `999.9`, `999999.9`; the negatives of all positive values, including the CORE ones; and `-0.0` (`getExtendedNumbers()` minus `CORE_NUMBERS`; `decimals_extended_numbers.tsv`) |
 | **`numbering_system`** | The `nu` key of the Unicode locale identifier (`-u-nu-…`) | **Needs to be added** (Section 1): `"latn"`, `"native"`, `"traditio"`, `"finance"`. The current rows use no `nu` key, that is, the locale's default numbering system. | — |
+| **`sign_display`** | When a sign is shown | **Needs to be added** (Section 2): `"always"` (the `plusSign` for positive numbers), `"approximately"` (the `approximatelySign`). The current rows show a sign only for negative numbers. | — |
+| **`exponent_style`** | How the exponent of `"scientific"` is written | **Needs to be added** (Section 2): `"superscript"` (`superscriptingExponent`, as in `1.234565×10⁶`). The current rows use the `exponential` symbol (`1.234565E6`). | — |
 
 The generator produces 5 of the 9 combinations of `number_format` and `format_length`: `"decimal"` with each length, and `"percent"` and `"scientific"` with `""` only.
 
@@ -149,10 +151,156 @@ Digits (`common/supplemental/numberingSystems.xml`): `arab` `٠١٢٣٤٥٦٧٨�
 
 ---
 
+## Section 2: Number Symbols (`#Number_Symbols`)
+
+* **TR35 Specification Link**: [`tr35-numbers.md#Number_Symbols`](../../../docs/ldml/tr35-numbers.md#Number_Symbols) (UTS #35 Part 3, Section 2.3: *Number Symbols*; L201–L306 at `c33251cf82`). The quote below has L207–L265, the general text and the symbols used for plain numbers, and L302–L305, the `numberSystem` attribute. The other symbols are covered elsewhere: `currencyDecimal` and `currencyGroup` (L267–L273) in Section 1 of the [currency document](../currency/tr35_currency_test_coverage.md), and `timeSeparator` (L275–L279) belongs to date and time formats.
+* **Related specification text**: L679–L691 ([Number Pattern Character Definitions](../../../docs/ldml/tr35-numbers.md#Number_Pattern_Character_Definitions): the pattern characters `.`, `-`, `,`, `E`, `+`, `%`, and `‰`, and the symbols that replace them), L755–L761 ([Explicit Plus Signs](../../../docs/ldml/tr35-numbers.md#Explicit_Plus)), L775–L779 ([Special Values](../../../docs/ldml/tr35-numbers.md#special-values): NaN and infinity), and L781 onward ([Scientific Notation](../../../docs/ldml/tr35-numbers.md#sci))
+
+### 2.1 Verbatim Specification Snippet (`docs/ldml/tr35-numbers.md`)
+
+> Number symbols define the localized symbols that are commonly used when formatting numbers in a given locale. These symbols can be referenced using a number formatting pattern as defined in _[Section 3: Number Format Patterns](../../../docs/ldml/tr35-numbers.md#Number_Format_Patterns)_.
+>
+> The available number symbols are as follows:
+>
+> **decimal**
+>
+> > separates the integer and fractional part of the number.
+>
+> **group**
+>
+> > separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g. "100,000,000") or in some locales, ten-thousands (grouping size 4, e.g. "1,0000,0000"). There may be two different grouping sizes: The _primary grouping size_ used for the least significant integer group, and the _secondary grouping size_ used for more significant groups; these are not the same in all locales (e.g. "12,34,56,789"). If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####".
+>
+> **list**
+>
+> > symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](../../../docs/ldml/tr35-general.md#ListPatterns)_.
+>
+> **percentSign**
+>
+> > symbol used to indicate a percentage (1/100th) amount. (If present, the value is also multiplied by 100 before formatting. That way 1.23 → 123%)
+>
+> ~~**nativeZeroDigit**~~
+>
+> > Deprecated - do not use.
+>
+> ~~**patternDigit**~~
+>
+> > Deprecated. This was formerly used to provide the localized pattern character corresponding to '#', but localization of the pattern characters themselves has been deprecated for some time (determining the locale-specific _replacements_ for pattern characters is of course not deprecated and is part of normal number formatting).
+>
+> **minusSign**
+>
+> > Symbol used to denote negative value.
+>
+> **plusSign**
+>
+> > Symbol used to denote positive value.  It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted for the value of the minusSign to produce a pattern that has an explicit plus sign.
+>
+> **approximatelySign**
+>
+> > Symbol used to denote a value that is approximate but not exact. The symbol is substituted in place of the minusSign using the same semantics as plusSign substitution.
+>
+> **exponential**
+>
+> > Symbol separating the mantissa and exponent values.
+>
+> **superscriptingExponent**
+>
+> > (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
+>
+> **perMille**
+>
+> > symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
+>
+> **infinity**
+>
+> > The infinity sign. Corresponds to the IEEE infinity bit pattern.
+>
+> **nan - Not a number**
+>
+> > The NaN sign. Corresponds to the IEEE NaN bit pattern.
+>
+> […]
+>
+> ```dtd
+> <!ATTLIST symbols numberSystem CDATA #IMPLIED >
+> ```
+> The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. The `numberSystem` attribute will always be present in CLDR 49 and beyond. The DTD does not require it, so that older versions of CLDR can be read with as before.  Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
+
+---
+
+### 2.2 Sentence-by-Sentence `(Dimension / Value)` Coverage Breakdown
+
+**CLDR data.** Resolved symbols of the default numbering system of each CORE locale (`<symbols numberSystem="…">`, following `↑↑↑` and missing values to the parent locale and to `root`; `root` makes the `beng` symbols an alias of the `latn` ones).
+
+| Locale (numbering system) | `decimal` | `group` | `percentSign` | `minusSign` | `plusSign` | `approximatelySign` | `exponential` | `superscriptingExponent` | `perMille` | `nan` |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `en`, `ja` (`latn`) | `.` | `,` | `%` | `-` | `+` | `~` (`ja`: `約`) | `E` | `×` | `‰` | `NaN` |
+| `de` (`latn`) | `,` | `.` | `%` | `-` | `+` | `≈` | `E` | `·` | `‰` | `NaN` |
+| `de_CH` (`latn`) | `.` | `'` (U+0027) | `%` | `-` | `+` | `≈` | `E` | `·` | `‰` | `NaN` |
+| `pt_PT`, `ru` (`latn`) | `,` | `"\u00A0"` | `%` | `-` | `+` | `~` (`ru`: `≈`) | `E` | `×` | `‰` | `NaN` (`ru`: `не число` / `"\u043D\u0435\u00A0\u0447\u0438\u0441\u043B\u043E"`) |
+| `bn` (`beng`) | `.` | `,` | `%` | `-` | `+` | `~` | `E` | `×` | `‰` | `NaN` |
+| `ar` (`latn`) | `.` | `,` | `"\u200E%\u200E"` | `"\u200E-"` | `"\u200E+"` | `~` | `E` | `×` | `‰` | `ليس رقمًا` / `"\u0644\u064A\u0633\u00A0\u0631\u0642\u0645\u064B\u0627"` |
+| `ar_EG` (`arab`) | `٫` (U+066B) | `٬` (U+066C) | `"\u066A\u061C"` | `"\u061C-"` | `"\u061C+"` | `~` | `أس` | `×` | `؉` (U+0609) | as `ar` |
+
+`infinity` is `∞` (U+221E) in all of them. Patterns (default numbering system): `#,##0.###` for decimal (`bn`: `#,##,##0.###`), `#,##0%` for percent (`de` and `ru`: `"#,##0\u00A0%"`), and `#E0` for scientific.
+
+Scans of `common/main` (all locales): no decimal, percent, scientific, or currency pattern has a primary grouping size of 4 or more than two grouping separators, and no pattern contains `‰`. 26 locales have a secondary grouping size different from the primary one (`bn`, `hi`, `en_IN`, …). 15 locales have U+2212 MINUS SIGN as `minusSign`; among the extended locales, `et`, `eu`, `fa`, `fi`, `hr`, `lt`, `no`, `sl`, and `sv`.
+
+| # | Verbatim Sentence / Normative Clause | Required `(Dimension = Value)` Combinations to Cover Clause | CLDR Data Evidence & Expected Behavior |
+| :---: | :--- | :--- | :--- |
+| **S2.1** | *"Number symbols define the localized symbols that are commonly used when formatting numbers in a given locale. These symbols can be referenced using a number formatting pattern [...]"* | — (introduces S2.2–S2.14) | — |
+| **S2.2** | **`decimal`** — *"separates the integer and fractional part of the number."* | • `locale` whose `decimal` is not `.` (e.g. `"de"`, `"ar_EG"`) and one whose `decimal` is `.` (`"en"`)<br>• `input` with a fractional part (e.g. `1.2`) | `de` 1.2 → `1,2`; `ar_EG` → `١٫٢`; `en` → `1.2`. |
+| **S2.3** | **`group`** — *"separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g. "100,000,000") or in some locales, ten-thousands (grouping size 4, e.g. "1,0000,0000")."* | • **S2.3a**: grouping size 3: any `locale` with a primary grouping size 3, `input` of magnitude ≥ 1000 (e.g. `1234565.0`), with several `group` values (`"en"`, `"de"`, `"de_CH"`, `"ru"`, `"ar_EG"`)<br>• **S2.3b**: grouping size 4 | • S2.3a: `en` 1234565.0 → `1,234,565`; `de` → `1.234.565`; `de_CH` → `1'234'565`; `ru` → `1 234 565` / `"1\u00A0234\u00A0565"`; `ar_EG` → `١٬٢٣٤٬٥٦٥`.<br>• S2.3b: no CLDR pattern has a primary grouping size of 4. |
+| **S2.4** | **`group`** — *"There may be two different grouping sizes: The primary grouping size used for the least significant integer group, and the secondary grouping size used for more significant groups; these are not the same in all locales (e.g. "12,34,56,789"). If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####"."* | • **S2.4a**: `locale` with different primary and secondary grouping sizes (`"bn"`: `#,##,##0.###`), `input` with at least 6 integer digits (e.g. `1234565.0`)<br>• **S2.4b**: a pattern with more than two grouping separators (*"All others are ignored"*) | • S2.4a: `bn` 1234565.0 → `১২,৩৪,৫৬৫` (primary 3, secondary 2).<br>• S2.4b: no CLDR pattern has more than two grouping separators. |
+| **S2.5** | **`list`** — *"symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. [...]"* | — | Number formatting does not use `list`. That it differs from `decimal` is a constraint on the data. |
+| **S2.6** | **`percentSign`** — *"symbol used to indicate a percentage (1/100th) amount. (If present, the value is also multiplied by 100 before formatting. That way 1.23 → 123%)"* | • `number_format = "percent"` × several `locale` values (`"en"`, `"de"`, `"ar"`, `"ar_EG"`), any `input` | `en` 1.2 → `120%`; `de` → `120 %` / `"120\u00A0%"`; `ar` → `120‎%‎` / `"120\u200E%\u200E"`; `ar_EG` → `١٢٠٪؜` / `"\u0661\u0662\u0660\u066A\u061C"`. |
+| **S2.7** | **`nativeZeroDigit`**, **`patternDigit`** — *"Deprecated - do not use."*, *"Deprecated. [...]"* | — | Deprecated; not used in formatting. |
+| **S2.8** | **`minusSign`** — *"Symbol used to denote negative value."* | • negative `input` (e.g. `-1230.05`) × several `locale` values (`"en"`, `"ar"`, `"ar_EG"`) | `en` −1230.05 → `-1,230.05`; `ar` → `‎-1,230.05` / `"\u200E-1,230.05"`; `ar_EG` → `؜-١٬٢٣٠٫٠٥` / `"\u061C-\u0661\u066C\u0662\u0663\u0660\u066B\u0660\u0665"`. |
+| **S2.9** | **`plusSign`** — *"Symbol used to denote positive value. It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted for the value of the minusSign to produce a pattern that has an explicit plus sign."* | • `sign_display = "always"` × positive `input` (e.g. `1.2`) × several `locale` values (`"en"`, `"ar"`, `"ar_EG"`) | `en` 1.2 → `+1.2`; `ar` → `‎+1.2` / `"\u200E+1.2"`; `ar_EG` → `؜+١٫٢` / `"\u061C+\u0661\u066B\u0662"`. |
+| **S2.10** | **`approximatelySign`** — *"Symbol used to denote a value that is approximate but not exact. The symbol is substituted in place of the minusSign using the same semantics as plusSign substitution."* | • `sign_display = "approximately"` × positive `input` × several `locale` values (`"en"`, `"de"`, `"ja"`) | `en` 1.2 → `~1.2`; `de` → `≈1,2`; `ja` → `約1.2`. |
+| **S2.11** | **`exponential`** — *"Symbol separating the mantissa and exponent values."* | • `number_format = "scientific"` × several `locale` values (`"en"`, `"ar_EG"`), any `input` | `en` 1234565.0 → `1.234565E6`; `ar_EG` → `١٫٢٣٤٥٦٥أس٦`. |
+| **S2.12** | **`superscriptingExponent`** — *"(Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: [...]"* | • `number_format = "scientific"` × `exponent_style = "superscript"` × `locale` with Latin digits and different `superscriptingExponent` values (`"en"`: `×`; `"de"`: `·`), any `input` | `en` 1234565.0 → `1.234565×10⁶`; `de` → `1,234565·10⁶` (see the notes on spacing). |
+| **S2.13** | **`perMille`** — *"symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])"* | — | No CLDR pattern contains `‰`. Per-mille amounts are formatted as the unit `concentr-permille`, outside this generator. |
+| **S2.14** | **`infinity`**, **`nan`** — *"The infinity sign. Corresponds to the IEEE infinity bit pattern."*, *"The NaN sign. Corresponds to the IEEE NaN bit pattern."* | • `input` = `Infinity`, `-Infinity`, `NaN` × several `locale` values (`"en"`, `"ar_EG"`, `"ru"`) | `en` → `∞`, `-∞`, `NaN`; `ar_EG` −∞ → `؜-∞` / `"\u061C-\u221E"`; `ru` NaN → `не число` / `"\u043D\u0435\u00A0\u0447\u0438\u0441\u043B\u043E"`. |
+| **S2.15** | **`numberSystem`** — *"The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. [...] Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma."* | • **S2.15a**: `locale` whose default is not `latn` (`"ar_EG"`) and the same language with `latn` (`"ar"`), `input` of magnitude ≥ 1000<br>• **S2.15b**: *"Number symbols can only be defined for numbering systems of the "numeric" type [...]"* and *"The `numberSystem` attribute will always be present in CLDR 49 and beyond."* | • S2.15a: `ar_EG` 1234565.0 → `١٬٢٣٤٬٥٦٥` (group `٬` U+066C, ARABIC THOUSANDS SEPARATOR) vs. `ar` → `1,234,565`. With Section 1's `numbering_system`, `ar-u-nu-native` also uses the `arab` symbols.<br>• S2.15b: constraints on the data. |
+
+---
+
+### 2.3 Comparison Against `GenerateDecimalFormatTestData.java`
+
+| Clause | Required `(Dimension = Value)` Combination | Status | Generator Evidence / Action Required |
+| :---: | :--- | :---: | :--- |
+| **S2.2** | `locale` with `decimal` `,` / `٫` / `.` × fractional `input` | ✅ **Covered** | CORE values: `de`, `ar_EG`, and `en` in `CORE_LOCALES`; `1.2` and `-1230.05` in `CORE_NUMBERS`. |
+| **S2.3a** | grouping size 3 × several `group` values × `input` ≥ 1000 | ✅ **Covered** | CORE values: `en`, `de`, `de_CH`, `ru`, `pt_PT`, and `ar_EG`; `1234565.0` and `-1230.05` in `CORE_NUMBERS`. |
+| **S2.3b**, **S2.4b** | a pattern with grouping size 4, or with more than two grouping separators | ⚪ **Out of scope** | No CLDR data. |
+| **S2.4a** | `locale = "bn"` × `input` with ≥ 6 integer digits | ✅ **Covered** | CORE values: `bn` in `CORE_LOCALES`; `1234565.0` in `CORE_NUMBERS`. |
+| **S2.5**, **S2.7** | — | ⚪ **Out of scope** | Not used in number formatting (`list`), or deprecated. |
+| **S2.6** | `number_format = "percent"` × several `locale` values | ✅ **Covered** | CORE values: `"percent"` with `format_length = ""`, all `CORE_LOCALES`, and `CORE_NUMBERS`. |
+| **S2.8** | negative `input` × several `locale` values | ✅ **Covered** | CORE values: `-1230.05` in `CORE_NUMBERS`, all `CORE_LOCALES`. U+2212 MINUS SIGN is only in extended locales (`fi`, `sv`, …: `decimals_modern_locales.tsv`). |
+| **S2.9**, **S2.10** | `sign_display = "always"` or `"approximately"` × positive `input` | 🟡 **Missing: new dimension** | The generator does not set a sign display, so it shows a sign only for negative numbers. **Action**: add the `sign_display` dimension (see the Summary). |
+| **S2.11** | `number_format = "scientific"` × several `locale` values | ✅ **Covered** | CORE values: `"scientific"` with `format_length = ""`, all `CORE_LOCALES`, and `CORE_NUMBERS`. |
+| **S2.12** | `exponent_style = "superscript"` × `number_format = "scientific"` | 🟡 **Missing: new dimension** | The generator's scientific rows use the `exponential` symbol (`E`) only. **Action**: add the `exponent_style` dimension (see the Summary). |
+| **S2.13** | — | ⚪ **Out of scope** | No CLDR pattern uses `‰`; per-mille amounts are unit formatting. |
+| **S2.14** | `input` = `Infinity`, `-Infinity`, `NaN` | 🟡 **Missing: `input`** | None of these is a CORE or extended number value. **Action**: see the Summary. |
+| **S2.15a** | `locale = "ar_EG"` and `"ar"` × `input` ≥ 1000 | ✅ **Covered** | CORE values: `ar_EG` and `ar` in `CORE_LOCALES`; `1234565.0` in `CORE_NUMBERS`. |
+| **S2.15b** | — | ⚪ **Out of scope** | Constraints on the data. |
+
+### 2.4 Notes
+
+* S2.10: the specification does not say how the approximately sign combines with a negative number, since both replace the same minus sign. The Summary therefore adds `"approximately"` rows only for non-negative inputs.
+* S2.12: the example “1.23 × 10<sup>4</sup>” has spaces around `×`, but no CLDR `superscriptingExponent` value has spaces (`en`: `×`), and the text does not say where the `10` comes from or how it is localized (for example with `arab` digits, which have no superscript characters). The expected values above follow the data: `1.234565×10⁶`.
+* S2.14: [Special Values](../../../docs/ldml/tr35-numbers.md#special-values) (L777) says that NaN is shown without the prefixes and suffixes of the pattern; a later section on special values checks the percent and compact results.
+
+---
+
 ## Summary: Required Generator Changes
 
 | Change | Needed by |
 | :--- | :--- |
 | Add the `numbering_system` dimension, with its rows in a separate file: `CORE_LOCALES` × `"latn"`, `"native"`, `"traditio"`, `"finance"` × `number_format = "decimal"`, `format_length = ""` × `CORE_NUMBERS` (+170 rows: 9 × 4 × 5, minus the 10 `ja` rows for `"traditio"` and `"finance"`, whose numbering systems are algorithmic) | S1.3a–b, S1.5, S1.6b, S1.7b, S1.8 |
+| Add the `sign_display` dimension, with its rows in a separate file: `CORE_LOCALES` × `"always"` × `number_format = "decimal"`, `format_length = ""` × `CORE_NUMBERS` (45 rows), and `CORE_LOCALES` × `"approximately"` × the same × the non-negative `CORE_NUMBERS` (36 rows) (+81 rows) | S2.9, S2.10 |
+| Add the `exponent_style` dimension, with its rows in a separate file: the 7 `CORE_LOCALES` with Latin digits (all but `ar_EG` and `bn`) × `"superscript"` × `number_format = "scientific"` × `CORE_NUMBERS` (+35 rows) | S2.12 |
+| Add the special values `Infinity`, `-Infinity`, and `NaN`, with their rows in a separate file: `CORE_LOCALES` × `number_format = "decimal"`, `format_length = ""` (+27 rows) | S2.14 |
 
 The rows that change the digits are `ar` × `"native"` and `"traditio"` (`arab`), and `ar_EG` and `bn` × `"latn"`. The other rows check that each key falls back to the expected numbering system.
+
+Together, Sections 1 and 2 add 313 rows, all in separate files (170 + 81 + 35 + 27); `decimals.tsv` is unchanged.

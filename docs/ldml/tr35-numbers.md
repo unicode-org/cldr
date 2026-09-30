@@ -472,30 +472,9 @@ The default pattern for any type that is not supplied is the special value “0�
 
  `<pattern type="1" count="one">0</pattern>`
 
-If the value is precisely “0”, either explicit or defaulted, the fallback behavior depends on the format type and magnitude:
+If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort of object is supplied — either `<decimalFormat>` or `<currencyFormat type="standard">` — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the significant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
 
-1. **Plain Decimal (`<decimalFormatLength>`) and Low Magnitudes (`type="1"` through `type="100"`)**: The normal number format pattern (`<decimalFormat>` or `<currencyFormat type="standard">`) is supplied with normal formatting for the locale (such as grouping separators). By default, significant digits are adjusted for consistency, typically to 2 or 3 digits, and maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
-2. **Compact Currency (`<currencyFormatLength[@type="short"]>`) for Magnitudes $\ge$ 1000**: When explicit short compact currency patterns are absent or defaulted (`0`) but the locale defines a short compact decimal pattern (`<decimalFormatLength[@type="short"]>`) for that magnitude and plural category, implementations must dynamically synthesize the compact currency output instead of falling back to non-compact currency formatting (`$1,200,000.00`). To synthesize the output:
-   - Format the numeric quantity using the locale's short compact decimal pattern (`<decimalFormatLength[@type="short"]>`).
-   - Interpolate that formatted compact decimal string into the numeric placeholder (`#` / `0`) of the locale's standard currency layout (`<currencyFormat type="standard">` or `pattern[@alt="alphaNextToNumber"]`).
-
-##### Examples of Dynamic Compact Currency Synthesis (Fallback Rule)
-When `currencyFormatLength[@type="short"]` is absent or set to `0`, implementations dynamically combine `decimalFormatLength[@type="short"]` with `currencyFormat[@type="standard"]` (or `alphaNextToNumber`):
-
-* **Arabic (`ar/arab` - Power 1000000, other)**:
-  * Short Compact Decimal (`decimalFormatLength[@type="short"]`): `‏0 مليون` $\to$ `‏١٫٢ مليون`
-  * Standard Currency (`currencyFormat[@type="standard"]`): `‏#,##0.00 ¤`
-  * **Synthesized Compact Currency**: **`‏١٫٢ مليون ¤`** (`1.2M ¤`) instead of non-compact `$1,200,000.00` (`‏١٬٢٠٠٬٠٠٠٫٠٠ ¤`).
-
-* **Hindi (`hi/deva` - Power 100000, one)**:
-  * Short Compact Decimal (`decimalFormatLength[@type="short"]`): `0 लाख` $\to$ `१.२ लाख` (`1.2 Lakh`)
-  * Standard Currency (`currencyFormat[@type="standard"]`): `¤#,##,##0.00`
-  * **Synthesized Compact Currency**: **`¤ १.२ लाख`** (`$1.2 Lakh`) instead of non-compact `¤१२,००,०००.००`.
-
-* **Japanese (`ja/hanidec` - Power 10000, other)**:
-  * Short Compact Decimal (`decimalFormatLength[@type="short"]`): `0万` $\to$ `120万`
-  * Standard Currency (`currencyFormat[@type="standard"]`): `¤#,##0.00`
-  * **Synthesized Compact Currency**: **`¤120万`** (`$120万`) instead of non-compact `¤1,200,000.00`.
+A short currency pattern of “0” is not replaced by a pattern constructed from the short decimal pattern, even where the short decimal pattern for that type is not “0”. The value “0” indicates that the locale does not use a compact currency form for that type. Short currency patterns for a numbering system with no patterns of its own are inherited from the `latn` patterns through the root aliases, in the same way as short decimal patterns.
 
 With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</pattern>`. N is divided by 1000 (obtained from 10000 after removing "00" and restoring one "0"). The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
 

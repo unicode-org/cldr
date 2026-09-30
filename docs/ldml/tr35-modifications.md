@@ -84,6 +84,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [Compact Number Formats](tr35-numbers.md#Compact_Number_Formats) Clarified that a “0” short currency pattern is not replaced by a pattern constructed from the short decimal pattern, and that short currency patterns for other numbering systems are inherited from `latn`.
+<!-- CLDR-19633 -->
 
 ### Units
 

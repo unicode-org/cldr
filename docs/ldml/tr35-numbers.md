@@ -474,6 +474,8 @@ The default pattern for any type that is not supplied is the special value “0�
 
 If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort of object is supplied — either `<decimalFormat>` or `<currencyFormat type="standard">` — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the significant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
 
+A short currency pattern of “0” is not replaced by a pattern constructed from the short decimal pattern, even where the short decimal pattern for that type is not “0”. The value “0” indicates that the locale does not use a compact currency form for that type. Short currency patterns for a numbering system with no patterns of its own are inherited from the `latn` patterns through the root aliases, in the same way as short decimal patterns.
+
 With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</pattern>`. N is divided by 1000 (obtained from 10000 after removing "00" and restoring one "0"). The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
 
 Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard"><pattern>#,##0.00 ¤</pattern>`, and would result in simply “990 $”.

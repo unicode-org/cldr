@@ -84,6 +84,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [`Number Formats`](tr35-numbers.md#Number_Formats), [`Miscellaneous Patterns`](tr35-numbers.md#Miscellaneous_Patterns), [`Formatting`](tr35-numbers.md#Formatting) Added a subsection heading for each number format type (`decimalFormats`, `percentFormats`, `scientificFormats`), each miscellaneous pattern (`approximately`, `atMost`, `atLeast`, `range`), and special values.
+<!-- CLDR-19830 -->
 
 ### Units
 

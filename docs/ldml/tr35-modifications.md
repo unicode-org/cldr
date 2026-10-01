@@ -21,6 +21,7 @@ This is a partial document, describing only the changes to the LDML since the pr
     * [MessageFormat](#messageformat)
   * [Numbers](#numbers)
   * [Units](#units)
+  * [Collation](#collation)
   * [Keyboard](#keyboard)
   * [Segmentation](#segmentation)
 

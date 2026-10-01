@@ -58,13 +58,19 @@ public class Option {
         private boolean isBoolean = false;
 
         /**
-         * mark as a boolean option. Use getBooleanValue() to retrieve. by default it is false,
-         * unless present: - missing ( false ) - --option (true ) --option=true ( true)
-         * --option=false (false)
+         * mark as a boolean option. Use getBooleanValue() to retrieve. the default sets the value
+         * if not present. if no parameter is set, it defaults to setting true. Example: --option is
+         * the same as --option=true if the default is true, then "--option" is the same as
+         * omitting.
          */
-        public Params setBoolean() {
+        public Params setBoolean(boolean defVal) {
             isBoolean = true;
-            return setDefault("true").setMatch("true|false");
+            return setDefault(Boolean.toString(defVal)).setMatch("true|false");
+        }
+
+        /** add a boolean option, defaulting to false */
+        public Params setBoolean() {
+            return setBoolean(false);
         }
 
         /**
@@ -132,9 +138,13 @@ public class Option {
     /** true if present */
     public Boolean getBooleanValue() {
         if (doesOccur()) {
+            if (getValue() == null || getValue().isBlank()) {
+                return null;
+            }
             return "true".equalsIgnoreCase(getValue());
         } else {
-            return false;
+            // return based on the default value
+            return "true".equalsIgnoreCase(getDefaultArgument());
         }
     }
 

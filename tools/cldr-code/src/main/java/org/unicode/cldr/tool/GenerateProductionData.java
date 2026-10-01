@@ -99,25 +99,26 @@ public class GenerateProductionData {
                         .setHelp("destination common directory")
                         .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
                         .setMatch(".*")),
-        logicalGroups(new Params().setHelp("add path/values for logical groups").setBoolean()),
-        time(new Params().setHelp("add path/values for stock date/time/datetime").setBoolean()),
-        Sideways(new Params().setHelp("add path/values for sideways inheritance").setBoolean()),
-        root(new Params().setHelp("add path/values for root and code-fallback").setBoolean()),
+        logicalGroups(new Params().setHelp("add path/values for logical groups").setBoolean(true)),
+        time(new Params().setHelp("add path/values for stock date/time/datetime").setBoolean(true)),
+        Sideways(new Params().setHelp("add path/values for sideways inheritance").setBoolean(true)),
+        root(new Params().setHelp("add path/values for root and code-fallback").setBoolean(true)),
         constrainedRestoration(
                 new Params()
                         .setHelp("only add inherited paths that were in original file")
-                        .setBoolean()),
+                        .setBoolean(true)),
         includeComprehensive(
                 new Params()
-                        .setHelp("exclude comprehensive paths — otherwise just to modern level")
-                        .setBoolean()),
+                        .setHelp(
+                                "if true, modern level only (exclude comprehensive). false for all.")
+                        .setBoolean(true)),
         keepPreBasic(
                 new Params()
                         .setHelp(
                                 "keep non-ICU locales below Basic coverage — otherwise they are skipped")
-                        .setBoolean()),
+                        .setBoolean(false)),
         includeExemplarTree(
-                new Params().setHelp("include the exemplar tree").setBoolean().setFlag('x')),
+                new Params().setHelp("include the exemplar tree").setBoolean(false).setFlag('x')),
         verbose(new Params().setHelp("verbose debugging messages")),
         Debug(new Params().setHelp("debug")),
         fileMatch(new Params().setHelp("regex to match patterns").setMatch(".*")),

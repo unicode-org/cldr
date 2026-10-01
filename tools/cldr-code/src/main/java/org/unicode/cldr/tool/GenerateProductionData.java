@@ -178,7 +178,6 @@ public class GenerateProductionData {
 
         Map<File, File> specialDirectories = new TreeMap<>();
         Arrays.asList(DtdType.values())
-                // .parallelStream()
                 // .unordered()
                 .forEach(
                         type -> {
@@ -224,7 +223,6 @@ public class GenerateProductionData {
         final ConcurrentHashMap<Path, Path> removed = new ConcurrentHashMap<>();
         java.nio.file.Files.walk(destParent)
                 .filter(path -> Files.isRegularFile(path))
-                .parallel()
                 .forEach(
                         path -> {
                             /** path from static prefix */
@@ -450,7 +448,7 @@ public class GenerateProductionData {
         if (sorted != null)
             try (final ProgressTracker progress =
                     new ProgressTracker(sourceFile.getName(), sorted.size()); ) {
-                sorted.parallelStream()
+                sorted.stream() // .parallelStream() TODO CLDR-19836: fails in parallel
                         .forEach(
                                 file -> {
                                     progress.decrement();

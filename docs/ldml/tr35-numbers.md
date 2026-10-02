@@ -53,9 +53,16 @@ The LDML specification is divided into the following parts:
   * [Other Numbering Systems](#otherNumberingSystems)
   * [Number Symbols](#Number_Symbols)
   * [Number Formats](#Number_Formats)
+    * [decimalFormats](#decimalformats)
+    * [percentFormats](#percentformats)
+    * [scientificFormats](#scientificformats)
     * [Compact Number Formats](#Compact_Number_Formats)
     * [Currency Formats](#Currency_Formats)
   * [Miscellaneous Patterns](#Miscellaneous_Patterns)
+    * [approximately](#approximately)
+    * [atMost](#atmost)
+    * [atLeast](#atleast)
+    * [range](#range)
   * [Minimal Pairs](#Minimal_Pairs)
 * [Number Format Patterns](#Number_Format_Patterns)
   * [Number Patterns](#Number_Patterns)
@@ -65,6 +72,7 @@ The LDML specification is divided into the following parts:
     * Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
     * [Explicit Plus Signs](#Explicit_Plus)
   * [Formatting](#Formatting)
+    * [Special Values](#special-values)
   * [Scientific Notation](#sci)
   * [Significant Digits](#sigdig)
     * Table: [Significant Digits Examples](#Significant_Digits_Examples)
@@ -312,15 +320,15 @@ Number formats are used to define the rules for formatting numeric quantities us
 
 Different formats are provided for different contexts, as follows:
 
-**decimalFormats**
+#### decimalFormats
 
 > The normal locale specific way to write a base 10 number. Variations of the decimalFormat pattern are provided that allow compact number formatting.
 
-**percentFormats**
+#### percentFormats
 
 > Pattern for use with percentage formatting
 
-**scientificFormats**
+#### scientificFormats
 
 > Pattern for use with scientific (exponent) formatting.
 
@@ -558,19 +566,19 @@ Most locales will not need to override the pattern provided in root, shown in th
 
 The miscPatterns supply additional patterns for special purposes. The currently defined values are:
 
-**approximately**
+#### approximately
 
 > indicates an approximate number, such as: “\~99”. This pattern is not currently in use; see ICU-20163.
 
-**atMost**
+#### atMost
 
 > indicates a number or lower, such as: “`≤`99” to indicate that there are 99 items or fewer.
 
-**atLeast**
+#### atLeast
 
 > indicates a number or higher, such as: “99+” to indicate that there are 99 items or more.
 
-**range**
+#### range
 
 > indicates a range of numbers, such as: “99–103” to indicate that there are from 99 to 103 items.
 
@@ -764,7 +772,7 @@ Formatting is guided by several parameters, all of which can be specified either
 * If the number of actual fraction digits is less than the _minimum fraction digits_, then trailing zeros are added. For example, 0.125 is formatted as "0.1250" if the minimum fraction digits is set to 4.
 * Trailing fractional zeros are not displayed if they occur _j_ positions after the decimal, where _j_ is less than the maximum fraction digits. For example, 0.10004 is formatted as "0.1" if the maximum fraction digits is four or less.
 
-**Special Values**
+#### Special Values
 
 `NaN` is represented as a single character, typically `(U+FFFD)` . This character is determined by the localized number symbols. This is the only value for which the prefixes and suffixes are not used.
 

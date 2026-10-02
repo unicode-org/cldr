@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.WeakHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
@@ -180,7 +181,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     // Listeners are stored using weak references so that they can be garbage collected.
-    private final List<WeakReference<Listener>> listeners = new ArrayList<>();
+    private final List<WeakReference<Listener>> listeners = new CopyOnWriteArrayList<>();
 
     public String getLocaleID() {
         return localeID;

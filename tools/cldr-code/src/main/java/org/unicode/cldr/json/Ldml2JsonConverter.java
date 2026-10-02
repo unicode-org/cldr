@@ -34,6 +34,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -154,11 +156,11 @@ public class Ldml2JsonConverter {
     private static final StandardCodes sc = StandardCodes.make();
     private Set<String> defaultContentLocales =
             SupplementalDataInfo.getInstance().getDefaultContentLocales();
-    private Set<String> skippedDefaultContentLocales = new TreeSet<>();
+    private Set<String> skippedDefaultContentLocales = new ConcurrentSkipListSet<>();
 
     private class AvailableLocales {
-        Set<String> modern = new TreeSet<>();
-        Set<String> full = new TreeSet<>();
+        Set<String> modern = new ConcurrentSkipListSet<>();
+        Set<String> full = new ConcurrentSkipListSet<>();
     }
 
     private AvailableLocales avl = new AvailableLocales();
@@ -420,7 +422,7 @@ public class Ldml2JsonConverter {
         configFileReader.read(configFile, type);
         this.dependencies = configFileReader.getDependencies();
         this.sections = configFileReader.getSections();
-        this.packages = new TreeSet<>();
+        this.packages = new ConcurrentSkipListSet<>();
         this.includeRedundant = includeRedundant;
         this.licenseFile = licenseFile;
     }
@@ -2384,7 +2386,7 @@ public class Ldml2JsonConverter {
                         .collect(Collectors.toSet());
         final int total = files.size();
         AtomicInteger readCount = new AtomicInteger(0);
-        Map<String, Throwable> errs = new TreeMap<>();
+        Map<String, Throwable> errs = new ConcurrentSkipListMap<>();
 
         // This takes a long time (minutes, in 2020), so run it in parallel forkJoinPool threads.
         // The result of this pipeline is an array of toString()-able filenames of XML files which

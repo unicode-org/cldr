@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.common.io.Files;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -15,23 +14,31 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
@@ -43,11 +50,17 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.ProgressTracker;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
+@CLDRTool(
+        alias = "production",
+        description = "Produces the final output .xml for release",
+        url = "https://cldr.unicode.org/tool/GenerateProductionData")
 public class GenerateProductionData {
     private static boolean DEBUG = false;
     private static boolean VERBOSE = false;
@@ -72,7 +85,8 @@ public class GenerateProductionData {
                     "collation"); // don't want to "clean up", makes format difficult to use
     private static final SupplementalDataInfo SDI =
             CLDRConfig.getInstance().getSupplementalDataInfo();
-    private static Set<String> skippedPreBasicLocales = new TreeSet<>();
+    private static Map<String, String> skippedPreBasicLocales = new ConcurrentHashMap<>();
+    private static boolean INCLUDE_EXEMPLAR_TREE = false;
 
     enum MyOptions {
         sourceDirectory(
@@ -85,46 +99,34 @@ public class GenerateProductionData {
                         .setHelp("destination common directory")
                         .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
                         .setMatch(".*")),
-        logicalGroups(
-                new Params()
-                        .setHelp("add path/values for logical groups")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        time(
-                new Params()
-                        .setHelp("add path/values for stock date/time/datetime")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        Sideways(
-                new Params()
-                        .setHelp("add path/values for sideways inheritance")
-                        .setDefault("true")
-                        .setMatch("true|false")),
-        root(
-                new Params()
-                        .setHelp("add path/values for root and code-fallback")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+        logicalGroups(new Params().setHelp("add path/values for logical groups").setBoolean(true)),
+        time(new Params().setHelp("add path/values for stock date/time/datetime").setBoolean(true)),
+        Sideways(new Params().setHelp("add path/values for sideways inheritance").setBoolean(true)),
+        root(new Params().setHelp("add path/values for root and code-fallback").setBoolean(true)),
         constrainedRestoration(
                 new Params()
                         .setHelp("only add inherited paths that were in original file")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+                        .setBoolean(true)),
         includeComprehensive(
                 new Params()
-                        .setHelp("exclude comprehensive paths — otherwise just to modern level")
-                        .setDefault("true")
-                        .setMatch("true|false")),
+                        .setHelp(
+                                "if true, modern level only (exclude comprehensive). false for all.")
+                        .setBoolean(true)),
         keepPreBasic(
                 new Params()
                         .setHelp(
                                 "keep non-ICU locales below Basic coverage — otherwise they are skipped")
-                        .setDefault("false")
-                        .setMatch("true|false")),
+                        .setBoolean(false)),
+        includeExemplarTree(
+                new Params().setHelp("include the exemplar tree").setBoolean(false).setFlag('x')),
         verbose(new Params().setHelp("verbose debugging messages")),
         Debug(new Params().setHelp("debug")),
         fileMatch(new Params().setHelp("regex to match patterns").setMatch(".*")),
-        ;
+        delta(
+                new Params()
+                        .setHelp("delete files not present in this directory")
+                        .setMatch(".*")
+                        .setFlag('∂'));
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -146,7 +148,7 @@ public class GenerateProductionData {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO rbnf and segments don't have modern coverage; fix there.
 
         MyOptions.parse(args);
@@ -162,24 +164,20 @@ public class GenerateProductionData {
         }
 
         // controls for minimization
-        ADD_LOGICAL_GROUPS = "true".equalsIgnoreCase(MyOptions.logicalGroups.option.getValue());
-        ADD_DATETIME = "true".equalsIgnoreCase(MyOptions.time.option.getValue());
-        ADD_SIDEWAYS = "true".equalsIgnoreCase(MyOptions.Sideways.option.getValue());
-        ADD_ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
+        ADD_LOGICAL_GROUPS = MyOptions.logicalGroups.option.getBooleanValue();
+        ADD_DATETIME = MyOptions.time.option.getBooleanValue();
+        ADD_SIDEWAYS = MyOptions.Sideways.option.getBooleanValue();
+        ADD_ROOT = MyOptions.root.option.getBooleanValue();
 
         // constraints
-        INCLUDE_COMPREHENSIVE =
-                "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
-        KEEP_PRE_BASIC = "true".equalsIgnoreCase(MyOptions.keepPreBasic.option.getValue());
-        CONSTRAINED_RESTORATION =
-                "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
-
+        INCLUDE_COMPREHENSIVE = MyOptions.includeComprehensive.option.getBooleanValue();
+        KEEP_PRE_BASIC = MyOptions.keepPreBasic.option.getBooleanValue();
+        CONSTRAINED_RESTORATION = MyOptions.constrainedRestoration.option.getBooleanValue();
+        INCLUDE_EXEMPLAR_TREE = MyOptions.includeExemplarTree.option.getBooleanValue();
         // get directories
 
         Map<File, File> specialDirectories = new TreeMap<>();
-
         Arrays.asList(DtdType.values())
-                // .parallelStream()
                 // .unordered()
                 .forEach(
                         type -> {
@@ -209,7 +207,79 @@ public class GenerateProductionData {
         if (!skippedPreBasicLocales.isEmpty()) {
             System.out.println(
                     "The following non-ICU pre-Basic locales were skipped: "
-                            + skippedPreBasicLocales);
+                            + skippedPreBasicLocales.keySet());
+        }
+        // remove delta files
+        if (MyOptions.delta.option.doesOccur()) {
+            processDelta(DEST_COMMON_DIR, MyOptions.delta.option.getValue());
+        }
+    }
+
+    private static void processDelta(String destCommon, String deltaCommon) throws IOException {
+        System.out.println("------ removing delta from " + deltaCommon);
+        Path destParent = Path.of(destCommon).getParent();
+        Path deltaParent = Path.of(deltaCommon).getParent();
+        final ConcurrentHashMap<Path, Throwable> errs = new ConcurrentHashMap<>();
+        final ConcurrentHashMap<Path, Path> removed = new ConcurrentHashMap<>();
+        java.nio.file.Files.walk(destParent)
+                .filter(path -> Files.isRegularFile(path))
+                .forEach(
+                        path -> {
+                            /** path from static prefix */
+                            final String rel =
+                                    path.toFile()
+                                            .getAbsolutePath()
+                                            .substring(
+                                                    destParent
+                                                            .toFile()
+                                                            .getAbsolutePath()
+                                                            .toString()
+                                                            .length());
+                            final Path pathInDelta = new File(deltaParent.toFile(), rel).toPath();
+
+                            if (Files.isRegularFile(pathInDelta)) {
+                                // already exists in delta
+                                try {
+                                    Files.delete(path);
+                                    removed.put(path, pathInDelta);
+                                } catch (IOException e) {
+                                    errs.put(path, e);
+                                }
+                            }
+                        });
+        // now, delete empty directories
+        java.nio.file.Files.walk(destParent)
+                .filter(path -> Files.isDirectory(path))
+                .sorted(Comparator.reverseOrder()) // deeper dirs first (a/b before a/)
+                .forEachOrdered(
+                        path -> {
+                            // depth first traversal.
+                            // deleting a subdir will allow a parent dir to be empty.
+                            if (isEmptyDirectory(path)) {
+                                try {
+                                    Files.delete(path);
+                                } catch (IOException e) {
+                                    errs.put(path, e);
+                                }
+                            } else {
+                                System.out.println(" Remaining Delta: " + path);
+                            }
+                        });
+
+        System.out.println(" removed " + removed.size() + " files from the delta");
+        if (!errs.isEmpty()) {
+            // print the first error.
+            Entry<Path, Throwable> e = errs.entrySet().iterator().next();
+            throw new IOException(
+                    "Errors: " + errs.size() + ", including: " + e.getKey(), e.getValue());
+        }
+    }
+
+    private static boolean isEmptyDirectory(Path path) {
+        try {
+            return Files.isDirectory(path) && Files.list(path).findAny().isEmpty();
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(path.toString(), e);
         }
     }
 
@@ -265,11 +335,15 @@ public class GenerateProductionData {
                 return false;
             }
             String localeId = getLocaleIdFromFileName(file);
-            if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
-                return false;
+            if (FILE_MATCH != null) {
+                synchronized (GenerateProductionData.class) {
+                    if (!FILE_MATCH.reset(localeId).matches()) {
+                        return false;
+                    }
+                }
             }
             if (!KEEP_PRE_BASIC && localeIsPreBasicNonIcu(localeId)) {
-                skippedPreBasicLocales.add(localeId);
+                skippedPreBasicLocales.put(localeId, file);
                 return false;
             }
             return copyOneFileAndReturnIsEmpty(
@@ -279,12 +353,16 @@ public class GenerateProductionData {
                 String file = sourceFile.getName();
                 int dotPos = file.lastIndexOf('.');
                 String baseName = dotPos >= 0 ? file.substring(0, file.length() - dotPos) : file;
-                if (!FILE_MATCH.reset(baseName).matches()) {
-                    return false;
+                synchronized (GenerateProductionData.class) {
+                    if (!FILE_MATCH.reset(baseName).matches()) {
+                        return false;
+                    }
                 }
             }
             // for now, just copy
-            ++stats.files;
+            synchronized (stats) {
+                ++stats.files;
+            }
             copyFiles(sourceFile, destinationFile);
             return false;
         }
@@ -304,6 +382,7 @@ public class GenerateProductionData {
         System.out.println(sourceFile + " => " + destinationFile);
         if (!destinationFile.mkdirs()) {
             // if created, remove old contents
+            System.out.println(" .. deleting previous contents");
             File[] list = destinationFile.listFiles();
             if (list != null) {
                 for (File file : list) {
@@ -313,16 +392,51 @@ public class GenerateProductionData {
                 }
             }
         }
-        String[] list = sourceFile.list();
-        Set<String> sorted = (list == null) ? null : new TreeSet<>(Arrays.asList(list));
+        Set<String> sorted = null;
         if (COPY_ANYWAY.contains(sourceFile.getName())) { // special cases
             isLdmlDtdType = false;
         }
         Factory factory = null;
         if (isLdmlDtdType) {
             // if the factory is empty, then we just copy files
-            factory = Factory.make(sourceFile.toString(), ".*");
+            // Simple case: not including exemplars, OR, it's not the main tree.
+            // We don't pull in exemplars for annotations, etc.
+            if (!INCLUDE_EXEMPLAR_TREE || !sourceFile.getName().equals("main")) {
+                factory = Factory.make(sourceFile.toString(), ".*");
+            } else {
+                final File exemplarsFile = new File(CLDRPaths.EXEMPLARS_DIRECTORY);
+                if (!exemplarsFile.isDirectory()) {
+                    throw new ICUUncheckedIOException(
+                            "Could not read exemplars directory: " + exemplarsFile);
+                }
+                // For more on this pattern:
+                // See: CLDRConfig.CommonAndSeedAndMainAndAnnotationsFactoryHelper
+                // See: SurveyMain.getDiskFactory()
+                final File[] paths = {
+                    sourceFile, // we'll call this 'common/main'
+                    exemplarsFile
+                };
+                System.out.println("# Including examplar tree. Using sources:");
+                for (File f : paths) {
+                    System.out.println("# Source dir: " + f);
+                }
+                factory = SimpleFactory.make(paths, ".*");
+
+                // Calculate the list of 'files' from the factory
+                sorted =
+                        new TreeSet<>(
+                                factory.getAvailable().stream()
+                                        .map(s -> s + ".xml")
+                                        .collect(Collectors.toSet()));
+            }
         }
+        if (sorted == null) {
+            // calculate the list from sourceFile.
+            // this is the old behavior.
+            String[] list = sourceFile.list();
+            sorted = (list == null) ? null : new TreeSet<>(Arrays.asList(list));
+        }
+
         boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
         boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
         boolean isAnnotationsDir =
@@ -331,38 +445,45 @@ public class GenerateProductionData {
         final Stats stats2 = new Stats();
         final Factory theFactory = factory;
         final boolean isLdmlDtdType2 = isLdmlDtdType;
-        if (sorted != null) {
-            sorted
-                    // .parallelStream()
-                    .forEach(
-                    file -> {
-                        File sourceFile2 = new File(sourceFile, file);
-                        File destinationFile2 = new File(destinationFile, file);
-                        if (VERBOSE) System.out.println("\t" + file);
+        if (sorted != null)
+            try (final ProgressTracker progress =
+                    new ProgressTracker(sourceFile.getName(), sorted.size()); ) {
+                sorted.stream() // .parallelStream() TODO CLDR-19836: fails in parallel
+                        .forEach(
+                                file -> {
+                                    progress.decrement();
+                                    File sourceFile2 = new File(sourceFile, file);
+                                    File destinationFile2 = new File(destinationFile, file);
+                                    if (VERBOSE) System.out.println("\t" + file);
 
-                        // special step to just copy certain files like main/root.xml file
-                        Factory currFactory = theFactory;
-                        if (isMainDir) {
-                            if (file.equals("root.xml")) {
-                                currFactory = null;
-                            }
-                        } else if (isRbnfDir) {
-                            currFactory = null;
-                        }
+                                    // special step to just copy certain files like main/root.xml
+                                    // file
+                                    Factory currFactory = theFactory;
+                                    if (isMainDir) {
+                                        if (file.equals("root.xml")) {
+                                            currFactory = null;
+                                        }
+                                    } else if (isRbnfDir) {
+                                        currFactory = null;
+                                    }
 
-                        // when the currFactory is null, we just copy files as-is
-                        boolean isEmpty =
-                                copyFilesAndReturnIsEmpty(
-                                        sourceFile2,
-                                        destinationFile2,
-                                        currFactory,
-                                        isLdmlDtdType2,
-                                        stats2);
-                        if (isEmpty) { // only happens for ldml
-                            emptyLocales.add(getLocaleIdFromFileName(file));
-                        }
-                    });
-        }
+                                    // when the currFactory is null, we just copy files as-is
+                                    boolean isEmpty =
+                                            copyFilesAndReturnIsEmpty(
+                                                    sourceFile2,
+                                                    destinationFile2,
+                                                    currFactory,
+                                                    isLdmlDtdType2,
+                                                    stats2);
+                                    if (isEmpty) { // only happens for ldml
+                                        emptyLocales.add(getLocaleIdFromFileName(file));
+                                    }
+                                });
+            } catch (Exception e) {
+                throw new ICUUncheckedIOException(
+                        "Progress failed copying " + sourceFile.getName(), e);
+            }
+
         stats2.showNonZero("\tTOTAL:\t");
         // if there are empty ldml files, AND we aren't in /main/,
         // then remove any without children
@@ -418,10 +539,12 @@ public class GenerateProductionData {
                             toRetainSpecial,
                             cldrFileResolved,
                             pw);
-            ++stats.files;
-            stats.removed += toRemove.size();
-            stats.retained += toRetain.size();
-            stats.remaining += count;
+            synchronized (stats) {
+                ++stats.files;
+                stats.removed += toRemove.size();
+                stats.retained += toRetain.size();
+                stats.remaining += count;
+            }
         } catch (FileNotFoundException e) {
             throw new ICUUncheckedIOException(
                     "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
@@ -683,7 +806,13 @@ public class GenerateProductionData {
         }
         Set<String> sorted = new TreeSet<>(Arrays.asList(list));
         Factory factory = Factory.make(destDir.toString(), ".*");
-        sorted.forEach(file -> doubleCheckLocale(destDir, file, factory));
+        synchronized (GenerateProductionData.class) {
+            sorted.stream()
+                    .filter(
+                            localeId ->
+                                    (FILE_MATCH == null || FILE_MATCH.reset(localeId).matches()))
+                    .forEach(file -> doubleCheckLocale(destDir, file, factory));
+        }
     }
 
     private static void doubleCheckLocale(File destDir, String file, Factory factory) {
@@ -904,7 +1033,11 @@ public class GenerateProductionData {
 
     private static void copyFiles(File sourceFile, File destinationFile) {
         try {
-            Files.copy(sourceFile, destinationFile);
+            Files.copy(
+                    sourceFile.toPath(),
+                    destinationFile.toPath(),
+                    StandardCopyOption.COPY_ATTRIBUTES,
+                    StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             System.err.println("Can't copy " + sourceFile + " to " + destinationFile + " — " + e);
         }

@@ -1509,7 +1509,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /** Adds a listener to this XML source. */
     public void addListener(Listener listener) {
-        listeners.add(new WeakReference<>(listener));
+        if (!isFrozen()) {
+            // frozen sources will never change, so don't need to add listeners.
+            listeners.add(new WeakReference<>(listener));
+        }
     }
 
     /**

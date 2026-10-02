@@ -1521,14 +1521,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @param xpath the xpath where the change occurred.
      */
     public void notifyListeners(String xpath) {
-        int i = 0;
-        while (i < listeners.size()) {
-            Listener listener = listeners.get(i).get();
-            if (listener == null) { // listener has been garbage-collected.
-                listeners.remove(i);
+        for (WeakReference<Listener> ref : listeners) {
+            Listener listener = ref.get();
+            if (listener == null) {
+                listeners.remove(ref); // listener was garbage collected
             } else {
                 listener.valueChanged(xpath, this);
-                i++;
             }
         }
     }

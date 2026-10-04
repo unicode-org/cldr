@@ -448,7 +448,7 @@ public class GenerateProductionData {
         if (sorted != null)
             try (final ProgressTracker progress =
                     new ProgressTracker(sourceFile.getName(), sorted.size()); ) {
-                sorted.stream() // .parallelStream() TODO CLDR-19836: fails in parallel
+                sorted.parallelStream()
                         .forEach(
                                 file -> {
                                     progress.decrement();

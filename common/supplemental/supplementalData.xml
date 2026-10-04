@@ -1434,6 +1434,7 @@ XXX Code for transations where no currency is involved
 		<language type="ckb" scripts="Arab"/>
 		<language type="ckt" scripts="Cyrl"/>
 		<language type="clc" scripts="Latn"/>
+		<language type="cnr" scripts="Latn Cyrl"/>
 		<language type="co" scripts="Latn"/>
 		<language type="cop" scripts="Copt Arab Grek" alt="secondary"/>
 		<language type="cps" scripts="Latn"/>
@@ -3435,9 +3436,12 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ru" populationPercent="3" references="R1051"/>	<!--Russian-->
 		</territory>
 		<territory type="ME" gdp="17120000000" literacyPercent="98.5" population="599849">	<!--Montenegro-->
-			<languagePopulation type="sr_Latn" populationPercent="100" officialStatus="official"/>	<!--Serbian (Latin)-->
-			<languagePopulation type="sq" populationPercent="7.9"/>	<!--Albanian-->
-			<languagePopulation type="sr" populationPercent="5" references="R1255"/>	<!--Serbian-->
+			<languagePopulation type="sr_Latn" populationPercent="44" officialStatus="official_regional" references="R1394"/>	<!--Serbian (Latin)-->
+			<languagePopulation type="cnr" populationPercent="36" officialStatus="official" references="R1395"/>	<!--Montenegrin-->
+			<languagePopulation type="cnr_Cyrl" writingPercent="5" populationPercent="36" officialStatus="official"/>	<!--Montenegrin (Cyrillic)-->
+			<languagePopulation type="bs" populationPercent="6.7" officialStatus="official_regional" references="R1396"/>	<!--Bosnian-->
+			<languagePopulation type="sq" populationPercent="4.5" officialStatus="official_regional" references="R1397"/>	<!--Albanian-->
+			<languagePopulation type="hr" populationPercent="0.26" officialStatus="official_regional" references="R1398"/>	<!--Croatian-->
 		</territory>
 		<territory type="MF" gdp="449000000" literacyPercent="99" population="32996">	<!--St. Martin-->
 			<languagePopulation type="fr" populationPercent="84" officialStatus="official" references="R1340"/>	<!--French-->
@@ -5432,7 +5436,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1252" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché and Totonicapán</reference>
 		<reference type="R1253">in Trieste and  Gorizia</reference>
 		<reference type="R1254" uri="http://unicode.org/cldr/trac/attachment/ticket/5887/zgh-ISO639-2-certif.pdf">[missing]</reference>
-		<reference type="R1255">Information on the Latin/Cyrillic script percentages for Montenegro not currently found.</reference>
 		<reference type="R1256" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/wa.html">most of population use Afrikaans commonly, about 89% literacy</reference>
 		<reference type="R1257" uri="https://www.cia.gov/cia/publications/factbook/geos/kz.html">CIA Factbook entry on Kazakhstan http://windowoneurasia2.blogspot.com/2013/12/window-on-eurasia-de-russianization.html http://www.stoletie.ru/vzglyad/derusifikacija_nabirajet_oboroty_934.htm http://www.stoletie.ru/vzglyad/derusifikacija_nabirajet_oboroty_934.htm</reference>
 		<reference type="R1258" uri="http://en.wikipedia.org/wiki/Lithuanian_minority_in_Poland">, Podlaskie Voivodeship </reference>
@@ -5571,5 +5574,10 @@ XXX Code for transations where no currency is involved
 		<reference type="R1391">2011 estimate, people that speak it as their first, second or third language. http://www.censusindia.gov.in/2011census/C-17.html</reference>
 		<reference type="R1392">1994 estimate in https://www.ethnologue.com/country/mm/languages</reference>
 		<reference type="R1393" uri="https://joshuaproject.net/people_groups/20322/RS">[missing]</reference>
+		<reference type="R1394">MONSTAT Census 2023 (released 15.10.2024), language a person usually speaks: Serbian 271,422 persons (43.52%). In official use (&quot;u službenoj upotrebi&quot;) per Constitution of Montenegro, Art. 13.</reference>
+		<reference type="R1395">MONSTAT Census 2023 (released 15.10.2024): Usually spoken by 225,956 persons (36.23%). Constitution of Montenegro, Art. 13: &quot;Službeni jezik u Crnoj Gori je crnogorski jezik.&quot; (Official language in Montenegro is Montenegrin). https://www.skupstina.me/me/ustav-crne-gore</reference>
+		<reference type="R1396">MONSTAT Census 2023, usually speaks Bosnian - 41,636 persons (6.68%). In official use (&quot;u službenoj upotrebi&quot;) per Constitution of Montenegro, Art. 13.</reference>
+		<reference type="R1397">MONSTAT Census 2023, usually speaks Albanian - 27,979 persons (4.49%).</reference>
+		<reference type="R1398">MONSTAT Census 2023. In official use (&quot;u službenoj upotrebi&quot;) per Constitution of Montenegro, Art. 13.</reference>
 	</references>
 </supplementalData>

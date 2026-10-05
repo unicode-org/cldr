@@ -52,12 +52,33 @@ The LDML specification is divided into the following parts:
   * [Default Numbering System](#defaultNumberingSystem)
   * [Other Numbering Systems](#otherNumberingSystems)
   * [Number Symbols](#Number_Symbols)
+    * [decimal](#decimal)
+    * [group](#group)
+    * [list](#list)
+    * [percentSign](#percentsign)
+    * [~~nativeZeroDigit~~](#nativezerodigit)
+    * [~~patternDigit~~](#patterndigit)
+    * [minusSign](#minussign)
+    * [plusSign](#plussign)
+    * [approximatelySign](#approximatelysign)
+    * [exponential](#exponential)
+    * [superscriptingExponent](#superscriptingexponent)
+    * [perMille](#permille)
+    * [infinity](#infinity)
+    * [nan - Not a number](#nan---not-a-number)
+    * [currencyDecimal](#currencydecimal)
+    * [currencyGroup](#currencygroup)
+    * [timeSeparator](#timeseparator)
   * [Number Formats](#Number_Formats)
     * [decimalFormats](#decimalformats)
     * [percentFormats](#percentformats)
     * [scientificFormats](#scientificformats)
     * [Compact Number Formats](#Compact_Number_Formats)
     * [Currency Formats](#Currency_Formats)
+      * [Standard and Accounting Currency Format Types](#standard-and-accounting-currency-format-types)
+      * [The `alt="alphaNextToNumber"` Pattern Variant](#the-altalphanexttonumber-pattern-variant)
+      * [The `alt="noCurrency"` Pattern Variant](#the-altnocurrency-pattern-variant)
+      * [Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)](#combining-currency-symbols-and-iso-codes-currencypatternappendiso)
   * [Miscellaneous Patterns](#Miscellaneous_Patterns)
     * [approximately](#approximately)
     * [atMost](#atmost)
@@ -81,7 +102,13 @@ The LDML specification is divided into the following parts:
   * [Quoting Rules](#Quoting_Rules)
 * [Rational Numbers](#rational-numbers)
 * [Currencies](#Currencies)
+  * [Formatting Currency Display Names (`unitPattern`)](#formatting-currency-display-names-unitpattern)
+  * [Currency Boundary Spacing (`currencySpacing`)](#currency-boundary-spacing-currencyspacing)
+  * [Currency-Specific Decimal and Grouping Overrides](#currency-specific-decimal-and-grouping-overrides)
+  * [Currency Codes and Currency Amounts](#currency-codes-and-currency-amounts)
   * [Supplemental Currency Data](#Supplemental_Currency_Data)
+    * [Currency Fraction Digits and Rounding (`fractions`)](#currency-fraction-digits-and-rounding-fractions)
+    * [Regional Currency Mappings (`region`)](#regional-currency-mappings-region)
 * [Language Plural Rules](#Language_Plural_Rules)
   * [Explicit 0 and 1 rules](#Explicit_0_1_rules)
   * [Plural rules syntax](#Plural_rules_syntax)
@@ -208,71 +235,71 @@ Number symbols define the localized symbols that are commonly used when formatti
 
 The available number symbols are as follows:
 
-**decimal**
+#### decimal
 
 > separates the integer and fractional part of the number.
 
-**group**
+#### group
 
 > separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g. "100,000,000") or in some locales, ten-thousands (grouping size 4, e.g. "1,0000,0000"). There may be two different grouping sizes: The _primary grouping size_ used for the least significant integer group, and the _secondary grouping size_ used for more significant groups; these are not the same in all locales (e.g. "12,34,56,789"). If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####".
 
-**list**
+#### list
 
 > symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](tr35-general.md#ListPatterns)_.
 
-**percentSign**
+#### percentSign
 
 > symbol used to indicate a percentage (1/100th) amount. (If present, the value is also multiplied by 100 before formatting. That way 1.23 → 123%)
 
-~~**nativeZeroDigit**~~
+#### ~~nativeZeroDigit~~
 
 > Deprecated - do not use.
 
-~~**patternDigit**~~
+#### ~~patternDigit~~
 
 > Deprecated. This was formerly used to provide the localized pattern character corresponding to '#', but localization of the pattern characters themselves has been deprecated for some time (determining the locale-specific _replacements_ for pattern characters is of course not deprecated and is part of normal number formatting).
 
-**minusSign**
+#### minusSign
 
 > Symbol used to denote negative value.
 
-**plusSign**
+#### plusSign
 
 > Symbol used to denote positive value.  It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted for the value of the minusSign to produce a pattern that has an explicit plus sign.
 
-**approximatelySign**
+#### approximatelySign
 
 > Symbol used to denote a value that is approximate but not exact. The symbol is substituted in place of the minusSign using the same semantics as plusSign substitution.
 
-**exponential**
+#### exponential
 
 > Symbol separating the mantissa and exponent values.
 
-**superscriptingExponent**
+#### superscriptingExponent
 
 > (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
 
-**perMille**
+#### perMille
 
 > symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
 
-**infinity**
+#### infinity
 
 > The infinity sign. Corresponds to the IEEE infinity bit pattern.
 
-**nan - Not a number**
+#### nan - Not a number
 
 > The NaN sign. Corresponds to the IEEE NaN bit pattern.
 
-**currencyDecimal**
+#### currencyDecimal
 
 > Optional. If specified, then for currency formatting/parsing this is used as the decimal separator instead of using the regular decimal separator; otherwise, the regular decimal separator is used.
 
-**currencyGroup**
+#### currencyGroup
 
 > Optional. If specified, then for currency formatting/parsing this is used as the group separator instead of using the regular group separator; otherwise, the regular group separator is used.
 
-**timeSeparator**
+#### timeSeparator
 
 > This replaces any use of the timeSeparator pattern character in a date-time format pattern (no timeSeparator pattern character is currently defined, see note below). This allows the same time format to be used for multiple number systems when the time separator depends on the number system. For example, the time format for Arabic should be COLON when using the Latin numbering system (0, 1, 2, …), but when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎ …), the traditional time separator in older print styles was often ARABIC COMMA.
 >
@@ -514,6 +541,8 @@ The following additional elements were intended to allow proper placement of the
 <!ELEMENT insertBetween ( #PCDATA ) >
 ```
 
+##### Standard and Accounting Currency Format Types
+
 In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”. The locale keyword "cf" can be used to select the standard or accounting form, see [Unicode Currency Format Identifier](tr35.md#UnicodeCurrencyFormatIdentifier).
 
 ```xml
@@ -544,9 +573,15 @@ In addition to a standard currency format, in which negative currency amounts mi
 </currencyFormats>
 ```
 
+##### The `alt="alphaNextToNumber"` Pattern Variant
+
 The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
 
+##### The `alt="noCurrency"` Pattern Variant
+
 The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
+
+##### Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)
 
 ```xml
 <currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
@@ -948,6 +983,8 @@ In environments where the rendering system and font can't be trusted to handle U
 
 In formatting currencies, the currency number format is used with the appropriate symbol from `<currencies>`, according to the currency code. The `<currencies>` list can contain codes that are no longer in current use, such as PTE. The `choice` attribute has been deprecated.
 
+### Formatting Currency Display Names (`unitPattern`)
+
 The `count` attribute distinguishes the different plural forms, such as in the following:
 
 ```xml
@@ -993,6 +1030,8 @@ For example, if the currency is ZWD and the number is 1234, then the latter maps
 
 ---
 
+### Currency Boundary Spacing (`currencySpacing`)
+
 When a currency symbol is substitited into a pattern, some spacing adjustments or other adjustments may be necessary depending on the nature of the symbol. In CLDR 42 and later, the preferred way to handle this is via the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`, as described in _[Section 2.4.2: Currency Formats](#Currency_Formats)_. In earlier versions of CLDR this was handled via the `currencySpacing` element as described below. This element is still present in CLDR 42 and its use is described below for implementations that may not yet support the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`.
 
 ```xml
@@ -1018,7 +1057,11 @@ For more information on the matching used in the `currencyMatch` and `surroundin
 
 ---
 
+### Currency-Specific Decimal and Grouping Overrides
+
 Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _[Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
+
+### Currency Codes and Currency Amounts
 
 > **Note:** _Currency values should **never** be interchanged without a known currency code. You never want the number 3.5 interpreted as $3.50 by one user and €3.50 by another._ Locale data contains localization information for currencies, not a currency value for a country. A currency amount logically consists of a numeric value, plus an accompanying currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD is implicit. But if the raw numeric value is transmitted without any context, then it has no definitive interpretation.
 
@@ -1084,6 +1127,8 @@ Each `currencyData` element contains one `fractions` element followed by one or 
 </supplementalData>
 ```
 
+#### Currency Fraction Digits and Rounding (`fractions`)
+
 The `fractions` element contains any number of `info` elements, with the following attributes:
 
 * **iso4217:** the ISO 4217 code for the currency in question. If a particular currency does not occur in the fractions list, then it is given the defaults listed for the next two attributes.
@@ -1102,6 +1147,8 @@ For example, the following line
 ```
 
 should cause the value 2.006 to be displayed as “2.01”, not “2.00”.
+
+#### Regional Currency Mappings (`region`)
 
 Each `region` element contains one attribute:
 

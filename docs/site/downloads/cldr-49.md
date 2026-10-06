@@ -252,7 +252,7 @@ See [UTS #61][]: Unicode Set Notation (currently in draft).
     - [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
 - Emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50. If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
 - **Deprecation of pattern-only fields in date/time skeletons**: Pattern-only field symbols—specifically stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`)—as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage, are slated for deprecation in skeletons in CLDR 50 (use `M`, `Q`, `E`/`e`, and `h`/`H` instead). [CLDR-19757][]
-- Redundant plural cases, and possibly other redundant data, will be removed from production data if fallback rules would produce identical results. [CLDR-19193]
+- Redundant plural cases, and possibly other redundant data, will be removed from production data where inheritance (including [Lateral Inheritance](https://unicode.org/reports/tr35/tr35.html#Lateral_Inheritance)) produces identical results. [CLDR-19193]
 
 ## Known Issues
 

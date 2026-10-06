@@ -68,13 +68,14 @@ jobs:
         # Note: see CLDR-16526 for making this an error
         # see <tools/scripts/tr-archive/README.md> for instructions
         run: "cd tools/scripts/tr-archive/ && npm run extract-link-targets"
-      - name: "Check that anchors differing only in case go to the same place"
+      - name: "Check that similar anchors go to the same place"
+        # Similar: differing only in case or in "_" vs "-".
         # Warn, don't fail yet: see CLDR-19840
         run: |
           cd tools/scripts/tr-archive/
-          npm run --silent check-anchor-case > "$RUNNER_TEMP/anchor-case.txt" 2>&1 || echo "::warning::Some anchors that differ only in case go to different places (CLDR-19840). See the job summary."
+          npm run --silent check-anchor-case > "$RUNNER_TEMP/anchor-case.txt" 2>&1 || echo "::warning::Some similar anchors (differing only in case or in _ vs -) go to different places (CLDR-19840). See the job summary."
           cat "$RUNNER_TEMP/anchor-case.txt"
-          (echo '### Anchors that differ only in case'; echo '```'; cat "$RUNNER_TEMP/anchor-case.txt"; echo '```') >> $GITHUB_STEP_SUMMARY
+          (echo '### Similar anchors that go to different places'; echo '```'; cat "$RUNNER_TEMP/anchor-case.txt"; echo '```') >> $GITHUB_STEP_SUMMARY
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli docs/ldml/*.md || (echo Warning, please fix these ; true)

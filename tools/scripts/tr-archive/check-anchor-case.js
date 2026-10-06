@@ -1,11 +1,12 @@
 /**
- * Report anchors that differ only in case but take the reader to different places.
+ * Report similar anchors that take the reader to different places. Anchors
+ * are similar if they differ only in case or in "_" vs "-".
  *
- * Many headings get two anchors: the GitHub-style id (e.g. "currencydecimal")
- * and, from archive.js, one with the original casing ("currencyDecimal").
- * That is fine as long as every case variant lands in the same place. If they
- * land in different places, a link with the other casing silently goes to the
- * wrong place.
+ * Many headings get two anchors: the GitHub-style id (e.g. "number-formats")
+ * and, from archive.js, one with the original casing and "_" for spaces
+ * ("Number_Formats"). That is fine as long as both land in the same place. If
+ * they land in different places, a link with the other spelling silently goes
+ * to the wrong place.
  *
  * Usage: npm run build && npm run check-anchor-case
  * Reads ./dist/*.html. Exits with 1 if it finds such anchors.
@@ -62,9 +63,10 @@ async function checkFile(file) {
   }
   const target = new Map([...byName, ...byId]); // an id wins over a name
 
-  const groups = new Map(); // lowercased anchor -> its spellings
+  // Similar anchors -> their spellings
+  const groups = new Map();
   for (const a of target.keys()) {
-    const k = a.toLowerCase();
+    const k = a.toLowerCase().replace(/_/g, "-");
     if (!groups.has(k)) groups.set(k, []);
     groups.get(k).push(a);
   }
@@ -95,12 +97,12 @@ async function main() {
   problems.forEach((p) => console.error(p));
   if (problems.length) {
     console.error(
-      `⚠️ ${problems.length} anchor(s) whose case variants go to different places.`
+      `⚠️ ${problems.length} set(s) of similar anchors go to different places.`
     );
     process.exitCode = 1;
   } else {
     console.log(
-      `✅ In ${files.length} files, anchors that differ only in case go to the same place.`
+      `✅ In ${files.length} files, anchors that differ only in case or in "_" vs "-" go to the same place.`
     );
   }
 }

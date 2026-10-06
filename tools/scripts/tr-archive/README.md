@@ -54,7 +54,7 @@ $ npm run check-anchor-case
 2. there are warnings about duplicate anchors - these are OK.
 3. check the git status an diff on the `docs/ldml/tr35*.anchors.json` files
   - make sure that any anchors aren't inexplicably removed
-4. `check-anchor-case` reports anchors that differ only in case but go to different places, such as `#Examples` and `#examples` on two different headings
+4. `check-anchor-case` reports anchors that differ only in case or in `_` vs `-` but go to different places, such as `#Examples` and `#examples` on two different headings, or `#Complex_Body` on a heading and `#complex-body` on a definition
 
 ### Copyright
 

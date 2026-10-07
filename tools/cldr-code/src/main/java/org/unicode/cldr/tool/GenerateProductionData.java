@@ -17,11 +17,14 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -73,6 +76,7 @@ public class GenerateProductionData {
     private static boolean ADD_DATETIME = false;
     private static boolean ADD_SIDEWAYS = false;
     private static boolean ADD_ROOT = false;
+    private static boolean MINIMIZE_PLURALS = false;
     private static boolean INCLUDE_COMPREHENSIVE = false;
     private static boolean KEEP_PRE_BASIC = false;
     private static boolean CONSTRAINED_RESTORATION = false;
@@ -103,6 +107,11 @@ public class GenerateProductionData {
         time(new Params().setHelp("add path/values for stock date/time/datetime").setBoolean(true)),
         Sideways(new Params().setHelp("add path/values for sideways inheritance").setBoolean(true)),
         root(new Params().setHelp("add path/values for root and code-fallback").setBoolean(true)),
+        minimizePlurals(
+                new Params()
+                        .setHelp(
+                                "remove plural forms whose values are the same as the count=\"other\" form they fall back to")
+                        .setBoolean(true)),
         constrainedRestoration(
                 new Params()
                         .setHelp("only add inherited paths that were in original file")
@@ -168,6 +177,7 @@ public class GenerateProductionData {
         ADD_DATETIME = MyOptions.time.option.getBooleanValue();
         ADD_SIDEWAYS = MyOptions.Sideways.option.getBooleanValue();
         ADD_ROOT = MyOptions.root.option.getBooleanValue();
+        MINIMIZE_PLURALS = MyOptions.minimizePlurals.option.getBooleanValue();
 
         // constraints
         INCLUDE_COMPREHENSIVE = MyOptions.includeComprehensive.option.getBooleanValue();
@@ -501,6 +511,8 @@ public class GenerateProductionData {
         Set<String> toRetainSpecial = new TreeSet<>();
         Output<String> pathWhereFound = new Output<>();
         Output<String> localeWhereFound = new Output<>();
+        RedundantPluralChecker redundantPlurals =
+                new RedundantPluralChecker(localeId, factory, cldrFileResolved);
 
         final boolean specialPathsAreRequired =
                 areSpecialPathsRequired(localeId, sourceFile.toString());
@@ -520,7 +532,8 @@ public class GenerateProductionData {
                     toRetainSpecial,
                     specialPathsAreRequired,
                     pathWhereFound,
-                    localeWhereFound)) {
+                    localeWhereFound,
+                    redundantPlurals)) {
                 gotOne = true; // past the gauntlet
             }
         }
@@ -538,6 +551,7 @@ public class GenerateProductionData {
                             toRetain,
                             toRetainSpecial,
                             cldrFileResolved,
+                            redundantPlurals,
                             pw);
             synchronized (stats) {
                 ++stats.files;
@@ -565,7 +579,8 @@ public class GenerateProductionData {
             Set<String> toRetainSpecial,
             boolean specialPathsAreRequired,
             Output<String> pathWhereFound,
-            Output<String> localeWhereFound) {
+            Output<String> localeWhereFound,
+            RedundantPluralChecker redundantPlurals) {
         if (xpath.startsWith("//ldml/identity")) {
             return true;
         }
@@ -602,6 +617,12 @@ public class GenerateProductionData {
                         || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
                                 && !Objects.equals(
                                         XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
+            toRemove.add(xpath);
+            return true;
+        }
+
+        // Remove plural forms that are the same as the count="other" form they fall back to.
+        if (redundantPlurals.isRedundant(xpath)) {
             toRemove.add(xpath);
             return true;
         }
@@ -646,6 +667,7 @@ public class GenerateProductionData {
             Set<String> toRetain,
             Set<String> toRetainSpecial,
             CLDRFile cldrFileResolved,
+            RedundantPluralChecker redundantPlurals,
             PrintWriter pw) {
         CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
 
@@ -668,6 +690,9 @@ public class GenerateProductionData {
         }
         // add "special" paths even if CONSTRAINED_RESTORATION
         toRetain.addAll(toRetainSpecial);
+
+        // Don't restore plural forms that would fall back to the same value anyway.
+        toRetain.removeIf(redundantPlurals::isRedundant);
 
         boolean changed0 = toRemove.removeAll(toRetain);
         // toRemove == {a}
@@ -886,6 +911,91 @@ public class GenerateProductionData {
                             "be_TARASK",
                             "//ldml/localeDisplayNames/languages/language[@type=\"az\"][@alt=\"short\"]")
                     .build();
+
+    private static final Pattern COUNT_ATTRIBUTE = Pattern.compile("\\[@count=\"[^\"]*\"]");
+    // Explicit counts such as count="1" are excluded: at runtime they take precedence over the
+    // plural keyword, so removing one could change the result even if it equals "other".
+    private static final Pattern PLURAL_KEYWORD_COUNT =
+            Pattern.compile("\\[@count=\"(zero|one|two|few|many)\"]");
+
+    /**
+     * Determines whether a plural form (a path with a count other than "other") is redundant, that
+     * is, whether it can be dropped from a locale without changing any resolved value.
+     *
+     * <p>When no locale in the inheritance chain has a value for a plural form, it falls back to
+     * the count="other" form (starting again from the original locale). So a plural form is
+     * redundant in locale L if:
+     *
+     * <ul>
+     *   <li>its value equals its bailey value, and that bailey value comes from the count="other"
+     *       path (so no ancestor of L has an explicit value for this plural form), and
+     *   <li>in every descendant D of L, the resolved value of the plural form equals the resolved
+     *       value of count="other" in D. Otherwise a descendant that inherits this plural form from
+     *       L would instead fall back to its own (different) count="other" value.
+     * </ul>
+     *
+     * Not thread-safe; create one per locale.
+     */
+    private static class RedundantPluralChecker {
+        private final String localeId;
+        private final Factory factory;
+        private final CLDRFile cldrFileResolved;
+        private final Map<String, Boolean> cache = new HashMap<>();
+        private List<CLDRFile> descendants = null; // computed lazily
+
+        RedundantPluralChecker(String localeId, Factory factory, CLDRFile cldrFileResolved) {
+            this.localeId = localeId;
+            this.factory = factory;
+            this.cldrFileResolved = cldrFileResolved;
+        }
+
+        boolean isRedundant(String xpath) {
+            if (!MINIMIZE_PLURALS || !PLURAL_KEYWORD_COUNT.matcher(xpath).find()) {
+                return false;
+            }
+            return cache.computeIfAbsent(xpath, this::computeIsRedundant);
+        }
+
+        private boolean computeIsRedundant(String xpath) {
+            String otherPath = COUNT_ATTRIBUTE.matcher(xpath).replaceAll("[@count=\"other\"]");
+            if (otherPath.equals(xpath)) {
+                return false;
+            }
+            String value = cldrFileResolved.getStringValue(xpath);
+            if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                return false;
+            }
+            Output<String> pathWhereFound = new Output<>();
+            String bailey = cldrFileResolved.getBaileyValue(xpath, pathWhereFound, null);
+            if (!value.equals(bailey) || !otherPath.equals(pathWhereFound.value)) {
+                return false;
+            }
+            for (CLDRFile descendant : getDescendants()) {
+                if (!Objects.equals(
+                        descendant.getStringValue(xpath), descendant.getStringValue(otherPath))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private List<CLDRFile> getDescendants() {
+            if (descendants == null) {
+                descendants = new ArrayList<>();
+                for (String candidate : factory.getAvailable()) {
+                    for (String parent = LocaleIDParser.getParent(candidate);
+                            parent != null;
+                            parent = LocaleIDParser.getParent(parent)) {
+                        if (parent.equals(localeId)) {
+                            descendants.add(factory.make(candidate, true));
+                            break;
+                        }
+                    }
+                }
+            }
+            return descendants;
+        }
+    }
 
     /**
      * Check if a path is equal, or if it is a suitable alt variant If it returns true, the value

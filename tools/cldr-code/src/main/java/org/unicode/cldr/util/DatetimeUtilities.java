@@ -17,9 +17,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -44,6 +46,9 @@ import org.unicode.cldr.util.NestedMap.Multimap2;
 public class DatetimeUtilities extends TestFmwk {
     private static final boolean DEBUG = true;
 
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
+
     public enum Calendar {
         ALL,
         gregorian,
@@ -59,7 +64,17 @@ public class DatetimeUtilities extends TestFmwk {
         islamic,
         indian,
         persian,
-        iso8601
+        iso8601,
+        // should not be in CLDR
+        ethiopic_amete_alem,
+        islamic_civil,
+        islamic_tbla,
+        islamic_umalqura,
+        islamic_rgsa;
+
+        public static Calendar of(String source) {
+            return Calendar.valueOf(source.toLowerCase(Locale.ROOT).replace('-', '_'));
+        }
     }
 
     public enum SkeletonField {
@@ -608,29 +623,47 @@ public class DatetimeUtilities extends TestFmwk {
     public static Multimap2<String, String, String> missingSkeletonsForLengths =
             Multimap2.create(TreeMap::new);
 
-    public static Map<String, DatePatternInfo> calendarToDatePatternInfo(CLDRFile cldrFile) {
-        Map<String, Builder> result = new TreeMap<>();
+    public static Map<Calendar, DatePatternInfo> calendarToDatePatternInfo(
+            CLDRFile cldrFile, boolean includeComprehensive) {
+        Map<Calendar, Builder> result = new TreeMap<>();
+        String locale = cldrFile.getLocaleID();
+
+        EnumSet<Calendar> atLeastOne = EnumSet.noneOf(Calendar.class);
 
         for (String path : cldrFile) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             // ldml/dates/calendars/calendar[@type="gregorian"]
-            if (parts.size() >= 4 && parts.getElement(3).equals("calendar")) {
-
-                String calendar = parts.getAttributeValue(3, "type");
-                Builder builder = result.get(calendar);
-                if (builder == null) {
-                    result.put(calendar, builder = new Builder());
-                }
-                builder.addFromPath(cldrFile, path, parts);
+            if (parts.size() < 4 || parts.getElement(-1).equals("alias")) {
+                continue;
             }
-            //            builder.paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
-            //            map.put(key, value);
+            String element3 = parts.getElement(3);
+            if (!element3.equals("calendar")) {
+                continue;
+            }
+
+            Calendar calendar = Calendar.of(parts.getAttributeValue(3, "type"));
+
+            if (!includeComprehensive) {
+                Level coverage = SDI.getCoverageLevel(path, locale);
+                if (coverage != Level.COMPREHENSIVE) {
+                    atLeastOne.add(calendar);
+                }
+            }
+
+            Builder builder = result.get(calendar);
+            if (builder == null) {
+                result.put(calendar, builder = new Builder());
+            }
+            builder.addFromPath(cldrFile, path, parts);
         }
 
-        Map<String, DatePatternInfo> realResult = new TreeMap<>();
+        Map<Calendar, DatePatternInfo> realResult = new TreeMap<>();
 
-        for (Entry<String, Builder> entry : result.entrySet()) {
-            String calendar = entry.getKey();
+        for (Entry<Calendar, Builder> entry : result.entrySet()) {
+            Calendar calendar = entry.getKey();
+            if (!includeComprehensive && !atLeastOne.contains(calendar)) {
+                continue;
+            }
             Builder builder = entry.getValue();
             DatePatternInfo value = new DatePatternInfo(builder);
             realResult.put(calendar, value);

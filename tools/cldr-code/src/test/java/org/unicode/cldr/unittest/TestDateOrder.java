@@ -3,7 +3,11 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
+import com.ibm.icu.impl.Pair;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
@@ -44,13 +48,17 @@ import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
+import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
+import org.unicode.cldr.util.DatetimeUtilities.PatternElementNormalizer;
 import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NestedMap.Entry3;
 import org.unicode.cldr.util.NestedMap.Map2;
+import org.unicode.cldr.util.NestedMap.Map3;
+import org.unicode.cldr.util.NestedMap.Multimap2;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -60,12 +68,16 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestDateOrder extends TestFmwk {
+    private static final Set<String> TC_LOCALES =
+            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+
     static final boolean SHOW_CONSTRUCTED_INTERVALS =
             System.getProperty("SHOW_CONSTRUCTED_INTERVALS") != null;
 
-    static final org.unicode.cldr.util.Factory cldrFactory =
-            CLDRConfig.getInstance().getCldrFactory();
-    static final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+    static final org.unicode.cldr.util.Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
+    static final CLDRFile english = CLDR_CONFIG.getEnglish();
 
     private static final Joiner JOIN_TAB = Joiner.on('\t');
 
@@ -156,7 +168,7 @@ public class TestDateOrder extends TestFmwk {
             warnln("Use -v to see a comparison between calendars");
         }
 
-        final org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        final org.unicode.cldr.util.Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
         final CLDRLocale locEn = CLDRLocale.getInstance("en");
         final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
         final ICUServiceBuilder isb = cldrFactory.getICUServiceBuilder(locEn);
@@ -539,10 +551,10 @@ public class TestDateOrder extends TestFmwk {
     public void testSkeletons() {
         UnicodeSet allowed = new UnicodeSet("[BEGHMQUWdhmsvwy]").freeze();
         Set<String> locales =
-                cldrFactory
+                CLDR_FACTORY
                         .getAvailable(); // Set.of("root", "en"); //  : cldrFactory.getAvailable();
         for (String locale : locales) {
-            CLDRFile source = cldrFactory.make(locale, false);
+            CLDRFile source = CLDR_FACTORY.make(locale, false);
             for (String path : source) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String skeleton = null;
@@ -584,9 +596,7 @@ public class TestDateOrder extends TestFmwk {
         Collection<String> locales =
                 getInclusion() < 6
                         ? List.of("en", "ja", "de", "cs", "zh", "zh_Hant")
-                        : getInclusion() < 7
-                                ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
-                                : cldrFactory.getAvailable();
+                        : getInclusion() < 7 ? TC_LOCALES : CLDR_FACTORY.getAvailable();
         warnln(
                 "\nAbbreviation\tDescription of the differences\n"
                         + Arrays.asList(IntervalDiff.values()).stream()
@@ -594,13 +604,13 @@ public class TestDateOrder extends TestFmwk {
                                 .collect(Collectors.joining("\n"))
                         + "\n\nLocale\tCalendar\tSkeleton\tGreatest Diff\tAvailable pattern\tInterval Pattern\tConstructed Interval Pattern\tStatus\tSample\tConstructed Sample\tComments");
         for (String locale : locales) {
-            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
             DatePatternInfo datePatternInfo =
                     DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
             CldrIntervalFormat.IntervalPatternConstructor ipu =
                     new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, calendar);
             ICUServiceBuilder isb =
-                    cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(locale));
+                    CLDR_FACTORY.getICUServiceBuilder(CLDRLocale.getInstance(locale));
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
 
             Map2<String, String, String> formatted =
@@ -773,12 +783,12 @@ public class TestDateOrder extends TestFmwk {
     @Disabled
     public void testAddSeparators() {
         Collection<String> locales =
-                getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();
+                getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : CLDR_FACTORY.getAvailable();
         String calendar = "gregorian";
         System.out.println();
         for (String locale : locales) {
             System.out.println(locale);
-            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
             CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
             for (IntervalSeparatorType separatorType : IntervalSeparatorType.values()) {
                 String intervalPath =
@@ -839,13 +849,11 @@ public class TestDateOrder extends TestFmwk {
 
     public void testNormalized() {
         Collection<String> locales =
-                getInclusion() < 6
-                        ? List.of("en", "ja", "de", "vo")
-                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+                getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : TC_LOCALES;
         String calendar = "gregorian";
         System.out.println();
         for (String locale : locales) {
-            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
             DatePatternInfo dpi = DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
             for (Entry<String, String> entry : dpi.getAvailableSkeletonToPattern().entrySet()) {
                 String id = entry.getKey();
@@ -911,17 +919,17 @@ public class TestDateOrder extends TestFmwk {
         CLDRFile cldrFile;
         IntervalPatternConstructor ipu;
 
-        cldrFile = cldrFactory.make("de", true);
+        cldrFile = CLDR_FACTORY.make("de", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
         checkIntervalInternal(ipu, "d", "d. MMM y", "d.–d. MMM y");
         checkIntervalInternal(ipu, "M", "d. MMM y", "d. MMM – d. MMM y");
 
-        cldrFile = cldrFactory.make("en", true);
+        cldrFile = CLDR_FACTORY.make("en", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
         checkIntervalInternal(ipu, "h", "h:mm\u202Fa", "h:mm – h:mm a");
         checkIntervalInternal(ipu, "M", "E, MMM d, y G", "E, MMM d – E, MMM d, y G");
 
-        cldrFile = cldrFactory.make("ja", true);
+        cldrFile = CLDR_FACTORY.make("ja", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
         checkIntervalInternal(ipu, "G", "Gy/M/d(E)", "Gy/M/d(E)～Gy/M/d(E)");
         checkIntervalInternal(ipu, "a", "aK時 v", "aK時～aK時 v");
@@ -942,5 +950,251 @@ public class TestDateOrder extends TestFmwk {
     private String normalizeSpaces(String expectedInterval) {
         // TODO Auto-generated method stub
         return expectedInterval.replace('\u2009', ' ').replace('\u202F', ' ');
+    }
+
+    enum DiffType {
+        same,
+        sameAfterNorm,
+        diffAfterNorm
+    }
+
+    private static final boolean SHORT = false;
+
+    public void testIntervalConsistencyWithAvailable() {
+        XPathParts availableFormatPath =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]")
+                        .cloneAsThawed();
+
+        Set<String> testSet = SHORT ? Set.of("en", "ab") : CLDR_FACTORY.getAvailable();
+        System.out.println(
+                "\nTC?\tLocale\tCalendar\tID\tAvailable Pattern\tInterval Pattern\tAvailable-Only Type\tInterval-Only Type\tAvailable-Only\tInterval-Only");
+        Set<PatternElement> allPatternElements = new TreeSet<>();
+
+        Map3<String, String, DiffType, Integer> localeToCalendarToTypeToInteger =
+                Map3.create(TreeMap::new);
+
+        Multimap2<String, String, String> normalizations = Multimap2.create(TreeMap::new);
+        PatternElement.constantNormalizations().entrySet().stream()
+                .forEach(x -> normalizations.put("ALL", x.getKey() + "\t" + x.getValue(), "ALL"));
+
+        for (String locale : testSet) {
+            String tcStatus = TC_LOCALES.contains(locale) ? "TC" : "DDL";
+
+            final CLDRFile cldrFileResolved = CLDR_FACTORY.make(locale, true);
+            final CLDRFile cldrFile = cldrFileResolved.getUnresolved();
+            final Map2<String, String, Pair<Set<PatternElement>, Set<PatternElement>>>
+                    keyAndIntervalOnlyAndAvailableOnly = Map2.create(TreeMap::new);
+            final DatetimeUtilities.PatternElementNormalizer.Builder penBuilder =
+                    DatetimeUtilities.PatternElementNormalizer.builder();
+
+            for (String path : cldrFile.fullIterable()) {
+
+                // see if it is an intervalFormatItem
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                if (parts.size() < 7) {
+                    continue;
+                }
+                String lastElement = parts.getElement(-1);
+                if (lastElement.equals("alias")) {
+                    continue;
+                }
+                String calendarElement = parts.getElement(3);
+                if (!calendarElement.equals("calendar")) {
+                    continue;
+                }
+
+                String calendar = parts.getAttributeValue(3, "type");
+                String intervalPattern = cldrFileResolved.getStringValue(path);
+                penBuilder.add(parts, intervalPattern);
+
+                String intervalFormatItem = parts.getElement(6);
+                if (!"intervalFormatItem".equals(intervalFormatItem)) {
+                    continue;
+                }
+                String id = parts.getAttributeValue(6, "id");
+
+                // get the corresponding availableFormat
+
+                availableFormatPath.setAttribute(-1, "id", id);
+                String availablePattern =
+                        cldrFileResolved.getStringValue(availableFormatPath.toString());
+                if (availablePattern == null) {
+                    continue;
+                }
+
+                // get the sets of skeleton elements. These discard literals, and are ordered
+                Set<PatternElement> availableSkeletonElements =
+                        Sets.newTreeSet(DatetimeUtilities.getSkeletonElements(availablePattern));
+                Set<PatternElement> intervalSkeletonElements =
+                        Sets.newTreeSet(DatetimeUtilities.getSkeletonElements(intervalPattern));
+                allPatternElements.addAll(availableSkeletonElements);
+                allPatternElements.addAll(intervalSkeletonElements);
+
+                // interval has same pattern elements as available
+                if (availableSkeletonElements.equals(intervalSkeletonElements)) {
+                    add(
+                            localeToCalendarToTypeToInteger,
+                            tcStatus + "\t" + locale,
+                            calendar,
+                            DiffType.same);
+                    continue;
+                }
+                SetView<PatternElement> intervalOnly =
+                        Sets.difference(intervalSkeletonElements, availableSkeletonElements);
+                SetView<PatternElement> availableOnly =
+                        Sets.difference(availableSkeletonElements, intervalSkeletonElements);
+                keyAndIntervalOnlyAndAvailableOnly.put(
+                        Joiners.TAB.join(locale, calendar, id, availablePattern, intervalPattern),
+                        calendar,
+                        Pair.of(availableOnly, intervalOnly));
+            }
+            Map<String, Entry<String, String>> distinctions = Maps.newTreeMap();
+            DatetimeUtilities.PatternElementNormalizer pen = penBuilder.build(distinctions);
+            if (pen.size() != 0 && isVerbose()) {
+                pen.getNormalizingMap().stream()
+                        .forEach(
+                                x ->
+                                        normalizations.put(
+                                                x.getKey1(),
+                                                x.getKey2() + "\t" + x.getValue(),
+                                                locale));
+            }
+
+            keyAndIntervalOnlyAndAvailableOnly.stream()
+                    .forEach(
+                            x -> {
+                                String calendar = x.getKey2();
+                                Pair<Set<PatternElement>, Set<PatternElement>> pattern =
+                                        x.getValue();
+                                Set<PatternElement> availableOnly =
+                                        pen.normalize(calendar, pattern.first);
+                                Set<PatternElement> intervalOnly =
+                                        pen.normalize(calendar, pattern.second);
+                                if (intervalOnly.toString().equals("['EEEEEE']")) {
+                                    int debug = 0;
+                                    pen.normalize(calendar, pattern.second);
+                                }
+                                if (availableOnly.equals(intervalOnly)) {
+                                    add(
+                                            localeToCalendarToTypeToInteger,
+                                            tcStatus + "\t" + locale,
+                                            calendar,
+                                            DiffType.sameAfterNorm);
+                                } else {
+                                    Set<FieldType> availableOnlyTypes =
+                                            availableOnly.stream()
+                                                    .map(y -> y.getType())
+                                                    .collect(Collectors.toCollection(TreeSet::new));
+                                    Set<FieldType> intervalOnlyTypes =
+                                            intervalOnly.stream()
+                                                    .map(y -> y.getType())
+                                                    .collect(Collectors.toCollection(TreeSet::new));
+                                    TreeSet<FieldType> common = Sets.newTreeSet(availableOnlyTypes);
+                                    common.retainAll(intervalOnlyTypes);
+                                    availableOnlyTypes.removeAll(common);
+                                    intervalOnlyTypes.removeAll(common);
+                                    if (intervalOnly.toString().contains("'")) {
+                                        int debug = 0;
+                                    }
+                                    System.out.println(
+                                            Joiners.TAB.join(
+                                                    tcStatus,
+                                                    x.getKey1(),
+                                                    availableOnlyTypes,
+                                                    intervalOnlyTypes,
+                                                    availableOnly,
+                                                    intervalOnly));
+                                    add(
+                                            localeToCalendarToTypeToInteger,
+                                            tcStatus + "\t" + locale,
+                                            calendar,
+                                            DiffType.diffAfterNorm);
+                                }
+                            });
+        }
+        System.out.println("\nCounts");
+        localeToCalendarToTypeToInteger.stream()
+                .forEach(
+                        x ->
+                                System.out.println(
+                                        Joiners.TAB.join(
+                                                x.getKey1(),
+                                                x.getKey2(),
+                                                x.getKey3(),
+                                                x.getValue())));
+        System.out.println("\nNormalizations");
+        System.out.println("Calendar\tSource\tNormalization\tTC?\tLocales");
+
+        Set<String> allLocales = localeToCalendarToTypeToInteger.keySet();
+        final SetView<String> allTcLocales = Sets.intersection(allLocales, TC_LOCALES);
+        final SetView<String> allDdlLocales = Sets.difference(allLocales, TC_LOCALES);
+
+        Map<String, Map<String, Map<String, Boolean>>> maps =
+                normalizations.createImmutable().getMapMapMap();
+        for (Entry<String, Map<String, Map<String, Boolean>>> entry : maps.entrySet()) {
+            String norm = entry.getKey();
+            for (Entry<String, Map<String, Boolean>> entry2 : entry.getValue().entrySet()) {
+                String calendar = entry2.getKey();
+                if (calendar.equals("ALL")) {
+                    System.out.println(Joiners.TAB.join("ALL", calendar, "BOTH", "ALL"));
+                    continue;
+                }
+                Set<String> locales = entry2.getValue().keySet();
+                SetView<String> tcLocales = Sets.intersection(locales, TC_LOCALES);
+                SetView<String> ddlLocales = Sets.difference(locales, TC_LOCALES);
+                if (!tcLocales.isEmpty()) {
+                    String tag = tcLocales.equals(allTcLocales) ? "ALL_TC" : "TC";
+                    System.out.println(
+                            Joiners.TAB.join(norm, calendar, tag, Joiners.SP.join(tcLocales)));
+                }
+                if (!ddlLocales.isEmpty()) {
+                    String tag = ddlLocales.equals(allDdlLocales) ? "ALL_DDL" : "DDL";
+                    System.out.println(
+                            Joiners.TAB.join(norm, calendar, tag, Joiners.SP.join(ddlLocales)));
+                }
+            }
+        }
+    }
+
+    private void add(
+            Map3<String, String, DiffType, Integer> localeToCalendarToTypeToInteger,
+            String locale,
+            String calendar,
+            DiffType diffType) {
+        Integer val = localeToCalendarToTypeToInteger.get(locale, calendar, diffType);
+        localeToCalendarToTypeToInteger.put(locale, calendar, diffType, val == null ? 1 : 1 + val);
+    }
+
+    public void testPatternElementNormalizer() {
+        String oldLocale = "";
+        PatternElementNormalizer pen = null;
+        String[][] tests = {
+            {"en", "gregorian", "GGG", "G"}, // locale/calendar independent
+            {"en", "gregorian", "E", "E"},
+            {"en", "gregorian", "ccc", "E"},
+            {"en", "gregorian", "LLL", "MMM"},
+            {"en", "gregorian", "L", "M"},
+            {"el", "gregorian", "E", "E"},
+            {"el", "gregorian", "ccc", "E"},
+            {"el", "gregorian", "LLL", "LLL"},
+            {"el", "gregorian", "L", "M"},
+        };
+        for (String[] row : tests) {
+            String locale = row[0];
+            if (!locale.equals(oldLocale)) {
+                pen = PatternElementNormalizer.from(locale);
+                if (isVerbose()) {
+                    System.out.println("\nALL loc/cal\t" + PatternElement.constantNormalizations());
+                    System.out.println(pen.toString());
+                }
+                oldLocale = locale;
+            }
+            String calendar = row[1];
+            String patternString = row[2];
+            String expected = row[3];
+            PatternElement actual = pen.normalize(calendar, PatternElement.from(patternString));
+            assertEquals(calendar + " " + patternString, expected, actual.rawString());
+        }
     }
 }

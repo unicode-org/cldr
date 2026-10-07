@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nogai Runic Keyboard Specification -->
+<!DOCTYPE keyboard3 SYSTEM "https://www.unicode.org/cldr/dtd/production/keyboard3.dtd">
+<keyboard3 locale="nog-Orkh">
+    <info name="Nogai (Runic)" layout="Old Turkic" indicator="𐰣𐰆𐰍"/>
+
+    <keys>
+        <key id="𐰀" output="𐰀"/>
+        <key id="𐰂" output="𐰂"/>
+        <key id="𐰃" output="𐰃" longpress="𐰶"/>
+        <key id="𐰆" output="𐰆" longpress="𐰹 𐰗"/>
+        <key id="𐰇" output="𐰇" longpress="𐰈 𐰜"/>
+        <key id="𐰖" output="𐰖"/>
+        <key id="𐰘" output="𐰘"/>
+        <key id="𐰺" output="𐰺"/>
+        <key id="𐰼" output="𐰼"/>
+        <key id="𐱃" output="𐱃" longpress="𐱃𐰽"/>
+        <key id="𐱅" output="𐱅"/>
+
+        <key id="𐰍" output="𐰍"/>
+        <key id="𐰏" output="𐰏"/>
+        <key id="𐰴" output="𐰴" longpress="𐰸"/>
+        <key id="𐰚" output="𐰚"/>
+        <key id="𐰞" output="𐰞" longpress="𐰫"/>
+        <key id="𐰠" output="𐰠"/>
+        <key id="𐰣" output="𐰣" longpress="𐰮"/>
+        <key id="𐰤" output="𐰤" longpress="𐰨 𐰪 𐰩 𐰦"/>
+        <key id="𐰑" output="𐰑"/>
+        <key id="𐰓" output="𐰓"/>
+        <key id="𐰭" output="𐰭"/>
+
+        <key id="𐰽" output="𐰽"/>
+        <key id="𐰾" output="𐰾"/>
+        <key id="𐰉" output="𐰉"/>
+        <key id="𐰋" output="𐰋"/>
+        <key id="𐰢" output="𐰢"/>
+        <key id="𐰯" output="𐰯"/>
+        <key id="𐰲" output="𐰲"/>
+        <key id="𐱁" output="𐱁" longpress="𐱁𐰲 𐱀"/>
+        <key id="𐰔" output="𐰔" longpress="𐰕"/>
+    </keys>
+
+    <formFactors>
+        <formFactor type="phone">
+            <default>
+                <row r="1" keys="𐰀 𐰂 𐰃 𐰆 𐰇 𐰖 𐰘 𐰺 𐰼 𐱃 𐱅"/>
+                <row r="2" keys="𐰍 𐰏 𐰴 𐰚 𐰞 𐰠 𐰣 𐰤 𐰑 𐰓 𐰭"/>
+                <row r="3" keys="𐰽 𐰾 𐰉 𐰋 𐰢 𐰯 𐰲 𐱁 𐰔"/>
+            </default>
+        </formFactor>
+    </formFactors>
+</keyboard3>

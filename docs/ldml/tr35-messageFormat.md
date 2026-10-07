@@ -8,13 +8,14 @@ editors:
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 9: MessageFormat
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 9: MessageFormat
 
 ### _Summary_
 
-This specification defines the data model, syntax, processing, and conformance requirements for the next generation of dynamic messages.
+The CLDR specification is presented in multiple Parts, each in its own web page.
+This Part covers the data model, syntax, processing, and conformance requirements for the next generation of dynamic messages.
 
-This is a partial document, describing only those parts of the LDML that are relevant for message format. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 

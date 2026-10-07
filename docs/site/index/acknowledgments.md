@@ -4,7 +4,7 @@ title: Acknowledgments
 
 # Acknowledgments
 
-Acknowledgments for special contributions to successive versions of CLDR and LDML are in the [Acknowledgments](http://www.unicode.org/reports/tr35/#Acknowledgments) section of [*UTS #35: Locale Data Markup Language (LDML)*](http://www.unicode.org/reports/tr35/).
+Acknowledgments for special contributions to successive versions of CLDR are in the [Acknowledgments](http://www.unicode.org/reports/tr35/#Acknowledgments) section of [*UTS #35: Unicode Common Locale Data & Rules (CLDR)*](http://www.unicode.org/reports/tr35/).
 
 Many other people have made significant contributions to CLDR and LDML, including the following:
 

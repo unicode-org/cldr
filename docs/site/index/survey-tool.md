@@ -10,7 +10,7 @@ title: CLDR Survey Tool
 
 CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available.
 
-Translations in the Unicode Common Locale Data Repository are gathered and processed via what is called the Survey Tool, an online tool that can be used to view data for different languages and propose additions or changes. This tool provides a way to propose new localized data, see what others have proposed, and communicate with them to resolve differences. During each submission period, contributors from Unicode Consortium members, other organizations and the public at large are invited to review the data for their languages and countries, and propose new translations of terms or modifications, including language translations entirely new to the repository.
+Translations in the Unicode Common Locale Data & Rules are gathered and processed via what is called the Survey Tool, an online tool that can be used to view data for different languages and propose additions or changes. This tool provides a way to propose new localized data, see what others have proposed, and communicate with them to resolve differences. During each submission period, contributors from Unicode Consortium members, other organizations and the public at large are invited to review the data for their languages and countries, and propose new translations of terms or modifications, including language translations entirely new to the repository.
 
 Below are the main pages to look at.
 

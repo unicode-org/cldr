@@ -351,5 +351,5 @@ For more information, see:
 - [ISO\-15915 (Gujarati)](http://transliteration.eki.ee/pdf/Gujarati.pdf)
 - [ISO\-15915 (Kannada)](http://transliteration.eki.ee/pdf/Kannada.pdf)
 - [ISCII\-91](http://www.cdacindia.com/html/gist/down/iscii_d.asp)
-- [UTS \#35: Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/)
+- [UTS \#35: Unicode Common Locale Data & Rules (CLDR)](https://www.unicode.org/reports/tr35/)
 

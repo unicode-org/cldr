@@ -17,7 +17,7 @@ _To build and maintain the most trusted and comprehensive repository of [locale 
 
 ## What is CLDR?
 
-CLDR (Common Locale Data Repository) supplies key information and structures critical for programs and operating systems around the world to ensure that they feel natural,
+CLDR (Common Locale Data & Rules) supplies key information and structures critical for programs and operating systems around the world to ensure that they feel natural,
 no matter which language users speak or where they live.
 
 For example, imagine looking at a list of files on your mobile phone.

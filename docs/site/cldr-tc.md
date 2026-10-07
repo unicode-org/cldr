@@ -4,7 +4,7 @@ title: "CLDR Technical Committee (TC)"
 
 # CLDR Technical Committee (TC)
 
-The CLDR Technical Committee is responsible for the Unicode Common Locale Data Repository data repository,
+The CLDR Technical Committee is responsible for the Unicode Common Locale Data & Rules data repository,
 which encompasses:
 
 * the data repository itself, in XML format

@@ -1,0 +1,278 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-adjective;1;yekemîn
+spell;%spellout-ordinal-adjective;2;duyemîn
+spell;%spellout-ordinal-adjective;3;sêyemîn
+spell;%spellout-ordinal-adjective;4;çaremîn
+spell;%spellout-ordinal-adjective;5;pêncemîn
+spell;%spellout-ordinal-adjective;6;şeşemîn
+spell;%spellout-ordinal-adjective;7;heftemîn
+spell;%spellout-ordinal-adjective;8;heştemîn
+spell;%spellout-ordinal-adjective;9;nehemîn
+spell;%spellout-ordinal-adjective;10;dehemîn
+spell;%spellout-ordinal-adjective;11;yazdehemîn
+spell;%spellout-ordinal-adjective;12;duwazdehemîn
+spell;%spellout-ordinal-adjective;13;sêzdehemîn
+spell;%spellout-ordinal-adjective;14;çardehemîn
+spell;%spellout-ordinal-adjective;15;pazdehemîn
+spell;%spellout-ordinal-adjective;16;şazdehemîn
+spell;%spellout-ordinal-adjective;17;hevdehemîn
+spell;%spellout-ordinal-adjective;18;hejdehemîn
+spell;%spellout-ordinal-adjective;19;nozdehemîn
+spell;%spellout-ordinal-adjective;20;bîstemîn
+spell;%spellout-ordinal-adjective;21;bîst û yekemîn
+spell;%spellout-ordinal-adjective;29;bîst û nehemîn
+spell;%spellout-ordinal-adjective;30;sihemîn
+spell;%spellout-ordinal-adjective;31;sih û yekemîn
+spell;%spellout-ordinal-adjective;39;sih û nehemîn
+spell;%spellout-ordinal-adjective;40;çilemîn
+spell;%spellout-ordinal-adjective;41;çil û yekemîn
+spell;%spellout-ordinal-adjective;49;çil û nehemîn
+spell;%spellout-ordinal-adjective;50;pêncîyemîn
+spell;%spellout-ordinal-adjective;51;pêncî û yekemîn
+spell;%spellout-ordinal-adjective;59;pêncî û nehemîn
+spell;%spellout-ordinal-adjective;60;şêstemîn
+spell;%spellout-ordinal-adjective;61;şêst û yekemîn
+spell;%spellout-ordinal-adjective;69;şêst û nehemîn
+spell;%spellout-ordinal-adjective;70;heftêyemîn
+spell;%spellout-ordinal-adjective;71;heftê û yekemîn
+spell;%spellout-ordinal-adjective;79;heftê û nehemîn
+spell;%spellout-ordinal-adjective;80;heştêyemîn
+spell;%spellout-ordinal-adjective;81;heştê û yekemîn
+spell;%spellout-ordinal-adjective;89;heştê û nehemîn
+spell;%spellout-ordinal-adjective;90;nodemîn
+spell;%spellout-ordinal-adjective;91;nod û yekemîn
+spell;%spellout-ordinal-adjective;99;nod û nehemîn
+spell;%spellout-ordinal-adjective;100;sedemîn
+spell;%spellout-ordinal-adjective;101;sed û yekemîn
+spell;%spellout-ordinal-adjective;199;sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;200;du sedemîn
+spell;%spellout-ordinal-adjective;201;du sed û yekemîn
+spell;%spellout-ordinal-adjective;999;neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;1000;hezaremîn
+spell;%spellout-ordinal-adjective;1001;hezar û yekemîn
+spell;%spellout-ordinal-adjective;1999;hezar û neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;2000;du hezaremîn
+spell;%spellout-ordinal-adjective;2001;du hezar û yekemîn
+spell;%spellout-ordinal-adjective;999999;neh sed û nod û neh hezar û neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;1000000;yek milyonemîn
+spell;%spellout-ordinal-adjective;1000001;yek milyon û yekemîn
+spell;%spellout-ordinal-adjective;999999999;neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;1000000000;yek milyaremîn
+spell;%spellout-ordinal-adjective;1000000001;yek milyar û yekemîn
+spell;%spellout-ordinal-adjective;999999999999;neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;1000000000000;yek trilyonemîn
+spell;%spellout-ordinal-adjective;1000000000001;yek trilyon û yekemîn
+spell;%spellout-ordinal-adjective;999999999999999;neh sed û nod û neh trilyon û neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehemîn
+spell;%spellout-ordinal-adjective;1000000000000000;yek katrilyonemîn
+spell;%spellout-ordinal-adjective;1000000000000001;yek katrilyon û yekemîn
+spell;%spellout-ordinal-adjective;9007199254740991;neh katrilyon û heft trilyon û sed û nod û neh milyar û du sed û pêncî û çar milyon û heft sed û çil hezar û neh sed û nod û yekemîn
+spell;%spellout-ordinal-adjective;Infinity;bêdawîyemîn
+spell;%spellout-ordinal-adjective;NaN;ne jimar e
+spell;%spellout-ordinal;1;yekem
+spell;%spellout-ordinal;2;duyem
+spell;%spellout-ordinal;3;sêyem
+spell;%spellout-ordinal;4;çarem
+spell;%spellout-ordinal;5;pêncem
+spell;%spellout-ordinal;6;şeşem
+spell;%spellout-ordinal;7;heftem
+spell;%spellout-ordinal;8;heştem
+spell;%spellout-ordinal;9;nehem
+spell;%spellout-ordinal;10;dehem
+spell;%spellout-ordinal;11;yazdehem
+spell;%spellout-ordinal;12;duwazdehem
+spell;%spellout-ordinal;13;sêzdehem
+spell;%spellout-ordinal;14;çardehem
+spell;%spellout-ordinal;15;pazdehem
+spell;%spellout-ordinal;16;şazdehem
+spell;%spellout-ordinal;17;hevdehem
+spell;%spellout-ordinal;18;hejdehem
+spell;%spellout-ordinal;19;nozdehem
+spell;%spellout-ordinal;20;bîstem
+spell;%spellout-ordinal;21;bîst û yekem
+spell;%spellout-ordinal;29;bîst û nehem
+spell;%spellout-ordinal;30;sihem
+spell;%spellout-ordinal;31;sih û yekem
+spell;%spellout-ordinal;39;sih û nehem
+spell;%spellout-ordinal;40;çilem
+spell;%spellout-ordinal;41;çil û yekem
+spell;%spellout-ordinal;49;çil û nehem
+spell;%spellout-ordinal;50;pêncîyem
+spell;%spellout-ordinal;51;pêncî û yekem
+spell;%spellout-ordinal;59;pêncî û nehem
+spell;%spellout-ordinal;60;şêstem
+spell;%spellout-ordinal;61;şêst û yekem
+spell;%spellout-ordinal;69;şêst û nehem
+spell;%spellout-ordinal;70;heftêyem
+spell;%spellout-ordinal;71;heftê û yekem
+spell;%spellout-ordinal;79;heftê û nehem
+spell;%spellout-ordinal;80;heştêyem
+spell;%spellout-ordinal;81;heştê û yekem
+spell;%spellout-ordinal;89;heştê û nehem
+spell;%spellout-ordinal;90;nodem
+spell;%spellout-ordinal;91;nod û yekem
+spell;%spellout-ordinal;99;nod û nehem
+spell;%spellout-ordinal;100;sedem
+spell;%spellout-ordinal;101;sed û yekem
+spell;%spellout-ordinal;199;sed û nod û nehem
+spell;%spellout-ordinal;200;du sedem
+spell;%spellout-ordinal;201;du sed û yekem
+spell;%spellout-ordinal;999;neh sed û nod û nehem
+spell;%spellout-ordinal;1000;hezarem
+spell;%spellout-ordinal;1001;hezar û yekem
+spell;%spellout-ordinal;1999;hezar û neh sed û nod û nehem
+spell;%spellout-ordinal;2000;du hezarem
+spell;%spellout-ordinal;2001;du hezar û yekem
+spell;%spellout-ordinal;999999;neh sed û nod û neh hezar û neh sed û nod û nehem
+spell;%spellout-ordinal;1000000;yek milyonem
+spell;%spellout-ordinal;1000001;yek milyon û yekem
+spell;%spellout-ordinal;999999999;neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehem
+spell;%spellout-ordinal;1000000000;yek milyarem
+spell;%spellout-ordinal;1000000001;yek milyar û yekem
+spell;%spellout-ordinal;999999999999;neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehem
+spell;%spellout-ordinal;1000000000000;yek trilyonem
+spell;%spellout-ordinal;1000000000001;yek trilyon û yekem
+spell;%spellout-ordinal;999999999999999;neh sed û nod û neh trilyon û neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û nehem
+spell;%spellout-ordinal;1000000000000000;yek katrilyonem
+spell;%spellout-ordinal;1000000000000001;yek katrilyon û yekem
+spell;%spellout-ordinal;9007199254740991;neh katrilyon û heft trilyon û sed û nod û neh milyar û du sed û pêncî û çar milyon û heft sed û çil hezar û neh sed û nod û yekem
+spell;%spellout-ordinal;Infinity;bêdawîyem
+spell;%spellout-ordinal;NaN;ne jimar e
+spell;%spellout-cardinal;-1;kêm yek
+spell;%spellout-cardinal;0;sifir
+spell;%spellout-cardinal;0.5;sifir bêhnok pênc
+spell;%spellout-cardinal;1;yek
+spell;%spellout-cardinal;1.5;yek bêhnok pênc
+spell;%spellout-cardinal;2;du
+spell;%spellout-cardinal;3;sê
+spell;%spellout-cardinal;4;çar
+spell;%spellout-cardinal;5;pênc
+spell;%spellout-cardinal;6;şeş
+spell;%spellout-cardinal;7;heft
+spell;%spellout-cardinal;8;heşt
+spell;%spellout-cardinal;9;neh
+spell;%spellout-cardinal;10;deh
+spell;%spellout-cardinal;11;yazdeh
+spell;%spellout-cardinal;12;duwazdeh
+spell;%spellout-cardinal;13;sêzdeh
+spell;%spellout-cardinal;14;çardeh
+spell;%spellout-cardinal;15;pazdeh
+spell;%spellout-cardinal;16;şazdeh
+spell;%spellout-cardinal;17;hevdeh
+spell;%spellout-cardinal;18;hejdeh
+spell;%spellout-cardinal;19;nozdeh
+spell;%spellout-cardinal;20;bîst
+spell;%spellout-cardinal;21;bîst û yek
+spell;%spellout-cardinal;25;bîst û pênc
+spell;%spellout-cardinal;29;bîst û neh
+spell;%spellout-cardinal;30;sih
+spell;%spellout-cardinal;31;sih û yek
+spell;%spellout-cardinal;39;sih û neh
+spell;%spellout-cardinal;40;çil
+spell;%spellout-cardinal;41;çil û yek
+spell;%spellout-cardinal;49;çil û neh
+spell;%spellout-cardinal;50;pêncî
+spell;%spellout-cardinal;51;pêncî û yek
+spell;%spellout-cardinal;59;pêncî û neh
+spell;%spellout-cardinal;60;şêst
+spell;%spellout-cardinal;61;şêst û yek
+spell;%spellout-cardinal;69;şêst û neh
+spell;%spellout-cardinal;70;heftê
+spell;%spellout-cardinal;71;heftê û yek
+spell;%spellout-cardinal;79;heftê û neh
+spell;%spellout-cardinal;80;heştê
+spell;%spellout-cardinal;81;heştê û yek
+spell;%spellout-cardinal;89;heştê û neh
+spell;%spellout-cardinal;90;nod
+spell;%spellout-cardinal;91;nod û yek
+spell;%spellout-cardinal;99;nod û neh
+spell;%spellout-cardinal;100;sed
+spell;%spellout-cardinal;101;sed û yek
+spell;%spellout-cardinal;199;sed û nod û neh
+spell;%spellout-cardinal;200;du sed
+spell;%spellout-cardinal;201;du sed û yek
+spell;%spellout-cardinal;300;sê sed
+spell;%spellout-cardinal;500;pênc sed
+spell;%spellout-cardinal;999;neh sed û nod û neh
+spell;%spellout-cardinal;1000;hezar
+spell;%spellout-cardinal;1001;hezar û yek
+spell;%spellout-cardinal;1999;hezar û neh sed û nod û neh
+spell;%spellout-cardinal;2000;du hezar
+spell;%spellout-cardinal;2001;du hezar û yek
+spell;%spellout-cardinal;5000;pênc hezar
+spell;%spellout-cardinal;10000;deh hezar
+spell;%spellout-cardinal;100000;sed hezar
+spell;%spellout-cardinal;999999;neh sed û nod û neh hezar û neh sed û nod û neh
+spell;%spellout-cardinal;1000000;yek milyon
+spell;%spellout-cardinal;1000001;yek milyon û yek
+spell;%spellout-cardinal;2000000;du milyon
+spell;%spellout-cardinal;999999999;neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û neh
+spell;%spellout-cardinal;1000000000;yek milyar
+spell;%spellout-cardinal;1000000001;yek milyar û yek
+spell;%spellout-cardinal;999999999999;neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û neh
+spell;%spellout-cardinal;1000000000000;yek trilyon
+spell;%spellout-cardinal;1000000000001;yek trilyon û yek
+spell;%spellout-cardinal;999999999999999;neh sed û nod û neh trilyon û neh sed û nod û neh milyar û neh sed û nod û neh milyon û neh sed û nod û neh hezar û neh sed û nod û neh
+spell;%spellout-cardinal;1000000000000000;yek katrilyon
+spell;%spellout-cardinal;1000000000000001;yek katrilyon û yek
+spell;%spellout-cardinal;9007199254740991;neh katrilyon û heft trilyon û sed û nod û neh milyar û du sed û pêncî û çar milyon û heft sed û çil hezar û neh sed û nod û yek
+spell;%spellout-cardinal;Infinity;bêdawî
+spell;%spellout-cardinal;NaN;ne jimar e
+spell;%spellout-numbering;-1;kêm yek
+spell;%spellout-numbering;0;sifir
+spell;%spellout-numbering;0.5;sifir bêhnok pênc
+spell;%spellout-numbering;1;yek
+spell;%spellout-numbering;2;du
+spell;%spellout-numbering;3;sê
+spell;%spellout-numbering;4;çar
+spell;%spellout-numbering;5;pênc
+spell;%spellout-numbering;6;şeş
+spell;%spellout-numbering;7;heft
+spell;%spellout-numbering;8;heşt
+spell;%spellout-numbering;9;neh
+spell;%spellout-numbering;10;deh
+spell;%spellout-numbering;11;yazdeh
+spell;%spellout-numbering;12;duwazdeh
+spell;%spellout-numbering;13;sêzdeh
+spell;%spellout-numbering;14;çardeh
+spell;%spellout-numbering;15;pazdeh
+spell;%spellout-numbering;16;şazdeh
+spell;%spellout-numbering;17;hevdeh
+spell;%spellout-numbering;18;hejdeh
+spell;%spellout-numbering;19;nozdeh
+spell;%spellout-numbering;20;bîst
+spell;%spellout-numbering;21;bîst û yek
+spell;%spellout-numbering;25;bîst û pênc
+spell;%spellout-numbering;30;sih
+spell;%spellout-numbering;40;çil
+spell;%spellout-numbering;50;pêncî
+spell;%spellout-numbering;60;şêst
+spell;%spellout-numbering;70;heftê
+spell;%spellout-numbering;80;heştê
+spell;%spellout-numbering;90;nod
+spell;%spellout-numbering;99;nod û neh
+spell;%spellout-numbering;100;sed
+spell;%spellout-numbering;101;sed û yek
+spell;%spellout-numbering;200;du sed
+spell;%spellout-numbering;300;sê sed
+spell;%spellout-numbering;500;pênc sed
+spell;%spellout-numbering;1000;hezar
+spell;%spellout-numbering;1001;hezar û yek
+spell;%spellout-numbering;2000;du hezar
+spell;%spellout-numbering;5000;pênc hezar
+spell;%spellout-numbering;10000;deh hezar
+spell;%spellout-numbering;100000;sed hezar
+spell;%spellout-numbering;1000000;yek milyon
+spell;%spellout-numbering;2000000;du milyon
+spell;%spellout-numbering;Infinity;bêdawîtî
+spell;%spellout-numbering;NaN;ne jimar e
+spell;%spellout-numbering-year;1;yek
+spell;%spellout-numbering-year;1999;hezar û neh sed û nod û neh
+spell;%spellout-numbering-year;2000;du hezar
+spell;%spellout-numbering-year;2001;du hezar û yek

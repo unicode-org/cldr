@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2026-2026 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="ku"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+0: =%spellout-numbering=;
+%spellout-numbering:
+-x: kêm >>;
+Inf: bêdawîtî;
+NaN: ne jimar e;
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: kêm >>;
+x.x: << bêhnok >>;
+Inf: bêdawî;
+NaN: ne jimar e;
+0: sifir;
+1: yek;
+2: du;
+3: sê;
+4: çar;
+5: pênc;
+6: şeş;
+7: heft;
+8: heşt;
+9: neh;
+10: deh;
+11: yazdeh;
+12: duwazdeh;
+13: sêzdeh;
+14: çardeh;
+15: pazdeh;
+16: şazdeh;
+17: hevdeh;
+18: hejdeh;
+19: nozdeh;
+20: bîst[ û >>];
+30: sih[ û >>];
+40: çil[ û >>];
+50: pêncî[ û >>];
+60: şêst[ û >>];
+70: heftê[ û >>];
+80: heştê[ û >>];
+90: nod[ û >>];
+100: sed[ û >>];
+200: << sed[ û >>];
+1000: hezar[ û >>];
+2000: << hezar[ û >>];
+1000000: << milyon[ û >>];
+1000000000: << milyar[ û >>];
+1000000000000: << trilyon[ û >>];
+1000000000000000: << katrilyon[ û >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal:
+-x: kêm >>;
+x.x: =#,##0.#=;
+Inf: bêdawîyem;
+NaN: ne jimar e;
+0: sifirem;
+1: yekem;
+2: duyem;
+3: sêyem;
+4: çarem;
+5: pêncem;
+6: şeşem;
+7: heftem;
+8: heştem;
+9: nehem;
+10: dehem;
+11: yazdehem;
+12: duwazdehem;
+13: sêzdehem;
+14: çardehem;
+15: pazdehem;
+16: şazdehem;
+17: hevdehem;
+18: hejdehem;
+19: nozdehem;
+20: bîst[ û >>|em];
+30: sih[ û >>|em];
+40: çil[ û >>|em];
+50: pêncî[ û >>|yem];
+60: şêst[ û >>|em];
+70: heftê[ û >>|yem];
+80: heştê[ û >>|yem];
+90: nod[ û >>|em];
+100: sed[ û >>|em];
+200: <%spellout-numbering< sed[ û >>|em];
+1000: hezar[ û >>|em];
+2000: <%spellout-numbering< hezar[ û >>|em];
+1000000: <%spellout-numbering< milyon[ û >>|em];
+1000000000: <%spellout-numbering< milyar[ û >>|em];
+1000000000000: <%spellout-numbering< trilyon[ û >>|em];
+1000000000000000: <%spellout-numbering< katrilyon[ û >>|em];
+1000000000000000000: =#,##0='em;
+%spellout-ordinal-adjective:
+-x: kêm >>;
+x.x: =#,##0.#=;
+Inf: bêdawîyemîn;
+NaN: ne jimar e;
+0: sifiremîn;
+1: yekemîn;
+2: duyemîn;
+3: sêyemîn;
+4: çaremîn;
+5: pêncemîn;
+6: şeşemîn;
+7: heftemîn;
+8: heştemîn;
+9: nehemîn;
+10: dehemîn;
+11: yazdehemîn;
+12: duwazdehemîn;
+13: sêzdehemîn;
+14: çardehemîn;
+15: pazdehemîn;
+16: şazdehemîn;
+17: hevdehemîn;
+18: hejdehemîn;
+19: nozdehemîn;
+20: bîst[ û >>|emîn];
+30: sih[ û >>|emîn];
+40: çil[ û >>|emîn];
+50: pêncî[ û >>|yemîn];
+60: şêst[ û >>|emîn];
+70: heftê[ û >>|yemîn];
+80: heştê[ û >>|yemîn];
+90: nod[ û >>|emîn];
+100: sed[ û >>|emîn];
+200: <%spellout-numbering< sed[ û >>|emîn];
+1000: hezar[ û >>|emîn];
+2000: <%spellout-numbering< hezar[ û >>|emîn];
+1000000: <%spellout-numbering< milyon[ û >>|emîn];
+1000000000: <%spellout-numbering< milyar[ û >>|emîn];
+1000000000000: <%spellout-numbering< trilyon[ û >>|emîn];
+1000000000000000: <%spellout-numbering< katrilyon[ û >>|emîn];
+1000000000000000000: =#,##0='emîn;
+]]></rbnfRules>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

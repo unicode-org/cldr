@@ -43,10 +43,10 @@ public class InvestigateDates {
                         "locale",
                         "calendar",
                         "ok?",
-                        "skeleton",
-                        "pattern",
-                        "trial pattern",
-                        "pattern for skeleton without v",
+                        "skeleton w/ v",
+                        "pattern w/ v",
+                        "composed pattern",
+                        "pattern for skeleton w/o v",
                         "composing pattern"));
 
         for (String locale : Sets.newTreeSet(localesToCheck)) {
@@ -67,6 +67,7 @@ public class InvestigateDates {
     enum Compare {
         ok,
         fix_space,
+        fix_bidi,
         fix_other;
 
         @Override
@@ -106,18 +107,23 @@ public class InvestigateDates {
         }
     }
 
-    static final Pattern regex =
+    static final Pattern OTHER_WS =
             Pattern.compile(
-                    "[\u0009 \u0085 \u2028 \u2029 \u0020\u3000\u1680\u2000-\u2006\u2008-\u200A\u205F\u00A0\u2007\u202F]+");
+                    "[\u0009\u0085\u2028\u2029\u3000\u1680\u2000-\u2006\u2008-\u200A\u205F\u00A0\u2007\u202F]+");
+    static final Pattern BIDI_CONTROLS = Pattern.compile("[\\u061C\\u200E\\u200F\\u202A-\\u202E\\u2066-\\u2069]+");
 
     private static Compare compare(String pattern, String trialPattern) {
         if (pattern.equals(trialPattern)) return Compare.ok;
-        pattern = regex.matcher(pattern).replaceAll(" ");
-        trialPattern = regex.matcher(trialPattern).replaceAll(" ");
+        pattern = OTHER_WS.matcher(pattern).replaceAll(" ");
+        trialPattern = OTHER_WS.matcher(trialPattern).replaceAll(" ");
         if (pattern.equals(trialPattern)) {
             return Compare.fix_space;
-        } else {
-            return Compare.fix_other;
         }
+        pattern = BIDI_CONTROLS.matcher(pattern).replaceAll("");
+        trialPattern = BIDI_CONTROLS.matcher(trialPattern).replaceAll("");
+        if (pattern.equals(trialPattern)) {
+            return Compare.fix_bidi;
+        }
+            return Compare.fix_other;
     }
 }

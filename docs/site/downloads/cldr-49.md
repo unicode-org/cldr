@@ -217,7 +217,7 @@ There was too much uncertainty in the exact values and we received feedback that
 
 - The `core.zip` / `cldr-common-49.zip` data file (production data) no longer includes data for locales not yet at Basic level.
 These are 94 locales in [Locale Coverage](https://www.unicode.org/cldr/charts/49/supplemental/locale_coverage.html) that do not have `basic` in the **Computed Level** column nor `ICU` in the ICU column.
-As noted below, this data is slated for removal from CLDR in version 50 if the data does not progress. 
+As noted below, this data is slated for removal from CLDR in version 50 if the data does not progress.
 If you are able to help contribute data to bring a language up to Basic coverage in a future release, see [CLDR Organization] for how to contribute.
 
   - A new zip file named `cldr-exemplars-delta-49.zip` includes additional data files for CLDR locales that are below basic coverage, including from the exemplars directory.
@@ -256,7 +256,10 @@ See [UTS #61][]: Unicode Set Notation (currently in draft).
 ## Known Issues
 
 - ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060][] for more details.
-- Keyboard: Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
+- Keyboards
+  - Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
+  - `minDeviceWidth` attribute is inadequately speified. [CLDR-19754]
+  - Some keyboard files have build errors under `kmc`. [CLDR-19483]
 
 ## Acknowledgments
 
@@ -277,7 +280,10 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19143]: https://unicode-org.atlassian.net/browse/CLDR-19143
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
+[CLDR-19483]: https://unicode-org.atlassian.net/browse/CLDR-19483
+[CLDR-19608]: https://unicode-org.atlassian.net/browse/CLDR-19608
 [CLDR-19752]: https://unicode-org.atlassian.net/browse/CLDR-19752
+[CLDR-19754]: https://unicode-org.atlassian.net/browse/CLDR-19754
 [CLDR-19757]: https://unicode-org.atlassian.net/browse/CLDR-19757
 [CLDR-19806]: https://unicode-org.atlassian.net/browse/CLDR-19806
 [Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data

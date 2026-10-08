@@ -64,7 +64,7 @@ The WG also manages the process of validating new keyboards contained in the CLD
 ### CLDR MessageFormat Working Group
 
 The [CLDR MessageFormat WG][] was tasked with developing the specification for Message Format 2 (MF2) and ensuring implementations of MF2 in the ICU and ICU4X libraries.
-These recommendations, once approved, are incorporated into the CLDR data, tooling, specification [UTS 35 Part 9: MessageFormat][].
+These recommendations, once approved, are incorporated into the CLDR data, tooling, and specification [UTS 35 Part 9: MessageFormat][].
 
 The main page for the Message Format WG is in the [MessageFormat Repository][].
 
@@ -83,7 +83,7 @@ but was renamed to disambiguate from the Unicode Infrastructure group since both
 ### CLDR Person Name Working Group
 
 The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data.
-These recommendations, once approved, are incorporated into the CLDR data, tooling, specification [UTS 35 Part 8: Person Names][].
+These recommendations, once approved, are incorporated into the CLDR data, tooling, and specification [UTS 35 Part 8: Person Names][].
 
 ### DDL Working Group
 

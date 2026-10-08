@@ -91,7 +91,7 @@ People may file [tickets](requesting_changes) with bug fixes or feature requests
 
 ## Who has contributed?
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR; see the [Acknowledgments](index/acknowledgments) page for a full listing.
 
 ## What is the Schedule?
 

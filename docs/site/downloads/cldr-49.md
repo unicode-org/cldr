@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | [CLDR49](https://unicode.org/Public/cldr/49/) | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | [release-49-beta2](https://github.com/unicode-org/cldr/releases/tag/release-49-beta2) | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [49.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0-BETA1) |
+|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | [CLDR49](https://unicode.org/Public/cldr/49/) | [Charts49](https://unicode.org/cldr/charts/dev) | [CLDR49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | [release-49-beta2](https://github.com/unicode-org/cldr/releases/tag/release-49-beta2) | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [49.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0-BETA1) |
 
 ## Overview
 
@@ -74,8 +74,12 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 ## Specification Changes
 
-The following are the most significant changes to the specification (LDML), aside from those covered under DTD changes below.
+The following are the most significant changes to the CLDR specification, aside from those covered under DTD changes below.
 
+- Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
+    - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+    - However, all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 - In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
@@ -264,7 +268,7 @@ See [UTS #61][]: Unicode Set Notation (currently in draft).
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML;
+Many people have made significant contributions to CLDR;
 see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;

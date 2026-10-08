@@ -15,7 +15,7 @@ There are two ways to request changes (for bug fixes or new features). Filing a 
 * Feature requests in CLDR or [UTS #35: Unicode Common Locale Data & Rules (CLDR)](https://www.unicode.org/reports/tr35/).
 
 In CLDR Bug Reports, please try to give as much information as possible to help address the issue, and please group related bugs
-(such as a list of problems with the LDML specification) into a single bug report.
+(such as a list of problems with the CLDR specification) into a single bug report.
 
 A few areas are particularly tricky.
 

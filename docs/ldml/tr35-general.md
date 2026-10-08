@@ -12,7 +12,7 @@ editors:
 
 ### _Summary_
 
-The CLDR specification is presented in multiple Parts, each in its own web page.
+The CLDR specification is presented in multiple Parts, each on its own web page.
 This Part covers certain general parts of CLDR, including display names & transforms.
 
 For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).

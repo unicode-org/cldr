@@ -77,9 +77,9 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 The following are the most significant changes to the CLDR specification, aside from those covered under DTD changes below.
 
 - Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
-and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
     - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
-    - However, all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
+    - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 - In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.

@@ -9,7 +9,7 @@ title: Modifications
 
 ### _Summary_
 
-The CLDR specification is presented in multiple Parts, each in its own web page.
+The CLDR specification is presented in multiple Parts, each on its own web page.
 This Part covers the changes to the CLDR specification since the previous release.
 
 For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
@@ -45,7 +45,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 * Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
 and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
     * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
-    * However, all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
+    * Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 
 ### Locales
 

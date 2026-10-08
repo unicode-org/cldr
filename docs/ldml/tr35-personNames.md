@@ -15,7 +15,7 @@ editors:
 
 ### _Summary_
 
-The CLDR specification is presented in multiple Parts, each in its own web page.
+The CLDR specification is presented in multiple Parts, each on its own web page.
 This Part covers person name structures and formatting.
 
 For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
@@ -216,7 +216,7 @@ Sections below specify the precise manner in which a pattern is selected, and ho
 
 ## XML Structure
 
-Person name formatting data is stored as CLDR XML with a schema defined as follows.
+Person name formatting data is stored as CLDR XML with a schema defined as follows:
 Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in [Formatting Process](#formatting-process).
 
 

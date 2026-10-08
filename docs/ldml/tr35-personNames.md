@@ -34,7 +34,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -118,7 +118,7 @@ There is a wide variety in the way that people’s names appear in different lan
 * The ordering of name fields can be different across languages, as well as the spacing (or lack thereof) and punctuation.
 * Name formatting needs to be adapted to different circumstances, such as a need to be presented shorter or longer; formal or informal context; or when talking about someone, or talking to someone, or as a monogram (JFK).
 
-This document provides the [LDML](tr35.md) specification for formatting of personal names, using data, structure, and examples.
+This document provides the [CLDR](tr35.md) specification for formatting of personal names, using data, structure, and examples.
 
 The CLDR functionality is targeted at formatting names for typical usage on computers (e.g. contact names, automated greetings, etc.), rather than being designed for special circumstances or protocol, such addressing royalty. However, the structure may be enhanced in the future when it becomes clear that additional features are needed for some languages.
 
@@ -216,7 +216,8 @@ Sections below specify the precise manner in which a pattern is selected, and ho
 
 ## XML Structure
 
-Person name formatting data is stored as LDML with schema defined as follows. Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in [Formatting Process](#formatting-process).
+Person name formatting data is stored as CLDR XML with a schema defined as follows.
+Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in [Formatting Process](#formatting-process).
 
 
 ### personNames Element
@@ -225,7 +226,7 @@ Person name formatting data is stored as LDML with schema defined as follows. Ea
 <!ELEMENT personNames ( nameOrderLocales*, parameterDefault*, nativeSpaceReplacement*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName* ) >
 ```
 
-The LDML top-level `<personNames>` element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.
+The CLDR top-level `<personNames>` element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.
 
 ### personName Element
 
@@ -368,7 +369,7 @@ A modifier is supplied, _-informal_, which can be used to indicate which data el
 
 ## Person Name Attributes
 
-A person name pattern may have any of four attributes: order, length, usage, and formality. LDML specifies that all the values for these attributes are unique. For example, because length=long is valid, usage=long cannot also be valid. That allows the pattern labels to be simple, because the attribute names can be skipped. That is,
+A person name pattern may have any of four attributes: order, length, usage, and formality. CLDR specifies that all the values for these attributes are unique. For example, because length=long is valid, usage=long cannot also be valid. That allows the pattern labels to be simple, because the attribute names can be skipped. That is,
 
 > `{order=givenFirst, length=long, usage=referring, formality=formal}`
 
@@ -1076,7 +1077,8 @@ The output is:
 
 ## Sample Name
 
-The sampleName element is used for test names in the personNames LDML data for each locale to aid in testing and display in the CLDR Survey Tool. They are not intended to be used in production software as prompts or placeholders in a user interface and should not be displayed in a user interface.
+The sampleName element is used for test names in the personNames CLDR XML data for each locale to aid in testing and display in the CLDR Survey Tool.
+They are not intended to be used in production software as prompts or placeholders in a user interface and should not be displayed in a user interface.
 
 ### Syntax
 

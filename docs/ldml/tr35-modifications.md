@@ -17,7 +17,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Changes in LDML Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
+  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
     * [MessageFormat](#messageformat)
@@ -37,8 +37,15 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 
 -->
 
-### Changes in LDML Version 49 (Differences from Version 48.0)
+### Changes in CLDR Version 49 (Differences from Version 48.0)
 <!-- Updated spec date -->
+
+### General
+
+* Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
+and the title of this specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
+    * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+    * However, all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 
 ### Locales
 

@@ -31,7 +31,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -4145,7 +4145,7 @@ the functions `:datetime`, `:date`, and `:time`.
 - `timeZone`
   - A valid time zone identifier
     (see [TZDB](https://www.iana.org/time-zones)
-    and [LDML](tr35-dates.md#Time_Zone_Names)
+    and [CLDR Time zone names](tr35-dates.md#Time_Zone_Names)
     for information on identifiers)
   - `input`
   - `UTC`

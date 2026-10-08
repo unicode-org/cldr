@@ -30,7 +30,7 @@ Over 100 languages are supported, with more added each release.
 CLDR consists of three main components:
 
 1. A curated collection of structured data used by implementations
-1. A specification, [UTS #35: Unicode Locale Data Markup Language (LDML)][], documenting the structure and usage of that data (via defined algorithms), including conformance requirements and guidelines
+1. A specification, [UTS #35: Unicode Common Locale Data & Rules (CLDR)][], documenting the structure and usage of that data (via defined algorithms), including conformance requirements and guidelines
 1. Code used to collect that data from language specialists, guide those specialists in supplying the data, verify the validity and consistency, and process it into different formats for use by software developers
 
 Formatting dates, numbers, currencies, and units of measurement is far more complicated across different languages and regions than most people recognize.
@@ -64,7 +64,7 @@ There are other projects which consume [cldr-json] directly, see [here][cldr-jso
 
 Most developers will use CLDR indirectly, via a set of software libraries, such as [ICU](https://icu.unicode.org/), [Closure](https://github.com/google/closure-library), or [TwitterCLDR](https://blog.x.com/engineering/en_us/a/2012/twittercldr-improving-internationalization-support-in-ruby). These libraries typically compile the CLDR data into a format that is compact and easy for the library to load and use.
 
-For those interested in the source CLDR data, it is available for each release in the XML format specified by [UTS #35: Unicode Locale Data Markup Language (LDML)][]. There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
+For those interested in the source CLDR data, it is available for each release in the XML format specified by [UTS #35: Unicode Common Locale Data & Rules (CLDR)][]. There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
 
 ## How to Contribute?
 
@@ -108,4 +108,4 @@ The details for the current release are found in [Current CLDR Cycle](https://do
 [cldr-json]: /index/json-format-data
 [cldr-json-users]: https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects
 [locale data]: /index/cldr-spec/definitions#locale-data
-[UTS #35: Unicode Locale Data Markup Language (LDML)]: https://www.unicode.org/reports/tr35/
+[UTS #35: Unicode Common Locale Data & Rules (CLDR)]: https://www.unicode.org/reports/tr35/

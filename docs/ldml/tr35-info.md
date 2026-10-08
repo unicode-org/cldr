@@ -34,7 +34,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -1398,7 +1398,7 @@ The following is the algorithm for computing the preferred output unit from an i
 3. Let ranked units be the result of a lookup of **region** in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html).
     1. If the lookup fails, set **region** to its containing region and repeat. (This will always terminate because region `001` is always present.)
         * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
-        * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
+        * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in CLDR 45).
 4. If there is a **USM**, and the corresponding Fallback Region is different than **region**, and any of the ranked units don't match **USM**, then let ranked units be the result of a lookup of the Fallback Region in the category-usage preferences.
 
 #### Search the ranked units

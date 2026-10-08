@@ -127,7 +127,7 @@ The CLDR specification is divided into the following parts:
 <!ELEMENT dates (alias | (calendars?, fields?, timeZoneNames?, special*)) >
 ```
 
-The LDML top-level `<dates>` element contains information regarding the format and parsing of dates and times, the formatting of date/time intervals, and the naming of various calendar elements.
+The CLDR top-level `<dates>` element contains information regarding the format and parsing of dates and times, the formatting of date/time intervals, and the naming of various calendar elements.
 
 *   The `<calendars>` element is described in [Calendar Elements](#Calendar_Elements).
 *   The `<fields>` element is described in [Calendar Fields](#Calendar_Fields).
@@ -1839,7 +1839,7 @@ This element is for data that is used to format a time zone’s generic location
     …
 ```
 
-This information was previously specified by the LDML `<singleCountries>` element under each locale’s `<timeZoneNames>` element. However, that approach had inheritance issues, and the data is not really locale-specific anyway.
+This information was previously specified by the CLDR `<singleCountries>` element under each locale’s `<timeZoneNames>` element. However, that approach had inheritance issues, and the data is not really locale-specific anyway.
 
 ## <a name="Using_Time_Zone_Names" href="#Using_Time_Zone_Names">Using Time Zone Names</a>
 

@@ -43,7 +43,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 ### General
 
 * Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
-and the title of this specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Locale Data Markup Language (LDML)”
     * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
     * However, all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 

@@ -19,6 +19,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,6 +44,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -1790,6 +1794,23 @@ public class Ldml2JsonConverter {
         outf.close();
     }
 
+    public void writePathCoverage(String outputDir) throws IOException {
+        Path sourceDir = Path.of(cldrCommonDir, "pathCoverage");
+        Path targetDir = Path.of(outputDir, "cldr-core", "pathCoverage");
+        System.out.println(PACKAGE_ICON + " Copying path coverage files => " + targetDir);
+        Files.createDirectories(targetDir);
+        try (Stream<Path> stream = Files.list(sourceDir)) {
+            for (Path sourceFile : (Iterable<Path>) stream::iterator) {
+                if (Files.isRegularFile(sourceFile)) {
+                    Files.copy(
+                            sourceFile,
+                            targetDir.resolve(sourceFile.getFileName()),
+                            StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        }
+    }
+
     public void writePackageList(String outputDir) throws IOException {
         final boolean includeModern = Boolean.parseBoolean(options.get("Modern").getValue());
         PrintWriter outf =
@@ -2527,6 +2548,7 @@ public class Ldml2JsonConverter {
                 writeCoverageLevels(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
+                writePathCoverage(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {
                     writePackageList(outputDir);
                 }

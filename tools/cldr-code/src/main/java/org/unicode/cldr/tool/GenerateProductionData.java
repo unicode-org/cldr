@@ -78,7 +78,7 @@ public class GenerateProductionData {
     private static boolean CONSTRAINED_RESTORATION = false;
 
     private static final Set<String> NON_XML =
-            ImmutableSet.of("dtd", "properties", "testData", "uca");
+            ImmutableSet.of("dtd", "pathCoverage", "properties", "testData", "uca");
     private static final Set<String> COPY_ANYWAY =
             ImmutableSet.of(
                     "casing",

@@ -45,7 +45,16 @@ Related work:
 | **Core TSV** | The test cases generated from one core set. | `core_currency_decimal_separator_special_currency.tsv` |
 | **Data guard** | A CLDR unit test that checks the core set still exercises the feature. | `pt_PT` PTE `decimal` exists and ≠ `pt_PT` `decimal` |
 
-![How TR35 clauses, features, core sets, core TSVs and data guards fit together](../../../images/design-proposals/feature-based-test-generation.svg)
+```mermaid
+flowchart LR
+  snippet["TR35 snippet"] -->|split into| clause["Clause<br>(e.g. S11.1a)"]
+  clause -->|1 or more, usually 1| feature["Feature ID<br>(row in features.tsv)"]
+  feature -->|has 1| coreset["Core set<br>(dimension = value)"]
+  coreset -->|generates| tsv["Core TSV<br>(expected values)"]
+  coreset -->|checked by| guard["Data guard<br>(CLDR unit test)"]
+  tsv -->|input to| conf["Conformance runs<br>(ICU4C, ICU4J, ICU4X, …)"]
+  tsv -.->|input to| perf["Performance runs<br>(later)"]
+```
 
 ## 4. Design
 

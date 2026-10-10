@@ -8,13 +8,15 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 3: Numbers
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
-This is a partial document, describing only those parts of the LDML that are relevant for number and currency formatting. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers number and currency formatting.
+
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -31,7 +33,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -1069,7 +1071,7 @@ Notice that the currency code is completely independent of the end-user's langua
 
 Thus logically speaking, once a currency amount is entered into a system, it should be logically accompanied by a currency code in all processing. This currency code is independent of whatever the user's original locale was. Only in badly-designed software is the currency code (or equivalent) not present, so that the software has to "guess" at the currency code based on the user's locale.
 
-> **Note:** The number of decimal places **and** the rounding for each currency is not locale-specific data, and is not contained in the Locale Data Markup Language format. Those values override whatever is given in the currency `numberFormat`. For more information, see _[Supplemental Currency Data](#Supplemental_Currency_Data)_.
+> **Note:** The number of decimal places **and** the rounding for each currency is not locale-specific data, and is not contained in the CLDR format. Those values override whatever is given in the currency `numberFormat`. For more information, see _[Supplemental Currency Data](#Supplemental_Currency_Data)_.
 
 For background information on currency names, see [[CurrencyInfo](tr35.md#CurrencyInfo)].
 

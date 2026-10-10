@@ -4,11 +4,11 @@ title: "CLDR Technical Committee (TC)"
 
 # CLDR Technical Committee (TC)
 
-The CLDR Technical Committee is responsible for the Unicode Common Locale Data Repository data repository,
+The CLDR Technical Committee is responsible for the Unicode Common Locale Data & Rules data repository,
 which encompasses:
 
 * the data repository itself, in XML format
-* the specification for the data and structure [UTS 35 (LDML)][]
+* the specification for the data and structure [UTS 35][]
 * the tooling used to gather locale data, test the data and structure, and provide test data for implementations
 * additional formats for the locale data (e.g., JSON)
 
@@ -28,7 +28,7 @@ More detailed information about the procedures related to working groups are ava
 
 ### CLDR Conformance Testing Working Group
 
-The [CLDR Conformance Testing WG][] is tasked with providing code and test data to verify consistency between implementations and standards using [UTS 35 (LDML)][] (the CLDR specification).
+The [CLDR Conformance Testing WG][] is tasked with providing code and test data to verify consistency between implementations and standards using [UTS 35][] (the CLDR specification).
 Those implementations and standards include [ICU4C, ICU4J][], [ICU4X][], [ECMA-402][], and others.
 
 In addition to the development and maintenance of the web-based conformance scorecard,
@@ -64,7 +64,7 @@ The WG also manages the process of validating new keyboards contained in the CLD
 ### CLDR MessageFormat Working Group
 
 The [CLDR MessageFormat WG][] was tasked with developing the specification for Message Format 2 (MF2) and ensuring implementations of MF2 in the ICU and ICU4X libraries.
-These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 9: MessageFormat][].
+These recommendations, once approved, are incorporated into the CLDR data, tooling, and specification [UTS 35 Part 9: MessageFormat][].
 
 The main page for the Message Format WG is in the [MessageFormat Repository][].
 
@@ -83,7 +83,7 @@ but was renamed to disambiguate from the Unicode Infrastructure group since both
 ### CLDR Person Name Working Group
 
 The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data.
-These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 8: Person Names][].
+These recommendations, once approved, are incorporated into the CLDR data, tooling, and specification [UTS 35 Part 8: Person Names][].
 
 ### DDL Working Group
 
@@ -119,4 +119,4 @@ including but not limited to evaluating requests of [new locale Core data reques
 [CLDR Conformance Testing WG]: /cldr-tc/conformance_wg
 [Unicode Technical Group Leadership]: https://www.unicode.org/consortium/techcommittees.html
 [Unicode® Technical Group Procedures]: https://www.unicode.org/consortium/tc-procedures.html
-[UTS 35 (LDML)]: https://www.unicode.org/reports/tr35/
+[UTS 35]: https://www.unicode.org/reports/tr35/

@@ -20,7 +20,7 @@ For more information on the formal procedures for the Unicode CLDR Technical Com
 
 ## Specification Changes
 
-The [UTS #35: Locale Data Markup Language (LDML)] specification are kept up to date with each release with change/added structure for new data types or other features.
+The [UTS #35: Unicode Common Locale Data & Rules (CLDR)] specification is kept up to date with each release with change/added structure for new data types or other features.
 
 The CLDR TC maintains redirects that redirect users to from each major CLDR release to the latest version of the spec. For example,
 reports/tr35/46/tr35.html will redirect to the 46.1 version of the specification since the 46.1 was the latest revision of the LDML for 46.
@@ -255,4 +255,4 @@ The current Technical Committee Officers are:
 [Requesting Changes]: /requesting_changes
 [Unicode Calendar]: https://www.unicode.org/timesens/calendar.html
 [UCA]: https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table
-[UTS #35: Locale Data Markup Language (LDML)]: https://www.unicode.org/reports/tr35/
+[UTS #35: Unicode Common Locale Data & Rules (CLDR)]: https://www.unicode.org/reports/tr35/

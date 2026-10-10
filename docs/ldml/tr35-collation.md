@@ -8,13 +8,14 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 5: Collation
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers collation (sorting, searching, and grouping).
 
-This is a partial document, describing only those parts of the LDML that are relevant for collation (sorting, searching & grouping). For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -30,7 +31,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -526,7 +527,8 @@ The format for this file uses the CLDR collation syntax, see _[Collation Tailori
 <!ELEMENT defaultCollation ( #PCDATA ) >
 ```
 
-This element of the LDML format contains one or more `collation` elements, distinguished by type. Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
+This element of the CLDR XML format contains one or more `collation` elements, distinguished by type.
+Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
 
 > 👉 **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines).
 
@@ -544,7 +546,7 @@ A collation type name that starts with "private-", for example, "private-kana", 
 
 > 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
 
-> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: In CLDR 23 and before, CLDR collation files used a fine-grained XML format. Starting with CLDR 24, the fine-grained XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -632,7 +634,7 @@ If a setting is not present, the CLDR default (or the default for the locale, if
 <tr><td>identic</td><td><code>[strength I]</code><br/>(identical)</td></tr>
 
 <tr><td rowspan="3">ka</td><td>noignore</td><td><i><b><code>[alternate non-ignorable]</code></b></i><br/></td>
-    <td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where "shifted" causes certain characters to be ignored in comparison. <i>The default for LDML is different than it is in the UCA. In LDML, the default for alternate handling is <b>non-ignorable</b>, while in UCA it is <b>shifted</b>. In addition, in LDML only whitespace and punctuation are variable by default.</i></td></tr>
+    <td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where "shifted" causes certain characters to be ignored in comparison. <i>The default for CLDR is different than it is in the UCA. In CLDR, the default for alternate handling is <b>non-ignorable</b>, while in UCA it is <b>shifted</b>. In addition, in CLDR only whitespace and punctuation are variable by default.</i></td></tr>
 <tr><td>shifted</td><td><b><code>[alternate shifted]</code><br/>(UCA default)</b></td></tr>
 <tr><td><i>n/a</i></td><td><i>n/a</i><br/>(blanked)</td></tr>
 
@@ -680,7 +682,7 @@ If a setting is not present, the CLDR default (or the default for the locale, if
 
 #### <a name="Common_Settings" href="#Common_Settings">Common settings combinations</a>
 
-Some commonly used parametric collation settings are available via combinations of LDML settings attributes:
+Some commonly used parametric collation settings are available via combinations of CLDR settings attributes:
 
 * “Ignore accents”: **strength=primary**
 * “Ignore accents” but take case into account: **strength=primary caseLevel=on**
@@ -1030,7 +1032,9 @@ The **case first** parameter controls whether to swap the order of upper and low
 
 Importantly, the case parameters have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = **secondary (or higher).**
 
-When either the **case level** or **case first** parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics more closely.
+When either the **case level** or **case first** parameters are set, the following describes the derivation of the modified collation elements.
+It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary).
+This derivation may change in future versions of CLDR, to track the case characteristics more closely.
 
 #### <a name="Case_Untailored" href="#Case_Untailored">Untailored Characters</a>
 

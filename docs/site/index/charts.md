@@ -4,13 +4,13 @@ title: CLDR Charts
 
 # CLDR Charts
 
-The Unicode CLDR Charts provide different ways to view the Common Locale Data Repository data.
+The Unicode CLDR Charts provide different ways to view the Common Locale Data & Rules data.
 
 -   [Latest](https://www.unicode.org/cldr/charts/latest) - The charts for the latest release version
 -   [Dev](https://www.unicode.org/cldr/charts/dev) - A snapshot of data under development
 -   [Previous](/index/downloads) - Previous available charts are linked from the download page in the Charts column
 
-The format of most of the fields in the charts will be clear from the Name and ID, such as the months of the year. The format for others, such as the date or time formats, is structured and requires more interpretation. For more information, see [UTS #35: Locale Data Markup Language (LDML)](http://www.unicode.org/reports/tr35/).
+The format of most of the fields in the charts will be clear from the Name and ID, such as the months of the year. The format for others, such as the date or time formats, is structured and requires more interpretation. For more information, see [UTS #35: Unicode Common Locale Data & Rules (CLDR)](http://www.unicode.org/reports/tr35/).
 
 Most charts have "double links" somewhere in each row. These are links that put the address of that row into the address bar of the browser for copying.
 

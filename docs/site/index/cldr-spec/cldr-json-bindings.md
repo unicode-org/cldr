@@ -26,7 +26,7 @@ The sample is based on the preliminary specification and CLDR version 22.1.
 
 ## Introduction
 
-Unicode Technical Standard \#35 describes an XML format for the exchange of structured locale data named Unicode Locale Data Markup Language (LDML). Data gathered and vetted through the Common Locale Data Repository (CLDR) project is stored in LDML format.
+Unicode Technical Standard \#35 specifies the data format and usage of Common Locale Data & Rules (CLDR) data.
 
 This data is used for many purposes. However, distribution of it tends to be unwieldy for various reasons. For many potential users, the only alternative is to use an internationalization library, such as ICU. Such library might not exist in users’ platform, or too much a burden due to its size and performance requirement, or just too much overhead for a seemingly simple task. The rapidly growing area of web applications needs a way to access i18n data in a simple way.
 

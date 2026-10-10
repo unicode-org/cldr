@@ -4,18 +4,20 @@ title: Modifications
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
+# Unicode Common Locale Data & Rules (CLDR)<br/>Appendix A: Modifications
 
-For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This is a partial document, describing only the changes to the LDML since the previous release. For the other parts of the LDML see the [main LDML document](tr35.md).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers the changes to the CLDR specification since the previous release.
+
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Changes in LDML Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
+  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
     * [MessageFormat](#messageformat)
@@ -35,8 +37,15 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 -->
 
-### Changes in LDML Version 49 (Differences from Version 48.0)
+### Changes in CLDR Version 49 (Differences from Version 48.0)
 <!-- Updated spec date -->
+
+### General
+
+* Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)” 
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
+    * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+    * Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 
 ### Locales
 

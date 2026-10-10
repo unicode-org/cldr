@@ -2,28 +2,33 @@ name: cldr-mvn-deploy
 
 env:
   JDK_VERSION: 21
+  CLDR_DIR: ${{ github.workspace }}
 on:
   release:
     types: [created]
-  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: write
+  attestations: write
+
 jobs:
   mvn-deploy:
     runs-on: ubuntu-latest
     steps:
       # since we have to checkout all branches, cache here
-      - name: Cache .git
-        uses: actions/cache@v4
-        with:
-          path: .git
-          key: git-${{ github.base_ref }}-${{ github.sha }}
-          restore-keys: |
-            git-${{ github.base_ref }}-${{ github.sha }}
-            git-${{ github.base_ref }}
-            git-
+      # - name: Cache .git
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: .git
+      #     key: git-${{ github.base_ref }}-${{ github.sha }}
+      #     restore-keys: |
+      #       git-${{ github.base_ref }}-${{ github.sha }}
+      #       git-${{ github.base_ref }}
+      #       git-
       - uses: actions/checkout@v4
-        with:
-          lfs: false
-          fetch-depth: 0 # for cldr-archive
+        # with:
+        #   lfs: false
+        #   fetch-depth: 1 # for cldr-archive
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -38,22 +43,80 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Build with Maven
         run: >
-          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
-          -DskipTests=true
+          mvn -s .github/workflows/mvn-settings.xml -pl :cldr-all,:cldr-code -B compile install package --file tools/pom.xml
+          -DskipTests=true  # TODO?
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Checkout CLDR archive
-        run: >
-          mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
-      - name: set version to generic number
+      - name: Generate Production Data
         run: |
-          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml versions:set -DnewVersion=0.0.0-SNAPSHOT-$(echo ${GITHUB_SHA} | cut -c1-10)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload to GitHub maven
-        # only for head fork
-        if: github.repository == 'unicode-org/cldr'
+          # setup some scripts
+          # usage: cldr-tool class[.package] arg
+          function cldr-tool() {
+            mainClass=$1
+            shift
+            arg=$1
+            if [[ "" == $(echo "${mainClass}" | tr -c -d .) ]];
+            then
+              # no package given - use default package
+              mainClass=org.unicode.cldr.tool.${mainClass}
+            fi
+            echo "- :gear: Running ${mainClass}" ${arg} >> $GITHUB_STEP_SUMMARY
+            echo "::group::${mainClass}" ${arg}
+            mvn -s .github/workflows/mvn-settings.xml -B "-DCLDR_DIR=${CLDR_DIR}" --file=tools/pom.xml -pl cldr-code ${JVM_OPTS} exec:java -Dexec.mainClass=${mainClass} "-Dexec.args=${arg}"
+            echo "::endgroup::"
+          }
+          ## OK, now run the actual tools
+          mkdir -vp ../cldr-archive
+          cldr-tool GenerateProductionData
+          cldr-tool GenerateProductionData '-x true -k true -d../cldr-staging/exemplars-delta/common --delta=../cldr-staging/production/common'
+      - name: Pack up stuff
         run: |
-          mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
+          rm -rfv dist ; mkdir -p dist
+          DIST=$(pwd)/dist
+          echo '::group::cldr-common.zip'
+          cp LICENSE ../cldr-staging/production/
+          bash .github/workflows/data-readme.sh > ../cldr-staging/production/README.md
+          (cd ../cldr-staging/production ; zip -r ${DIST}/cldr-common.zip .)
+          echo '::endgroup'
+          echo '::group::cldr-exemplars-delta.zip'
+          cp LICENSE ../cldr-staging/exemplars-delta/
+          bash .github/workflows/data-readme.sh > ../cldr-staging/exemplars-delta/README.md
+          (cd ../cldr-staging/production ; zip -r ${DIST}/cldr-exemplars-delta.zip .)
+          echo '::endgroup'
+          echo '::group::cldr-keyboards.zip'
+          (cd ../cldr-staging/production ; zip -r ${DIST}/cldr-keyboards.zip LICENSE README.md keyboards)
+          echo '::endgroup'
+          cp tools/cldr-code/target/cldr-code.jar dist/cldr-tools.jar
+      - name: Rename dist files if possible
+        run: bash .github/workflows/rename-dist.sh ${{ github.ref_name }}
+      - name: Upload cldr-dist.zip to the build
+        uses: actions/upload-artifact@v4
+        with:
+          name: cldr-dist
+          path: dist
+      - name: attest to release artifacts
+        uses: actions/attest@v4
+        with:
+          subject-path: 'dist/*'
+      - name: upload release artifacts
+        run: gh release upload ${{ github.ref_name }} dist/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+      # cldr-archive is needed since we will run tests
+      # - name: Checkout CLDR archive
+      #   if: false # TODO
+      #   run: >
+      #     mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
+      # - name: set version to generic number
+      #   if: false # TODO
+      #   run: |
+      #     mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml versions:set -DnewVersion=0.0.0-SNAPSHOT-$(echo ${GITHUB_SHA} | cut -c1-10)
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Upload to GitHub maven
+      #   # only for head fork
+      #   if: github.repository == 'unicode-org/cldr' && false # TODO
+      #   run: |
+      #     mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

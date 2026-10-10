@@ -4,6 +4,51 @@ const { ref } = Vue;
 // first thing.
 anchors.add("h1, h2, h3, h4, h5, h6");
 
+// Render mermaid code blocks as diagrams, as GitHub does. mermaid.js is only
+// loaded on pages that have such a block.
+const MERMAID_JS = {
+  src: "https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.15.0/mermaid.min.js",
+  integrity:
+    "sha512-HH52omhHpZF6RfVnGiQwYgYm4H/ya2xsZYLl5xJ4+tLfX+rN4+8zF7V/H/KLeicPrKZYi1g6iBmVkk2AhXTGlg==",
+};
+
+function renderMermaidBlocks() {
+  // kramdown writes <pre><code class="language-mermaid">, or a
+  // <div class="language-mermaid"> wrapper when a highlighter is used.
+  const blocks = new Set(
+    [...document.querySelectorAll("#content .language-mermaid")].map(
+      (e) => e.closest("div.language-mermaid") ?? e.closest("pre") ?? e
+    )
+  );
+  if (!blocks.size) return;
+  const script = document.createElement("script");
+  script.src = MERMAID_JS.src;
+  script.integrity = MERMAID_JS.integrity;
+  script.crossOrigin = "anonymous";
+  script.referrerPolicy = "no-referrer";
+  script.onload = async () => {
+    mermaid.initialize({ startOnLoad: false, suppressErrorRendering: true });
+    let n = 0;
+    for (const block of blocks) {
+      try {
+        const { svg } = await mermaid.render(
+          `mermaid-${n++}`,
+          block.textContent
+        );
+        const div = document.createElement("div");
+        div.className = "mermaid";
+        div.innerHTML = svg;
+        block.replaceWith(div);
+      } catch (e) {
+        console.error("Could not render a mermaid diagram", e);
+      }
+    }
+  };
+  document.head.appendChild(script);
+}
+
+renderMermaidBlocks();
+
 const coll = Intl.Collator([], {
   usage: "search",
   sensitivity: "base",

@@ -46,14 +46,17 @@ Related work:
 | **Data guard** | A CLDR unit test that checks the core set still exercises the feature. | `pt_PT` PTE `decimal` exists and ≠ `pt_PT` `decimal` |
 
 ```mermaid
-flowchart LR
-  snippet["TR35 snippet"] -->|split into| clause["Clause<br>(e.g. S11.1a)"]
-  clause -->|1 or more, usually 1| feature["Feature ID<br>(row in features.tsv)"]
-  feature -->|has 1| coreset["Core set<br>(dimension = value)"]
-  coreset -->|generates| tsv["Core TSV<br>(expected values)"]
-  coreset -->|checked by| guard["Data guard<br>(CLDR unit test)"]
-  tsv -->|input to| conf["Conformance runs<br>(ICU4C, ICU4J, ICU4X, …)"]
-  tsv -.->|input to| perf["Performance runs<br>(later)"]
+flowchart TD
+  snippet("TR35 snippet") -->|split into| clause("Clause (e.g. S11.1a)")
+  clause -->|1 or more, usually 1| feature("Feature ID (row in features.tsv)")
+  feature -->|has 1| coreset("Core set (dimension = value)")
+  coreset -->|generates| tsv("Core TSV (expected values)")
+  coreset -->|checked by| guard("Data guard (CLDR unit test)")
+  tsv -->|input to| conf("Conformance runs (ICU4C, ICU4J, ICU4X, …)")
+  tsv -.->|input to| perf("Performance runs (later)")
+
+  classDef nodeBox fill:#e8f0fe,stroke:#1a73e8,stroke-width:1.5px,color:#0d3b66;
+  class snippet,clause,feature,coreset,tsv,guard,conf,perf nodeBox;
 ```
 
 ## 4. Design

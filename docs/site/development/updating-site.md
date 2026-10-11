@@ -149,6 +149,32 @@ Don't change any header text without an additional change.  If you really must r
 >     ### New Heading
 >
 
+### Diagrams
+
+A `mermaid` code block is shown as a diagram, both on GitHub and on this site. See the [Mermaid documentation](https://mermaid.js.org/intro/) for the syntax.
+
+For example, this block:
+
+````md
+```mermaid
+flowchart LR
+  pr("Pull request from a<br>unicode-org/cldr branch") --> preview("Preview link")
+  preview --> review("Review")
+  review --> merge("Merge to main")
+  merge --> site("cldr.unicode.org")
+```
+````
+
+is shown as:
+
+```mermaid
+flowchart LR
+  pr("Pull request from a<br>unicode-org/cldr branch") --> preview("Preview link")
+  preview --> review("Review")
+  review --> merge("Merge to main")
+  merge --> site("cldr.unicode.org")
+```
+
 ## Techniques and Procedures
 
 ### Testing Locally

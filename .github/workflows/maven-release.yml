@@ -1,4 +1,4 @@
-name: cldr-mvn-deploy
+name: CLDR Release Artifacts and Maven Publish
 
 env:
   JDK_VERSION: 21
@@ -107,16 +107,13 @@ jobs:
       #   if: false # TODO
       #   run: >
       #     mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
-      # - name: set version to generic number
-      #   if: false # TODO
-      #   run: |
-      #     mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml versions:set -DnewVersion=0.0.0-SNAPSHOT-$(echo ${GITHUB_SHA} | cut -c1-10)
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Upload to GitHub maven
-      #   # only for head fork
-      #   if: github.repository == 'unicode-org/cldr' && false # TODO
-      #   run: |
-      #     mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: set version to generic number
+        run: |
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml versions:set -DnewVersion=0.0.0-SNAPSHOT-$(echo ${GITHUB_SHA} | cut -c1-10)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload to GitHub maven
+        run: |
+          mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

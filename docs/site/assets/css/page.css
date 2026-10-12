@@ -1081,9 +1081,8 @@ section.body a:hover {
   text-decoration: underline;
 }
 
-/* Code blocks. Jekyll's Rouge highlighter already marks up the tokens in
-   fenced code blocks; these rules box the blocks and color the tokens,
-   similar to GitHub. */
+/* Code blocks. Jekyll's Rouge highlighter marks up the tokens; the colors come
+   from Rouge's "github" theme in syntax.css, which build-site.sh generates. */
 pre.highlight {
   background-color: #f6f8fa;
   border: 1px solid #d0d7de;
@@ -1091,97 +1090,4 @@ pre.highlight {
   padding: 0.75em 1em;
   overflow-x: auto;
   line-height: 1.45;
-}
-
-.highlight .c,
-.highlight .ch,
-.highlight .cd,
-.highlight .cm,
-.highlight .cpf,
-.highlight .c1,
-.highlight .cs {
-  color: #6e7781;
-}
-.highlight .k,
-.highlight .kd,
-.highlight .kn,
-.highlight .kp,
-.highlight .kr,
-.highlight .kt,
-.highlight .kv,
-.highlight .cp,
-.highlight .ow {
-  color: #cf222e;
-}
-.highlight .s,
-.highlight .sa,
-.highlight .sb,
-.highlight .sc,
-.highlight .dl,
-.highlight .sd,
-.highlight .s2,
-.highlight .se,
-.highlight .sh,
-.highlight .si,
-.highlight .sx,
-.highlight .s1,
-.highlight .ss {
-  color: #0a3069;
-}
-.highlight .sr {
-  color: #116329;
-}
-.highlight .m,
-.highlight .mb,
-.highlight .mf,
-.highlight .mh,
-.highlight .mi,
-.highlight .il,
-.highlight .mo,
-.highlight .kc,
-.highlight .no,
-.highlight .na,
-.highlight .nb,
-.highlight .bp,
-.highlight .nl {
-  color: #0550ae;
-}
-.highlight .nt {
-  color: #116329;
-}
-.highlight .nc,
-.highlight .nd,
-.highlight .ne,
-.highlight .nf,
-.highlight .fm {
-  color: #8250df;
-}
-.highlight .nv,
-.highlight .vc,
-.highlight .vg,
-.highlight .vi,
-.highlight .vm {
-  color: #953800;
-}
-.highlight .gh,
-.highlight .gu {
-  color: #0550ae;
-  font-weight: bold;
-}
-.highlight .gs {
-  font-weight: bold;
-}
-.highlight .ge {
-  font-style: italic;
-}
-.highlight .gi {
-  color: #116329;
-  background-color: #dafbe1;
-}
-.highlight .gd {
-  color: #82071e;
-  background-color: #ffebe9;
-}
-.highlight .err {
-  color: #82071e;
 }

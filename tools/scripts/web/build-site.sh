@@ -9,6 +9,7 @@ cd docs/site/assets && \
 npm ci && \
 npm run build && \
 cd .. &&  \
+rougify style github > assets/css/syntax.css && \
 jekyll build || exit 1
 
 echo 'Output in ./_site'

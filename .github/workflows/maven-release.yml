@@ -15,20 +15,7 @@ jobs:
   mvn-deploy:
     runs-on: ubuntu-latest
     steps:
-      # since we have to checkout all branches, cache here
-      # - name: Cache .git
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: .git
-      #     key: git-${{ github.base_ref }}-${{ github.sha }}
-      #     restore-keys: |
-      #       git-${{ github.base_ref }}-${{ github.sha }}
-      #       git-${{ github.base_ref }}
-      #       git-
       - uses: actions/checkout@v4
-        # with:
-        #   lfs: false
-        #   fetch-depth: 1 # for cldr-archive
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -102,17 +89,13 @@ jobs:
         run: gh release upload ${{ github.ref_name }} dist/*
         env:
           GH_TOKEN: ${{ github.token }}
-      # cldr-archive is needed since we will run tests
-      # - name: Checkout CLDR archive
-      #   if: false # TODO
-      #   run: >
-      #     mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
       - name: set version to generic number
         run: |
           mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml versions:set -DnewVersion=0.0.0-SNAPSHOT-$(echo ${GITHUB_SHA} | cut -c1-10)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload to GitHub maven
+        if: github.repository == 'unicode-org/cldr'  # only on head repo, or push will fail
         run: |
           mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
         env:

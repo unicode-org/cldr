@@ -42,7 +42,7 @@ Related work:
 | **Clause** | One part of a TR35 snippet, as split in the coverage doc. | S11.1a: currency-specific `decimal` |
 | **Feature** | A behavior that a clause requires, with a stable ID. A clause usually has one feature, and more only when a sub-case needs its own (4.1). | `currency_decimal_separator_special_currency` |
 | **Core set** | The `(dimension = value)` pairs that exercise one feature. | `locale = pt_PT`, `currency = PTE` |
-| **Core TSV** | The test cases generated from one core set. | `core_currency_decimal_separator_special_currency.tsv` |
+| **Core TSV** | The test cases generated from one core set. Each row names its main feature (the one the core set was made for) and any other features it may affect. | `core_currency_decimal_separator_special_currency.tsv` |
 | **Data guard** | A CLDR unit test that checks the core set still exercises the feature. | `pt_PT` PTE `decimal` exists and ≠ `pt_PT` `decimal` |
 
 ```mermaid
@@ -91,16 +91,18 @@ Like the core TSVs, every line has the same number of tabs. `core_set` has a str
 ### 4.3 Core TSV files
 
 - Path: `common/testData/<category>/core_<feature_id>.tsv`.
-- Columns: **all** dimensions of the category (empty = default), then `expected`, then `other_features`. All core TSVs of a category share one header, so one parser reads them all.
+- Columns: **all** dimensions of the category (empty = default), then `expected`, `main_feature` and `other_features`. All core TSVs of a category share one header, so one parser reads them all.
 - Every line, including the `#` header, has the same number of tabs, so GitHub renders the file as a table (requested in the review of [#5808](https://github.com/unicode-org/cldr/pull/5808)). For that reason metadata stays in the registry, not in extra `#` lines.
-- `other_features` lists other feature IDs a row also exercises (comma-separated, may be empty). This is the "comment" that links one row to several features.
+- The last two columns are the comment section that links a row to features:
+  - `main_feature`: the feature the core set was made for. It is the same in every row of the file and matches the file name.
+  - `other_features`: other feature IDs the row may affect (comma-separated, may be empty).
 
 Example, `core_currency_decimal_separator_special_currency.tsv` (`pt_PT` group is U+00A0 and minimum grouping digits is 2; PTE has `decimal` `$`, `group` `,` and symbol U+200B):
 
-| locale | currency | … | currency_display | input | expected | other_features |
-|---|---|---|---|---|---|---|
-| pt_PT | PTE | … | symbol | 1234565.0 | `1,234,565$00 ​` (`1,234,565$00\u00A0\u200B`) | `currency_group_separator_special_currency` |
-| pt_PT | PTE | … | symbol | -1230.05 | `-1230$05 ​` (`-1230$05\u00A0\u200B`) | |
+| locale | currency | … | currency_display | input | expected | main_feature | other_features |
+|---|---|---|---|---|---|---|---|
+| pt_PT | PTE | … | symbol | 1234565.0 | `1,234,565$00 ​` (`1,234,565$00\u00A0\u200B`) | `currency_decimal_separator_special_currency` | `currency_group_separator_special_currency` |
+| pt_PT | PTE | … | symbol | -1230.05 | `-1230$05 ​` (`-1230$05\u00A0\u200B`) | `currency_decimal_separator_special_currency` | |
 
 ### 4.4 Data guard tests (CLDR side)
 
@@ -125,7 +127,7 @@ A check in the same class as the data guards (`TestCurrencyFeatureData`, since i
 
 1. Every clause in the coverage doc (`tr35_<category>_test_coverage.md`) has a feature in the registry or is marked ⚪ Out of scope.
 2. Every feature has a core TSV with at least one row and a data guard.
-3. Every ID in `other_features` exists in the registry.
+3. Every `main_feature` matches its file name, and every ID in `main_feature` and `other_features` exists in the registry.
 
 Goal 2 ("100% applied") = this check passes, and every feature passes in an implementation.
 
@@ -133,8 +135,8 @@ Goal 2 ("100% applied") = this check passes, and every feature passes in an impl
 
 In [unicode-org/conformance](https://github.com/unicode-org/conformance):
 
-- `testgen` reads `core_*.tsv` and writes its JSON test and verify files. Each test case carries `feature_id` (and `other_features`).
-- `verifier` groups results by feature, then by spec clause. A report row reads: *feature `currency_decimal_separator_special_currency` (S11.1a): ICU4J ✅, ICU4X ❌ 1/2*.
+- `testgen` reads `core_*.tsv` and writes its JSON test and verify files. Each test case carries `main_feature` and `other_features`.
+- `verifier` groups results by main feature, then by spec clause. A report row reads: *feature `currency_decimal_separator_special_currency` (S11.1a): ICU4J ✅, ICU4X ❌ 1/2*.
 - If one feature fails in every implementation, suspect the spec or the expected value. If it fails in one implementation, suspect that implementation.
 
 ### 4.7 Performance (later)
@@ -160,7 +162,7 @@ The same core TSVs are the benchmark inputs. Each implementation reports time pe
 ## 6. Rollout
 
 1. Currency: convert the clauses of coverage sections 1–13 into the registry; generate the core TSVs; add data guards and the coverage check.
-2. Conformance repo: `testgen` and `verifier` support for `feature_id`.
+2. Conformance repo: `testgen` and `verifier` support for `main_feature` and `other_features`.
 3. Decimal: sections 1–15.
 4. Performance runs.
 5. Reference implementation: replace ICU4J as the source of expected values, one feature at a time (4.8).

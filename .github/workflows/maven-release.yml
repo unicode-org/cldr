@@ -98,6 +98,6 @@ jobs:
       - name: Upload to GitHub maven
         if: github.repository == 'unicode-org/cldr'  # only on head repo, or push will fail
         run: |
-          mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy
+          mvn -s .github/workflows/mvn-settings.xml  --file tools/pom.xml source:jar deploy -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

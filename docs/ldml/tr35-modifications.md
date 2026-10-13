@@ -17,7 +17,8 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
+  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-cldr-version-49-differences-from-version-480)
+  * [General](#general)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
     * [MessageFormat](#messageformat)

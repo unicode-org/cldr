@@ -709,24 +709,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">bemol</annotation>
 		<annotation cp="♯">crusch | musica</annotation>
 		<annotation cp="♯" type="tts">crusch</annotation>
-		<annotation cp="🪋">apocalipsa | balla da fieu | crap | crudanta | crudar | gravitaziun | meteorit | spazi | staila</annotation>
-		<annotation cp="🪋" type="tts">meteor</annotation>
-		<annotation cp="🪌">allontanar | correctura | curreger | dissegnar | eliminar | far davent | far ora | grafit | gumma | gummar | rispli | sbagl | scriver | stizzar</annotation>
-		<annotation cp="🪌" type="tts">gumma</annotation>
-		<annotation cp="🪍">aria | aua | feumer | insects | peschs | pestga | pestgar | pigliar | rimnar | traplar | tschiffar</annotation>
-		<annotation cp="🪍" type="tts">rait cun moni</annotation>
-		<annotation cp="🫌">fragil | insect | metamorfosa | midada | rasulauna | speranza | spler | splerin | tgiralla | transfurmaziun | tschitta</annotation>
-		<annotation cp="🫌" type="tts">monarchina</annotation>
-		<annotation cp="🫝">aschieu | cornichons | cucumera | cucumeras | cucumerins | da mangiar | en | mangiar | sal | verdura</annotation>
-		<annotation cp="🫝" type="tts">cucumera en aschieu</annotation>
-		<annotation cp="🫫">demascrar | demascraziun | en paglia | ir en scalgias | mascra | resilienza | rumpa | rumper | scalgias | scuvrir | tensiun | transfurmaziun</annotation>
-		<annotation cp="🫫" type="tts">fatscha che va en tocs</annotation>
-		<annotation cp="🫹">a sanestra | manada | mussar | neutral | quai | quel | sanester</annotation>
-		<annotation cp="🫹" type="tts">polesch che mussa a sanestra</annotation>
-		<annotation cp="🫺">a dretga | dretg | manada | mussar | neutral | quai | quel</annotation>
-		<annotation cp="🫺" type="tts">polesch che mussa a dretga</annotation>
-		<annotation cp="🛙">bastiments | fanal | far.ch | glisch | guidar | illuminar | luminus | mar | maritima | nautica | navigaziun | notg | signal | speranza | traglischant</annotation>
-		<annotation cp="🛙" type="tts">far</annotation>
 		<annotation cp="😀">allegher | cuntent | fatscha | haha | legher | lol | rir | sghignar | smiley</annotation>
 		<annotation cp="😀" type="tts">fatscha che ri</annotation>
 		<annotation cp="😃">averta | bucca | cuntent | egls | fatscha | fortunà | gronds | legher | lol | rir | sghignar | smiley | surrir | ventiraivel</annotation>
@@ -749,6 +731,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙃" type="tts">fatscha sutsura</annotation>
 		<annotation cp="🫠">chalira | chalur | fatscha | fluid | liquid | luar | sa turpegiar | sarcassem | sarcastic | scumparair | smiley | suar | svanir</annotation>
 		<annotation cp="🫠" type="tts">fatscha che lieua</annotation>
+		<annotation cp="🫫">demascrar | demascraziun | en paglia | ir en scalgias | mascra | resilienza | rumpa | rumper | scalgias | scuvrir | tensiun | transfurmaziun</annotation>
+		<annotation cp="🫫" type="tts">fatscha che va en tocs</annotation>
 		<annotation cp="😉">egl | fatscha | flirtar | serrà | sexy | smiley | struclads | struclar | tschegnar</annotation>
 		<annotation cp="😉" type="tts">fatscha che tschegna</annotation>
 		<annotation cp="😊">amiaivel | amicabel | cotschen | cuntent | egls | fatscha | plaschair | rir | surrir | vegnir | vistas</annotation>
@@ -1127,6 +1111,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👍" type="tts">polesch che mussa ensi</annotation>
 		<annotation cp="👎">encunter | engiu | mal | maun | na | negativ | polesch</annotation>
 		<annotation cp="👎" type="tts">polesch che mussa engiu</annotation>
+		<annotation cp="🫹">a sanestra | manada | mussar | neutral | quai | quel | sanester</annotation>
+		<annotation cp="🫹" type="tts">polesch che mussa a sanestra</annotation>
+		<annotation cp="🫺">a dretga | dretg | manada | mussar | neutral | quai | quel</annotation>
+		<annotation cp="🫺" type="tts">polesch che mussa a dretga</annotation>
 		<annotation cp="✊">cumbat | maun | pugn | pugn auzà | pugn en l’aria | socialissem | solidaritad</annotation>
 		<annotation cp="✊" type="tts">pugn ad aut</annotation>
 		<annotation cp="👊">absolut | agressiun | bastunada | bro | correct | cumbat | d’accord | dispita | maun | pitgada | pugn | serrà</annotation>
@@ -1970,6 +1958,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐌" type="tts">lindorna</annotation>
 		<annotation cp="🦋">animal | bel | insect | spler | splerin | tgiralla</annotation>
 		<annotation cp="🦋" type="tts">tgiralla</annotation>
+		<annotation cp="🫌">fragil | insect | metamorfosa | midada | rasulauna | speranza | spler | splerin | tgiralla | transfurmaziun | tschitta</annotation>
+		<annotation cp="🫌" type="tts">monarchina</annotation>
 		<annotation cp="🐛">animal | curtin | iert | insect | planta | rasulauna</annotation>
 		<annotation cp="🐛" type="tts">rasulauna</annotation>
 		<annotation cp="🐜">animal | curtin | furmia | guaud | iert | insect</annotation>
@@ -2112,6 +2102,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫑" type="tts">peperoni</annotation>
 		<annotation cp="🥒">cucumera | da mangiar | legums | mangiar</annotation>
 		<annotation cp="🥒" type="tts">cucumera</annotation>
+		<annotation cp="🫝">aschieu | cornichons | cucumera | cucumeras | cucumerins | da mangiar | en | mangiar | sal | verdura</annotation>
+		<annotation cp="🫝" type="tts">cucumera en aschieu</annotation>
 		<annotation cp="🥬">capuns | da mangiar | fegl | feglia | giabus | legums | mangiar | salata | saun | urtais | verd | versa</annotation>
 		<annotation cp="🥬" type="tts">legums da feglia</annotation>
 		<annotation cp="🥦">broccoli | legums | verd</annotation>
@@ -2552,6 +2544,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛑" type="tts">signal da stop</annotation>
 		<annotation cp="🚧">barriera | bloccada | construcziun | da bajegiar | da construcziun | plazzal | via</annotation>
 		<annotation cp="🚧" type="tts">plazzal</annotation>
+		<annotation cp="🛙">bastiments | fanal | far.ch | glisch | guidar | illuminar | luminus | mar | maritima | nautica | navigaziun | notg | signal | speranza | traglischant</annotation>
+		<annotation cp="🛙" type="tts">far</annotation>
 		<annotation cp="⚓">ancra | bartga | bastiment | bittar l’ancra | nav | naval | navigaziun</annotation>
 		<annotation cp="⚓" type="tts">ancra</annotation>
 		<annotation cp="🛟">aua | bartga | bogn | boia | dal bogn | guardiabogn | najada | najar | nudar | rintg | sa najentar | salvar | salvavita | segirezza | segirtad | survegliader | survegliadra | vita</annotation>
@@ -2750,6 +2744,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛄" type="tts">um da naiv</annotation>
 		<annotation cp="☄">comet | cosmos | staila crudanta | univers</annotation>
 		<annotation cp="☄" type="tts">comet</annotation>
+		<annotation cp="🪋">apocalipsa | balla da fieu | crap | crudanta | crudar | gravitaziun | meteorit | spazi | staila</annotation>
+		<annotation cp="🪋" type="tts">meteor</annotation>
 		<annotation cp="🔥">arder | brischar | chaud | fieu | flomma | grillar | incendi | pigna | sexy | stgaudar</annotation>
 		<annotation cp="🔥" type="tts">fieu</annotation>
 		<annotation cp="💧">aua | aura | comic | dagut | fraid | gut | larma | natira | suaditsch | trist</annotation>
@@ -3250,6 +3246,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖍" type="tts">colur da tschaira</annotation>
 		<annotation cp="📝">cedel | communicaziun | memo | notizia | rispli</annotation>
 		<annotation cp="📝" type="tts">notizia</annotation>
+		<annotation cp="🪌">allontanar | correctura | curreger | dissegnar | eliminar | far davent | far ora | grafit | gumma | gummar | rispli | sbagl | scriver | stizzar</annotation>
+		<annotation cp="🪌" type="tts">gumma</annotation>
 		<annotation cp="💼">biro | mappa d’actas</annotation>
 		<annotation cp="💼" type="tts">mappa d’actas</annotation>
 		<annotation cp="📁">dossier | ordinatur | registratur</annotation>
@@ -3308,6 +3306,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔑" type="tts">clav</annotation>
 		<annotation cp="🗝">clav | lia rumantscha | lingua | rumantscha | serra | veglia</annotation>
 		<annotation cp="🗝" type="tts">clav veglia</annotation>
+		<annotation cp="🪍">aria | aua | feumer | insects | peschs | pestga | pestgar | pigliar | rimnar | traplar | tschiffar</annotation>
+		<annotation cp="🪍" type="tts">rait cun moni</annotation>
 		<annotation cp="🔨">chasa | guaffen | martè | mastergnant | reparatura</annotation>
 		<annotation cp="🔨" type="tts">martè</annotation>
 		<annotation cp="🪓">cuntgadella | fender | laina | manera</annotation>

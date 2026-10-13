@@ -86,7 +86,7 @@ One TSV file per category, `common/testData/<category>/features.tsv`, is the sin
 | `core_set` | `locale=pt_PT; currency=PTE; currency_display=symbol; input=1234565.0,-1230.05` |
 | `summary` | A currency's own `decimal` replaces the locale's `decimal`. |
 
-Like the core TSVs, every line has the same number of tabs. `core_set` has a strict format: `dimension=value` pairs separated by `; `, and several values for one dimension separated by `,`. The generator reads `core_set` to produce the core TSV. The data guard test and the coverage check (4.5) read the whole registry.
+Like the core TSVs, every line has the same number of tabs. `clause` lists every clause the feature serves, comma-separated (e.g. `S11.1a,S11.1b`). `core_set` has a strict format: `dimension=value` pairs separated by `; `, and several values for one dimension separated by `,`. The generator reads `core_set` to produce the core TSV. The data guard test and the coverage check (4.5) read the whole registry.
 
 The generator code also has a comment with the feature ID and TR35 clause next to the code that generates each feature's core TSV, so a reader of the generator can find the part of the spec it tests. These comments are for readers only: the registry stays the single source of truth, and no tool reads them.
 
@@ -108,7 +108,7 @@ Example, `core_currency_decimal_separator_special_currency.tsv` (`pt_PT` group i
 
 ### 4.4 Data guard tests (CLDR side)
 
-A new test class per category, `TestCurrencyFeatureData` (later `TestDecimalFeatureData`), has one check per feature, keyed by feature ID. A check asserts the facts that make the core set exercise the feature, and nothing about formatted output. A small shared helper reads `features.tsv` for every category.
+A new test class per category, `TestCurrencyFeatureData` (later `TestDecimalFeatureData`), has one check per feature, registered in a map from feature ID to check (`Map<String, Runnable>`). The coverage check (4.5) compares the map's keys with the registry's feature IDs. A check asserts the facts that make the core set exercise the feature, and nothing about formatted output. A small shared helper reads `features.tsv` for every category.
 
 These checks don't go in `TestCurrencyFormat`. That test checks that the TSVs match the generator's output, while a data guard failure means CLDR data changed. With separate classes, the failing test's name says which kind of failure it is.
 
@@ -131,7 +131,7 @@ A check in the same class as the data guards (`TestCurrencyFeatureData`, since i
 2. Every feature has a core TSV with at least one row and a data guard.
 3. Every `main_feature` matches its file name, and every ID in `main_feature` and `other_features` exists in the registry.
 
-Goal 2 ("100% applied") = this check passes, and every feature passes in an implementation.
+Goal 2 (100% coverage) = this check passes. Whether an implementation passes each feature is a separate question, answered by the conformance report (4.6).
 
 ### 4.6 Conformance repo integration
 

@@ -92,7 +92,7 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 * [`Currencies`](tr35-numbers.md#Currencies) Revised the `numberFormat` description for currencies.
 <!-- CLDR-18963 -->
-* [`currencyFormats`](tr35-numbers.md#Currency_Formats) Clarified that formatting ISO 4217 currency codes uses the `alt="alphaNextToNumber"` form of the standard `<currencyFormat>` pattern.
+* [`Currency Formats`](tr35-numbers.md#the-altalphanexttonumber-pattern-variant) Noted that ISO 4217 codes use the `alt="alphaNextToNumber"` pattern.
 <!-- CLDR-19649 -->
 * [`Number Symbols`](tr35-numbers.md#Number_Symbols) Added a subsection heading for each number symbol.
 * [`Currency Formats`](tr35-numbers.md#Currency_Formats), [`Currencies`](tr35-numbers.md#Currencies), [`Supplemental Currency Data`](tr35-numbers.md#Supplemental_Currency_Data) Added subsection headings for currency formatting rules, pattern variants (`alt="alphaNextToNumber"`, `alt="noCurrency"`, `currencyPatternAppendISO`), currency placeholders (`¤`..`¤¤¤¤¤`), `unitPattern` display name formatting, `currencySpacing`, and supplemental currency fractions and region mappings.

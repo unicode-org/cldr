@@ -579,7 +579,7 @@ In addition to a standard currency format, in which negative currency amounts mi
 
 The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
 
-> NOTE: When formatting a currency using its ISO 4217 code, both the leading and trailing characters are letters, so alt="alphaNextToNumber" form is used.
+> NOTE: When formatting a currency using its ISO 4217 code, both the leading and trailing characters are letters, so the `alt="alphaNextToNumber"` form is used.
 
 ##### The `alt="noCurrency"` Pattern Variant
 

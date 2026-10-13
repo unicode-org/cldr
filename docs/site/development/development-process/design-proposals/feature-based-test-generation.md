@@ -40,7 +40,7 @@ Related work:
 | **Category** | One formatter area with its own dimensions. | `currency`, `decimal`, unit formatting |
 | **Dimension** | One input of the formatter. | `locale`, `currency`, `currency_display`, `input` |
 | **Clause** | One part of a TR35 snippet, as split in the coverage doc. | S11.1a: currency-specific `decimal` |
-| **Feature** | A behavior that a clause requires, with a stable ID. A clause usually has one feature, and more only when a sub-case needs its own (4.1). | `currency_decimal_separator_special_currency` |
+| **Feature** | A behavior that a clause requires, with a stable ID. A clause usually has one feature, and more only when a sub-case needs its own (4.1). The generator code has a comment with each feature ID and its clause (4.2). | `currency_decimal_separator_special_currency` |
 | **Core set** | The `(dimension = value)` pairs that exercise one feature. | `locale = pt_PT`, `currency = PTE` |
 | **Core TSV** | The test cases generated from one core set. Each row names its main feature (the one the core set was made for) and any other features it may affect. | `core_currency_decimal_separator_special_currency.tsv` |
 | **Data guard** | A CLDR unit test that checks the core set still exercises the feature. | `pt_PT` PTE `decimal` exists and ≠ `pt_PT` `decimal` |
@@ -87,6 +87,8 @@ One TSV file per category, `common/testData/<category>/features.tsv`, is the sin
 | `summary` | A currency's own `decimal` replaces the locale's `decimal`. |
 
 Like the core TSVs, every line has the same number of tabs. `core_set` has a strict format: `dimension=value` pairs separated by `; `, and several values for one dimension separated by `,`. The generator reads `core_set` to produce the core TSV. The data guard test and the coverage check (4.5) read the whole registry.
+
+The generator code also has a comment with the feature ID and TR35 clause next to the code that generates each feature's core TSV, so a reader of the generator can find the part of the spec it tests. These comments are for readers only: the registry stays the single source of truth, and no tool reads them.
 
 ### 4.3 Core TSV files
 
@@ -157,7 +159,7 @@ The same core TSVs are the benchmark inputs. Each implementation reports time pe
 2. Assign a feature ID.
 3. Find a core set in CLDR data (prefer CORE values; see the coverage doc's method).
 4. Write the data guard.
-5. Add the registry row and regenerate the core TSV.
+5. Add the registry row, add the feature ID and clause as a comment in the generator, and regenerate the core TSV.
 
 ## 6. Rollout
 

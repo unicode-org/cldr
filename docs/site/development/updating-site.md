@@ -149,6 +149,36 @@ Don't change any header text without an additional change.  If you really must r
 >     ### New Heading
 >
 
+### Diagrams
+
+A `mermaid` code block is shown as a diagram, both on GitHub and on this site. See the [Mermaid documentation](https://mermaid.js.org/intro/) for the syntax.
+
+For example, this block shows how a currency symbol falls back when a locale has no data for it:
+
+````md
+```mermaid
+flowchart LR
+  narrowFormat(["Format with<br>narrow symbol"]) --> hasNarrow{"Narrow symbol<br>in locale data?"}
+  symbolFormat(["Format with<br>symbol"]) --> hasSymbol{"Symbol<br>in locale data?"}
+  hasNarrow -->|yes| narrow("Narrow symbol<br>CAD in en: $")
+  hasNarrow -->|no| hasSymbol
+  hasSymbol -->|yes| symbol("Symbol<br>CAD in en: CA$")
+  hasSymbol -->|no| iso("ISO code<br>RUB in de: RUB")
+```
+````
+
+It is shown as:
+
+```mermaid
+flowchart LR
+  narrowFormat(["Format with<br>narrow symbol"]) --> hasNarrow{"Narrow symbol<br>in locale data?"}
+  symbolFormat(["Format with<br>symbol"]) --> hasSymbol{"Symbol<br>in locale data?"}
+  hasNarrow -->|yes| narrow("Narrow symbol<br>CAD in en: $")
+  hasNarrow -->|no| hasSymbol
+  hasSymbol -->|yes| symbol("Symbol<br>CAD in en: CA$")
+  hasSymbol -->|no| iso("ISO code<br>RUB in de: RUB")
+```
+
 ## Techniques and Procedures
 
 ### Testing Locally

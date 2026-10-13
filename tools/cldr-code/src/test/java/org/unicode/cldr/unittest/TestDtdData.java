@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
@@ -21,7 +20,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
@@ -1085,39 +1083,45 @@ public class TestDtdData extends TestFmwk {
 
     {
         Multimap2<DtdType, Element, Element> temp = Multimap2.create(LinkedHashMap::new);
-        
-        // 2 parents, conflicting syntax (we are forced to share attributes that don't belong; the DTD doesn't annotate that)
+
+        // 2 parents, conflicting syntax (we are forced to share attributes that don't belong; the
+        // DTD doesn't annotate that)
         addEx(temp, DtdType.ldml, "language", "languages", "identity");
         addEx(temp, DtdType.ldml, "script", "identity", "scripts");
         addEx(temp, DtdType.ldml, "territory", "territories", "identity");
         addEx(temp, DtdType.ldml, "variant", "variants", "identity");
 
         // 2 parents, dates
-        addEx(temp, DtdType.ldml, "fields", "calendar", "dates"); // calendar/fields is deprecated, but the DTD doesn't annotate that
+        addEx(
+                temp,
+                DtdType.ldml,
+                "fields",
+                "calendar",
+                "dates"); // calendar/fields is deprecated, but the DTD doesn't annotate that
         addEx(temp, DtdType.ldml, "datetimeSkeleton", "dateFormat", "timeFormat");
         addEx(temp, DtdType.ldml, "long", "metazone", "zone");
         addEx(temp, DtdType.ldml, "short", "metazone", "zone");
         addEx(temp, DtdType.ldml, "generic", "long", "short");
         addEx(temp, DtdType.ldml, "standard", "long", "short");
         addEx(temp, DtdType.ldml, "daylight", "long", "short");
-        
+
         // 2 parents, numbers&currencies
         addEx(temp, DtdType.ldml, "decimal", "currency", "symbols");
         addEx(temp, DtdType.ldml, "group", "currency", "symbols");
         addEx(temp, DtdType.ldml, "currencyMatch", "beforeCurrency", "afterCurrency");
         addEx(temp, DtdType.ldml, "surroundingMatch", "beforeCurrency", "afterCurrency");
         addEx(temp, DtdType.ldml, "insertBetween", "beforeCurrency", "afterCurrency");
-        
+
         // 2 parents, units
         addEx(temp, DtdType.ldml, "unit", "unitLength", "units");
         addEx(temp, DtdType.ldml, "unitPattern", "currencyFormats", "unit");
-        
+
         addEx(temp, DtdType.supplementalData, "metazoneInfo", "supplementalData", "metaZones");
         addEx(temp, DtdType.supplementalData, "mapTimezones", "windowsZones", "metaZones");
-        
+
         // 3 parents
         addEx(temp, DtdType.ldml, "era", "eraNames", "eraAbbr", "eraNarrow");
-        
+
         // 4+ parents
         addEx(
                 temp,
@@ -1181,7 +1185,8 @@ public class TestDtdData extends TestFmwk {
         warnln(
                 "To see a list of possible path chassis, use -DTestDtdData:chassis; to see element depth use -DTestDtdData:depth");
         if (SHOW_DEPTH) {
-            System.out.println("-DTestDtdData:depth shows the depth of element in paths, with the parent(s)");
+            System.out.println(
+                    "-DTestDtdData:depth shows the depth of element in paths, with the parent(s)");
         }
         if (SHOW_PATH_CHASSIS) {
             System.out.println(
@@ -1196,7 +1201,7 @@ public class TestDtdData extends TestFmwk {
             ImmutableMultimap2<Element, Integer, Element> depth = dtdData.getDepthAndParentsMap();
             if (SHOW_DEPTH) {
                 System.out.println("DEPTH");
-               for (Element element : depth.keySet()) {
+                for (Element element : depth.keySet()) {
                     Map<Integer, Map<Element, Boolean>> map = depth.getMapMap(element);
                     for (Entry<Integer, Map<Element, Boolean>> entry : map.entrySet()) {
                         System.out.println(
@@ -1211,17 +1216,11 @@ public class TestDtdData extends TestFmwk {
                 }
             }
 
-            Multimap<Element, Element> childToParent = LinkedHashMultimap.create();
+            Multimap<Element, Element> childToParent = dtdData.getParentsMap();
 
-            for (Entry<Element, Map<Integer, Map<Element, Boolean>>> entry :
-                    depth.getMapMapMap().entrySet()) {
+            for (Entry<Element, Collection<Element>> entry : childToParent.asMap().entrySet()) {
                 Element child = entry.getKey();
-                Collection<Map<Element, Boolean>> parentsRaw = entry.getValue().values();
-                Set<Element> parents =
-                        parentsRaw.stream()
-                                .flatMap(map -> map.keySet().stream())
-                                .collect(Collectors.toCollection(LinkedHashSet::new));
-                childToParent.putAll(child, parents);
+                Collection<Element> parents = entry.getValue();
                 if (parents.size() > 1 && !skip.contains(child.getName())) {
                     Map<Element, Boolean> exceptionsOk = PARENT_EXCEPTIONS.getMap(dtdType, child);
                     if (exceptionsOk == null) {
@@ -1253,9 +1252,7 @@ public class TestDtdData extends TestFmwk {
         }
     }
 
-    private String pathize(
-            List<Element> x,
-            Multimap<Element, Element> childToParent) {
+    private String pathize(List<Element> x, Multimap<Element, Element> childToParent) {
         StringBuilder sb = new StringBuilder("/");
         for (int i = 0; i < x.size(); ++i) {
             Element y = x.get(i);
@@ -1265,10 +1262,7 @@ public class TestDtdData extends TestFmwk {
     }
 
     private void formatElement(
-            Element element,
-            Collection<Element> parents,
-            boolean isFinal,
-            StringBuilder sb) {
+            Element element, Collection<Element> parents, boolean isFinal, StringBuilder sb) {
         sb.append('/').append(element.toString()).append(sizeMarker(parents.size()));
 
         // now attributes, if any

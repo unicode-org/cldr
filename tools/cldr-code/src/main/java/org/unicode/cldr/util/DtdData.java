@@ -35,7 +35,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
@@ -89,7 +88,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Set<String> preCommentCache;
     private DtdComparator dtdComparator;
     private ImmutableMultimap2<Element, Integer, Element> dtdIndexAndDepth;
-	private ImmutableMultimap<Element, Element> dtdParents;
+    private ImmutableMultimap<Element, Element> dtdParents;
 
     public enum AttributeStatus {
         distinguished("§d"),
@@ -943,11 +942,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         result.put(ROOT, 0, ROOT);
         getDepthInternal(ROOT, 1, result);
         dtdIndexAndDepth = result.createImmutable();
-        
+
         Multimap<Element, Element> childToParents = LinkedHashMultimap.create();
 
         for (Entry<Element, Map<Integer, Map<Element, Boolean>>> entry :
-        	dtdIndexAndDepth.getMapMapMap().entrySet()) {
+                dtdIndexAndDepth.getMapMapMap().entrySet()) {
             Element child = entry.getKey();
             Collection<Map<Element, Boolean>> parentsRaw = entry.getValue().values();
             Set<Element> parents =
@@ -971,10 +970,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public ImmutableMultimap2<Element, Integer, Element> getDepthAndParentsMap() {
         return dtdIndexAndDepth;
     }
-    
-    /** 
-     * Gets the inverse mapping for Element::getChildren: that is, from children to parents.
-     */
+
+    /** Gets the inverse mapping for Element::getChildren: that is, from children to parents. */
     public ImmutableMultimap<Element, Element> getParentsMap() {
         return dtdParents;
     }

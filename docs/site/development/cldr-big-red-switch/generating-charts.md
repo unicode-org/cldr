@@ -13,12 +13,7 @@ The input for this process is the `../cldr-staging/production` file, and the out
 	- To summarize, every chart branch in cldr-staging, such as `charts/49`, should only have ONE charts directory: `docs/charts/49`.
 2. Switch to the correct branch in the sibling `cldr` repo, such as the branch tagged `release-49`.
 3. Make sure the settings and VM arguments are right for where you are in the release:
-	1. **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
-4. Build the keyboard charts.
-	```shell
-	mvn --file=tools/pom.xml -pl :cldr-keyboard-charts integration-test
-	```
-	For more details and options, see [keyboard-charts].
+	- **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
 5. Run the Java tool `GenerateAllCharts`. The results for each will be in `../cldr-staging/docs/charts/<version>/by_type/names.currency.html` and so on.
 	```shell
 	mvn --file=tools/pom.xml -pl cldr-code compile -DskipTests=true exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateAllCharts

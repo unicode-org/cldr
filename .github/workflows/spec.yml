@@ -71,11 +71,10 @@ jobs:
       - name: "Check that similar anchors go to the same section"
         # Similar: differing only in case or in "_" vs "-".
         # Warn, don't fail yet: see CLDR-19840
+        # The script also writes the list, with links to the lines, to the job summary.
         run: |
           cd tools/scripts/tr-archive/
-          npm run --silent check-anchor-case > "$RUNNER_TEMP/anchor-case.txt" 2>&1 || echo "::warning::Some similar anchors (differing only in case or in _ vs -) go to different sections (CLDR-19840). See the job summary."
-          cat "$RUNNER_TEMP/anchor-case.txt"
-          (echo '### Similar anchors that go to different sections'; echo '```'; cat "$RUNNER_TEMP/anchor-case.txt"; echo '```') >> $GITHUB_STEP_SUMMARY
+          npm run --silent check-anchor-case || echo "::warning::Some similar anchors (differing only in case or in _ vs -) go to different sections (CLDR-19840). See the job summary."
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli docs/ldml/*.md || (echo Warning, please fix these ; true)

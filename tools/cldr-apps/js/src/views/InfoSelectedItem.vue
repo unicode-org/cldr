@@ -9,9 +9,14 @@
     <div class="info-selected-item" v-if="valueClass && description">
       <div>
         Value:
-        <span :class="valueClass" :lang="language" :dir="direction">{{
-          displayValue
-        }}</span>
+        <span
+          :class="valueClass"
+          :lang="language"
+          :dir="direction"
+          @mouseover="valMouseover"
+          @mouseleave="valMouseleave"
+          >{{ displayValue }}</span
+        >
         <br />
         <span class="value-description">{{ description }}</span>
         <template v-if="linkUrl">
@@ -34,6 +39,7 @@
 </template>
 
 <script>
+import * as cldrTable from "../esm/cldrTable.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
@@ -48,6 +54,8 @@ export default {
       linkText: null,
       testHtml: null,
       exampleHtml: null,
+      valueHash: null,
+      xpstrid: null,
     };
   },
 
@@ -56,8 +64,10 @@ export default {
       return cldrText.get("info_panel_selected");
     },
 
-    setValueAndClass(displayValue, valueClass) {
+    setPathValueClass(xpstrid, displayValue, valueHash, valueClass) {
+      this.xpstrid = xpstrid;
       this.displayValue = displayValue;
+      this.valueHash = valueHash;
       this.valueClass = valueClass;
     },
 
@@ -81,6 +91,14 @@ export default {
 
     setExampleHtml(exampleHtml) {
       this.exampleHtml = exampleHtml;
+    },
+
+    valMouseover(event) {
+      cldrTable.pointToCandidate(event, this.xpstrid, this.valueHash);
+    },
+
+    valMouseleave(event) {
+      cldrTable.pointToCandidateStop(event);
     },
   },
 };

@@ -1,12 +1,12 @@
 /**
- * Report similar anchors that take the reader to different places. Anchors
+ * Report similar anchors that take the reader to different sections. Anchors
  * are similar if they differ only in case or in "_" vs "-".
  *
  * Many headings get two anchors: the GitHub-style id (e.g. "number-formats")
  * and, from archive.js, one with the original casing and "_" for spaces
- * ("Number_Formats"). That is fine as long as both land in the same place. If
- * they land in different places, a link with the other spelling silently goes
- * to the wrong place.
+ * ("Number_Formats"). That is fine as long as both land in the same section,
+ * like a heading and the definition right under it. If they land in different
+ * sections, a link with the other spelling silently goes to the wrong place.
  *
  * Usage: npm run build && npm run check-anchor-case
  * Reads ./dist/*.html. Exits with 1 if it finds such anchors.
@@ -23,11 +23,24 @@ const BLOCKS = new Set(
   )
 );
 
+const HEADINGS = new Set("h1 h2 h3 h4 h5 h6".split(" "));
+
 /** The block element that contains e, i.e. the place a link to e lands on. */
 function placeOf(e) {
   let p = e;
   while (p && !BLOCKS.has(p.tagName.toLowerCase())) p = p.parentElement;
   return p ?? e;
+}
+
+/** Maps each element to the heading it comes under (a heading to itself). */
+function sectionsOf(document) {
+  const sections = new Map();
+  let heading = null;
+  for (const e of document.body.querySelectorAll("*")) {
+    if (HEADINGS.has(e.tagName.toLowerCase())) heading = e;
+    sections.set(e, heading);
+  }
+  return sections;
 }
 
 function describe(e) {
@@ -71,15 +84,17 @@ async function checkFile(file) {
     groups.get(k).push(a);
   }
 
+  // A heading and the text under it, up to the next heading, are one section.
+  const sections = sectionsOf(document);
   const problems = [];
   for (const spellings of groups.values()) {
     if (spellings.length < 2) continue;
-    const places = new Set(spellings.map((a) => placeOf(target.get(a))));
+    const places = new Set(spellings.map((a) => sections.get(target.get(a))));
     if (places.size < 2) continue;
     problems.push(
       `❌ ${page}.md: ${spellings
         .map((a) => "#" + a)
-        .join(" and ")} go to different places:\n` +
+        .join(" and ")} go to different sections:\n` +
         spellings
           .map((a) => `     #${a} → ${describe(placeOf(target.get(a)))}`)
           .join("\n")
@@ -97,12 +112,12 @@ async function main() {
   problems.forEach((p) => console.error(p));
   if (problems.length) {
     console.error(
-      `⚠️ ${problems.length} set(s) of similar anchors go to different places.`
+      `⚠️ ${problems.length} set(s) of similar anchors go to different sections.`
     );
     process.exitCode = 1;
   } else {
     console.log(
-      `✅ In ${files.length} files, anchors that differ only in case or in "_" vs "-" go to the same place.`
+      `✅ In ${files.length} files, anchors that differ only in case or in "_" vs "-" go to the same section.`
     );
   }
 }

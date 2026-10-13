@@ -10,11 +10,11 @@ title: Unicode Extensions for BCP 47
 - The subtags available for use in the 't' extension provide language tag extensions that provide for additional information needed for identifying transformed content, or a request to transform content in a certain way. For example, the language tag "ja-Kana-t-it" can be used as a content tag indicates Japanese Katakana transformed from Italian. It can also be used as a request for a given transformation.
 
 
-For more details on the valid subtags for these extensions, their syntax, and their meanings, see LDML Section 3.7 [*Unicode BCP 47 Extension Data*](https://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data).
+For more details on the valid subtags for these extensions, their syntax, and their meanings, see UTS #35, Part 1, Section 3.7 [*Unicode BCP 47 Extension Data*](https://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data).
 
 ## Machine-Readable Files for Validity Testing
 
-Beginning with CLDR version 1.7.2, machine-readable files are available listing the valid attributes, keys, and types for each successive version of [LDML](https://unicode.org/reports/tr35/). The most recently released version is always available at http://unicode.org/Public/cldr/latest/ in a file of the form cldr-common\*.zip (in older versions the file was of the form cldr-core\*.zip). Inside that file, the directory "common/bcp47/" contains the data files defining the valid attributes, keys, and types.
+Beginning with CLDR version 1.7.2, machine-readable files are available listing the valid attributes, keys, and types for each successive version of [UTS #35](https://unicode.org/reports/tr35/). The most recently released version is always available at http://unicode.org/Public/cldr/latest/ in a file of the form cldr-common\*.zip (in older versions the file was of the form cldr-core\*.zip). Inside that file, the directory "common/bcp47/" contains the data files defining the valid attributes, keys, and types.
 
 The BCP47 data is also currently maintained in a source code repository, with each release tagged, for viewing directly without unzipping. For example, see https://github.com/unicode-org/cldr/tree/release-38/common/bcp47. The current development snapshot is found at https://github.com/unicode-org/cldr/tree/master/common/bcp47.
 
@@ -30,7 +30,7 @@ For example, the timezone.xml file looks like the following:
 
 \<type name="aedxb" alias="Asia/Dubai"\/>
 
-Using this data, an implementation would determine that "fr-u-tz-adalv" and fr-u-tz-aedxb" are both valid. Some data in the CLDR data files also requires reference to [LDML](https://unicode.org/reports/tr35/) for validation according to [Appendix Q](https://unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data) of [LDML](https://unicode.org/reports/tr35/). For example, LDML defines the type 'codepoints' to define specific code point ranges in Unicode for specific purposes.
+Using this data, an implementation would determine that "fr-u-tz-adalv" and fr-u-tz-aedxb" are both valid. Some data in the CLDR data files also requires reference to [UTS #35](https://unicode.org/reports/tr35/) for validation according to [Appendix Q](https://unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data) of [UTS #35](https://unicode.org/reports/tr35/). For example, UTS #35 defines the type 'codepoints' to define specific code point ranges in Unicode for specific purposes.
 
 ## Version Information
 

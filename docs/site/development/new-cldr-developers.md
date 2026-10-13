@@ -58,5 +58,5 @@ The table below points to documentation for various tasks.
 
 Other useful pages are under [CLDR Development Site](/development/cldr-development-site); you can also use the search box.
 
-[UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) is the specification of the XML format used for CLDR data, including the interpretation of the CLDR data.
+[UTS #35: Unicode Common Locale Data & Rules (CLDR)](https://www.unicode.org/reports/tr35/) is the specification for CLDR data and conformant usage.
 

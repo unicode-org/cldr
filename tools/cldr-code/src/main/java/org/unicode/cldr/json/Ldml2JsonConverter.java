@@ -19,6 +19,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,11 +37,14 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -154,11 +160,11 @@ public class Ldml2JsonConverter {
     private static final StandardCodes sc = StandardCodes.make();
     private Set<String> defaultContentLocales =
             SupplementalDataInfo.getInstance().getDefaultContentLocales();
-    private Set<String> skippedDefaultContentLocales = new TreeSet<>();
+    private Set<String> skippedDefaultContentLocales = new ConcurrentSkipListSet<>();
 
     private class AvailableLocales {
-        Set<String> modern = new TreeSet<>();
-        Set<String> full = new TreeSet<>();
+        Set<String> modern = new ConcurrentSkipListSet<>();
+        Set<String> full = new ConcurrentSkipListSet<>();
     }
 
     private AvailableLocales avl = new AvailableLocales();
@@ -420,7 +426,7 @@ public class Ldml2JsonConverter {
         configFileReader.read(configFile, type);
         this.dependencies = configFileReader.getDependencies();
         this.sections = configFileReader.getSections();
-        this.packages = new TreeSet<>();
+        this.packages = new ConcurrentSkipListSet<>();
         this.includeRedundant = includeRedundant;
         this.licenseFile = licenseFile;
     }
@@ -1788,6 +1794,23 @@ public class Ldml2JsonConverter {
         outf.close();
     }
 
+    public void writePathCoverage(String outputDir) throws IOException {
+        Path sourceDir = Path.of(cldrCommonDir, "pathCoverage");
+        Path targetDir = Path.of(outputDir, "cldr-core", "pathCoverage");
+        System.out.println(PACKAGE_ICON + " Copying path coverage files => " + targetDir);
+        Files.createDirectories(targetDir);
+        try (Stream<Path> stream = Files.list(sourceDir)) {
+            for (Path sourceFile : (Iterable<Path>) stream::iterator) {
+                if (Files.isRegularFile(sourceFile)) {
+                    Files.copy(
+                            sourceFile,
+                            targetDir.resolve(sourceFile.getFileName()),
+                            StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        }
+    }
+
     public void writePackageList(String outputDir) throws IOException {
         final boolean includeModern = Boolean.parseBoolean(options.get("Modern").getValue());
         PrintWriter outf =
@@ -2384,7 +2407,7 @@ public class Ldml2JsonConverter {
                         .collect(Collectors.toSet());
         final int total = files.size();
         AtomicInteger readCount = new AtomicInteger(0);
-        Map<String, Throwable> errs = new TreeMap<>();
+        Map<String, Throwable> errs = new ConcurrentSkipListMap<>();
 
         // This takes a long time (minutes, in 2020), so run it in parallel forkJoinPool threads.
         // The result of this pipeline is an array of toString()-able filenames of XML files which
@@ -2525,6 +2548,7 @@ public class Ldml2JsonConverter {
                 writeCoverageLevels(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
+                writePathCoverage(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {
                     writePackageList(outputDir);
                 }

@@ -8,13 +8,14 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 5: Collation
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers collation (sorting, searching, and grouping).
 
-This is a partial document, describing only those parts of the LDML that are relevant for collation (sorting, searching & grouping). For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -30,7 +31,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -57,7 +58,7 @@ The LDML specification is divided into the following parts:
   * [Grouping classes of characters](#grouping_classes_of_characters)
   * [Non-variable symbols](#non_variable_symbols)
   * [Additional contractions for Tibetan](#tibetan_contractions)
-  * [Tailored noncharacter weights](#tailored_noncharacter_weights)
+  * [Special noncharacter weights](#tailored_noncharacter_weights)
   * [Root Collation Data Files](#Root_Data_Files)
   * [Root Collation Data File Formats](#Root_Data_File_Formats)
     * [allkeys_CLDR.txt](#File_Format_allkeys_CLDR_txt)
@@ -114,13 +115,7 @@ The CLDR collation algorithm is an extension of the [Unicode Collation Algorithm
 
 #### <a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a>
 
-U+FFFE maps to a CE with a minimal, unique primary weight. Its primary weight is not "variable": U+FFFE must not become ignorable in alternate handling. On the identical level, a minimal, unique “weight” must be emitted for U+FFFE as well. This allows for [Merging Sort Keys](https://www.unicode.org/reports/tr10/#Merging_Sort_Keys) within code point space.
-
-For example, when sorting names in a database, a sortable string can be formed with _last_name_ + '\\uFFFE' + _first_name_. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.
-
-For backwards secondary level sorting, text _segments_ separated by U+FFFE are processed in forward segment order, and _within_ each segment the secondary weights are compared backwards. This is so that such combined strings are processed consistently with merging their sort keys (for example, by concatenating them level by level with a low separator).
-
-> 👉 **Note**: With unique, low weights on _all_ levels it is possible to achieve `sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))` . When that is not necessary, then code can be a little simpler (no special handling for U+FFFE except for backwards-secondary), sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE), and another low weight can be used in tailorings.
+Starting with CLDR 49 and Unicode 18.0, the UCA has the same special behavior for U+FFFE for [Merging Sort Keys](https://www.unicode.org/reports/tr10/#Merging_Sort_Keys) which had been defined earlier in CLDR. For details see _UTS #10, Section 10.1.5, [Reserved Weights](https://www.unicode.org/reports/tr10/#Reserved_Weights)_.
 
 #### <a name="Context_Sensitive_Mappings" href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
 
@@ -223,7 +218,9 @@ The following table shows the differences. When emoji ordering is supported, the
 
 The CLDR root collation order is based on the [Default Unicode Collation Element Table (DUCET)](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) defined in _UTS #10: Unicode Collation Algorithm_ [[UCA](https://www.unicode.org/reports/tr41/#UTS10)]. It is used by all other locales by default, or as the base for their tailorings. (For a chart view of the UCA, see Collation Chart [[UCAChart](tr35.md#UCAChart)].)
 
-Starting with CLDR 1.9, CLDR uses modified tables for the root collation order. The root locale ordering is tailored in the following ways:
+CLDR uses modified tables for the root collation order. From CLDR 1.9 to 48, the order of characters differed between the CLDR root collation and the UCA DUCET. Since CLDR 49, the only remaining difference is the default set of “variable” characters; see <a href="#non_variable_symbols">Non-variable symbols</a> below.
+
+CLDR data files continue to include additional information in support of additional features.
 
 ### <a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a>
 
@@ -231,11 +228,21 @@ CLDR groups the characters that sort below letters like this: Whitespace, punctu
 
 Users can parametrically reorder the groups. (The CLDR data adds special values to mark their boundaries.) For example, users can reorder numbers after all scripts, or reorder Greek before Latin. See [Collation Reordering](#Script_Reordering) for details.
 
-Starting with CLDR 46 and Unicode 16.0, the _order_ of characters in the CLDR root collation is the same as in the UCA DUCET (except for the CLDR addition of ten Tibetan contractions, see below). In earlier versions, the order of some below-letter characters differed, and CLDR had also tailored some currency symbols. Both sort orders have been changed to now sort the same.
+Starting with CLDR 49 and Unicode 18.0, the _order_ of characters in the CLDR root collation is the same as in the UCA DUCET.
+
+In CLDR 46-48 and Unicode 16.0-17.0, the order of characters was almost the same, except for the CLDR addition of ten Tibetan contractions, see below.
+
+In earlier versions, the order of some below-letter characters differed, and CLDR had also tailored some currency symbols. Both sort orders have been changed in CLDR 46/Unicode 16.0 to sort the same (except for the Tibetan alignment in 49/18.0).
 
 ### <a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a>
 
-There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ (`-u-ka-shifted`) option, almost all symbols and punctuation are ignored—except at a fourth level. The CLDR root locale ordering is modified so that symbols are not affected by the _shifted_ option. That is, by default, symbols are not “variable” in CLDR. So _shifted_ only causes whitespace and punctuation to be ignored, but not symbols (like ♥). The DUCET behavior can be approximated with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it (`-u-kv-symbol`), or be set parametrically where implementations allow access.
+There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ (`-u-ka-shifted`) option, almost all symbols and punctuation are ignored—except at a fourth level.
+
+In the UCA, by default, the set of “variable” characters — which are affected by the _shifted_ option — includes spaces, punctuation (like comma), and symbols (like ♥).
+
+In CLDR, by default, the set of “variable” characters includes spaces and punctuation, but not symbols.
+
+The DUCET behavior can be approximated with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it (`-u-kv-symbol`), or be set parametrically where implementations allow access.
 
 Note that the CLDR “symbols” group includes at its end certain “extender” characters which are non-variable in the DUCET; one would also need to tailor the “extenders” into the “currency” group for achieving the exact same _shifted_ behavior.
 
@@ -246,14 +253,14 @@ See also:
 
 ### <a name="tibetan_contractions" href="#tibetan_contractions">Additional contractions for Tibetan</a>
 
-Ten contractions are added for Tibetan: Two to fulfill [well-formedness condition 5](https://www.unicode.org/reports/tr10/#WF5), and eight more to preserve the default order for Tibetan. For details see _UTS #10, Section 3.8.2, [Well-Formedness of the DUCET](https://www.unicode.org/reports/tr10/#Well_Formed_DUCET)_.
+Starting with CLDR 49 and Unicode 18.0, the order of Tibetan characters in the CLDR root collation is the same as in the UCA DUCET. Since then, the DUCET includes the contractions that had been added earlier in CLDR. For details see _UTS #10, Section 6.7, [Tibetan and Well-Formedness of DUCET](https://www.unicode.org/reports/tr10/#Well_Formed_DUCET)_.
 
-### <a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Tailored noncharacter weights</a>
+### <a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Special noncharacter weights</a>
 
-U+FFFE and U+FFFF have special tailorings:
+Starting with CLDR 49 and Unicode 18.0, the UCA DUCET has the same mappings and behavior for U+FFFE and U+FFFF which had been defined earlier in CLDR. For details see _UTS #10, Section 10.1.5, [Reserved Weights](https://www.unicode.org/reports/tr10/#Reserved_Weights)_.
 
-* **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
-* **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
+* **U+FFFF:** This code point has a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
+* **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see UTS #10.
 
 UCA (beginning with version 6.3) also maps **U+FFFD** to a special collation element with a very high primary weight, so that it is reliably non-[variable](https://www.unicode.org/reports/tr10/#Variable_Weighting), for use with [ill-formed code unit sequences](https://www.unicode.org/reports/tr10/#Handling_Illformed).
 
@@ -520,7 +527,8 @@ The format for this file uses the CLDR collation syntax, see _[Collation Tailori
 <!ELEMENT defaultCollation ( #PCDATA ) >
 ```
 
-This element of the LDML format contains one or more `collation` elements, distinguished by type. Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
+This element of the CLDR XML format contains one or more `collation` elements, distinguished by type.
+Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
 
 > 👉 **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines).
 
@@ -538,7 +546,7 @@ A collation type name that starts with "private-", for example, "private-kana", 
 
 > 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
 
-> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: In CLDR 23 and before, CLDR collation files used a fine-grained XML format. Starting with CLDR 24, the fine-grained XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -626,7 +634,7 @@ If a setting is not present, the CLDR default (or the default for the locale, if
 <tr><td>identic</td><td><code>[strength I]</code><br/>(identical)</td></tr>
 
 <tr><td rowspan="3">ka</td><td>noignore</td><td><i><b><code>[alternate non-ignorable]</code></b></i><br/></td>
-    <td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where "shifted" causes certain characters to be ignored in comparison. <i>The default for LDML is different than it is in the UCA. In LDML, the default for alternate handling is <b>non-ignorable</b>, while in UCA it is <b>shifted</b>. In addition, in LDML only whitespace and punctuation are variable by default.</i></td></tr>
+    <td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where "shifted" causes certain characters to be ignored in comparison. <i>The default for CLDR is different than it is in the UCA. In CLDR, the default for alternate handling is <b>non-ignorable</b>, while in UCA it is <b>shifted</b>. In addition, in CLDR only whitespace and punctuation are variable by default.</i></td></tr>
 <tr><td>shifted</td><td><b><code>[alternate shifted]</code><br/>(UCA default)</b></td></tr>
 <tr><td><i>n/a</i></td><td><i>n/a</i><br/>(blanked)</td></tr>
 
@@ -674,7 +682,7 @@ If a setting is not present, the CLDR default (or the default for the locale, if
 
 #### <a name="Common_Settings" href="#Common_Settings">Common settings combinations</a>
 
-Some commonly used parametric collation settings are available via combinations of LDML settings attributes:
+Some commonly used parametric collation settings are available via combinations of CLDR settings attributes:
 
 * “Ignore accents”: **strength=primary**
 * “Ignore accents” but take case into account: **strength=primary caseLevel=on**
@@ -1024,7 +1032,9 @@ The **case first** parameter controls whether to swap the order of upper and low
 
 Importantly, the case parameters have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = **secondary (or higher).**
 
-When either the **case level** or **case first** parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics more closely.
+When either the **case level** or **case first** parameters are set, the following describes the derivation of the modified collation elements.
+It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary).
+This derivation may change in future versions of CLDR, to track the case characteristics more closely.
 
 #### <a name="Case_Untailored" href="#Case_Untailored">Untailored Characters</a>
 

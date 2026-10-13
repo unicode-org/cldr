@@ -2572,7 +2572,7 @@ public class SupplementalDataInfo {
     private Set<ParentLocaleComponent> parentLocalesSkipNonLikely =
             EnumSet.noneOf(ParentLocaleComponent.class);
     private Map<String, List<String>> calendarPreferences = new HashMap<>();
-    private Map<String, CoverageVariableInfo> localeSpecificVariables = new TreeMap<>();
+    private Map<String, CoverageVariableInfo> localeSpecificVariables = new ConcurrentHashMap<>();
     private VariableReplacer coverageVariables = new VariableReplacer();
     private Map<String, NumberingSystemInfo> numberingSystems = new HashMap<>();
     private Set<String> numericSystems = new TreeSet<>();
@@ -3154,20 +3154,18 @@ public class SupplementalDataInfo {
     }
 
     public CoverageVariableInfo getCoverageVariableInfo(String targetLanguage) {
-        CoverageVariableInfo cvi;
-        if (localeSpecificVariables.containsKey(targetLanguage)) {
-            cvi = localeSpecificVariables.get(targetLanguage);
-        } else {
-            cvi = new CoverageVariableInfo();
-            cvi.targetScripts = getTargetScripts(targetLanguage);
-            cvi.targetTerritories = getTargetTerritories(targetLanguage);
-            cvi.calendars = getCalendars(cvi.targetTerritories);
-            cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
-            cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
-            cvi.targetPlurals = getTargetPlurals(targetLanguage);
-            localeSpecificVariables.put(targetLanguage, cvi);
-        }
-        return cvi;
+        return localeSpecificVariables.computeIfAbsent(
+                targetLanguage,
+                lang -> {
+                    CoverageVariableInfo cvi = new CoverageVariableInfo();
+                    cvi.targetScripts = getTargetScripts(lang);
+                    cvi.targetTerritories = getTargetTerritories(lang);
+                    cvi.calendars = getCalendars(cvi.targetTerritories);
+                    cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
+                    cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
+                    cvi.targetPlurals = getTargetPlurals(lang);
+                    return cvi;
+                });
     }
 
     private Set<String> getTargetScripts(String language) {

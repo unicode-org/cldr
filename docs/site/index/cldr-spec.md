@@ -4,7 +4,7 @@ title: CLDR Specifications
 
 # CLDR Specifications
 
-- [UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) is the latest released specification of the CLDR XML format and algorithms, including the interpretation of the CLDR data.
+- [UTS #35: Unicode Common Locale Data & Rules (CLDR)](https://www.unicode.org/reports/tr35/) is the latest released specification of the CLDR XML format and algorithms, including the interpretation of the CLDR data.
   - [**Development version**](https://www.unicode.org/reports/tr35/proposed.html)
   - [Updating the Spec](/index/cldr-spec/updating-spec)
 - [Definitions](/index/cldr-spec/definitions) - common definitions used in CLDR

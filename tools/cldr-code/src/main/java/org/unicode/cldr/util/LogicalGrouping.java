@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Output;
 import java.util.Collection;
@@ -190,7 +191,7 @@ public class LogicalGrouping {
      *     <p>Caches: Most of the calculations are independent of the locale, and can be cached on a
      *     static basis. The paths that are locale-dependent are /dayPeriods and @count. Those can
      *     be computed on a per-locale basis; and cached (they are shared across a number of
-     *     locales).
+     *     locales). Returns a mutable Set owned by the caller.
      */
     public static Set<String> getPaths(
             CLDRFile cldrFile, String path, Output<PathType> pathTypeOut) {
@@ -229,39 +230,41 @@ public class LogicalGrouping {
             parts = parts.cloneAsThawed();
         }
 
+        final PathType myPathType = pathType;
+        final XPathParts myPathParts = parts;
         if (PathType.isLocaleDependent(pathType)) {
             String locale = cldrFile.getLocaleID();
             Pair<String, String> key = new Pair<>(locale, path);
-            if (cacheLocaleAndPathToLogicalGroup.containsKey(key)) {
-                return new TreeSet<>(cacheLocaleAndPathToLogicalGroup.get(key));
-            }
-            Set<String> set = new TreeSet<>();
-            pathType.addPaths(set, cldrFile, path, parts);
-            cacheLocaleAndPathToLogicalGroup.put(key, set);
-            return set;
+            return Sets.newCopyOnWriteArraySet(
+                    cacheLocaleAndPathToLogicalGroup.computeIfAbsent(
+                            key,
+                            (localePathKey) -> {
+                                Set<String> set = new TreeSet<>();
+                                myPathType.addPaths(set, cldrFile, path, myPathParts);
+                                return ImmutableSet.copyOf(set);
+                            }));
         } else {
             /*
              * All other paths are locale-independent.
              */
-            if (cachePathToLogicalGroup.containsKey(path)) {
-                return new TreeSet<>(cachePathToLogicalGroup.get(path));
-            }
-            Set<String> set = new TreeSet<>();
-            pathType.addPaths(set, cldrFile, path, parts);
-            cachePathToLogicalGroup.compute(
-                    path,
-                    (pathKey, cachedPaths) -> {
-                        if (cachedPaths == null) {
-                            return Collections.synchronizedSet(new HashSet<>(set));
-                        } else {
-                            cachedPaths.addAll(set);
-                            return cachedPaths;
-                        }
-                    });
-            return set;
+            return Sets.newCopyOnWriteArraySet(
+                    cachePathToLogicalGroup.computeIfAbsent(
+                            path,
+                            (pathKey) -> {
+                                Set<String> set = new TreeSet<>();
+                                myPathType.addPaths(set, cldrFile, path, myPathParts);
+                                return ImmutableSet.copyOf(set);
+                            }));
         }
     }
 
+    /**
+     * Returns a mutable Set owned by the caller.
+     *
+     * @param cldrFile
+     * @param path
+     * @return
+     */
     public static Set<String> getPaths(CLDRFile cldrFile, String path) {
         return getPaths(cldrFile, path, null);
     }
@@ -653,7 +656,8 @@ public class LogicalGrouping {
             return (pathType == COUNT
                     || pathType == DAY_PERIODS
                     || pathType.equals(COUNT_CASE)
-                    || pathType.equals(COUNT_CASE_GENDER));
+                    || pathType.equals(COUNT_CASE_GENDER)
+                    || pathType.equals(DECIMAL_FORMAT_LENGTH));
         }
 
         /**

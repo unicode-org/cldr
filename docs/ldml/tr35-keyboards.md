@@ -8,13 +8,14 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 7: Keyboards
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers keyboards.
 
-This is a partial document, describing keyboards. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -32,7 +33,7 @@ See also [Compatibility Notice](#compatibility-notice).
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -165,7 +166,7 @@ Some goals of this format are:
 2. Provide definitive platform-independent definitions for new keyboard layouts.
     * For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.
 3. Allow platforms to be able to use CLDR keyboard data for the character-emitting keys (non-frame) aspects of keyboard layouts.
-4. Deprecate & archive existing LDML platform-specific layouts so they are not part of future releases.
+4. Deprecate & archive existing CLDR platform-specific layouts so they are not part of future releases.
 
 <!--
 1. Make the XML as readable as possible.
@@ -178,11 +179,11 @@ Some non-goals (outside the scope of the format) currently are:
 2. Unification of platform-specific virtual key and scan code mapping tables.
 3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#compatibility-notice).
-5. Run-time efficiency. [LDML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
+5. Run-time efficiency. [CLDR XML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 6. Platform-specific frame keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
    (This also means that in this specification, modifier (frame) keys cannot generate output, such as capslock producing backslash.)
 
-<!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
+<!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to CLDR, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
 3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. -->
 
@@ -193,7 +194,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 ### Compatibility Notice
 
 > A major rewrite of this specification, called "Keyboard 3.0", was introduced in CLDR v45.
-> The changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
+> The changes required were too extensive to maintain compatibility. For this reason, the `CLDRKeyboard3.dtd` DTD is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
 > To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 >
@@ -241,7 +242,7 @@ Keyboard implementations will typically consist of two parts:
 
 **Keyboard:** A particular arrangement of keys for the inputting of text, such as a hardware keyboard or a touch keyboard.
 
-**Keyboard author:** The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.
+**Keyboard author:** The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the CLDR XML file directly or by means of software tools.
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
@@ -306,7 +307,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 <keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="45"/>
 ```
 
-> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.
+> _Note_: Unlike other CLDR files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.
 >
 > DTD and Schema (.xsd) files are available for use in validating keyboard files.
 
@@ -2465,7 +2466,7 @@ Used in the `to=`
 
 The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
 
-The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+The following is the [CLDR EBNF](tr35.md#ebnf) format for the grammar:
 
 ```ebnf
 [ wfc: No more than 9 capture groups may be present. ]
@@ -2639,7 +2640,7 @@ NMTOKEN  ::= NAMECHAR+
 
 This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
 
-The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+The following is the [CLDR EBNF](tr35.md#ebnf) format for the grammar:
 
 ```ebnf
 [ vc: A referenced capture group must be present in the from= match string. ]

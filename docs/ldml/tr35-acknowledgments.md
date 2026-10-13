@@ -4,13 +4,16 @@ title: Acknowledgments
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix B: Acknowledgments
+# Unicode Common Locale Data & Rules (CLDR)<br/>Appendix B: Acknowledgments
 
 For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This is a partial document, describing only the acknowledgments of contributors to LDML. For the other parts of the LDML see the [main LDML document](tr35.md).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers acknowledgments of contributors to CLDR.
+
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ## <a name="Contents" href="#Contents">Contents of Appendix B, Acknowledgments</a>
 
@@ -20,16 +23,16 @@ This is a partial document, describing only the acknowledgments of contributors 
 
 Special thanks to the following people for their continuing overall contributions to the CLDR project, and for their specific contributions in the following areas. These descriptions only touch on the many contributions that they have made.
 
-* Mark Davis for creating the initial version of LDML, and adding to and maintaining this specification, and for his work on the LDML code and tests, much of the supplemental data and overall structure, and transforms and keyboards.
+* Mark Davis for creating the initial version of CLDR, and adding to and maintaining this specification, and for his work on the CLDR code and tests, much of the supplemental data and overall structure, and transforms and keyboards.
 * John Emmons for the POSIX conversion tool and metazones.
-* Deborah Goldsmith for her contributions to LDML architecture and this specification.
+* Deborah Goldsmith for her contributions to CLDR architecture and this specification.
 * Chris Hansten for coordinating and managing data submissions and vetting.
 * Erkki Kolehmainen and his team for their work on Finnish.
 * Steven R. Loomis for development of the survey tool and database management.
 * Peter Nugent for his contributions to the POSIX tool and from Open Office, and for coordinating and managing data submissions and vetting.
 * George Rhoten for his work on currencies.
 * Roozbeh Pournader (روزبه پورنادر) for his work on South Asian countries.
-* Ram Viswanadha (రఘురామ్ విశ్వనాధ) for all of his work on LDML code and data integration, and for coordinating and managing data submissions and vetting.
+* Ram Viswanadha (రఘురామ్ విశ్వనాధ) for all of his work on CLDR code and data integration, and for coordinating and managing data submissions and vetting.
 * Vladimir Weinstein (Владимир Вајнштајн) for his work on collation.
 * Yoshito Umaoka (馬岡 由人) for his work on the timezone architecture.
 * Rick McGowan for his work gathering language, script and region data.

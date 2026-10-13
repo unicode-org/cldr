@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.WeakHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
@@ -180,7 +181,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     // Listeners are stored using weak references so that they can be garbage collected.
-    private final List<WeakReference<Listener>> listeners = new ArrayList<>();
+    private final List<WeakReference<Listener>> listeners = new CopyOnWriteArrayList<>();
 
     public String getLocaleID() {
         return localeID;
@@ -1508,7 +1509,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
     /** Adds a listener to this XML source. */
     public void addListener(Listener listener) {
-        listeners.add(new WeakReference<>(listener));
+        if (!isFrozen()) {
+            // frozen sources will never change, so don't need to add listeners.
+            listeners.add(new WeakReference<>(listener));
+        }
     }
 
     /**
@@ -1517,14 +1521,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @param xpath the xpath where the change occurred.
      */
     public void notifyListeners(String xpath) {
-        int i = 0;
-        while (i < listeners.size()) {
-            Listener listener = listeners.get(i).get();
-            if (listener == null) { // listener has been garbage-collected.
-                listeners.remove(i);
+        for (WeakReference<Listener> ref : listeners) {
+            Listener listener = ref.get();
+            if (listener == null) {
+                listeners.remove(ref); // listener was garbage collected
             } else {
                 listener.valueChanged(xpath, this);
-                i++;
             }
         }
     }

@@ -4,23 +4,26 @@ title: Modifications
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
+# Unicode Common Locale Data & Rules (CLDR)<br/>Appendix A: Modifications
 
-For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This is a partial document, describing only the changes to the LDML since the previous release. For the other parts of the LDML see the [main LDML document](tr35.md).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers the changes to the CLDR specification since the previous release.
+
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Changes in LDML Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
+  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
     * [MessageFormat](#messageformat)
   * [Numbers](#numbers)
   * [Units](#units)
+  * [Collation](#collation)
   * [Keyboard](#keyboard)
   * [Segmentation](#segmentation)
 
@@ -34,8 +37,15 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 -->
 
-### Changes in LDML Version 49 (Differences from Version 48.0)
+### Changes in CLDR Version 49 (Differences from Version 48.0)
 <!-- Updated spec date -->
+
+### General
+
+* Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)” 
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
+    * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+    * Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 
 ### Locales
 
@@ -84,13 +94,25 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-18963 -->
 * [`currencyFormats`](tr35-numbers.md#Currency_Formats) Clarified that formatting ISO 4217 currency codes uses the `alt="alphaNextToNumber"` form of the standard `<currencyFormat>` pattern.
 <!-- CLDR-19649 -->
+* [`Number Symbols`](tr35-numbers.md#Number_Symbols) Added a subsection heading for each number symbol.
+* [`Currency Formats`](tr35-numbers.md#Currency_Formats), [`Currencies`](tr35-numbers.md#Currencies), [`Supplemental Currency Data`](tr35-numbers.md#Supplemental_Currency_Data) Added subsection headings for currency formatting rules, pattern variants (`alt="alphaNextToNumber"`, `alt="noCurrency"`, `currencyPatternAppendISO`), currency placeholders (`¤`..`¤¤¤¤¤`), `unitPattern` display name formatting, `currencySpacing`, and supplemental currency fractions and region mappings.
+<!-- CLDR-19814 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [`Number Formats`](tr35-numbers.md#Number_Formats), [`Miscellaneous Patterns`](tr35-numbers.md#Miscellaneous_Patterns), [`Formatting`](tr35-numbers.md#Formatting) Added a subsection heading for each number format type (`decimalFormats`, `percentFormats`, `scientificFormats`), each miscellaneous pattern (`approximately`, `atMost`, `atLeast`, `range`), and special values.
+<!-- CLDR-19830 -->
 
 ### Units
 
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
+
+### Collation
+
+[Part 5: Collation](tr35-collation.md#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0:
+* The UCA DUCET now also includes the ten Tibetan contractions that had been added earlier in CLDR.
+* As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET. (There is still a difference in the default sets of “variable” characters, and CLDR defines a tailoring mechanism and additional features.)
+* The UCA now has the same mappings and behavior for U+FFFE and U+FFFF which had been defined earlier in CLDR.
 
 ### Keyboard
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.

@@ -241,7 +241,7 @@ If you were to substitute a different number for "1" in a sentence or phrase, wo
 
 ## Plural Rule Syntax
 
-See [LDML Language Plural Rules](https://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules).
+See [CLDR Language Plural Rules](https://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules).
 
 ## Plural Message Migration
 

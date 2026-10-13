@@ -6,192 +6,395 @@
 # type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
 # rule name: empty for the default ruleset
 #
-spell;%spellout-ordinal-masculine;1;الأول
-spell;%spellout-ordinal-masculine;2;الثاني
-spell;%spellout-ordinal-masculine;3;الثالث
-spell;%spellout-ordinal-masculine;4;الرابع
-spell;%spellout-ordinal-masculine;5;الخامس
-spell;%spellout-ordinal-masculine;6;السادس
-spell;%spellout-ordinal-masculine;7;السابع
-spell;%spellout-ordinal-masculine;8;الثامن
-spell;%spellout-ordinal-masculine;9;التاسع
-spell;%spellout-ordinal-masculine;10;العاشر
-spell;%spellout-ordinal-masculine;11;الحادي عشر
-spell;%spellout-ordinal-masculine;12;الثاني عشر
-spell;%spellout-ordinal-masculine;13;الثالث عشر
-spell;%spellout-ordinal-masculine;19;التاسع عشر
-spell;%spellout-ordinal-masculine;20;العشرون
-spell;%spellout-ordinal-masculine;21;الحادي  والعشرون
-spell;%spellout-ordinal-masculine;22;الثاني والعشرون
-spell;%spellout-ordinal-masculine;29;التاسع والعشرون
-spell;%spellout-ordinal-masculine;30;الثلاثون
-spell;%spellout-ordinal-masculine;31;الحادي  والثلاثون
-spell;%spellout-ordinal-masculine;32;الثاني والثلاثون
-spell;%spellout-ordinal-masculine;39;التاسع والثلاثون
-spell;%spellout-ordinal-masculine;40;الأربعون
-spell;%spellout-ordinal-masculine;41;الحادي  والأربعون
-spell;%spellout-ordinal-masculine;42;الثاني والأربعون
-spell;%spellout-ordinal-masculine;49;التاسع والأربعون
-spell;%spellout-ordinal-masculine;50;الخمسون
-spell;%spellout-ordinal-masculine;51;الحادي  والخمسون
-spell;%spellout-ordinal-masculine;52;الثاني والخمسون
-spell;%spellout-ordinal-masculine;59;التاسع والخمسون
-spell;%spellout-ordinal-masculine;60;الستون
-spell;%spellout-ordinal-masculine;61;الحادي  والستون
-spell;%spellout-ordinal-masculine;62;الثاني والستون
-spell;%spellout-ordinal-masculine;69;التاسع والستون
-spell;%spellout-ordinal-masculine;70;السبعون
-spell;%spellout-ordinal-masculine;71;الحادي  والسبعون
-spell;%spellout-ordinal-masculine;72;الثاني والسبعون
-spell;%spellout-ordinal-masculine;79;التاسع والسبعون
-spell;%spellout-ordinal-masculine;80;الثمانون
-spell;%spellout-ordinal-masculine;81;الحادي  والثمانون
-spell;%spellout-ordinal-masculine;82;الثاني والثمانون
-spell;%spellout-ordinal-masculine;89;التاسع والثمانون
-spell;%spellout-ordinal-masculine;90;التسعون
-spell;%spellout-ordinal-masculine;91;الحادي  والتسعون
-spell;%spellout-ordinal-masculine;92;الثاني والتسعون
-spell;%spellout-ordinal-masculine;99;التاسع والتسعون
-spell;%spellout-ordinal-masculine;100;المائة
-spell;%spellout-ordinal-masculine;101;المائة وواحد
-spell;%spellout-ordinal-masculine;199;المائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;200;المائتان
-spell;%spellout-ordinal-masculine;201;المائتان وواحد
-spell;%spellout-ordinal-masculine;299;المائتان وتسعة وتسعون
-spell;%spellout-ordinal-masculine;300;ثلاثة مائة
-spell;%spellout-ordinal-masculine;301;ثلاثة مائة وواحد
-spell;%spellout-ordinal-masculine;999;تسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;1000;الألف
-spell;%spellout-ordinal-masculine;1001;الألف وواحد
-spell;%spellout-ordinal-masculine;1999;الألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;2000;الألفي
-spell;%spellout-ordinal-masculine;2001;الألفي وواحد
-spell;%spellout-ordinal-masculine;2999;الألفي وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1;الأول
+spell;%spellout-ordinal-masculine-definite;2;الثاني
+spell;%spellout-ordinal-masculine-definite;3;الثالث
+spell;%spellout-ordinal-masculine-definite;4;الرابع
+spell;%spellout-ordinal-masculine-definite;5;الخامس
+spell;%spellout-ordinal-masculine-definite;6;السادس
+spell;%spellout-ordinal-masculine-definite;7;السابع
+spell;%spellout-ordinal-masculine-definite;8;الثامن
+spell;%spellout-ordinal-masculine-definite;9;التاسع
+spell;%spellout-ordinal-masculine-definite;10;العاشر
+spell;%spellout-ordinal-masculine-definite;11;الحادي عشر
+spell;%spellout-ordinal-masculine-definite;12;الثاني عشر
+spell;%spellout-ordinal-masculine-definite;13;الثالث عشر
+spell;%spellout-ordinal-masculine-definite;19;التاسع عشر
+spell;%spellout-ordinal-masculine-definite;20;العشرون
+spell;%spellout-ordinal-masculine-definite;21;الحادي والعشرون
+spell;%spellout-ordinal-masculine-definite;29;التاسع والعشرون
+spell;%spellout-ordinal-masculine-definite;30;الثلاثون
+spell;%spellout-ordinal-masculine-definite;31;الحادي والثلاثون
+spell;%spellout-ordinal-masculine-definite;39;التاسع والثلاثون
+spell;%spellout-ordinal-masculine-definite;40;الأربعون
+spell;%spellout-ordinal-masculine-definite;41;الحادي والأربعون
+spell;%spellout-ordinal-masculine-definite;49;التاسع والأربعون
+spell;%spellout-ordinal-masculine-definite;50;الخمسون
+spell;%spellout-ordinal-masculine-definite;51;الحادي والخمسون
+spell;%spellout-ordinal-masculine-definite;59;التاسع والخمسون
+spell;%spellout-ordinal-masculine-definite;60;الستون
+spell;%spellout-ordinal-masculine-definite;61;الحادي والستون
+spell;%spellout-ordinal-masculine-definite;69;التاسع والستون
+spell;%spellout-ordinal-masculine-definite;70;السبعون
+spell;%spellout-ordinal-masculine-definite;71;الحادي والسبعون
+spell;%spellout-ordinal-masculine-definite;79;التاسع والسبعون
+spell;%spellout-ordinal-masculine-definite;80;الثمانون
+spell;%spellout-ordinal-masculine-definite;81;الحادي والثمانون
+spell;%spellout-ordinal-masculine-definite;89;التاسع والثمانون
+spell;%spellout-ordinal-masculine-definite;90;التسعون
+spell;%spellout-ordinal-masculine-definite;91;الحادي والتسعون
+spell;%spellout-ordinal-masculine-definite;99;التاسع والتسعون
+spell;%spellout-ordinal-masculine-definite;100;المئة
+spell;%spellout-ordinal-masculine-definite;101;المئة وواحد
+spell;%spellout-ordinal-masculine-definite;199;المئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;200;المئتان
+spell;%spellout-ordinal-masculine-definite;201;المئتان وواحد
+spell;%spellout-ordinal-masculine-definite;299;المئتان وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;300;ثلاثمئة
+spell;%spellout-ordinal-masculine-definite;301;ثلاثمئة وواحد
+spell;%spellout-ordinal-masculine-definite;999;تسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1000;الألف
+spell;%spellout-ordinal-masculine-definite;1001;الألف وواحد
+spell;%spellout-ordinal-masculine-definite;1999;الألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;2000;الألفي
+spell;%spellout-ordinal-masculine-definite;2001;الألفي وواحد
+spell;%spellout-ordinal-masculine-definite;2999;الألفي وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;3000;ثلاثة آلاف
+spell;%spellout-ordinal-masculine-definite;3001;ثلاثة آلاف وواحد
+spell;%spellout-ordinal-masculine-definite;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1000000;المليون
+spell;%spellout-ordinal-masculine-definite;1000001;المليون وواحد
+spell;%spellout-ordinal-masculine-definite;1999999;المليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;2000000;المليوني
+spell;%spellout-ordinal-masculine-definite;2000001;المليوني وواحد
+spell;%spellout-ordinal-masculine-definite;2999999;المليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;3000000;ثلاثة ملايين
+spell;%spellout-ordinal-masculine-definite;3000001;ثلاثة ملايين وواحد
+spell;%spellout-ordinal-masculine-definite;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1000000000;المليار
+spell;%spellout-ordinal-masculine-definite;1000000001;المليار وواحد
+spell;%spellout-ordinal-masculine-definite;1999999999;المليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;2000000000;الملياري
+spell;%spellout-ordinal-masculine-definite;2000000001;الملياري وواحد
+spell;%spellout-ordinal-masculine-definite;2999999999;الملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;3000000000;ثلاثة مليارات
+spell;%spellout-ordinal-masculine-definite;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-ordinal-masculine-definite;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1000000000000;الترليون
+spell;%spellout-ordinal-masculine-definite;1000000000001;الترليون وواحد
+spell;%spellout-ordinal-masculine-definite;1999999999999;الترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;2000000000000;الترليوني
+spell;%spellout-ordinal-masculine-definite;2000000000001;الترليوني وواحد
+spell;%spellout-ordinal-masculine-definite;2999999999999;الترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;3000000000000;ثلاثة ترليونات
+spell;%spellout-ordinal-masculine-definite;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-ordinal-masculine-definite;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;1000000000000000;الكوادرليون
+spell;%spellout-ordinal-masculine-definite;1000000000000001;الكوادرليون وواحد
+spell;%spellout-ordinal-masculine-definite;1999999999999999;الكوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;2000000000000000;الكوادرليوني
+spell;%spellout-ordinal-masculine-definite;2000000000000001;الكوادرليوني وواحد
+spell;%spellout-ordinal-masculine-definite;2999999999999999;الكوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine-definite;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-ordinal-masculine-definite;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-ordinal-masculine-definite;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-ordinal-masculine-definite;Infinity;اللانهائي
+spell;%spellout-ordinal-masculine-standalone;1;أول
+spell;%spellout-ordinal-masculine-standalone;2;ثانٍ
+spell;%spellout-ordinal-masculine-standalone;3;ثالث
+spell;%spellout-ordinal-masculine-standalone;4;رابع
+spell;%spellout-ordinal-masculine-standalone;5;خامس
+spell;%spellout-ordinal-masculine-standalone;6;سادس
+spell;%spellout-ordinal-masculine-standalone;7;سابع
+spell;%spellout-ordinal-masculine-standalone;8;ثامن
+spell;%spellout-ordinal-masculine-standalone;9;تاسع
+spell;%spellout-ordinal-masculine-standalone;10;عاشر
+spell;%spellout-ordinal-masculine-standalone;Infinity;لا نهائي
+spell;%spellout-ordinal-masculine;1;أول
+spell;%spellout-ordinal-masculine;2;ثاني
+spell;%spellout-ordinal-masculine;3;ثالث
+spell;%spellout-ordinal-masculine;4;رابع
+spell;%spellout-ordinal-masculine;5;خامس
+spell;%spellout-ordinal-masculine;6;سادس
+spell;%spellout-ordinal-masculine;7;سابع
+spell;%spellout-ordinal-masculine;8;ثامن
+spell;%spellout-ordinal-masculine;9;تاسع
+spell;%spellout-ordinal-masculine;10;عاشر
+spell;%spellout-ordinal-masculine;11;حادي عشر
+spell;%spellout-ordinal-masculine;12;ثاني عشر
+spell;%spellout-ordinal-masculine;13;ثالث عشر
+spell;%spellout-ordinal-masculine;19;تاسع عشر
+spell;%spellout-ordinal-masculine;20;عشرون
+spell;%spellout-ordinal-masculine;21;حادي وعشرون
+spell;%spellout-ordinal-masculine;29;تاسع وعشرون
+spell;%spellout-ordinal-masculine;30;ثلاثون
+spell;%spellout-ordinal-masculine;31;حادي وثلاثون
+spell;%spellout-ordinal-masculine;39;تاسع وثلاثون
+spell;%spellout-ordinal-masculine;40;أربعون
+spell;%spellout-ordinal-masculine;41;حادي وأربعون
+spell;%spellout-ordinal-masculine;49;تاسع وأربعون
+spell;%spellout-ordinal-masculine;50;خمسون
+spell;%spellout-ordinal-masculine;51;حادي وخمسون
+spell;%spellout-ordinal-masculine;59;تاسع وخمسون
+spell;%spellout-ordinal-masculine;60;ستون
+spell;%spellout-ordinal-masculine;61;حادي وستون
+spell;%spellout-ordinal-masculine;69;تاسع وستون
+spell;%spellout-ordinal-masculine;70;سبعون
+spell;%spellout-ordinal-masculine;71;حادي وسبعون
+spell;%spellout-ordinal-masculine;79;تاسع وسبعون
+spell;%spellout-ordinal-masculine;80;ثمانون
+spell;%spellout-ordinal-masculine;81;حادي وثمانون
+spell;%spellout-ordinal-masculine;89;تاسع وثمانون
+spell;%spellout-ordinal-masculine;90;تسعون
+spell;%spellout-ordinal-masculine;91;حادي وتسعون
+spell;%spellout-ordinal-masculine;99;تاسع وتسعون
+spell;%spellout-ordinal-masculine;100;مئة
+spell;%spellout-ordinal-masculine;101;مئة وواحد
+spell;%spellout-ordinal-masculine;199;مئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;200;مئتان
+spell;%spellout-ordinal-masculine;201;مئتان وواحد
+spell;%spellout-ordinal-masculine;299;مئتان وتسعة وتسعون
+spell;%spellout-ordinal-masculine;300;ثلاثمئة
+spell;%spellout-ordinal-masculine;301;ثلاثمئة وواحد
+spell;%spellout-ordinal-masculine;999;تسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;1000;ألف
+spell;%spellout-ordinal-masculine;1001;ألف وواحد
+spell;%spellout-ordinal-masculine;1999;ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;2000;ألفي
+spell;%spellout-ordinal-masculine;2001;ألفي وواحد
+spell;%spellout-ordinal-masculine;2999;ألفي وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-masculine;3000;ثلاثة آلاف
 spell;%spellout-ordinal-masculine;3001;ثلاثة آلاف وواحد
-spell;%spellout-ordinal-masculine;10999;عشرة آلاف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;11000;إحدى عشر ألف
-spell;%spellout-ordinal-masculine;11001;إحدى عشر ألف وواحد
-spell;%spellout-ordinal-masculine;999999;تسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;1000000;المليون
-spell;%spellout-ordinal-masculine;1000001;المليون وواحد
-spell;%spellout-ordinal-masculine;1999999;المليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;2000000;إثنان الألف
-spell;%spellout-ordinal-masculine;2000001;إثنان الألف وواحد
-spell;%spellout-ordinal-masculine;999999999;تسعة مائة وتسعة وتسعون الألف وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;1000000000;المليار
-spell;%spellout-ordinal-masculine;1000000001;المليار وواحد
-spell;%spellout-ordinal-masculine;1999999999;المليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;2000000000;إثنان مليار
-spell;%spellout-ordinal-masculine;2000000001;إثنان مليار وواحد
-spell;%spellout-ordinal-masculine;999999999999;تسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;1000000;مليون
+spell;%spellout-ordinal-masculine;1000001;مليون وواحد
+spell;%spellout-ordinal-masculine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;2000000;مليوني
+spell;%spellout-ordinal-masculine;2000001;مليوني وواحد
+spell;%spellout-ordinal-masculine;2999999;مليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;3000000;ثلاثة ملايين
+spell;%spellout-ordinal-masculine;3000001;ثلاثة ملايين وواحد
+spell;%spellout-ordinal-masculine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;1000000000;مليار
+spell;%spellout-ordinal-masculine;1000000001;مليار وواحد
+spell;%spellout-ordinal-masculine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;2000000000;ملياري
+spell;%spellout-ordinal-masculine;2000000001;ملياري وواحد
+spell;%spellout-ordinal-masculine;2999999999;ملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;3000000000;ثلاثة مليارات
+spell;%spellout-ordinal-masculine;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-ordinal-masculine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-masculine;1000000000000;ترليون
 spell;%spellout-ordinal-masculine;1000000000001;ترليون وواحد
-spell;%spellout-ordinal-masculine;1999999999999;ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;2000000000000;إثنان ترليون
-spell;%spellout-ordinal-masculine;2000000000001;إثنان ترليون وواحد
-spell;%spellout-ordinal-masculine;999999999999999;تسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;2000000000000;ترليوني
+spell;%spellout-ordinal-masculine;2000000000001;ترليوني وواحد
+spell;%spellout-ordinal-masculine;2999999999999;ترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;3000000000000;ثلاثة ترليونات
+spell;%spellout-ordinal-masculine;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-ordinal-masculine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-masculine;1000000000000000;كوادرليون
 spell;%spellout-ordinal-masculine;1000000000000001;كوادرليون وواحد
-spell;%spellout-ordinal-masculine;1999999999999999;كوادرليون وتسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-masculine;2000000000000000;إثنان كوادرليون
-spell;%spellout-ordinal-masculine;2000000000000001;إثنان كوادرليون وواحد
-spell;%spellout-ordinal-feminine;1;الأولى
-spell;%spellout-ordinal-feminine;2;الثانية
-spell;%spellout-ordinal-feminine;3;الثالثة
-spell;%spellout-ordinal-feminine;4;الرابعة
-spell;%spellout-ordinal-feminine;5;الخامسة
-spell;%spellout-ordinal-feminine;6;السادسة
-spell;%spellout-ordinal-feminine;7;السابعة
-spell;%spellout-ordinal-feminine;8;الثامنة
-spell;%spellout-ordinal-feminine;9;التاسعة
-spell;%spellout-ordinal-feminine;10;العاشرة
-spell;%spellout-ordinal-feminine;11;الحادية عشرة
-spell;%spellout-ordinal-feminine;12;الثانية عشرة
-spell;%spellout-ordinal-feminine;13;الثالثة عشرة
-spell;%spellout-ordinal-feminine;19;التاسعة عشرة
-spell;%spellout-ordinal-feminine;20;العشرون
-spell;%spellout-ordinal-feminine;21;الحادية  والعشرون
-spell;%spellout-ordinal-feminine;22;الثانية والعشرون
-spell;%spellout-ordinal-feminine;29;التاسعة والعشرون
-spell;%spellout-ordinal-feminine;30;الثلاثون
-spell;%spellout-ordinal-feminine;31;الحادية  والثلاثون
-spell;%spellout-ordinal-feminine;32;الثانية والثلاثون
-spell;%spellout-ordinal-feminine;39;التاسعة والثلاثون
-spell;%spellout-ordinal-feminine;40;الأربعون
-spell;%spellout-ordinal-feminine;41;الحادية  والأربعون
-spell;%spellout-ordinal-feminine;42;الثانية والأربعون
-spell;%spellout-ordinal-feminine;49;التاسعة والأربعون
-spell;%spellout-ordinal-feminine;50;الخمسون
-spell;%spellout-ordinal-feminine;51;الحادية  والخمسون
-spell;%spellout-ordinal-feminine;52;الثانية والخمسون
-spell;%spellout-ordinal-feminine;59;التاسعة والخمسون
-spell;%spellout-ordinal-feminine;60;الستون
-spell;%spellout-ordinal-feminine;61;الحادية  والستون
-spell;%spellout-ordinal-feminine;62;الثانية والستون
-spell;%spellout-ordinal-feminine;69;التاسعة والستون
-spell;%spellout-ordinal-feminine;70;السبعون
-spell;%spellout-ordinal-feminine;71;الحادية  والسبعون
-spell;%spellout-ordinal-feminine;72;الثانية والسبعون
-spell;%spellout-ordinal-feminine;79;التاسعة والسبعون
-spell;%spellout-ordinal-feminine;80;الثمانون
-spell;%spellout-ordinal-feminine;81;الحادية  والثمانون
-spell;%spellout-ordinal-feminine;82;الثانية والثمانون
-spell;%spellout-ordinal-feminine;89;التاسعة والثمانون
-spell;%spellout-ordinal-feminine;90;التسعون
-spell;%spellout-ordinal-feminine;91;الحادية  والتسعون
-spell;%spellout-ordinal-feminine;92;الثانية والتسعون
-spell;%spellout-ordinal-feminine;99;التاسعة والتسعون
-spell;%spellout-ordinal-feminine;100;المائة
-spell;%spellout-ordinal-feminine;101;المائة وواحدة
-spell;%spellout-ordinal-feminine;199;المائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;200;المائتان
-spell;%spellout-ordinal-feminine;201;المائتان وواحدة
-spell;%spellout-ordinal-feminine;299;المائتان وتسعة وتسعون
-spell;%spellout-ordinal-feminine;300;ثلاثة مائة
-spell;%spellout-ordinal-feminine;301;ثلاثة مائة وواحدة
-spell;%spellout-ordinal-feminine;999;تسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;1000;الألف
-spell;%spellout-ordinal-feminine;1001;الألف وواحدة
-spell;%spellout-ordinal-feminine;1999;الألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;2000;الألفي
-spell;%spellout-ordinal-feminine;2001;الألفي وواحدة
-spell;%spellout-ordinal-feminine;2999;الألفي وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;2000000000000000;كوادرليوني
+spell;%spellout-ordinal-masculine;2000000000000001;كوادرليوني وواحد
+spell;%spellout-ordinal-masculine;2999999999999999;كوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-masculine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-ordinal-masculine;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-ordinal-masculine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-ordinal-masculine;Infinity;لا نهائي
+spell;%spellout-ordinal-feminine-definite;1;الأولى
+spell;%spellout-ordinal-feminine-definite;2;الثانية
+spell;%spellout-ordinal-feminine-definite;3;الثالثة
+spell;%spellout-ordinal-feminine-definite;4;الرابعة
+spell;%spellout-ordinal-feminine-definite;5;الخامسة
+spell;%spellout-ordinal-feminine-definite;6;السادسة
+spell;%spellout-ordinal-feminine-definite;7;السابعة
+spell;%spellout-ordinal-feminine-definite;8;الثامنة
+spell;%spellout-ordinal-feminine-definite;9;التاسعة
+spell;%spellout-ordinal-feminine-definite;10;العاشرة
+spell;%spellout-ordinal-feminine-definite;11;الحادية عشرة
+spell;%spellout-ordinal-feminine-definite;12;الثانية عشرة
+spell;%spellout-ordinal-feminine-definite;13;الثالثة عشرة
+spell;%spellout-ordinal-feminine-definite;19;التاسعة عشرة
+spell;%spellout-ordinal-feminine-definite;20;العشرون
+spell;%spellout-ordinal-feminine-definite;21;الحادية والعشرون
+spell;%spellout-ordinal-feminine-definite;29;التاسعة والعشرون
+spell;%spellout-ordinal-feminine-definite;30;الثلاثون
+spell;%spellout-ordinal-feminine-definite;31;الحادية والثلاثون
+spell;%spellout-ordinal-feminine-definite;39;التاسعة والثلاثون
+spell;%spellout-ordinal-feminine-definite;40;الأربعون
+spell;%spellout-ordinal-feminine-definite;41;الحادية والأربعون
+spell;%spellout-ordinal-feminine-definite;49;التاسعة والأربعون
+spell;%spellout-ordinal-feminine-definite;50;الخمسون
+spell;%spellout-ordinal-feminine-definite;51;الحادية والخمسون
+spell;%spellout-ordinal-feminine-definite;59;التاسعة والخمسون
+spell;%spellout-ordinal-feminine-definite;60;الستون
+spell;%spellout-ordinal-feminine-definite;61;الحادية والستون
+spell;%spellout-ordinal-feminine-definite;69;التاسعة والستون
+spell;%spellout-ordinal-feminine-definite;70;السبعون
+spell;%spellout-ordinal-feminine-definite;71;الحادية والسبعون
+spell;%spellout-ordinal-feminine-definite;79;التاسعة والسبعون
+spell;%spellout-ordinal-feminine-definite;80;الثمانون
+spell;%spellout-ordinal-feminine-definite;81;الحادية والثمانون
+spell;%spellout-ordinal-feminine-definite;89;التاسعة والثمانون
+spell;%spellout-ordinal-feminine-definite;90;التسعون
+spell;%spellout-ordinal-feminine-definite;91;الحادية والتسعون
+spell;%spellout-ordinal-feminine-definite;99;التاسعة والتسعون
+spell;%spellout-ordinal-feminine-definite;100;المئة
+spell;%spellout-ordinal-feminine-definite;101;المئة وواحدة
+spell;%spellout-ordinal-feminine-definite;199;المئة وتسع وتسعون
+spell;%spellout-ordinal-feminine-definite;200;المئتان
+spell;%spellout-ordinal-feminine-definite;201;المئتان وواحدة
+spell;%spellout-ordinal-feminine-definite;299;المئتان وتسع وتسعون
+spell;%spellout-ordinal-feminine-definite;300;ثلاثمئة
+spell;%spellout-ordinal-feminine-definite;301;ثلاثمئة وواحدة
+spell;%spellout-ordinal-feminine-definite;999;تسعمئة وتسع وتسعون
+spell;%spellout-ordinal-feminine-definite;1000;الألف
+spell;%spellout-ordinal-feminine-definite;1001;الألف وواحدة
+spell;%spellout-ordinal-feminine-definite;1999;الألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;2000;الألفي
+spell;%spellout-ordinal-feminine-definite;2001;الألفي وواحدة
+spell;%spellout-ordinal-feminine-definite;2999;الألفي وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;3000;ثلاثة آلاف
+spell;%spellout-ordinal-feminine-definite;3001;ثلاثة آلاف وواحدة
+spell;%spellout-ordinal-feminine-definite;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;1000000;المليون
+spell;%spellout-ordinal-feminine-definite;1000001;المليون وواحدة
+spell;%spellout-ordinal-feminine-definite;1999999;المليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;2000000;المليوني
+spell;%spellout-ordinal-feminine-definite;2000001;المليوني وواحدة
+spell;%spellout-ordinal-feminine-definite;2999999;المليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;3000000;ثلاثة ملايين
+spell;%spellout-ordinal-feminine-definite;3000001;ثلاثة ملايين وواحدة
+spell;%spellout-ordinal-feminine-definite;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;1000000000;المليار
+spell;%spellout-ordinal-feminine-definite;1000000001;المليار وواحدة
+spell;%spellout-ordinal-feminine-definite;1999999999;المليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;2000000000;الملياري
+spell;%spellout-ordinal-feminine-definite;2000000001;الملياري وواحدة
+spell;%spellout-ordinal-feminine-definite;2999999999;الملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;3000000000;ثلاثة مليارات
+spell;%spellout-ordinal-feminine-definite;3000000001;ثلاثة مليارات وواحدة
+spell;%spellout-ordinal-feminine-definite;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;1000000000000;الترليون
+spell;%spellout-ordinal-feminine-definite;1000000000001;الترليون وواحدة
+spell;%spellout-ordinal-feminine-definite;1999999999999;الترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;2000000000000;الترليوني
+spell;%spellout-ordinal-feminine-definite;2000000000001;الترليوني وواحدة
+spell;%spellout-ordinal-feminine-definite;2999999999999;الترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;3000000000000;ثلاثة ترليونات
+spell;%spellout-ordinal-feminine-definite;3000000000001;ثلاثة ترليونات وواحدة
+spell;%spellout-ordinal-feminine-definite;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;1000000000000000;الكوادرليون
+spell;%spellout-ordinal-feminine-definite;1000000000000001;الكوادرليون وواحدة
+spell;%spellout-ordinal-feminine-definite;1999999999999999;الكوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;2000000000000000;الكوادرليوني
+spell;%spellout-ordinal-feminine-definite;2000000000000001;الكوادرليوني وواحدة
+spell;%spellout-ordinal-feminine-definite;2999999999999999;الكوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine-definite;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-ordinal-feminine-definite;3000000000000001;ثلاثة كوادرليونات وواحدة
+spell;%spellout-ordinal-feminine-definite;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-ordinal-feminine-definite;Infinity;اللانهائية
+spell;%spellout-ordinal-feminine;1;أولى
+spell;%spellout-ordinal-feminine;2;ثانية
+spell;%spellout-ordinal-feminine;3;ثالثة
+spell;%spellout-ordinal-feminine;4;رابعة
+spell;%spellout-ordinal-feminine;5;خامسة
+spell;%spellout-ordinal-feminine;6;سادسة
+spell;%spellout-ordinal-feminine;7;سابعة
+spell;%spellout-ordinal-feminine;8;ثامنة
+spell;%spellout-ordinal-feminine;9;تاسعة
+spell;%spellout-ordinal-feminine;10;عاشرة
+spell;%spellout-ordinal-feminine;11;حادية عشرة
+spell;%spellout-ordinal-feminine;12;ثانية عشرة
+spell;%spellout-ordinal-feminine;13;ثالثة عشرة
+spell;%spellout-ordinal-feminine;19;تاسعة عشرة
+spell;%spellout-ordinal-feminine;20;عشرون
+spell;%spellout-ordinal-feminine;21;حادية وعشرون
+spell;%spellout-ordinal-feminine;29;تاسعة وعشرون
+spell;%spellout-ordinal-feminine;30;ثلاثون
+spell;%spellout-ordinal-feminine;31;حادية وثلاثون
+spell;%spellout-ordinal-feminine;39;تاسعة وثلاثون
+spell;%spellout-ordinal-feminine;40;أربعون
+spell;%spellout-ordinal-feminine;41;حادية وأربعون
+spell;%spellout-ordinal-feminine;49;تاسعة وأربعون
+spell;%spellout-ordinal-feminine;50;خمسون
+spell;%spellout-ordinal-feminine;51;حادية وخمسون
+spell;%spellout-ordinal-feminine;59;تاسعة وخمسون
+spell;%spellout-ordinal-feminine;60;ستون
+spell;%spellout-ordinal-feminine;61;حادية وستون
+spell;%spellout-ordinal-feminine;69;تاسعة وستون
+spell;%spellout-ordinal-feminine;70;سبعون
+spell;%spellout-ordinal-feminine;71;حادية وسبعون
+spell;%spellout-ordinal-feminine;79;تاسعة وسبعون
+spell;%spellout-ordinal-feminine;80;ثمانون
+spell;%spellout-ordinal-feminine;81;حادية وثمانون
+spell;%spellout-ordinal-feminine;89;تاسعة وثمانون
+spell;%spellout-ordinal-feminine;90;تسعون
+spell;%spellout-ordinal-feminine;91;حادية وتسعون
+spell;%spellout-ordinal-feminine;99;تاسعة وتسعون
+spell;%spellout-ordinal-feminine;100;مئة
+spell;%spellout-ordinal-feminine;101;مئة وواحدة
+spell;%spellout-ordinal-feminine;199;مئة وتسع وتسعون
+spell;%spellout-ordinal-feminine;200;مئتان
+spell;%spellout-ordinal-feminine;201;مئتان وواحدة
+spell;%spellout-ordinal-feminine;299;مئتان وتسع وتسعون
+spell;%spellout-ordinal-feminine;300;ثلاثمئة
+spell;%spellout-ordinal-feminine;301;ثلاثمئة وواحدة
+spell;%spellout-ordinal-feminine;999;تسعمئة وتسع وتسعون
+spell;%spellout-ordinal-feminine;1000;ألف
+spell;%spellout-ordinal-feminine;1001;ألف وواحدة
+spell;%spellout-ordinal-feminine;1999;ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;2000;ألفي
+spell;%spellout-ordinal-feminine;2001;ألفي وواحدة
+spell;%spellout-ordinal-feminine;2999;ألفي وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-feminine;3000;ثلاثة آلاف
 spell;%spellout-ordinal-feminine;3001;ثلاثة آلاف وواحدة
-spell;%spellout-ordinal-feminine;10999;عشرة آلاف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;11000;إحدى عشر ألف
-spell;%spellout-ordinal-feminine;11001;إحدى عشر ألف وواحدة
-spell;%spellout-ordinal-feminine;999999;تسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;1000000;المليون
-spell;%spellout-ordinal-feminine;1000001;المليون وواحدة
-spell;%spellout-ordinal-feminine;1999999;المليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;2000000;إثنتان الألف
-spell;%spellout-ordinal-feminine;2000001;إثنتان الألف وواحدة
-spell;%spellout-ordinal-feminine;999999999;تسعة مائة وتسعة وتسعون الألف وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;1000000000;المليار
-spell;%spellout-ordinal-feminine;1000000001;المليار وواحدة
-spell;%spellout-ordinal-feminine;1999999999;المليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;2000000000;إثنتان مليار
-spell;%spellout-ordinal-feminine;2000000001;إثنتان مليار وواحدة
-spell;%spellout-ordinal-feminine;999999999999;تسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;1000000;مليون
+spell;%spellout-ordinal-feminine;1000001;مليون وواحدة
+spell;%spellout-ordinal-feminine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;2000000;مليوني
+spell;%spellout-ordinal-feminine;2000001;مليوني وواحدة
+spell;%spellout-ordinal-feminine;2999999;مليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;3000000;ثلاثة ملايين
+spell;%spellout-ordinal-feminine;3000001;ثلاثة ملايين وواحدة
+spell;%spellout-ordinal-feminine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;1000000000;مليار
+spell;%spellout-ordinal-feminine;1000000001;مليار وواحدة
+spell;%spellout-ordinal-feminine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;2000000000;ملياري
+spell;%spellout-ordinal-feminine;2000000001;ملياري وواحدة
+spell;%spellout-ordinal-feminine;2999999999;ملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;3000000000;ثلاثة مليارات
+spell;%spellout-ordinal-feminine;3000000001;ثلاثة مليارات وواحدة
+spell;%spellout-ordinal-feminine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-feminine;1000000000000;ترليون
 spell;%spellout-ordinal-feminine;1000000000001;ترليون وواحدة
-spell;%spellout-ordinal-feminine;1999999999999;ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;2000000000000;إثنتان ترليون
-spell;%spellout-ordinal-feminine;2000000000001;إثنتان ترليون وواحدة
-spell;%spellout-ordinal-feminine;999999999999999;تسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;2000000000000;ترليوني
+spell;%spellout-ordinal-feminine;2000000000001;ترليوني وواحدة
+spell;%spellout-ordinal-feminine;2999999999999;ترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;3000000000000;ثلاثة ترليونات
+spell;%spellout-ordinal-feminine;3000000000001;ثلاثة ترليونات وواحدة
+spell;%spellout-ordinal-feminine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-ordinal-feminine;1000000000000000;كوادرليون
 spell;%spellout-ordinal-feminine;1000000000000001;كوادرليون وواحدة
-spell;%spellout-ordinal-feminine;1999999999999999;كوادرليون وتسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-ordinal-feminine;2000000000000000;إثنتان كوادرليون
-spell;%spellout-ordinal-feminine;2000000000000001;إثنتان كوادرليون وواحدة
+spell;%spellout-ordinal-feminine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;2000000000000000;كوادرليوني
+spell;%spellout-ordinal-feminine;2000000000000001;كوادرليوني وواحدة
+spell;%spellout-ordinal-feminine;2999999999999999;كوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-ordinal-feminine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-ordinal-feminine;3000000000000001;ثلاثة كوادرليونات وواحدة
+spell;%spellout-ordinal-feminine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-ordinal-feminine;Infinity;لا نهائية
 spell;%spellout-cardinal-masculine;-1;ناقص واحد
 spell;%spellout-cardinal-masculine;0;صفر
 spell;%spellout-cardinal-masculine;0.5;صفر فاصل خمسة
 spell;%spellout-cardinal-masculine;1;واحد
 spell;%spellout-cardinal-masculine;1.5;واحد فاصل خمسة
-spell;%spellout-cardinal-masculine;2;إثنان
+spell;%spellout-cardinal-masculine;2;اثنان
 spell;%spellout-cardinal-masculine;3;ثلاثة
 spell;%spellout-cardinal-masculine;4;أربعة
 spell;%spellout-cardinal-masculine;5;خمسة
@@ -200,8 +403,8 @@ spell;%spellout-cardinal-masculine;7;سبعة
 spell;%spellout-cardinal-masculine;8;ثمانية
 spell;%spellout-cardinal-masculine;9;تسعة
 spell;%spellout-cardinal-masculine;10;عشرة
-spell;%spellout-cardinal-masculine;11;إحدى عشر
-spell;%spellout-cardinal-masculine;12;إثنا عشر
+spell;%spellout-cardinal-masculine;11;أحد عشر
+spell;%spellout-cardinal-masculine;12;اثنا عشر
 spell;%spellout-cardinal-masculine;13;ثلاثة عشر
 spell;%spellout-cardinal-masculine;14;أربعة عشر
 spell;%spellout-cardinal-masculine;15;خمسة عشر
@@ -234,156 +437,180 @@ spell;%spellout-cardinal-masculine;89;تسعة وثمانون
 spell;%spellout-cardinal-masculine;90;تسعون
 spell;%spellout-cardinal-masculine;91;واحد وتسعون
 spell;%spellout-cardinal-masculine;99;تسعة وتسعون
-spell;%spellout-cardinal-masculine;100;مائة
-spell;%spellout-cardinal-masculine;101;مائة وواحد
-spell;%spellout-cardinal-masculine;199;مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;200;مائتان
-spell;%spellout-cardinal-masculine;201;مائتان وواحد
-spell;%spellout-cardinal-masculine;299;مائتان وتسعة وتسعون
-spell;%spellout-cardinal-masculine;300;ثلاثة مائة
-spell;%spellout-cardinal-masculine;301;ثلاثة مائة وواحد
-spell;%spellout-cardinal-masculine;500;خمسة مائة
-spell;%spellout-cardinal-masculine;999;تسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;100;مئة
+spell;%spellout-cardinal-masculine;101;مئة وواحد
+spell;%spellout-cardinal-masculine;199;مئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;200;مئتان
+spell;%spellout-cardinal-masculine;201;مئتان وواحد
+spell;%spellout-cardinal-masculine;299;مئتان وتسعة وتسعون
+spell;%spellout-cardinal-masculine;300;ثلاثمئة
+spell;%spellout-cardinal-masculine;301;ثلاثمئة وواحد
+spell;%spellout-cardinal-masculine;500;خمسمئة
+spell;%spellout-cardinal-masculine;999;تسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;1000;ألف
 spell;%spellout-cardinal-masculine;1001;ألف وواحد
-spell;%spellout-cardinal-masculine;1999;ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;1999;ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;2000;ألفي
 spell;%spellout-cardinal-masculine;2001;ألفي وواحد
-spell;%spellout-cardinal-masculine;2999;ألفي وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;2999;ألفي وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;3000;ثلاثة آلاف
 spell;%spellout-cardinal-masculine;3001;ثلاثة آلاف وواحد
 spell;%spellout-cardinal-masculine;5000;خمسة آلاف
 spell;%spellout-cardinal-masculine;10000;عشرة آلاف
-spell;%spellout-cardinal-masculine;10999;عشرة آلاف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;11000;إحدى عشر ألف
-spell;%spellout-cardinal-masculine;11001;إحدى عشر ألف وواحد
-spell;%spellout-cardinal-masculine;100000;مائة ألف
-spell;%spellout-cardinal-masculine;999999;تسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;100000;مئة ألف
+spell;%spellout-cardinal-masculine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;1000000;مليون
 spell;%spellout-cardinal-masculine;1000001;مليون وواحد
-spell;%spellout-cardinal-masculine;1999999;مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;2000000;إثنان مليون
-spell;%spellout-cardinal-masculine;2000001;إثنان مليون وواحد
-spell;%spellout-cardinal-masculine;999999999;تسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;2000000;مليوني
+spell;%spellout-cardinal-masculine;2000001;مليوني وواحد
+spell;%spellout-cardinal-masculine;2999999;مليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;3000000;ثلاثة ملايين
+spell;%spellout-cardinal-masculine;3000001;ثلاثة ملايين وواحد
+spell;%spellout-cardinal-masculine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;1000000000;مليار
 spell;%spellout-cardinal-masculine;1000000001;مليار وواحد
-spell;%spellout-cardinal-masculine;1999999999;مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;2000000000;إثنان مليار
-spell;%spellout-cardinal-masculine;2000000001;إثنان مليار وواحد
-spell;%spellout-cardinal-masculine;999999999999;تسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;2000000000;ملياري
+spell;%spellout-cardinal-masculine;2000000001;ملياري وواحد
+spell;%spellout-cardinal-masculine;2999999999;ملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;3000000000;ثلاثة مليارات
+spell;%spellout-cardinal-masculine;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-cardinal-masculine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;1000000000000;ترليون
 spell;%spellout-cardinal-masculine;1000000000001;ترليون وواحد
-spell;%spellout-cardinal-masculine;1999999999999;ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;2000000000000;إثنان ترليون
-spell;%spellout-cardinal-masculine;2000000000001;إثنان ترليون وواحد
-spell;%spellout-cardinal-masculine;999999999999999;تسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;2000000000000;ترليوني
+spell;%spellout-cardinal-masculine;2000000000001;ترليوني وواحد
+spell;%spellout-cardinal-masculine;2999999999999;ترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;3000000000000;ثلاثة ترليونات
+spell;%spellout-cardinal-masculine;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-cardinal-masculine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-masculine;1000000000000000;كوادرليون
 spell;%spellout-cardinal-masculine;1000000000000001;كوادرليون وواحد
-spell;%spellout-cardinal-masculine;1999999999999999;كوادرليون وتسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-masculine;2000000000000000;إثنان كوادرليون
-spell;%spellout-cardinal-masculine;2000000000000001;إثنان كوادرليون وواحد
+spell;%spellout-cardinal-masculine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;2000000000000000;كوادرليوني
+spell;%spellout-cardinal-masculine;2000000000000001;كوادرليوني وواحد
+spell;%spellout-cardinal-masculine;2999999999999999;كوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-masculine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-cardinal-masculine;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-cardinal-masculine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-cardinal-masculine;Infinity;لا نهائي
+spell;%spellout-cardinal-masculine;NaN;ليس عددا
 spell;%spellout-cardinal-feminine;-1;ناقص واحدة
 spell;%spellout-cardinal-feminine;0;صفر
-spell;%spellout-cardinal-feminine;0.5;صفر فاصل خمسة
+spell;%spellout-cardinal-feminine;0.5;صفر فاصل خمس
 spell;%spellout-cardinal-feminine;1;واحدة
-spell;%spellout-cardinal-feminine;1.5;واحدة فاصل خمسة
-spell;%spellout-cardinal-feminine;2;إثنتان
-spell;%spellout-cardinal-feminine;3;ثلاثة
-spell;%spellout-cardinal-feminine;4;أربعة
-spell;%spellout-cardinal-feminine;5;خمسة
-spell;%spellout-cardinal-feminine;6;ستة
-spell;%spellout-cardinal-feminine;7;سبعة
-spell;%spellout-cardinal-feminine;8;ثمانية
-spell;%spellout-cardinal-feminine;9;تسعة
-spell;%spellout-cardinal-feminine;10;عشرة
-spell;%spellout-cardinal-feminine;11;إحدى عشر
-spell;%spellout-cardinal-feminine;12;إثنتا عشرة
-spell;%spellout-cardinal-feminine;13;ثلاثة عشر
-spell;%spellout-cardinal-feminine;14;أربعة عشر
-spell;%spellout-cardinal-feminine;15;خمسة عشر
-spell;%spellout-cardinal-feminine;16;ستة عشر
-spell;%spellout-cardinal-feminine;17;سبعة عشر
-spell;%spellout-cardinal-feminine;18;ثمانية عشر
-spell;%spellout-cardinal-feminine;19;تسعة عشر
+spell;%spellout-cardinal-feminine;1.5;واحدة فاصل خمس
+spell;%spellout-cardinal-feminine;2;اثنتان
+spell;%spellout-cardinal-feminine;3;ثلاث
+spell;%spellout-cardinal-feminine;4;أربع
+spell;%spellout-cardinal-feminine;5;خمس
+spell;%spellout-cardinal-feminine;6;ست
+spell;%spellout-cardinal-feminine;7;سبع
+spell;%spellout-cardinal-feminine;8;ثماني
+spell;%spellout-cardinal-feminine;9;تسع
+spell;%spellout-cardinal-feminine;10;عشر
+spell;%spellout-cardinal-feminine;11;إحدى عشرة
+spell;%spellout-cardinal-feminine;12;اثنتا عشرة
+spell;%spellout-cardinal-feminine;13;ثلاث عشرة
+spell;%spellout-cardinal-feminine;14;أربع عشرة
+spell;%spellout-cardinal-feminine;15;خمس عشرة
+spell;%spellout-cardinal-feminine;16;ست عشرة
+spell;%spellout-cardinal-feminine;17;سبع عشرة
+spell;%spellout-cardinal-feminine;18;ثماني عشرة
+spell;%spellout-cardinal-feminine;19;تسع عشرة
 spell;%spellout-cardinal-feminine;20;عشرون
-spell;%spellout-cardinal-feminine;21;واحد وعشرون
-spell;%spellout-cardinal-feminine;25;خمسة وعشرون
-spell;%spellout-cardinal-feminine;29;تسعة وعشرون
+spell;%spellout-cardinal-feminine;21;إحدى وعشرون
+spell;%spellout-cardinal-feminine;25;خمس وعشرون
+spell;%spellout-cardinal-feminine;29;تسع وعشرون
 spell;%spellout-cardinal-feminine;30;ثلاثون
-spell;%spellout-cardinal-feminine;31;واحد وثلاثون
-spell;%spellout-cardinal-feminine;39;تسعة وثلاثون
+spell;%spellout-cardinal-feminine;31;إحدى وثلاثون
+spell;%spellout-cardinal-feminine;39;تسع وثلاثون
 spell;%spellout-cardinal-feminine;40;أربعون
-spell;%spellout-cardinal-feminine;41;واحد وأربعون
-spell;%spellout-cardinal-feminine;49;تسعة وأربعون
+spell;%spellout-cardinal-feminine;41;إحدى وأربعون
+spell;%spellout-cardinal-feminine;49;تسع وأربعون
 spell;%spellout-cardinal-feminine;50;خمسون
-spell;%spellout-cardinal-feminine;51;واحد وخمسون
-spell;%spellout-cardinal-feminine;59;تسعة وخمسون
+spell;%spellout-cardinal-feminine;51;إحدى وخمسون
+spell;%spellout-cardinal-feminine;59;تسع وخمسون
 spell;%spellout-cardinal-feminine;60;ستون
-spell;%spellout-cardinal-feminine;61;واحد وستون
-spell;%spellout-cardinal-feminine;69;تسعة وستون
+spell;%spellout-cardinal-feminine;61;إحدى وستون
+spell;%spellout-cardinal-feminine;69;تسع وستون
 spell;%spellout-cardinal-feminine;70;سبعون
-spell;%spellout-cardinal-feminine;71;واحد وسبعون
-spell;%spellout-cardinal-feminine;79;تسعة وسبعون
+spell;%spellout-cardinal-feminine;71;إحدى وسبعون
+spell;%spellout-cardinal-feminine;79;تسع وسبعون
 spell;%spellout-cardinal-feminine;80;ثمانون
-spell;%spellout-cardinal-feminine;81;واحد وثمانون
-spell;%spellout-cardinal-feminine;89;تسعة وثمانون
+spell;%spellout-cardinal-feminine;81;إحدى وثمانون
+spell;%spellout-cardinal-feminine;89;تسع وثمانون
 spell;%spellout-cardinal-feminine;90;تسعون
-spell;%spellout-cardinal-feminine;91;واحد وتسعون
-spell;%spellout-cardinal-feminine;99;تسعة وتسعون
-spell;%spellout-cardinal-feminine;100;مائة
-spell;%spellout-cardinal-feminine;101;مائة وواحد
-spell;%spellout-cardinal-feminine;199;مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;200;مائتان
-spell;%spellout-cardinal-feminine;201;مائتان وواحد
-spell;%spellout-cardinal-feminine;299;مائتان وتسعة وتسعون
-spell;%spellout-cardinal-feminine;300;ثلاثة مائة
-spell;%spellout-cardinal-feminine;301;ثلاثة مائة وواحد
-spell;%spellout-cardinal-feminine;500;خمسة مائة
-spell;%spellout-cardinal-feminine;999;تسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;91;إحدى وتسعون
+spell;%spellout-cardinal-feminine;99;تسع وتسعون
+spell;%spellout-cardinal-feminine;100;مئة
+spell;%spellout-cardinal-feminine;101;مئة وواحد
+spell;%spellout-cardinal-feminine;199;مئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;200;مئتان
+spell;%spellout-cardinal-feminine;201;مئتان وواحد
+spell;%spellout-cardinal-feminine;299;مئتان وتسعة وتسعون
+spell;%spellout-cardinal-feminine;300;ثلاثمئة
+spell;%spellout-cardinal-feminine;301;ثلاثمئة وواحد
+spell;%spellout-cardinal-feminine;500;خمسمئة
+spell;%spellout-cardinal-feminine;999;تسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;1000;ألف
 spell;%spellout-cardinal-feminine;1001;ألف وواحد
-spell;%spellout-cardinal-feminine;1999;ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;1999;ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;2000;ألفي
 spell;%spellout-cardinal-feminine;2001;ألفي وواحد
-spell;%spellout-cardinal-feminine;2999;ألفي وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;2999;ألفي وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;3000;ثلاثة آلاف
 spell;%spellout-cardinal-feminine;3001;ثلاثة آلاف وواحد
 spell;%spellout-cardinal-feminine;5000;خمسة آلاف
 spell;%spellout-cardinal-feminine;10000;عشرة آلاف
-spell;%spellout-cardinal-feminine;10999;عشرة آلاف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;11000;إحدى عشر ألف
-spell;%spellout-cardinal-feminine;11001;إحدى عشر ألف وواحد
-spell;%spellout-cardinal-feminine;100000;مائة ألف
-spell;%spellout-cardinal-feminine;999999;تسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;100000;مئة ألف
+spell;%spellout-cardinal-feminine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;1000000;مليون
 spell;%spellout-cardinal-feminine;1000001;مليون وواحد
-spell;%spellout-cardinal-feminine;1999999;مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;2000000;إثنان مليون
-spell;%spellout-cardinal-feminine;2000001;إثنان مليون وواحد
-spell;%spellout-cardinal-feminine;999999999;تسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;2000000;مليوني
+spell;%spellout-cardinal-feminine;2000001;مليوني وواحد
+spell;%spellout-cardinal-feminine;2999999;مليوني وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;3000000;ثلاثة ملايين
+spell;%spellout-cardinal-feminine;3000001;ثلاثة ملايين وواحد
+spell;%spellout-cardinal-feminine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;1000000000;مليار
 spell;%spellout-cardinal-feminine;1000000001;مليار وواحد
-spell;%spellout-cardinal-feminine;1999999999;مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;2000000000;إثنان مليار
-spell;%spellout-cardinal-feminine;2000000001;إثنان مليار وواحد
-spell;%spellout-cardinal-feminine;999999999999;تسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;2000000000;ملياري
+spell;%spellout-cardinal-feminine;2000000001;ملياري وواحد
+spell;%spellout-cardinal-feminine;2999999999;ملياري وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;3000000000;ثلاثة مليارات
+spell;%spellout-cardinal-feminine;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-cardinal-feminine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;1000000000000;ترليون
 spell;%spellout-cardinal-feminine;1000000000001;ترليون وواحد
-spell;%spellout-cardinal-feminine;1999999999999;ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;2000000000000;إثنان ترليون
-spell;%spellout-cardinal-feminine;2000000000001;إثنان ترليون وواحد
-spell;%spellout-cardinal-feminine;999999999999999;تسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;2000000000000;ترليوني
+spell;%spellout-cardinal-feminine;2000000000001;ترليوني وواحد
+spell;%spellout-cardinal-feminine;2999999999999;ترليوني وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;3000000000000;ثلاثة ترليونات
+spell;%spellout-cardinal-feminine;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-cardinal-feminine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-cardinal-feminine;1000000000000000;كوادرليون
 spell;%spellout-cardinal-feminine;1000000000000001;كوادرليون وواحد
-spell;%spellout-cardinal-feminine;1999999999999999;كوادرليون وتسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-cardinal-feminine;2000000000000000;إثنان كوادرليون
-spell;%spellout-cardinal-feminine;2000000000000001;إثنان كوادرليون وواحد
+spell;%spellout-cardinal-feminine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;2000000000000000;كوادرليوني
+spell;%spellout-cardinal-feminine;2000000000000001;كوادرليوني وواحد
+spell;%spellout-cardinal-feminine;2999999999999999;كوادرليوني وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-cardinal-feminine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-cardinal-feminine;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-cardinal-feminine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-cardinal-feminine;Infinity;لا نهائية
+spell;%spellout-cardinal-feminine;NaN;ليس عددا
 spell;%spellout-numbering;-1;ناقص واحد
 spell;%spellout-numbering;0;صفر
 spell;%spellout-numbering;0.5;صفر فاصل خمسة
 spell;%spellout-numbering;1;واحد
 spell;%spellout-numbering;1.5;واحد فاصل خمسة
-spell;%spellout-numbering;2;إثنان
+spell;%spellout-numbering;2;اثنان
 spell;%spellout-numbering;3;ثلاثة
 spell;%spellout-numbering;4;أربعة
 spell;%spellout-numbering;5;خمسة
@@ -392,8 +619,8 @@ spell;%spellout-numbering;7;سبعة
 spell;%spellout-numbering;8;ثمانية
 spell;%spellout-numbering;9;تسعة
 spell;%spellout-numbering;10;عشرة
-spell;%spellout-numbering;11;إحدى عشر
-spell;%spellout-numbering;12;إثنا عشر
+spell;%spellout-numbering;11;أحد عشر
+spell;%spellout-numbering;12;اثنا عشر
 spell;%spellout-numbering;13;ثلاثة عشر
 spell;%spellout-numbering;14;أربعة عشر
 spell;%spellout-numbering;15;خمسة عشر
@@ -426,58 +653,256 @@ spell;%spellout-numbering;89;تسعة وثمانون
 spell;%spellout-numbering;90;تسعون
 spell;%spellout-numbering;91;واحد وتسعون
 spell;%spellout-numbering;99;تسعة وتسعون
-spell;%spellout-numbering;100;مائة
-spell;%spellout-numbering;101;مائة وواحد
-spell;%spellout-numbering;199;مائة وتسعة وتسعون
-spell;%spellout-numbering;200;مائتان
-spell;%spellout-numbering;201;مائتان وواحد
-spell;%spellout-numbering;299;مائتان وتسعة وتسعون
-spell;%spellout-numbering;300;ثلاثة مائة
-spell;%spellout-numbering;301;ثلاثة مائة وواحد
-spell;%spellout-numbering;500;خمسة مائة
-spell;%spellout-numbering;999;تسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;100;مئة
+spell;%spellout-numbering;101;مئة وواحد
+spell;%spellout-numbering;199;مئة وتسعة وتسعون
+spell;%spellout-numbering;200;مئتان
+spell;%spellout-numbering;201;مئتان وواحد
+spell;%spellout-numbering;299;مئتان وتسعة وتسعون
+spell;%spellout-numbering;300;ثلاثمئة
+spell;%spellout-numbering;301;ثلاثمئة وواحد
+spell;%spellout-numbering;500;خمسمئة
+spell;%spellout-numbering;999;تسعمئة وتسعة وتسعون
 spell;%spellout-numbering;1000;ألف
 spell;%spellout-numbering;1001;ألف وواحد
-spell;%spellout-numbering;1999;ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;1999;ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;2000;ألفين
 spell;%spellout-numbering;2001;ألفين وواحد
-spell;%spellout-numbering;2999;ألفين وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;2999;ألفين وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;3000;ثلاثة آلاف
 spell;%spellout-numbering;3001;ثلاثة آلاف وواحد
 spell;%spellout-numbering;5000;خمسة آلاف
 spell;%spellout-numbering;10000;عشرة آلاف
-spell;%spellout-numbering;10999;عشرة آلاف وتسعة مائة وتسعة وتسعون
-spell;%spellout-numbering;11000;إحدى عشر ألف
-spell;%spellout-numbering;11001;إحدى عشر ألف وواحد
-spell;%spellout-numbering;100000;مائة ألف
-spell;%spellout-numbering;999999;تسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;100000;مئة ألف
+spell;%spellout-numbering;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;1000000;مليون
 spell;%spellout-numbering;1000001;مليون وواحد
-spell;%spellout-numbering;1999999;مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-numbering;2000000;إثنان مليون
-spell;%spellout-numbering;2000001;إثنان مليون وواحد
-spell;%spellout-numbering;999999999;تسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;2000000;مليونين
+spell;%spellout-numbering;2000001;مليونين وواحد
+spell;%spellout-numbering;2999999;مليونين وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;3000000;ثلاثة ملايين
+spell;%spellout-numbering;3000001;ثلاثة ملايين وواحد
+spell;%spellout-numbering;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;1000000000;مليار
 spell;%spellout-numbering;1000000001;مليار وواحد
-spell;%spellout-numbering;1999999999;مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-numbering;2000000000;إثنان مليار
-spell;%spellout-numbering;2000000001;إثنان مليار وواحد
-spell;%spellout-numbering;999999999999;تسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;2000000000;مليارين
+spell;%spellout-numbering;2000000001;مليارين وواحد
+spell;%spellout-numbering;2999999999;مليارين وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;3000000000;ثلاثة مليارات
+spell;%spellout-numbering;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-numbering;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;1000000000000;ترليون
 spell;%spellout-numbering;1000000000001;ترليون وواحد
-spell;%spellout-numbering;1999999999999;ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-numbering;2000000000000;إثنان ترليون
-spell;%spellout-numbering;2000000000001;إثنان ترليون وواحد
-spell;%spellout-numbering;999999999999999;تسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;2000000000000;ترليونين
+spell;%spellout-numbering;2000000000001;ترليونين وواحد
+spell;%spellout-numbering;2999999999999;ترليونين وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;3000000000000;ثلاثة ترليونات
+spell;%spellout-numbering;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-numbering;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
 spell;%spellout-numbering;1000000000000000;كوادرليون
 spell;%spellout-numbering;1000000000000001;كوادرليون وواحد
-spell;%spellout-numbering;1999999999999999;كوادرليون وتسعة مائة وتسعة وتسعون ترليون وتسعة مائة وتسعة وتسعون مليار وتسعة مائة وتسعة وتسعون مليون وتسعة مائة وتسعة وتسعون ألف وتسعة مائة وتسعة وتسعون
-spell;%spellout-numbering;2000000000000000;إثنان كوادرليون
-spell;%spellout-numbering;2000000000000001;إثنان كوادرليون وواحد
-spell;%spellout-numbering-year;1;واحد
-spell;%spellout-numbering-year;1999;ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;2000000000000000;كوادرليونين
+spell;%spellout-numbering;2000000000000001;كوادرليونين وواحد
+spell;%spellout-numbering;2999999999999999;كوادرليونين وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعون
+spell;%spellout-numbering;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-numbering;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-numbering;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعون
+spell;%spellout-numbering;Infinity;اللانهاية
+spell;%spellout-numbering;NaN;ليس عددا
+spell;%spellout-numbering-year-feminine;1;واحدة
+spell;%spellout-numbering-year-feminine;2;اثنتين
+spell;%spellout-numbering-year-feminine;3;ثلاث
+spell;%spellout-numbering-year-feminine;4;أربع
+spell;%spellout-numbering-year-feminine;5;خمس
+spell;%spellout-numbering-year-feminine;6;ست
+spell;%spellout-numbering-year-feminine;7;سبع
+spell;%spellout-numbering-year-feminine;8;ثماني
+spell;%spellout-numbering-year-feminine;9;تسع
+spell;%spellout-numbering-year-feminine;10;عشر
+spell;%spellout-numbering-year-feminine;11;إحدى عشرة
+spell;%spellout-numbering-year-feminine;12;اثنتي عشرة
+spell;%spellout-numbering-year-feminine;13;ثلاث عشرة
+spell;%spellout-numbering-year-feminine;14;أربع عشرة
+spell;%spellout-numbering-year-feminine;19;تسع عشرة
+spell;%spellout-numbering-year-feminine;20;عشرين
+spell;%spellout-numbering-year-feminine;21;إحدى وعشرين
+spell;%spellout-numbering-year-feminine;29;تسع وعشرين
+spell;%spellout-numbering-year-feminine;30;ثلاثين
+spell;%spellout-numbering-year-feminine;31;إحدى وثلاثين
+spell;%spellout-numbering-year-feminine;39;تسع وثلاثين
+spell;%spellout-numbering-year-feminine;40;أربعين
+spell;%spellout-numbering-year-feminine;41;إحدى وأربعين
+spell;%spellout-numbering-year-feminine;49;تسع وأربعين
+spell;%spellout-numbering-year-feminine;50;خمسين
+spell;%spellout-numbering-year-feminine;51;إحدى وخمسين
+spell;%spellout-numbering-year-feminine;59;تسع وخمسين
+spell;%spellout-numbering-year-feminine;60;ستين
+spell;%spellout-numbering-year-feminine;61;إحدى وستين
+spell;%spellout-numbering-year-feminine;69;تسع وستين
+spell;%spellout-numbering-year-feminine;70;سبعين
+spell;%spellout-numbering-year-feminine;71;إحدى وسبعين
+spell;%spellout-numbering-year-feminine;79;تسع وسبعين
+spell;%spellout-numbering-year-feminine;80;ثمانين
+spell;%spellout-numbering-year-feminine;81;إحدى وثمانين
+spell;%spellout-numbering-year-feminine;89;تسع وثمانين
+spell;%spellout-numbering-year-feminine;90;تسعين
+spell;%spellout-numbering-year-feminine;91;إحدى وتسعين
+spell;%spellout-numbering-year-feminine;99;تسع وتسعين
+spell;%spellout-numbering-year-feminine;100;مئة
+spell;%spellout-numbering-year-feminine;101;مئة وواحدة
+spell;%spellout-numbering-year-feminine;199;مئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;200;مئتين
+spell;%spellout-numbering-year-feminine;201;مئتين وواحدة
+spell;%spellout-numbering-year-feminine;299;مئتين وتسع وتسعين
+spell;%spellout-numbering-year-feminine;300;ثلاثمئة
+spell;%spellout-numbering-year-feminine;301;ثلاثمئة وواحدة
+spell;%spellout-numbering-year-feminine;999;تسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;1000;ألف
+spell;%spellout-numbering-year-feminine;1001;ألف وواحدة
+spell;%spellout-numbering-year-feminine;1999;ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;2000;ألفين
+spell;%spellout-numbering-year-feminine;2001;ألفين وواحدة
+spell;%spellout-numbering-year-feminine;2999;ألفين وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;3000;ثلاثة آلاف
+spell;%spellout-numbering-year-feminine;3001;ثلاثة آلاف وواحدة
+spell;%spellout-numbering-year-feminine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;1000000;مليون
+spell;%spellout-numbering-year-feminine;1000001;مليون وواحدة
+spell;%spellout-numbering-year-feminine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;2000000;مليونين
+spell;%spellout-numbering-year-feminine;2000001;مليونين وواحدة
+spell;%spellout-numbering-year-feminine;2999999;مليونين وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;3000000;ثلاثة ملايين
+spell;%spellout-numbering-year-feminine;3000001;ثلاثة ملايين وواحدة
+spell;%spellout-numbering-year-feminine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;1000000000;مليار
+spell;%spellout-numbering-year-feminine;1000000001;مليار وواحدة
+spell;%spellout-numbering-year-feminine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;2000000000;مليارين
+spell;%spellout-numbering-year-feminine;2000000001;مليارين وواحدة
+spell;%spellout-numbering-year-feminine;2999999999;مليارين وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;3000000000;ثلاثة مليارات
+spell;%spellout-numbering-year-feminine;3000000001;ثلاثة مليارات وواحدة
+spell;%spellout-numbering-year-feminine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;1000000000000;ترليون
+spell;%spellout-numbering-year-feminine;1000000000001;ترليون وواحدة
+spell;%spellout-numbering-year-feminine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;2000000000000;ترليونين
+spell;%spellout-numbering-year-feminine;2000000000001;ترليونين وواحدة
+spell;%spellout-numbering-year-feminine;2999999999999;ترليونين وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;3000000000000;ثلاثة ترليونات
+spell;%spellout-numbering-year-feminine;3000000000001;ثلاثة ترليونات وواحدة
+spell;%spellout-numbering-year-feminine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;1000000000000000;كوادرليون
+spell;%spellout-numbering-year-feminine;1000000000000001;كوادرليون وواحدة
+spell;%spellout-numbering-year-feminine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;2000000000000000;كوادرليونين
+spell;%spellout-numbering-year-feminine;2000000000000001;كوادرليونين وواحدة
+spell;%spellout-numbering-year-feminine;2999999999999999;كوادرليونين وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسع وتسعين
+spell;%spellout-numbering-year-feminine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-numbering-year-feminine;3000000000000001;ثلاثة كوادرليونات وواحدة
+spell;%spellout-numbering-year-feminine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وإحدى وتسعين
+spell;%spellout-numbering-year-masculine;1;واحد
+spell;%spellout-numbering-year-masculine;2;اثنين
+spell;%spellout-numbering-year-masculine;3;ثلاثة
+spell;%spellout-numbering-year-masculine;4;أربعة
+spell;%spellout-numbering-year-masculine;5;خمسة
+spell;%spellout-numbering-year-masculine;6;ستة
+spell;%spellout-numbering-year-masculine;7;سبعة
+spell;%spellout-numbering-year-masculine;8;ثمانية
+spell;%spellout-numbering-year-masculine;9;تسعة
+spell;%spellout-numbering-year-masculine;10;عشرة
+spell;%spellout-numbering-year-masculine;11;أحد عشر
+spell;%spellout-numbering-year-masculine;12;اثني عشر
+spell;%spellout-numbering-year-masculine;13;ثلاثة عشر
+spell;%spellout-numbering-year-masculine;14;أربعة عشر
+spell;%spellout-numbering-year-masculine;19;تسعة عشر
+spell;%spellout-numbering-year-masculine;20;عشرين
+spell;%spellout-numbering-year-masculine;21;واحد وعشرين
+spell;%spellout-numbering-year-masculine;29;تسعة وعشرين
+spell;%spellout-numbering-year-masculine;30;ثلاثين
+spell;%spellout-numbering-year-masculine;31;واحد وثلاثين
+spell;%spellout-numbering-year-masculine;39;تسعة وثلاثين
+spell;%spellout-numbering-year-masculine;40;أربعين
+spell;%spellout-numbering-year-masculine;41;واحد وأربعين
+spell;%spellout-numbering-year-masculine;49;تسعة وأربعين
+spell;%spellout-numbering-year-masculine;50;خمسين
+spell;%spellout-numbering-year-masculine;51;واحد وخمسين
+spell;%spellout-numbering-year-masculine;59;تسعة وخمسين
+spell;%spellout-numbering-year-masculine;60;ستين
+spell;%spellout-numbering-year-masculine;61;واحد وستين
+spell;%spellout-numbering-year-masculine;69;تسعة وستين
+spell;%spellout-numbering-year-masculine;70;سبعين
+spell;%spellout-numbering-year-masculine;71;واحد وسبعين
+spell;%spellout-numbering-year-masculine;79;تسعة وسبعين
+spell;%spellout-numbering-year-masculine;80;ثمانين
+spell;%spellout-numbering-year-masculine;81;واحد وثمانين
+spell;%spellout-numbering-year-masculine;89;تسعة وثمانين
+spell;%spellout-numbering-year-masculine;90;تسعين
+spell;%spellout-numbering-year-masculine;91;واحد وتسعين
+spell;%spellout-numbering-year-masculine;99;تسعة وتسعين
+spell;%spellout-numbering-year-masculine;100;مئة
+spell;%spellout-numbering-year-masculine;101;مئة وواحد
+spell;%spellout-numbering-year-masculine;199;مئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;200;مئتين
+spell;%spellout-numbering-year-masculine;201;مئتين وواحد
+spell;%spellout-numbering-year-masculine;299;مئتين وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;300;ثلاثمئة
+spell;%spellout-numbering-year-masculine;301;ثلاثمئة وواحد
+spell;%spellout-numbering-year-masculine;999;تسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;1000;ألف
+spell;%spellout-numbering-year-masculine;1001;ألف وواحد
+spell;%spellout-numbering-year-masculine;1999;ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;2000;ألفين
+spell;%spellout-numbering-year-masculine;2001;ألفين وواحد
+spell;%spellout-numbering-year-masculine;2999;ألفين وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;3000;ثلاثة آلاف
+spell;%spellout-numbering-year-masculine;3001;ثلاثة آلاف وواحد
+spell;%spellout-numbering-year-masculine;999999;تسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;1000000;مليون
+spell;%spellout-numbering-year-masculine;1000001;مليون وواحد
+spell;%spellout-numbering-year-masculine;1999999;مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;2000000;مليونين
+spell;%spellout-numbering-year-masculine;2000001;مليونين وواحد
+spell;%spellout-numbering-year-masculine;2999999;مليونين وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;3000000;ثلاثة ملايين
+spell;%spellout-numbering-year-masculine;3000001;ثلاثة ملايين وواحد
+spell;%spellout-numbering-year-masculine;999999999;تسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;1000000000;مليار
+spell;%spellout-numbering-year-masculine;1000000001;مليار وواحد
+spell;%spellout-numbering-year-masculine;1999999999;مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;2000000000;مليارين
+spell;%spellout-numbering-year-masculine;2000000001;مليارين وواحد
+spell;%spellout-numbering-year-masculine;2999999999;مليارين وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;3000000000;ثلاثة مليارات
+spell;%spellout-numbering-year-masculine;3000000001;ثلاثة مليارات وواحد
+spell;%spellout-numbering-year-masculine;999999999999;تسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;1000000000000;ترليون
+spell;%spellout-numbering-year-masculine;1000000000001;ترليون وواحد
+spell;%spellout-numbering-year-masculine;1999999999999;ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;2000000000000;ترليونين
+spell;%spellout-numbering-year-masculine;2000000000001;ترليونين وواحد
+spell;%spellout-numbering-year-masculine;2999999999999;ترليونين وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;3000000000000;ثلاثة ترليونات
+spell;%spellout-numbering-year-masculine;3000000000001;ثلاثة ترليونات وواحد
+spell;%spellout-numbering-year-masculine;999999999999999;تسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;1000000000000000;كوادرليون
+spell;%spellout-numbering-year-masculine;1000000000000001;كوادرليون وواحد
+spell;%spellout-numbering-year-masculine;1999999999999999;كوادرليون وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;2000000000000000;كوادرليونين
+spell;%spellout-numbering-year-masculine;2000000000000001;كوادرليونين وواحد
+spell;%spellout-numbering-year-masculine;2999999999999999;كوادرليونين وتسعمئة وتسعة وتسعون ترليون وتسعمئة وتسعة وتسعون مليار وتسعمئة وتسعة وتسعون مليون وتسعمئة وتسعة وتسعون ألف وتسعمئة وتسعة وتسعين
+spell;%spellout-numbering-year-masculine;3000000000000000;ثلاثة كوادرليونات
+spell;%spellout-numbering-year-masculine;3000000000000001;ثلاثة كوادرليونات وواحد
+spell;%spellout-numbering-year-masculine;9007199254740991;تسعة كوادرليونات وسبعة ترليونات ومئة وتسعة وتسعون مليار ومئتان وأربعة وخمسون مليون وسبعمئة وأربعون ألف وتسعمئة وواحد وتسعين
+spell;%spellout-numbering-year;1;واحدة
+spell;%spellout-numbering-year;1999;ألف وتسعمئة وتسع وتسعين
 spell;%spellout-numbering-year;2000;ألفين
-spell;%spellout-numbering-year;2001;ألفين وواحد
+spell;%spellout-numbering-year;2001;ألفين وواحدة
 digits;%digits-ordinal;1;1
 digits;%digits-ordinal;2;2
 digits;%digits-ordinal;3;3

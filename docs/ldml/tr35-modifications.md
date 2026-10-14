@@ -105,6 +105,8 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
+* [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Clarified that when `skeleton` is missing on a mixed unit preference, the final subunit is rounded to the nearest integer (**precision-integer**), matching [Mixed Units](tr35-info.md#mixed-units).
+<!-- CLDR-19863 -->
 
 ### Collation
 

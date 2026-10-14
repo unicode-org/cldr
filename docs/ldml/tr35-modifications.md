@@ -21,6 +21,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
   * [General](#general)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
+    * [Person Names](#person-names)
     * [MessageFormat](#messageformat)
   * [Numbers](#numbers)
   * [Units](#units)
@@ -84,6 +85,11 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 * [`Time_Zone_Goals`](tr35-dates.md#Time_Zone_Goals) Modified the location format construction.
 * [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarified the computation of the exemplar city for non-location zones.
 
+#### Person Names
+
+* [initialPattern Syntax](tr35-personNames.md#initialpattern-syntax), [sampleName Syntax](tr35-personNames.md#samplename-syntax) Retitled the two “Syntax” headings after their sections, so that each one has its own link.
+<!-- CLDR-19840 -->
+
 #### MessageFormat
 
 * [:currency](tr35-messageFormat.md#the-currency-function), [:percent](tr35-messageFormat.md#the-percent-function) The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
@@ -105,6 +111,8 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
+* [Unit Preferences Data Examples](tr35-info.md#unit-preferences-data-examples), [Constraints Examples](tr35-info.md#constraints-examples) Retitled the two “Examples” headings after their sections, so that each one has its own link.
+<!-- CLDR-19840 -->
 
 ### Collation
 

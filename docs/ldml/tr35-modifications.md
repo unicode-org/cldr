@@ -105,6 +105,7 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
+<!-- CLDR-19868 Fix UK -> GB typo in Compute regions Fallback Region table -->
 
 ### Collation
 

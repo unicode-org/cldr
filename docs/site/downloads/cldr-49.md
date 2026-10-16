@@ -216,14 +216,14 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
 - The pre-Meiji Japanese eras were removed:
-There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
+    - There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
+- A new zip file named `cldr-exemplars-delta-49.zip` includes data files for CLDR locales that are below basic coverage, including from the exemplars directory. These are not recommended for general use, but are available especially implementations that need more extensive exemplar data.
+  - To use this file, first unpack the regular zip file, and then unpack the delta file in the same location.
+  - Any feedback on this new file is welcome, and can be submitted [as a new ticket][requesting_changes]. [CLDR-19806]
 - The `core.zip` / `cldr-common-49.zip` data file (production data) no longer includes data for locales not yet at Basic level.
   - These are 94 locales in [Locale Coverage](https://www.unicode.org/cldr/charts/49/supplemental/locale_coverage.html) that do not have `basic` in the **Computed Level** column nor `ICU` in the ICU column.
   - As noted below, locales are slated for removal from CLDR in version 50 if they do not reach Basic level.
 If you are able to help contribute data to bring a language up to Basic coverage in a future release, see [CLDR Organization] for how to contribute.
-- A new zip file named `cldr-exemplars-delta-49.zip` includes additional data files for CLDR locales that are below basic coverage, including from the exemplars directory.
-  - To use this file, first unpack the regular zip file, and then unpack the delta file in the same location.
-  - Any feedback on this new file is welcome, and can be submitted [as a new ticket][requesting_changes]. [CLDR-19806]
 
 ### Advanced warnings CLDR 50 and beyond
 
@@ -244,7 +244,7 @@ Please plan to update XML and JSON parsers accordingly.
 The data files will:
         - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
         - provide for tailorings (e.g., for CSS profiles) without data duplication.
-- For [UnicodeSet][], then [UTC][] is planning on a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
+- For [UnicodeSet][], the [UTC][] is developing a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
     - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. See [UTS #61][]: Unicode Set Notation (currently in draft).
     - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
 - The emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50.

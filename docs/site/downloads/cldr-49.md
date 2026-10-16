@@ -242,12 +242,11 @@ Please plan to update XML and JSON parsers accordingly.
     - CLDR plans will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
     - The [UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
 The data files will:
-    - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
-    - provide for tailorings (e.g., for CSS profiles) without data duplication.
-- For [UnicodeSet][], then [UTC][] is planning on a new specification to be used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
+        - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
+        - provide for tailorings (e.g., for CSS profiles) without data duplication.
+- For [UnicodeSet][], then [UTC][] is planning on a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
     - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. See [UTS #61][]: Unicode Set Notation (currently in draft).
-    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][].
-    - [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
+    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
 - The emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50.
     - If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
 - Date/time fields only intended for use in patterns will be deprecated in skeletons.

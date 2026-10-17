@@ -83,11 +83,11 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the CLDR specification, aside from those covered under DTD changes below.
 
-- Replaced the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
+- Replaced the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” with “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
     - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
-- Added to the Key/Type Description table to make clear which key/types use constructed values and supply a brief description of the `typeValue` element.
+- Added more information to the Key/Type Description table to make clear which key/types use constructed values and supply a brief description of the `typeValue` element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - Updated plural rules to make it clear that they are evaluated in _semantic_ order (zero, then one,…).
 - Updated [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
@@ -97,7 +97,7 @@ The following are the most significant changes to the CLDR specification, aside 
     * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
     * The `u:locale` option (previously in Draft) has been dropped from the specification.
     * Clarified the computation of the exemplar city for non-location zones.
-- Added additional subsections for reference
+- Added additional subsections for reference.
 
 See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
 
@@ -234,13 +234,13 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday),
 instead of being based on the start of the calendar week.
 The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
-- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files wil be organized more logically and moved into separate files.
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files will be organized more logically and moved into separate files.
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
 This will not affect the data, just which file it is located in.
 Please plan to update XML and JSON parsers accordingly.
-- For line breaking (and other segmentation types: grapheme clusters, word, and sentence breaks), the UTC is planning new data files.
-    - CLDR plans will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
-    - The [UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
+- For line breaking (and the other segmentation types: grapheme cluster, word, and sentence breaks), the UTC is planning new data files.
+    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
+    - See [PRI#555](https://www.unicode.org/review/pri555/) for the proposal.
 The data files will:
         - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
         - provide for tailorings (e.g., for CSS profiles) without data duplication.

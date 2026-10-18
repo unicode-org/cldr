@@ -7,7 +7,7 @@ RUN unzip /tmp/cldr-apps.zip -x "*/bootstrap.properties" "*/server.env"
 WORKDIR /tmp
 RUN unzip -j cldr-apps.zip wlp/usr/servers/cldr/apps/cldr-apps.war
 RUN unzip -j cldr-apps.war 'WEB-INF/lib/cldr-code-*'
-RUN mv -v cldr-code-*-SNAPSHOT.jar cldr-code.jar
+RUN mv -v cldr-code-*.jar cldr-code.jar
 
 FROM icr.io/appcafe/open-liberty:26.0.0.6-kernel-slim-java21-openj9-ubi-minimal AS server
 # copy just the server file so we get config

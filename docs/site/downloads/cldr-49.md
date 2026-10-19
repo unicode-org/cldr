@@ -19,8 +19,13 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release are:
 
+- Replaced the backronym for CLDR and unified the title of the CLDR specification
+  - “Common Locale Data Repository (CLDR)” → “Unicode Common Locale Data & Rules (CLDR)”
+  - “UTS #35: Unicode Locale Data Markup Language (LDML)” → “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
+  - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+  - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 - Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- New date & time formatting features including:
+- Added new date & time formatting features including:
   - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
   - Ordinal days in dates — e.g., Sept 3rd
   - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
@@ -28,13 +33,15 @@ The most significant changes in this release are:
   - Deprecated Japanese era data before Meiji
   - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时' → '2026/1/29 GMT-8 17时'
   - Additional skeleton-patterns added for flexible and interval date formats
-- New units (conversions and formatting)
+- Added new units (conversions and formatting)
     - 3 new units: poundal, syne, and milliinch (US mil)
     - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
-- Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
-- Many additional localized locale option names for use in menus, such as calendar and number-system names
-- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
-- Updates to the most recent versions of external standards and data sources,
+- Added _nested bracket replacement_ — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
+- Added many additional localized locale option names for use in menus, such as calendar and number-system names
+- Added client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
+  - This data allows implementations to determine precisely what the coverage level for each path in a given locale.
+  - Note: This is not the same as the data for which locales have reached particular coverage levels. That is in `properties/coverageLevels.txt`
+- Updated to the most recent versions of external standards and data sources,
 such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 
 Note: Some features are in *Technical Preview*,
@@ -76,22 +83,21 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the CLDR specification, aside from those covered under DTD changes below.
 
-- Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)”, 
-and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
-    - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+- Replaced the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” with “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
     - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
     - This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
-- In the Key/Type Description table, added a description which key/types use constructed values and a brief description of the typeValue element.
+- Added more information to the Key/Type Description table to make clear which key/types use constructed values and supply a brief description of the `typeValue` element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
-- For plural rules, made it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
+- Updated plural rules to make it clear that they are evaluated in _semantic_ order (zero, then one,…).
+- Updated [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
 - Revised the `numberFormat` description.
 - For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat
     * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
     * The `u:locale` option (previously in Draft) has been dropped from the specification.
     * Clarified the computation of the exemplar city for non-location zones.
+- Added additional subsections for reference.
 
 See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
 
@@ -186,10 +192,10 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 * Improved the ability to search for items including: value, English value, code.
 * Improved display and editing of hidden and ambiguous characters in the Survey Tool.
 * Updated the [Datetime](https://st.unicode.org/cldr-apps/v#r_datetime/ar//) and [Numbers](https://st.unicode.org/cldr-apps/v#r_compact/ar//) report so that vetters can see formats with both native digits and in the Latin script for locales in a script that has native digits that are still commonly used.
-* Added a [category of "New" in the Dashboard](/translation/getting-started/vetting-view#dashboard-categories) and Vetting participation to make it easier for vetters to see which items did not have a winning value in the previous release and thus are "New" in the current release.
+* Added a [category of “New” in the Dashboard](/translation/getting-started/vetting-view#dashboard-categories) and Vetting participation to make it easier for vetters to see which items did not have a winning value in the previous release.
 * Made it easier to see which items have forum posts in the voting view. 👁️‍🗨️ if there are any open discussions, and 💬 if there are discussions, but all are closed.
-* The Survey Tool has been revised to display a candidate item in the Winning column if it is currently winning, even if it has the status “missing” due to it not having enough recorded votes. Previously, such items were shown in the Others column. Items with the status “missing” may still be published in the final release.
-* Automatically generate minimal pair items based on a locale's plurals and ordinals so vetters can contribute data in the Survey Tool instead of requiring changes in XML.
+* Revised the Survey Tool to display a candidate item in the Winning column if it is currently winning, even if it has the status “missing” due to it not having enough recorded votes. Previously, such items were shown in the Others column. Items with the status “missing” may still be published in the final release.
+* Automatically generated minimal pair items based on a locale's plurals and ordinals so vetters can contribute data in the Survey Tool instead of requiring changes in XML.
 * Updated voting for [non-TC CLDR Organizations](/index/survey-tool/cldr-organization). We now calculate the winning vote for a non-TC organization to be the value with the most votes (instead of the most recent vote, as we do for TC organizations).
 * Improved error detection:
   * Improved detection of non-date pattern characters in dates and times that are not marked as literals appropriately.
@@ -197,7 +203,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
   * Fixed an issue where collisions were only visible if 3 items were colliding.
   * Improved consistency of error visibility between Survey Tool components (e.g. Dashboard, Voting View & Info Panel).
 * Fixed bugs causing bulk imports to fail.
-* Updating the automatic messages sent following a Survey Tool push to production to include the list of changes included in the push.
+* Updated the automatic messages sent following a Survey Tool push to production to include the list of changes included in the push.
 * Added information about the creation date of Survey Tool accounts to make troubleshooting quicker.
 
 #### Access changes based on Survey Tool phase
@@ -205,29 +211,19 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 * Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting][] phase.
 * Updated READONLY phase to only allow creating and responding to posts in the forum.
 
-#### Other Tooling improvements
-
-* Automated CLDRModify to run after all changes made in XML.
-* Updated CLDRModify to allow copying the default plural "Other" values to another plural category if needed.
-* Fixed some issues to make generating vXML less time-consuming.
-* Updated to automatically set CLDR_DIR to make using CLDRUtility's easier.
-
 ## Migration
 
 The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
 - The pre-Meiji Japanese eras were removed:
-There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
-
+    - There was too much uncertainty in the exact values and we received feedback that the general practice for referencing exact dates for the pre-Meiji era is to use the Gregorian calendar.
+- A new zip file named `cldr-exemplars-delta-49.zip` includes data files for CLDR locales that are below basic coverage, including from the exemplars directory. These are not recommended for general use, but are available especially implementations that need more extensive exemplar data.
+  - To use this file, first unpack the regular zip file, and then unpack the delta file in the same location.
+  - Any feedback on this new file is welcome, and can be submitted [as a new ticket][requesting_changes]. [CLDR-19806]
 - The `core.zip` / `cldr-common-49.zip` data file (production data) no longer includes data for locales not yet at Basic level.
-These are 94 locales in [Locale Coverage](https://www.unicode.org/cldr/charts/49/supplemental/locale_coverage.html) that do not have `basic` in the **Computed Level** column nor `ICU` in the ICU column.
-As noted below, this data is slated for removal from CLDR in version 50 if the data does not progress.
+  - These are 94 locales in [Locale Coverage](https://www.unicode.org/cldr/charts/49/supplemental/locale_coverage.html) that do not have `basic` in the **Computed Level** column nor `ICU` in the ICU column.
+  - As noted below, locales are slated for removal from CLDR in version 50 if they do not reach Basic level.
 If you are able to help contribute data to bring a language up to Basic coverage in a future release, see [CLDR Organization] for how to contribute.
-
-  - A new zip file named `cldr-exemplars-delta-49.zip` includes additional data files for CLDR locales that are below basic coverage, including from the exemplars directory.
-To use this file, first unpack the regular zip file, and then unpack the delta file in the same location.
-Any feedback on this new file is welcome, and can be submitted [as a new ticket][requesting_changes]. [CLDR-19806]
-
 
 ### Advanced warnings CLDR 50 and beyond
 
@@ -238,25 +234,25 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday),
 instead of being based on the start of the calendar week.
 The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
-- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files will be organized more logically and moved into separate files.
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
 This will not affect the data, just which file it is located in.
 Please plan to update XML and JSON parsers accordingly.
-- For line breaking (and other segmentation types), the UTC is considering publishing new data files.
-CLDR plans [CLDR-18624] to adopt this tailoring mechanism once the UTC has approved its publication.
-[UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
+- For line breaking (and the other segmentation types: grapheme cluster, word, and sentence breaks), the UTC is planning new data files.
+    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
+    - See [PRI#555](https://www.unicode.org/review/pri555/) for the proposal.
 The data files will:
-    - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
-    - provide for tailorings (e.g., for CSS profiles) without data duplication.
-- For [UnicodeSet][], then [UTC][] is planning on a new specification,
-because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
-See [UTS #61][]: Unicode Set Notation (currently in draft).
-    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][].
-    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][].
-    - [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
-- Emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50. If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
-- **Deprecation of pattern-only fields in date/time skeletons**: Pattern-only field symbols—specifically stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`)—as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage, are slated for deprecation in skeletons in CLDR 50 (use `M`, `Q`, `E`/`e`, and `h`/`H` instead). [CLDR-19757][]
-- Redundant plural cases, and possibly other redundant data, will be removed from production data where inheritance (including [Lateral Inheritance](https://unicode.org/reports/tr35/tr35.html#Lateral_Inheritance)) produces identical results. [CLDR-19193]
+        - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
+        - provide for tailorings (e.g., for CSS profiles) without data duplication.
+- For [UnicodeSet][], the [UTC][] is developing a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
+    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. See [UTS #61][]: Unicode Set Notation (currently in draft).
+    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
+- The emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50.
+    - If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
+- Date/time fields only intended for use in patterns will be deprecated in skeletons.
+    - These include stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`) — as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage.
+    - Skeletons should use the vanilla symbols `M`, `Q`, `E`/`e`, and `h`/`H` instead. [CLDR-19757][]
+- Redundant plural cases, and possibly other redundant data, will be removed from production data. This is where inheritance (including [Lateral Inheritance](https://unicode.org/reports/tr35/tr35.html#Lateral_Inheritance)) produces identical results. [CLDR-19193]
 
 ## Known Issues
 
@@ -268,7 +264,7 @@ See [UTS #61][]: Unicode Set Notation (currently in draft).
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR;
+Many people have made significant contributions to CLDR (structure, data, specification, tooling, and process);
 see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;

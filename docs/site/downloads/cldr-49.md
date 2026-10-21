@@ -28,18 +28,18 @@ The most significant changes in this release are:
 - Updated for Unicode 18, including annotations for the new emoji, changes to sorting order, etc.  
 - Added new date & time formatting features including:  
   - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST  
-  - Ordinal days in dates — e.g., Sept 3rd  
-  - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031  
-  - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7  
+  - Ordinal numbers for days — e.g., Sept 3rd  
+  - Customizing numeric datetime separators in patterns — e.g., 3-10-2031 → 3/10/2031  
+  - Dual format for zones with two offsets (summer and winter) — e.g., GMT-8/-7  
   - Deprecated Japanese era data before Meiji  
   - Structure for preventing digit-digit merges — e.g., ‘2026/1/29 GMT-817时’ → ‘2026/1/29 GMT-8 17时’  
   - Additional skeleton-patterns added for flexible and interval date formats  
 - Added new units (conversions and formatting)  
-- Added *nested bracket replacement- — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar \[Birmânia\])”  
-- Added many additional localized locale option names for use in menus, such as calendar and number-system names  
+- Added *nested bracket replacement* — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar \[Birmânia\])”.  
+- Added many additional localized locale option names for use in menus, such as calendar and number-system names.
 - Updated to the most recent versions of external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.  
-- Added many specification changes, both for features above, and clarifications of particular processes relevant to conformance.  
-- Added client coverage data — per-path coverage data in a format that is easy for clients to use and relatively small
+- Added many specification changes, both for the features above and for clarifications of particular processes relevant to conformance.  
+- Added client coverage data: per-path coverage data in a format that is easy for clients to use and relatively small.
 
 Note: Some features are in *Technical Preview*,
 while others were included in dot releases of 48 and may be new for implementers that didn't update beyond version 48.0.
@@ -87,7 +87,7 @@ The following are the most significant changes to the CLDR specification, aside 
 - Added more information to the Key/Type Description table to make clear which key/types use constructed values and supply a brief description of the `typeValue` element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - Updated plural rules to make it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- Updated [Part 5: Collation] has been updated to reflect the changes that were upstreamed into [UTS #10] as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
+- Updated [Part 5: Collation] to reflect the changes that were upstreamed into [UTS #10] as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
 - Revised the `numberFormat` description.
 - For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat

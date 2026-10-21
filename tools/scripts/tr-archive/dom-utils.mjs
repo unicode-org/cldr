@@ -103,12 +103,11 @@ export function createHeaderTable(info, data, document) {
     addRow("Editors", createEditors(document, data.editors, subject)).setAttribute("class", "boldRow");
     addRow("Date", info.date).setAttribute("class", "boldRow");
     if (data.part) {
-        addRow("This Revision", createLink(document, `${info.latest}/tr35-${info.revision}/${data.basename}.html`));
-        addRow("Previous Revision", createLink(document, `${info.latest}/tr35-${info.prevRevision}/${data.basename}.html`));
+        addRow("This Version", createLink(document, `${info.latest}/tr35-${info.revision}/${data.basename}.html`));
+        addRow("Previous Version", createLink(document, `${info.latest}/tr35-${info.prevRevision}/${data.basename}.html`));
+        addRow("Latest Version", createLink(document, info.latest));
         addRow("Corrigenda", createLink(document, info.corrigenda));
         addRow("Latest Proposed Update", createLink(document, info.latestProposedUpdate));
-    }
-    if (data.part) {
         addRow("Namespace", createLink(document, info.namespace));
         addRow("DTDs", createLink(document, `${info.dtd}/${info.version}/`));
         addRow("Change History", createLink(document, `tr35-modifications.html#modifications`, 'Modifications'));

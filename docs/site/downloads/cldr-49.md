@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49][] | [release-49] | [ΔDtd49] | [J49.0.0] |
+|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49] | [release-49] | [ΔDtd49] | [J49.0.0] |
 
 ## Overview
 
@@ -128,7 +128,7 @@ Updates for:
 - Language group data (from Wikidata)
 - Language script data
 - Metazone and timezone data
-- Plural/Ordinal rules (af, bg, es, fr, gl, nn, tg, vi — see [Language Plural Rules chart][] for more information)
+- Plural/Ordinal rules (af, bg, es, fr, gl, nn, tg, vi — see [Language Plural Rules chart] for more information)
      - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
 - Currencies
 - Deprecation of Japanese eras (pre Meiji)
@@ -136,8 +136,8 @@ Updates for:
     - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 - Number Spellout: Added or improved RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more.
-See [RBNF tickets for full list][].
-- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview*
+See [RBNF tickets for full list].
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage]. *Technical Preview*
 
 For a full listing, see [¤¤BCP47 Delta] and [¤¤Supplemental Delta].
 
@@ -205,7 +205,7 @@ For a full listing, see [Delta Data].
 
 #### Access changes based on Survey Tool phase
 
-* Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting][] phase.
+* Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting] phase.
 * Updated READONLY phase to only allow creating and responding to posts in the forum.
 
 ## Migration
@@ -230,30 +230,30 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday),
 instead of being based on the start of the calendar week.
-The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
+The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files will be organized more logically and moved into separate files.
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
 This will not affect the data, just which file it is located in.
 Please plan to update XML and JSON parsers accordingly.
 - For line breaking (and the other segmentation types: grapheme cluster, word, and sentence breaks), the UTC is planning new data files.
-    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
+    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624]
     - See [PRI#555](https://www.unicode.org/review/pri555/) for the proposal.
 The data files will:
         - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
         - provide for tailorings (e.g., for CSS profiles) without data duplication.
 - For [UnicodeSet], the [UTC] is developing a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
-    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. See [UTS #61][]: Unicode Set Notation (currently in draft).
-    - Following [UTC][] approval of [UTS #61], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
+    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35]. See [UTS #61]: Unicode Set Notation (currently in draft).
+    - Following [UTC] approval of [UTS #61], CLDR plans to deprecate the section in [UTS #35], and redirect users to the new [UTS #61]. [UTS #35] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624]
 - The emoji [/properties/labels.txt] is not currently maintained and may be deprecated in CLDR 50.
-    - If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
+    - If you rely on this data please comment on [CLDR-19752] to let us know your use case.
 - Date/time fields only intended for use in patterns will be deprecated in skeletons.
     - These include stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`) — as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage.
-    - Skeletons should use the vanilla symbols `M`, `Q`, `E`/`e`, and `h`/`H` instead. [CLDR-19757][]
+    - Skeletons should use the vanilla symbols `M`, `Q`, `E`/`e`, and `h`/`H` instead. [CLDR-19757]
 - Redundant plural cases, and possibly other redundant data, will be removed from production data. This is where inheritance (including [Lateral Inheritance](https://unicode.org/reports/tr35/tr35.html#Lateral_Inheritance)) produces identical results. [CLDR-19193]
 
 ## Known Issues
 
-- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060][] for more details.
+- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060] for more details.
 - Keyboards
   - Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
   - `minDeviceWidth` attribute is inadequately speified. [CLDR-19754]

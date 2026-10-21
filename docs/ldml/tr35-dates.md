@@ -541,8 +541,8 @@ In the future, this may expand to longer `dayOfMonth` elements that are used in 
 
 * The `ddd` is ignored in any pattern with a _numeric month_ (M, MM).
 It will only appear and be used with _non-numeric months_ (MMM, MMMM); for example, Dec or December.
-[See Date/Time Symbols](https://cldr.unicode.org/date-time/date-time-symbols) for more information about symbol length.  
-* When the locale *always* uses ordinals with _non-numeric months_, then the patterns where they are should *always* have `ddd` in them (instead of `d` or `dd`.  
+[See Date/Time Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols) for more information about symbol length.
+* When the locale *always* uses ordinals with _non-numeric months_, then the patterns where they are should *always* have `ddd` in them (instead of `d` or `dd`.
   * For example, suppose that a form like “March 3, 2026” is not acceptable; the locale always uses a form like “March 3rd, 2026”.
 In that case, for the code `yMMMMd` the pattern should have `ddd` in it to force the use of ordinals, something like: “MMMM ddd, y” .
 * If a locale *sometimes* uses ordinals with _non-numeric months_, then generally when a skeleton has `ddd` in it, the pattern should also have it; when a skeleton has `d` in it, the pattern should also have it. 

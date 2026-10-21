@@ -35,6 +35,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
 
       - regenerated ToC
       - bump spec date
+      - changed spec to final
 
 -->
 

@@ -6,12 +6,12 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | [CLDR49](https://unicode.org/Public/cldr/49/) | [Charts49](https://unicode.org/cldr/charts/dev) | [CLDR49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | [release-49-beta2](https://github.com/unicode-org/cldr/releases/tag/release-49-beta2) | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [49.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0-BETA1) |
+|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49] | [release-49] | [ΔDtd49] | [JSON49] |
 
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
-CLDR data is used by all [major software systems](/index#who-uses-cldr)
+CLDR data is used by all [major software systems]
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
@@ -19,30 +19,27 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release are:
 
-- Replaced the backronym for CLDR and unified the title of the CLDR specification
-  - “Common Locale Data Repository (CLDR)” → “Unicode Common Locale Data & Rules (CLDR)”
-  - “UTS #35: Unicode Locale Data Markup Language (LDML)” → “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
-  - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
-  - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
-- Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- Added new date & time formatting features including:
-  - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
-  - Ordinal days in dates — e.g., Sept 3rd
-  - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
-  - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7
-  - Deprecated Japanese era data before Meiji
-  - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时' → '2026/1/29 GMT-8 17时'
-  - Additional skeleton-patterns added for flexible and interval date formats
-- Added new units (conversions and formatting)
-    - 3 new units: poundal, syne, and milliinch (US mil)
-    - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
-- Added _nested bracket replacement_ — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
-- Added many additional localized locale option names for use in menus, such as calendar and number-system names
-- Added client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
-  - This data allows implementations to determine precisely what the coverage level for each path in a given locale.
-  - Note: This is not the same as the data for which locales have reached particular coverage levels. That is in `properties/coverageLevels.txt`
-- Updated to the most recent versions of external standards and data sources,
-such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- Replaced the backronym for CLDR  
+  - “Common Locale Data Repository (CLDR)”   
+    → “Common Locale Data & Rules (CLDR)”  
+- Aligned the title of the CLDR specification  
+  - “UTS \#35: Unicode Locale Data Markup Language (LDML)”  
+    → “UTS \#35: Unicode Common Locale Data & Rules (CLDR)”.  
+- Updated for Unicode 18, including annotations for the new emoji, changes to sorting order, etc.  
+- Added new date & time formatting features including:  
+  - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST  
+  - Ordinal numbers for days — e.g., Sept 3rd  
+  - Customizing numeric datetime separators in patterns — e.g., 3-10-2031 → 3/10/2031  
+  - Dual format for zones with two offsets (summer and winter) — e.g., GMT-8/-7  
+  - Deprecated Japanese era data before Meiji  
+  - Structure for preventing digit-digit merges — e.g., ‘2026/1/29 GMT-817时’ → ‘2026/1/29 GMT-8 17时’  
+  - Additional skeleton-patterns added for flexible and interval date formats  
+- Added new units (conversions and formatting)  
+- Added *nested bracket replacement* — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar \[Birmânia\])”.  
+- Added many additional localized locale option names for use in menus, such as calendar and number-system names.
+- Updated to the most recent versions of external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.  
+- Added many specification changes, both for the features above and for clarifications of particular processes relevant to conformance.  
+- Added client coverage data: per-path coverage data in a format that is easy for clients to use and relatively small.
 
 Note: Some features are in *Technical Preview*,
 while others were included in dot releases of 48 and may be new for implementers that didn't update beyond version 48.0.
@@ -77,7 +74,7 @@ Notes:
 
 ‡ Indicates locales that have gone up or down by more than one level.
 
-For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
+For a full listing, see [Coverage Levels]
 
 ## Specification Changes
 
@@ -90,7 +87,7 @@ The following are the most significant changes to the CLDR specification, aside 
 - Added more information to the Key/Type Description table to make clear which key/types use constructed values and supply a brief description of the `typeValue` element.
    - Also changed the table from HTML to Markdown, with each Key description (such as `co` for collation) having its own subheader.
 - Updated plural rules to make it clear that they are evaluated in _semantic_ order (zero, then one,…).
-- Updated [Part 5: Collation](https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents) has been updated to reflect the changes that were upstreamed into [UTS #10](https://www.unicode.org/reports/tr10/tr10-55.html#Modifications) as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
+- Updated [Part 5: Collation] to reflect the changes that were upstreamed into [UTS #10] as part of Unicode 18.0. As a result, the order of all characters in the CLDR root collation is now the same as in the UCA DUCET.
 - Revised the `numberFormat` description.
 - For Units, made the formatting and phrasing more internally consistent.
 - For MessageFormat
@@ -99,7 +96,7 @@ The following are the most significant changes to the CLDR specification, aside 
     * Clarified the computation of the exemplar city for non-location zones.
 - Added additional subsections for reference.
 
-See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
+See the [Modifications section] of the specification for details.
 
 ### DTD Changes
 
@@ -115,7 +112,7 @@ Added:
 - `numberSystem` in currency formats to allow for different formats for locales with multiple number systems.
 - `nestedBracketReplacement` (48.2) for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”.
 
-For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/49/supplemental/dtd_deltas.html).
+For a full listing, see [Delta DTDs].
 
 ## Data Changes
 
@@ -131,7 +128,7 @@ Updates for:
 - Language group data (from Wikidata)
 - Language script data
 - Metazone and timezone data
-- Plural/Ordinal rules (af, bg, es, fr, gl, nn, tg, vi — see [Language Plural Rules chart][] for more information)
+- Plural/Ordinal rules (af, bg, es, fr, gl, nn, tg, vi — see [Language Plural Rules chart] for more information)
      - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
 - Currencies
 - Deprecation of Japanese eras (pre Meiji)
@@ -139,10 +136,10 @@ Updates for:
     - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
 - Coverage: fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 - Number Spellout: Added or improved RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more.
-See [RBNF tickets for full list][].
-- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview*
+See [RBNF tickets for full list].
+- Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage]. *Technical Preview*
 
-For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
+For a full listing, see [¤¤BCP47 Delta] and [¤¤Supplemental Delta].
 
 ### Locale Data Changes
 
@@ -153,7 +150,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 - Names and search keywords for the new Unicode 18.0 emoji
 - Other spot fixes for specific locales
 
-For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
+For a full listing, see [Delta Data].
 
 ### Keyboard Changes
 
@@ -184,7 +181,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 * Migrated the spec and site to generate previews to Cloudflare.
 * Automated updates to the header for key elements such as Date.
-* Added support for symbolic links (e.g. using the CLDR version such as 48 in the link will take you to the latest version for that major release, such as [tr35-78](https://www.unicode.org/reports/tr35/tr35-78/tr35.html) for 48.2.
+* Added support for symbolic links (e.g. using the CLDR version such as 48 in the link will take you to the latest version for that major release, such as [tr35-78] for 48.2.
 * Added a check to require edits to modifications when the spec is updated.
 
 ####  Survey Tool improvements
@@ -208,7 +205,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 #### Access changes based on Survey Tool phase
 
-* Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting][] phase.
+* Added the ability for the CLDR TC to allow specific locales to continue submitting new data items during the [Vetting] phase.
 * Updated READONLY phase to only allow creating and responding to posts in the forum.
 
 ## Migration
@@ -233,30 +230,30 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday),
 instead of being based on the start of the calendar week.
-The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
+The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files will be organized more logically and moved into separate files.
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
 This will not affect the data, just which file it is located in.
 Please plan to update XML and JSON parsers accordingly.
 - For line breaking (and the other segmentation types: grapheme cluster, word, and sentence breaks), the UTC is planning new data files.
-    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624][]
+    - CLDR will adopt this tailoring mechanism once the UTC has approved its publication, because it will drastically reduce the size and complexity of segmentation tailorings. [CLDR-18624]
     - See [PRI#555](https://www.unicode.org/review/pri555/) for the proposal.
 The data files will:
         - allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance
         - provide for tailorings (e.g., for CSS profiles) without data duplication.
-- For [UnicodeSet][], the [UTC][] is developing a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
-    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. See [UTS #61][]: Unicode Set Notation (currently in draft).
-    - Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
-- The emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50.
-    - If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
+- For [UnicodeSet], the [UTC] is developing a new specification for all Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4C/J/X).
+    - It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35]. See [UTS #61]: Unicode Set Notation (currently in draft).
+    - Following [UTC] approval of [UTS #61], CLDR plans to deprecate the section in [UTS #35], and redirect users to the new [UTS #61]. [UTS #35] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624]
+- The emoji [/properties/labels.txt] is not currently maintained and may be deprecated in CLDR 50.
+    - If you rely on this data please comment on [CLDR-19752] to let us know your use case.
 - Date/time fields only intended for use in patterns will be deprecated in skeletons.
     - These include stand-alone fields (`L`, `q`, `c`) and non-canonical hour fields (`K`, `k`) — as well as day period symbols (`a`, `b`, `B`) without an accompanying 12-hour field (`h`, `j`) or standalone usage.
-    - Skeletons should use the vanilla symbols `M`, `Q`, `E`/`e`, and `h`/`H` instead. [CLDR-19757][]
+    - Skeletons should use the vanilla symbols `M`, `Q`, `E`/`e`, and `h`/`H` instead. [CLDR-19757]
 - Redundant plural cases, and possibly other redundant data, will be removed from production data. This is where inheritance (including [Lateral Inheritance](https://unicode.org/reports/tr35/tr35.html#Lateral_Inheritance)) produces identical results. [CLDR-19193]
 
 ## Known Issues
 
-- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060][] for more details.
+- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060] for more details.
 - Keyboards
   - Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
   - `minDeviceWidth` attribute is inadequately speified. [CLDR-19754]
@@ -265,12 +262,49 @@ The data files will:
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR (structure, data, specification, tooling, and process);
-see the [Acknowledgments](/index/acknowledgments) page for a full listing.
+see the [Acknowledgments] page for a full listing.
 
-The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
-in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
+The Unicode [Terms of Use] apply to CLDR data;
+in particular, see [Exhibit 1].
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+
+<!-- Header links; need version updating each release, and changing the label text -->
+[v49]: /index/downloads/cldr-49
+[CLDR49]: https://unicode.org/Public/cldr/49/
+[Charts49]: https://unicode.org/cldr/charts/49
+[Spec49]: https://www.unicode.org/reports/tr35/tr35-79/tr35.html
+[Δ49]: https://unicode-org.atlassian.net/issues?jql=project%3DCLDR%0AAND%20status%3DDone%0AAND%20resolution%3DFixed%0AAND%20fixversion%3D49%0AORDER%20BY%20priority%20DESC
+[release-49]: https://github.com/unicode-org/cldr/releases/tag/release-49
+[ΔDtd49]: https://www.unicode.org/cldr/charts/49/supplemental/dtd_deltas.html
+[JSON49]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
+
+<!-- Common body links; need version updating each release, but no change to label text -->
+[Delta DTDs]: https://unicode.org/cldr/charts/49/supplemental/dtd_deltas.html
+[Delta Data]: https://unicode.org/cldr/charts/49/delta/index.html
+[Modifications section]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications
+[¤¤BCP47 Delta]: https://unicode.org/cldr/charts/49/delta/bcp47.html
+[¤¤Supplemental Delta]: https://unicode.org/cldr/charts/49/delta/supplemental-data.html
+[RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC
+[Keyboard Spec Changes in v49]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#keyboards
+
+<!-- Common constant links for each release page; no update needed for next release -->
+[major software systems]: /index#who-uses-cldr
+[tr35-78]: https://www.unicode.org/reports/tr35/tr35-78/tr35.html
+[Acknowledgments]: /index/acknowledgments
+[Terms of Use]: https://unicode.org/copyright.html
+[Exhibit 1]: https://unicode.org/copyright.html#Exhibit1
+[http://cldr.unicode.org/index/charts]: /index/charts
+[Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
+[UTS #35]: https://www.unicode.org/reports/tr35/
+[UTS #61]: https://www.unicode.org/reports/tr61/
+[Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
+[UTC]: https://www.unicode.org/consortium/utc.html
+[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[CLDR Organization]: https://cldr.unicode.org/index/survey-tool/cldr-organization
+[requesting_changes]: /requesting_changes#how-to-file-a-ticket
+
+<!-- Specific links for this page: probably deleted for the next release — may need version updates if reused -->
 
 [CLDR-10769]: https://unicode-org.atlassian.net/browse/CLDR-10769
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
@@ -288,18 +322,11 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19757]: https://unicode-org.atlassian.net/browse/CLDR-19757
 [CLDR-19806]: https://unicode-org.atlassian.net/browse/CLDR-19806
 [CLDR-19193]: https://unicode-org.atlassian.net/browse/CLDR-19193
-[Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
-[UTS #35]: https://www.unicode.org/reports/tr35/
-[UTS #61]: https://www.unicode.org/reports/tr61/
-[Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
+[CLDR-19774]: https://unicode-org.atlassian.net/browse/CLDR-19774
+
+[Part 5: Collation]: https://www.unicode.org/reports/tr35/49/tr35-collation.html#Contents
+[UTS #10]: https://www.unicode.org/reports/tr10/tr10-55.html#Modifications
 [plurals tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20AND%20component%20%3D%20plurals%0AORDER%20BY%20priority%20DESC
 [/properties/labels.txt]: https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt
-[RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC
 [UnicodeSet]: https://unicode.org/reports/tr35/#Unicode_Sets
-[UTC]: https://www.unicode.org/consortium/utc.html
-[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
-[Keyboard Spec Changes in v49]: https://www.unicode.org/reports/tr35/49/tr35-modifications.html#keyboards
-[CLDR-19774]: https://unicode-org.atlassian.net/browse/CLDR-19774
 [pathcoverage]: https://github.com/unicode-org/cldr/blob/main/common/pathCoverage/README.md
-[CLDR Organization]: https://cldr.unicode.org/index/survey-tool/cldr-organization
-[requesting_changes]: /requesting_changes#how-to-file-a-ticket

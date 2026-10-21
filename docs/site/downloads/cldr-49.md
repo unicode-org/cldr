@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | [CLDR49](https://unicode.org/Public/cldr/49/) | [Charts49](https://unicode.org/cldr/charts/dev) | [CLDR49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | [release-49-beta2](https://github.com/unicode-org/cldr/releases/tag/release-49-beta2) | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [49.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0-BETA1) |
+|  49 | 2026-10-22 | [v49][] | [CLDR49][] | [Charts49][] | [Spec49][] | [Δ49][] | [release-49][] | [ΔDtd49][] | [J49.0.0][] |
 
 ## Overview
 
@@ -19,30 +19,27 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release are:
 
-- Replaced the backronym for CLDR and unified the title of the CLDR specification
-  - “Common Locale Data Repository (CLDR)” → “Unicode Common Locale Data & Rules (CLDR)”
-  - “UTS #35: Unicode Locale Data Markup Language (LDML)” → “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
-  - The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
-  - Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
-- Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- Added new date & time formatting features including:
-  - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
-  - Ordinal days in dates — e.g., Sept 3rd
-  - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
-  - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7
-  - Deprecated Japanese era data before Meiji
-  - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时' → '2026/1/29 GMT-8 17时'
-  - Additional skeleton-patterns added for flexible and interval date formats
-- Added new units (conversions and formatting)
-    - 3 new units: poundal, syne, and milliinch (US mil)
-    - 14 new display names (only in English: poundal and mil are only US units, while dyne is obsolete)
-- Added _nested bracket replacement_ — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
-- Added many additional localized locale option names for use in menus, such as calendar and number-system names
-- Added client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]
-  - This data allows implementations to determine precisely what the coverage level for each path in a given locale.
-  - Note: This is not the same as the data for which locales have reached particular coverage levels. That is in `properties/coverageLevels.txt`
-- Updated to the most recent versions of external standards and data sources,
-such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- Replaced the backronym for CLDR  
+  - “Common Locale Data Repository (CLDR)”   
+    → “Common Locale Data & Rules (CLDR)”  
+- Aligned the title of the CLDR specification  
+  - “UTS \#35: Unicode Locale Data Markup Language (LDML)”  
+    → “UTS \#35: Unicode Common Locale Data & Rules (CLDR)”.  
+- Updated for Unicode 18, including annotations for the new emoji, changes to sorting order, etc.  
+- Added new date & time formatting features including:  
+  - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST  
+  - Ordinal days in dates — e.g., Sept 3rd  
+  - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031  
+  - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7  
+  - Deprecated Japanese era data before Meiji  
+  - Structure for preventing digit-digit merges — e.g., ‘2026/1/29 GMT-817时’ → ‘2026/1/29 GMT-8 17时’  
+  - Additional skeleton-patterns added for flexible and interval date formats  
+- Added new units (conversions and formatting)  
+- Added *nested bracket replacement- — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar \[Birmânia\])”  
+- Added many additional localized locale option names for use in menus, such as calendar and number-system names  
+- Updated to the most recent versions of external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.  
+- Added many specification changes, both for features above, and clarifications of particular processes relevant to conformance.  
+- Added client coverage data — per-path coverage data in a format that is easy for clients to use and relatively small
 
 Note: Some features are in *Technical Preview*,
 while others were included in dot releases of 48 and may be new for implementers that didn't update beyond version 48.0.
@@ -77,7 +74,7 @@ Notes:
 
 ‡ Indicates locales that have gone up or down by more than one level.
 
-For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
+For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/49/supplemental/locale_coverage.html)
 
 ## Specification Changes
 
@@ -142,7 +139,7 @@ Updates for:
 See [RBNF tickets for full list][].
 - Client coverage data — coverage data in a format that is easy for clients to use and relatively small: see [pathCoverage][]. *Technical Preview*
 
-For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
+For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/49/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/49/delta/supplemental-data.html)
 
 ### Locale Data Changes
 
@@ -153,7 +150,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 - Names and search keywords for the new Unicode 18.0 emoji
 - Other spot fixes for specific locales
 
-For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
+For a full listing, see [Delta Data](https://unicode.org/cldr/charts/49/delta/index.html)
 
 ### Keyboard Changes
 
@@ -271,6 +268,15 @@ The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR dat
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+
+[v49]: /index/downloads/cldr-49
+[CLDR49]: https://unicode.org/Public/cldr/49/
+[Charts49]: https://unicode.org/cldr/charts/49
+[Spec49]: https://www.unicode.org/reports/tr35/tr35-79/tr35.html
+[Δ49: https://unicode-org.atlassian.net/issues?jql=project%3DCLDR%0AAND%20status%3DDone%0AAND%20resolution%3DFixed%0AAND%20fixversion%3D49%0AORDER%20BY%20priority%20DESC
+[release-49]: https://github.com/unicode-org/cldr/releases/tag/release-49
+[ΔDtd49]: https://www.unicode.org/cldr/charts/49/supplemental/dtd_deltas.html
+[J49.0.0](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0)
 
 [CLDR-10769]: https://unicode-org.atlassian.net/browse/CLDR-10769
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004

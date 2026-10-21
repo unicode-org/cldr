@@ -15,6 +15,7 @@ The following table lists the files for each released version. For license infor
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 | Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [latest-tag][]| [latest-delta-dtd][] | See release notes |
 | Dev |  | [dev-version][] |  | [dev-charts][]| [dev-ldml][] | [dev-tickets][] | [main][]| [dev-delta-dtd][] | See release notes |
+|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49] | [release-49] | [ΔDtd49] | [J49.0.0] |
 |  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | [Charts48][] | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 |  48.1 | 2026-01-08 | [v48.1][] | [CLDR48.1][] | [Charts48][] | [LDML48.1][] | [Δ48.1][] | [release-48-1][] | n/a | [48.1.0][] |
 |  48 | 2025-10-29 | [v48][] | [CLDR48][] | [Charts48][] | [LDML48][] | [Δ48][] | [release-48][] | [ΔDtd48][] | [48.0.0][] |
@@ -171,15 +172,15 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [main]: https://github.com/unicode-org/cldr.git
 [dev-delta-dtd]: https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html
 
-<!-- 49 release: 2026-03-XX -->
+<!-- 49 release: 2026-03-22 -->
 [v49]: /downloads/cldr-49
 [CLDR49]: https://unicode.org/Public/cldr/49/
 [Charts49]: https://unicode.org/cldr/charts/49
-[LDML49]: https://www.unicode.org/reports/tr35/49
-[Δ49]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC
+[Spec49]: https://www.unicode.org/reports/tr35/49
+[Δ49]: https://unicode-org.atlassian.net/issues?jql=project%3DCLDR%0AAND%20status%3DDone%0AAND%20resolution%3DFixed%0AAND%20fixversion%3D49%0AORDER%20BY%20priority%20DESC
 [release-49]: https://github.com/unicode-org/cldr/releases/tag/release-49
 [ΔDtd49]: https://www.unicode.org/cldr/charts/49/supplemental/dtd_deltas.html
-[49.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
+[J49.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
 
 <!-- 48.2 release: 2026-03-17 -->
 [v48.2]: /downloads/cldr-48#482-changes

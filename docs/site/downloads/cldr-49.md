@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49] | [release-49] | [ΔDtd49] | [J49.0.0] |
+|  49 | 2026-10-22 | [v49] | [CLDR49] | [Charts49] | [Spec49] | [Δ49] | [release-49] | [ΔDtd49] | [JSON49] |
 
 ## Overview
 
@@ -277,7 +277,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Δ49]: https://unicode-org.atlassian.net/issues?jql=project%3DCLDR%0AAND%20status%3DDone%0AAND%20resolution%3DFixed%0AAND%20fixversion%3D49%0AORDER%20BY%20priority%20DESC
 [release-49]: https://github.com/unicode-org/cldr/releases/tag/release-49
 [ΔDtd49]: https://www.unicode.org/cldr/charts/49/supplemental/dtd_deltas.html
-[J49.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
+[JSON49]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
 
 <!-- Common body links; need version updating each release, but no change to label text -->
 [Delta DTDs]: https://unicode.org/cldr/charts/49/supplemental/dtd_deltas.html

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="shn" conformsTo="45">
+  <info name="Shan SIIT" layout="QWERTY" indicator="တႆး" author="Shan IIT"/>
+
+  <!-- Unshifted Layer -->
+  <layer modifiers="none">
+    <row keys="` 1 2 3 4 5 6 7 8 9 0 - ="/>
+    <row keys="ၸ တ ၼ မ ဢ ပ ၵ င ဝ ႁ [ ]"/>
+    <row keys="ေ ႄ ိ ် ွ ႉ ႇ ု ူ ႈ '"/>
+    <row keys="ၽ ထ ၶ လ ယ ၺ ၢ , . /"/>
+  </layer>
+
+  <!-- Shifted Layer -->
+  <layer modifiers="shift">
+    <row keys="~ ! @ # $ % ^ &amp; * ( ) _ +"/>
+    <row keys="ꩡ ၻ ꧣ ႞ ြ ၿ ၷ ရ သ ႀ { }"/>
+    <row keys="ဵ ႅ ီ ႂ် ႂ ံ ႆ ” ႊ း &quot;"/>
+    <row keys="ၾ ꩪ ꧠ ꩮ ျ ႟ ႃ ၊ ။ ?"/>
+  </layer>
+
+  <!-- AltGr (Right-Alt) Layer -->
+  <layer modifiers="altR">
+    <row keys="` 1 ၁ 2 ၂ 3 ၃ 4 ၄ 5 ၅ 6 ၆ 7 ၇ 8 ၈ 9 ၉ 0 ၀ - ="/>
+    <row keys="ၹ ꩦ e r t y u i o ꧡ p [ ] \"/>
+    <row keys="a s ဝꧥ d f g h j k l ; '"/>
+    <row keys="ꧤ ꩧ c v b n m , . /"/>
+  </layer>
+
+  <!-- AltGr + Shift Layer -->
+  <layer modifiers="altR shift">
+    <row keys="` 1 ႑ 2 ႒ 3 ႓ 4 ့ 5 ႕ 6 ႖ 7 ႗ 8 ႘ 9 ႙ 0 ႐ - ="/>
+    <row keys="q w ꩨ e r t y u i o ꧢ p [ ] \"/>
+    <row keys="a s d f g h ့ j k l ; '"/>
+    <row keys="z x ꩩ c v b n m , . /"/>
+  </layer>
+
+  <!-- Keys Map -->
+  <keys>
+    <!-- Basic ASCII / Punctuation -->
+    <key id="`" to="`"/>
+    <key id="1" to="1"/>
+    <key id="2" to="2"/>
+    <key id="3" to="3"/>
+    <key id="4" to="4"/>
+    <key id="5" to="5"/>
+    <key id="6" to="6"/>
+    <key id="7" to="7"/>
+    <key id="8" to="8"/>
+    <key id="9" to="9"/>
+    <key id="0" to="0"/>
+    <key id="-" to="-"/>
+    <key id="=" to="="/>
+    <key id="[" to="["/>
+    <key id="]" to="]"/>
+    <key id="'" to="'"/>
+    <key id="," to=","/>
+    <key id="." to="."/>
+    <key id="/" to="/"/>
+    <key id="~" to="~"/>
+    <key id="!" to="!"/>
+    <key id="@" to="@"/>
+    <key id="#" to="#"/>
+    <key id="$" to="$"/>
+    <key id="%" to="%"/>
+    <key id="^" to="^"/>
+    <key id="&amp;" to="&amp;"/>
+    <key id="*" to="*"/>
+    <key id="(" to="("/>
+    <key id=")" to=")"/>
+    <key id="_" to="_"/>
+    <key id="+" to="+"/>
+    <key id="{" to="{"/>
+    <key id="}" to="}"/>
+    <key id="&quot;" to="&quot;"/>
+    <key id="?" to="?"/>
+    <key id="\" to="\"/>
+    <key id="”" to="”"/>
+
+    <!-- Latin Letters (AltGr fallback keys) -->
+    <key id="a" to="a"/>
+    <key id="b" to="b"/>
+    <key id="c" to="c"/>
+    <key id="d" to="d"/>
+    <key id="e" to="e"/>
+    <key id="f" to="f"/>
+    <key id="g" to="g"/>
+    <key id="h" to="h"/>
+    <key id="i" to="i"/>
+    <key id="j" to="j"/>
+    <key id="k" to="k"/>
+    <key id="l" to="l"/>
+    <key id="m" to="m"/>
+    <key id="n" to="n"/>
+    <key id="o" to="o"/>
+    <key id="p" to="p"/>
+    <key id="q" to="q"/>
+    <key id="r" to="r"/>
+    <key id="s" to="s"/>
+    <key id="t" to="t"/>
+    <key id="u" to="u"/>
+    <key id="v" to="v"/>
+    <key id="w" to="w"/>
+    <key id="x" to="x"/>
+    <key id="y" to="y"/>
+    <key id="z" to="z"/>
+
+    <!-- Shan Consonants -->
+    <key id="ၵ" to="ၵ"/>
+    <key id="ၶ" to="ၶ"/>
+    <key id="ၷ" to="ၷ"/>
+    <key id="ꧠ" to="ꧠ"/>
+    <key id="င" to="င"/>
+    <key id="ၸ" to="ၸ"/>
+    <key id="ꩡ" to="ꩡ"/>
+    <key id="ၹ" to="ၹ"/>
+    <key id="ၺ" to="ၺ"/>
+    <key id="တ" to="တ"/>
+    <key id="ထ" to="ထ"/>
+    <key id="ၻ" to="ၻ"/>
+    <key id="ꩪ" to="ꩪ"/>
+    <key id="ၼ" to="ၼ"/>
+    <key id="ꧣ" to="ꧣ"/>
+    <key id="ပ" to="ပ"/>
+    <key id="ၽ" to="ၽ"/>
+    <key id="ၾ" to="ၾ"/>
+    <key id="ၿ" to="ၿ"/>
+    <key id="မ" to="မ"/>
+    <key id="ယ" to="ယ"/>
+    <key id="ရ" to="ရ"/>
+    <key id="လ" to="လ"/>
+    <key id="ꩮ" to="ꩮ"/>
+    <key id="ဝ" to="ဝ"/>
+    <key id="သ" to="သ"/>
+    <key id="ႀ" to="ႀ"/>
+    <key id="ႁ" to="ႁ"/>
+    <key id="ဢ" to="ဢ"/>
+
+    <!-- Extension Consonants -->
+    <key id="ꩦ" to="ꩦ"/>
+    <key id="ꩧ" to="ꩧ"/>
+    <key id="ꧡ" to="ꧡ"/>
+    <key id="ꧢ" to="ꧢ"/>
+    <key id="ꧤ" to="ꧤ"/>
+    <key id="ꩨ" to="ꩨ"/>
+    <key id="ꩩ" to="ꩩ"/>
+
+    <!-- Shan Digits -->
+    <key id="႐" to="႐"/>
+    <key id="႑" to="႑"/>
+    <key id="႒" to="႒"/>
+    <key id="႓" to="႓"/>
+    <key id="့" to="့"/>
+    <key id="႕" to="႕"/>
+    <key id="႖" to="႖"/>
+    <key id="႗" to="႗"/>
+    <key id="႘" to="႘"/>
+    <key id="႙" to="႙"/>
+
+    <!-- Myanmar Digits -->
+    <key id="၀" to="၀"/>
+    <key id="၁" to="၁"/>
+    <key id="၂" to="၂"/>
+    <key id="၃" to="၃"/>
+    <key id="၄" to="၄"/>
+    <key id="၅" to="၅"/>
+    <key id="၆" to="၆"/>
+    <key id="၇" to="၇"/>
+    <key id="၈" to="၈"/>
+    <key id="၉" to="၉"/>
+
+    <!-- Vowels & Diacritics -->
+    <key id="ေ" to="ေ"/>
+    <key id="ႄ" to="ႄ"/>
+    <key id="ဵ" to="ဵ"/>
+    <key id="ႅ" to="ႅ"/>
+    <key id="ိ" to="ိ"/>
+    <key id="ီ" to="ီ"/>
+    <key id="ု" to="ု"/>
+    <key id="ူ" to="ူ"/>
+    <key id="ၢ" to="ၢ"/>
+    <key id="ႃ" to="ႃ"/>
+    <key id="်" to="်"/>
+    <key id="ျ" to="ျ"/>
+    <key id="ြ" to="ြ"/>
+    <key id="ွ" to="ွ"/>
+    <key id="ႂ" to="ႂ"/>
+    <key id="ႆ" to="ႆ"/>
+    <key id="ႂ်" to="ႂ်"/>
+
+    <!-- Tones & Signs -->
+    <key id="ႇ" to="ႇ"/>
+    <key id="ႉ" to="ႉ"/>
+    <key id="ႈ" to="ႈ"/>
+    <key id="ႊ" to="ႊ"/>
+    <key id="ံ" to="ံ"/>
+    <key id="း" to="း"/>
+
+    <!-- Symbols & Punctuation -->
+    <key id="႞" to="႞"/>
+    <key id="႟" to="႟"/>
+    <key id="ဝꧥ" to="ဝꧥ"/>
+    <key id="၊" to="၊"/>
+    <key id="။" to="။"/>
+  </keys>
+</keyboard3>

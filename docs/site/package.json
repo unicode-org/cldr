@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node assets/js/build.mjs",
-    "postinstall": "mkdir -p assets/vendor ; cp node_modules/vue/dist/vue.global.prod.js assets/vendor",
+    "postinstall": "mkdir -p assets/vendor ; cp node_modules/vue/dist/vue.global.prod.js node_modules/mermaid/dist/mermaid.min.js assets/vendor",
     "pretty": "prettier --no-error-on-unmatched-pattern --write assets/js/cldrsite.js  assets/js/build.mjs  assets/css/page.css _layouts/*.html"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "private": true,
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "mermaid": "^11.17.2",
     "sitemap": "^9.0.1",
     "vue": "^3.5.43"
   },

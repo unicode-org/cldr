@@ -255,6 +255,15 @@ public class SurveyTool extends HttpServlet {
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out)
             throws IOException, JSONException {
+        // load any FE debug config
+        final String feDebug = System.getProperty("CLDR_FE_DEBUG", "{}");
+        if (!feDebug.trim().isEmpty()) {
+            out.write("<!-- CLDR_FE_DEBUG property -->\n");
+            out.write("<script>cldrFeDebug=" + feDebug + ";</script>\n\n");
+        } else {
+            out.write("<script>cldrFeDebug={}; // CLDR_FE_DEBUG unset</script>\n\n");
+        }
+
         includeMonitoring(out);
 
         // use WebPack-built manifest.json to include all chunks.

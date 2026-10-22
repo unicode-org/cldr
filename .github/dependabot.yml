@@ -10,7 +10,7 @@ updates:
       interval: "monthly"
     commit-message:
       include: scope
-      prefix: "CLDR-19055 gh:"
+      prefix: "CLDR-19861 gh:"
     assignees:
       - btangmu
       - srl295
@@ -18,89 +18,26 @@ updates:
       - btangmu
       - srl295
 
-  # Maintain dependencies for npm
+  # Maintain dependencies for npm all together
   - package-ecosystem: "npm"
-    directory: "/tools/cldr-apps/js"
+    directories:
+      - "/tools/cldr-apps/js"
+      - "/tools/scripts/jira-updater"
+      - "/tools/scripts/tr-archive"
+      - "/docs/site"
+      - "/tools/st-prom-exporter"
+      - "/tools/scripts/keyboard-abnf-tests"
     schedule:
       interval: "monthly"
     commit-message:
       include: scope
-      prefix: "CLDR-19055 js:"
+      prefix: "CLDR-19861 js:"
     assignees:
       - btangmu
       - srl295
     reviewers:
       - btangmu
       - srl295
-
-  - package-ecosystem: "npm"
-    directory: "/tools/scripts/jira-updater"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 js:"
-    assignees:
-      - btangmu
-      - srl295
-    reviewers:
-      - btangmu
-      - srl295
-
-  - package-ecosystem: "npm"
-    directory: "/tools/scripts/tr-archive"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 tr:"
-    assignees:
-      - btangmu
-      - srl295
-    reviewers:
-      - btangmu
-      - srl295
-
-  - package-ecosystem: "npm"
-    directory: "/docs/site"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 site:"
-    assignees:
-      - btangmu
-      - srl295
-    reviewers:
-      - btangmu
-      - srl295
-
-  - package-ecosystem: "npm"
-    directory: "/tools/st-prom-exporter"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 exporter:"
-    assignees:
-      - srl295
-    reviewers:
-      - btangmu
-      - srl295
-
-  - package-ecosystem: "npm"
-    directory: "/tools/scripts/keyboard-abnf-tests"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 kbd:"
-    assignees:
-      - srl295
-    reviewers:
-      - srl295
-      - miloush
-      - mcdurdin
 
   # Maintain dependencies for Maven
   - package-ecosystem: "maven"
@@ -109,7 +46,7 @@ updates:
       interval: "monthly"
     commit-message:
       include: scope
-      prefix: "CLDR-19055 j:"
+      prefix: "CLDR-19861 j:"
     assignees:
       - btangmu
       - srl295

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="tzo"/>
+    </identity>
+
+    <collations>
+        <collation type="standard">
+            <cr><![CDATA[
+                    &[last primary ignorable] < '-'
+                    &A < aʼ <<< Aʼ
+                    &C
+                        < ch <<< Ch <<< CH
+                        < chʼ <<< Chʼ <<< CHʼ
+                    &E < eʼ <<< Eʼ
+                    &I < iʼ <<< Iʼ
+                    &K < kʼ <<< Kʼ
+                    &N < ñ <<< Ñ
+                    &O < oʼ <<< Oʼ
+                    &P < pʼ <<< Pʼ
+                    &T
+                        < tʼ <<< Tʼ
+                        < ts <<< Ts <<< TS
+                        < tsʼ <<< Tsʼ <<< TSʼ
+                    &U < uʼ <<< Uʼ
+            ]]></cr>
+        </collation>
+    </collations>
+</ldml>

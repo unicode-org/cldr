@@ -356,6 +356,8 @@
 					<nodeVersion>${node.version}</nodeVersion>
 					<!-- run in project sourcedir -->
 					<workingDirectory>${project.basedir}/js</workingDirectory>
+					<!-- install Node.js, npm, etc into target - so they get wiped out with mvn clean -->
+					<installDirectory>${project.basedir}/target</installDirectory>
 				</configuration>
 			</plugin>
 		</plugins>

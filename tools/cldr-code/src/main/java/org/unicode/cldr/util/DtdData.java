@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
@@ -33,9 +34,13 @@ import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
 import org.unicode.cldr.util.MergeLists.MergeListException;
+import org.unicode.cldr.util.NestedMap.ImmutableMultimap2;
+import org.unicode.cldr.util.NestedMap.Multimap2;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 /**
@@ -82,6 +87,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Attribute lastAttribute;
     private Set<String> preCommentCache;
     private DtdComparator dtdComparator;
+    private ImmutableMultimap2<Element, Integer, Element> dtdIndexAndDepth;
+    private ImmutableMultimap<Element, Element> dtdParents;
 
     public enum AttributeStatus {
         distinguished("§d"),
@@ -926,8 +933,58 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return simpleHandler;
     }
 
+    public static final Set<String> SKIP_DEPTH = Set.of("alias", "special");
+
     private void finish() {
         dtdComparator = new DtdComparator();
+        Multimap2<Element, Integer, Element> result =
+                Multimap2.create(LinkedHashMap::new, TreeMap::new, LinkedHashMap::new);
+        result.put(ROOT, 0, ROOT);
+        getDepthInternal(ROOT, 1, result);
+        dtdIndexAndDepth = result.createImmutable();
+
+        Multimap<Element, Element> childToParents = LinkedHashMultimap.create();
+
+        for (Entry<Element, Map<Integer, Map<Element, Boolean>>> entry :
+                dtdIndexAndDepth.getMapMapMap().entrySet()) {
+            Element child = entry.getKey();
+            Collection<Map<Element, Boolean>> parentsRaw = entry.getValue().values();
+            Set<Element> parents =
+                    parentsRaw.stream()
+                            .flatMap(map -> map.keySet().stream())
+                            .collect(Collectors.toCollection(LinkedHashSet::new));
+            childToParents.putAll(child, parents);
+        }
+        dtdParents = ImmutableMultimap.copyOf(childToParents);
+    }
+
+    /**
+     * Return a mapping with depth and parent information about elements.<br>
+     * Key1 is a child element<br>
+     * Key2 is the index number it is found at (eg, in '//ldml/identity/…` ldml is at 0, identity is
+     * at 1)<br>
+     * Value3 is the set of parents of that child element at that index number.<br>
+     * Note: The root value has itself as a parent! (nulls not being permitted in a Multimap2). The
+     * ordering is depth-first DTD order for the elements and ascending order for the index.
+     */
+    public ImmutableMultimap2<Element, Integer, Element> getDepthAndParentsMap() {
+        return dtdIndexAndDepth;
+    }
+
+    /** Gets the inverse mapping for Element::getChildren: that is, from children to parents. */
+    public ImmutableMultimap<Element, Element> getParentsMap() {
+        return dtdParents;
+    }
+
+    private static void getDepthInternal(
+            Element element, int i, Multimap2<Element, Integer, Element> result) {
+        for (Element child : element.getChildren().keySet()) {
+            if (child.isDeprecated() || SKIP_DEPTH.contains(child.getName())) {
+                continue;
+            }
+            result.put(child, i, element);
+            getDepthInternal(child, i + 1, result);
+        }
     }
 
     public static void readFile(DtdType type, XMLFileReader xfr, File directory) {

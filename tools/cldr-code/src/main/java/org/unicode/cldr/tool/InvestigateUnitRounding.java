@@ -92,12 +92,16 @@ public class InvestigateUnitRounding {
                     // for now, min=max
                     double amount = sourceAmount / Math.PI;
                     int errors = 0;
-                    // errors += errorCount(converter, amount - 0.000001, minMax, minMax);
                     errors += errorCount(converter, amount, minMax, minMax);
-                    // errors += errorCount(converter, amount + 0.000001, minMax, minMax);
-                    ok += 3 - errors;
+                    ok += 1 - errors;
                     totalErrors += errors;
                 }
+                    double amount = sourceAmount / Math.PI;
+                    int errors = 0;
+                    errors += errorCount(converter, amount, 14, 14);
+                    ok += 1 - errors;
+                    totalErrors += errors;
+
                 if (VERBOSE) {
                     System.out.println();
                 }

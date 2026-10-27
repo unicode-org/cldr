@@ -36,6 +36,8 @@ In each proposal, please add a header and a TOC if it is longer than a page. You
 
 [Extended Windows-Olson zid mapping](/development/development-process/design-proposals/extended-windows-olson-zid-mapping)
 
+[Feature-Based Test Generation for CLDR Conformance Tests](/development/development-process/design-proposals/feature-based-test-generation)
+
 [Fractional Plurals](/development/development-process/design-proposals/fractional-plurals)
 
 [Generic calendar data](/development/development-process/design-proposals/generic-calendar-data)

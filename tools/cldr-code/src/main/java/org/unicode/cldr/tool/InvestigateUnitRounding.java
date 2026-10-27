@@ -184,7 +184,7 @@ public class InvestigateUnitRounding {
                             "«" + roundTripFormatted + "»" + " Raw converted: ",
                             rawConverted));
         }
-        if (!approximatelyEqual) {
+        if (false && !approximatelyEqual) {
             converter.convert(sourceAmount, readablePrecision);
             // showInfo1(converter, rawConverted);
             System.out.println(
@@ -229,17 +229,6 @@ public class InvestigateUnitRounding {
             this.minimumSignificantDigits = dfp.getMinimumSignificantDigits();
             this.maximumSignificantDigits = dfp.getMaximumSignificantDigits();
         }
-
-        //        public ReadablePrecision(int minimumSignificantDigits, int
-        // maximumSignificantDigits) {
-        //            this.minimumSignificantDigits = minimumSignificantDigits;
-        //            this.maximumSignificantDigits = maximumSignificantDigits;
-        //        }
-        //
-        //        Precision getPrecision() {
-        //            return Precision.minMaxSignificantDigits(
-        //                    minimumSignificantDigits, maximumSignificantDigits);
-        //        }
 
         @Override
         public boolean equals(Object obj) {
@@ -417,21 +406,26 @@ public class InvestigateUnitRounding {
             int deltaMaxToMin = maxSig - minSig;
             RawConverted result = new RawConverted();
 
-            // With maxSig=2, from 300 we want 5, from 3.0000 we want to get 0.05,
-            // from 0.3000 we want to get 0.005, and so on
-            // However, it is common practice in scientific works to preserve an extra figure when
-            // the most significant digit is small (specifically $1$ or $2$) to prevent rounding
-            // distortion exceeding.
-            // Take 1 digit of precision.
-            // Rounding 9.5 to 9 is 5.555%
-            // Rounding 1.5 to 1 is 50%
-            // so we need to scale by the amount. The getBestDelta is sometimes overly precise
+            /*
+               Key Section
 
-            double delta = getBestDelta(source, maxSig);
+               Derive a value (converted) which is the source rounded according to the maxSignificant digits.
+               Derive a delta value based on that rounded source and the max significant digits.
+            The goal for the delta is to get to within ±.5 (scaled by the right power of 10) of the converted value.
+            With source=5.6 and maxSigDigits=1, the goal is 6 ± 0.5 — NOT 5.6 ±5.
+            With source=0.56 and maxSigDigits=1, the goal is 0.6 ± 0.05 — NOT 0.56 ± 0.05.
+               and so on.
+               */
+            // Determine the magnitude of the number
+            double magnitude = Math.ceil(Math.log10(source));
+            // Calculate how many decimal places we need to keep
+            int scale = rp.maximumSignificantDigits - (int) magnitude;
+            double magnitude2 = Math.pow(10, scale);
+            // Fix the source and delta accordingly
+            double converted = Math.round(source * magnitude2) / magnitude2;
+            double convertedDelta = 0.5 / magnitude2; // get scaled 0.5;
 
             int last = conversionFactors.length - 1;
-            double converted = source;
-            double convertedDelta = delta;
 
             for (int i = 0; i <= last; ++i) {
                 double conversionFactor = conversionFactors[i];
@@ -484,22 +478,6 @@ public class InvestigateUnitRounding {
             }
             return targetScale;
         }
-
-        private static double getBestDelta(double source, int maxSig) {
-            return source / (2 * Math.pow(10, maxSig));
-            // gets to within 5% of the value for 1 digit, so 9±0.45, 1±0.05
-            // OLD
-            // int integerDigits = getDigitsInIntegerPart(source);
-            // return Math.pow(10, integerDigits - maxSig) / 2;
-        }
-
-        //        /** the source is guaranteed to be >= 0 */
-        //        private static int getDigitsInIntegerPart(double source) {
-        //            if (source <= 9.5d) {
-        //                return 1; // 0..9 are 1 digit
-        //            }
-        //            return (int) Math.floor(Math.log10(source)) + 1;
-        //        }
 
         /**
          * This is just an example for now; real code would get the unit patterns and adjust for

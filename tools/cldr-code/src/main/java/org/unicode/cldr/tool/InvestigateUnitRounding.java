@@ -88,19 +88,16 @@ public class InvestigateUnitRounding {
             int totalErrors = 0;
             int ok = 0;
             for (int sourceAmount = 0; sourceAmount < 30; ++sourceAmount) {
+                double amount = sourceAmount / Math.PI;
                 for (int minMax = minSigTesting; minMax <= top; ++minMax) {
                     // for now, min=max
-                    double amount = sourceAmount / Math.PI;
-                    int errors = 0;
-                    errors += errorCount(converter, amount, minMax, minMax);
+                    int errors = errorCount(converter, amount, minMax, minMax);
                     ok += 1 - errors;
                     totalErrors += errors;
                 }
-                    double amount = sourceAmount / Math.PI;
-                    int errors = 0;
-                    errors += errorCount(converter, amount, 14, 14);
-                    ok += 1 - errors;
-                    totalErrors += errors;
+                int errors = errorCount(converter, amount, 14, 14);
+                ok += 1 - errors;
+                totalErrors += errors;
 
                 if (VERBOSE) {
                     System.out.println();

@@ -45,13 +45,19 @@ public class InvestigateUnitRounding {
         final int minSigTesting = 1;
         String[][] samples = {
             // first, some checks that errors are correctly thrown
-            {"meter", "1", "second", "Mismatched baseUnitIds for second: meter≠second"},
+            {
+                "furlong",
+                "1",
+                "meter-and-fortnight",
+                "Mismatched baseUnitIds for furlong&fortnight: meter≠second"
+            },
             {"meter", "1", "foot-and-yard", "Bad mixed units: foot (381/1250) <= yard (1143/1250)"},
             {"meter", "1", "foot-and-foot", "Bad mixed units: foot (381/1250) <= foot (381/1250)"},
             // now some real values
             {"meter", "3", "yard"},
             {"meter", "3", "yard-and-foot"},
             {"radian", "6", "degree-and-arc-minute-and-arc-second"},
+            {"week", "5", "day-and-hour-and-minute"},
             // not yet working right
             // {"radian", "3", "degree-and-arc-minute-and-arc-second"},
         };
@@ -81,7 +87,7 @@ public class InvestigateUnitRounding {
             System.out.println(Joiners.SP.join("Converter: ", converter) + "\n");
             int totalErrors = 0;
             int ok = 0;
-            for (int sourceAmount = 3; sourceAmount < 30; ++sourceAmount) {
+            for (int sourceAmount = 0; sourceAmount < 30; ++sourceAmount) {
                 for (int minMax = minSigTesting; minMax <= top; ++minMax) {
                     // for now, min=max
                     double amount = sourceAmount / Math.PI;
@@ -326,6 +332,8 @@ public class InvestigateUnitRounding {
                 if (!baseUnitId.value.equals(sourceBaseUnitId)) {
                     throw new IllegalArgumentException(
                             "Mismatched baseUnitIds for "
+                                    + sourceUnit
+                                    + "&"
                                     + unit
                                     + ": "
                                     + sourceBaseUnitId
@@ -396,15 +404,21 @@ public class InvestigateUnitRounding {
         }
 
         public RawConverted convert(double source, ReadablePrecision rp) {
+            RawConverted result = new RawConverted();
+
             int maxSig = rp.maximumSignificantDigits;
             int minSig = rp.minimumSignificantDigits;
+
+            if (source == 0) {
+                result.setDouble(0, 1, 1);
+                return result;
+            }
 
             boolean negative = source < 0;
             if (negative) {
                 source = -source;
             }
             int deltaMaxToMin = maxSig - minSig;
-            RawConverted result = new RawConverted();
 
             /*
                Key Section
@@ -416,6 +430,9 @@ public class InvestigateUnitRounding {
             With source=0.56 and maxSigDigits=1, the goal is 0.6 ± 0.05 — NOT 0.56 ± 0.05.
                and so on.
                */
+
+            // TBD handle 0
+
             // Determine the magnitude of the number
             double magnitude = Math.ceil(Math.log10(source));
             // Calculate how many decimal places we need to keep
@@ -484,14 +501,20 @@ public class InvestigateUnitRounding {
          * plurals and case.
          */
         public String formatWithUnits(RawConverted rountResult, LocalizedNumberFormatter sourceNf) {
-            List<String> numbers = formattedNumbers(rountResult, sourceNf);
+            List<String> numberStrings = formattedNumbers(rountResult, sourceNf);
 
             StringBuilder result = new StringBuilder();
-            for (int i = 0; i < numbers.size(); ++i) {
+            for (int i = 0; i < numberStrings.size(); ++i) {
+                String numberString = numberStrings.get(i);
+                if (numberString.equals("0")) {
+                    if (result.length() != 0 || i != numberStrings.size() - 1) {
+                        continue;
+                    }
+                }
                 if (result.length() > 0) {
                     result.append(" ");
                 }
-                result.append(numbers.get(i));
+                result.append(numberString);
                 result.append(" ");
                 result.append(unitIds[i]);
             }
@@ -564,11 +587,8 @@ public class InvestigateUnitRounding {
             /** Set the final value, and sig digits */
             public void setDouble(double value, int minSig, int maxSig) {
                 this.finalValue = value;
-                this.minSignificant = minSig;
-                this.maxSignificant = maxSig;
-                if (minSig < 1 || maxSig < minSig) {
-                    throw new IllegalArgumentException("Bad sig digits: " + minSig + "," + maxSig);
-                }
+                this.minSignificant = minSig < 1 ? 1 : minSig;
+                this.maxSignificant = maxSig < minSig ? minSig : maxSig;
             }
 
             /** Add a long if we know there will be another value to carry the sig digits */

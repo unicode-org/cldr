@@ -4,11 +4,11 @@ S1.1b	tr35-numbers.md#currencydecimal	The locale's currencyDecimal is also used 
 S1.1c	tr35-numbers.md#currencydecimal	The locale's currencyDecimal is also used with currency display names.	currency_decimal_separator_locale_name	covered	
 S1.1d	tr35-numbers.md#currencydecimal	Whether the locale's currencyDecimal is also used in the noCurrency format.		todo	Spec unclear: CLDR-19825
 S1.2	tr35-numbers.md#currencydecimal	Without currencyDecimal, currency formats use the locale's decimal separator.	currency_decimal_separator_regular	covered	
-S1.3a	tr35-numbers.md#currencygroup	The locale's currencyGroup replaces its grouping separator in currency formats.		todo	
+S1.3a	tr35-numbers.md#currencygroup	The locale's currencyGroup replaces its grouping separator in currency formats.	currency_group_separator_locale	covered	
 S1.3b	tr35-numbers.md#currencygroup	The locale's currencyGroup is also used in compact currency formats.		todo	
 S1.3c	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also used with currency display names.		todo	Spec unclear: CLDR-19825
 S1.3d	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also used in the noCurrency format.		todo	Spec unclear: CLDR-19825
-S1.4	tr35-numbers.md#currencygroup	Without currencyGroup, currency formats use the locale's grouping separator.		todo	
+S1.4	tr35-numbers.md#currencygroup	Without currencyGroup, currency formats use the locale's grouping separator.	currency_group_separator_regular	covered	
 S1.5	tr35-numbers.md#currencydecimal	currencyDecimal and currencyGroup also apply to parsing.		out_of_scope	The test data covers formatting only.
 S2.1a	tr35-numbers.md#Compact_Number_Formats	The alphaNextToNumber step applies to compact currency patterns.		todo	
 S2.1b	tr35-numbers.md#Compact_Number_Formats	The step also applies to a compact pattern of 0 that has an alt pattern.		todo	

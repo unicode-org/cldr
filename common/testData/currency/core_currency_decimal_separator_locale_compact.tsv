@@ -1,0 +1,5 @@
+# locale	currency	currency_format_length	currency_display	input	expected	main_feature	other_features
+fr_CH	EUR	short	symbol	-1230.05	-1.2 k €	currency_decimal_separator_locale_compact	
+fr_CH	EUR	short	symbol	1234565.0	1.2 M €	currency_decimal_separator_locale_compact	
+fr_CH	USD	short	symbol	-1230.05	-1.2 k $US	currency_decimal_separator_locale_compact	
+fr_CH	USD	short	symbol	1234565.0	1.2 M $US	currency_decimal_separator_locale_compact	

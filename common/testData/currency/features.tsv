@@ -1,0 +1,5 @@
+# feature_id	spec	clause	core_set	summary
+currency_decimal_separator_locale	tr35-numbers.md#currencydecimal	S1.1a	locale=fr_CH; currency=EUR,USD; currency_display=symbol,symbolNarrow,code; input=1.2,-1230.05	The locale's currencyDecimal replaces its decimal separator in currency formats.
+currency_decimal_separator_locale_compact	tr35-numbers.md#currencydecimal	S1.1b	locale=fr_CH; currency=EUR,USD; currency_format_length=short; currency_display=symbol; input=-1230.05,1234565.0	The locale's currencyDecimal is also used in compact currency formats.
+currency_decimal_separator_locale_name	tr35-numbers.md#currencydecimal	S1.1c	locale=fr_CH; currency=EUR,USD; currency_display=name; input=1.2,-1230.05	The locale's currencyDecimal is also used with currency display names.
+currency_decimal_separator_regular	tr35-numbers.md#currencydecimal	S1.2	locale=en,de,ar_EG; currency=EUR,USD; currency_display=symbol; input=1.2,-1230.05	Without currencyDecimal, currency formats use the locale's decimal separator.

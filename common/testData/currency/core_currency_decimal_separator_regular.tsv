@@ -1,13 +1,13 @@
 # locale	currency	currency_format_length	currency_display	input	expected	main_feature	other_features
 en	EUR		symbol	1.2	€1.20	currency_decimal_separator_regular	
-en	EUR		symbol	-1230.05	-€1,230.05	currency_decimal_separator_regular	
+en	EUR		symbol	-1230.05	-€1,230.05	currency_decimal_separator_regular	currency_group_separator_regular
 en	USD		symbol	1.2	$1.20	currency_decimal_separator_regular	
-en	USD		symbol	-1230.05	-$1,230.05	currency_decimal_separator_regular	
+en	USD		symbol	-1230.05	-$1,230.05	currency_decimal_separator_regular	currency_group_separator_regular
 de	EUR		symbol	1.2	1,20 €	currency_decimal_separator_regular	
-de	EUR		symbol	-1230.05	-1.230,05 €	currency_decimal_separator_regular	
+de	EUR		symbol	-1230.05	-1.230,05 €	currency_decimal_separator_regular	currency_group_separator_regular
 de	USD		symbol	1.2	1,20 $	currency_decimal_separator_regular	
-de	USD		symbol	-1230.05	-1.230,05 $	currency_decimal_separator_regular	
+de	USD		symbol	-1230.05	-1.230,05 $	currency_decimal_separator_regular	currency_group_separator_regular
 ar_EG	EUR		symbol	1.2	‏١٫٢٠ €	currency_decimal_separator_regular	
-ar_EG	EUR		symbol	-1230.05	؜-‏١٬٢٣٠٫٠٥ €	currency_decimal_separator_regular	
+ar_EG	EUR		symbol	-1230.05	؜-‏١٬٢٣٠٫٠٥ €	currency_decimal_separator_regular	currency_group_separator_regular
 ar_EG	USD		symbol	1.2	‏١٫٢٠ US$	currency_decimal_separator_regular	
-ar_EG	USD		symbol	-1230.05	؜-‏١٬٢٣٠٫٠٥ US$	currency_decimal_separator_regular	
+ar_EG	USD		symbol	-1230.05	؜-‏١٬٢٣٠٫٠٥ US$	currency_decimal_separator_regular	currency_group_separator_regular

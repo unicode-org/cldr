@@ -19,7 +19,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import org.unicode.cldr.tool.InvestigateUnitRounding.Converter.Processed;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Rational;
@@ -89,14 +88,14 @@ public class InvestigateUnitRounding {
             System.out.println("Converter: " + converter + "\n");
             int totalErrors = 0;
             int ok = 0;
-            
+
             int start = 0;
             int increment = 1;
-            int limit = start + 32*increment;
-            
-            double fuzzier = 1/Math.PI;
-            
-            for (int sourceAmount = start; sourceAmount <= limit; sourceAmount+= increment) {
+            int limit = start + 32 * increment;
+
+            double fuzzier = 1 / Math.PI;
+
+            for (int sourceAmount = start; sourceAmount <= limit; sourceAmount += increment) {
                 double amount = sourceAmount * fuzzier;
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     // for now, min=max
@@ -175,7 +174,7 @@ public class InvestigateUnitRounding {
 
         double roundTrip = converter.convertBack(numbers, parser);
         String roundTripFormatted = lnf.format(roundTrip).toString();
-        
+
         Processed rawProcessed = converter.convertRaw(sourceAmount);
 
         boolean roundedEqual = roundTripFormatted.equals(sourceFormatted);
@@ -183,7 +182,7 @@ public class InvestigateUnitRounding {
         if (VERBOSE || !approximatelyEqual || !roundedEqual) {
             System.out.println(
                     Joiners.ES.join(
-                    		readablePrecision,
+                            readablePrecision,
                             "\t",
                             BigDecimal.valueOf(sourceAmount).toPlainString(),
                             "\t«",
@@ -197,8 +196,7 @@ public class InvestigateUnitRounding {
                             "\tProcessed: ",
                             processed,
                             "\tRaw: ",
-                            rawProcessed
-                            ));
+                            rawProcessed));
         }
         if (false && !approximatelyEqual) {
             converter.convert(sourceAmount, readablePrecision);
@@ -240,6 +238,7 @@ public class InvestigateUnitRounding {
             this.minimumSignificantDigits = minimumSignificantDigits;
             this.maximumSignificantDigits = maximumSignificantDigits;
         }
+
         public ReadablePrecision(LocalizedNumberFormatter lnf) {
             // Painful extraction; we have to convert to a skeleton and back;
             // gotta be a waste of cycles.
@@ -279,7 +278,7 @@ public class InvestigateUnitRounding {
      */
     public static class Converter {
         private static final double MAX_LONG_FROM_DOUBLE = Math.pow(2, 53);
-		private String sourceUnitId;
+        private String sourceUnitId;
         private double[] conversionFactors;
         private String[] unitIds;
 
@@ -415,25 +414,25 @@ public class InvestigateUnitRounding {
         }
 
         public Processed convertRaw(double source) {
-        	Processed result = new Processed();
-        	double converted = source;
-        	int last = conversionFactors.length - 1;
+            Processed result = new Processed();
+            double converted = source;
+            int last = conversionFactors.length - 1;
             for (int i = 0; i <= last; ++i) {
                 converted = converted * conversionFactors[i];
                 if (i == last) {
-                	// add final double
-                	result.setDouble(converted, 15, 15);
-                	break;
+                    // add final double
+                    result.setDouble(converted, 15, 15);
+                    break;
                 } else {
                     // add floor
-                   double floor = (long)Math.floor(converted);
-                   result.addLong(floor);
-                   converted -= floor;
-               }
+                    double floor = (long) Math.floor(converted);
+                    result.addLong(floor);
+                    converted -= floor;
+                }
             }
             return result;
         }
-        
+
         public Processed convert(double source, ReadablePrecision rp) {
             Processed result = new Processed();
 
@@ -479,8 +478,8 @@ public class InvestigateUnitRounding {
                 double conversionFactor = conversionFactors[i];
                 converted = converted * conversionFactor;
                 convertedDelta = convertedDelta * conversionFactor;
-                if (i == last || converted > MAX_LONG_FROM_DOUBLE) { 
-                	// the final value is always a double
+                if (i == last || converted > MAX_LONG_FROM_DOUBLE) {
+                    // the final value is always a double
                     maxSig = maxSig(converted, convertedDelta);
                     result.setDouble(converted, maxSig - deltaMaxToMin, maxSig);
                     break;
@@ -489,7 +488,7 @@ public class InvestigateUnitRounding {
                     double lowerBound = converted - convertedDelta;
                     double upperbound = converted + convertedDelta;
                     if (lowerBound < rounded && rounded < upperbound) {
-                    	// It is precise enough; we can stop here with a final double
+                        // It is precise enough; we can stop here with a final double
                         maxSig = maxSig(converted, convertedDelta);
                         result.setDouble(converted, maxSig - deltaMaxToMin, maxSig);
                         break;
@@ -600,17 +599,17 @@ public class InvestigateUnitRounding {
             public String toString() {
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < leadingCount; ++i) {
-                	if (sb.length() != 0) {
-                		sb.append(":");
-                	}
-                	sb.append(leadingValues[i]);
+                    if (sb.length() != 0) {
+                        sb.append(":");
+                    }
+                    sb.append(leadingValues[i]);
                 }
-            	if (sb.length() != 0) {
-            		sb.append(":");
-            	}
-            	sb.append(BigDecimal.valueOf(finalValue).toPlainString());
-            	sb.append(new ReadablePrecision(minSignificant, maxSignificant));
-            	return sb.toString();
+                if (sb.length() != 0) {
+                    sb.append(":");
+                }
+                sb.append(BigDecimal.valueOf(finalValue).toPlainString());
+                sb.append(new ReadablePrecision(minSignificant, maxSignificant));
+                return sb.toString();
             }
 
             /** Set the final value, and sig digits */

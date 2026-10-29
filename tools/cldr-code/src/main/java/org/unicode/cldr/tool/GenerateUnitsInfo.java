@@ -43,6 +43,21 @@ import org.unicode.cldr.util.Validity.Status;
 /**
  * Generates {@code common/properties/units_info.tsv} and {@code
  * common/properties/unit_categories.tsv} from CLDR locale, validity, and supplemental unit data.
+ *
+ * <p>This tool exists in CLDR for three purposes:
+ *
+ * <ol>
+ *   <li>Ensure permanent, stable 0-based numeric IDs ({@code unit_id} and {@code category_id}) for
+ *       every unit and category across all releases, preserving IDs for deprecated entries and
+ *       assigning new IDs only to newly added entries.
+ *   <li>Verify that every conversion rate to the base unit ({@code factor_num}, {@code factor_den},
+ *       {@code factor_exp}, {@code offset_num}, and {@code offset_den}) fits in signed integers, so
+ *       any future CLDR unit that exceeds those bounds fails immediately and signals that
+ *       downstream ICU libraries need to be updated.
+ *   <li>Provide one canonical list of formattable units across all locales with release history
+ *       ({@code since}, {@code deprecated_in}, and {@code replacement}) for generating built-in
+ *       units in ICU4C, ICU4J, and ICU4X.
+ * </ol>
  */
 public class GenerateUnitsInfo {
 

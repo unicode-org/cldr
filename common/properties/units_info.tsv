@@ -1,25 +1,25 @@
 # unit_id	category_id	category	unit	quantity	base_unit	factor_num	factor_den	factor_exp	offset_num	offset_den	exactness	special	status	since	deprecated_in	replacement
-0	0	acceleration	g-force	acceleration	meter-per-square-second	980665	1	-5			exact		regular	26		
+0	0	acceleration	g-force	acceleration	meter-per-square-second	980665	1	-5			exact		regular	24		
 1	0	acceleration	meter-per-second-squared	acceleration	meter-per-square-second	1	1	0			exact		deprecated	26	37	meter-per-square-second
 2	0	acceleration	meter-per-square-second	acceleration	meter-per-square-second	1	1	0			exact		regular	37		
-3	1	angle	arc-minute	angle	revolution	125	27	-5			exact		regular	26		
-4	1	angle	arc-second	angle	revolution	625	81	-7			exact		regular	26		
-5	1	angle	degree	angle	revolution	25	9	-3			exact		regular	26		
+3	1	angle	arc-minute	angle	revolution	125	27	-5			exact		regular	24		
+4	1	angle	arc-second	angle	revolution	625	81	-7			exact		regular	24		
+5	1	angle	degree	angle	revolution	25	9	-3			exact		regular	24		
 6	1	angle	radian	angle	revolution	65501488	411557987	0			approximate		regular	26		
-7	1	angle	revolution	angle	revolution	1	1	0			exact		regular	29		
+7	1	angle	revolution	angle	revolution	1	1	0			exact		regular	28		
 8	1	angle	steradian	solid-angle	square-revolution	4290444930214144	169379976663492169	0			approximate		regular	48		
-9	2	area	acre	area	square-meter	40468564224	1	-7			exact		regular	26		
+9	2	area	acre	area	square-meter	40468564224	1	-7			exact		regular	24		
 10	2	area	bu-jp	area	square-meter	4	121	2			exact		regular	48		
 11	2	area	cho	area	square-meter	12	121	5			exact		regular	48		
 12	2	area	dunam	area	square-meter	1	1	3			exact		regular	35		
-13	2	area	hectare	area	square-meter	1	1	4			exact		regular	26		
+13	2	area	hectare	area	square-meter	1	1	4			exact		regular	24		
 14	2	area	se-jp	area	square-meter	12	121	3			exact		regular	48		
 15	2	area	square-centimeter	area	square-meter	1	1	-4			exact		regular	26		
-16	2	area	square-foot	area	square-meter	9290304	1	-8			exact		regular	26		
+16	2	area	square-foot	area	square-meter	9290304	1	-8			exact		regular	24		
 17	2	area	square-inch	area	square-meter	64516	1	-8			exact		regular	26		
-18	2	area	square-kilometer	area	square-meter	1	1	6			exact		regular	26		
-19	2	area	square-meter	area	square-meter	1	1	0			exact		regular	26		
-20	2	area	square-mile	area	square-meter	2589988110336	1	-6			exact		regular	26		
+18	2	area	square-kilometer	area	square-meter	1	1	6			exact		regular	24		
+19	2	area	square-meter	area	square-meter	1	1	0			exact		regular	24		
+20	2	area	square-mile	area	square-meter	2589988110336	1	-6			exact		regular	24		
 21	2	area	square-yard	area	square-meter	83612736	1	-8			exact		regular	26		
 22	3	concentr	item	substance-amount	item	1	1	0			exact		regular	40		
 23	3	concentr	karat	portion	part	125	3	-3			exact		regular	26		
@@ -33,13 +33,13 @@
 31	3	concentr	part-per-1e6	portion	part	1	1	-6			exact		regular	48		
 32	3	concentr	part-per-1e9	portion	part	1	1	-9			exact		regular	48		
 33	3	concentr	part-per-million	portion	part	1	1	-6			exact		deprecated	29	37	part-per-1e6
-34	3	concentr	percent	portion	part	1	1	-2			exact		regular	35		
-35	3	concentr	permille	portion	part	1	1	-3			exact		regular	35		
+34	3	concentr	percent	portion	part	1	1	-2			exact		regular	34		
+35	3	concentr	permille	portion	part	1	1	-3			exact		regular	34		
 36	3	concentr	permillion	portion	part	1	1	-6			exact		deprecated	37	48	part-per-1e6
 37	3	concentr	permyriad	portion	part	1	1	-4			exact		regular	35		
 38	3	concentr	portion-per-1e9	portion	part	1	1	-9			exact		deprecated	46	48	part-per-1e9
 39	4	consumption	liter-per-100-kilometer	consumption	cubic-meter-per-meter	1	1	-8			exact		regular	37		
-40	4	consumption	liter-per-100kilometers	consumption	cubic-meter-per-meter	1	1	-8			exact		deprecated	29	37	liter-per-100-kilometer
+40	4	consumption	liter-per-100kilometers	consumption	cubic-meter-per-meter	1	1	-8			exact		deprecated	28	37	liter-per-100-kilometer
 41	4	consumption	liter-per-kilometer	consumption	cubic-meter-per-meter	1	1	-6			exact		regular	26		
 42	4	consumption	mile-per-gallon	consumption-inverse	meter-per-cubic-meter	48	112903	9			exact		regular	26		
 43	4	consumption	mile-per-gallon-imperial	consumption-inverse	meter-per-cubic-meter	1609344	454609	5			exact		regular	29		
@@ -51,28 +51,28 @@
 49	5	digital	kilobyte	digital	bit	8	1	3			exact		regular	26		
 50	5	digital	megabit	digital	bit	1	1	6			exact		regular	26		
 51	5	digital	megabyte	digital	bit	8	1	6			exact		regular	26		
-52	5	digital	petabyte	digital	bit	8	1	15			exact		regular	35		
+52	5	digital	petabyte	digital	bit	8	1	15			exact		regular	34		
 53	5	digital	terabit	digital	bit	1	1	12			exact		regular	26		
 54	5	digital	terabyte	digital	bit	8	1	12			exact		regular	26		
-55	6	duration	century	year-duration	year	1	1	2			exact		regular	29		
-56	6	duration	day	duration	second	864	1	2			exact		regular	26		
-57	6	duration	day-person	duration	second	864	1	2			exact		regular	29		
+55	6	duration	century	year-duration	year	1	1	2			exact		regular	28		
+56	6	duration	day	duration	second	864	1	2			exact		regular	24		
+57	6	duration	day-person	duration	second	864	1	2			exact		regular	28		
 58	6	duration	decade	year-duration	year	1	1	1			exact		regular	36		
 59	6	duration	fortnight	duration	second	12096	1	2			exact		regular	48		
-60	6	duration	hour	duration	second	36	1	2			exact		regular	26		
+60	6	duration	hour	duration	second	36	1	2			exact		regular	24		
 61	6	duration	microsecond	duration	second	1	1	-6			exact		regular	26		
-62	6	duration	millisecond	duration	second	1	1	-3			exact		regular	26		
-63	6	duration	minute	duration	second	6	1	1			exact		regular	26		
-64	6	duration	month	year-duration	year	25	3	-2			exact		regular	26		
-65	6	duration	month-person	year-duration	year	25	3	-2			exact		regular	29		
+62	6	duration	millisecond	duration	second	1	1	-3			exact		regular	24		
+63	6	duration	minute	duration	second	6	1	1			exact		regular	24		
+64	6	duration	month	year-duration	year	25	3	-2			exact		regular	24		
+65	6	duration	month-person	year-duration	year	25	3	-2			exact		regular	28		
 66	6	duration	nanosecond	duration	second	1	1	-9			exact		regular	26		
 67	6	duration	night	night-duration	night	1	1	0			exact		regular	46		
 68	6	duration	quarter	year-duration	year	25	1	-2			exact		regular	42		
-69	6	duration	second	duration	second	1	1	0			exact		regular	26		
-70	6	duration	week	duration	second	6048	1	2			exact		regular	26		
-71	6	duration	week-person	duration	second	6048	1	2			exact		regular	29		
-72	6	duration	year	year-duration	year	1	1	0			exact		regular	26		
-73	6	duration	year-person	year-duration	year	1	1	0			exact		regular	29		
+69	6	duration	second	duration	second	1	1	0			exact		regular	24		
+70	6	duration	week	duration	second	6048	1	2			exact		regular	24		
+71	6	duration	week-person	duration	second	6048	1	2			exact		regular	28		
+72	6	duration	year	year-duration	year	1	1	0			exact		regular	24		
+73	6	duration	year-person	year-duration	year	1	1	0			exact		regular	28		
 74	7	electric	ampere	electric-current	ampere	1	1	0			exact		regular	26		
 75	7	electric	coulomb	electric-charge	second-ampere	1	1	0			exact		regular	48		
 76	7	electric	farad	electric-capacitance	pow4-second-square-ampere-per-kilogram-square-meter	1	1	0			exact		regular	48		
@@ -114,28 +114,28 @@
 112	11	graphics	pixel-per-centimeter	resolution	pixel-per-meter	1	1	2			exact		regular	36		
 113	11	graphics	pixel-per-inch	resolution	pixel-per-meter	5	127	3			exact		regular	36		
 114	12	length	astronomical-unit	length	meter	1495978707	1	2			exact		regular	26		
-115	12	length	centimeter	length	meter	1	1	-2			exact		regular	26		
+115	12	length	centimeter	length	meter	1	1	-2			exact		regular	24		
 116	12	length	chain	length	meter	201168	1	-4			exact		regular	48		
 117	12	length	decimeter	length	meter	1	1	-1			exact		regular	26		
 118	12	length	earth-radius	length	meter	63781	1	2			exact		regular	38		
 119	12	length	fathom	length	meter	18288	1	-4			exact		regular	26		
-120	12	length	foot	length	meter	3048	1	-4			exact		regular	26		
+120	12	length	foot	length	meter	3048	1	-4			exact		regular	24		
 121	12	length	furlong	length	meter	201168	1	-3			exact		regular	26		
-122	12	length	inch	length	meter	254	1	-4			exact		regular	26		
+122	12	length	inch	length	meter	254	1	-4			exact		regular	24		
 123	12	length	jo-jp	length	meter	4	121	1			exact		regular	48		
 124	12	length	ken	length	meter	24	121	0			exact		regular	48		
-125	12	length	kilometer	length	meter	1	1	3			exact		regular	26		
-126	12	length	light-year	length	meter	94607304725808	1	2			exact		regular	26		
-127	12	length	meter	length	meter	1	1	0			exact		regular	26		
+125	12	length	kilometer	length	meter	1	1	3			exact		regular	24		
+126	12	length	light-year	length	meter	94607304725808	1	2			exact		regular	24		
+127	12	length	meter	length	meter	1	1	0			exact		regular	24		
 128	12	length	micrometer	length	meter	1	1	-6			exact		regular	26		
-129	12	length	mile	length	meter	1609344	1	-3			exact		regular	26		
-130	12	length	mile-scandinavian	length	meter	1	1	4			exact		regular	29		
+129	12	length	mile	length	meter	1609344	1	-3			exact		regular	24		
+130	12	length	mile-scandinavian	length	meter	1	1	4			exact		regular	28		
 131	12	length	milliinch	length	meter	254	1	-7			exact		new	49		
-132	12	length	millimeter	length	meter	1	1	-3			exact		regular	26		
+132	12	length	millimeter	length	meter	1	1	-3			exact		regular	24		
 133	12	length	nanometer	length	meter	1	1	-9			exact		regular	26		
 134	12	length	nautical-mile	length	meter	1852	1	0			exact		regular	26		
 135	12	length	parsec	length	meter	496068458581881081	160764838671875	13			approximate		regular	26		
-136	12	length	picometer	length	meter	1	1	-12			exact		regular	26		
+136	12	length	picometer	length	meter	1	1	-12			exact		regular	24		
 137	12	length	point	length	meter	3175	9	-6			exact		regular	31		
 138	12	length	ri-jp	length	meter	5184	121	1			exact		regular	48		
 139	12	length	rin	length	meter	4	121	-3			exact		regular	48		
@@ -144,7 +144,7 @@
 142	12	length	shaku-length	length	meter	4	121	0			exact		regular	48		
 143	12	length	solar-radius	length	meter	6957	1	5			exact		regular	35		
 144	12	length	sun	length	meter	4	121	-1			exact		regular	48		
-145	12	length	yard	length	meter	9144	1	-4			exact		regular	26		
+145	12	length	yard	length	meter	9144	1	-4			exact		regular	24		
 146	13	light	candela	luminous-intensity	candela	1	1	0			exact		regular	38		
 147	13	light	lumen	luminous-flux	candela-square-meter-per-square-meter	1	1	0			exact		regular	38		
 148	13	light	lux	illuminance	candela-per-square-meter	1	1	0			exact		regular	26		
@@ -156,34 +156,34 @@
 154	15	mass	earth-mass	mass	kilogram	59722	1	20			exact		regular	35		
 155	15	mass	fun	mass	kilogram	375	1	-6			exact		regular	48		
 156	15	mass	grain	mass	kilogram	6479891	1	-11			exact		regular	38		
-157	15	mass	gram	mass	kilogram	1	1	-3			exact		regular	26		
-158	15	mass	kilogram	mass	kilogram	1	1	0			exact		regular	26		
+157	15	mass	gram	mass	kilogram	1	1	-3			exact		regular	24		
+158	15	mass	kilogram	mass	kilogram	1	1	0			exact		regular	24		
 159	15	mass	metric-ton	mass	kilogram	1	1	3			exact		deprecated	26	42	tonne
 160	15	mass	microgram	mass	kilogram	1	1	-9			exact		regular	26		
 161	15	mass	milligram	mass	kilogram	1	1	-6			exact		regular	26		
-162	15	mass	ounce	mass	kilogram	28349523125	1	-12			exact		regular	26		
+162	15	mass	ounce	mass	kilogram	28349523125	1	-12			exact		regular	24		
 163	15	mass	ounce-troy	mass	kilogram	3110348	1	-8			exact		regular	26		
-164	15	mass	pound	mass	kilogram	45359237	1	-8			exact		regular	26		
+164	15	mass	pound	mass	kilogram	45359237	1	-8			exact		regular	24		
 165	15	mass	slug	mass	kilogram	5560277019075625	381	-12			exact		regular	48		
 166	15	mass	solar-mass	mass	kilogram	198847	1	25			exact		regular	35		
 167	15	mass	stone	mass	kilogram	635029318	1	-8			exact		regular	26		
 168	15	mass	ton	mass	kilogram	90718474	1	-5			exact		regular	26		
 169	15	mass	tonne	mass	kilogram	1	1	3			exact		regular	42		
 170	16	power	gigawatt	power	kilogram-square-meter-per-cubic-second	1	1	9			exact		regular	26		
-171	16	power	horsepower	power	kilogram-square-meter-per-cubic-second	74569987158227022	1	-14			exact		regular	26		
-172	16	power	kilowatt	power	kilogram-square-meter-per-cubic-second	1	1	3			exact		regular	26		
+171	16	power	horsepower	power	kilogram-square-meter-per-cubic-second	74569987158227022	1	-14			exact		regular	24		
+172	16	power	kilowatt	power	kilogram-square-meter-per-cubic-second	1	1	3			exact		regular	24		
 173	16	power	megawatt	power	kilogram-square-meter-per-cubic-second	1	1	6			exact		regular	26		
 174	16	power	milliwatt	power	kilogram-square-meter-per-cubic-second	1	1	-3			exact		regular	26		
-175	16	power	watt	power	kilogram-square-meter-per-cubic-second	1	1	0			exact		regular	26		
-176	17	pressure	atmosphere	pressure	kilogram-per-meter-square-second	101325	1	0			exact		regular	35		
+175	16	power	watt	power	kilogram-square-meter-per-cubic-second	1	1	0			exact		regular	24		
+176	17	pressure	atmosphere	pressure	kilogram-per-meter-square-second	101325	1	0			exact		regular	34		
 177	17	pressure	bar	pressure	kilogram-per-meter-square-second	1	1	5			exact		regular	36		
 178	17	pressure	gasoline-energy-density	pressure	kilogram-per-meter-square-second	72225	22532213	13			exact		regular	44		
-179	17	pressure	hectopascal	pressure	kilogram-per-meter-square-second	1	1	2			exact		regular	26		
-180	17	pressure	inch-hg	pressure	kilogram-per-meter-square-second	3386388640341	1	-9			exact		deprecated	26	37	inch-ofhg
+179	17	pressure	hectopascal	pressure	kilogram-per-meter-square-second	1	1	2			exact		regular	24		
+180	17	pressure	inch-hg	pressure	kilogram-per-meter-square-second	3386388640341	1	-9			exact		deprecated	24	37	inch-ofhg
 181	17	pressure	inch-ofhg	pressure	kilogram-per-meter-square-second	3386388640341	1	-9			exact		regular	37		
 182	17	pressure	kilopascal	pressure	kilogram-per-meter-square-second	1	1	3			exact		regular	35		
 183	17	pressure	megapascal	pressure	kilogram-per-meter-square-second	1	1	6			exact		regular	35		
-184	17	pressure	millibar	pressure	kilogram-per-meter-square-second	1	1	2			exact		regular	26		
+184	17	pressure	millibar	pressure	kilogram-per-meter-square-second	1	1	2			exact		regular	24		
 185	17	pressure	millimeter-of-mercury	pressure	kilogram-per-meter-square-second	133322387415	1	-9			exact		deprecated	26	37	millimeter-ofhg
 186	17	pressure	millimeter-ofhg	pressure	kilogram-per-meter-square-second	133322387415	1	-9			exact		regular	37		
 187	17	pressure	ofhg	pressure-per-length	kilogram-per-square-meter-square-second	133322387415	1	-6			exact		regular	48		
@@ -191,13 +191,13 @@
 189	17	pressure	pound-force-per-square-inch	pressure	kilogram-per-meter-square-second	1112055403815125	16129	-7			exact		regular	37		
 190	17	pressure	pound-per-square-inch	pressure	kilogram-per-meter-square-second	1112055403815125	16129	-7			exact		deprecated	26	37	pound-force-per-square-inch
 191	19	speed	beaufort	speed	meter-per-second							beaufort	regular	43		
-192	19	speed	kilometer-per-hour	speed	meter-per-second	25	9	-1			exact		regular	26		
-193	19	speed	knot	speed	meter-per-second	463	9	-2			exact		regular	29		
+192	19	speed	kilometer-per-hour	speed	meter-per-second	25	9	-1			exact		regular	24		
+193	19	speed	knot	speed	meter-per-second	463	9	-2			exact		regular	28		
 194	19	speed	light-speed	speed	meter-per-second	299792458	1	0			exact		regular	46		
-195	19	speed	meter-per-second	speed	meter-per-second	1	1	0			exact		regular	26		
-196	19	speed	mile-per-hour	speed	meter-per-second	44704	1	-5			exact		regular	26		
-197	20	temperature	celsius	temperature	kelvin	1	1	0	5463	20	exact		regular	26		
-198	20	temperature	fahrenheit	temperature	kelvin	5	9	0	45967	180	exact		regular	26		
+195	19	speed	meter-per-second	speed	meter-per-second	1	1	0			exact		regular	24		
+196	19	speed	mile-per-hour	speed	meter-per-second	44704	1	-5			exact		regular	24		
+197	20	temperature	celsius	temperature	kelvin	1	1	0	5463	20	exact		regular	24		
+198	20	temperature	fahrenheit	temperature	kelvin	5	9	0	45967	180	exact		regular	24		
 199	20	temperature	generic										regular	27		
 200	20	temperature	kelvin	temperature	kelvin	1	1	0			exact		regular	26		
 201	20	temperature	rankine	temperature	kelvin	5	9	0			exact		regular	48		
@@ -211,14 +211,14 @@
 209	22	volume	cubic-centimeter	volume	cubic-meter	1	1	-6			exact		regular	26		
 210	22	volume	cubic-foot	volume	cubic-meter	28316846592	1	-12			exact		regular	26		
 211	22	volume	cubic-inch	volume	cubic-meter	16387064	1	-12			exact		regular	26		
-212	22	volume	cubic-kilometer	volume	cubic-meter	1	1	9			exact		regular	26		
+212	22	volume	cubic-kilometer	volume	cubic-meter	1	1	9			exact		regular	24		
 213	22	volume	cubic-meter	volume	cubic-meter	1	1	0			exact		regular	26		
-214	22	volume	cubic-mile	volume	cubic-meter	4168181825440579584	1	-9			exact		regular	26		
+214	22	volume	cubic-mile	volume	cubic-meter	4168181825440579584	1	-9			exact		regular	24		
 215	22	volume	cubic-yard	volume	cubic-meter	764554857984	1	-12			exact		regular	26		
 216	22	volume	cup	volume	cubic-meter	2365882365	1	-13			exact		regular	26		
 217	22	volume	cup-imperial	volume	cubic-meter	284130625	1	-12			exact		regular	48		
 218	22	volume	cup-jp	volume	cubic-meter	1	1	-4			exact		regular	48		
-219	22	volume	cup-metric	volume	cubic-meter	25	1	-5			exact		regular	29		
+219	22	volume	cup-metric	volume	cubic-meter	25	1	-5			exact		regular	28		
 220	22	volume	deciliter	volume	cubic-meter	1	1	-4			exact		regular	26		
 221	22	volume	dessert-spoon	volume	cubic-meter	184834559765625	1	-20			exact		regular	38		
 222	22	volume	dessert-spoon-imperial	volume	cubic-meter	22197705078125	1	-19			exact		regular	38		
@@ -233,14 +233,14 @@
 231	22	volume	jigger	volume	cubic-meter	4436029434375	1	-17			exact		regular	38		
 232	22	volume	koku	volume	cubic-meter	2401	1331	-1			exact		regular	48		
 233	22	volume	kosaji	volume	cubic-meter	5	1	-6			exact		regular	48		
-234	22	volume	liter	volume	cubic-meter	1	1	-3			exact		regular	26		
+234	22	volume	liter	volume	cubic-meter	1	1	-3			exact		regular	24		
 235	22	volume	megaliter	volume	cubic-meter	1	1	3			exact		regular	26		
 236	22	volume	milliliter	volume	cubic-meter	1	1	-6			exact		regular	26		
 237	22	volume	osaji	volume	cubic-meter	15	1	-6			exact		regular	48		
 238	22	volume	pinch	volume	cubic-meter	23104319970703125	1	-23			exact		regular	38		
 239	22	volume	pint	volume	cubic-meter	473176473	1	-12			exact		regular	26		
 240	22	volume	pint-imperial	volume	cubic-meter	56826125	1	-11			exact		regular	48		
-241	22	volume	pint-metric	volume	cubic-meter	5	1	-4			exact		regular	29		
+241	22	volume	pint-metric	volume	cubic-meter	5	1	-4			exact		regular	28		
 242	22	volume	quart	volume	cubic-meter	946352946	1	-12			exact		regular	26		
 243	22	volume	quart-imperial	volume	cubic-meter	11365225	1	-10			exact		regular	38		
 244	22	volume	sai	volume	cubic-meter	2401	1331	-6			exact		regular	48		

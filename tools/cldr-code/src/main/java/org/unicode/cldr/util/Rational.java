@@ -97,10 +97,23 @@ public final class Rational extends Number implements Comparable<Rational> {
             if (constants.put(id, parsed) != null) {
                 throw new IllegalArgumentException("Can't reset constant " + id + " = " + value);
             }
+            // A constant computed from an approximate constant is approximate too.
+            if (status == null && usesApproximateConstant(value)) {
+                status = "approximate";
+            }
             if (status != null) {
                 constantStatus.put(id, status);
             }
             return this;
+        }
+
+        private boolean usesApproximateConstant(String value) {
+            for (String token : value.split("[*/\\s]+")) {
+                if ("approximate".equals(constantStatus.get(token))) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /*
@@ -211,6 +224,9 @@ public final class Rational extends Number implements Comparable<Rational> {
             return constants;
         }
 
+        /**
+         * Constant → status from units.xml, such as "approximate" (also set for derived constants).
+         */
         public Map<String, String> getConstantStatus() {
             return constantStatus;
         }

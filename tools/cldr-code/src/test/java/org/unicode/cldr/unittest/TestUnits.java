@@ -65,6 +65,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import org.unicode.cldr.draft.FileUtilities;
@@ -73,8 +74,10 @@ import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckUnits;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateUnitsInfo;
-import org.unicode.cldr.tool.GenerateUnitsInfo.CategoryRow;
+import org.unicode.cldr.tool.GenerateUnitsInfo.Conversion;
+import org.unicode.cldr.tool.GenerateUnitsInfo.History;
 import org.unicode.cldr.tool.GenerateUnitsInfo.UnitRow;
+import org.unicode.cldr.tool.GenerateUnitsInfo.UnitsInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -111,6 +114,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 import org.unicode.cldr.util.TempPrintWriter;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
@@ -4937,212 +4941,207 @@ public class TestUnits extends TestFmwkPlus {
         }
     }
 
+    /** units_info.tsv and unit_categories.tsv are well formed, exact, and match the CLDR data. */
     public void TestUnitsInfoTsv() throws IOException {
-        Path categoriesPath =
-                Path.of(GenerateUnitsInfo.PROPERTIES_DIR, GenerateUnitsInfo.UNIT_CATEGORIES_FILE);
-        Path unitsPath =
-                Path.of(GenerateUnitsInfo.PROPERTIES_DIR, GenerateUnitsInfo.UNITS_INFO_FILE);
-        assertTrue("unit_categories.tsv exists", Files.exists(categoriesPath));
-        assertTrue("units_info.tsv exists", Files.exists(unitsPath));
+        Path dir = Path.of(GenerateUnitsInfo.PROPERTIES_DIR);
+        checkHeaderAndTabs(
+                dir.resolve(GenerateUnitsInfo.UNIT_CATEGORIES_FILE),
+                GenerateUnitsInfo.CATEGORIES_HEADER);
+        checkHeaderAndTabs(
+                dir.resolve(GenerateUnitsInfo.UNITS_INFO_FILE), GenerateUnitsInfo.UNITS_HEADER);
+        UnitsInfo info = UnitsInfo.read(dir);
 
-        List<String> categoryLines = Files.readAllLines(categoriesPath);
-        List<String> unitLines = Files.readAllLines(unitsPath);
+        // IDs are 0 to n-1, because they start at 0 and rows are never dropped.
+        assertEquals("category IDs", idRange(info.categories().size()), sorted(info.categoryIds()));
+        assertEquals("unit IDs", idRange(info.units().size()), sorted(info.unitIds()));
+
+        for (UnitRow row : info.units()) {
+            checkConversion(row);
+        }
+
+        // Regenerating must not change the files. So a change to the CLDR unit data fails here
+        // until the files are regenerated, and their diff shows ICU and ICU4X what changed.
+        UnitsInfo regenerated = GenerateUnitsInfo.update(info);
+        assertSameLines(
+                GenerateUnitsInfo.UNIT_CATEGORIES_FILE,
+                info.categoryLines(),
+                regenerated.categoryLines());
+        assertSameLines(
+                GenerateUnitsInfo.UNITS_INFO_FILE, info.unitLines(), regenerated.unitLines());
+    }
+
+    /** Over two simulated releases, deprecated entries keep their IDs and new ones get the next. */
+    public void TestUnitsInfoFutureReleases() {
+        UnitsInfo info = UnitsInfo.read(Path.of(GenerateUnitsInfo.PROPERTIES_DIR));
+        Map<String, Integer> categoryIds = info.categoryIds();
+        Map<String, Integer> unitIds = info.unitIds();
+        int maxCategoryId = Collections.max(categoryIds.values());
+        int maxUnitId = Collections.max(unitIds.values());
+        History history = History.of(info);
+
+        // Release 50 deprecates a unit and a whole category, and adds a category with two units.
+        Map<String, String> release50 = new TreeMap<>();
+        history.units()
+                .forEach(
+                        (unit, entry) -> {
+                            if (entry.deprecatedIn().isEmpty()) {
+                                release50.put(unit, entry.category());
+                            }
+                        });
+        String droppedUnit = release50.keySet().iterator().next();
+        String droppedCategory =
+                release50.values().stream()
+                        .filter(category -> !category.equals(release50.get(droppedUnit)))
+                        .findFirst()
+                        .orElseThrow();
+        release50.remove(droppedUnit);
+        release50.values().removeIf(droppedCategory::equals);
+        release50.put("test-unit-a", "test-category");
+        release50.put("test-unit-b", "test-category");
+        history.add("50", release50);
+
+        Map<String, Integer> categoryIds50 =
+                GenerateUnitsInfo.assignIds(categoryIds, history.categoryOrder());
+        Map<String, Integer> unitIds50 = GenerateUnitsInfo.assignIds(unitIds, history.unitOrder());
+        GenerateUnitsInfo.verifyStableIds("category", categoryIds, categoryIds50);
+        GenerateUnitsInfo.verifyStableIds("unit", unitIds, unitIds50);
         assertEquals(
-                "unit_categories.tsv header",
-                GenerateUnitsInfo.CATEGORIES_HEADER,
-                categoryLines.get(0));
-        assertEquals("units_info.tsv header", GenerateUnitsInfo.UNITS_HEADER, unitLines.get(0));
-
-        for (int i = 0; i < categoryLines.size(); i++) {
-            long tabs = categoryLines.get(i).chars().filter(c -> c == '\t').count();
-            assertEquals("Tab count in unit_categories.tsv line " + (i + 1), 5L, tabs);
-        }
-        for (int i = 0; i < unitLines.size(); i++) {
-            long tabs = unitLines.get(i).chars().filter(c -> c == '\t').count();
-            assertEquals("Tab count in units_info.tsv line " + (i + 1), 16L, tabs);
-        }
-
-        Map<String, CategoryRow> categories = GenerateUnitsInfo.readCategoryRows(categoriesPath);
-        Map<String, UnitRow> units = GenerateUnitsInfo.readUnitRows(unitsPath);
-
-        Set<Integer> seenCategoryIds = new HashSet<>();
-        for (CategoryRow row : categories.values()) {
-            assertTrue("Non-negative category_id for " + row.category, row.categoryId >= 0);
-            assertTrue(
-                    "Unique category_id for " + row.category, seenCategoryIds.add(row.categoryId));
-        }
-        assertTrue("category_id starts at 0", seenCategoryIds.contains(0));
-
-        Set<Integer> seenUnitIds = new HashSet<>();
-        BigInteger ten = BigInteger.valueOf(10);
-        for (UnitRow row : units.values()) {
-            assertTrue("Non-negative unit_id for " + row.unit, row.unitId >= 0);
-            assertTrue("Unique unit_id for " + row.unit, seenUnitIds.add(row.unitId));
-            String lookupUnit =
-                    ("deprecated".equals(row.status) && !row.replacement.isEmpty())
-                            ? row.replacement
-                            : row.unit;
-            Output<String> metricUnit = new Output<>();
-            ConversionInfo info =
-                    (!row.factorNum.isEmpty() || !row.offsetNum.isEmpty())
-                            ? converter.parseUnitId(lookupUnit, metricUnit, false)
-                            : null;
-            if (!row.factorNum.isEmpty()) {
-                long numLong = Long.parseLong(row.factorNum);
-                long denLong = Long.parseLong(row.factorDen);
-                int exp = Integer.parseInt(row.factorExp);
-                assertTrue("Positive factor_num for " + row.unit, numLong > 0);
-                assertTrue("Positive factor_den for " + row.unit, denLong > 0);
-                BigInteger num = BigInteger.valueOf(numLong);
-                BigInteger den = BigInteger.valueOf(denLong);
-                assertEquals("factor reduced for " + row.unit, BigInteger.ONE, num.gcd(den));
-                assertFalse(
-                        "factor_num has no trailing zero for " + row.unit,
-                        num.mod(ten).equals(BigInteger.ZERO));
-                assertFalse(
-                        "factor_den has no trailing zero for " + row.unit,
-                        den.mod(ten).equals(BigInteger.ZERO));
-                Rational reconstructed = Rational.of(num, den).multiply(Rational.pow10(exp));
-                assertEquals("Conversion factor for " + row.unit, info.factor, reconstructed);
-            }
-            if (!row.offsetNum.isEmpty() || !row.offsetDen.isEmpty()) {
-                long offsetNumLong = Long.parseLong(row.offsetNum);
-                long offsetDenLong = Long.parseLong(row.offsetDen);
-                int offsetNumInt = Integer.parseInt(row.offsetNum);
-                int offsetDenInt = Integer.parseInt(row.offsetDen);
-                assertEquals("offset_num int/long match", (long) offsetNumInt, offsetNumLong);
-                assertEquals("offset_den int/long match", (long) offsetDenInt, offsetDenLong);
-                assertTrue("Positive offset_den for " + row.unit, offsetDenLong > 0);
-                Rational reconstructedOffset = Rational.of(offsetNumLong, offsetDenLong);
-                assertEquals("Conversion offset for " + row.unit, info.offset, reconstructedOffset);
-            }
-        }
-        assertTrue("unit_id starts at 0", seenUnitIds.contains(0));
-
-        GenerateUnitsInfo generator = new GenerateUnitsInfo();
-        List<CategoryRow> regeneratedCategories = generator.buildCategoryRows(categories);
-        List<UnitRow> regeneratedUnits = generator.buildUnitRows(regeneratedCategories, units);
+                "new category ID", maxCategoryId + 1, (int) categoryIds50.get("test-category"));
+        assertEquals("first new unit ID", maxUnitId + 1, (int) unitIds50.get("test-unit-a"));
+        assertEquals("second new unit ID", maxUnitId + 2, (int) unitIds50.get("test-unit-b"));
         assertEquals(
-                "Regenerated category count",
-                categoryLines.size() - 1,
-                regeneratedCategories.size());
-        assertEquals("Regenerated unit count", unitLines.size() - 1, regeneratedUnits.size());
-        for (int i = 0; i < regeneratedCategories.size(); i++) {
-            assertEquals(
-                    "Category row " + (i + 1),
-                    categoryLines.get(i + 1),
-                    regeneratedCategories.get(i).toTsvLine());
-        }
-        for (int i = 0; i < regeneratedUnits.size(); i++) {
-            assertEquals(
-                    "Unit row " + (i + 1),
-                    unitLines.get(i + 1),
-                    regeneratedUnits.get(i).toTsvLine());
-        }
-
-        // Simulate future releases (v50 and v51) with added and deprecated categories and units.
-        Map<String, String> v50ActiveUnits =
-                new TreeMap<>(GenerateUnitsInfo.collectFormattableUnitCategories());
-        v50ActiveUnits.remove("kilometer-per-hour");
-        v50ActiveUnits.remove("newton-meter");
-        v50ActiveUnits.remove("pound-force-foot");
-        v50ActiveUnits.put("decibel", "acoustics");
-        v50ActiveUnits.put("cubic-inch-per-second", "volume");
-
-        List<CategoryRow> v50Categories =
-                generator.buildCategoryRows(categories, v50ActiveUnits, "50");
-        List<UnitRow> v50Units =
-                generator.buildUnitRows(
-                        v50Categories,
-                        units,
-                        v50ActiveUnits,
-                        GenerateUnitsInfo.getUnitAliases(),
-                        "50");
-
-        Map<String, CategoryRow> v50CatMap = new LinkedHashMap<>();
-        for (CategoryRow row : v50Categories) {
-            v50CatMap.put(row.category, row);
-            CategoryRow orig = categories.get(row.category);
-            if (orig != null) {
-                assertEquals(
-                        "Preserved category_id for " + row.category,
-                        orig.categoryId,
-                        row.categoryId);
-                assertEquals("Preserved since for " + row.category, orig.since, row.since);
-            }
-        }
-        CategoryRow deprecatedTorque = v50CatMap.get("torque");
-        assertEquals("Deprecated category torque keeps ID", 21, deprecatedTorque.categoryId);
-        assertEquals("Deprecated category torque status", "deprecated", deprecatedTorque.status);
-        assertEquals(
-                "Deprecated category torque deprecated_in", "50", deprecatedTorque.deprecatedIn);
-        CategoryRow newAcoustics = v50CatMap.get("acoustics");
-        assertEquals("New category acoustics gets next ID", 23, newAcoustics.categoryId);
-        assertEquals("New category acoustics status", "new", newAcoustics.status);
-        assertEquals("New category acoustics since", "50", newAcoustics.since);
-
-        Map<String, UnitRow> v50UnitMap = new LinkedHashMap<>();
-        for (UnitRow row : v50Units) {
-            v50UnitMap.put(row.unit, row);
-            UnitRow orig = units.get(row.unit);
-            if (orig != null) {
-                assertEquals("Preserved unit_id for " + row.unit, orig.unitId, row.unitId);
-                assertEquals("Preserved since for " + row.unit, orig.since, row.since);
-            }
-        }
-        UnitRow deprecatedKph = v50UnitMap.get("kilometer-per-hour");
-        assertEquals("Deprecated unit kilometer-per-hour keeps ID", 192, deprecatedKph.unitId);
-        assertEquals("Deprecated unit status", "deprecated", deprecatedKph.status);
-        assertEquals("Deprecated unit deprecated_in", "50", deprecatedKph.deprecatedIn);
-        UnitRow newDecibel = v50UnitMap.get("decibel");
-        UnitRow newCubicInchPerSec = v50UnitMap.get("cubic-inch-per-second");
-        assertEquals("First new unit gets ID 249", 249, newDecibel.unitId);
-        assertEquals("First new unit status", "new", newDecibel.status);
-        assertEquals("First new unit since", "50", newDecibel.since);
-        assertEquals("Second new unit gets ID 250", 250, newCubicInchPerSec.unitId);
-
-        // Simulate v51: v50's new items must keep their IDs and transition from "new" to "regular".
-        Map<String, String> v51ActiveUnits = new TreeMap<>(v50ActiveUnits);
-        v51ActiveUnits.put("square-foot-per-second", "area");
-        List<CategoryRow> v51Categories =
-                generator.buildCategoryRows(v50CatMap, v51ActiveUnits, "51");
-        List<UnitRow> v51Units =
-                generator.buildUnitRows(
-                        v51Categories,
-                        v50UnitMap,
-                        v51ActiveUnits,
-                        GenerateUnitsInfo.getUnitAliases(),
-                        "51");
-
-        Map<String, CategoryRow> v51CatMap = new LinkedHashMap<>();
-        for (CategoryRow row : v51Categories) {
-            v51CatMap.put(row.category, row);
-        }
-        assertEquals("acoustics keeps ID 23 in v51", 23, v51CatMap.get("acoustics").categoryId);
-        assertEquals(
-                "acoustics becomes regular in v51", "regular", v51CatMap.get("acoustics").status);
-        assertEquals(
-                "torque keeps deprecated_in=50 in v51", "50", v51CatMap.get("torque").deprecatedIn);
-
-        Map<String, UnitRow> v51UnitMap = new LinkedHashMap<>();
-        for (UnitRow row : v51Units) {
-            v51UnitMap.put(row.unit, row);
-        }
-        assertEquals("decibel keeps ID 249 in v51", 249, v51UnitMap.get("decibel").unitId);
-        assertEquals("decibel becomes regular in v51", "regular", v51UnitMap.get("decibel").status);
-        assertEquals(
-                "cubic-inch-per-second keeps ID 250 in v51",
-                250,
-                v51UnitMap.get("cubic-inch-per-second").unitId);
-        assertEquals(
-                "kilometer-per-hour keeps ID 192 in v51",
-                192,
-                v51UnitMap.get("kilometer-per-hour").unitId);
-        assertEquals(
-                "kilometer-per-hour keeps deprecated_in=50 in v51",
+                droppedUnit + " deprecated in",
                 "50",
-                v51UnitMap.get("kilometer-per-hour").deprecatedIn);
+                history.units().get(droppedUnit).deprecatedIn());
         assertEquals(
-                "v51 new unit gets ID 251", 251, v51UnitMap.get("square-foot-per-second").unitId);
+                droppedCategory + " deprecated in",
+                "50",
+                history.categories().get(droppedCategory).deprecatedIn());
+        assertEquals(
+                "unit added in 50, status in 50",
+                GenerateUnitsInfo.Status.NEW,
+                status(history, "test-unit-a", "50"));
+
+        // Release 51 adds one more unit. Release 50's IDs and history stay.
+        Map<String, String> release51 = new TreeMap<>(release50);
+        release51.put("test-unit-c", "test-category");
+        history.add("51", release51);
+        Map<String, Integer> unitIds51 =
+                GenerateUnitsInfo.assignIds(unitIds50, history.unitOrder());
+        GenerateUnitsInfo.verifyStableIds("unit", unitIds50, unitIds51);
+        assertEquals("unit added in 51", maxUnitId + 3, (int) unitIds51.get("test-unit-c"));
+        assertEquals(
+                droppedUnit + " deprecated in, after 51",
+                "50",
+                history.units().get(droppedUnit).deprecatedIn());
+        assertEquals(
+                "unit added in 50, status in 51",
+                GenerateUnitsInfo.Status.REGULAR,
+                status(history, "test-unit-a", "51"));
+    }
+
+    /** No ID in the last release's files has changed. */
+    public void TestUnitsInfoIdsMatchLastRelease() {
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            return;
+        }
+        Path released = Path.of(CLDRPaths.LAST_RELEASE_DIRECTORY, "common", "properties");
+        if (!Files.exists(released.resolve(GenerateUnitsInfo.UNITS_INFO_FILE))) {
+            logln("Skipping: no " + GenerateUnitsInfo.UNITS_INFO_FILE + " in " + released);
+            return;
+        }
+        try {
+            GenerateUnitsInfo.verifyStableIds(
+                    UnitsInfo.read(released),
+                    UnitsInfo.read(Path.of(GenerateUnitsInfo.PROPERTIES_DIR)));
+        } catch (IllegalStateException e) {
+            errln(e.getMessage());
+        }
+    }
+
+    /** The factor and offset are reduced integers that fit their types and give CLDR's values. */
+    private void checkConversion(UnitRow row) {
+        String unit = row.unit();
+        Conversion c = row.conversion();
+        if (c.factorNum().isEmpty()) {
+            assertTrue(unit + ": no offset without a factor", c.offsetNum().isEmpty());
+            return;
+        }
+        assertTrue(
+                unit + ": factor_num and factor_den fit in signed 64-bit integers",
+                fits(c.factorNum(), Long.SIZE) && fits(c.factorDen(), Long.SIZE));
+        assertTrue(
+                unit + ": factor_exp fits in a signed 32-bit integer",
+                fits(c.factorExp(), Integer.SIZE));
+        BigInteger num = new BigInteger(c.factorNum());
+        BigInteger den = new BigInteger(c.factorDen());
+        assertTrue(
+                unit + ": factor_num and factor_den are positive",
+                num.signum() > 0 && den.signum() > 0);
+        assertEquals(unit + ": factor is reduced", BigInteger.ONE, num.gcd(den));
+        assertTrue(
+                unit + ": factor_num and factor_den have no trailing zeros",
+                num.mod(BigInteger.TEN).signum() != 0 && den.mod(BigInteger.TEN).signum() != 0);
+        Rational factor =
+                Rational.of(num, den).multiply(Rational.pow10(Integer.parseInt(c.factorExp())));
+
+        Rational offset = Rational.ZERO;
+        if (!c.offsetNum().isEmpty()) {
+            assertTrue(
+                    unit + ": offset_num and offset_den fit in signed 32-bit integers",
+                    fits(c.offsetNum(), Integer.SIZE) && fits(c.offsetDen(), Integer.SIZE));
+            offset = Rational.of(new BigInteger(c.offsetNum()), new BigInteger(c.offsetDen()));
+        }
+
+        // A deprecated ID converts like its replacement.
+        String convertible =
+                row.status() == GenerateUnitsInfo.Status.DEPRECATED && !row.replacement().isEmpty()
+                        ? row.replacement()
+                        : unit;
+        ConversionInfo info = converter.parseUnitId(convertible, new Output<>(), false);
+        assertEquals(unit + ": factor", info.factor, factor);
+        assertEquals(unit + ": offset", info.offset, offset);
+    }
+
+    /** The file starts with {@code header}, and each line has as many tabs, for GitHub's table. */
+    private void checkHeaderAndTabs(Path file, String header) throws IOException {
+        List<String> lines = Files.readAllLines(file);
+        assertEquals(file.getFileName() + ": header", header, lines.get(0));
+        for (int i = 1; i < lines.size(); i++) {
+            assertEquals(
+                    file.getFileName() + ": tabs in line " + (i + 1),
+                    tabs(header),
+                    tabs(lines.get(i)));
+        }
+    }
+
+    private void assertSameLines(String file, List<String> expected, List<String> actual) {
+        assertEquals(file + ": rows", expected.size(), actual.size());
+        for (int i = 0; i < Math.min(expected.size(), actual.size()); i++) {
+            assertEquals(
+                    file + ": row " + (i + 1) + " (regenerate with GenerateUnitsInfo)",
+                    expected.get(i),
+                    actual.get(i));
+        }
+    }
+
+    private static GenerateUnitsInfo.Status status(History history, String unit, String release) {
+        return history.units().get(unit).status(release);
+    }
+
+    private static boolean fits(String number, int bits) {
+        return new BigInteger(number).bitLength() < bits;
+    }
+
+    private static long tabs(String line) {
+        return line.chars().filter(ch -> ch == '\t').count();
+    }
+
+    private static List<Integer> idRange(int size) {
+        return IntStream.range(0, size).boxed().toList();
+    }
+
+    private static List<Integer> sorted(Map<String, Integer> ids) {
+        return ids.values().stream().sorted().toList();
     }
 }

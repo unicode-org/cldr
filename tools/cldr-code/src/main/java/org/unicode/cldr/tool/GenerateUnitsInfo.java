@@ -272,19 +272,24 @@ public class GenerateUnitsInfo {
         Path unitsPath = Path.of(PROPERTIES_DIR, UNITS_INFO_FILE);
         String historyGitDir = CldrUtility.getProperty("CLDR_HISTORY_GIT_DIR", null);
 
+        Map<String, CategoryRow> previousCategories =
+                Files.exists(categoriesPath) ? readCategoryRows(categoriesPath) : Map.of();
+        Map<String, UnitRow> previousUnits =
+                Files.exists(unitsPath) ? readUnitRows(unitsPath) : Map.of();
+
         List<CategoryRow> categoryRows;
         List<UnitRow> unitRows;
-        if (historyGitDir != null || !Files.exists(categoriesPath) || !Files.exists(unitsPath)) {
+        if (historyGitDir != null || previousCategories.isEmpty() || previousUnits.isEmpty()) {
             String gitDir = historyGitDir != null ? historyGitDir : CLDRPaths.BASE_DIRECTORY;
             Map<String, CategoryRow> catMap = new LinkedHashMap<>();
-            unitRows = buildFromGitHistory(gitDir, catMap);
+            unitRows = buildFromGitHistory(gitDir, previousCategories, previousUnits, catMap);
             categoryRows = new ArrayList<>(catMap.values());
         } else {
-            Map<String, CategoryRow> previousCategories = readCategoryRows(categoriesPath);
-            Map<String, UnitRow> previousUnits = readUnitRows(unitsPath);
             categoryRows = buildCategoryRows(previousCategories);
             unitRows = buildUnitRows(categoryRows, previousUnits);
         }
+        verifyCategoryIdStability(previousCategories, categoryRows);
+        verifyUnitIdStability(previousUnits, unitRows);
 
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(PROPERTIES_DIR, UNIT_CATEGORIES_FILE)) {
@@ -384,8 +389,13 @@ public class GenerateUnitsInfo {
             throw new ICUUncheckedIOException(e);
         }
 
+        Set<String> deprecatedLongUnits =
+                Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.deprecated);
         Map<String, String> unitToCategory = new TreeMap<>();
         for (String longId : localeLongUnits) {
+            if (deprecatedLongUnits != null && deprecatedLongUnits.contains(longId)) {
+                continue;
+            }
             int dash = longId.indexOf('-');
             if (dash > 0) {
                 unitToCategory.put(longId.substring(dash + 1), longId.substring(0, dash));
@@ -409,7 +419,14 @@ public class GenerateUnitsInfo {
     }
 
     public List<CategoryRow> buildCategoryRows(Map<String, CategoryRow> previousCategories) {
-        Map<String, String> currentUnitToCategory = collectFormattableUnitCategories();
+        return buildCategoryRows(
+                previousCategories, collectFormattableUnitCategories(), ToolConstants.DEV_VERSION);
+    }
+
+    public List<CategoryRow> buildCategoryRows(
+            Map<String, CategoryRow> previousCategories,
+            Map<String, String> currentUnitToCategory,
+            String currentVersion) {
         Set<String> activeCategories = new TreeSet<>(currentUnitToCategory.values());
         Set<String> allCategories = new TreeSet<>(previousCategories.keySet());
         allCategories.addAll(activeCategories);
@@ -421,59 +438,77 @@ public class GenerateUnitsInfo {
         for (String category : allCategories) {
             CategoryRow prev = previousCategories.get(category);
             int id = prev != null ? prev.categoryId : ++maxCategoryId;
-            String since = prev != null ? prev.since : ToolConstants.DEV_VERSION;
+            String since = prev != null ? prev.since : currentVersion;
             boolean active = activeCategories.contains(category);
             String status =
-                    !active
-                            ? "deprecated"
-                            : (since.equals(ToolConstants.DEV_VERSION) ? "new" : "regular");
+                    !active ? "deprecated" : (since.equals(currentVersion) ? "new" : "regular");
             String deprecatedIn =
                     active
                             ? ""
                             : (prev != null && !prev.deprecatedIn.isEmpty()
                                     ? prev.deprecatedIn
-                                    : ToolConstants.DEV_VERSION);
+                                    : currentVersion);
             String replacement = active ? "" : (prev != null ? prev.replacement : "");
             rows.add(new CategoryRow(id, category, status, since, deprecatedIn, replacement));
         }
+        verifyCategoryIdStability(previousCategories, rows);
         return rows;
     }
 
     public List<UnitRow> buildUnitRows(
             List<CategoryRow> categoryRows, Map<String, UnitRow> previousUnits) {
+        return buildUnitRows(
+                categoryRows,
+                previousUnits,
+                collectFormattableUnitCategories(),
+                getUnitAliases(),
+                ToolConstants.DEV_VERSION);
+    }
+
+    public List<UnitRow> buildUnitRows(
+            List<CategoryRow> categoryRows,
+            Map<String, UnitRow> previousUnits,
+            Map<String, String> currentUnitToCategory,
+            Map<String, String> aliases,
+            String currentVersion) {
         Map<String, Integer> categoryToId = new TreeMap<>();
         for (CategoryRow c : categoryRows) {
             categoryToId.put(c.category, c.categoryId);
         }
 
-        Map<String, String> currentUnitToCategory = collectFormattableUnitCategories();
-        Map<String, String> aliases = getUnitAliases();
         Set<String> approximateConstants = getApproximateConstants();
 
         Set<String> allUnits = new TreeSet<>(previousUnits.keySet());
         allUnits.addAll(currentUnitToCategory.keySet());
 
+        List<String> sortedUnits = new ArrayList<>(allUnits);
+        sortedUnits.sort(
+                Comparator.comparing(
+                                (String u) ->
+                                        currentUnitToCategory.containsKey(u)
+                                                ? currentUnitToCategory.get(u)
+                                                : previousUnits.get(u).category)
+                        .thenComparing(u -> u));
+
         int maxUnitId = previousUnits.values().stream().mapToInt(r -> r.unitId).max().orElse(-1);
 
         List<UnitRow> rows = new ArrayList<>();
-        for (String unit : allUnits) {
+        for (String unit : sortedUnits) {
             UnitRow prev = previousUnits.get(unit);
             int unitId = prev != null ? prev.unitId : ++maxUnitId;
-            String since = prev != null ? prev.since : ToolConstants.DEV_VERSION;
+            String since = prev != null ? prev.since : currentVersion;
             boolean active = currentUnitToCategory.containsKey(unit);
             String category =
                     active ? currentUnitToCategory.get(unit) : (prev != null ? prev.category : "");
             int categoryId = categoryToId.get(category);
             String status =
-                    !active
-                            ? "deprecated"
-                            : (since.equals(ToolConstants.DEV_VERSION) ? "new" : "regular");
+                    !active ? "deprecated" : (since.equals(currentVersion) ? "new" : "regular");
             String deprecatedIn =
                     active
                             ? ""
                             : (prev != null && !prev.deprecatedIn.isEmpty()
                                     ? prev.deprecatedIn
-                                    : ToolConstants.DEV_VERSION);
+                                    : currentVersion);
             String replacement = aliases.getOrDefault(unit, prev != null ? prev.replacement : "");
 
             rows.add(
@@ -489,7 +524,110 @@ public class GenerateUnitsInfo {
                             approximateConstants));
         }
         rows.sort(Comparator.comparing((UnitRow r) -> r.category).thenComparing(r -> r.unit));
+        verifyUnitIdStability(previousUnits, rows);
         return rows;
+    }
+
+    public static void verifyCategoryIdStability(
+            Map<String, CategoryRow> previousCategories, List<CategoryRow> newRows) {
+        int prevMaxId =
+                previousCategories.values().stream().mapToInt(r -> r.categoryId).max().orElse(-1);
+        Map<String, CategoryRow> byName = new LinkedHashMap<>();
+        Set<Integer> seenIds = new LinkedHashSet<>();
+        for (CategoryRow row : newRows) {
+            if (row.categoryId < 0 || !seenIds.add(row.categoryId)) {
+                throw new IllegalStateException(
+                        "Invalid or duplicate category_id "
+                                + row.categoryId
+                                + " for "
+                                + row.category);
+            }
+            byName.put(row.category, row);
+            CategoryRow prev = previousCategories.get(row.category);
+            if (prev != null) {
+                if (row.categoryId != prev.categoryId) {
+                    throw new IllegalStateException(
+                            "category_id changed for "
+                                    + row.category
+                                    + ": "
+                                    + prev.categoryId
+                                    + " -> "
+                                    + row.categoryId);
+                }
+                if (!row.since.equals(prev.since)) {
+                    throw new IllegalStateException(
+                            "since changed for category "
+                                    + row.category
+                                    + ": "
+                                    + prev.since
+                                    + " -> "
+                                    + row.since);
+                }
+            } else if (row.categoryId <= prevMaxId) {
+                throw new IllegalStateException(
+                        "New category "
+                                + row.category
+                                + " assigned non-new category_id "
+                                + row.categoryId
+                                + " (prevMaxId="
+                                + prevMaxId
+                                + ")");
+            }
+        }
+        for (String prevCat : previousCategories.keySet()) {
+            if (!byName.containsKey(prevCat)) {
+                throw new IllegalStateException("Previous category dropped: " + prevCat);
+            }
+        }
+    }
+
+    public static void verifyUnitIdStability(
+            Map<String, UnitRow> previousUnits, List<UnitRow> newRows) {
+        int prevMaxId = previousUnits.values().stream().mapToInt(r -> r.unitId).max().orElse(-1);
+        Map<String, UnitRow> byName = new LinkedHashMap<>();
+        Set<Integer> seenIds = new LinkedHashSet<>();
+        for (UnitRow row : newRows) {
+            if (row.unitId < 0 || !seenIds.add(row.unitId)) {
+                throw new IllegalStateException(
+                        "Invalid or duplicate unit_id " + row.unitId + " for " + row.unit);
+            }
+            byName.put(row.unit, row);
+            UnitRow prev = previousUnits.get(row.unit);
+            if (prev != null) {
+                if (row.unitId != prev.unitId) {
+                    throw new IllegalStateException(
+                            "unit_id changed for "
+                                    + row.unit
+                                    + ": "
+                                    + prev.unitId
+                                    + " -> "
+                                    + row.unitId);
+                }
+                if (!row.since.equals(prev.since)) {
+                    throw new IllegalStateException(
+                            "since changed for unit "
+                                    + row.unit
+                                    + ": "
+                                    + prev.since
+                                    + " -> "
+                                    + row.since);
+                }
+            } else if (row.unitId <= prevMaxId) {
+                throw new IllegalStateException(
+                        "New unit "
+                                + row.unit
+                                + " assigned non-new unit_id "
+                                + row.unitId
+                                + " (prevMaxId="
+                                + prevMaxId
+                                + ")");
+            }
+        }
+        for (String prevUnit : previousUnits.keySet()) {
+            if (!byName.containsKey(prevUnit)) {
+                throw new IllegalStateException("Previous unit dropped: " + prevUnit);
+            }
+        }
     }
 
     private UnitRow createUnitRow(
@@ -640,7 +778,10 @@ public class GenerateUnitsInfo {
     }
 
     private List<UnitRow> buildFromGitHistory(
-            String gitDir, Map<String, CategoryRow> outCategories) {
+            String gitDir,
+            Map<String, CategoryRow> previousCategories,
+            Map<String, UnitRow> previousUnits,
+            Map<String, CategoryRow> outCategories) {
         List<R2<String, Map<String, R2<String, String>>>> history = new ArrayList<>();
         for (String tag : RELEASE_TAGS) {
             String ver = tag.substring("release-".length()).split("-")[0];
@@ -731,8 +872,11 @@ public class GenerateUnitsInfo {
                     });
         }
 
-        int catId = 0;
+        int maxCatId =
+                previousCategories.values().stream().mapToInt(r -> r.categoryId).max().orElse(-1);
         for (String cat : catFirst.keySet()) {
+            CategoryRow prev = previousCategories.get(cat);
+            int catId = prev != null ? prev.categoryId : ++maxCatId;
             boolean retired = !ToolConstants.DEV_VERSION.equals(catLast.get(cat));
             Set<String> moved = new LinkedHashSet<>();
             for (String u : catUnits.get(cat)) {
@@ -741,35 +885,34 @@ public class GenerateUnitsInfo {
                     moved.add(nowCat);
                 }
             }
+            String since = prev != null ? prev.since : catFirst.get(cat);
             String status =
                     retired
                             ? "deprecated"
-                            : (ToolConstants.DEV_VERSION.equals(catFirst.get(cat))
-                                    ? "new"
-                                    : "regular");
+                            : (ToolConstants.DEV_VERSION.equals(since) ? "new" : "regular");
             String deprecatedIn =
                     retired ? versions.get(versions.indexOf(catLast.get(cat)) + 1) : "";
             String replacement = retired && moved.size() == 1 ? moved.iterator().next() : "";
             outCategories.put(
-                    cat,
-                    new CategoryRow(
-                            catId++, cat, status, catFirst.get(cat), deprecatedIn, replacement));
+                    cat, new CategoryRow(catId, cat, status, since, deprecatedIn, replacement));
         }
 
         rawUnitMeta.sort(Comparator.comparing((String[] a) -> a[0]).thenComparing(a -> a[1]));
         List<UnitRow> unitRows = new ArrayList<>();
-        int unitId = 0;
+        int maxUnitId = previousUnits.values().stream().mapToInt(r -> r.unitId).max().orElse(-1);
         for (String[] meta : rawUnitMeta) {
             String category = meta[0];
             String unit = meta[1];
+            UnitRow prev = previousUnits.get(unit);
+            int unitId = prev != null ? prev.unitId : ++maxUnitId;
             String status = meta[2];
-            String since = meta[3];
+            String since = prev != null ? prev.since : meta[3];
             String deprecatedIn = meta[4];
             String replacement = meta[5];
             int categoryId = outCategories.get(category).categoryId;
             unitRows.add(
                     createUnitRow(
-                            unitId++,
+                            unitId,
                             categoryId,
                             category,
                             unit,

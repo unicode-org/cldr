@@ -5039,5 +5039,110 @@ public class TestUnits extends TestFmwkPlus {
                     unitLines.get(i + 1),
                     regeneratedUnits.get(i).toTsvLine());
         }
+
+        // Simulate future releases (v50 and v51) with added and deprecated categories and units.
+        Map<String, String> v50ActiveUnits =
+                new TreeMap<>(GenerateUnitsInfo.collectFormattableUnitCategories());
+        v50ActiveUnits.remove("kilometer-per-hour");
+        v50ActiveUnits.remove("newton-meter");
+        v50ActiveUnits.remove("pound-force-foot");
+        v50ActiveUnits.put("decibel", "acoustics");
+        v50ActiveUnits.put("cubic-inch-per-second", "volume");
+
+        List<CategoryRow> v50Categories =
+                generator.buildCategoryRows(categories, v50ActiveUnits, "50");
+        List<UnitRow> v50Units =
+                generator.buildUnitRows(
+                        v50Categories,
+                        units,
+                        v50ActiveUnits,
+                        GenerateUnitsInfo.getUnitAliases(),
+                        "50");
+
+        Map<String, CategoryRow> v50CatMap = new LinkedHashMap<>();
+        for (CategoryRow row : v50Categories) {
+            v50CatMap.put(row.category, row);
+            CategoryRow orig = categories.get(row.category);
+            if (orig != null) {
+                assertEquals(
+                        "Preserved category_id for " + row.category,
+                        orig.categoryId,
+                        row.categoryId);
+                assertEquals("Preserved since for " + row.category, orig.since, row.since);
+            }
+        }
+        CategoryRow deprecatedTorque = v50CatMap.get("torque");
+        assertEquals("Deprecated category torque keeps ID", 21, deprecatedTorque.categoryId);
+        assertEquals("Deprecated category torque status", "deprecated", deprecatedTorque.status);
+        assertEquals(
+                "Deprecated category torque deprecated_in", "50", deprecatedTorque.deprecatedIn);
+        CategoryRow newAcoustics = v50CatMap.get("acoustics");
+        assertEquals("New category acoustics gets next ID", 23, newAcoustics.categoryId);
+        assertEquals("New category acoustics status", "new", newAcoustics.status);
+        assertEquals("New category acoustics since", "50", newAcoustics.since);
+
+        Map<String, UnitRow> v50UnitMap = new LinkedHashMap<>();
+        for (UnitRow row : v50Units) {
+            v50UnitMap.put(row.unit, row);
+            UnitRow orig = units.get(row.unit);
+            if (orig != null) {
+                assertEquals("Preserved unit_id for " + row.unit, orig.unitId, row.unitId);
+                assertEquals("Preserved since for " + row.unit, orig.since, row.since);
+            }
+        }
+        UnitRow deprecatedKph = v50UnitMap.get("kilometer-per-hour");
+        assertEquals("Deprecated unit kilometer-per-hour keeps ID", 192, deprecatedKph.unitId);
+        assertEquals("Deprecated unit status", "deprecated", deprecatedKph.status);
+        assertEquals("Deprecated unit deprecated_in", "50", deprecatedKph.deprecatedIn);
+        UnitRow newDecibel = v50UnitMap.get("decibel");
+        UnitRow newCubicInchPerSec = v50UnitMap.get("cubic-inch-per-second");
+        assertEquals("First new unit gets ID 249", 249, newDecibel.unitId);
+        assertEquals("First new unit status", "new", newDecibel.status);
+        assertEquals("First new unit since", "50", newDecibel.since);
+        assertEquals("Second new unit gets ID 250", 250, newCubicInchPerSec.unitId);
+
+        // Simulate v51: v50's new items must keep their IDs and transition from "new" to "regular".
+        Map<String, String> v51ActiveUnits = new TreeMap<>(v50ActiveUnits);
+        v51ActiveUnits.put("square-foot-per-second", "area");
+        List<CategoryRow> v51Categories =
+                generator.buildCategoryRows(v50CatMap, v51ActiveUnits, "51");
+        List<UnitRow> v51Units =
+                generator.buildUnitRows(
+                        v51Categories,
+                        v50UnitMap,
+                        v51ActiveUnits,
+                        GenerateUnitsInfo.getUnitAliases(),
+                        "51");
+
+        Map<String, CategoryRow> v51CatMap = new LinkedHashMap<>();
+        for (CategoryRow row : v51Categories) {
+            v51CatMap.put(row.category, row);
+        }
+        assertEquals("acoustics keeps ID 23 in v51", 23, v51CatMap.get("acoustics").categoryId);
+        assertEquals(
+                "acoustics becomes regular in v51", "regular", v51CatMap.get("acoustics").status);
+        assertEquals(
+                "torque keeps deprecated_in=50 in v51", "50", v51CatMap.get("torque").deprecatedIn);
+
+        Map<String, UnitRow> v51UnitMap = new LinkedHashMap<>();
+        for (UnitRow row : v51Units) {
+            v51UnitMap.put(row.unit, row);
+        }
+        assertEquals("decibel keeps ID 249 in v51", 249, v51UnitMap.get("decibel").unitId);
+        assertEquals("decibel becomes regular in v51", "regular", v51UnitMap.get("decibel").status);
+        assertEquals(
+                "cubic-inch-per-second keeps ID 250 in v51",
+                250,
+                v51UnitMap.get("cubic-inch-per-second").unitId);
+        assertEquals(
+                "kilometer-per-hour keeps ID 192 in v51",
+                192,
+                v51UnitMap.get("kilometer-per-hour").unitId);
+        assertEquals(
+                "kilometer-per-hour keeps deprecated_in=50 in v51",
+                "50",
+                v51UnitMap.get("kilometer-per-hour").deprecatedIn);
+        assertEquals(
+                "v51 new unit gets ID 251", 251, v51UnitMap.get("square-foot-per-second").unitId);
     }
 }

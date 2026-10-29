@@ -2,11 +2,14 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterCategory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -66,6 +69,22 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                     .put(
                             "currency_group_separator_regular",
                             f -> assertNoSymbol(f, "currencyGroup"))
+                    .put("currency_alpha_next_to_number_compact", f -> assertCurrencyNextToZero(f))
+                    .put(
+                            "currency_alpha_next_to_number_compact_currency_sign",
+                            f -> {
+                                assertCurrencyNextToZero(f);
+                                assertSymbolsEndWithCurrencySign(f);
+                            })
+                    .put(
+                            "currency_alpha_next_to_number_compact_combining_mark",
+                            f -> {
+                                assertCurrencyNextToZero(f);
+                                assertNarrowSymbolsEndWithCombiningMark(f);
+                            })
+                    .put(
+                            "currency_alpha_next_to_number_compact_abbreviation",
+                            f -> assertCurrencyNextToAbbreviation(f))
                     .build();
 
     public void TestDataGuards() throws IOException {
@@ -164,30 +183,112 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
         }
     }
 
-    /**
-     * Each locale of the core set has a compact currency pattern, not "0", for the compact type of
-     * each input of the core set.
-     */
+    /** Each locale of the core set has a compact currency pattern, not "0", for each input. */
     private void assertCompactPatterns(Feature feature) {
+        for (CompactPattern compact : compactPatterns(feature)) {
+            if (assertNotNull(compact.where() + " has a compact pattern", compact.pattern())) {
+                assertNotEquals(compact.where() + " pattern isn't \"0\"", "0", compact.pattern());
+            }
+        }
+    }
+
+    /**
+     * For each input, the compact pattern of each locale of the core set has ¤ right before a 0,
+     * and the locale has a different alt="alphaNextToNumber" pattern.
+     */
+    private void assertCurrencyNextToZero(Feature feature) {
+        for (CompactPattern compact : compactPatterns(feature)) {
+            if (assertNotNull(compact.where() + " has a compact pattern", compact.pattern())) {
+                assertTrue(
+                        compact.where() + " pattern " + compact.pattern() + " has ¤ before a 0",
+                        compact.pattern().contains("¤0"));
+                assertTrue(compact.where() + " has an alt pattern", compact.hasAlt());
+            }
+        }
+    }
+
+    /**
+     * For each input, the compact pattern of each locale of the core set has ¤ next to an
+     * abbreviation rather than a 0, and the locale has a different alt="alphaNextToNumber" pattern.
+     */
+    private void assertCurrencyNextToAbbreviation(Feature feature) {
+        for (CompactPattern compact : compactPatterns(feature)) {
+            String pattern = compact.pattern();
+            if (assertNotNull(compact.where() + " has a compact pattern", pattern)) {
+                assertTrue(
+                        compact.where() + " pattern " + pattern + " has ¤ away from the 0s",
+                        pattern.contains("¤")
+                                && !pattern.contains("¤0")
+                                && !pattern.contains("0¤"));
+                assertTrue(compact.where() + " has an alt pattern", compact.hasAlt());
+            }
+        }
+    }
+
+    /** In each locale of the core set, each currency's symbol ends with a currency sign, like $. */
+    private void assertSymbolsEndWithCurrencySign(Feature feature) {
         for (String locale : feature.coreSet().get("locale")) {
-            CLDRFile file = CLDRConfig.getInstance().getCLDRFile(locale, true);
-            String numberingSystem = file.getStringValue("//ldml/numbers/defaultNumberingSystem");
-            for (String type : compactTypes(feature)) {
-                String pattern =
-                        file.getStringValue(
-                                "//ldml/numbers/currencyFormats[@numberSystem=\""
-                                        + numberingSystem
-                                        + "\"]/currencyFormatLength[@type=\"short\"]"
-                                        + "/currencyFormat[@type=\"standard\"]/pattern[@type=\""
-                                        + type
-                                        + "\"][@count=\"other\"]");
-                String message =
-                        feature.id() + ": " + locale + " has a compact pattern for " + type;
-                if (assertNotNull(message, pattern)) {
-                    assertNotEquals(message + " that isn't \"0\"", "0", pattern);
+            for (String currency : feature.coreSet().get("currency")) {
+                String symbol = currencySymbol(locale, currency, false);
+                String where = feature.id() + ": " + locale + " " + currency + " symbol " + symbol;
+                if (assertNotNull(where, symbol)) {
+                    int last = symbol.codePointBefore(symbol.length());
+                    assertEquals(
+                            where + " ends with a currency sign",
+                            UCharacterCategory.CURRENCY_SYMBOL,
+                            UCharacter.getType(last));
                 }
             }
         }
+    }
+
+    /**
+     * In each locale of the core set, each currency's narrow symbol ends with a letter and a
+     * combining mark, like ಲೀ.
+     */
+    private void assertNarrowSymbolsEndWithCombiningMark(Feature feature) {
+        for (String locale : feature.coreSet().get("locale")) {
+            for (String currency : feature.coreSet().get("currency")) {
+                String symbol = currencySymbol(locale, currency, true);
+                String where = feature.id() + ": " + locale + " " + currency + " narrow " + symbol;
+                if (assertNotNull(where, symbol)) {
+                    int mark = symbol.codePointBefore(symbol.length());
+                    int type = UCharacter.getType(mark);
+                    String rest = symbol.substring(0, symbol.length() - Character.charCount(mark));
+                    assertTrue(
+                            where + " ends with a letter and a combining mark",
+                            (type == UCharacterCategory.NON_SPACING_MARK
+                                            || type == UCharacterCategory.COMBINING_SPACING_MARK)
+                                    && !rest.isEmpty()
+                                    && UCharacter.isLetter(rest.codePointBefore(rest.length())));
+                }
+            }
+        }
+    }
+
+    /**
+     * A short currency pattern (count "other") of a core set locale, for the compact type of a core
+     * set input, with its alt="alphaNextToNumber" variant.
+     */
+    private record CompactPattern(String where, String pattern, String alt) {
+        /** CLDR returns the pattern itself for the alt when the locale has no alt pattern. */
+        boolean hasAlt() {
+            return alt != null && !alt.equals(pattern);
+        }
+    }
+
+    private static List<CompactPattern> compactPatterns(Feature feature) {
+        List<CompactPattern> result = new ArrayList<>();
+        for (String locale : feature.coreSet().get("locale")) {
+            for (String type : compactTypes(feature)) {
+                result.add(
+                        new CompactPattern(
+                                feature.id() + ": " + locale + " " + type,
+                                compactPattern(locale, type, false),
+                                compactPattern(locale, type, true)));
+            }
+        }
+        return result;
     }
 
     /** Returns the compact types of the core set inputs, such as 1000 for -1230.05. */
@@ -197,5 +298,28 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                 .distinct()
                 .map(exponent -> "1" + "0".repeat(Math.max(0, exponent)))
                 .toList();
+    }
+
+    private static String compactPattern(String locale, String type, boolean alt) {
+        CLDRFile file = CLDRConfig.getInstance().getCLDRFile(locale, true);
+        String numberingSystem = file.getStringValue("//ldml/numbers/defaultNumberingSystem");
+        return file.getStringValue(
+                "//ldml/numbers/currencyFormats[@numberSystem=\""
+                        + numberingSystem
+                        + "\"]/currencyFormatLength[@type=\"short\"]"
+                        + "/currencyFormat[@type=\"standard\"]/pattern[@type=\""
+                        + type
+                        + "\"][@count=\"other\"]"
+                        + (alt ? "[@alt=\"alphaNextToNumber\"]" : ""));
+    }
+
+    private static String currencySymbol(String locale, String currency, boolean narrow) {
+        return CLDRConfig.getInstance()
+                .getCLDRFile(locale, true)
+                .getStringValue(
+                        "//ldml/numbers/currencies/currency[@type=\""
+                                + currency
+                                + "\"]/symbol"
+                                + (narrow ? "[@alt=\"narrow\"]" : ""));
     }
 }

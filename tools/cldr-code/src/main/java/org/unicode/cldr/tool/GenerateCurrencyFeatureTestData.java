@@ -71,6 +71,10 @@ public class GenerateCurrencyFeatureTestData {
     /** The type of {@code <currencyFormatLength>}. The default is the non-compact format. */
     public enum CurrencyFormatLength implements Labeled {
         // currency_decimal_separator_locale_compact (S1.1b)
+        // currency_alpha_next_to_number_compact (S2.1a, S2.2a, S2.4a)
+        // currency_alpha_next_to_number_compact_currency_sign (S2.2b)
+        // currency_alpha_next_to_number_compact_combining_mark (S2.2d)
+        // currency_alpha_next_to_number_compact_abbreviation (S2.3b)
         SHORT("short", Notation.compactShort());
 
         private final String label;
@@ -90,9 +94,14 @@ public class GenerateCurrencyFeatureTestData {
     /** How the currency is shown. The default is {@code symbol}. */
     public enum CurrencyDisplay implements Labeled {
         SYMBOL("symbol", UnitWidth.SHORT),
-        // currency_decimal_separator_locale (S1.1a), currency_group_separator_locale (S1.3a)
+        // currency_decimal_separator_locale (S1.1a)
+        // currency_group_separator_locale (S1.3a)
+        // currency_alpha_next_to_number_compact_combining_mark (S2.2d)
         SYMBOL_NARROW("symbolNarrow", UnitWidth.NARROW),
-        // currency_decimal_separator_locale (S1.1a), currency_group_separator_locale (S1.3a)
+        // currency_decimal_separator_locale (S1.1a)
+        // currency_group_separator_locale (S1.3a)
+        // currency_alpha_next_to_number_compact (S2.1a, S2.2a, S2.4a)
+        // currency_alpha_next_to_number_compact_abbreviation (S2.3b)
         CODE("code", UnitWidth.ISO_CODE),
         // currency_decimal_separator_locale_name (S1.1c)
         NAME("name", UnitWidth.FULL_NAME);
@@ -194,6 +203,8 @@ public class GenerateCurrencyFeatureTestData {
                         .unit(Currency.getInstance(testCase.get(Dimension.CURRENCY)));
         String length = testCase.get(Dimension.CURRENCY_FORMAT_LENGTH);
         if (!length.isEmpty()) {
+            // ICU4J doesn't implement the alt="alphaNextToNumber" step of compact formatting; it
+            // applies currencySpacing instead, which gives the same result for the S2 features.
             formatter = formatter.notation(fromLabel(CurrencyFormatLength.class, length).notation);
         }
         String display = testCase.get(Dimension.CURRENCY_DISPLAY);

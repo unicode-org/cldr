@@ -4,6 +4,38 @@ const { ref } = Vue;
 // first thing.
 anchors.add("h1, h2, h3, h4, h5, h6");
 
+// Render mermaid code blocks as diagrams, as GitHub does. Mermaid is copied
+// to assets/vendor (see package.json) and loaded only on pages that have such
+// a block.
+async function renderMermaidBlocks() {
+  // kramdown writes <pre><code class="language-mermaid">, or a
+  // <div class="language-mermaid"> wrapper when a highlighter is used.
+  const blocks = new Set(
+    [...document.querySelectorAll("#content .language-mermaid")].map(
+      (e) => e.closest("div.language-mermaid") ?? e.closest("pre") ?? e
+    )
+  );
+  if (!blocks.size) return;
+  const { default: mermaid } = await import(
+    "/assets/vendor/mermaid/mermaid.esm.min.mjs"
+  );
+  mermaid.initialize({ startOnLoad: false, suppressErrorRendering: true });
+  let n = 0;
+  for (const block of blocks) {
+    try {
+      const { svg } = await mermaid.render(`mermaid-${n++}`, block.textContent);
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.innerHTML = svg;
+      block.replaceWith(div);
+    } catch (e) {
+      console.error("Could not render a mermaid diagram", e);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", renderMermaidBlocks);
+
 const coll = Intl.Collator([], {
   usage: "search",
   sensitivity: "base",

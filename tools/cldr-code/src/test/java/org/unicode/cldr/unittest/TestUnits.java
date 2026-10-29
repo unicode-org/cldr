@@ -72,6 +72,9 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckUnits;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.GenerateUnitsInfo;
+import org.unicode.cldr.tool.GenerateUnitsInfo.CategoryRow;
+import org.unicode.cldr.tool.GenerateUnitsInfo.UnitRow;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -4931,6 +4934,88 @@ public class TestUnits extends TestFmwkPlus {
                 }
                 System.out.println(Joiners.TAB.join(locale, unit, Joiners.TAB.join(results)));
             }
+        }
+    }
+
+    public void TestUnitsInfoTsv() throws IOException {
+        Path categoriesPath =
+                Path.of(GenerateUnitsInfo.PROPERTIES_DIR, GenerateUnitsInfo.UNIT_CATEGORIES_FILE);
+        Path unitsPath =
+                Path.of(GenerateUnitsInfo.PROPERTIES_DIR, GenerateUnitsInfo.UNITS_INFO_FILE);
+        assertTrue("unit_categories.tsv exists", Files.exists(categoriesPath));
+        assertTrue("units_info.tsv exists", Files.exists(unitsPath));
+
+        List<String> categoryLines = Files.readAllLines(categoriesPath);
+        List<String> unitLines = Files.readAllLines(unitsPath);
+        assertEquals(
+                "unit_categories.tsv header",
+                GenerateUnitsInfo.CATEGORIES_HEADER,
+                categoryLines.get(0));
+        assertEquals("units_info.tsv header", GenerateUnitsInfo.UNITS_HEADER, unitLines.get(0));
+
+        for (int i = 0; i < categoryLines.size(); i++) {
+            long tabs = categoryLines.get(i).chars().filter(c -> c == '\t').count();
+            assertEquals("Tab count in unit_categories.tsv line " + (i + 1), 5L, tabs);
+        }
+        for (int i = 0; i < unitLines.size(); i++) {
+            long tabs = unitLines.get(i).chars().filter(c -> c == '\t').count();
+            assertEquals("Tab count in units_info.tsv line " + (i + 1), 16L, tabs);
+        }
+
+        Map<String, CategoryRow> categories = GenerateUnitsInfo.readCategoryRows(categoriesPath);
+        Map<String, UnitRow> units = GenerateUnitsInfo.readUnitRows(unitsPath);
+
+        Set<Integer> seenCategoryIds = new HashSet<>();
+        for (CategoryRow row : categories.values()) {
+            assertTrue("Positive category_id for " + row.category, row.categoryId > 0);
+            assertTrue(
+                    "Unique category_id for " + row.category, seenCategoryIds.add(row.categoryId));
+        }
+
+        Set<Integer> seenUnitIds = new HashSet<>();
+        BigInteger ten = BigInteger.valueOf(10);
+        for (UnitRow row : units.values()) {
+            assertTrue("Positive unit_id for " + row.unit, row.unitId > 0);
+            assertTrue("Unique unit_id for " + row.unit, seenUnitIds.add(row.unitId));
+            if (!row.factorNum.isEmpty()) {
+                BigInteger num = new BigInteger(row.factorNum);
+                BigInteger den = new BigInteger(row.factorDen);
+                int exp = Integer.parseInt(row.factorExp);
+                assertEquals(
+                        "factor_den coprime to 10 for " + row.unit, BigInteger.ONE, den.gcd(ten));
+                assertFalse(
+                        "factor_num has no trailing zero for " + row.unit,
+                        !num.equals(BigInteger.ZERO) && num.mod(ten).equals(BigInteger.ZERO));
+                Rational reconstructed = Rational.of(num, den).multiply(Rational.pow10(exp));
+                String lookupUnit =
+                        ("deprecated".equals(row.status) && !row.replacement.isEmpty())
+                                ? row.replacement
+                                : row.unit;
+                Output<String> metricUnit = new Output<>();
+                ConversionInfo info = converter.parseUnitId(lookupUnit, metricUnit, false);
+                assertEquals("Conversion factor for " + row.unit, info.factor, reconstructed);
+            }
+        }
+
+        GenerateUnitsInfo generator = new GenerateUnitsInfo();
+        List<CategoryRow> regeneratedCategories = generator.buildCategoryRows(categories);
+        List<UnitRow> regeneratedUnits = generator.buildUnitRows(regeneratedCategories, units);
+        assertEquals(
+                "Regenerated category count",
+                categoryLines.size() - 1,
+                regeneratedCategories.size());
+        assertEquals("Regenerated unit count", unitLines.size() - 1, regeneratedUnits.size());
+        for (int i = 0; i < regeneratedCategories.size(); i++) {
+            assertEquals(
+                    "Category row " + (i + 1),
+                    categoryLines.get(i + 1),
+                    regeneratedCategories.get(i).toTsvLine());
+        }
+        for (int i = 0; i < regeneratedUnits.size(); i++) {
+            assertEquals(
+                    "Unit row " + (i + 1),
+                    unitLines.get(i + 1),
+                    regeneratedUnits.get(i).toTsvLine());
         }
     }
 }

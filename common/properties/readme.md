@@ -12,3 +12,5 @@ This directory contains additional information for CLDR. Currently, this include
 * external_data_versions.tsv — a tsv file with information about external data used in CLDR
 * labels.txt — a file with label information for emoji (not up to date)
 * scriptMetadata.txt — a file with additional data about Unicode scripts
+* unit_categories.tsv: unit categories with stable numeric IDs and version history
+* units_info.tsv: formattable units with stable numeric IDs, conversion factors, base units, and version history

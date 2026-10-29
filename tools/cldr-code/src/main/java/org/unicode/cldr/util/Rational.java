@@ -210,6 +210,10 @@ public final class Rational extends Number implements Comparable<Rational> {
         public Map<String, Rational> getConstants() {
             return constants;
         }
+
+        public Map<String, String> getConstantStatus() {
+            return constantStatus;
+        }
     }
 
     public static Rational of(long numerator, long denominator) {

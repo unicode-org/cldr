@@ -71,6 +71,7 @@ public class GenerateUnitsInfo {
     private static final BigInteger BI_TWO = BigInteger.valueOf(2);
     private static final BigInteger BI_FIVE = BigInteger.valueOf(5);
     private static final BigInteger BI_TEN = BigInteger.valueOf(10);
+    private static final BigInteger BI_LONG_MAX = BigInteger.valueOf(Long.MAX_VALUE);
 
     private static final List<String> RELEASE_TAGS =
             ImmutableList.of(
@@ -101,11 +102,11 @@ public class GenerateUnitsInfo {
     private static final UnitConverter CONVERTER = SDI.getUnitConverter();
 
     public static final class ScientificRational {
-        public final BigInteger numerator;
-        public final BigInteger denominator;
+        public final long numerator;
+        public final long denominator;
         public final int exponent;
 
-        public ScientificRational(BigInteger numerator, BigInteger denominator, int exponent) {
+        public ScientificRational(long numerator, long denominator, int exponent) {
             this.numerator = numerator;
             this.denominator = denominator;
             this.exponent = exponent;
@@ -113,14 +114,14 @@ public class GenerateUnitsInfo {
 
         /**
          * Splits a reduced {@link Rational} into {@code (numerator / denominator) * 10^exponent}
-         * where {@code gcd(denominator, 10) == 1} and {@code numerator} has no trailing zeros
-         * (unless 0).
+         * where {@code numerator} and {@code denominator} fit in a signed 64-bit {@code long} and
+         * have no trailing zeros (unless 0).
          */
         public static ScientificRational from(Rational rational) {
             BigInteger p = rational.numerator;
             BigInteger q = rational.denominator;
             if (p.equals(BigInteger.ZERO)) {
-                return new ScientificRational(BigInteger.ZERO, BigInteger.ONE, 0);
+                return new ScientificRational(0L, 1L, 0);
             }
             int a = 0;
             while (q.mod(BI_TWO).equals(BigInteger.ZERO)) {
@@ -139,7 +140,19 @@ public class GenerateUnitsInfo {
                 n = n.divide(BI_TEN);
                 exp++;
             }
-            return new ScientificRational(n, q, exp);
+            if (n.abs().compareTo(BI_LONG_MAX) > 0) {
+                while (n.mod(BI_TWO).equals(BigInteger.ZERO)) {
+                    n = n.divide(BI_TWO);
+                    q = q.multiply(BI_FIVE);
+                    exp++;
+                }
+                while (n.mod(BI_FIVE).equals(BigInteger.ZERO)) {
+                    n = n.divide(BI_FIVE);
+                    q = q.multiply(BI_TWO);
+                    exp++;
+                }
+            }
+            return new ScientificRational(n.longValueExact(), q.longValueExact(), exp);
         }
     }
 
@@ -402,7 +415,7 @@ public class GenerateUnitsInfo {
         allCategories.addAll(activeCategories);
 
         int maxCategoryId =
-                previousCategories.values().stream().mapToInt(r -> r.categoryId).max().orElse(0);
+                previousCategories.values().stream().mapToInt(r -> r.categoryId).max().orElse(-1);
 
         List<CategoryRow> rows = new ArrayList<>();
         for (String category : allCategories) {
@@ -440,7 +453,7 @@ public class GenerateUnitsInfo {
         Set<String> allUnits = new TreeSet<>(previousUnits.keySet());
         allUnits.addAll(currentUnitToCategory.keySet());
 
-        int maxUnitId = previousUnits.values().stream().mapToInt(r -> r.unitId).max().orElse(0);
+        int maxUnitId = previousUnits.values().stream().mapToInt(r -> r.unitId).max().orElse(-1);
 
         List<UnitRow> rows = new ArrayList<>();
         for (String unit : allUnits) {
@@ -562,8 +575,8 @@ public class GenerateUnitsInfo {
         String offsetNum = "";
         String offsetDen = "";
         if (!info.offset.equals(Rational.ZERO)) {
-            offsetNum = info.offset.numerator.toString();
-            offsetDen = info.offset.denominator.toString();
+            offsetNum = Long.toString(info.offset.numerator.longValueExact());
+            offsetDen = Long.toString(info.offset.denominator.longValueExact());
         }
         String exactness =
                 isUnitApproximate(lookupUnit, approximateConstants) ? "approximate" : "exact";
@@ -574,8 +587,8 @@ public class GenerateUnitsInfo {
                 unit,
                 quantity != null ? quantity : "",
                 baseUnit != null ? baseUnit : "",
-                sci.numerator.toString(),
-                sci.denominator.toString(),
+                Long.toString(sci.numerator),
+                Long.toString(sci.denominator),
                 Integer.toString(sci.exponent),
                 offsetNum,
                 offsetDen,
@@ -720,7 +733,6 @@ public class GenerateUnitsInfo {
 
         int catId = 0;
         for (String cat : catFirst.keySet()) {
-            catId++;
             boolean retired = !ToolConstants.DEV_VERSION.equals(catLast.get(cat));
             Set<String> moved = new LinkedHashSet<>();
             for (String u : catUnits.get(cat)) {
@@ -741,14 +753,13 @@ public class GenerateUnitsInfo {
             outCategories.put(
                     cat,
                     new CategoryRow(
-                            catId, cat, status, catFirst.get(cat), deprecatedIn, replacement));
+                            catId++, cat, status, catFirst.get(cat), deprecatedIn, replacement));
         }
 
         rawUnitMeta.sort(Comparator.comparing((String[] a) -> a[0]).thenComparing(a -> a[1]));
         List<UnitRow> unitRows = new ArrayList<>();
         int unitId = 0;
         for (String[] meta : rawUnitMeta) {
-            unitId++;
             String category = meta[0];
             String unit = meta[1];
             String status = meta[2];
@@ -758,7 +769,7 @@ public class GenerateUnitsInfo {
             int categoryId = outCategories.get(category).categoryId;
             unitRows.add(
                     createUnitRow(
-                            unitId,
+                            unitId++,
                             categoryId,
                             category,
                             unit,

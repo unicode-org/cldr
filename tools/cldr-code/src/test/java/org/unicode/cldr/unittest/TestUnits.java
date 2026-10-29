@@ -4967,35 +4967,57 @@ public class TestUnits extends TestFmwkPlus {
 
         Set<Integer> seenCategoryIds = new HashSet<>();
         for (CategoryRow row : categories.values()) {
-            assertTrue("Positive category_id for " + row.category, row.categoryId > 0);
+            assertTrue("Non-negative category_id for " + row.category, row.categoryId >= 0);
             assertTrue(
                     "Unique category_id for " + row.category, seenCategoryIds.add(row.categoryId));
         }
+        assertTrue("category_id starts at 0", seenCategoryIds.contains(0));
 
         Set<Integer> seenUnitIds = new HashSet<>();
         BigInteger ten = BigInteger.valueOf(10);
         for (UnitRow row : units.values()) {
-            assertTrue("Positive unit_id for " + row.unit, row.unitId > 0);
+            assertTrue("Non-negative unit_id for " + row.unit, row.unitId >= 0);
             assertTrue("Unique unit_id for " + row.unit, seenUnitIds.add(row.unitId));
+            String lookupUnit =
+                    ("deprecated".equals(row.status) && !row.replacement.isEmpty())
+                            ? row.replacement
+                            : row.unit;
+            Output<String> metricUnit = new Output<>();
+            ConversionInfo info =
+                    (!row.factorNum.isEmpty() || !row.offsetNum.isEmpty())
+                            ? converter.parseUnitId(lookupUnit, metricUnit, false)
+                            : null;
             if (!row.factorNum.isEmpty()) {
-                BigInteger num = new BigInteger(row.factorNum);
-                BigInteger den = new BigInteger(row.factorDen);
+                long numLong = Long.parseLong(row.factorNum);
+                long denLong = Long.parseLong(row.factorDen);
                 int exp = Integer.parseInt(row.factorExp);
-                assertEquals(
-                        "factor_den coprime to 10 for " + row.unit, BigInteger.ONE, den.gcd(ten));
+                assertTrue("Positive factor_num for " + row.unit, numLong > 0);
+                assertTrue("Positive factor_den for " + row.unit, denLong > 0);
+                BigInteger num = BigInteger.valueOf(numLong);
+                BigInteger den = BigInteger.valueOf(denLong);
+                assertEquals("factor reduced for " + row.unit, BigInteger.ONE, num.gcd(den));
                 assertFalse(
                         "factor_num has no trailing zero for " + row.unit,
-                        !num.equals(BigInteger.ZERO) && num.mod(ten).equals(BigInteger.ZERO));
+                        num.mod(ten).equals(BigInteger.ZERO));
+                assertFalse(
+                        "factor_den has no trailing zero for " + row.unit,
+                        den.mod(ten).equals(BigInteger.ZERO));
                 Rational reconstructed = Rational.of(num, den).multiply(Rational.pow10(exp));
-                String lookupUnit =
-                        ("deprecated".equals(row.status) && !row.replacement.isEmpty())
-                                ? row.replacement
-                                : row.unit;
-                Output<String> metricUnit = new Output<>();
-                ConversionInfo info = converter.parseUnitId(lookupUnit, metricUnit, false);
                 assertEquals("Conversion factor for " + row.unit, info.factor, reconstructed);
             }
+            if (!row.offsetNum.isEmpty() || !row.offsetDen.isEmpty()) {
+                long offsetNumLong = Long.parseLong(row.offsetNum);
+                long offsetDenLong = Long.parseLong(row.offsetDen);
+                int offsetNumInt = Integer.parseInt(row.offsetNum);
+                int offsetDenInt = Integer.parseInt(row.offsetDen);
+                assertEquals("offset_num int/long match", (long) offsetNumInt, offsetNumLong);
+                assertEquals("offset_den int/long match", (long) offsetDenInt, offsetDenLong);
+                assertTrue("Positive offset_den for " + row.unit, offsetDenLong > 0);
+                Rational reconstructedOffset = Rational.of(offsetNumLong, offsetDenLong);
+                assertEquals("Conversion offset for " + row.unit, info.offset, reconstructedOffset);
+            }
         }
+        assertTrue("unit_id starts at 0", seenUnitIds.contains(0));
 
         GenerateUnitsInfo generator = new GenerateUnitsInfo();
         List<CategoryRow> regeneratedCategories = generator.buildCategoryRows(categories);

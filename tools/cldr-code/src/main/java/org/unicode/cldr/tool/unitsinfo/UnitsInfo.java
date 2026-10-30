@@ -53,7 +53,9 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     "status",
                     "since",
                     "deprecated_in",
-                    "replacement");
+                    "replacement",
+                    "reciprocal_quantity",
+                    "reciprocal_base_unit");
     public static final String CATEGORIES_HEADER = "# " + String.join("\t", CATEGORY_COLUMNS);
     public static final String UNITS_HEADER = "# " + String.join("\t", UNIT_COLUMNS);
 
@@ -128,7 +130,12 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
         }
     }
 
-    /** A row of units_info.tsv. The {@code unit} is the unit ID without its category prefix. */
+    /**
+     * A row of units_info.tsv. The {@code unit} is the unit ID without its category prefix. The
+     * reciprocal quantity is the quantity in the same category whose base unit is 1 / this unit's
+     * base unit (miles per gallon and liters per 100 km), or "" if there is none. Converting
+     * between the two takes 1/x.
+     */
     public record UnitRow(
             int id,
             int categoryId,
@@ -138,7 +145,9 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
             Status status,
             String since,
             String deprecatedIn,
-            String replacement) {
+            String replacement,
+            String reciprocalQuantity,
+            String reciprocalBaseUnit) {
 
         private String toTsv() {
             return TAB.join(
@@ -150,7 +159,9 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     status,
                     since,
                     deprecatedIn,
-                    replacement);
+                    replacement,
+                    reciprocalQuantity,
+                    reciprocalBaseUnit);
         }
 
         private static UnitRow parse(List<String> cells) {
@@ -163,7 +174,9 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     Status.parse(cells.get(14)),
                     cells.get(15),
                     cells.get(16),
-                    cells.get(17));
+                    cells.get(17),
+                    cells.get(18),
+                    cells.get(19));
         }
     }
 

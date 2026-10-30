@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -202,7 +203,17 @@ public class TestUnitsInfo extends TestFmwkPlus {
                 new Conversion(false, "length", "meter", twoTo63, "1", "0", "", "", "exact", "");
         UnitRow row =
                 new UnitRow(
-                        32768, 0, "length", "test-unit", conversion, Status.REGULAR, "24", "", "");
+                        32768,
+                        0,
+                        "length",
+                        "test-unit",
+                        conversion,
+                        Status.REGULAR,
+                        "24",
+                        "",
+                        "",
+                        "",
+                        "");
         assertEquals(
                 "problems",
                 List.of(
@@ -212,6 +223,45 @@ public class TestUnitsInfo extends TestFmwkPlus {
                                 + twoTo63
                                 + " doesn't fit in a signed 64-bit integer (it has 64 bits)"),
                 new UnitsInfo(List.of(), List.of(row)).integerProblems());
+    }
+
+    /**
+     * A unit's reciprocal quantity is in the same category, its base unit is 1 / the unit's base
+     * unit, and the units of that quantity point back.
+     */
+    public void TestReciprocals() {
+        UnitsInfo info = UnitsInfo.read(DIR);
+        Map<List<String>, String> baseUnits = new HashMap<>();
+        Map<List<String>, String> reciprocals = new HashMap<>();
+        for (UnitRow row : info.units()) {
+            List<String> key = List.of(row.category(), row.conversion().quantity());
+            baseUnits.put(key, row.conversion().baseUnit());
+            reciprocals.put(key, row.reciprocalQuantity());
+        }
+        for (UnitRow row : info.units()) {
+            String unit = row.unit();
+            if (row.reciprocalQuantity().isEmpty()) {
+                assertEquals(unit + ": no reciprocal base unit", "", row.reciprocalBaseUnit());
+                continue;
+            }
+            List<String> other = List.of(row.category(), row.reciprocalQuantity());
+            assertEquals(
+                    unit + ": the reciprocal quantity is in the same category, with that base unit",
+                    row.reciprocalBaseUnit(),
+                    baseUnits.get(other));
+            assertEquals(
+                    unit + ": the reciprocal quantity points back",
+                    row.conversion().quantity(),
+                    reciprocals.get(other));
+            assertEquals(
+                    unit + ": CLDR converts 2 of the base unit to 1/2 of the reciprocal base unit",
+                    Rational.of(1, 2),
+                    CONVERTER.convert(
+                            Rational.of(2),
+                            row.conversion().baseUnit(),
+                            row.reciprocalBaseUnit(),
+                            false));
+        }
     }
 
     /** The factor and offset are reduced integers that fit their types and give CLDR's values. */

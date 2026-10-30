@@ -54,6 +54,11 @@ final class UnitConversions {
         return Conversion.linear(quantity, baseUnit, info.factor, info.offset, isApproximate(unit));
     }
 
+    /** The reciprocal of a base unit: cubic-meter-per-meter ↔ meter-per-cubic-meter. */
+    static String reciprocalOf(String baseUnit) {
+        return CONVERTER.reciprocalOf(baseUnit);
+    }
+
     /** True if a simple unit in {@code unit} converts with an approximate constant, like PI. */
     private static boolean isApproximate(String unit) {
         UnitId id = CONVERTER.createUnitId(unit);

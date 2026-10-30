@@ -102,29 +102,74 @@ public class GenerateUnitsInfo {
         Map<String, String> replacements = new HashMap<>();
         previous.units().forEach(row -> replacements.put(row.unit(), row.replacement()));
         replacements.putAll(CldrUnits.aliases());
-        List<UnitRow> units = new ArrayList<>();
+        Map<String, Conversion> conversions = new HashMap<>();
         for (String unit : unitOrder) {
-            UnitHistory.UnitEntry entry = history.units().get(unit);
-            Status status = entry.status(release);
             String replacement = replacements.getOrDefault(unit, "");
             // A deprecated ID converts like its replacement (pound-per-square-inch meant
             // pound-force).
-            String convertible =
-                    status == Status.DEPRECATED && !replacement.isEmpty() ? replacement : unit;
+            boolean deprecated = history.units().get(unit).status(release) == Status.DEPRECATED;
+            conversions.put(
+                    unit,
+                    UnitConversions.of(deprecated && !replacement.isEmpty() ? replacement : unit));
+        }
+        Map<String, String> reciprocals = reciprocalQuantities(history, conversions);
+
+        List<UnitRow> units = new ArrayList<>();
+        for (String unit : unitOrder) {
+            UnitHistory.UnitEntry entry = history.units().get(unit);
+            Conversion conversion = conversions.get(unit);
+            String reciprocal = reciprocals.get(unit);
             units.add(
                     new UnitRow(
                             unitIds.get(unit),
                             categoryIds.get(entry.category()),
                             entry.category(),
                             unit,
-                            UnitConversions.of(convertible),
-                            status,
+                            conversion,
+                            entry.status(release),
                             entry.since(),
                             entry.deprecatedIn(),
-                            replacement));
+                            replacements.getOrDefault(unit, ""),
+                            reciprocal,
+                            reciprocal.isEmpty()
+                                    ? ""
+                                    : UnitConversions.reciprocalOf(conversion.baseUnit())));
         }
         UnitsInfo result = new UnitsInfo(categories, units);
         StableIds.verify(previous, result);
         return result;
+    }
+
+    /**
+     * For each unit, the quantity in its category whose base unit is 1 / the unit's base unit, or
+     * "" if there is none: consumption-inverse for liter-per-100-kilometer, electric-conductance
+     * for ohm. Requiring the same category keeps out pairs that only match by dimension, like
+     * second and becquerel.
+     */
+    private static Map<String, String> reciprocalQuantities(
+            UnitHistory history, Map<String, Conversion> conversions) {
+        Map<List<String>, String> quantityByCategoryAndBase = new HashMap<>();
+        conversions.forEach(
+                (unit, c) ->
+                        quantityByCategoryAndBase.put(
+                                List.of(history.units().get(unit).category(), c.baseUnit()),
+                                c.quantity()));
+        Map<String, String> reciprocals = new HashMap<>();
+        conversions.forEach(
+                (unit, c) -> {
+                    String reciprocalBase =
+                            c.baseUnit().isEmpty()
+                                    ? ""
+                                    : UnitConversions.reciprocalOf(c.baseUnit());
+                    String quantity =
+                            reciprocalBase.equals(c.baseUnit())
+                                    ? null
+                                    : quantityByCategoryAndBase.get(
+                                            List.of(
+                                                    history.units().get(unit).category(),
+                                                    reciprocalBase));
+                    reciprocals.put(unit, quantity == null ? "" : quantity);
+                });
+        return reciprocals;
     }
 }

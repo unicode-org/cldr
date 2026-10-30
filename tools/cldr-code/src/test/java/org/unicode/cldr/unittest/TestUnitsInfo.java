@@ -50,7 +50,9 @@ public class TestUnitsInfo extends TestFmwkPlus {
         checkHeaderAndTabs(DIR.resolve(UnitsInfo.UNITS_INFO_FILE), UnitsInfo.UNITS_HEADER);
         UnitsInfo info = UnitsInfo.read(DIR);
 
-        // IDs are 0 to n-1, because they start at 0 and rows are never dropped.
+        // IDs are 0 to n-1, because they start at 0 and rows are never dropped. unitIds() maps
+        // each unit to its ID, so this also fails if two rows share a unit or a unit_id: a unit_id
+        // is unique whatever the unit's category or quantity.
         assertEquals("category IDs", idRange(info.categories().size()), sorted(info.categoryIds()));
         assertEquals("quantity IDs", idRange(info.quantities().size()), sorted(info.quantityIds()));
         assertEquals("unit IDs", idRange(info.units().size()), sorted(info.unitIds()));

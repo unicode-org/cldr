@@ -29,11 +29,10 @@ public final class StableIds {
         return ids;
     }
 
-    /**
-     * Throws unless every category and unit ID of {@code previous} is unchanged in {@code current}.
-     */
+    /** Throws unless every ID of {@code previous} is unchanged in {@code current}. */
     public static void verify(UnitsInfo previous, UnitsInfo current) {
         verify("category", previous.categoryIds(), current.categoryIds());
+        verify("quantity", previous.quantityIds(), current.quantityIds());
         verify("unit", previous.unitIds(), current.unitIds());
     }
 

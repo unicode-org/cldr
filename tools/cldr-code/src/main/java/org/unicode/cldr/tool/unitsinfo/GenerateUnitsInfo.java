@@ -2,28 +2,34 @@ package org.unicode.cldr.tool.unitsinfo;
 
 import static com.google.common.base.Preconditions.checkState;
 
+import com.ibm.icu.util.VersionInfo;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 /**
- * Generates {@code common/properties/units_info.tsv} (one row per formattable unit) and {@code
- * unit_categories.tsv} (one row per unit category). ICU4C, ICU4J, and ICU4X generate their built-in
- * units from these files.
+ * Generates {@code common/properties/units_info.tsv} (one row per formattable unit), {@code
+ * unit_categories.tsv} (one row per unit category), and {@code unit_quantities.tsv} (one row per
+ * quantity, such as length). ICU4C, ICU4J, and ICU4X generate their built-in units from these
+ * files.
  *
  * <p>The tool exists in CLDR for three things:
  *
  * <ol>
- *   <li><b>Stable IDs.</b> Every unit and category keeps its 0-based ID forever, also after it is
- *       deprecated, and a new one gets the next free ID. The tool fails if an ID would change.
+ *   <li><b>Stable IDs.</b> Every unit, category, and quantity keeps its 0-based ID forever, also
+ *       after it is deprecated, and a new one gets the next free ID. The tool fails if an ID would
+ *       change.
  *   <li><b>Integer conversion rates.</b> Each conversion to the base unit is written as {@code
  *       factor_num / factor_den × 10^factor_exp + offset_num / offset_den}. The tool won't write a
  *       number that doesn't fit its column's signed integer size ({@link UnitsInfo#INTEGER_BITS}:
@@ -113,11 +119,17 @@ public class GenerateUnitsInfo {
                     UnitConversions.of(deprecated && !replacement.isEmpty() ? replacement : unit));
         }
         Map<String, String> reciprocals = reciprocalQuantities(history, conversions);
+        List<QuantityRow> quantities = quantityRows(history, conversions, previous, release);
+        Map<String, Integer> quantityIds = new HashMap<>();
+        quantities.forEach(row -> quantityIds.put(row.quantity(), row.id()));
 
         List<UnitRow> units = new ArrayList<>();
         for (String unit : unitOrder) {
             UnitHistory.UnitEntry entry = history.units().get(unit);
             Conversion conversion = conversions.get(unit);
+            if (!conversion.quantity().isEmpty()) {
+                conversion = conversion.withQuantityId(quantityIds.get(conversion.quantity()));
+            }
             String reciprocal = reciprocals.get(unit);
             units.add(
                     new UnitRow(
@@ -135,9 +147,74 @@ public class GenerateUnitsInfo {
                                     ? ""
                                     : UnitConversions.reciprocalOf(conversion.baseUnit())));
         }
-        UnitsInfo result = new UnitsInfo(categories, units);
+        UnitsInfo result = new UnitsInfo(categories, quantities, units);
         StableIds.verify(previous, result);
         return result;
+    }
+
+    /**
+     * One row per quantity of a unit, with stable IDs (new ones in alphabetical order). A quantity
+     * starts in the first release of any of its units, and is deprecated once none of them is
+     * active. A previous row keeps its since and base unit.
+     */
+    private static List<QuantityRow> quantityRows(
+            UnitHistory history,
+            Map<String, Conversion> conversions,
+            UnitsInfo previous,
+            String release) {
+        Map<String, QuantityRow> previousRows = new HashMap<>();
+        previous.quantities().forEach(row -> previousRows.put(row.quantity(), row));
+        Map<String, List<String>> unitsByQuantity = new TreeMap<>();
+        previousRows.keySet().forEach(quantity -> unitsByQuantity.put(quantity, new ArrayList<>()));
+        conversions.forEach(
+                (unit, c) -> {
+                    if (!c.quantity().isEmpty()) {
+                        unitsByQuantity
+                                .computeIfAbsent(c.quantity(), q -> new ArrayList<>())
+                                .add(unit);
+                    }
+                });
+        Map<String, Integer> ids =
+                StableIds.assign(previous.quantityIds(), List.copyOf(unitsByQuantity.keySet()));
+
+        Comparator<String> byVersion = Comparator.comparing(VersionInfo::getInstance);
+        List<QuantityRow> rows = new ArrayList<>();
+        unitsByQuantity.forEach(
+                (quantity, units) -> {
+                    QuantityRow old = previousRows.get(quantity);
+                    List<UnitHistory.UnitEntry> entries =
+                            units.stream().map(history.units()::get).toList();
+                    String since =
+                            old != null
+                                    ? old.since()
+                                    : entries.stream()
+                                            .map(UnitHistory.UnitEntry::since)
+                                            .min(byVersion)
+                                            .orElse(release);
+                    String deprecatedIn = "";
+                    if (entries.stream().noneMatch(e -> e.deprecatedIn().isEmpty())) {
+                        deprecatedIn =
+                                old != null && !old.deprecatedIn().isEmpty()
+                                        ? old.deprecatedIn()
+                                        : entries.stream()
+                                                .map(UnitHistory.UnitEntry::deprecatedIn)
+                                                .max(byVersion)
+                                                .orElse(release);
+                    }
+                    String baseUnit =
+                            units.isEmpty()
+                                    ? old.baseUnit()
+                                    : conversions.get(units.get(0)).baseUnit();
+                    rows.add(
+                            new QuantityRow(
+                                    ids.get(quantity),
+                                    quantity,
+                                    baseUnit,
+                                    Status.of(since, deprecatedIn, release),
+                                    since,
+                                    deprecatedIn));
+                });
+        return rows;
     }
 
     /**

@@ -20,6 +20,7 @@ import org.unicode.cldr.tool.unitsinfo.GenerateUnitsInfo;
 import org.unicode.cldr.tool.unitsinfo.StableIds;
 import org.unicode.cldr.tool.unitsinfo.UnitHistory;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
 import org.unicode.cldr.util.CLDRConfig;
@@ -44,15 +45,31 @@ public class TestUnitsInfo extends TestFmwkPlus {
     public void TestFiles() throws IOException {
         checkHeaderAndTabs(
                 DIR.resolve(UnitsInfo.UNIT_CATEGORIES_FILE), UnitsInfo.CATEGORIES_HEADER);
+        checkHeaderAndTabs(
+                DIR.resolve(UnitsInfo.UNIT_QUANTITIES_FILE), UnitsInfo.QUANTITIES_HEADER);
         checkHeaderAndTabs(DIR.resolve(UnitsInfo.UNITS_INFO_FILE), UnitsInfo.UNITS_HEADER);
         UnitsInfo info = UnitsInfo.read(DIR);
 
         // IDs are 0 to n-1, because they start at 0 and rows are never dropped.
         assertEquals("category IDs", idRange(info.categories().size()), sorted(info.categoryIds()));
+        assertEquals("quantity IDs", idRange(info.quantities().size()), sorted(info.quantityIds()));
         assertEquals("unit IDs", idRange(info.units().size()), sorted(info.unitIds()));
 
+        Map<String, QuantityRow> quantities = new HashMap<>();
+        info.quantities().forEach(q -> quantities.put(Integer.toString(q.id()), q));
         for (UnitRow row : info.units()) {
             checkConversion(row);
+            // A unit's quantity_id points to the row of its quantity, with the same base unit.
+            Conversion c = row.conversion();
+            QuantityRow quantity = quantities.get(c.quantityId());
+            assertEquals(
+                    row.unit() + ": quantity of quantity_id " + c.quantityId(),
+                    c.quantity(),
+                    quantity == null ? "" : quantity.quantity());
+            assertEquals(
+                    row.unit() + ": base unit of quantity_id " + c.quantityId(),
+                    c.baseUnit(),
+                    quantity == null ? "" : quantity.baseUnit());
         }
 
         // Regenerating must not change the files. So a change to the CLDR unit data fails here
@@ -60,6 +77,8 @@ public class TestUnitsInfo extends TestFmwkPlus {
         UnitsInfo regenerated = GenerateUnitsInfo.update(info);
         assertSameLines(
                 UnitsInfo.UNIT_CATEGORIES_FILE, info.categoryLines(), regenerated.categoryLines());
+        assertSameLines(
+                UnitsInfo.UNIT_QUANTITIES_FILE, info.quantityLines(), regenerated.quantityLines());
         assertSameLines(UnitsInfo.UNITS_INFO_FILE, info.unitLines(), regenerated.unitLines());
     }
 
@@ -200,7 +219,8 @@ public class TestUnitsInfo extends TestFmwkPlus {
     public void TestIntegerSizeCheck() {
         String twoTo63 = BigInteger.TWO.pow(63).toString();
         Conversion conversion =
-                new Conversion(false, "length", "meter", twoTo63, "1", "0", "", "", "exact", "");
+                new Conversion(
+                        false, "", "length", "meter", twoTo63, "1", "0", "", "", "exact", "");
         UnitRow row =
                 new UnitRow(
                         32768,
@@ -222,7 +242,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
                         "test-unit: factor_num = "
                                 + twoTo63
                                 + " doesn't fit in a signed 64-bit integer (it has 64 bits)"),
-                new UnitsInfo(List.of(), List.of(row)).integerProblems());
+                new UnitsInfo(List.of(), List.of(), List.of(row)).integerProblems());
     }
 
     /**

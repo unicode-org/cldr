@@ -23,17 +23,21 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.TempPrintWriter;
 
 /**
- * The rows of {@code units_info.tsv} and {@code unit_categories.tsv}, with their columns, and how
- * the files are read and written.
+ * The rows of {@code units_info.tsv}, {@code unit_categories.tsv}, and {@code unit_quantities.tsv},
+ * with their columns, and how the files are read and written.
  */
-public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
+public record UnitsInfo(
+        List<CategoryRow> categories, List<QuantityRow> quantities, List<UnitRow> units) {
 
     public static final String PROPERTIES_DIR = CLDRPaths.COMMON_DIRECTORY + "properties";
     public static final String UNITS_INFO_FILE = "units_info.tsv";
     public static final String UNIT_CATEGORIES_FILE = "unit_categories.tsv";
+    public static final String UNIT_QUANTITIES_FILE = "unit_quantities.tsv";
 
     private static final List<String> CATEGORY_COLUMNS =
             List.of("category_id", "category", "status", "since", "deprecated_in", "replacement");
+    private static final List<String> QUANTITY_COLUMNS =
+            List.of("quantity_id", "quantity", "base_unit", "status", "since", "deprecated_in");
     private static final List<String> UNIT_COLUMNS =
             List.of(
                     "unit_id",
@@ -41,6 +45,7 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     "category",
                     "unit",
                     "format_only",
+                    "quantity_id",
                     "quantity",
                     "base_unit",
                     "factor_num",
@@ -57,6 +62,7 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     "reciprocal_quantity",
                     "reciprocal_base_unit");
     public static final String CATEGORIES_HEADER = "# " + String.join("\t", CATEGORY_COLUMNS);
+    public static final String QUANTITIES_HEADER = "# " + String.join("\t", QUANTITY_COLUMNS);
     public static final String UNITS_HEADER = "# " + String.join("\t", UNIT_COLUMNS);
 
     static final Joiner TAB = Joiner.on('\t');
@@ -72,6 +78,7 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
             Map.of(
                     "unit_id", 16,
                     "category_id", 8,
+                    "quantity_id", 16,
                     "factor_num", 64,
                     "factor_den", 64,
                     "factor_exp", 32,
@@ -130,6 +137,30 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
         }
     }
 
+    /** A row of unit_quantities.tsv: what a unit measures, such as length (base unit meter). */
+    public record QuantityRow(
+            int id,
+            String quantity,
+            String baseUnit,
+            Status status,
+            String since,
+            String deprecatedIn) {
+
+        private String toTsv() {
+            return TAB.join(id, quantity, baseUnit, status, since, deprecatedIn);
+        }
+
+        private static QuantityRow parse(List<String> cells) {
+            return new QuantityRow(
+                    Integer.parseInt(cells.get(0)),
+                    cells.get(1),
+                    cells.get(2),
+                    Status.parse(cells.get(3)),
+                    cells.get(4),
+                    cells.get(5));
+        }
+    }
+
     /**
      * A row of units_info.tsv. The {@code unit} is the unit ID without its category prefix. The
      * reciprocal quantity is the quantity in the same category whose base unit is 1 / this unit's
@@ -170,36 +201,47 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
                     Integer.parseInt(cells.get(1)),
                     cells.get(2),
                     cells.get(3),
-                    Conversion.parse(cells.subList(4, 14)),
-                    Status.parse(cells.get(14)),
-                    cells.get(15),
+                    Conversion.parse(cells.subList(4, 15)),
+                    Status.parse(cells.get(15)),
                     cells.get(16),
                     cells.get(17),
                     cells.get(18),
-                    cells.get(19));
+                    cells.get(19),
+                    cells.get(20));
         }
     }
 
-    /** Reads both files from {@code dir}, or returns empty tables if neither exists. */
+    /** Reads the files from {@code dir}, or returns empty tables if they don't exist. */
     public static UnitsInfo read(Path dir) {
         Path categoriesFile = dir.resolve(UNIT_CATEGORIES_FILE);
+        Path quantitiesFile = dir.resolve(UNIT_QUANTITIES_FILE);
         Path unitsFile = dir.resolve(UNITS_INFO_FILE);
         if (!Files.exists(categoriesFile) && !Files.exists(unitsFile)) {
-            return new UnitsInfo(List.of(), List.of());
+            return new UnitsInfo(List.of(), List.of(), List.of());
         }
         return new UnitsInfo(
                 readTsv(categoriesFile, CATEGORY_COLUMNS.size()).stream()
                         .map(CategoryRow::parse)
                         .toList(),
+                // unit_quantities.tsv was added after the other files, so it may be missing.
+                Files.exists(quantitiesFile)
+                        ? readTsv(quantitiesFile, QUANTITY_COLUMNS.size()).stream()
+                                .map(QuantityRow::parse)
+                                .toList()
+                        : List.of(),
                 readTsv(unitsFile, UNIT_COLUMNS.size()).stream().map(UnitRow::parse).toList());
     }
 
     public boolean isEmpty() {
-        return categories.isEmpty() && units.isEmpty();
+        return categories.isEmpty() && quantities.isEmpty() && units.isEmpty();
     }
 
     public Map<String, Integer> categoryIds() {
         return idsByName(categories, CategoryRow::category, CategoryRow::id);
+    }
+
+    public Map<String, Integer> quantityIds() {
+        return idsByName(quantities, QuantityRow::quantity, QuantityRow::id);
     }
 
     public Map<String, Integer> unitIds() {
@@ -209,6 +251,11 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
     /** The lines of unit_categories.tsv, without the header. */
     public List<String> categoryLines() {
         return categories.stream().map(CategoryRow::toTsv).toList();
+    }
+
+    /** The lines of unit_quantities.tsv, without the header. */
+    public List<String> quantityLines() {
+        return quantities.stream().map(QuantityRow::toTsv).toList();
     }
 
     /** The lines of units_info.tsv, without the header. */
@@ -225,11 +272,15 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
         for (CategoryRow row : categories) {
             checkSize(problems, row.category(), "category_id", Integer.toString(row.id()));
         }
+        for (QuantityRow row : quantities) {
+            checkSize(problems, row.quantity(), "quantity_id", Integer.toString(row.id()));
+        }
         for (UnitRow row : units) {
             String unit = row.unit();
             Conversion c = row.conversion();
             checkSize(problems, unit, "unit_id", Integer.toString(row.id()));
             checkSize(problems, unit, "category_id", Integer.toString(row.categoryId()));
+            checkSize(problems, unit, "quantity_id", c.quantityId());
             checkSize(problems, unit, "factor_num", c.factorNum());
             checkSize(problems, unit, "factor_den", c.factorDen());
             checkSize(problems, unit, "factor_exp", c.factorExp());
@@ -253,9 +304,10 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
         }
     }
 
-    /** Writes both files to {@code dir}. */
+    /** Writes the files to {@code dir}. */
     void write(String dir) {
         writeTsv(dir, UNIT_CATEGORIES_FILE, CATEGORIES_HEADER, categoryLines());
+        writeTsv(dir, UNIT_QUANTITIES_FILE, QUANTITIES_HEADER, quantityLines());
         writeTsv(dir, UNITS_INFO_FILE, UNITS_HEADER, unitLines());
     }
 

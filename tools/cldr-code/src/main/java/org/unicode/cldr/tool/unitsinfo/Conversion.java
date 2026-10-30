@@ -12,6 +12,7 @@ import org.unicode.cldr.util.Rational;
  */
 public record Conversion(
         boolean formatOnly,
+        String quantityId,
         String quantity,
         String baseUnit,
         String factorNum,
@@ -23,11 +24,12 @@ public record Conversion(
         String special) {
 
     /** The conversion of a format-only unit, such as temperature-generic: none. */
-    public static final Conversion NONE = new Conversion(true, "", "", "", "", "", "", "", "", "");
+    public static final Conversion NONE =
+            new Conversion(true, "", "", "", "", "", "", "", "", "", "");
 
     /** A conversion that isn't linear, such as beaufort. */
     static Conversion special(String quantity, String baseUnit, String special) {
-        return new Conversion(false, quantity, baseUnit, "", "", "", "", "", "", special);
+        return new Conversion(false, "", quantity, baseUnit, "", "", "", "", "", "", special);
     }
 
     /**
@@ -44,6 +46,7 @@ public record Conversion(
         boolean hasOffset = !offset.equals(Rational.ZERO);
         return new Conversion(
                 false,
+                "",
                 quantity,
                 baseUnit,
                 f.numerator().toString(),
@@ -55,9 +58,26 @@ public record Conversion(
                 "");
     }
 
+    /** This conversion with the stable ID of its quantity. */
+    Conversion withQuantityId(int id) {
+        return new Conversion(
+                formatOnly,
+                Integer.toString(id),
+                quantity,
+                baseUnit,
+                factorNum,
+                factorDen,
+                factorExp,
+                offsetNum,
+                offsetDen,
+                exactness,
+                special);
+    }
+
     String toTsv() {
         return UnitsInfo.TAB.join(
                 formatOnly,
+                quantityId,
                 quantity,
                 baseUnit,
                 factorNum,
@@ -85,6 +105,7 @@ public record Conversion(
                 cells.get(6),
                 cells.get(7),
                 cells.get(8),
-                cells.get(9));
+                cells.get(9),
+                cells.get(10));
     }
 }

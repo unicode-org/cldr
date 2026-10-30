@@ -5063,7 +5063,18 @@ public class TestUnits extends TestFmwkPlus {
     private void checkConversion(UnitRow row) {
         String unit = row.unit();
         Conversion c = row.conversion();
+        if (c.formatOnly()) {
+            assertEquals(unit + ": a format-only unit has no conversion cells", Conversion.NONE, c);
+            assertNull(
+                    unit + ": CLDR has no conversion for a format-only unit",
+                    converter.parseUnitId(unit, new Output<>(), false));
+            return;
+        }
+        assertTrue(
+                unit + ": a convertible unit has a quantity and a base unit",
+                !c.quantity().isEmpty() && !c.baseUnit().isEmpty());
         if (c.factorNum().isEmpty()) {
+            assertTrue(unit + ": a unit without a factor is special", !c.special().isEmpty());
             assertTrue(unit + ": no offset without a factor", c.offsetNum().isEmpty());
             return;
         }

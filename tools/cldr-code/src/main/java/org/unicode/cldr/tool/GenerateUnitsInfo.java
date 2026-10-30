@@ -81,6 +81,7 @@ public class GenerateUnitsInfo {
                     "category_id",
                     "category",
                     "unit",
+                    "format_only",
                     "quantity",
                     "base_unit",
                     "factor_num",
@@ -99,6 +100,12 @@ public class GenerateUnitsInfo {
 
     /** CLDR 24 is the first release with category-prefixed unit IDs, such as "length-meter". */
     private static final int FIRST_HISTORY_RELEASE = 24;
+
+    /**
+     * Units that CLDR formats but can't convert: temperature-generic ("25°", with Celsius or
+     * Fahrenheit clear from context). Any other unit without a conversion makes the tool fail.
+     */
+    private static final Set<String> FORMAT_ONLY_UNITS = Set.of("generic");
 
     private static final Joiner TAB = Joiner.on('\t');
     private static final Splitter TAB_SPLITTER = Splitter.on('\t');
@@ -200,19 +207,21 @@ public class GenerateUnitsInfo {
                     Integer.parseInt(cells.get(1)),
                     cells.get(2),
                     cells.get(3),
-                    Conversion.parse(cells.subList(4, 13)),
-                    Status.parse(cells.get(13)),
-                    cells.get(14),
+                    Conversion.parse(cells.subList(4, 14)),
+                    Status.parse(cells.get(14)),
                     cells.get(15),
-                    cells.get(16));
+                    cells.get(16),
+                    cells.get(17));
         }
     }
 
     /**
-     * The conversion to the base unit, as TSV cells: {@code base = value × factorNum / factorDen ×
-     * 10^factorExp + offsetNum / offsetDen}. Cells that don't apply are empty.
+     * Whether and how a unit converts to its base unit: {@code base = value × factorNum / factorDen
+     * × 10^factorExp + offsetNum / offsetDen}. A format-only unit has no conversion, and its other
+     * cells are empty. Cells that don't apply are empty.
      */
     public record Conversion(
+            boolean formatOnly,
             String quantity,
             String baseUnit,
             String factorNum,
@@ -223,12 +232,13 @@ public class GenerateUnitsInfo {
             String exactness,
             String special) {
 
-        /** No conversion, as for temperature-generic ("25°", with the scale clear from context). */
-        static final Conversion NONE = new Conversion("", "", "", "", "", "", "", "", "");
+        /** The conversion of a format-only unit, such as temperature-generic: none. */
+        public static final Conversion NONE =
+                new Conversion(true, "", "", "", "", "", "", "", "", "");
 
         /** A conversion that isn't linear, such as beaufort. */
         static Conversion special(String quantity, String baseUnit, String special) {
-            return new Conversion(quantity, baseUnit, "", "", "", "", "", "", special);
+            return new Conversion(false, quantity, baseUnit, "", "", "", "", "", "", special);
         }
 
         /** A linear conversion. Throws if a number doesn't fit in its signed integer type. */
@@ -242,6 +252,7 @@ public class GenerateUnitsInfo {
             ScientificRational f = ScientificRational.of(factor);
             boolean hasOffset = !offset.equals(Rational.ZERO);
             return new Conversion(
+                    false,
                     quantity,
                     baseUnit,
                     checkFits(unit, "factor_num", f.numerator(), Long.SIZE),
@@ -257,13 +268,26 @@ public class GenerateUnitsInfo {
 
         private String toTsv() {
             return TAB.join(
-                    quantity, baseUnit, factorNum, factorDen, factorExp, offsetNum, offsetDen,
-                    exactness, special);
+                    formatOnly,
+                    quantity,
+                    baseUnit,
+                    factorNum,
+                    factorDen,
+                    factorExp,
+                    offsetNum,
+                    offsetDen,
+                    exactness,
+                    special);
         }
 
         private static Conversion parse(List<String> cells) {
+            String formatOnly = cells.get(0);
+            checkArgument(
+                    formatOnly.equals("true") || formatOnly.equals("false"),
+                    "format_only must be true or false, not %s",
+                    formatOnly);
             return new Conversion(
-                    cells.get(0),
+                    formatOnly.equals("true"),
                     cells.get(1),
                     cells.get(2),
                     cells.get(3),
@@ -271,7 +295,8 @@ public class GenerateUnitsInfo {
                     cells.get(5),
                     cells.get(6),
                     cells.get(7),
-                    cells.get(8));
+                    cells.get(8),
+                    cells.get(9));
         }
     }
 
@@ -582,8 +607,8 @@ public class GenerateUnitsInfo {
 
     /** The conversion of {@code unit} to its base unit, from CLDR's unit converter. */
     private static Conversion conversion(String unit, Set<String> approximateConstants) {
-        if (unit.equals("generic")) {
-            return Conversion.NONE; // temperature-generic: Celsius or Fahrenheit isn't known
+        if (FORMAT_ONLY_UNITS.contains(unit)) {
+            return Conversion.NONE;
         }
         Output<String> baseUnitId = new Output<>();
         ConversionInfo info = CONVERTER.parseUnitId(unit, baseUnitId, false);

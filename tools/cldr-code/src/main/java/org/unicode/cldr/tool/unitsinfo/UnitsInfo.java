@@ -7,6 +7,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -58,6 +59,22 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
 
     static final Joiner TAB = Joiner.on('\t');
     private static final Splitter TAB_SPLITTER = Splitter.on('\t');
+
+    /**
+     * The signed integer size, in bits, that each numeric column must fit in, so that ICU and ICU4X
+     * can store it in a fixed-size field. The IDs fit ICU4C's MeasureUnit fields (int16_t for the
+     * unit, int8_t for the category). The tool won't write a number that doesn't fit, and
+     * TestUnitsInfo fails. Raising a size means changing ICU and ICU4X first.
+     */
+    public static final Map<String, Integer> INTEGER_BITS =
+            Map.of(
+                    "unit_id", 16,
+                    "category_id", 8,
+                    "factor_num", 64,
+                    "factor_den", 64,
+                    "factor_exp", 32,
+                    "offset_num", 32,
+                    "offset_den", 32);
 
     /** The {@code status} column. */
     public enum Status {
@@ -184,6 +201,43 @@ public record UnitsInfo(List<CategoryRow> categories, List<UnitRow> units) {
     /** The lines of units_info.tsv, without the header. */
     public List<String> unitLines() {
         return units.stream().map(UnitRow::toTsv).toList();
+    }
+
+    /**
+     * The numbers that don't fit their column's size in {@link #INTEGER_BITS}, such as "parsec:
+     * factor_num = 126993525396961556736 doesn't fit in a signed 64-bit integer (it has 67 bits)".
+     */
+    public List<String> integerProblems() {
+        List<String> problems = new ArrayList<>();
+        for (CategoryRow row : categories) {
+            checkSize(problems, row.category(), "category_id", Integer.toString(row.id()));
+        }
+        for (UnitRow row : units) {
+            String unit = row.unit();
+            Conversion c = row.conversion();
+            checkSize(problems, unit, "unit_id", Integer.toString(row.id()));
+            checkSize(problems, unit, "category_id", Integer.toString(row.categoryId()));
+            checkSize(problems, unit, "factor_num", c.factorNum());
+            checkSize(problems, unit, "factor_den", c.factorDen());
+            checkSize(problems, unit, "factor_exp", c.factorExp());
+            checkSize(problems, unit, "offset_num", c.offsetNum());
+            checkSize(problems, unit, "offset_den", c.offsetDen());
+        }
+        return problems;
+    }
+
+    private static void checkSize(List<String> problems, String row, String column, String cell) {
+        if (cell.isEmpty()) {
+            return;
+        }
+        BigInteger value = new BigInteger(cell);
+        int bits = INTEGER_BITS.get(column);
+        if (value.bitLength() >= bits) {
+            problems.add(
+                    String.format(
+                            "%s: %s = %s doesn't fit in a signed %s-bit integer (it has %s bits)",
+                            row, column, value, bits, value.bitLength()));
+        }
     }
 
     /** Writes both files to {@code dir}. */

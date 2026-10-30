@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool.unitsinfo;
 
+import static com.google.common.base.Preconditions.checkState;
+
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +25,10 @@ import org.unicode.cldr.util.CldrUtility;
  *   <li><b>Stable IDs.</b> Every unit and category keeps its 0-based ID forever, also after it is
  *       deprecated, and a new one gets the next free ID. The tool fails if an ID would change.
  *   <li><b>Integer conversion rates.</b> Each conversion to the base unit is written as {@code
- *       factor_num / factor_den × 10^factor_exp + offset_num / offset_den}. The tool fails if the
- *       factor's numerator or denominator doesn't fit in a signed 64-bit integer, or an offset part
- *       doesn't fit in a signed 32-bit one. A change in these columns tells ICU and ICU4X to update
- *       their data.
+ *       factor_num / factor_den × 10^factor_exp + offset_num / offset_den}. The tool won't write a
+ *       number that doesn't fit its column's signed integer size ({@link UnitsInfo#INTEGER_BITS}:
+ *       64 bits for the factor, 32 for the exponent and offset), and TestUnitsInfo fails with a big
+ *       warning. A change in these columns tells ICU and ICU4X to update their data.
  *   <li><b>History.</b> Each row has the release that first named the unit ({@code since}), and the
  *       release that deprecated it with its replacement.
  * </ol>
@@ -45,6 +47,12 @@ public class GenerateUnitsInfo {
                 gitDir == null && !previous.isEmpty()
                         ? update(previous)
                         : rebuild(gitDir != null ? gitDir : CLDRPaths.BASE_DIRECTORY, previous);
+        List<String> problems = current.integerProblems();
+        checkState(
+                problems.isEmpty(),
+                "Not written, because these numbers are too big for ICU and ICU4X"
+                        + " (UnitsInfo.INTEGER_BITS): %s",
+                problems);
         current.write(UnitsInfo.PROPERTIES_DIR);
     }
 

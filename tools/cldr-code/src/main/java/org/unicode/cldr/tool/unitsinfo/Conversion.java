@@ -2,7 +2,6 @@ package org.unicode.cldr.tool.unitsinfo;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import java.math.BigInteger;
 import java.util.List;
 import org.unicode.cldr.util.Rational;
 
@@ -31,9 +30,11 @@ public record Conversion(
         return new Conversion(false, quantity, baseUnit, "", "", "", "", "", "", special);
     }
 
-    /** A linear conversion. Throws if a number doesn't fit in its signed integer type. */
+    /**
+     * A linear conversion. {@link UnitsInfo#integerProblems} checks that its numbers fit their
+     * integer sizes.
+     */
     static Conversion linear(
-            String unit,
             String quantity,
             String baseUnit,
             Rational factor,
@@ -45,11 +46,11 @@ public record Conversion(
                 false,
                 quantity,
                 baseUnit,
-                checkFits(unit, "factor_num", f.numerator(), Long.SIZE),
-                checkFits(unit, "factor_den", f.denominator(), Long.SIZE),
+                f.numerator().toString(),
+                f.denominator().toString(),
                 Integer.toString(f.exponent()),
-                hasOffset ? checkFits(unit, "offset_num", offset.numerator, Integer.SIZE) : "",
-                hasOffset ? checkFits(unit, "offset_den", offset.denominator, Integer.SIZE) : "",
+                hasOffset ? offset.numerator.toString() : "",
+                hasOffset ? offset.denominator.toString() : "",
                 approximate ? "approximate" : "exact",
                 "");
     }
@@ -85,19 +86,5 @@ public record Conversion(
                 cells.get(7),
                 cells.get(8),
                 cells.get(9));
-    }
-
-    /**
-     * Returns {@code value} as text, or throws if it doesn't fit in a signed {@code bits} integer.
-     */
-    private static String checkFits(String unit, String column, BigInteger value, int bits) {
-        checkArgument(
-                value.bitLength() < bits,
-                "%s: %s = %s doesn't fit in a signed %s-bit integer",
-                unit,
-                column,
-                value,
-                bits);
-        return value.toString();
     }
 }

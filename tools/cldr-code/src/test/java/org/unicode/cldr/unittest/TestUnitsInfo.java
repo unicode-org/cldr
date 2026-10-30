@@ -6,9 +6,13 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.unicode.cldr.tool.unitsinfo.Conversion;
 import org.unicode.cldr.tool.unitsinfo.GenerateUnitsInfo;
@@ -143,6 +147,73 @@ public class TestUnitsInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * Every number fits its column's integer size in UnitsInfo.INTEGER_BITS, in the files and after
+     * regenerating them. If not, this fails with a big warning, because ICU and ICU4X would have to
+     * change before the number can ship. It also warns which factors need 64-bit integers.
+     */
+    public void TestIntegerSizes() {
+        UnitsInfo info = UnitsInfo.read(DIR);
+        Set<String> problems = new LinkedHashSet<>(info.integerProblems());
+        // Regenerating catches new CLDR data even before the files are regenerated.
+        problems.addAll(GenerateUnitsInfo.update(info).integerProblems());
+        if (!problems.isEmpty()) {
+            errln(
+                    "*** TOO BIG FOR ICU AND ICU4X *** These numbers don't fit the integer sizes"
+                            + " in UnitsInfo.INTEGER_BITS. Change ICU and ICU4X first, then raise"
+                            + " the size: "
+                            + String.join("; ", problems));
+        }
+
+        // Not an error, but keep it visible: these factors don't fit in 32 bits.
+        Map<String, Integer> wide = new LinkedHashMap<>();
+        for (UnitRow row : info.units()) {
+            Conversion c = row.conversion();
+            if (!c.factorNum().isEmpty()) {
+                int bits =
+                        Math.max(
+                                new BigInteger(c.factorNum()).bitLength(),
+                                new BigInteger(c.factorDen()).bitLength());
+                if (bits >= Integer.SIZE) {
+                    wide.put(row.unit(), bits);
+                }
+            }
+        }
+        if (!wide.isEmpty()) {
+            warnln(
+                    "*** 64-BIT FACTORS *** "
+                            + wide.size()
+                            + " units have a factor_num or factor_den that doesn't fit in a"
+                            + " signed 32-bit integer, so ICU and ICU4X must store these columns as"
+                            + " 64-bit integers: "
+                            + wide.entrySet().stream()
+                                    .sorted(
+                                            Map.Entry.<String, Integer>comparingByValue()
+                                                    .reversed())
+                                    .map(e -> e.getKey() + " (" + e.getValue() + " bits)")
+                                    .collect(Collectors.joining(", ")));
+        }
+    }
+
+    /** The size check catches numbers that are one bit too big for their column. */
+    public void TestIntegerSizeCheck() {
+        String twoTo63 = BigInteger.TWO.pow(63).toString();
+        Conversion conversion =
+                new Conversion(false, "length", "meter", twoTo63, "1", "0", "", "", "exact", "");
+        UnitRow row =
+                new UnitRow(
+                        32768, 0, "length", "test-unit", conversion, Status.REGULAR, "24", "", "");
+        assertEquals(
+                "problems",
+                List.of(
+                        "test-unit: unit_id = 32768 doesn't fit in a signed 16-bit integer (it has"
+                                + " 16 bits)",
+                        "test-unit: factor_num = "
+                                + twoTo63
+                                + " doesn't fit in a signed 64-bit integer (it has 64 bits)"),
+                new UnitsInfo(List.of(), List.of(row)).integerProblems());
+    }
+
     /** The factor and offset are reduced integers that fit their types and give CLDR's values. */
     private void checkConversion(UnitRow row) {
         String unit = row.unit();
@@ -162,12 +233,6 @@ public class TestUnitsInfo extends TestFmwkPlus {
             assertTrue(unit + ": no offset without a factor", c.offsetNum().isEmpty());
             return;
         }
-        assertTrue(
-                unit + ": factor_num and factor_den fit in signed 64-bit integers",
-                fits(c.factorNum(), Long.SIZE) && fits(c.factorDen(), Long.SIZE));
-        assertTrue(
-                unit + ": factor_exp fits in a signed 32-bit integer",
-                fits(c.factorExp(), Integer.SIZE));
         BigInteger num = new BigInteger(c.factorNum());
         BigInteger den = new BigInteger(c.factorDen());
         assertTrue(
@@ -182,9 +247,6 @@ public class TestUnitsInfo extends TestFmwkPlus {
 
         Rational offset = Rational.ZERO;
         if (!c.offsetNum().isEmpty()) {
-            assertTrue(
-                    unit + ": offset_num and offset_den fit in signed 32-bit integers",
-                    fits(c.offsetNum(), Integer.SIZE) && fits(c.offsetDen(), Integer.SIZE));
             offset = Rational.of(new BigInteger(c.offsetNum()), new BigInteger(c.offsetDen()));
         }
 
@@ -218,10 +280,6 @@ public class TestUnitsInfo extends TestFmwkPlus {
                     expected.get(i),
                     actual.get(i));
         }
-    }
-
-    private static boolean fits(String number, int bits) {
-        return new BigInteger(number).bitLength() < bits;
     }
 
     private static long tabs(String line) {

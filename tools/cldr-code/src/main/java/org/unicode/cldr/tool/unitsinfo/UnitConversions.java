@@ -51,8 +51,7 @@ final class UnitConversions {
         if (info.special != null && !info.special.isEmpty()) {
             return Conversion.special(quantity, baseUnit, info.special);
         }
-        return Conversion.linear(
-                unit, quantity, baseUnit, info.factor, info.offset, isApproximate(unit));
+        return Conversion.linear(quantity, baseUnit, info.factor, info.offset, isApproximate(unit));
     }
 
     /** True if a simple unit in {@code unit} converts with an approximate constant, like PI. */

@@ -2886,5 +2886,85 @@
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
     "expected": "12:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hm",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T09:30:00Z[Etc/GMT]",
+    "expected": "9:30 yb"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hm",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T14:30:00Z[Etc/GMT]",
+    "expected": "2:30 yh"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T09:30:00Z[Etc/GMT]",
+    "expected": "9:30:00 yb"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T14:30:00Z[Etc/GMT]",
+    "expected": "2:30:00 yh"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hm",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T09:30:00Z[Etc/GMT]",
+    "expected": "9:30 yb"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hm",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T14:30:00Z[Etc/GMT]",
+    "expected": "2:30 yh"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T09:30:00Z[Etc/GMT]",
+    "expected": "9:30:00 yb"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "cy",
+    "input": "2024-07-01T14:30:00Z[Etc/GMT]",
+    "expected": "2:30:00 yh"
   }
 ]

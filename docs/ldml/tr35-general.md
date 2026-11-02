@@ -1010,6 +1010,20 @@ Note: Each identifier type includes the simpler type above it as a special case:
 * A _core unit ID_ can be a _single unit ID_ as a special case (with a single unit and no `-` or `-per-`).
 * A _mixed unit ID_ can be a _single unit ID_ as a special case (in the EBNF grammar `single_unit ("-" and "-" single_unit)*`).
 
+```mermaid
+flowchart TD
+    simple["simple unit ID\n(e.g. meter, foot)"]
+    prefixed["prefixed unit ID\n(e.g. kilometer)"]
+    single["single unit ID\n(e.g. square-foot, cubic-centimeter)"]
+    core["core unit ID\n(e.g. kilometer-per-hour)"]
+    mixed["mixed unit ID\n(e.g. foot-and-inch)"]
+
+    simple -->|"+ prefix (optional)"| prefixed
+    prefixed -->|"+ power (optional)"| single
+    single -->|"combine with '-' or '-per-'"| core
+    single -->|"join with '-and-'"| mixed
+```
+
 
 There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below.
 The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together.

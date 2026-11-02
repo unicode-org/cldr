@@ -56,6 +56,7 @@ public record UnitsInfo(
                     "offset_den",
                     "exactness",
                     "special",
+                    "systems",
                     "status",
                     "since",
                     "deprecated_in",
@@ -233,13 +234,13 @@ public record UnitsInfo(
                     cells.get(2),
                     cells.get(3),
                     Complexity.parse(cells.get(4)),
-                    Conversion.parse(cells.subList(5, 16)),
-                    Status.parse(cells.get(16)),
-                    cells.get(17),
+                    Conversion.parse(cells.subList(5, 17)),
+                    Status.parse(cells.get(17)),
                     cells.get(18),
                     cells.get(19),
                     cells.get(20),
-                    cells.get(21));
+                    cells.get(21),
+                    cells.get(22));
         }
     }
 

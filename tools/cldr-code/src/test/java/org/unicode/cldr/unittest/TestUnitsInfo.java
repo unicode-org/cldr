@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.util.Output;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -224,7 +225,18 @@ public class TestUnitsInfo extends TestFmwkPlus {
         String twoTo63 = BigInteger.TWO.pow(63).toString();
         Conversion conversion =
                 new Conversion(
-                        false, "", "length", "meter", twoTo63, "1", "0", "", "", "exact", "");
+                        false,
+                        "",
+                        "length",
+                        "meter",
+                        twoTo63,
+                        "1",
+                        "0",
+                        "",
+                        "",
+                        "exact",
+                        "",
+                        "si metric prefixable");
         UnitRow row =
                 new UnitRow(
                         32768,
@@ -331,6 +343,15 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertTrue(
                 unit + ": a convertible unit has a quantity and a base unit",
                 !c.quantity().isEmpty() && !c.baseUnit().isEmpty());
+        // A deprecated ID converts like its replacement.
+        String convertible =
+                row.status() == Status.DEPRECATED && !row.replacement().isEmpty()
+                        ? row.replacement()
+                        : unit;
+        assertEquals(
+                unit + ": systems",
+                Joiner.on(' ').join(CONVERTER.getSystemsEnum(convertible)),
+                c.systems());
         if (c.factorNum().isEmpty()) {
             assertTrue(unit + ": a unit without a factor is special", !c.special().isEmpty());
             assertTrue(unit + ": no offset without a factor", c.offsetNum().isEmpty());
@@ -353,11 +374,6 @@ public class TestUnitsInfo extends TestFmwkPlus {
             offset = Rational.of(new BigInteger(c.offsetNum()), new BigInteger(c.offsetDen()));
         }
 
-        // A deprecated ID converts like its replacement.
-        String convertible =
-                row.status() == Status.DEPRECATED && !row.replacement().isEmpty()
-                        ? row.replacement()
-                        : unit;
         ConversionInfo info = CONVERTER.parseUnitId(convertible, new Output<>(), false);
         assertEquals(unit + ": factor", info.factor, factor);
         assertEquals(unit + ": offset", info.offset, offset);

@@ -2,6 +2,7 @@ package org.unicode.cldr.tool.unitsinfo;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.util.Output;
 import java.util.Map;
 import java.util.Objects;
@@ -25,6 +26,7 @@ public final class UnitConversions {
      */
     private static final Set<String> FORMAT_ONLY_UNITS = Set.of("generic");
 
+    private static final Joiner SPACE = Joiner.on(' ');
     private static final Pattern EXPRESSION_TOKENS = Pattern.compile("[*/\\s]+");
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     private static final UnitConverter CONVERTER = SDI.getUnitConverter();
@@ -55,10 +57,12 @@ public final class UnitConversions {
         String quantity = CONVERTER.getQuantityFromBaseUnit(baseUnitId.value);
         String baseUnit = quantity == null ? null : CONVERTER.getBaseUnitFromQuantity(quantity);
         checkArgument(baseUnit != null, "No quantity for %s (%s)", unit, baseUnitId.value);
+        String systems = SPACE.join(CONVERTER.getSystemsEnum(unit));
         if (info.special != null && !info.special.isEmpty()) {
-            return Conversion.special(quantity, baseUnit, info.special);
+            return Conversion.special(quantity, baseUnit, info.special, systems);
         }
-        return Conversion.linear(quantity, baseUnit, info.factor, info.offset, isApproximate(unit));
+        return Conversion.linear(
+                quantity, baseUnit, info.factor, info.offset, isApproximate(unit), systems);
     }
 
     /** The reciprocal of a base unit: cubic-meter-per-meter ↔ meter-per-cubic-meter. */

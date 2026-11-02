@@ -21,15 +21,17 @@ public record Conversion(
         String offsetNum,
         String offsetDen,
         String exactness,
-        String special) {
+        String special,
+        String systems) {
 
     /** The conversion of a format-only unit, such as temperature-generic: none. */
     public static final Conversion NONE =
-            new Conversion(true, "", "", "", "", "", "", "", "", "", "");
+            new Conversion(true, "", "", "", "", "", "", "", "", "", "", "");
 
     /** A conversion that isn't linear, such as beaufort. */
-    static Conversion special(String quantity, String baseUnit, String special) {
-        return new Conversion(false, "", quantity, baseUnit, "", "", "", "", "", "", special);
+    static Conversion special(String quantity, String baseUnit, String special, String systems) {
+        return new Conversion(
+                false, "", quantity, baseUnit, "", "", "", "", "", "", special, systems);
     }
 
     /**
@@ -41,7 +43,8 @@ public record Conversion(
             String baseUnit,
             Rational factor,
             Rational offset,
-            boolean approximate) {
+            boolean approximate,
+            String systems) {
         ScientificRational f = ScientificRational.of(factor);
         boolean hasOffset = !offset.equals(Rational.ZERO);
         return new Conversion(
@@ -55,7 +58,8 @@ public record Conversion(
                 hasOffset ? offset.numerator.toString() : "",
                 hasOffset ? offset.denominator.toString() : "",
                 approximate ? "approximate" : "exact",
-                "");
+                "",
+                systems);
     }
 
     /** This conversion with the stable ID of its quantity. */
@@ -71,7 +75,8 @@ public record Conversion(
                 offsetNum,
                 offsetDen,
                 exactness,
-                special);
+                special,
+                systems);
     }
 
     String toTsv() {
@@ -86,7 +91,8 @@ public record Conversion(
                 offsetNum,
                 offsetDen,
                 exactness,
-                special);
+                special,
+                systems);
     }
 
     static Conversion parse(List<String> cells) {
@@ -106,6 +112,7 @@ public record Conversion(
                 cells.get(7),
                 cells.get(8),
                 cells.get(9),
-                cells.get(10));
+                cells.get(10),
+                cells.get(11));
     }
 }

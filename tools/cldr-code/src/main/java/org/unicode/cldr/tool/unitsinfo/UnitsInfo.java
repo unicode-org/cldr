@@ -86,14 +86,21 @@ public record UnitsInfo(
                     "offset_num", 32,
                     "offset_den", 32);
 
-    /** The {@code complexity} column of {@code units_info.tsv}. */
+    /**
+     * The {@code complexity} column of {@code units_info.tsv}: the most specific UTS #35 unit
+     * identifier level that the unit fits.
+     */
     public enum Complexity {
         /** A single unprefixed unit with power 1, such as meter, gram, pound, or pound-force. */
         SIMPLE,
-        /** One simple unit with a prefix and/or power, such as kilogram or square-meter. */
+        /**
+         * One simple unit with an SI or binary prefix and power 1, such as kilometer or kilogram.
+         */
+        PREFIXED,
+        /** One simple or prefixed unit with a power, such as square-foot or cubic-centimeter. */
         SINGLE,
-        /** Multiple single units or a constant denominator, such as meter-per-second. */
-        COMPOUND,
+        /** Multiple single units or a constant denominator, such as kilometer-per-hour. */
+        CORE,
         /** Single units joined with {@code -and-}, such as foot-and-inch. */
         MIXED;
 

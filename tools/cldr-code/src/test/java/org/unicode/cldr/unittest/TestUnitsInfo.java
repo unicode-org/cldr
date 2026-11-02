@@ -251,9 +251,9 @@ public class TestUnitsInfo extends TestFmwkPlus {
     }
 
     /**
-     * Each unit has the right complexity: simple (meter, pound, pound-force, generic), single
-     * (kilogram, centimeter, square-meter), compound (meter-per-second, part-per-1e6), or mixed
-     * (foot-and-inch).
+     * Each unit has the right UTS #35 complexity level: simple (meter, pound, pound-force,
+     * generic), prefixed (kilogram, centimeter), single (square-meter, square-centimeter), core
+     * (meter-per-second, part-per-1e6), or mixed (foot-and-inch).
      */
     public void TestComplexity() {
         Map<String, Complexity> byUnit = new HashMap<>();
@@ -264,14 +264,14 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertEquals("pound-force", Complexity.SIMPLE, byUnit.get("pound-force"));
         assertEquals("kilogram-force", Complexity.SIMPLE, byUnit.get("kilogram-force"));
         assertEquals("generic", Complexity.SIMPLE, byUnit.get("generic"));
-        assertEquals("kilogram", Complexity.SINGLE, byUnit.get("kilogram"));
-        assertEquals("centimeter", Complexity.SINGLE, byUnit.get("centimeter"));
+        assertEquals("kilogram", Complexity.PREFIXED, byUnit.get("kilogram"));
+        assertEquals("centimeter", Complexity.PREFIXED, byUnit.get("centimeter"));
         assertEquals("square-meter", Complexity.SINGLE, byUnit.get("square-meter"));
         assertEquals("square-centimeter", Complexity.SINGLE, byUnit.get("square-centimeter"));
-        assertEquals("meter-per-second", Complexity.COMPOUND, byUnit.get("meter-per-second"));
-        assertEquals("kilowatt-hour", Complexity.COMPOUND, byUnit.get("kilowatt-hour"));
-        assertEquals("millimeter-ofhg", Complexity.COMPOUND, byUnit.get("millimeter-ofhg"));
-        assertEquals("part-per-1e6", Complexity.COMPOUND, byUnit.get("part-per-1e6"));
+        assertEquals("meter-per-second", Complexity.CORE, byUnit.get("meter-per-second"));
+        assertEquals("kilowatt-hour", Complexity.CORE, byUnit.get("kilowatt-hour"));
+        assertEquals("millimeter-ofhg", Complexity.CORE, byUnit.get("millimeter-ofhg"));
+        assertEquals("part-per-1e6", Complexity.CORE, byUnit.get("part-per-1e6"));
         assertEquals(
                 "foot-and-inch",
                 Complexity.MIXED,

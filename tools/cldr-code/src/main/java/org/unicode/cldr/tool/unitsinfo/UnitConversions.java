@@ -75,18 +75,19 @@ public final class UnitConversions {
             return Complexity.MIXED;
         }
         if (!unit.contains("-")) {
-            return isPrefixedUnit(unit, SIMPLE_UNITS) ? Complexity.SINGLE : Complexity.SIMPLE;
+            return isPrefixedUnit(unit, SIMPLE_UNITS) ? Complexity.PREFIXED : Complexity.SIMPLE;
         }
         UnitId id = CONVERTER.createUnitId(convertible);
         if (!id.factor.equals(Rational.ONE)
                 || id.numUnitsToPowers.size() != 1
                 || !id.denUnitsToPowers.isEmpty()) {
-            return Complexity.COMPOUND;
+            return Complexity.CORE;
         }
         Map.Entry<String, Integer> single = id.numUnitsToPowers.entrySet().iterator().next();
-        return single.getValue() == 1 && SIMPLE_UNITS.contains(single.getKey())
-                ? Complexity.SIMPLE
-                : Complexity.SINGLE;
+        if (single.getValue() != 1) {
+            return Complexity.SINGLE;
+        }
+        return SIMPLE_UNITS.contains(single.getKey()) ? Complexity.SIMPLE : Complexity.PREFIXED;
     }
 
     private static Set<String> simpleUnits() {

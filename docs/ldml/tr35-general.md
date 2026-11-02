@@ -996,13 +996,13 @@ Units of measurement, such as _meter_, have defined programmatic identifiers as 
 The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows.
 A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
-| Name             | Examples |
-| ---------------- | -------- |
-| core unit ID     | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
-| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
-| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
-| simple unit ID   | meter, foot, inch, pound, pound-force, … |
-| mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
+| Name             | Description | Examples |
+| ---------------- | ----------- | -------- |
+| simple unit ID   | A single base unit ID without a prefix or power | meter, foot, inch, pound, pound-force, … |
+| prefixed unit ID | A simple unit ID with an SI or binary prefix | kilometer, centigram, … <br/> _plus simple unit IDs_ |
+| single unit ID   | A prefixed unit ID with a power prefix (`square-`, `cubic-`, …) | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
+| core unit ID     | Single unit IDs combined by multiplication (`-`) or division (`-per-`) | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
+| mixed unit ID    | Single unit IDs of the same quantity joined by `-and-` | foot-and-inch, degree-and-arc-minute-and-arc-second |
 
 
 There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below.

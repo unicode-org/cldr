@@ -44,6 +44,7 @@ public record UnitsInfo(
                     "category_id",
                     "category",
                     "unit",
+                    "complexity",
                     "format_only",
                     "quantity_id",
                     "quantity",
@@ -84,6 +85,27 @@ public record UnitsInfo(
                     "factor_exp", 32,
                     "offset_num", 32,
                     "offset_den", 32);
+
+    /** The {@code complexity} column of {@code units_info.tsv}. */
+    public enum Complexity {
+        /** A single unprefixed unit with power 1, such as meter, gram, pound, or pound-force. */
+        SIMPLE,
+        /** One simple unit with a prefix and/or power, such as kilogram or square-meter. */
+        SINGLE,
+        /** Multiple single units or a constant denominator, such as meter-per-second. */
+        COMPOUND,
+        /** Single units joined with {@code -and-}, such as foot-and-inch. */
+        MIXED;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+
+        private static Complexity parse(String cell) {
+            return valueOf(cell.toUpperCase(Locale.ROOT));
+        }
+    }
 
     /** The {@code status} column. */
     public enum Status {
@@ -172,6 +194,7 @@ public record UnitsInfo(
             int categoryId,
             String category,
             String unit,
+            Complexity complexity,
             Conversion conversion,
             Status status,
             String since,
@@ -186,6 +209,7 @@ public record UnitsInfo(
                     categoryId,
                     category,
                     unit,
+                    complexity,
                     conversion.toTsv(),
                     status,
                     since,
@@ -201,13 +225,14 @@ public record UnitsInfo(
                     Integer.parseInt(cells.get(1)),
                     cells.get(2),
                     cells.get(3),
-                    Conversion.parse(cells.subList(4, 15)),
-                    Status.parse(cells.get(15)),
-                    cells.get(16),
+                    Complexity.parse(cells.get(4)),
+                    Conversion.parse(cells.subList(5, 16)),
+                    Status.parse(cells.get(16)),
                     cells.get(17),
                     cells.get(18),
                     cells.get(19),
-                    cells.get(20));
+                    cells.get(20),
+                    cells.get(21));
         }
     }
 

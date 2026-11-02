@@ -12,7 +12,8 @@
  *       and deprecated.
  *   <li>{@link org.unicode.cldr.tool.unitsinfo.StableIds}: keeps every ID, and gives new units and
  *       categories the next free ID.
- *   <li>{@code UnitConversions}: each unit's conversion to its base unit, from CLDR's converter.
+ *   <li>{@link org.unicode.cldr.tool.unitsinfo.UnitConversions}: each unit's complexity and
+ *       conversion to its base unit, from CLDR's converter.
  *   <li>{@link org.unicode.cldr.tool.unitsinfo.Conversion} and {@code ScientificRational}: that
  *       conversion as signed integers.
  * </ul>

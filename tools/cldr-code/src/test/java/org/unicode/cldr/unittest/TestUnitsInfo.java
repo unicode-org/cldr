@@ -18,8 +18,10 @@ import java.util.stream.IntStream;
 import org.unicode.cldr.tool.unitsinfo.Conversion;
 import org.unicode.cldr.tool.unitsinfo.GenerateUnitsInfo;
 import org.unicode.cldr.tool.unitsinfo.StableIds;
+import org.unicode.cldr.tool.unitsinfo.UnitConversions;
 import org.unicode.cldr.tool.unitsinfo.UnitHistory;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
@@ -229,6 +231,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
                         0,
                         "length",
                         "test-unit",
+                        Complexity.SIMPLE,
                         conversion,
                         Status.REGULAR,
                         "24",
@@ -245,6 +248,34 @@ public class TestUnitsInfo extends TestFmwkPlus {
                                 + twoTo63
                                 + " doesn't fit in a signed 64-bit integer (it has 64 bits)"),
                 new UnitsInfo(List.of(), List.of(), List.of(row)).integerProblems());
+    }
+
+    /**
+     * Each unit has the right complexity: simple (meter, pound, pound-force, generic), single
+     * (kilogram, centimeter, square-meter), compound (meter-per-second, part-per-1e6), or mixed
+     * (foot-and-inch).
+     */
+    public void TestComplexity() {
+        Map<String, Complexity> byUnit = new HashMap<>();
+        UnitsInfo.read(DIR).units().forEach(row -> byUnit.put(row.unit(), row.complexity()));
+        assertEquals("meter", Complexity.SIMPLE, byUnit.get("meter"));
+        assertEquals("pound", Complexity.SIMPLE, byUnit.get("pound"));
+        assertEquals("gram", Complexity.SIMPLE, byUnit.get("gram"));
+        assertEquals("pound-force", Complexity.SIMPLE, byUnit.get("pound-force"));
+        assertEquals("kilogram-force", Complexity.SIMPLE, byUnit.get("kilogram-force"));
+        assertEquals("generic", Complexity.SIMPLE, byUnit.get("generic"));
+        assertEquals("kilogram", Complexity.SINGLE, byUnit.get("kilogram"));
+        assertEquals("centimeter", Complexity.SINGLE, byUnit.get("centimeter"));
+        assertEquals("square-meter", Complexity.SINGLE, byUnit.get("square-meter"));
+        assertEquals("square-centimeter", Complexity.SINGLE, byUnit.get("square-centimeter"));
+        assertEquals("meter-per-second", Complexity.COMPOUND, byUnit.get("meter-per-second"));
+        assertEquals("kilowatt-hour", Complexity.COMPOUND, byUnit.get("kilowatt-hour"));
+        assertEquals("millimeter-ofhg", Complexity.COMPOUND, byUnit.get("millimeter-ofhg"));
+        assertEquals("part-per-1e6", Complexity.COMPOUND, byUnit.get("part-per-1e6"));
+        assertEquals(
+                "foot-and-inch",
+                Complexity.MIXED,
+                UnitConversions.complexityOf("foot-and-inch", "foot-and-inch"));
     }
 
     /**

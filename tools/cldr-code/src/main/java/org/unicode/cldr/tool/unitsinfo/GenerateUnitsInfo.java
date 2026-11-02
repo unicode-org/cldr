@@ -109,14 +109,15 @@ public class GenerateUnitsInfo {
         previous.units().forEach(row -> replacements.put(row.unit(), row.replacement()));
         replacements.putAll(CldrUnits.aliases());
         Map<String, Conversion> conversions = new HashMap<>();
+        Map<String, UnitsInfo.Complexity> complexities = new HashMap<>();
         for (String unit : unitOrder) {
             String replacement = replacements.getOrDefault(unit, "");
             // A deprecated ID converts like its replacement (pound-per-square-inch meant
             // pound-force).
             boolean deprecated = history.units().get(unit).status(release) == Status.DEPRECATED;
-            conversions.put(
-                    unit,
-                    UnitConversions.of(deprecated && !replacement.isEmpty() ? replacement : unit));
+            String convertible = deprecated && !replacement.isEmpty() ? replacement : unit;
+            conversions.put(unit, UnitConversions.of(convertible));
+            complexities.put(unit, UnitConversions.complexityOf(unit, convertible));
         }
         Map<String, String> reciprocals = reciprocalQuantities(history, conversions);
         List<QuantityRow> quantities = quantityRows(history, conversions, previous, release);
@@ -137,6 +138,7 @@ public class GenerateUnitsInfo {
                             categoryIds.get(entry.category()),
                             entry.category(),
                             unit,
+                            complexities.get(unit),
                             conversion,
                             entry.status(release),
                             entry.since(),

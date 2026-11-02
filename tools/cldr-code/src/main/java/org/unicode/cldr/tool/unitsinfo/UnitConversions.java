@@ -9,14 +9,15 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 
-/** Finds each unit's {@link Conversion} with CLDR's unit converter. */
-final class UnitConversions {
+/** Finds each unit's {@link Complexity} and {@link Conversion} with CLDR's unit converter. */
+public final class UnitConversions {
 
     /**
      * Units that CLDR formats but can't convert: temperature-generic ("25°", with Celsius or
@@ -27,6 +28,12 @@ final class UnitConversions {
     private static final Pattern EXPRESSION_TOKENS = Pattern.compile("[*/\\s]+");
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     private static final UnitConverter CONVERTER = SDI.getUnitConverter();
+
+    /**
+     * Units in units.xml convertUnits that don't start with a unit prefix on another convertible
+     * unit: meter, gram, pound, and kilogram-force, but not kilogram (kilo + gram).
+     */
+    private static final Set<String> SIMPLE_UNITS = simpleUnits();
 
     /** Constants marked approximate in units.xml, and constants computed from them. */
     private static final Set<String> APPROXIMATE_CONSTANTS =
@@ -57,6 +64,44 @@ final class UnitConversions {
     /** The reciprocal of a base unit: cubic-meter-per-meter ↔ meter-per-cubic-meter. */
     static String reciprocalOf(String baseUnit) {
         return CONVERTER.reciprocalOf(baseUnit);
+    }
+
+    /**
+     * The {@link Complexity} of {@code unit}; {@code convertible} is its replacement when {@code
+     * unit} is a deprecated alias that the converter no longer parses directly (like metric-ton).
+     */
+    public static Complexity complexityOf(String unit, String convertible) {
+        if (unit.contains("-and-")) {
+            return Complexity.MIXED;
+        }
+        if (!unit.contains("-")) {
+            return isPrefixedUnit(unit, SIMPLE_UNITS) ? Complexity.SINGLE : Complexity.SIMPLE;
+        }
+        UnitId id = CONVERTER.createUnitId(convertible);
+        if (!id.factor.equals(Rational.ONE)
+                || id.numUnitsToPowers.size() != 1
+                || !id.denUnitsToPowers.isEmpty()) {
+            return Complexity.COMPOUND;
+        }
+        Map.Entry<String, Integer> single = id.numUnitsToPowers.entrySet().iterator().next();
+        return single.getValue() == 1 && SIMPLE_UNITS.contains(single.getKey())
+                ? Complexity.SIMPLE
+                : Complexity.SINGLE;
+    }
+
+    private static Set<String> simpleUnits() {
+        Set<String> convertible = CONVERTER.getSimpleUnits();
+        return convertible.stream()
+                .filter(unit -> !isPrefixedUnit(unit, convertible))
+                .collect(Collectors.toUnmodifiableSet());
+    }
+
+    private static boolean isPrefixedUnit(String unit, Set<String> units) {
+        return SDI.getUnitPrefixes().stream()
+                .anyMatch(
+                        prefix ->
+                                unit.startsWith(prefix)
+                                        && units.contains(unit.substring(prefix.length())));
     }
 
     /** True if a simple unit in {@code unit} converts with an approximate constant, like PI. */

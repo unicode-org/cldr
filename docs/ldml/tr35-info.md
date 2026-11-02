@@ -1170,7 +1170,7 @@ Note that this uses an ordering of elements _within_ a unit identifier. It is di
 
 ## Mixed Units
 
-Mixed units, or unit sequences, are units with the same base unit which are listed in sequence.
+Mixed units, or unit sequences, are single units of the same quantity (and thus convertible to each other) which are listed in sequence.
 Common examples are feet and inches; meters and centimeters; hours, minutes, and seconds; degrees, minutes, and seconds.
 Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", "hour-and-minute-and-second", "degree-and-arc-minute-and-arc-second."
 

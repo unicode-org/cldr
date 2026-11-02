@@ -12,6 +12,7 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.OutputInt;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 public class InvestigateUnitRounding {
 
     private static final boolean VERBOSE = true;
+    private static final boolean MATCH_FORMATTED = true;
+    private static final int lineToBreakAt = 245;
 
     private static final UnitConverter UNIT_CONVERTER =
             SupplementalDataInfo.getInstance().getUnitConverter();
@@ -62,6 +65,9 @@ public class InvestigateUnitRounding {
             // not yet working right
             // {"radian", "3", "degree-and-arc-minute-and-arc-second"},
         };
+
+        OutputInt line = new OutputInt(1);
+
         for (String[] sample : samples) {
             String sourceUnit = sample[0];
             int topPrecision = Integer.parseInt(sample[1]);
@@ -73,7 +79,7 @@ public class InvestigateUnitRounding {
             Converter converter = null;
             String errorMessage = null;
             try {
-                converter = Converter.getConverter(sourceUnit, targetUnit);
+                converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
             } catch (Exception e) {
                 errorMessage = e.getMessage();
             }
@@ -99,11 +105,11 @@ public class InvestigateUnitRounding {
                 double amount = sourceAmount * fuzzier;
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     // for now, min=max
-                    int errors = errorCount(converter, amount, minMax, minMax);
+                    int errors = errorCount(line, converter, amount, minMax, minMax);
                     ok += 1 - errors;
                     totalErrors += errors;
                 }
-                int errors = errorCount(converter, amount, 14, 14);
+                int errors = errorCount(line, converter, amount, 11, 11);
                 ok += 1 - errors;
                 totalErrors += errors;
 
@@ -140,7 +146,7 @@ public class InvestigateUnitRounding {
     }
 
     private static int errorCount(
-            Converter converter, double sourceAmount, int minSig, int maxSig) {
+            OutputInt line, Converter converter, double sourceAmount, int minSig, int maxSig) {
         Precision precision = Precision.minMaxSignificantDigits(minSig, minSig);
 
         Locale locale = Locale.ENGLISH;
@@ -153,7 +159,8 @@ public class InvestigateUnitRounding {
 
         LocalizedNumberFormatter lnf = nf.precision(precision);
         // Use hack to get precision from LocalizedNumberFormatter
-        ReadablePrecision readablePrecision = new ReadablePrecision(lnf);
+        HackLocalizedNumberFormatter readablePrecision =
+                new HackLocalizedNumberFormatter(lnf, locale);
 
         // We have to guess that the parser parallels the formatter:
         // toFormat() can't be used to build a DecimalFormat.
@@ -182,6 +189,8 @@ public class InvestigateUnitRounding {
         if (VERBOSE || !approximatelyEqual || !roundedEqual) {
             System.out.println(
                     Joiners.ES.join(
+                            line.value++,
+                            "\t",
                             readablePrecision,
                             "\t",
                             BigDecimal.valueOf(sourceAmount).toPlainString(),
@@ -230,16 +239,24 @@ public class InvestigateUnitRounding {
      * settings (like minimumSignificantDigits) from a Precision, nor can you get
      * DecimalFormatProperties from a NumberFormatter!
      */
-    public static class ReadablePrecision {
+    public static class HackLocalizedNumberFormatter {
         public final int minimumSignificantDigits;
         public final int maximumSignificantDigits;
+        public final Locale locale;
+        public final LocalizedNumberFormatter lnf;
 
-        public ReadablePrecision(int minimumSignificantDigits, int maximumSignificantDigits) {
+        public HackLocalizedNumberFormatter(
+                LocalizedNumberFormatter lnf,
+                int minimumSignificantDigits,
+                int maximumSignificantDigits,
+                Locale locale) {
             this.minimumSignificantDigits = minimumSignificantDigits;
             this.maximumSignificantDigits = maximumSignificantDigits;
+            this.locale = locale;
+            this.lnf = lnf;
         }
 
-        public ReadablePrecision(LocalizedNumberFormatter lnf) {
+        public HackLocalizedNumberFormatter(LocalizedNumberFormatter lnf, Locale locale) {
             // Painful extraction; we have to convert to a skeleton and back;
             // gotta be a waste of cycles.
             String skeleton = lnf.toSkeleton();
@@ -247,11 +264,13 @@ public class InvestigateUnitRounding {
             PatternStringParser.parseToExistingProperties(skeleton, dfp);
             this.minimumSignificantDigits = dfp.getMinimumSignificantDigits();
             this.maximumSignificantDigits = dfp.getMaximumSignificantDigits();
+            this.locale = locale;
+            this.lnf = lnf;
         }
 
         @Override
         public boolean equals(Object obj) {
-            ReadablePrecision that = (ReadablePrecision) obj;
+            HackLocalizedNumberFormatter that = (HackLocalizedNumberFormatter) obj;
             return minimumSignificantDigits == that.minimumSignificantDigits
                     && maximumSignificantDigits == that.maximumSignificantDigits;
         }
@@ -263,13 +282,18 @@ public class InvestigateUnitRounding {
 
         @Override
         public String toString() {
-            return "⟨"
-                    + minimumSignificantDigits
-                    + (minimumSignificantDigits == maximumSignificantDigits
-                            ? ""
-                            : "‥" + maximumSignificantDigits)
-                    + "⟩";
+            return formatPrecision(minimumSignificantDigits, maximumSignificantDigits);
         }
+    }
+
+    public static String formatPrecision(
+            int minimumSignificantDigits, int maximumSignificantDigits) {
+        return "⟨"
+                + minimumSignificantDigits
+                + (minimumSignificantDigits == maximumSignificantDigits
+                        ? ""
+                        : "‥" + maximumSignificantDigits)
+                + "⟩";
     }
 
     /**
@@ -278,14 +302,19 @@ public class InvestigateUnitRounding {
      */
     public static class Converter {
         private static final double MAX_LONG_FROM_DOUBLE = Math.pow(2, 53);
-        private String sourceUnitId;
-        private double[] conversionFactors;
-        private String[] unitIds;
+
+        private final String sourceUnitId;
+        private final double[] conversionFactors;
+        private final String[] unitIds;
+        private final boolean matchFormatted;
 
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append(sourceUnitId);
+            if (!matchFormatted) {
+                sb.append("(MS)");
+            }
 
             double[] convertBoth = new double[conversionFactors.length];
 
@@ -317,7 +346,8 @@ public class InvestigateUnitRounding {
                     + (Arrays.hashCode(conversionFactors) * 31 + Arrays.hashCode(unitIds)) * 31;
         }
 
-        public static Converter getConverter(final String sourceUnit, final String targetUnit) {
+        public static Converter getConverter(
+                final String sourceUnit, final String targetUnit, boolean matchFormatted) {
             List<Double> conversions = new ArrayList<>();
             List<String> units = Splitter.on("-and-").splitToList(targetUnit);
 
@@ -380,13 +410,18 @@ public class InvestigateUnitRounding {
 
                 conversions.add(conversion.doubleValue());
             }
-            return new Converter(sourceUnit, conversions, units);
+            return new Converter(sourceUnit, conversions, units, matchFormatted);
         }
 
-        private Converter(String sourceUnit, List<Double> conversions, List<String> unitsIds) {
+        private Converter(
+                String sourceUnit,
+                List<Double> conversions,
+                List<String> unitsIds,
+                boolean matchFormatted) {
             this.sourceUnitId = sourceUnit;
             this.conversionFactors = Doubles.toArray(conversions);
             this.unitIds = unitsIds.toArray(String[]::new);
+            this.matchFormatted = matchFormatted;
         }
 
         public double convertBack(List<String> numbers, DecimalFormat df) {
@@ -421,7 +456,7 @@ public class InvestigateUnitRounding {
                 converted = converted * conversionFactors[i];
                 if (i == last) {
                     // add final double
-                    result.setDouble(converted, 15, 15);
+                    result.setDouble(converted, 14, 14);
                     break;
                 } else {
                     // add floor
@@ -433,21 +468,19 @@ public class InvestigateUnitRounding {
             return result;
         }
 
-        public Processed convert(double source, ReadablePrecision rp) {
+        public Processed convert(final double source_, HackLocalizedNumberFormatter rp) {
             Processed result = new Processed();
 
             int minSig = rp.minimumSignificantDigits;
             int maxSig = rp.maximumSignificantDigits;
 
-            if (source == 0) {
+            if (source_ == 0) {
                 result.setDouble(0, minSig, maxSig);
                 return result;
             }
 
-            boolean negative = source < 0;
-            if (negative) {
-                source = -source;
-            }
+            boolean negative = source_ < 0;
+            double source = negative ? -source_ : source_;
             int deltaMaxToMin = maxSig - minSig;
 
             /*
@@ -461,36 +494,48 @@ public class InvestigateUnitRounding {
                and so on.
                */
 
-            // TBD handle 0
-
             // Determine the magnitude of the number
-            double magnitude = Math.ceil(Math.log10(source));
+            double magnitude = Math.floor(Math.log10(source));
             // Calculate how many decimal places we need to keep
             int scale = rp.maximumSignificantDigits - (int) magnitude;
             double magnitude2 = Math.pow(10, scale);
             // Fix the source and delta accordingly
-            double converted = Math.round(source * magnitude2) / magnitude2;
+
+            double converted;
+            if (matchFormatted) {
+                converted = Math.round(source * magnitude2) / magnitude2;
+            } else {
+                converted = source;
+            }
             double convertedDelta = 0.5 / magnitude2; // get scaled 0.5;
+            double lowerBound = converted - convertedDelta;
+            double upperbound = converted + convertedDelta;
 
             int last = conversionFactors.length - 1;
 
             for (int i = 0; i <= last; ++i) {
                 double conversionFactor = conversionFactors[i];
                 converted = converted * conversionFactor;
-                convertedDelta = convertedDelta * conversionFactor;
+                lowerBound = lowerBound * conversionFactor;
+                upperbound = upperbound * conversionFactor;
                 if (i == last || converted > MAX_LONG_FROM_DOUBLE) {
                     // the final value is always a double
-                    maxSig = maxSig(converted, convertedDelta);
+                    maxSig = getBestDoubleScale(lowerBound, converted, upperbound);
                     result.setDouble(converted, maxSig - deltaMaxToMin, maxSig);
+                    checkResult(source, rp, result);
                     break;
                 } else {
-                    long rounded = Math.round(converted);
-                    double lowerBound = converted - convertedDelta;
-                    double upperbound = converted + convertedDelta;
-                    if (lowerBound < rounded && rounded < upperbound) {
-                        // It is precise enough; we can stop here with a final double
-                        maxSig = maxSig(converted, convertedDelta);
-                        result.setDouble(converted, maxSig - deltaMaxToMin, maxSig);
+                    double lowerBoundCeiling = Math.floor(lowerBound) + 1;
+                    double upperBoundFloor = Math.ceil(upperbound) - 1;
+                    if (lowerBoundCeiling < upperBoundFloor) {
+                        // It is precise enough; there is an integer that works
+                        // find the ones with the longest sequence of zeros
+                        // among those, find the one closest to converted.
+                        BestLong bestLong = getBestLongScale(lowerBound, converted, upperbound);
+                        result.setDouble(
+                                bestLong.value,
+                                bestLong.significantDigits - deltaMaxToMin,
+                                bestLong.significantDigits);
                         break;
                     }
                     double floor = Math.floor(converted);
@@ -504,6 +549,78 @@ public class InvestigateUnitRounding {
             return result;
         }
 
+        private void checkResult(
+                double source, HackLocalizedNumberFormatter rp, Processed processed) {
+            List<String> numbers = formattedNumbers(processed, rp.lnf);
+
+            DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(rp.locale);
+            double roundTrip = convertBack(numbers, parser);
+
+            String sourceFormatted = rp.lnf.format(source).toString();
+            String roundTripFormatted = rp.lnf.format(roundTrip).toString();
+            if (!sourceFormatted.equals(roundTripFormatted)) {
+                int debug = 0;
+            }
+        }
+
+        static class BestLong {
+            public final long value;
+            public final int significantDigits;
+
+            public BestLong(long value, int significantDigits) {
+                this.value = value;
+                this.significantDigits = significantDigits;
+            }
+
+            @Override
+            public String toString() {
+                return "Value: " + value + ", Significant Digits: " + significantDigits;
+            }
+        }
+
+        private BestLong getBestLongScale(double lowerBound, double value, double upperbound) {
+            // Estimate an upper limit for E to start the downward scan
+            double span = upperbound - lowerBound;
+            int startE = (int) Math.floor(Math.log10(span));
+
+            // 3. Scan downwards from the top to guarantee finding the largest working E
+            for (int E = startE + 1; E >= 0; E--) {
+                double divisor = Math.pow(10, E);
+
+                // Compute exclusive bounds in the scaled K space
+                long minK = (long) Math.floor(lowerBound / divisor) + 1;
+                long maxK = (long) Math.ceil(upperbound / divisor) - 1;
+
+                // The first layer where minK <= maxK is strictly our largest possible E
+                if (minK <= maxK) {
+                    double targetK = value / divisor;
+                    long bestK = Math.round(targetK);
+
+                    // Force clamp to make sure it stays within range
+                    bestK = Math.max(minK, Math.min(maxK, bestK));
+
+                    long resultValue = bestK * (long) divisor;
+                    int sigDigits = calculateSignificantDigits(bestK);
+                    if (!(lowerBound < resultValue && resultValue < upperbound)) {
+                        throw new IllegalArgumentException("Result value fails: " + resultValue);
+                    }
+                    return new BestLong(resultValue, sigDigits);
+                }
+            }
+            throw new IllegalArgumentException("Should never happen");
+        }
+
+        /** find number of significant digits */
+        private static int calculateSignificantDigits(long bestK) {
+            // Avoid string allocation
+            int length = 0;
+            while (bestK > 0) {
+                length++;
+                bestK /= 10;
+            }
+            return length;
+        }
+
         /**
          * Used to counteract loss of precision; nudge the value up very slightly in case it is very
          * near a multiple of 10.
@@ -511,21 +628,33 @@ public class InvestigateUnitRounding {
         private static final double FUDGE_FACTOR = 1.000_000_000_000_01;
 
         /**
-         * Returns the number of significant digits needed to get within delta<br>
-         * TBD WARNING Need to refine the code further, with the goal being to get just enough
-         * precision to roundtrip.
+         * Returns the number of significant digits of value needed to get within
+         * (lowerBound..upperbound)<br>
          */
-        private int maxSig(double value, double delta) {
-            // Find the position of the first significant digit of values using log10
-            // use a fudge factor so that we err slightly on the side of more significant digits!
-            int valueFirstSigDigitPlace = (int) Math.ceil(Math.log10(value * FUDGE_FACTOR));
-            int deltaFirstSigDigitPlace = (int) Math.floor(Math.log10(delta));
+        private int getBestDoubleScale(double lowerBound, double value, double upperbound) {
+            // Calculate differences from bounds
+            double lowerDiff = value - lowerBound;
+            double upperDiff = upperbound - value;
 
-            int targetScale = valueFirstSigDigitPlace - deltaFirstSigDigitPlace;
-            if (targetScale <= 0) {
-                targetScale += 1;
+            // Handle edge cases where value falls outside bounds or difference is 0
+            if (lowerDiff <= 0 || upperDiff <= 0) {
+                return 1;
             }
-            return targetScale;
+
+            int valueFirstSigDigitPlace = (int) Math.floor(Math.log10(value));
+            // Find the place value of the most restrictive difference
+            int minFirstSigDigitPlace = (int) Math.floor(Math.log10(lowerDiff));
+            if (lowerDiff != upperDiff) {
+                int upperFirstSigDigitPlace = (int) Math.floor(Math.log10(upperDiff));
+                minFirstSigDigitPlace = Math.min(minFirstSigDigitPlace, upperFirstSigDigitPlace);
+            }
+
+            int result = valueFirstSigDigitPlace - minFirstSigDigitPlace + 1;
+            if (result <= 0) {
+                result = 1;
+            }
+
+            return result;
         }
 
         /**
@@ -605,10 +734,10 @@ public class InvestigateUnitRounding {
                     sb.append(leadingValues[i]);
                 }
                 if (sb.length() != 0) {
-                    sb.append(":");
+                    sb.append(" : ");
                 }
                 sb.append(BigDecimal.valueOf(finalValue).toPlainString());
-                sb.append(new ReadablePrecision(minSignificant, maxSignificant));
+                sb.append(formatPrecision(minSignificant, maxSignificant));
                 return sb.toString();
             }
 

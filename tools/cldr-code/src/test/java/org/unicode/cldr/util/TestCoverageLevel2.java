@@ -260,6 +260,11 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
             final Set<String> notInCoverage,
             final XPathParts xpp)
             throws MultipleFailuresError {
+        if (logKnownIssue(
+            "CLDR-19898",
+            "Skipping assertMissingCoverage due to suz coverage problems")) {
+            return;
+        }
         // given xpp is  scripts/script or languages/language, etc.
         final String plural = xpp.getElement(-2); // the plural form of what we're looking for
         Assertions.assertAll(

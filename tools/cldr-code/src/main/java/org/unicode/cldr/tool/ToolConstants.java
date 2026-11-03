@@ -43,7 +43,7 @@ public class ToolConstants {
                             .collect(Collectors.toList()));
 
     // Do not include decimal point if followed by zero; e.g., "99" not "99.0"
-    public static final String DEV_VERSION = "49";
+    public static final String DEV_VERSION = "50";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET =

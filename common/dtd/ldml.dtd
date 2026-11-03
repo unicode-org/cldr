@@ -1771,7 +1771,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT relative ( #PCDATA ) >
 <!ATTLIST relative type NMTOKEN #REQUIRED >
     <!-- TODO: determine whether to allow 3 -->
-    <!--@MATCH:range/-2~3-->
+    <!--@MATCH:range/-4~4-->
 <!ATTLIST relative alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST relative draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

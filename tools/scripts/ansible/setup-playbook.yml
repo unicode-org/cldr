@@ -1,11 +1,20 @@
 # need group openliberty to exist, so do that first
-- import_playbook: openliberty-playbook.yml
-- import_playbook: server-playbook.yml
-- import_playbook: mysql-playbook.yml
-- import_playbook: nginx-playbook.yml
-- import_playbook: cldr-apps-playbook.yml
-- import_playbook: packages-playbook.yml
-- import_playbook: certbot-playbook.yml
-- import_playbook: hostname-playbook.yml
-- import_playbook: backup-db-playbook.yml
+- name: Set up Open Liberty
+  import_playbook: openliberty-playbook.yml
+- name: server
+  import_playbook: server-playbook.yml
+- name: server
+  import_playbook: mysql-playbook.yml
+- name: mysql
+  import_playbook: nginx-playbook.yml
+- name: nginx
+  import_playbook: cldr-apps-playbook.yml
+- name: cldr-apps
+  import_playbook: packages-playbook.yml
+- name: packages
+  import_playbook: certbot-playbook.yml
+- name: certbot
+  import_playbook: hostname-playbook.yml
+- name: hostname
+  import_playbook: backup-db-playbook.yml
 # - import_playbook: ccc-playbook.yml

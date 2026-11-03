@@ -1,5 +1,6 @@
+---
 - hosts: surveytool
-  become: yes
+  become: true
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
@@ -7,19 +8,19 @@
     - { role: geerlingguy.nginx }
   tasks:
     - name: Setup gzip.conf
-      copy:
+      ansible.builtin.copy:
         dest: /etc/nginx/conf.d/gzip.conf
         owner: root
         group: root
-        mode: '0644'
+        mode: "0644"
         content: |
           gzip on;
           gzip_types      text/plain application/xml application/json text/javascript application/x-javascript;
           gzip_proxied    no-cache no-store private expired auth;
           gzip_min_length 1000;
-      notify: 'Restart Nginx'
+      notify: "Restart Nginx"
     - name: Setup reverse proxy
-      blockinfile:
+      ansible.builtin.blockinfile:
         path: /etc/nginx/sites-enabled/default
         block: |
           # proxy /cldr-apps/ to openliberty, with generous timeouts
@@ -43,29 +44,29 @@
             proxy_set_header X-Forwarded-For $remote_addr;
             proxy_set_header X-Forwarded-Proto $scheme;
           }
-        marker: '# {mark} ANSIBLE MANAGED BLOCK'
-        insertafter: '^[\s]*server_name' # the LAST uncommented server block
-      notify: 'Restart Nginx'
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+        insertafter: "^[\\s]*server_name" # the LAST uncommented server block
+      notify: "Restart Nginx"
     - name: Setup index.html
-      copy:
+      ansible.builtin.copy:
         src: templates/index.html
         dest: /var/www/html
         owner: root
         group: root
-        mode: '0644'
+        mode: "0644"
     - name: Remove stapler.conf
       ansible.builtin.file:
         state: absent
         path: /etc/nginx/conf.d/stapler.conf
-      notify: 'Restart Nginx'
+      notify: "Restart Nginx"
     - name: Remove OCSP Stapling
-      replace:
+      ansible.builtin.replace:
         path: /etc/nginx/sites-enabled/default
-        regexp: '^(\s*)ssl_stapling(.*)$'
-        replace: '\1##ssl_stapling\2'
-      notify: 'Restart Nginx'
+        regexp: "^(\\s*)ssl_stapling(.*)$"
+        replace: "\\1##ssl_stapling\\2"
+      notify: "Restart Nginx"
   handlers:
     - name: Restart Nginx
-      service:
+      ansible.builtin.service:
         name: nginx
         state: restarted

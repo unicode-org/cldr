@@ -1,5 +1,6 @@
+---
 - hosts: surveytool
-  become: yes
+  become: true
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
@@ -19,8 +20,8 @@
         dest: /etc/fail2ban/jail.local
         owner: root
         group: root
-        mode: '0644'
-      notify: 'Restart Fail2ban'
+        mode: "0644"
+      notify: "Restart Fail2ban"
     - name: Setup surveytool user for deploy
       user:
         name: "{{ cldr_surveytool_user }}"
@@ -30,11 +31,11 @@
       file:
         path: "{{ cldr_trunk_path }}"
         owner: surveytool
-        recurse: yes
+        recurse: true
     - name: Setup surveytool auth
-      authorized_key:
+      ansible.posix.authorized_key:
         user: surveytool
-        key: '{{ surveytooldeploy.key }}'
+        key: "{{ surveytooldeploy.key }}"
     - name: ensure cldradmin group is there
       group:
         name: cldradmin
@@ -45,7 +46,7 @@
         comment: CLDR Admin
         groups:
           - cldradmin
-        append: yes # add to the groups, do not remove
+        append: true # add to the groups, do not remove
         state: present
         create_home: true
     - name: make sure /home/cldradmin/.ssh/ exists
@@ -53,14 +54,14 @@
         path: /home/cldradmin/.ssh/
         owner: cldradmin
         group: cldradmin
-        mode: '0700'
+        mode: "0700"
         state: directory
     - name: make sure /home/cldradmin/.ssh/authorized_keys exists
       file:
         dest: /home/cldradmin/.ssh/authorized_keys
         owner: cldradmin
         group: cldradmin
-        mode: '0600'
+        mode: "0600"
         state: touch #https://github.com/ansible/ansible/issues/7490#issuecomment-497373505
         modification_time: preserve
         access_time: preserve
@@ -69,7 +70,7 @@
         dest: /etc/sudoers.d/55-cldradmin-users
         owner: root
         group: root
-        mode: '440'
+        mode: "440"
         src: templates/55-cldradmin.conf
   handlers:
     - name: Restart Fail2ban

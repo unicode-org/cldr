@@ -1,6 +1,7 @@
-- hosts: surveytool
-  become: yes
-  gather_facts: yes
+- name: openliberty
+  hosts: surveytool
+  become: true
+  gather_facts: true
   vars_files:
     - vars/main.yml
     - vars/openliberty.yml

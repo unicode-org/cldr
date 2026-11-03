@@ -1,75 +1,76 @@
+---
 - hosts: redactdb
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
   tasks:
-    - name: set up /home/cldradmin/.ssh/config to fetch db backup
-      template:
+    - name: Set up /home/cldradmin/.ssh/config to fetch db backup
+      ansible.builtin.template:
         src: templates/cldrbackup/config.j2
         dest: /home/cldradmin/.ssh/config
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: set up /home/cldradmin/.ssh/id_rsa
+        mode: "0640"
+    - name: Set up /home/cldradmin/.ssh/id_rsa
       no_log: true
-      copy:
+      ansible.builtin.copy:
         src: local-vars/cldrbackup/id_rsa
         dest: /home/cldradmin/.ssh/id_rsa
         owner: cldradmin
         group: cldradmin
-        mode: '0600'
-    - name: set up /home/cldradmin/.ssh/id_rsa.pub
-      copy:
+        mode: "0600"
+    - name: Set up /home/cldradmin/.ssh/id_rsa.pub
+      ansible.builtin.copy:
         src: local-vars/cldrbackup/id_rsa.pub
         dest: /home/cldradmin/.ssh/id_rsa.pub
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: set up /home/cldradmin/.ssh/known_hosts
-      copy:
+        mode: "0640"
+    - name: Set up /home/cldradmin/.ssh/known_hosts
+      ansible.builtin.copy:
         src: local-vars/cldrbackup/known_hosts
         dest: /home/cldradmin/.ssh/known_hosts
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: set up /home/cldradmin/redact-db.sql
-      copy:
+        mode: "0640"
+    - name: Set up /home/cldradmin/redact-db.sql
+      ansible.builtin.copy:
         src: templates/cldrbackup/redact-db.sql
         dest: /home/cldradmin/redact-db.sql
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: set up /home/cldradmin/fetch-db.sh
-      template:
+        mode: "0640"
+    - name: Set up /home/cldradmin/fetch-db.sh
+      ansible.builtin.template:
         src: templates/cldrbackup/fetch_db_sh.j2
         dest: /home/cldradmin/fetch-db.sh
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: set up /home/cldradmin/redact-db.sh
-      template:
+        mode: "0640"
+    - name: Set up /home/cldradmin/redact-db.sh
+      ansible.builtin.template:
         src: templates/cldrbackup/redact_db_sh.j2
         dest: /home/cldradmin/redact-db.sh
         owner: cldradmin
         group: cldradmin
-        mode: '0640'
-    - name: fetch and unzip db
+        mode: "0640"
+    - name: Fetch and unzip db
       # This playbook is intended to always make a change.
-      command: bash /home/cldradmin/fetch-db.sh # noqa 301
-      become: yes
-      become_user: cldradmin
-    - name: stop openliberty
+      ansible.builtin.command: bash /home/cldradmin/fetch-db.sh
       become: true
-      service:
+      become_user: cldradmin
+    - name: Stop openliberty
+      become: true
+      ansible.builtin.service:
         name: "{{ cldr_openliberty_service }}"
         state: stopped
-    - name: redact db
+    - name: Redact db
       # This playbook is intended to always make a change.
-      command: bash /home/cldradmin/redact-db.sh # noqa 301
-      become: yes
-      become_user: cldradmin
-    - name: restart openliberty
+      ansible.builtin.command: bash /home/cldradmin/redact-db.sh
       become: true
-      service:
+      become_user: cldradmin
+    - name: Restart openliberty
+      become: true
+      ansible.builtin.service:
         name: "{{ cldr_openliberty_service }}"
         state: restarted

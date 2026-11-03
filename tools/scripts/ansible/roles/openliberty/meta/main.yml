@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Steven R. Loomis
   description: Ubuntu installer for OpenLiberty
@@ -7,9 +8,9 @@ galaxy_info:
   min_ansible_version: "2.1"
 
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
+    - name: Ubuntu
+      versions:
+        - all
 
   galaxy_tags: []
     # List tags for your role here, one per line. A tag is a keyword that describes

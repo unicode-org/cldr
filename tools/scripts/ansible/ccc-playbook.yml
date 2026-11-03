@@ -1,54 +1,55 @@
-# CLDR Commit Checker playbook
-- hosts: ccc
-  become: yes
+---
+- name: CLDR Commit Checker
+  hosts: ccc
+  become: true
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
   tasks:
-    - name: ensure cldrcc group is there
-      group:
+    - name: Ensure cldrcc group is there
+      ansible.builtin.group:
         name: cldrcc
         state: present
-    - name: ensure cldrcc user is there
-      user:
+    - name: Ensure cldrcc user is there
+      ansible.builtin.user:
         name: cldrcc
         groups:
           - cldrcc
-        append: yes # add to the groups, do not remove
+        append: true # add to the groups, do not remove
         state: present
         create_home: true
-    - name: set up /home/cldrcc/.ssh/
-      file:
+    - name: Set up /home/cldrcc/.ssh/
+      ansible.builtin.file:
         path: /home/cldrcc/.ssh/
         owner: cldrcc
         group: cldrcc
-        mode: '0700'
+        mode: "0700"
         state: directory
-    - name: set up /home/cldrcc/.ssh/authorized_keys
-      copy:
+    - name: Set up /home/cldrcc/.ssh/authorized_keys
+      ansible.builtin.copy:
         src: local-vars/cldrcc/id_rsa.pub
         dest: /home/cldrcc/.ssh/authorized_keys
         owner: cldrcc
         group: cldrcc
-        mode: '0600'
-    - name: set up /home/cldrcc/public_html/
-      file:
+        mode: "0600"
+    - name: Set up /home/cldrcc/public_html/
+      ansible.builtin.file:
         path: /home/cldrcc/public_html/
         owner: cldrcc
         group: cldrcc
-        mode: '0755'
+        mode: "0755"
         state: directory
-    - name: set up github-markdown.css
-      get_url:
+    - name: Set up github-markdown.css
+      ansible.builtin.get_url:
         dest: /home/cldrcc/public_html/github-markdown.css
         owner: cldrcc
         group: cldrcc
-        mode: '0644'
-        force: no
+        mode: "0644"
+        force: false
         url: https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css
         # from https://github.com/sindresorhus/github-markdown-css
     - name: Setup publication and indexing
-      blockinfile:
+      ansible.builtin.blockinfile:
         path: /etc/nginx/sites-enabled/default
         block: |
           # commit checker
@@ -58,11 +59,11 @@
                 alias /home/cldrcc/public_html/$1;
                 autoindex on;
           }
-        marker: '# {mark} ANSIBLE MANAGED COMMIT CHECKER BLOCK'
-        insertafter: '^[\s]*server_name' # the LAST uncommented server block
-      notify: 'Restart Nginx Again'
+        marker: "# {mark} ANSIBLE MANAGED COMMIT CHECKER BLOCK"
+        insertafter: "^[\\s]*server_name" # the LAST uncommented server block
+      notify: "Restart Nginx Again"
   handlers:
     - name: Restart Nginx Again
-      service:
+      ansible.builtin.service:
         name: nginx
         state: restarted

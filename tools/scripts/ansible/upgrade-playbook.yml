@@ -1,19 +1,21 @@
+---
 # A playbook for upgrading packages
-- hosts: all
+- name: Upgrades
+  hosts: all
   vars_files:
     - vars/main.yml
     - vars/openliberty.yml
-  become: yes
+  become: true
   tasks:
   # Stop server, update packages, start server (even if server wasn't running)
-  - name: Stop OpenLiberty
-    service:
-      name: "{{ cldr_openliberty_service }}"
-      state: stopped
-  - name: Update all packages to the latest version
-    apt:
-      upgrade: dist
-  - name: Restart OpenLiberty
-    service:
-      name: "{{ cldr_openliberty_service }}"
-      state: restarted
+    - name: Stop OpenLiberty
+      ansible.builtin.service:
+        name: "{{ cldr_openliberty_service }}"
+        state: stopped
+    - name: Update all packages to the latest version
+      ansible.builtin.apt:
+        upgrade: dist
+    - name: Restart OpenLiberty
+      ansible.builtin.service:
+        name: "{{ cldr_openliberty_service }}"
+        state: restarted

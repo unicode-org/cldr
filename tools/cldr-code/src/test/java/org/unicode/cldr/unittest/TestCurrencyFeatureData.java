@@ -55,6 +55,12 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                     .put(
                             "currency_decimal_separator_regular",
                             f -> assertNoSymbol(f, "currencyDecimal"))
+                    .put(
+                            "currency_group_separator_locale",
+                            f -> assertOwnSymbol(f, "currencyGroup", "group"))
+                    .put(
+                            "currency_group_separator_regular",
+                            f -> assertNoSymbol(f, "currencyGroup"))
                     .build();
 
     public void TestDataGuards() throws IOException {

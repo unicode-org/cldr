@@ -1080,3 +1080,14 @@ section.body a:visited {
 section.body a:hover {
   text-decoration: underline;
 }
+
+/* Code blocks. Jekyll's Rouge highlighter marks up the tokens; the colors come
+   from Rouge's "github" theme in syntax.css, which build-site.sh generates. */
+pre.highlight {
+  background-color: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  overflow-x: auto;
+  line-height: 1.45;
+}

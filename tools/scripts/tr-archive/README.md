@@ -47,12 +47,14 @@ This will update the tr .md files in place. Then, go ahead and check in updates 
 $ npm install
 $ npm run build
 $ npm run extract-link-targets
+$ npm run check-anchor-case
 ```
 
 1. fix any errors, such as bad links
 2. there are warnings about duplicate anchors - these are OK.
 3. check the git status an diff on the `docs/ldml/tr35*.anchors.json` files
   - make sure that any anchors aren't inexplicably removed
+4. `check-anchor-case` reports anchors that differ only in case or in `_` vs `-` but go to different sections, such as `#Examples` and `#examples` on two different headings. It shows the line of each one in the Markdown source
 
 ### Copyright
 

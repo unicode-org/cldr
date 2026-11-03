@@ -261,8 +261,7 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
             final XPathParts xpp)
             throws MultipleFailuresError {
         if (logKnownIssue(
-            "CLDR-19898",
-            "Skipping assertMissingCoverage due to suz coverage problems")) {
+                "CLDR-19898", "Skipping assertMissingCoverage due to suz coverage problems")) {
             return;
         }
         // given xpp is  scripts/script or languages/language, etc.

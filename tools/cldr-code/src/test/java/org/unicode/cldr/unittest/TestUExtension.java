@@ -7,7 +7,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UExtension;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestUExtension extends TestFmwk {
 
     static SupplementalDataInfo data =

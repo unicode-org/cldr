@@ -81,10 +81,11 @@ import org.xml.sax.SAXException;
  * http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class GenerateSidewaysView {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
+
     private static final boolean TOO_BIG_FOR_GITHUB = true;
     private static final String DIR_NAME = "by_type";
     // debug flags
-    static final boolean DEBUG = false;
     static final boolean DEBUG2 = false;
     static final boolean DEBUG_SHOW_ADD = false;
     static final boolean DEBUG_ELEMENT = false;
@@ -211,7 +212,7 @@ public class GenerateSidewaysView {
         String oldMain = "";
         PrintWriter out = null;
 
-        System.out.println("Getting types " + path_value_locales.size());
+        if (DEBUG) System.out.println("Getting types " + path_value_locales.size());
         // Set<String> types = new TreeSet<String>();
         // for (PathHeader path : path_value_locales.keySet()) {
         // String main = getFileName2(path);
@@ -241,8 +242,9 @@ public class GenerateSidewaysView {
         // options[DESTDIR].value, "index.html",
         //            new String[] { "%header%", headerString });
 
-        System.out.println(
-                "Printing files in " + new File(options[DESTDIR].value).getAbsolutePath());
+        if (DEBUG)
+            System.out.println(
+                    "Printing files in " + new File(options[DESTDIR].value).getAbsolutePath());
         // Transliterator toLatin = Transliterator.getInstance("any-latin");
         toHTML = TransliteratorUtilities.toHTML;
         // UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
@@ -364,11 +366,12 @@ public class GenerateSidewaysView {
         }
         finish(out, tsvFile);
         finishAll(out, tsvFile);
-        System.out.println(
-                "Done in "
-                        + new RuleBasedNumberFormat(
-                                        new ULocale("en"), RuleBasedNumberFormat.DURATION)
-                                .format((System.currentTimeMillis() - startTime) / 1000.0));
+        if (DEBUG)
+            System.out.println(
+                    "Done in "
+                            + new RuleBasedNumberFormat(
+                                            new ULocale("en"), RuleBasedNumberFormat.DURATION)
+                                    .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
 
     static final String[][] EXEMPLARS = {
@@ -447,7 +450,8 @@ public class GenerateSidewaysView {
                 checkTr(script_UnicodeMap);
             }
         }
-        System.out.println("@@@TOTAL:\t" + variant + "\t" + totalExemplars.toPattern(false));
+        if (DEBUG)
+            System.out.println("@@@TOTAL:\t" + variant + "\t" + totalExemplars.toPattern(false));
         for (String script : script_UnicodeMap.keySet()) {
             UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
             writeCharToLocaleMapping(out, script, mapping);
@@ -465,7 +469,7 @@ public class GenerateSidewaysView {
             return;
         }
         if (foo.contains("tr")) {
-            System.out.println("huh?");
+            if (DEBUG) System.out.println("huh?");
         }
     }
 
@@ -474,7 +478,7 @@ public class GenerateSidewaysView {
         BreakIterator charBreaks =
                 BreakIterator.getCharacterInstance(ULocale.ROOT); // TODO, make default language for
         // script
-        System.out.println("@@Exemplars for\t" + script + "\t" + mapping.keySet());
+        if (DEBUG) System.out.println("@@Exemplars for\t" + script + "\t" + mapping.keySet());
         if (script.equals("Hangul")) { //  || script.equals("Common")
             return; // skip these
         }
@@ -709,8 +713,8 @@ public class GenerateSidewaysView {
         // gather all information
         // TODO tweek for value-laden attributes
         for (String localeID : alllocales) {
-            System.out.println("Loading: " + localeID);
-            System.out.flush();
+            if (DEBUG) System.out.println("Loading: " + localeID);
+            if (DEBUG) System.out.flush();
 
             CLDRFile cldrFile;
             try {
@@ -770,7 +774,7 @@ public class GenerateSidewaysView {
             sorted.put(s.getValue(), s.getKey());
         }
         for (Entry<String, Set<String>> s : sorted.keyValuesSet()) {
-            System.out.println(s);
+            if (DEBUG) System.out.println(s);
         }
     }
 
@@ -824,7 +828,7 @@ public class GenerateSidewaysView {
     private static String getValue(CLDRFile cldrFile, String path, String fullPath) {
         String value = cldrFile.getStringValue(path);
         if (value == null) {
-            System.out.println("Null value for " + path);
+            if (DEBUG) System.out.println("Null value for " + path);
             return value;
         }
         cldrFile.getSourceLocaleID(path, status);

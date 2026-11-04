@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -35,7 +36,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -49,6 +49,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -501,7 +502,8 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : unresolved.fullIterable()) {
             String value = unresolved.getStringValue(path);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                assertNotNull(locale + " " + path, resolved.getStringValue(path));
+                final String stringValue = resolved.getStringValue(path);
+                assertNotNull(locale + " " + path, stringValue);
             }
         }
     }
@@ -547,7 +549,7 @@ public class TestCheckCLDR extends TestFmwk {
             final String resolvedValue =
                     dummyValue == null ? patched.getStringValueWithBailey(path) : dummyValue;
             test.handleCheck(path, patched.getFullXPath(path), resolvedValue, options, result);
-            if (result.size() != 0) {
+            if (!result.isEmpty()) {
                 for (CheckStatus item : result) {
                     addExemplars(item, missingCurrencyExemplars, missingExemplars);
                     final String mainMessage =
@@ -580,13 +582,13 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             }
         }
-        if (missingCurrencyExemplars.size() != 0) {
+        if (!missingCurrencyExemplars.isEmpty()) {
             logln(
                     localeID
                             + "\tMissing Exemplars (Currency):\t"
                             + missingCurrencyExemplars.toPattern(false));
         }
-        if (missingExemplars.size() != 0) {
+        if (!missingExemplars.isEmpty()) {
             logln(localeID + "\tMissing Exemplars:\t" + missingExemplars.toPattern(false));
         }
     }
@@ -642,46 +644,11 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     /**
-     * Check that at least one path in a locale is outdated and one path is not. That may change
-     * each time. This needs to be a <locale,path> that is currently outdated (birth older than
-     * English's) if the test fails with "no failure message" run GenerateBirths (if you haven't
-     * done so) look at readable results in the log file in
-     * https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt (for the current
-     * version, not nec. 41.0) for a reasonable locale ( may change locale to something other than
-     * fr) find a path that is outdated. To work on both limited and full submissions, choose one
-     * with English = trunk Sometimes the English change is suppressed in a limited release if the
-     * change is small. Pick another in that case. check the data files to ensure that it is in fact
-     * outdated. change the path to that value the 3rd parameter is the message displayed to the
-     * user, or "" if not 'English Changed' So the first group of tests are for items that should
-     * not be outdated And the second group is ones that should be outdated.
+     * Check that at least one path in a locale is outdated and one path is not. That may change for
+     * each CLDR release, causing this test to need updating. See:
      *
-     * <p>Alternative instructions: the above may not work if
-     * https://github.com/unicode-org/cldr-staging/blob/main/births has not been kept up to date, as
-     * is the case for versions 45 through 48. Instead, you can run TestOutdatedPaths with the -v
-     * (verbose) option:
-     *
-     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
-     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -v -n -filter:TestOutdatedPaths'
-     *
-     * <p>The output will include something like this:
-     *
-     * <p>TestShow { (TestOutdatedPaths.java:69) de total outdated: 266 (TestOutdatedPaths.java:78)
-     * English (48.0):\t«Saurashtra» ⇒\t«Sourashtra» Native: «Saurashtra» Path: Locale Display Names
-     * Languages (O-S) S Sourashtra ► saz XML-Path:
-     * //ldml/localeDisplayNames/languages/language[@type="saz"] ... (TestOutdatedPaths.java:78)
-     * English (47.0):\t«↑↑↑» ⇒\t« » Native: « » Path: Miscellaneous Person Name Formats
-     * AuxiliaryItems foreignSpaceReplacement XML-Path: //ldml/personNames/foreignSpaceReplacement
-     *
-     * <p>Copy those paths from XML-Path into TestCheckCLDR.TestCheckNew, replacing the "Outdated"
-     * paths for which it failed. Run TestCheckNew:
-     *
-     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
-     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -n -filter:TestCheckNew'
-     *
-     * <p>It will fail, since the messages need updating. Copy the messages it produced (like "In
-     * CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the
-     * corresponding value for your locale didn't change.") into TestCheckCLDR.TestCheckNew. Tests
-     * should now pass.
+     * <p><a
+     * href="https://cldr.unicode.org/development/cldr-development-site/updating-englishroot">Instructions</a>
      */
     public void TestCheckNew() {
         // Not outdated
@@ -784,6 +751,225 @@ public class TestCheckCLDR extends TestFmwk {
         factory.addFile(root);
         factory.addFile(localeCldr);
         return factory;
+    }
+
+    public void TestCheckDatesPlain() {
+        List<List<String>> tests =
+                List.of(
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
+                                ":",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "HH:mm",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]",
+                                "h:mm:ss a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                                "h:mm a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hms\"]",
+                                "HH:mm:ss",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hm\"]",
+                                "HH:mm",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ha\"]",
+                                "h a",
+                                ""));
+        Map<String, String> pathToValues =
+                tests.stream().collect(Collectors.toMap(list -> list.get(0), list -> list.get(1)));
+        TestFactory testFactory = TestFactory.makeFileWithValues("no", Map.of(), pathToValues);
+        CheckCLDR c = new CheckDates(testFactory);
+        CLDRFile testFile = testFactory.make("no", true);
+        List<CheckStatus> result = new ArrayList<>();
+        Options options = new Options();
+        c.setCldrFileToCheck(testFile, options, result);
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            result.clear();
+            c.check(path, path, value, options, result);
+            assertEquals(path + " => " + value, expected, Joiners.SEMI.join(result));
+        }
+    }
+
+    public void TestCheckDatesError() {
+        List<List<String>> tests =
+                List.of(
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]",
+                                "h:mm:ss aN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
+                                ":N",
+                                "Error: Illegal datetime field: N\n"
+                                        + "Warning: Problem in base value «HH:mm:ssN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/279c95c24026a2f3\">Hms</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>.\n"
+                                        + "Warning: Problem in base value «HH:mmN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/235af2cdaa201be0\">short</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "HH:mmN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                                "h:mm aN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hms\"]",
+                                "HH:mm:ssN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hm\"]",
+                                "HH:mmN",
+                                "Error: Illegal datetime field: N"));
+        Map<String, String> pathToValues =
+                tests.stream().collect(Collectors.toMap(list -> list.get(0), list -> list.get(1)));
+        TestFactory testFactory = TestFactory.makeFileWithValues("no", Map.of(), pathToValues);
+        CheckCLDR c = new CheckDates(testFactory);
+        CLDRFile testFile = testFactory.make("no", true);
+        List<CheckStatus> result = new ArrayList<>();
+        Options options = new Options();
+        c.setCldrFileToCheck(testFile, options, result);
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            result.clear();
+            c.check(path, path, value, options, result);
+            assertEquals(path + " => " + value, expected, Joiners.N.join(result));
+        }
+    }
+
+    public void TestCheckDatesForbiddenSkeletonSymbols() {
+        List<List<String>> tests =
+                List.of(
+                        // Valid skeletons
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ha\"]",
+                                "h a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
+                                "h B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]",
+                                "h:mm B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hb\"]",
+                                "h b",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"a\"]",
+                                "a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"aaaa\"]",
+                                "aaaa",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"b\"]",
+                                "b",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"B\"]",
+                                "B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"BBBB\"]",
+                                "BBBB",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]",
+                                "d.M.y",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Yw\"]",
+                                "w. 'uke' Y",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"uMd\"]",
+                                "d.M.u",
+                                ""),
+                        // Invalid skeletons
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Ka\"]",
+                                "h a",
+                                "Error: The skeleton ID \"Ka\" contains forbidden field symbol 'K'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"KB\"]",
+                                "K B",
+                                "Error: The skeleton ID \"KB\" contains forbidden field symbol 'K'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"km\"]",
+                                "k:mm",
+                                "Error: The skeleton ID \"km\" contains forbidden field symbol 'k'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yLd\"]",
+                                "d. LLL y",
+                                "Error: The skeleton ID \"yLd\" contains forbidden field symbol 'L'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yq\"]",
+                                "QQQ y",
+                                "Error: The skeleton ID \"yq\" contains forbidden field symbol 'q'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"GyMEdc\"]",
+                                "c, d.M.y G",
+                                "Error: The skeleton ID \"GyMEdc\" contains forbidden field symbol 'c'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"jmm\"]",
+                                "HH:mm",
+                                "Error: The skeleton ID \"jmm\" contains forbidden field symbol 'j'. Skeletons must not contain pattern-only or input symbols (see TR35).\nError: Illegal datetime field: j"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMa\"]",
+                                "M.y a",
+                                "Error: The skeleton ID \"yMa\" contains day period symbol 'a' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMb\"]",
+                                "M.y b",
+                                "Error: The skeleton ID \"yMb\" contains day period symbol 'b' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"HB\"]",
+                                "H B",
+                                "Error: The skeleton ID \"HB\" contains day period symbol 'B' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"am\"]",
+                                "a m",
+                                "Error: The skeleton ID \"am\" contains day period symbol 'a' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"EB\"]",
+                                "E B",
+                                "Error: The skeleton ID \"EB\" contains day period symbol 'B' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."));
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            TestFactory testFactory =
+                    TestFactory.makeFileWithValues("no", Map.of(), Map.of(path, value));
+            CheckCLDR c = new CheckDates(testFactory);
+            CLDRFile testFile = testFactory.make("no", true);
+            List<CheckStatus> result = new ArrayList<>();
+            Options options = new Options();
+            c.setCldrFileToCheck(testFile, options, result);
+            result.clear();
+            c.check(path, path, value, options, result);
+            String actualErrors =
+                    result.stream()
+                            .filter(s -> s.getType().equals(CheckStatus.errorType))
+                            .map(CheckStatus::toString)
+                            .collect(Collectors.joining("\n"));
+            assertEquals(path + " => " + value, expected, actualErrors);
+        }
     }
 
     public void TestCheckDates() {
@@ -1323,6 +1509,11 @@ public class TestCheckCLDR extends TestFmwk {
         public void setBaselineValue(String baselineValue) {
             this.baselineValue = baselineValue;
         }
+
+        @Override
+        public List<CheckStatus> getMissingCheckStatusList() {
+            return null;
+        }
     }
 
     final Set<String> cldrLocales =
@@ -1332,7 +1523,6 @@ public class TestCheckCLDR extends TestFmwk {
             CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
     final Set<String> existingLocales =
             CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
-    final LikelySubtags likely = new LikelySubtags();
 
     /** Simple check on locales and paths for limited submissions */
     public void TestSubmissionLocales() {

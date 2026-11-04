@@ -19,10 +19,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -34,11 +38,14 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -79,17 +86,17 @@ import org.unicode.cldr.util.XPathParts;
 @CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
     // Icons
-    private static final String DONE_ICON = "✅";
-    private static final String GEAR_ICON = "⚙️";
-    private static final String NONE_ICON = "∅";
+    static final String DONE_ICON = "✅";
+    static final String GEAR_ICON = "⚙️";
+    static final String NONE_ICON = "∅";
     private static final String PACKAGE_ICON = "📦";
     private static final String SECTION_ICON = "📍";
-    private static final String TYPE_ICON = "📂";
+    static final String TYPE_ICON = "📂";
     private static final String WARN_ICON = "⚠️";
 
     // File prefix
-    private static final String CLDR_PKG_PREFIX = "cldr-";
-    private static final String FULL_TIER_SUFFIX = "-full";
+    static final String CLDR_PKG_PREFIX = "cldr-";
+    static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
     private static final String EXTERNAL_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
@@ -154,11 +161,11 @@ public class Ldml2JsonConverter {
     private static final StandardCodes sc = StandardCodes.make();
     private Set<String> defaultContentLocales =
             SupplementalDataInfo.getInstance().getDefaultContentLocales();
-    private Set<String> skippedDefaultContentLocales = new TreeSet<>();
+    private Set<String> skippedDefaultContentLocales = new ConcurrentSkipListSet<>();
 
     private class AvailableLocales {
-        Set<String> modern = new TreeSet<>();
-        Set<String> full = new TreeSet<>();
+        Set<String> modern = new ConcurrentSkipListSet<>();
+        Set<String> full = new ConcurrentSkipListSet<>();
     }
 
     private AvailableLocales avl = new AvailableLocales();
@@ -217,6 +224,12 @@ public class Ldml2JsonConverter {
                             "(true|false)",
                             "false",
                             "Include redundant data from code-fallback and constructed")
+                    .add(
+                            "minimizePlurals",
+                            'z',
+                            "(true|false)",
+                            "true",
+                            "With resolved data, omit plural forms whose values are the same as the count=\"other\" form")
                     .add(
                             "draftstatus",
                             's',
@@ -331,6 +344,7 @@ public class Ldml2JsonConverter {
                         Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue()),
                         Boolean.parseBoolean(options.get("Modern").getValue()),
                         Boolean.parseBoolean(options.get("Redundant").getValue()),
+                        Boolean.parseBoolean(options.get("minimizePlurals").getValue()),
                         Optional.ofNullable(options.get("license-file").getValue())
                                 .filter(s -> !s.isEmpty()));
 
@@ -357,6 +371,8 @@ public class Ldml2JsonConverter {
     private final RunType type;
     // include Redundant data such as apc="apc", en_US="en (US)"
     private boolean includeRedundant;
+    // Whether to drop plural forms that are the same as count="other" (resolved data only)
+    private boolean minimizePlurals;
 
     static class JSONSection implements Comparable<JSONSection> {
         public String section;
@@ -394,6 +410,7 @@ public class Ldml2JsonConverter {
             boolean skipBcp47LocalesWithSubtags,
             boolean writeModernPackage,
             boolean includeRedundant,
+            boolean minimizePlurals,
             Optional<String> licenseFile) {
         this.writeModernPackage = writeModernPackage;
         this.strictBcp47 = strictBcp47;
@@ -420,8 +437,9 @@ public class Ldml2JsonConverter {
         configFileReader.read(configFile, type);
         this.dependencies = configFileReader.getDependencies();
         this.sections = configFileReader.getSections();
-        this.packages = new TreeSet<>();
+        this.packages = new ConcurrentSkipListSet<>();
         this.includeRedundant = includeRedundant;
+        this.minimizePlurals = minimizePlurals;
         this.licenseFile = licenseFile;
     }
 
@@ -535,6 +553,37 @@ public class Ldml2JsonConverter {
         return result;
     }
 
+    public static Set<String> getActiveNumberingSystems(CLDRFile file) {
+        Set<String> activeNumberingSystems = new TreeSet<>();
+        activeNumberingSystems.add("latn"); // Always include latin script numbers
+        for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
+            String ns = file.getWinningValue(np);
+            if (ns != null && ns.length() > 0) {
+                activeNumberingSystems.add(ns);
+            }
+        }
+        return activeNumberingSystems;
+    }
+
+    public static String getNumberingSystem(final String fullPath) {
+        XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
+        String currentNS = xpp.getAttributeValue(2, "numberSystem");
+        return currentNS;
+    }
+
+    public static boolean isFallbackValue(CLDRFile file, String path) {
+        final CLDRFile.Status status = new CLDRFile.Status();
+        final String localeWhereFound = file.getSourceLocaleID(path, status);
+
+        return
+        // language[@type="apc"] = apc : missing
+        localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID)
+                ||
+                // language[@type="fa_AF"] = fa (AF)
+                // or Farsi (Afghanistan) : missing
+                status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH);
+    }
+
     /** Read all paths in the file, and assign each to a JSONSection. Return the map. */
     private Map<JSONSection, List<CldrItem>> mapPathsToSections(
             AtomicInteger readCount,
@@ -544,24 +593,17 @@ public class Ldml2JsonConverter {
             SupplementalDataInfo sdi)
             throws IOException, ParseException {
         final Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
-
+        final Set<String> activeNumberingSystems = getActiveNumberingSystems(file);
         String locID = file.getLocaleID();
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
         Matcher versionMatcher = LdmlConvertRules.VERSION_PATTERN.matcher("");
-        Set<String> activeNumberingSystems = new TreeSet<>();
-        activeNumberingSystems.add("latn"); // Always include latin script numbers
-        for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
-            String ns = file.getWinningValue(np);
-            if (ns != null && ns.length() > 0) {
-                activeNumberingSystems.add(ns);
-            }
-        }
+
         final DtdType fileDtdType = file.getDtdType();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         // read paths in DTD order. The order is critical for JSON processing.
-        final CLDRFile.Status status = new CLDRFile.Status();
+
         for (Iterator<String> it =
                         file.iteratorWithoutExtras(
                                 "", DtdData.getInstance(fileDtdType).getDtdComparator(null));
@@ -570,15 +612,7 @@ public class Ldml2JsonConverter {
             final String path = it.next();
 
             // Check for code-fallback and constructed first, even before fullpath and value
-            final String localeWhereFound = file.getSourceLocaleID(path, status);
-            if (!includeRedundant
-                    && (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID)
-                            || // language[@type="apc"] = apc : missing
-                            status.pathWhereFound.equals(
-                                    GlossonymConstructor
-                                            .PSEUDO_PATH))) { // language[@type="fa_AF"] = fa (AF)
-                // or Farsi (Afghanistan) : missing
-                // Don't include these paths.
+            if (!includeRedundant && isFallbackValue(file, path)) {
                 continue;
             }
 
@@ -621,8 +655,7 @@ public class Ldml2JsonConverter {
             // Filter out non-active numbering systems data unless fullNumbers is specified.
             numberingSystemMatcher.reset(fullPath);
             if (numberingSystemMatcher.matches() && !fullNumbers) {
-                XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
-                String currentNS = xpp.getAttributeValue(2, "numberSystem");
+                final String currentNS = getNumberingSystem(fullPath);
                 if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
                     continue;
                 }
@@ -656,14 +689,19 @@ public class Ldml2JsonConverter {
                             new CldrItem(
                                     transformedPath, transformedFullPath, path, fullPath, value);
 
-                    List<CldrItem> cldrItems = sectionItems.get(js);
-                    if (cldrItems == null) {
-                        cldrItems = new ArrayList<>();
-                    }
+                    List<CldrItem> cldrItems =
+                            sectionItems.computeIfAbsent(js, (i) -> new ArrayList<>());
                     cldrItems.add(item);
-                    sectionItems.put(js, cldrItems);
                     break;
                 }
+            }
+        }
+
+        // Resolved output has no inheritance, so a plural form that is the same as the
+        // count="other" form of the same item is redundant.
+        if (minimizePlurals && file.isResolved()) {
+            for (List<CldrItem> items : sectionItems.values()) {
+                removeRedundantPluralForms(items);
             }
         }
 
@@ -705,6 +743,34 @@ public class Ldml2JsonConverter {
 
     static final Pattern VERSION_INFO_PATTERN = PatternCache.get(".*/(identity|version).*");
     static final Pattern HAS_SUBTAG = PatternCache.get(".*-[a-z]-.*");
+
+    /**
+     * Plural keyword counts. Explicit counts such as count="1" are excluded: they take precedence
+     * over the keyword, so dropping one could change the result even if it equals "other".
+     */
+    static final Pattern PLURAL_KEYWORD_COUNT =
+            PatternCache.get("\\[@count=\"(zero|one|two|few|many)\"]");
+
+    /**
+     * Remove items with a plural keyword count whose value is the same as the item with
+     * count="other" that is otherwise identical. Consumers fall back to "other" for missing plural
+     * forms. The count="other" item must itself be present, so it is never lost.
+     */
+    private static void removeRedundantPluralForms(List<CldrItem> items) {
+        Map<String, String> valueByPath = new HashMap<>();
+        for (CldrItem item : items) {
+            valueByPath.put(item.getUntransformedPath(), item.getValue());
+        }
+        items.removeIf(
+                item -> {
+                    Matcher m = PLURAL_KEYWORD_COUNT.matcher(item.getUntransformedPath());
+                    if (!m.find()) {
+                        return false;
+                    }
+                    String otherPath = m.replaceFirst("[@count=\"other\"]");
+                    return item.getValue().equals(valueByPath.get(otherPath));
+                });
+    }
 
     /**
      * Convert CLDR's XML data to JSON format.
@@ -1149,7 +1215,12 @@ public class Ldml2JsonConverter {
                             // then add it! Because we run before the sorting,
                             // we can run where the parent isn't added yet.
                             je = new JsonObject();
-                            sub.add(n.getNodeKeyName(), je);
+                            final String key = n.getNodeKeyName();
+                            if (sub.has(key)) {
+                                throw new RuntimeException(
+                                        "Dup key " + key + " in " + item.getUntransformedPath());
+                            }
+                            sub.add(key, je);
                         }
                         sub = je.getAsJsonObject(); // traverse into the JSON DOM..
                     }
@@ -1771,6 +1842,23 @@ public class Ldml2JsonConverter {
         outf.close();
     }
 
+    public void writePathCoverage(String outputDir) throws IOException {
+        Path sourceDir = Path.of(cldrCommonDir, "pathCoverage");
+        Path targetDir = Path.of(outputDir, "cldr-core", "pathCoverage");
+        System.out.println(PACKAGE_ICON + " Copying path coverage files => " + targetDir);
+        Files.createDirectories(targetDir);
+        try (Stream<Path> stream = Files.list(sourceDir)) {
+            for (Path sourceFile : (Iterable<Path>) stream::iterator) {
+                if (Files.isRegularFile(sourceFile)) {
+                    Files.copy(
+                            sourceFile,
+                            targetDir.resolve(sourceFile.getFileName()),
+                            StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        }
+    }
+
     public void writePackageList(String outputDir) throws IOException {
         final boolean includeModern = Boolean.parseBoolean(options.get("Modern").getValue());
         PrintWriter outf =
@@ -2044,7 +2132,6 @@ public class Ldml2JsonConverter {
         }
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
-        int arraySize = nodesInPath.size();
 
         int i = 0;
         if (i == nodesInPath.size() && type != RunType.rbnf) {
@@ -2368,7 +2455,7 @@ public class Ldml2JsonConverter {
                         .collect(Collectors.toSet());
         final int total = files.size();
         AtomicInteger readCount = new AtomicInteger(0);
-        Map<String, Throwable> errs = new TreeMap<>();
+        Map<String, Throwable> errs = new ConcurrentSkipListMap<>();
 
         // This takes a long time (minutes, in 2020), so run it in parallel forkJoinPool threads.
         // The result of this pipeline is an array of toString()-able filenames of XML files which
@@ -2509,6 +2596,7 @@ public class Ldml2JsonConverter {
                 writeCoverageLevels(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
+                writePathCoverage(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {
                     writePackageList(outputDir);
                 }
@@ -2604,7 +2692,9 @@ public class Ldml2JsonConverter {
                 outputSpaceSepArray(out, objName, value);
             } else {
                 // normal value
-                out.getAsJsonObject().addProperty(objName, value);
+                JsonObject jo = out.getAsJsonObject();
+                node.throwIfDuplicate(jo, objName);
+                jo.addProperty(objName, value);
             }
             return;
         }
@@ -2617,6 +2707,7 @@ public class Ldml2JsonConverter {
             if (valueIsSpacesepArray) {
                 outputSpaceSepArray(out, objName, v);
             } else {
+                node.throwIfDuplicate(out.getAsJsonObject(), objName);
                 out.getAsJsonObject().addProperty(objName, v);
             }
             return;
@@ -2632,6 +2723,7 @@ public class Ldml2JsonConverter {
                             + " to add "
                             + objName);
         }
+        node.throwIfDuplicate(out.getAsJsonObject(), objName);
         out.getAsJsonObject().add(objName, o);
 
         if (!value.isEmpty()) {
@@ -2657,12 +2749,15 @@ public class Ldml2JsonConverter {
                     && LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
+                    node.throwIfDuplicate(o, attrAsKey);
                     o.addProperty(attrAsKey, v);
                 } // else: omit falsy value
             } else if (LdmlConvertRules.attrIsNumber(fullPath, nodeName, parent, key)) {
                 final Long v = Long.parseLong(rawAttrValue);
-                o.getAsJsonObject().addProperty(attrAsKey, v);
+                node.throwIfDuplicate(o, attrAsKey);
+                o.addProperty(attrAsKey, v);
             } else {
+                node.throwIfDuplicate(o, attrAsKey);
                 o.addProperty(attrAsKey, attrValue);
             }
         }

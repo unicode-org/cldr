@@ -14,4 +14,14 @@ function pushComment(ws, where, t) {
   ws[where].c.push({ a: "SurveyTool", t });
 }
 
-export { pushComment };
+/**
+ *
+ * @param {String} locale locale for the links
+ * @param {String} strid xpath hash
+ * @param {String?} page optional page
+ */
+function getSurveyUrl(locale, strid, page) {
+  return `https://st.unicode.org/cldr-apps/v#/${locale}/${page || ""}/${strid}`;
+}
+
+export { getSurveyUrl, pushComment };

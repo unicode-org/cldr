@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: Unicode-3.0
  */
 
-import { Version3Client } from 'jira.js';
+import { createCloudClient } from 'jira.js';
 // import fs from 'node:fs';
 import process from 'node:process';
 
@@ -41,13 +41,12 @@ const DEBUG = false;
 
 DEBUG && console.log(`Logging into ${config.host} as ${config.email}`);
 
-const client = new Version3Client({
+const client = createCloudClient({
   host: JIRA_HOST,
-  authentication: {
-    basic: {
-      email: JIRA_EMAIL,
-      apiToken: JIRA_APITOKEN,
-    },
+  auth: {
+    type: 'basic',
+    email: JIRA_EMAIL,
+    apiToken: JIRA_APITOKEN
   },
   newErrorHandling: true,
 });
@@ -106,14 +105,54 @@ async function main() {
   // the Jira hostname is redacted, so use an old redirect!
   console.log(`${DONE_ICON} Success: Updated ${ourField} += ${mergedTo} on https://unicode.org/cldr/trac/ticket/${digits}`);
 
+  const paragraphContent = [];
+
+  paragraphContent.push(
+    {
+      type: "text",
+      text: `PR: ${PR_TITLE}\n`
+    }
+  );
+  // only if the PR_TITLE is present
+  if (PR_NUMBER) {
+    paragraphContent.push(
+      {
+        "type": "inlineCard",
+        "attrs": {
+          "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER}`,
+        }
+      }
+    );
+    paragraphContent.push(
+      {
+        type: "text",
+        text: `\n`
+      }
+    );
+  } else {
+    paragraphContent.push(
+      {
+        type: "text",
+        text: `(No PR number in commit message.)\n`
+      }
+    );
+  }
+  paragraphContent.push(
+    {
+      "type": "inlineCard",
+      "attrs": {
+        "url": `https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`,
+      }
+    }
+  );
+
   // now, let's add a comment
   await client.issueComments.addComment({
     issueIdOrKey,
-    comment: {
+    body: {
       version: 1,
       type: "doc",
       content: [
-
         {
           "type": "heading",
           "attrs": {
@@ -122,12 +161,10 @@ async function main() {
           "content": [
             {
               "type": "text",
-              "text": `${LAND_ICON} Merged PR`
+              "text": `${LAND_ICON} Merged PR`,
             }
           ]
         },
-
-
         {
           type: "paragraph",
           content: [
@@ -139,30 +176,8 @@ async function main() {
         },
         {
           type: "paragraph",
-          content: [
-            {
-              type: "text",
-              text: `${PR_TITLE}\n`
-            },
-            {
-              "type": "inlineCard",
-              "attrs": {
-                "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER || ''}`,
-              }
-            },
-            {
-              type: "text",
-              text: `\n`
-            },
-            {
-              "type": "inlineCard",
-              "attrs": {
-                "url": `https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`,
-              }
-            }
-          ]
+          content: paragraphContent,
         }
-
       ]
     }
   });

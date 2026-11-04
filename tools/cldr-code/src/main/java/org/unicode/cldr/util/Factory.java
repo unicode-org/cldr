@@ -12,6 +12,7 @@ import java.util.function.Supplier;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
+import org.unicode.cldr.util.ICUServiceBuilder.ICUServiceFactory;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
@@ -351,15 +352,29 @@ public abstract class Factory implements SublocaleProvider {
      */
     public abstract List<File> getSourceDirectoriesForLocale(String localeName);
 
-    /** thread-safe lazy load of TestCache */
-    private Supplier<TestCache> testCache = Suppliers.memoize(() -> new TestCache(this));
-
     /** subclass contructor */
     protected Factory() {}
+
+    /** thread-safe lazy load of TestCache */
+    private Supplier<TestCache> testCache = Suppliers.memoize(() -> new TestCache(this));
 
     /** get the TestCache owned by this Factory */
     public final TestCache getTestCache() {
         return testCache.get();
+    }
+
+    /** thread-safe lazy load of ICUServiceFactory */
+    private Supplier<ICUServiceFactory> icuServiceFactory =
+            Suppliers.memoize(() -> new ICUServiceFactory(this));
+
+    /** get the ICUServiceFactory owned by this Factory */
+    public final ICUServiceFactory getICUServiceFactory() {
+        return icuServiceFactory.get();
+    }
+
+    /** convenience for getting an ICUServiceBuilder */
+    public final ICUServiceBuilder getICUServiceBuilder(CLDRLocale loc) {
+        return getICUServiceFactory().forLocale(loc);
     }
 
     /**

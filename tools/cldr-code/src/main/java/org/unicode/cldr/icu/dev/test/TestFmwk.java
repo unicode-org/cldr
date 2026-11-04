@@ -646,7 +646,7 @@ public class TestFmwk extends AbstractTestLog {
             localParams.log.println("\n<< " + errorCount + " TEST(S) FAILED >>");
         } else if (params.testCount > 0) {
             localParams.log.println("\n<< ALL " + params.testCount + " TESTS PASSED >>");
-            writeStepSummary("- :white_check_mark: ALL \" + params.testCount + \" TESTS PASSED");
+            writeStepSummary("- :white_check_mark: ALL " + params.testCount + " TESTS PASSED");
         } else if (params.listlevel == 0) {
             // unless in list mode
             final String ALL_TESTS_SKIPPED =
@@ -2161,28 +2161,33 @@ public class TestFmwk extends AbstractTestLog {
             String source = st.getFileName();
             if (source == null || source.equals("TestShim.java")) {
                 return new SourceLocation(); // hit the end of helpful stack traces
-            } else if (source != null
-                    // exclude locations here that are 'not useful'.
-                    // That is, we want to have throws happen in the test code,
-                    // not in the 'framework'
-                    && (st.getLineNumber() != 1) // exclude line 1!
-                    && !source.equals("TestFmwk.java")
-                    && !source.equals("TestFmwkForChecks.java")
-                    // exclude utility functions in TestFmwkPlus, but not its TestTest!
-                    && !(source.equals("TestFmwkPlus.java")
-                            && !st.getMethodName().equals("TestTest"))
-                    && !source.equals("AbstractTestLog.java")) {
+            } else {
                 String methodName = st.getMethodName();
-                if (methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda
-                    methodName =
-                            methodName.substring(
-                                    "lambda$".length()); // lambda$TestValid$0 -> TestValid$0
+                if (source != null
+                        // exclude locations here that are 'not useful'.
+                        // That is, we want to have throws happen in the test code,
+                        // not in the 'framework'
+                        // TODO CLDR-19672 to automate this
+                        && (st.getLineNumber() != 1) // exclude line 1!
+                        && !source.equals("TestFmwk.java")
+                        && !source.equals("TestFmwkForChecks.java")
+                        // exclude utility functions in TestFmwkPlus, but not its TestTest!
+                        && !(source.equals("TestFmwkPlus.java") && !methodName.equals("TestTest"))
+                        && !(source.equals("TestExampleGenerator.java")
+                                && methodName.startsWith("checkValue"))
+                        && !source.equals("AbstractTestLog.java")) {
+                    if (methodName != null
+                            && methodName.startsWith("lambda$")) { // unpack inner lambda
+                        methodName =
+                                methodName.substring(
+                                        "lambda$".length()); // lambda$TestValid$0 -> TestValid$0
+                    }
+                    if (methodName != null
+                            && (methodName.startsWith("Test")
+                                    || methodName.startsWith("test")
+                                    || methodName.equals("main"))) {}
+                    return new SourceLocation(st.getLineNumber(), source, st);
                 }
-                if (methodName != null
-                        && (methodName.startsWith("Test")
-                                || methodName.startsWith("test")
-                                || methodName.equals("main"))) {}
-                return new SourceLocation(st.getLineNumber(), source, st);
             }
         }
         return new SourceLocation(); // not found

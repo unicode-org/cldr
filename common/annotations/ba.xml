@@ -106,9 +106,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="》">икеләтә | йәйә | мөйөшлө | ябыусы</annotation>
 		<annotation cp="》" type="tts">ябыусы икеләтә мөйөшлө йәйә</annotation>
 		<annotation cp="「">асыусы | йәйә | мөйөшлө</annotation>
-		<annotation cp="「" type="tts">асыусы мөйөшлө йәйә</annotation>
+		<annotation cp="「" type="tts">асыусы тура мөйөшлө йәйә</annotation>
 		<annotation cp="」">йәйә | мөйөшлө | ябыусы</annotation>
-		<annotation cp="」" type="tts">ябыусы мөйөшлө йәйә</annotation>
+		<annotation cp="」" type="tts">ябыусы тура мөйөшлө йәйә</annotation>
 		<annotation cp="『">асыусы | йәйә | мөйөшлө | эсе буш</annotation>
 		<annotation cp="『" type="tts">асыусы эсе буш мөйөшлө йәйә</annotation>
 		<annotation cp="』">йәйә | мөйөшлө | эсе буш | ябыусы</annotation>
@@ -450,7 +450,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≃">асимптота | асимптотик | математика | тигеҙ</annotation>
 		<annotation cp="≃" type="tts">асимптотик тигеҙ</annotation>
 		<annotation cp="≅">изоморфизм | конгруэнтлыҡ | математика | тигеҙ | тигеҙлек | яҡынса</annotation>
-		<annotation cp="≅" type="tts">яҡынса тигеҙ</annotation>
+		<annotation cp="≅" type="tts">конгруэнт</annotation>
 		<annotation cp="≈">тигеҙ | тигеҙ тиерлек | яҡынлашыу | яҡынса</annotation>
 		<annotation cp="≈" type="tts">тигеҙ тиерлек</annotation>
 		<annotation cp="≌">бөтә | математика | тигеҙ | тигеҙлек</annotation>
@@ -649,10 +649,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◔" type="tts">өҫкө уң сиреге буялған түңәрәк</annotation>
 		<annotation cp="◕">барыһы | башҡа | буялған | өҫкө | сирек | түңәрәк | һул</annotation>
 		<annotation cp="◕" type="tts">өҫкө һул сирегенән башҡаһы буялған түңәрәк</annotation>
-		<annotation cp="◖">буялған | түңәрәк | һул | ярты</annotation>
-		<annotation cp="◖" type="tts">һул яртыһы буялған түңәрәк</annotation>
-		<annotation cp="◗">буялған | түңәрәк | уң | ярты</annotation>
-		<annotation cp="◗" type="tts">уң яртыһы буялған түңәрәк</annotation>
+		<annotation cp="◖">буялған | түңәрәк | һул | ярты | ярым</annotation>
+		<annotation cp="◖" type="tts">һул яҡлы буялған ярым түңәрәк</annotation>
+		<annotation cp="◗">буялған | түңәрәк | уң | ярты | ярым</annotation>
+		<annotation cp="◗" type="tts">уң яҡлы буялған ярым түңәрәк</annotation>
 		<annotation cp="◘">кире | маркер</annotation>
 		<annotation cp="◘" type="tts">кире маркер</annotation>
 		<annotation cp="◙">буялған | квадрат | кире | түңәрәк | эсе буш | эсендә</annotation>
@@ -709,6 +709,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">бемоль</annotation>
 		<annotation cp="♯">диез | нота</annotation>
 		<annotation cp="♯" type="tts">диез</annotation>
+		<annotation cp="😀">ауыҙ | бәхетле | йөҙ | йылмайыу | йылмайыусы</annotation>
+		<annotation cp="😀" type="tts">ҡиң йылмайыусы йөҙ</annotation>
 		<annotation cp="😃">асыҡ | ауыҙ | бәхетле | ҙур | иҫ киткес | йәй | йөҙ | йылмайыу | йылмайыусы | күҙҙәр | тештәр</annotation>
 		<annotation cp="😃" type="tts">ҙур күҙле йылмайыусы йөҙ</annotation>
 		<annotation cp="😄">асыҡ | ауыҙ | бәхетле | йөҙ | йылмайыу | йылмайыусы | көлөү | күҙ | күҙҙәр | лол</annotation>
@@ -791,12 +793,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😶" type="tts">ауыҙһыҙ йөҙ</annotation>
 		<annotation cp="🫥">йәшерен | йөҙ | пунктир | һыҙыҡ</annotation>
 		<annotation cp="🫥" type="tts">пунктир һыҙыҡлы йөҙ</annotation>
+		<annotation cp="😶‍🌫">баш | болоттар | йөҙ | томан</annotation>
+		<annotation cp="😶‍🌫" type="tts">болоттар араһындағы йөҙ</annotation>
 		<annotation cp="😏">дуҫ | йөҙ | күләгә | ҡарау | матур | мыҫҡыл | начальник | үҙ-үҙенә ышанған | флирт | хәйләкәр | һуғыу | шаярыу | шикле | шыма | яғымлы</annotation>
 		<annotation cp="😏" type="tts">мыҫҡыллы йөҙ</annotation>
 		<annotation cp="😒">... | асыулы | баш сайҡау | бәхетһеҙ | йөҙ | көнсөл | күңелһеҙ | ҡәнәғәтһеҙ | нимә булһа ла | сәйер | эх | яҡшы</annotation>
 		<annotation cp="😒" type="tts">ҡәнәғәтһеҙ йөҙ</annotation>
 		<annotation cp="🙄">әйләндереү | йөҙ | күҙ әйләндереү | күҙҙәр | күләгә | нимә булһа ла | эх</annotation>
 		<annotation cp="🙄" type="tts">күҙ әйләнеүсе йөҙ</annotation>
+		<annotation cp="😬">йөҙ | йылмайыу | теш | ыржайтыу</annotation>
+		<annotation cp="😬" type="tts">теш ыржайтҡан йөҙ</annotation>
 		<annotation cp="😮‍💨">арыған | еңеллек | йөҙ | йылмайыусы | өрөү | төтөн | һулыш | һулыш алыу | һулыш сығарыу | һыбыҙғы | ыңғырашыу</annotation>
 		<annotation cp="😮‍💨" type="tts">һулыш сығарыусы йөҙ</annotation>
 		<annotation cp="🤥">алдаҡсы | алдау | алдаусы | йөҙ | пиноккио</annotation>
@@ -903,8 +909,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😞" type="tts">күңеле ҡайтҡан йөҙ</annotation>
 		<annotation cp="😓">ай-ай | баш ауыртыуы | йөҙ | ҡурҡҡан | моңһоу | нервылы | тир | тойғо | төшөнкө | һыуыҡ | ябыу</annotation>
 		<annotation cp="😓" type="tts">тирләгән төшөнкө йөҙ</annotation>
-		<annotation cp="😩">арыған | ас | асыулы | бәхетһеҙ | илау | йоҡоһо килгән | йөҙ | моңһоу | тойғо | уңышһыҙлыҡ | юҡ</annotation>
-		<annotation cp="😩" type="tts">арыған йөҙ</annotation>
+		<annotation cp="😩">арыған | асыулы | бәхетһеҙ | илау | йоҡоһо килгән | йөҙ | моңһоу | талсыҡҡан | тойғо | уңышһыҙлыҡ</annotation>
+		<annotation cp="😩" type="tts">талсыҡҡан йөҙ</annotation>
+		<annotation cp="😫">арыған | асыулы | бәхетһеҙ | илау | йоҡоһо килгән | йөҙ | моңһоу | тойғо | уңышһыҙлыҡ</annotation>
+		<annotation cp="😫" type="tts">арыған йөҙ</annotation>
 		<annotation cp="🥱">иҫнәү | иҫнәүсе | йоҡо | йоҡоһо килеү | йонсоу | йөҙ | төн</annotation>
 		<annotation cp="🥱" type="tts">иҫнәүсе йөҙ</annotation>
 		<annotation cp="😤">асыу | асыулы | бәхетһеҙ | еңгән | еңеү | йөҙ | пар | танау | тойғо | төтөн | төтөнлө | ярһыу | ярһыулы</annotation>
@@ -1137,6 +1145,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦿" type="tts">механик аяҡ</annotation>
 		<annotation cp="🦵">аяҡ | аяҡ-ҡул | бөкләнгән | тибеү | тубыҡ</annotation>
 		<annotation cp="🦵" type="tts">аяҡ</annotation>
+		<annotation cp="🦶">аяҡ | аяҡ-ҡул | табан | тапау | тибеү</annotation>
+		<annotation cp="🦶" type="tts">табан</annotation>
 		<annotation cp="👂">ишетеү | ҡолаҡ | ҡолаҡтар | тауыш | тән | тыңлау</annotation>
 		<annotation cp="👂" type="tts">ҡолаҡ</annotation>
 		<annotation cp="🦻">ишетеү | ҡолаҡ | ярҙам</annotation>
@@ -1172,7 +1182,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧">бала | ейәнсәр | зодиак | йәш | йәшерәк | ҡыҙ | Ҡыҙ | яҡты күҙле</annotation>
 		<annotation cp="👧" type="tts">ҡыҙ</annotation>
 		<annotation cp="🧑">кеше | өлкән</annotation>
-		<annotation cp="🧑" type="tts">өлкән</annotation>
+		<annotation cp="🧑" type="tts">кеше</annotation>
 		<annotation cp="👱">аҡһыл | аҡһыл сәсле | кеше</annotation>
 		<annotation cp="👱" type="tts">кеше: аҡһыл сәсле</annotation>
 		<annotation cp="👨">ағай | ир | өлкән</annotation>
@@ -1439,8 +1449,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦹‍♂" type="tts">ир-ат супер яуыз</annotation>
 		<annotation cp="🦹‍♀">енәйәтсе | ҡатын-ҡыҙ | супер яуыз | суперкөс | яуыз</annotation>
 		<annotation cp="🦹‍♀" type="tts">ҡатын-ҡыҙ супер яуыз</annotation>
+		<annotation cp="🧙">әкиәт | сихыр | сихырсы | тылсым | тылсымсы</annotation>
+		<annotation cp="🧙" type="tts">тылсымсы</annotation>
 		<annotation cp="🧙‍♂">әкиәт | ир | сихыр | сихырсы | тылсым | тылсымсы</annotation>
-		<annotation cp="🧙‍♂" type="tts">тылсымсы</annotation>
+		<annotation cp="🧙‍♂" type="tts">ир-ат тылсымсы</annotation>
 		<annotation cp="🧙‍♀">арбау | ҡатын | мәскәй әбей | саҡырыу | сихыр | сихырсы | сихырсы ҡарсыҡ | сихырсы ҡарт | тылсым | тылсымсы | уйнау | фэнтези</annotation>
 		<annotation cp="🧙‍♀" type="tts">ҡатын-ҡыҙ тылсымсы</annotation>
 		<annotation cp="🧚">әкиәт | кеше | ҡанаттар | миф | пикси | фея | фэнтези | хикәйәт</annotation>
@@ -1795,12 +1807,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦛" type="tts">гиппопотам</annotation>
 		<annotation cp="🐭">йөҙ | сысҡан | хайуан</annotation>
 		<annotation cp="🐭" type="tts">сысҡан башы</annotation>
-		<annotation cp="🐀">сысҡан | хайуан</annotation>
-		<annotation cp="🐀" type="tts">сысҡан</annotation>
+		<annotation cp="🐁">ҡоротҡос | сысҡан | хайуан</annotation>
+		<annotation cp="🐁" type="tts">сысҡан</annotation>
+		<annotation cp="🐀">ҡомаҡ | ҡоротҡос | хайуан</annotation>
+		<annotation cp="🐀" type="tts">ҡомаҡ</annotation>
 		<annotation cp="🐹">алйырҙан | баш | йорт хайуаны | хайуан</annotation>
 		<annotation cp="🐹" type="tts">алйырҙан</annotation>
 		<annotation cp="🐰">йорт хайуаны | йөҙ | ҡуян | хайуан</annotation>
-		<annotation cp="🐰" type="tts">ҡуян башы</annotation>
+		<annotation cp="🐰" type="tts">ҡуян йөҙө</annotation>
 		<annotation cp="🐇">йорт хайуаны | ҡуян | хайуан</annotation>
 		<annotation cp="🐇" type="tts">ҡуян</annotation>
 		<annotation cp="🐿">әлгәнйәк | хайуан</annotation>
@@ -1939,8 +1953,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐜" type="tts">ҡырмыҫҡа</annotation>
 		<annotation cp="🐝">бал | бал ҡорто | бөжәк | тәбиғәт | хайуан | шөпшә | яҙ</annotation>
 		<annotation cp="🐝" type="tts">бал ҡорто</annotation>
-		<annotation cp="🐞">баҡса | бөжәк | ҡуңыҙ | тәбиғәт | хайуан | ханым</annotation>
-		<annotation cp="🐞" type="tts">ҡуңыҙ</annotation>
+		<annotation cp="🪲">бөжәк | ҡуңыҙ | тәбиғәт | хайуан</annotation>
+		<annotation cp="🪲" type="tts">ҡуңыҙ</annotation>
+		<annotation cp="🐞">баҡса | бөжәк | ҡамҡа | ҡуңыҙ | тәбиғәт | хайуан</annotation>
+		<annotation cp="🐞" type="tts">ҡамҡа</annotation>
 		<annotation cp="🦗">безелдәк | бөжәк | ҡуңыҙ | сиңерткә | тура ҡанатлы | хайуан</annotation>
 		<annotation cp="🦗" type="tts">сиңерткә</annotation>
 		<annotation cp="🪳">бөжәк | тараҡан | хайуан</annotation>
@@ -2473,8 +2489,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚜" type="tts">трактор</annotation>
 		<annotation cp="🏎">автомобиль | зум | ярыш</annotation>
 		<annotation cp="🏎" type="tts">ярыш автомобиле</annotation>
-		<annotation cp="🏍">мотоцикл | ярыш</annotation>
+		<annotation cp="🏍">матай | мотоцикл | ярыш</annotation>
 		<annotation cp="🏍" type="tts">мотоцикл</annotation>
+		<annotation cp="🛵">матай | мотоцикл | скутер</annotation>
+		<annotation cp="🛵" type="tts">скутер</annotation>
 		<annotation cp="🦽">инвалид | коляска</annotation>
 		<annotation cp="🦽" type="tts">инвалид коляскаһы</annotation>
 		<annotation cp="🦼">инвалид коляскаһы | моторлы</annotation>
@@ -2483,8 +2501,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛺" type="tts">авторикша</annotation>
 		<annotation cp="🚲">әйләнеү | банда | велосипед | велосипедсы | велосипедта йөрөү | йөрөү | класс | цикл</annotation>
 		<annotation cp="🚲" type="tts">велосипед</annotation>
-		<annotation cp="🛴">скутер</annotation>
-		<annotation cp="🛴" type="tts">скутер</annotation>
+		<annotation cp="🛴">самокат | скутер</annotation>
+		<annotation cp="🛴" type="tts">самокат</annotation>
 		<annotation cp="🛹">скейт | скейтборд | скейтсы | таҡта | тәгәрмәстәр</annotation>
 		<annotation cp="🛹" type="tts">скейтборд</annotation>
 		<annotation cp="🛼">коньки | роликлы | спорт | тимер аяҡ</annotation>
@@ -2683,6 +2701,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌩" type="tts">йәшенле болот</annotation>
 		<annotation cp="🌪">болот | ҡойон | торнадо | һауа торошо</annotation>
 		<annotation cp="🌪" type="tts">торнадо</annotation>
+		<annotation cp="🌫">болот | томан | һауа торошо</annotation>
+		<annotation cp="🌫" type="tts">томан</annotation>
 		<annotation cp="🌬">болот | ел | өрөү</annotation>
 		<annotation cp="🌬" type="tts">ел йөҙө</annotation>
 		<annotation cp="🌀">баш әйләнеү | дауыл | ҡойон | торнадо | һауа торошо | циклон</annotation>
@@ -2727,6 +2747,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✨" type="tts">осҡондар</annotation>
 		<annotation cp="🎈">байрам | тыуған көн | шар</annotation>
 		<annotation cp="🎈" type="tts">һауа шары</annotation>
+		<annotation cp="🎉">байрам | кис | шартлауыҡ | шатлыҡ</annotation>
+		<annotation cp="🎉" type="tts">шартлауыҡ</annotation>
 		<annotation cp="🎊">байрам | конфетти | туп</annotation>
 		<annotation cp="🎊" type="tts">конфетти тубы</annotation>
 		<annotation cp="🎋">ағас | байрам | баннер | танабата | япон</annotation>
@@ -3201,6 +3223,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖊" type="tts">ручка</annotation>
 		<annotation cp="🖌">бумала | буяу | рәссам</annotation>
 		<annotation cp="🖌" type="tts">бумала</annotation>
+		<annotation cp="🖍">балауыҙ | кәләм</annotation>
+		<annotation cp="🖍" type="tts">балауыҙ кәләм</annotation>
 		<annotation cp="📝">хәбәр | хәтер | яҙма</annotation>
 		<annotation cp="📝" type="tts">яҙма</annotation>
 		<annotation cp="💼">офис | портфель</annotation>
@@ -3232,7 +3256,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📌">коллаж | төймә | энә</annotation>
 		<annotation cp="📌" type="tts">төймә</annotation>
 		<annotation cp="📍">карта | төймә | түңәрәк | урын | энә</annotation>
-		<annotation cp="📍" type="tts">түңәрәк төймә</annotation>
+		<annotation cp="📍" type="tts">түңәрәк канцеляр төймә</annotation>
 		<annotation cp="📎">ҡыҫтырғыс</annotation>
 		<annotation cp="📎" type="tts">ҡыҫтырғыс</annotation>
 		<annotation cp="🖇">ҡағыҙ ҡыҫтырғыс | ҡағыҙ ҡыҫтырғыстар | тоташтырылған | һылтанма</annotation>
@@ -3423,10 +3447,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚹" type="tts">ирҙәр бүлмәһе</annotation>
 		<annotation cp="🚺">WC | бәҙрәф | бүлмә | ванна бүлмәһе | ҡатын-ҡыҙ | ҡатын-ҡыҙҙар</annotation>
 		<annotation cp="🚺" type="tts">ҡатын-ҡыҙҙар бүлмәһе</annotation>
-		<annotation cp="🚻">WC | бәҙрәф | ванна бүлмәһе</annotation>
+		<annotation cp="🚻">WC | әбрәкәй | бәҙрәф | ванна бүлмәһе</annotation>
 		<annotation cp="🚻" type="tts">бәҙрәф</annotation>
 		<annotation cp="🚼">алмаштырыу | бала | балалар</annotation>
 		<annotation cp="🚼" type="tts">бала билдәһе</annotation>
+		<annotation cp="🚾">WC | әбрәкәй | бәҙрәф | туалет</annotation>
+		<annotation cp="🚾" type="tts">әбрәкәй</annotation>
 		<annotation cp="🛂">контроль | паспорт</annotation>
 		<annotation cp="🛂" type="tts">паспорт контроле</annotation>
 		<annotation cp="🛃">сик | таможня | тикшереү</annotation>
@@ -3532,23 +3558,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪯">дин | кханда | сикхизм</annotation>
 		<annotation cp="🪯" type="tts">кханда</annotation>
 		<annotation cp="♈">зодиак | Ҡуҙы</annotation>
-		<annotation cp="♈" type="tts">Ҡуҙы</annotation>
+		<annotation cp="♈" type="tts">Ҡуҙы зодиак тамғаһы</annotation>
 		<annotation cp="♉">Буға | зодиак</annotation>
-		<annotation cp="♉" type="tts">Буға</annotation>
+		<annotation cp="♉" type="tts">Буға зодиак тамғаһы</annotation>
 		<annotation cp="♊">зодиак | Игеҙәктәр</annotation>
-		<annotation cp="♊" type="tts">Игеҙәктәр</annotation>
+		<annotation cp="♊" type="tts">Игеҙәктәр зодиак тамғаһы</annotation>
 		<annotation cp="♋">зодиак | Ҡыҫала</annotation>
-		<annotation cp="♋" type="tts">Ҡыҫала</annotation>
+		<annotation cp="♋" type="tts">Ҡыҫала зодиак тамғаһы</annotation>
 		<annotation cp="♌">Арыҫлан | зодиак</annotation>
-		<annotation cp="♌" type="tts">Арыҫлан</annotation>
+		<annotation cp="♌" type="tts">Арыҫлан зодиак тамғаһы</annotation>
+		<annotation cp="♍">зодиак | Ҡыҙ</annotation>
+		<annotation cp="♍" type="tts">Ҡыҙ зодиак тамғаһы</annotation>
+		<annotation cp="♎">зодиак | Үлсәү</annotation>
+		<annotation cp="♎" type="tts">Үлсәү зодиак тамғаһы</annotation>
+		<annotation cp="♏">зодиак | Саян</annotation>
+		<annotation cp="♏" type="tts">Саян зодиак тамғаһы</annotation>
 		<annotation cp="♐">зодиак | Уҡсы</annotation>
-		<annotation cp="♐" type="tts">Уҡсы</annotation>
+		<annotation cp="♐" type="tts">Уҡсы зодиак тамғаһы</annotation>
 		<annotation cp="♑">зодиак | Ылаҡ</annotation>
-		<annotation cp="♑" type="tts">Ылаҡ</annotation>
+		<annotation cp="♑" type="tts">Ылаҡ зодиак тамғаһы</annotation>
 		<annotation cp="♒">зодиак | Һыуғояр</annotation>
-		<annotation cp="♒" type="tts">Һыуғояр</annotation>
+		<annotation cp="♒" type="tts">Һыуғояр зодиак тамғаһы</annotation>
+		<annotation cp="♓">Балыҡ | зодиак</annotation>
+		<annotation cp="♓" type="tts">Балыҡ зодиак тамғаһы</annotation>
 		<annotation cp="⛎">зодиак | Йылан тотоусы</annotation>
-		<annotation cp="⛎" type="tts">Йылан тотоусы</annotation>
+		<annotation cp="⛎" type="tts">Йылан тотоусы зодиак тамғаһы</annotation>
 		<annotation cp="🔀">бутау | киҫешкән | төймә | тректар | уҡ</annotation>
 		<annotation cp="🔀" type="tts">тректарҙы бутау төймәһе</annotation>
 		<annotation cp="🔁">ҡабатлау | сәғәт йүнәлешендә | төймә | уҡ</annotation>
@@ -3819,6 +3853,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔻" type="tts">аҫҡа йүнәлтелгән ҡыҙыл өсмөйөш</annotation>
 		<annotation cp="💠">геометрик | комикс | нөктә | ромб</annotation>
 		<annotation cp="💠" type="tts">нөктәле ромб</annotation>
+		<annotation cp="🔘">вариант | төймә | түңәрәк | һайлау</annotation>
+		<annotation cp="🔘" type="tts">түңәрәк төймә</annotation>
 		<annotation cp="🔳">аҡ | геометрик | квадрат | төймә | һыҙатлы</annotation>
 		<annotation cp="🔳" type="tts">аҡ квадрат төймә</annotation>
 		<annotation cp="🔲">геометрик | квадрат | ҡара | төймә</annotation>

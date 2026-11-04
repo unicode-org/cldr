@@ -693,6 +693,14 @@ public class DataPage {
             return pathHeader;
         }
 
+        public List<CheckStatus> getTestsForMissingItem() {
+            if (inheritedItem != null && inheritedItem.rawValue == null) {
+                return inheritedItem.getTests();
+            } else {
+                return null;
+            }
+        }
+
         /**
          * Get the CandidateItem for this DataRow that has the given value.
          *
@@ -746,6 +754,7 @@ public class DataPage {
             if (inheritedItem == null) {
                 CandidateItem shimItem = new CandidateItem(null);
                 List<CheckStatus> iTests = new ArrayList<>();
+                // TODO CLDR-19575: should be TestCache from checkCldr
                 checkCldr.check(base_xpath_string, iTests, null);
                 STFactory.removeExcludedChecks(iTests);
                 if (!iTests.isEmpty()) {
@@ -1139,6 +1148,14 @@ public class DataPage {
         public boolean fixedCandidates() {
             return haveFixedCandidates;
         }
+
+        @Override
+        public List<CheckStatus> getMissingCheckStatusList() {
+            if (inheritedItem != null && inheritedItem.rawValue == null) {
+                return inheritedItem.getCheckStatusList();
+            }
+            return null;
+        }
     }
 
     /*
@@ -1351,7 +1368,9 @@ public class DataPage {
             page.comparisonValueFile = sm.getEnglishFile();
 
             page.nativeExampleGenerator =
-                    TestCache.getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
+                    sm.getSTFactory()
+                            .getTestCache()
+                            .getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
 
             page.populateFrom(ourSrc, checkCldr);
             /*

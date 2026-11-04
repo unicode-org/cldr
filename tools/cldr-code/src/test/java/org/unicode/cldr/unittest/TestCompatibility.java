@@ -11,7 +11,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestCompatibility extends TestFmwkPlus {
     private static final File ARCHIVE = new File(CLDRPaths.ARCHIVE_DIRECTORY);
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -159,8 +159,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="″" type="tts">tiki lōua</annotation>
 		<annotation cp="‴">fakaʻilonga | lōtolu | tiki</annotation>
 		<annotation cp="‴" type="tts">tiki lōtolu</annotation>
-		<annotation cp="‸" draft="unconfirmed">fakaʻilonga | liʻaki</annotation>
-		<annotation cp="‸" type="tts" draft="unconfirmed">liʻaki</annotation>
+		<annotation cp="‸" draft="unconfirmed">fakaʻilonga | liaki</annotation>
+		<annotation cp="‸" type="tts" draft="unconfirmed">liaki</annotation>
 		<annotation cp="※">fakaʻilonga | tukuatu</annotation>
 		<annotation cp="※" type="tts">tukuatu</annotation>
 		<annotation cp="⁂" draft="unconfirmed">fakaʻilonga | fetuʻu</annotation>
@@ -731,6 +731,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙃" type="tts">mata fulihi</annotation>
 		<annotation cp="🫠">mata | puli | vaia</annotation>
 		<annotation cp="🫠" type="tts">mata vaia</annotation>
+		<annotation cp="🫫" draft="unconfirmed">mafoa | masisi | mata</annotation>
+		<annotation cp="🫫" type="tts" draft="unconfirmed">mata masisi</annotation>
 		<annotation cp="😉">fakakuitaha | malimali | mata</annotation>
 		<annotation cp="😉" type="tts">mata fakakuitaha</annotation>
 		<annotation cp="😊">kanoʻimata | malimali | mata</annotation>
@@ -879,6 +881,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">mata ʻohovale</annotation>
 		<annotation cp="😳">mata | pahapaha</annotation>
 		<annotation cp="😳" type="tts">mata pahapaha</annotation>
+		<annotation cp="🫪" draft="unconfirmed">fōtunga-ongosia | mata | mioʻi | puputa</annotation>
+		<annotation cp="🫪" type="tts" draft="unconfirmed">mata fōtunga-ongosia</annotation>
 		<annotation cp="🥺">kole | mata</annotation>
 		<annotation cp="🥺" type="tts">mata kole</annotation>
 		<annotation cp="🥹">lotomamahi | mata | tuʻuaki</annotation>
@@ -1107,6 +1111,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👍" type="tts">motuʻatuhu ki ʻolunga</annotation>
 		<annotation cp="👎">lalo | motuʻatuhu | motuʻatuhu ki lalo | nima</annotation>
 		<annotation cp="👎" type="tts">motuʻatuhu ki lalo</annotation>
+		<annotation cp="🫹" draft="unconfirmed">hema | motuʻatuhu | nima</annotation>
+		<annotation cp="🫹" type="tts" draft="unconfirmed">motuʻatuhu ki hema</annotation>
+		<annotation cp="🫺" draft="unconfirmed">mataʻu | motuʻatuhu | nima</annotation>
+		<annotation cp="🫺" type="tts" draft="unconfirmed">motuʻatuhu ki mataʻu</annotation>
 		<annotation cp="✊">ʻolunga | nima | tuke | tuke hiki ki ʻolunga</annotation>
 		<annotation cp="✊" type="tts">tuke hiki ki ʻolunga</annotation>
 		<annotation cp="👊">muʻa | nima | tuke | tuke ki muʻa</annotation>
@@ -1945,6 +1953,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐌" type="tts">ʻelili</annotation>
 		<annotation cp="🦋">pepe</annotation>
 		<annotation cp="🦋" type="tts">pepe</annotation>
+		<annotation cp="🫌" draft="unconfirmed">folau | ʻunufe | pepe</annotation>
+		<annotation cp="🫌" type="tts" draft="unconfirmed">pepe tuʻi</annotation>
 		<annotation cp="🐛">kutu</annotation>
 		<annotation cp="🐛" type="tts">kutu</annotation>
 		<annotation cp="🐜">lō</annotation>
@@ -2087,6 +2097,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫑" type="tts">polo</annotation>
 		<annotation cp="🥒">kiukamipa</annotation>
 		<annotation cp="🥒" type="tts">kiukamipa</annotation>
+		<annotation cp="🫝" draft="unconfirmed">ifofifisi | kiukamipa | pīkale</annotation>
+		<annotation cp="🫝" type="tts" draft="unconfirmed">pīkale</annotation>
 		<annotation cp="🥬">lētisi</annotation>
 		<annotation cp="🥬" type="tts">lētisi</annotation>
 		<annotation cp="🥦">kāpisi</annotation>
@@ -2527,6 +2539,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛑" type="tts">fakaʻilonga tuʻu</annotation>
 		<annotation cp="🚧">fakaʻilonga | fakaʻilonga ngāue langa | ngāue</annotation>
 		<annotation cp="🚧" type="tts">fakaʻilonga ngāue langa</annotation>
+		<annotation cp="🛙" draft="unconfirmed">fale maama | folautahi | tuʻamelie</annotation>
+		<annotation cp="🛙" type="tts" draft="unconfirmed">fale maama</annotation>
 		<annotation cp="⚓">taula</annotation>
 		<annotation cp="⚓" type="tts">taula</annotation>
 		<annotation cp="🛟">fakahaofi | moʻui | poe | vaka</annotation>
@@ -2725,6 +2739,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛄" type="tts">tangata sinou</annotation>
 		<annotation cp="☄">fetuʻu | fuka</annotation>
 		<annotation cp="☄" type="tts">fetuʻu fuka</annotation>
+		<annotation cp="🪋" draft="unconfirmed">afi | fetuʻu tō | tō</annotation>
+		<annotation cp="🪋" type="tts" draft="unconfirmed">fetuʻu tō</annotation>
 		<annotation cp="🔥">afi</annotation>
 		<annotation cp="🔥" type="tts">afi</annotation>
 		<annotation cp="💧">tulutā | vai</annotation>
@@ -3225,6 +3241,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖍" type="tts">sioka tāvalivali</annotation>
 		<annotation cp="📝">pepa fakamanatu</annotation>
 		<annotation cp="📝" type="tts">pepa fakamanatu</annotation>
+		<annotation cp="🪌" draft="unconfirmed">lapa | tā fakatātā | tamateʻi</annotation>
+		<annotation cp="🪌" type="tts" draft="unconfirmed">lapa</annotation>
 		<annotation cp="💼">kato leta toʻotoʻo</annotation>
 		<annotation cp="💼" type="tts">kato leta toʻotoʻo</annotation>
 		<annotation cp="📁">takafi faile</annotation>
@@ -3283,6 +3301,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔑" type="tts">kī</annotation>
 		<annotation cp="🗝">kī motuʻa</annotation>
 		<annotation cp="🗝" type="tts">kī motuʻa</annotation>
+		<annotation cp="🪍" draft="unconfirmed">fakatahaʻi | kupenga | maʻu</annotation>
+		<annotation cp="🪍" type="tts" draft="unconfirmed">kupenga pepe</annotation>
 		<annotation cp="🔨">hamala</annotation>
 		<annotation cp="🔨" type="tts">hamala</annotation>
 		<annotation cp="🪓">toki</annotation>
@@ -3909,15 +3929,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">lupi fakalūsia</annotation>
 		<annotation cp="₿">fakapulipuli | makapiti | paʻanga</annotation>
 		<annotation cp="₿" type="tts">makapiti</annotation>
+		<annotation cp="0⃣" draft="unconfirmed">0 | foʻi kī | tatā</annotation>
 		<annotation cp="0⃣" type="tts">tatā foʻi kī: 0</annotation>
+		<annotation cp="1⃣" draft="unconfirmed">1 | foʻi kī | tatā</annotation>
 		<annotation cp="1⃣" type="tts">tatā foʻi kī: 1</annotation>
+		<annotation cp="2⃣" draft="unconfirmed">2 | foʻi kī | tatā</annotation>
 		<annotation cp="2⃣" type="tts">tatā foʻi kī: 2</annotation>
+		<annotation cp="3⃣" draft="unconfirmed">3 | foʻi kī | tatā</annotation>
 		<annotation cp="3⃣" type="tts">tatā foʻi kī: 3</annotation>
+		<annotation cp="4⃣" draft="unconfirmed">4 | foʻi kī | tatā</annotation>
 		<annotation cp="4⃣" type="tts">tatā foʻi kī: 4</annotation>
+		<annotation cp="5⃣" draft="unconfirmed">5 | foʻi kī | tatā</annotation>
 		<annotation cp="5⃣" type="tts">tatā foʻi kī: 5</annotation>
+		<annotation cp="6⃣" draft="unconfirmed">6 | foʻi kī | tatā</annotation>
 		<annotation cp="6⃣" type="tts">tatā foʻi kī: 6</annotation>
+		<annotation cp="7⃣" draft="unconfirmed">7 | foʻi kī | tatā</annotation>
 		<annotation cp="7⃣" type="tts">tatā foʻi kī: 7</annotation>
+		<annotation cp="8⃣" draft="unconfirmed">8 | foʻi kī | tatā</annotation>
 		<annotation cp="8⃣" type="tts">tatā foʻi kī: 8</annotation>
+		<annotation cp="9⃣" draft="unconfirmed">9 | foʻi kī | tatā</annotation>
 		<annotation cp="9⃣" type="tts">tatā foʻi kī: 9</annotation>
 		<annotation cp="¹">fakaʻilonga | hake | taha</annotation>
 		<annotation cp="¹" type="tts">taha hake</annotation>

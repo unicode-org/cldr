@@ -1,0 +1,11 @@
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=de
+
+# Rules
+
+path=//ldml/numbers/currencies/currency[@type]/decimal
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencies/currency[@type]/group
+  elseLevel=comprehensive

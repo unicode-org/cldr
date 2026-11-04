@@ -870,7 +870,11 @@ public class WebContext implements Cloneable, Appendable {
 
     // WARNING: this is accessed by possibleProblems.jsp and usermenu.jsp
     public String getEffectiveCoverageLevel() {
-        return getEffectiveCoverageLevel(getLocale().toString());
+        CLDRLocale loc = getLocale();
+        if (loc == null) {
+            return Level.UNDETERMINED.toString();
+        }
+        return getEffectiveCoverageLevel(loc.toString());
     }
 
     public String getRequiredCoverageLevel() {

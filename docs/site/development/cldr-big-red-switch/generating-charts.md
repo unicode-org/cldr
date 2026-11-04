@@ -13,13 +13,11 @@ The input for this process is the `../cldr-staging/production` file, and the out
 	- To summarize, every chart branch in cldr-staging, such as `charts/49`, should only have ONE charts directory: `docs/charts/49`.
 2. Switch to the correct branch in the sibling `cldr` repo, such as the branch tagged `release-49`.
 3. Make sure the settings and VM arguments are right for where you are in the release:
-	1. **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
-4. Build the keyboard charts.
-	```shell
-	mvn --file=tools/pom.xml -pl :cldr-keyboard-charts integration-test
-	```
-	For more details and options, see [keyboard-charts].
+	- **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
 5. Run the Java tool `GenerateAllCharts`. The results for each will be in `../cldr-staging/docs/charts/<version>/by_type/names.currency.html` and so on.
+	```shell
+	mvn --file=tools/pom.xml -pl cldr-code compile -DskipTests=true exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateAllCharts
+	```
 6. Spot\-check for sanity.
 	1. Start from the main page (eg `cldr-staging/docs/charts/<version>/index.html`)
 	2. Check the DTD deltas (`cldr-staging/docs/charts/<version>/supplemental/dtd_deltas.html`. 
@@ -77,20 +75,19 @@ The input for this process is the `../cldr-staging/production` file, and the out
 
 ### Start Release
 
-1. Make sure the version (eg **`99`**) is right in `ToolConstants.java`
-	1. Make sure the *last* number (eg **99\.0**) is in CLDR\_VERSIONS
-	2. Set DEFAULT\_CHART\_VERSION \= "99";
-2. Add an new folder with that number, such as `cldr-staging/docs/charts/`**99**
-3. Create the archive ([Creating the Archive](/development/creating-the-archive)) with at least the last release (if you don't have it already)
-4. **Use the same VM arguments as Mid\-Release**
+1. Make sure DEV\_VERSION (e.g., **99**) in `ToolConstants.java` is the current version under development
+	1. The default chart version is DEV\_VERSION
+	2. Make sure the *last release* number (e.g., **98\.7**) is in CLDR\_VERSIONS in `ToolConstants.java`
+2. Add a new folder matching DEV\_VERSION, such as `cldr-staging/docs/charts/`**99**
+3. Create the archive ([Creating the Archive](/development/creating-the-archive)) with at least the last release (if you don't have it already); however, note that until the final release, there is no need to create the archive for the current version under development
 
 ### Mid\-release
 
-1. Use the VM arguements
+1. Use the VM arguments, if needed; defaults are as follows, where **beta** adds β:
 	1. \-DCHART\_VERSION\=**99**
-	2. \-DCHART\_STATUS\=**beta** // \=*default*, uses trunk, calls it β
+	2. \-DCHART\_STATUS\=**beta**
 
-### Pre\-final Release
+### Prefinal Release
 
 1. VM Arguments
 	1. \-DCHART\_VERSION\=**99**

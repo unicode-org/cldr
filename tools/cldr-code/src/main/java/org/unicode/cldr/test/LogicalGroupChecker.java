@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.util.Output;
@@ -10,6 +11,11 @@ import org.unicode.cldr.util.*;
 public class LogicalGroupChecker {
 
     private static final int LIMIT_DISTANCE = 5;
+
+    private static final Set<String> CLDR_19686_WARNING =
+            ImmutableSet.of(
+                    "//ldml/dates/timeZoneNames/metazone[@type=\"British\"]/long/generic",
+                    "//ldml/dates/timeZoneNames/metazone[@type=\"Irish\"]/long/generic");
 
     private final CheckLogicalGroupings checkLogicalGroupings;
 
@@ -57,7 +63,11 @@ public class LogicalGroupChecker {
         this.result = result;
         pathType = new Output<>();
         cldrFile = checkLogicalGroupings.getCldrFileToCheck();
-        paths = LogicalGrouping.getPaths(cldrFile, path, pathType);
+        try {
+            paths = LogicalGrouping.getPaths(cldrFile, path, pathType);
+        } catch (Throwable t) {
+            throw new RuntimeException("Illegal xpath on logical group for " + path, t);
+        }
         coverageLevel =
                 CoverageLevel2.getInstance(
                         SupplementalDataInfo.getInstance(), cldrFile.getLocaleID());
@@ -217,14 +227,22 @@ public class LogicalGroupChecker {
                 phaseCausesError
                         ? CheckCLDR.CheckStatus.errorType
                         : CheckCLDR.CheckStatus.warningType;
+        String messagePrefix = "";
+        if (showError == CheckCLDR.CheckStatus.errorType
+                && CLDR_19686_WARNING.contains(pathToCheck)) {
+            messagePrefix = "CLDR-19686: ";
+            showError = CheckCLDR.CheckStatus.warningType;
+        }
         result.add(
                 new CheckCLDR.CheckStatus()
                         .setCause(checkLogicalGroupings)
                         .setMainType(showError)
                         .setSubtype(CheckCLDR.CheckStatus.Subtype.incompleteLogicalGroup)
                         .setMessage(
-                                "Incomplete logical group - missing values for: {0}; level={1}",
-                                missingCodes.toString(), cLevel));
+                                messagePrefix
+                                        + "Incomplete logical group - missing values for: {0}; level={1}",
+                                missingCodes.toString(),
+                                cLevel));
     }
 
     /**

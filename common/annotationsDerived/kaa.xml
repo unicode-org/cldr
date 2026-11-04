@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2026 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="kaa"/>
+	</identity>
+	<annotations>
+		<annotation cp="#⃣">клавиш</annotation>
+		<annotation cp="#⃣" type="tts">клавиш: #</annotation>
+		<annotation cp="*⃣">клавиш</annotation>
+		<annotation cp="*⃣" type="tts">клавиш: *</annotation>
+		<annotation cp="🔟">клавиш</annotation>
+		<annotation cp="🔟" type="tts">клавиш: 10</annotation>
+		<annotation cp="🇦🇨">байрақ</annotation>
+		<annotation cp="🇦🇨" type="tts">байрақ: Мираж атаўы</annotation>
+		<annotation cp="🇦🇩">байрақ</annotation>
+		<annotation cp="🇦🇩" type="tts">байрақ: Андорра</annotation>
+		<annotation cp="🇦🇪">байрақ</annotation>
+		<annotation cp="🇦🇪" type="tts">байрақ: Бирлескен Араб Әмирликлери</annotation>
+		<annotation cp="🇦🇫">байрақ</annotation>
+		<annotation cp="🇦🇫" type="tts">байрақ: Аўғанстан</annotation>
+		<annotation cp="🇦🇬">байрақ</annotation>
+		<annotation cp="🇦🇬" type="tts">байрақ: Антигуа ҳәм Барбуда</annotation>
+		<annotation cp="🇦🇮">байрақ</annotation>
+		<annotation cp="🇦🇮" type="tts">байрақ: Ангилья</annotation>
+		<annotation cp="🇦🇱">байрақ</annotation>
+		<annotation cp="🇦🇱" type="tts">байрақ: Албания</annotation>
+		<annotation cp="🇦🇲">байрақ</annotation>
+		<annotation cp="🇦🇲" type="tts">байрақ: Армения</annotation>
+		<annotation cp="🇦🇴">байрақ</annotation>
+		<annotation cp="🇦🇴" type="tts">байрақ: Ангола</annotation>
+		<annotation cp="🇦🇶">байрақ</annotation>
+		<annotation cp="🇦🇶" type="tts">байрақ: Антарктида</annotation>
+		<annotation cp="🇦🇷">байрақ</annotation>
+		<annotation cp="🇦🇷" type="tts">байрақ: Аргентина</annotation>
+		<annotation cp="🇦🇸">байрақ</annotation>
+		<annotation cp="🇦🇸" type="tts">байрақ: Америка Самоасы</annotation>
+		<annotation cp="🇦🇹">байрақ</annotation>
+		<annotation cp="🇦🇹" type="tts">байрақ: Австрия</annotation>
+		<annotation cp="🇦🇺">байрақ</annotation>
+		<annotation cp="🇦🇺" type="tts">байрақ: Австралия</annotation>
+		<annotation cp="🇦🇼">байрақ</annotation>
+		<annotation cp="🇦🇼" type="tts">байрақ: Аруба</annotation>
+		<annotation cp="🇦🇽">байрақ</annotation>
+		<annotation cp="🇦🇽" type="tts">байрақ: Аланд атаўлары</annotation>
+		<annotation cp="🇦🇿">байрақ</annotation>
+		<annotation cp="🇦🇿" type="tts">байрақ: Әзербайжан</annotation>
+		<annotation cp="🇧🇦">байрақ</annotation>
+		<annotation cp="🇧🇦" type="tts">байрақ: Босния ҳәм Герцеговина</annotation>
+		<annotation cp="🇧🇧">байрақ</annotation>
+		<annotation cp="🇧🇧" type="tts">байрақ: Барбадос</annotation>
+		<annotation cp="🇧🇩">байрақ</annotation>
+		<annotation cp="🇧🇩" type="tts">байрақ: Бангладеш</annotation>
+		<annotation cp="🇧🇪">байрақ</annotation>
+		<annotation cp="🇧🇪" type="tts">байрақ: Бельгия</annotation>
+		<annotation cp="🇧🇫">байрақ</annotation>
+		<annotation cp="🇧🇫" type="tts">байрақ: Буркина-Фасо</annotation>
+		<annotation cp="🇧🇬">байрақ</annotation>
+		<annotation cp="🇧🇬" type="tts">байрақ: Болгария</annotation>
+		<annotation cp="🇧🇭">байрақ</annotation>
+		<annotation cp="🇧🇭" type="tts">байрақ: Бахрейн</annotation>
+		<annotation cp="🇧🇮">байрақ</annotation>
+		<annotation cp="🇧🇮" type="tts">байрақ: Бурунди</annotation>
+		<annotation cp="🇧🇯">байрақ</annotation>
+		<annotation cp="🇧🇯" type="tts">байрақ: Бенин</annotation>
+		<annotation cp="🇧🇱">байрақ</annotation>
+		<annotation cp="🇧🇱" type="tts">байрақ: Сен-Бартелеми</annotation>
+		<annotation cp="🇧🇲">байрақ</annotation>
+		<annotation cp="🇧🇲" type="tts">байрақ: Бермуд атаўлары</annotation>
+		<annotation cp="🇧🇳">байрақ</annotation>
+		<annotation cp="🇧🇳" type="tts">байрақ: Бруней</annotation>
+		<annotation cp="🇧🇴">байрақ</annotation>
+		<annotation cp="🇧🇴" type="tts">байрақ: Боливия</annotation>
+		<annotation cp="🇧🇶">байрақ</annotation>
+		<annotation cp="🇧🇶" type="tts">байрақ: Бонэйр, Синт-Эстатиус ҳәм Саба</annotation>
+		<annotation cp="🇧🇷">байрақ</annotation>
+		<annotation cp="🇧🇷" type="tts">байрақ: Бразилия</annotation>
+		<annotation cp="🇧🇸">байрақ</annotation>
+		<annotation cp="🇧🇸" type="tts">байрақ: Багама атаўлары</annotation>
+		<annotation cp="🇧🇹">байрақ</annotation>
+		<annotation cp="🇧🇹" type="tts">байрақ: Бутан</annotation>
+		<annotation cp="🇧🇻">байрақ</annotation>
+		<annotation cp="🇧🇻" type="tts">байрақ: Буве атаўы</annotation>
+		<annotation cp="🇧🇼">байрақ</annotation>
+		<annotation cp="🇧🇼" type="tts">байрақ: Ботсвана</annotation>
+		<annotation cp="🇧🇾">байрақ</annotation>
+		<annotation cp="🇧🇾" type="tts">байрақ: Беларусь</annotation>
+		<annotation cp="🇧🇿">байрақ</annotation>
+		<annotation cp="🇧🇿" type="tts">байрақ: Белиз</annotation>
+		<annotation cp="🇨🇦">байрақ</annotation>
+		<annotation cp="🇨🇦" type="tts">байрақ: Канада</annotation>
+		<annotation cp="🇨🇨">байрақ</annotation>
+		<annotation cp="🇨🇨" type="tts">байрақ: Кокос атаўлары</annotation>
+		<annotation cp="🇨🇩">байрақ</annotation>
+		<annotation cp="🇨🇩" type="tts">байрақ: Конго - Киншаса</annotation>
+		<annotation cp="🇨🇫">байрақ</annotation>
+		<annotation cp="🇨🇫" type="tts">байрақ: Орайлық Африка Республикасы</annotation>
+		<annotation cp="🇨🇬">байрақ</annotation>
+		<annotation cp="🇨🇬" type="tts">байрақ: Конго - Браззавиль</annotation>
+		<annotation cp="🇨🇭">байрақ</annotation>
+		<annotation cp="🇨🇭" type="tts">байрақ: Швейцария</annotation>
+		<annotation cp="🇨🇮">байрақ</annotation>
+		<annotation cp="🇨🇮" type="tts">байрақ: Кот-дИвуар</annotation>
+		<annotation cp="🇨🇰">байрақ</annotation>
+		<annotation cp="🇨🇰" type="tts">байрақ: Кук атаўлары</annotation>
+		<annotation cp="🇨🇱">байрақ</annotation>
+		<annotation cp="🇨🇱" type="tts">байрақ: Чили</annotation>
+		<annotation cp="🇨🇲">байрақ</annotation>
+		<annotation cp="🇨🇲" type="tts">байрақ: Камерун</annotation>
+		<annotation cp="🇨🇳">байрақ</annotation>
+		<annotation cp="🇨🇳" type="tts">байрақ: Қытай</annotation>
+		<annotation cp="🇨🇴">байрақ</annotation>
+		<annotation cp="🇨🇴" type="tts">байрақ: Колумбия</annotation>
+		<annotation cp="🇨🇵">байрақ</annotation>
+		<annotation cp="🇨🇵" type="tts">байрақ: Клиппертон атаўы</annotation>
+		<annotation cp="🇨🇶">байрақ</annotation>
+		<annotation cp="🇨🇶" type="tts">байрақ: Сарк</annotation>
+		<annotation cp="🇨🇷">байрақ</annotation>
+		<annotation cp="🇨🇷" type="tts">байрақ: Коста-Рика</annotation>
+		<annotation cp="🇨🇺">байрақ</annotation>
+		<annotation cp="🇨🇺" type="tts">байрақ: Куба</annotation>
+		<annotation cp="🇨🇻">байрақ</annotation>
+		<annotation cp="🇨🇻" type="tts">байрақ: Кабо-Верде</annotation>
+		<annotation cp="🇨🇼">байрақ</annotation>
+		<annotation cp="🇨🇼" type="tts">байрақ: Кюрасао</annotation>
+		<annotation cp="🇨🇽">байрақ</annotation>
+		<annotation cp="🇨🇽" type="tts">байрақ: Рождество атаўлары</annotation>
+		<annotation cp="🇨🇾">байрақ</annotation>
+		<annotation cp="🇨🇾" type="tts">байрақ: Кипр</annotation>
+		<annotation cp="🇨🇿">байрақ</annotation>
+		<annotation cp="🇨🇿" type="tts">байрақ: Чехия</annotation>
+		<annotation cp="🇩🇪">байрақ</annotation>
+		<annotation cp="🇩🇪" type="tts">байрақ: Германия</annotation>
+		<annotation cp="🇩🇬">байрақ</annotation>
+		<annotation cp="🇩🇬" type="tts">байрақ: Диего-Гарсия</annotation>
+		<annotation cp="🇩🇯">байрақ</annotation>
+		<annotation cp="🇩🇯" type="tts">байрақ: Джибути</annotation>
+		<annotation cp="🇩🇰">байрақ</annotation>
+		<annotation cp="🇩🇰" type="tts">байрақ: Дания</annotation>
+		<annotation cp="🇩🇲">байрақ</annotation>
+		<annotation cp="🇩🇲" type="tts">байрақ: Доминика</annotation>
+		<annotation cp="🇩🇴">байрақ</annotation>
+		<annotation cp="🇩🇴" type="tts">байрақ: Доминикана Республикасы</annotation>
+		<annotation cp="🇩🇿">байрақ</annotation>
+		<annotation cp="🇩🇿" type="tts">байрақ: Алжир</annotation>
+		<annotation cp="🇪🇦">байрақ</annotation>
+		<annotation cp="🇪🇦" type="tts">байрақ: Сеута ҳәм Мелилья</annotation>
+		<annotation cp="🇪🇨">байрақ</annotation>
+		<annotation cp="🇪🇨" type="tts">байрақ: Эквадор</annotation>
+		<annotation cp="🇪🇪">байрақ</annotation>
+		<annotation cp="🇪🇪" type="tts">байрақ: Эстония</annotation>
+		<annotation cp="🇪🇬">байрақ</annotation>
+		<annotation cp="🇪🇬" type="tts">байрақ: Мысыр</annotation>
+		<annotation cp="🇪🇭">байрақ</annotation>
+		<annotation cp="🇪🇭" type="tts">байрақ: Батыс Сахара</annotation>
+		<annotation cp="🇪🇷">байрақ</annotation>
+		<annotation cp="🇪🇷" type="tts">байрақ: Эритрея</annotation>
+		<annotation cp="🇪🇸">байрақ</annotation>
+		<annotation cp="🇪🇸" type="tts">байрақ: Испания</annotation>
+		<annotation cp="🇪🇹">байрақ</annotation>
+		<annotation cp="🇪🇹" type="tts">байрақ: Эфиопия</annotation>
+		<annotation cp="🇪🇺">байрақ</annotation>
+		<annotation cp="🇪🇺" type="tts">байрақ: Европа Аўқамы</annotation>
+		<annotation cp="🇫🇮">байрақ</annotation>
+		<annotation cp="🇫🇮" type="tts">байрақ: Финляндия</annotation>
+		<annotation cp="🇫🇯">байрақ</annotation>
+		<annotation cp="🇫🇯" type="tts">байрақ: Фиджи</annotation>
+		<annotation cp="🇫🇰">байрақ</annotation>
+		<annotation cp="🇫🇰" type="tts">байрақ: Фолкленд атаўлары</annotation>
+		<annotation cp="🇫🇲">байрақ</annotation>
+		<annotation cp="🇫🇲" type="tts">байрақ: Микронезия Федеративлик Штатлары</annotation>
+		<annotation cp="🇫🇴">байрақ</annotation>
+		<annotation cp="🇫🇴" type="tts">байрақ: Фарер атаўлары</annotation>
+		<annotation cp="🇫🇷">байрақ</annotation>
+		<annotation cp="🇫🇷" type="tts">байрақ: Франция</annotation>
+		<annotation cp="🇬🇦">байрақ</annotation>
+		<annotation cp="🇬🇦" type="tts">байрақ: Габон</annotation>
+		<annotation cp="🇬🇧">байрақ</annotation>
+		<annotation cp="🇬🇧" type="tts">байрақ: Уллы Британия</annotation>
+		<annotation cp="🇬🇩">байрақ</annotation>
+		<annotation cp="🇬🇩" type="tts">байрақ: Гренада</annotation>
+		<annotation cp="🇬🇪">байрақ</annotation>
+		<annotation cp="🇬🇪" type="tts">байрақ: Грузия</annotation>
+		<annotation cp="🇬🇫">байрақ</annotation>
+		<annotation cp="🇬🇫" type="tts">байрақ: Француз Гвианасы</annotation>
+		<annotation cp="🇬🇬">байрақ</annotation>
+		<annotation cp="🇬🇬" type="tts">байрақ: Гернси</annotation>
+		<annotation cp="🇬🇭">байрақ</annotation>
+		<annotation cp="🇬🇭" type="tts">байрақ: Гана</annotation>
+		<annotation cp="🇬🇮">байрақ</annotation>
+		<annotation cp="🇬🇮" type="tts">байрақ: Гибралтар</annotation>
+		<annotation cp="🇬🇱">байрақ</annotation>
+		<annotation cp="🇬🇱" type="tts">байрақ: Гренландия</annotation>
+		<annotation cp="🇬🇲">байрақ</annotation>
+		<annotation cp="🇬🇲" type="tts">байрақ: Гамбия</annotation>
+		<annotation cp="🇬🇳">байрақ</annotation>
+		<annotation cp="🇬🇳" type="tts">байрақ: Гвинея</annotation>
+		<annotation cp="🇬🇵">байрақ</annotation>
+		<annotation cp="🇬🇵" type="tts">байрақ: Гваделупа</annotation>
+		<annotation cp="🇬🇶">байрақ</annotation>
+		<annotation cp="🇬🇶" type="tts">байрақ: Экваториальлық Гвинея</annotation>
+		<annotation cp="🇬🇷">байрақ</annotation>
+		<annotation cp="🇬🇷" type="tts">байрақ: Греция</annotation>
+		<annotation cp="🇬🇸">байрақ</annotation>
+		<annotation cp="🇬🇸" type="tts">байрақ: Қубла Георгия ҳәм Қубла Сэндвич атаўлары</annotation>
+		<annotation cp="🇬🇹">байрақ</annotation>
+		<annotation cp="🇬🇹" type="tts">байрақ: Гватемала</annotation>
+		<annotation cp="🇬🇺">байрақ</annotation>
+		<annotation cp="🇬🇺" type="tts">байрақ: Гуам</annotation>
+		<annotation cp="🇬🇼">байрақ</annotation>
+		<annotation cp="🇬🇼" type="tts">байрақ: Гвинея-Бисау</annotation>
+		<annotation cp="🇬🇾">байрақ</annotation>
+		<annotation cp="🇬🇾" type="tts">байрақ: Гайана</annotation>
+		<annotation cp="🇭🇰">байрақ</annotation>
+		<annotation cp="🇭🇰" type="tts">байрақ: Гонконг ААР</annotation>
+		<annotation cp="🇭🇲">байрақ</annotation>
+		<annotation cp="🇭🇲" type="tts">байрақ: Херд ҳәм Макдональд атаўлары</annotation>
+		<annotation cp="🇭🇳">байрақ</annotation>
+		<annotation cp="🇭🇳" type="tts">байрақ: Гондурас</annotation>
+		<annotation cp="🇭🇷">байрақ</annotation>
+		<annotation cp="🇭🇷" type="tts">байрақ: Хорватия</annotation>
+		<annotation cp="🇭🇹">байрақ</annotation>
+		<annotation cp="🇭🇹" type="tts">байрақ: Гаити</annotation>
+		<annotation cp="🇭🇺">байрақ</annotation>
+		<annotation cp="🇭🇺" type="tts">байрақ: Венгрия</annotation>
+		<annotation cp="🇮🇨">байрақ</annotation>
+		<annotation cp="🇮🇨" type="tts">байрақ: Канар атаўлары</annotation>
+		<annotation cp="🇮🇩">байрақ</annotation>
+		<annotation cp="🇮🇩" type="tts">байрақ: Индонезия</annotation>
+		<annotation cp="🇮🇪">байрақ</annotation>
+		<annotation cp="🇮🇪" type="tts">байрақ: Ирландия</annotation>
+		<annotation cp="🇮🇱">байрақ</annotation>
+		<annotation cp="🇮🇱" type="tts">байрақ: Израиль</annotation>
+		<annotation cp="🇮🇲">байрақ</annotation>
+		<annotation cp="🇮🇲" type="tts">байрақ: Мэн атаўы</annotation>
+		<annotation cp="🇮🇳">байрақ</annotation>
+		<annotation cp="🇮🇳" type="tts">байрақ: Ҳиндстан</annotation>
+		<annotation cp="🇮🇴">байрақ</annotation>
+		<annotation cp="🇮🇴" type="tts">байрақ: Британияныӊ Ҳинд океанындағы территориясы</annotation>
+		<annotation cp="🇮🇶">байрақ</annotation>
+		<annotation cp="🇮🇶" type="tts">байрақ: Ирак</annotation>
+		<annotation cp="🇮🇷">байрақ</annotation>
+		<annotation cp="🇮🇷" type="tts">байрақ: Иран</annotation>
+		<annotation cp="🇮🇸">байрақ</annotation>
+		<annotation cp="🇮🇸" type="tts">байрақ: Исландия</annotation>
+		<annotation cp="🇮🇹">байрақ</annotation>
+		<annotation cp="🇮🇹" type="tts">байрақ: Италия</annotation>
+		<annotation cp="🇯🇪">байрақ</annotation>
+		<annotation cp="🇯🇪" type="tts">байрақ: Джерси</annotation>
+		<annotation cp="🇯🇲">байрақ</annotation>
+		<annotation cp="🇯🇲" type="tts">байрақ: Ямайка</annotation>
+		<annotation cp="🇯🇴">байрақ</annotation>
+		<annotation cp="🇯🇴" type="tts">байрақ: Иордания</annotation>
+		<annotation cp="🇯🇵">байрақ</annotation>
+		<annotation cp="🇯🇵" type="tts">байрақ: Япония</annotation>
+		<annotation cp="🇰🇪">байрақ</annotation>
+		<annotation cp="🇰🇪" type="tts">байрақ: Кения</annotation>
+		<annotation cp="🇰🇬">байрақ</annotation>
+		<annotation cp="🇰🇬" type="tts">байрақ: Қырғызстан</annotation>
+		<annotation cp="🇰🇭">байрақ</annotation>
+		<annotation cp="🇰🇭" type="tts">байрақ: Камбоджа</annotation>
+		<annotation cp="🇰🇮">байрақ</annotation>
+		<annotation cp="🇰🇮" type="tts">байрақ: Кирибати</annotation>
+		<annotation cp="🇰🇲">байрақ</annotation>
+		<annotation cp="🇰🇲" type="tts">байрақ: Комор атаўлары</annotation>
+		<annotation cp="🇰🇳">байрақ</annotation>
+		<annotation cp="🇰🇳" type="tts">байрақ: Сент-Китс ҳәм Невис</annotation>
+		<annotation cp="🇰🇵">байрақ</annotation>
+		<annotation cp="🇰🇵" type="tts">байрақ: Арқа Корея</annotation>
+		<annotation cp="🇰🇷">байрақ</annotation>
+		<annotation cp="🇰🇷" type="tts">байрақ: Қубла Корея</annotation>
+		<annotation cp="🇰🇼">байрақ</annotation>
+		<annotation cp="🇰🇼" type="tts">байрақ: Кувейт</annotation>
+		<annotation cp="🇰🇾">байрақ</annotation>
+		<annotation cp="🇰🇾" type="tts">байрақ: Кайман атаўлары</annotation>
+		<annotation cp="🇰🇿">байрақ</annotation>
+		<annotation cp="🇰🇿" type="tts">байрақ: Қазақстан</annotation>
+		<annotation cp="🇱🇦">байрақ</annotation>
+		<annotation cp="🇱🇦" type="tts">байрақ: Лаос</annotation>
+		<annotation cp="🇱🇧">байрақ</annotation>
+		<annotation cp="🇱🇧" type="tts">байрақ: Ливан</annotation>
+		<annotation cp="🇱🇨">байрақ</annotation>
+		<annotation cp="🇱🇨" type="tts">байрақ: Сент-Люсия</annotation>
+		<annotation cp="🇱🇮">байрақ</annotation>
+		<annotation cp="🇱🇮" type="tts">байрақ: Лихтенштейн</annotation>
+		<annotation cp="🇱🇰">байрақ</annotation>
+		<annotation cp="🇱🇰" type="tts">байрақ: Шри-Ланка</annotation>
+		<annotation cp="🇱🇷">байрақ</annotation>
+		<annotation cp="🇱🇷" type="tts">байрақ: Либерия</annotation>
+		<annotation cp="🇱🇸">байрақ</annotation>
+		<annotation cp="🇱🇸" type="tts">байрақ: Лесото</annotation>
+		<annotation cp="🇱🇹">байрақ</annotation>
+		<annotation cp="🇱🇹" type="tts">байрақ: Литва</annotation>
+		<annotation cp="🇱🇺">байрақ</annotation>
+		<annotation cp="🇱🇺" type="tts">байрақ: Люксембург</annotation>
+		<annotation cp="🇱🇻">байрақ</annotation>
+		<annotation cp="🇱🇻" type="tts">байрақ: Латвия</annotation>
+		<annotation cp="🇱🇾">байрақ</annotation>
+		<annotation cp="🇱🇾" type="tts">байрақ: Ливия</annotation>
+		<annotation cp="🇲🇦">байрақ</annotation>
+		<annotation cp="🇲🇦" type="tts">байрақ: Марокко</annotation>
+		<annotation cp="🇲🇨">байрақ</annotation>
+		<annotation cp="🇲🇨" type="tts">байрақ: Монако</annotation>
+		<annotation cp="🇲🇩">байрақ</annotation>
+		<annotation cp="🇲🇩" type="tts">байрақ: Молдова</annotation>
+		<annotation cp="🇲🇪">байрақ</annotation>
+		<annotation cp="🇲🇪" type="tts">байрақ: Черногория</annotation>
+		<annotation cp="🇲🇫">байрақ</annotation>
+		<annotation cp="🇲🇫" type="tts">байрақ: Сен-Мартен</annotation>
+		<annotation cp="🇲🇬">байрақ</annotation>
+		<annotation cp="🇲🇬" type="tts">байрақ: Мадагаскар</annotation>
+		<annotation cp="🇲🇭">байрақ</annotation>
+		<annotation cp="🇲🇭" type="tts">байрақ: Маршалл атаўлары</annotation>
+		<annotation cp="🇲🇰">байрақ</annotation>
+		<annotation cp="🇲🇰" type="tts">байрақ: Арқа Македония</annotation>
+		<annotation cp="🇲🇱">байрақ</annotation>
+		<annotation cp="🇲🇱" type="tts">байрақ: Мали</annotation>
+		<annotation cp="🇲🇲">байрақ</annotation>
+		<annotation cp="🇲🇲" type="tts">байрақ: Мьянма (Бирма)</annotation>
+		<annotation cp="🇲🇳">байрақ</annotation>
+		<annotation cp="🇲🇳" type="tts">байрақ: Монголия</annotation>
+		<annotation cp="🇲🇴">байрақ</annotation>
+		<annotation cp="🇲🇴" type="tts">байрақ: Макао ААР</annotation>
+		<annotation cp="🇲🇵">байрақ</annotation>
+		<annotation cp="🇲🇵" type="tts">байрақ: Арқа Мариана атаўлары</annotation>
+		<annotation cp="🇲🇶">байрақ</annotation>
+		<annotation cp="🇲🇶" type="tts">байрақ: Мартиника</annotation>
+		<annotation cp="🇲🇷">байрақ</annotation>
+		<annotation cp="🇲🇷" type="tts">байрақ: Мавритания</annotation>
+		<annotation cp="🇲🇸">байрақ</annotation>
+		<annotation cp="🇲🇸" type="tts">байрақ: Монтсеррат</annotation>
+		<annotation cp="🇲🇹">байрақ</annotation>
+		<annotation cp="🇲🇹" type="tts">байрақ: Мальта</annotation>
+		<annotation cp="🇲🇺">байрақ</annotation>
+		<annotation cp="🇲🇺" type="tts">байрақ: Маврикий</annotation>
+		<annotation cp="🇲🇻">байрақ</annotation>
+		<annotation cp="🇲🇻" type="tts">байрақ: Мальдив</annotation>
+		<annotation cp="🇲🇼">байрақ</annotation>
+		<annotation cp="🇲🇼" type="tts">байрақ: Малави</annotation>
+		<annotation cp="🇲🇽">байрақ</annotation>
+		<annotation cp="🇲🇽" type="tts">байрақ: Мексика</annotation>
+		<annotation cp="🇲🇾">байрақ</annotation>
+		<annotation cp="🇲🇾" type="tts">байрақ: Малайзия</annotation>
+		<annotation cp="🇲🇿">байрақ</annotation>
+		<annotation cp="🇲🇿" type="tts">байрақ: Мозамбик</annotation>
+		<annotation cp="🇳🇦">байрақ</annotation>
+		<annotation cp="🇳🇦" type="tts">байрақ: Намибия</annotation>
+		<annotation cp="🇳🇨">байрақ</annotation>
+		<annotation cp="🇳🇨" type="tts">байрақ: Жаӊа Каледония</annotation>
+		<annotation cp="🇳🇪">байрақ</annotation>
+		<annotation cp="🇳🇪" type="tts">байрақ: Нигер</annotation>
+		<annotation cp="🇳🇫">байрақ</annotation>
+		<annotation cp="🇳🇫" type="tts">байрақ: Норфолк атаўы</annotation>
+		<annotation cp="🇳🇬">байрақ</annotation>
+		<annotation cp="🇳🇬" type="tts">байрақ: Нигерия</annotation>
+		<annotation cp="🇳🇮">байрақ</annotation>
+		<annotation cp="🇳🇮" type="tts">байрақ: Никарагуа</annotation>
+		<annotation cp="🇳🇱">байрақ</annotation>
+		<annotation cp="🇳🇱" type="tts">байрақ: Нидерландия</annotation>
+		<annotation cp="🇳🇴">байрақ</annotation>
+		<annotation cp="🇳🇴" type="tts">байрақ: Норвегия</annotation>
+		<annotation cp="🇳🇵">байрақ</annotation>
+		<annotation cp="🇳🇵" type="tts">байрақ: Непал</annotation>
+		<annotation cp="🇳🇷">байрақ</annotation>
+		<annotation cp="🇳🇷" type="tts">байрақ: Науру</annotation>
+		<annotation cp="🇳🇺">байрақ</annotation>
+		<annotation cp="🇳🇺" type="tts">байрақ: Ниуэ</annotation>
+		<annotation cp="🇳🇿">байрақ</annotation>
+		<annotation cp="🇳🇿" type="tts">байрақ: Жаӊа Зеландия</annotation>
+		<annotation cp="🇴🇲">байрақ</annotation>
+		<annotation cp="🇴🇲" type="tts">байрақ: Оман</annotation>
+		<annotation cp="🇵🇦">байрақ</annotation>
+		<annotation cp="🇵🇦" type="tts">байрақ: Панама</annotation>
+		<annotation cp="🇵🇪">байрақ</annotation>
+		<annotation cp="🇵🇪" type="tts">байрақ: Перу</annotation>
+		<annotation cp="🇵🇫">байрақ</annotation>
+		<annotation cp="🇵🇫" type="tts">байрақ: Француз Полинезиясы</annotation>
+		<annotation cp="🇵🇬">байрақ</annotation>
+		<annotation cp="🇵🇬" type="tts">байрақ: Папуа — Жаӊа Гвинея</annotation>
+		<annotation cp="🇵🇭">байрақ</annotation>
+		<annotation cp="🇵🇭" type="tts">байрақ: Филиппин</annotation>
+		<annotation cp="🇵🇰">байрақ</annotation>
+		<annotation cp="🇵🇰" type="tts">байрақ: Пакистан</annotation>
+		<annotation cp="🇵🇱">байрақ</annotation>
+		<annotation cp="🇵🇱" type="tts">байрақ: Польша</annotation>
+		<annotation cp="🇵🇲">байрақ</annotation>
+		<annotation cp="🇵🇲" type="tts">байрақ: Сен-Пьер ҳәм Микелон</annotation>
+		<annotation cp="🇵🇳">байрақ</annotation>
+		<annotation cp="🇵🇳" type="tts">байрақ: Питкэрн атаўлары</annotation>
+		<annotation cp="🇵🇷">байрақ</annotation>
+		<annotation cp="🇵🇷" type="tts">байрақ: Пуэрто-Рико</annotation>
+		<annotation cp="🇵🇸">байрақ</annotation>
+		<annotation cp="🇵🇸" type="tts">байрақ: Палестина территориялары</annotation>
+		<annotation cp="🇵🇹">байрақ</annotation>
+		<annotation cp="🇵🇹" type="tts">байрақ: Португалия</annotation>
+		<annotation cp="🇵🇼">байрақ</annotation>
+		<annotation cp="🇵🇼" type="tts">байрақ: Палау</annotation>
+		<annotation cp="🇵🇾">байрақ</annotation>
+		<annotation cp="🇵🇾" type="tts">байрақ: Парагвай</annotation>
+		<annotation cp="🇶🇦">байрақ</annotation>
+		<annotation cp="🇶🇦" type="tts">байрақ: Қатар</annotation>
+		<annotation cp="🇷🇪">байрақ</annotation>
+		<annotation cp="🇷🇪" type="tts">байрақ: Реюньон</annotation>
+		<annotation cp="🇷🇴">байрақ</annotation>
+		<annotation cp="🇷🇴" type="tts">байрақ: Румыния</annotation>
+		<annotation cp="🇷🇸">байрақ</annotation>
+		<annotation cp="🇷🇸" type="tts">байрақ: Сербия</annotation>
+		<annotation cp="🇷🇺">байрақ</annotation>
+		<annotation cp="🇷🇺" type="tts">байрақ: Россия</annotation>
+		<annotation cp="🇷🇼">байрақ</annotation>
+		<annotation cp="🇷🇼" type="tts">байрақ: Руанда</annotation>
+		<annotation cp="🇸🇦">байрақ</annotation>
+		<annotation cp="🇸🇦" type="tts">байрақ: Саудия Арабстаны</annotation>
+		<annotation cp="🇸🇧">байрақ</annotation>
+		<annotation cp="🇸🇧" type="tts">байрақ: Соломон атаўлары</annotation>
+		<annotation cp="🇸🇨">байрақ</annotation>
+		<annotation cp="🇸🇨" type="tts">байрақ: Сейшель атаўлары</annotation>
+		<annotation cp="🇸🇩">байрақ</annotation>
+		<annotation cp="🇸🇩" type="tts">байрақ: Судан</annotation>
+		<annotation cp="🇸🇪">байрақ</annotation>
+		<annotation cp="🇸🇪" type="tts">байрақ: Швеция</annotation>
+		<annotation cp="🇸🇬">байрақ</annotation>
+		<annotation cp="🇸🇬" type="tts">байрақ: Сингапур</annotation>
+		<annotation cp="🇸🇭">байрақ</annotation>
+		<annotation cp="🇸🇭" type="tts">байрақ: Әўлие Елена атаўы</annotation>
+		<annotation cp="🇸🇮">байрақ</annotation>
+		<annotation cp="🇸🇮" type="tts">байрақ: Словения</annotation>
+		<annotation cp="🇸🇯">байрақ</annotation>
+		<annotation cp="🇸🇯" type="tts">байрақ: Шпицберген ҳәм Ян-Майен</annotation>
+		<annotation cp="🇸🇰">байрақ</annotation>
+		<annotation cp="🇸🇰" type="tts">байрақ: Словакия</annotation>
+		<annotation cp="🇸🇱">байрақ</annotation>
+		<annotation cp="🇸🇱" type="tts">байрақ: Сьерра-Леоне</annotation>
+		<annotation cp="🇸🇲">байрақ</annotation>
+		<annotation cp="🇸🇲" type="tts">байрақ: Сан-Марино</annotation>
+		<annotation cp="🇸🇳">байрақ</annotation>
+		<annotation cp="🇸🇳" type="tts">байрақ: Сенегал</annotation>
+		<annotation cp="🇸🇴">байрақ</annotation>
+		<annotation cp="🇸🇴" type="tts">байрақ: Сомали</annotation>
+		<annotation cp="🇸🇷">байрақ</annotation>
+		<annotation cp="🇸🇷" type="tts">байрақ: Суринам</annotation>
+		<annotation cp="🇸🇸">байрақ</annotation>
+		<annotation cp="🇸🇸" type="tts">байрақ: Қубла Судан</annotation>
+		<annotation cp="🇸🇹">байрақ</annotation>
+		<annotation cp="🇸🇹" type="tts">байрақ: Сан-Томе ҳәм Принсипи</annotation>
+		<annotation cp="🇸🇻">байрақ</annotation>
+		<annotation cp="🇸🇻" type="tts">байрақ: Сальвадор</annotation>
+		<annotation cp="🇸🇽">байрақ</annotation>
+		<annotation cp="🇸🇽" type="tts">байрақ: Синт-Мартен</annotation>
+		<annotation cp="🇸🇾">байрақ</annotation>
+		<annotation cp="🇸🇾" type="tts">байрақ: Сирия</annotation>
+		<annotation cp="🇸🇿">байрақ</annotation>
+		<annotation cp="🇸🇿" type="tts">байрақ: Эсватини</annotation>
+		<annotation cp="🇹🇦">байрақ</annotation>
+		<annotation cp="🇹🇦" type="tts">байрақ: Тристан-да-Кунья</annotation>
+		<annotation cp="🇹🇨">байрақ</annotation>
+		<annotation cp="🇹🇨" type="tts">байрақ: Тёркс ҳәм Кайкос атаўлары</annotation>
+		<annotation cp="🇹🇩">байрақ</annotation>
+		<annotation cp="🇹🇩" type="tts">байрақ: Чад</annotation>
+		<annotation cp="🇹🇫">байрақ</annotation>
+		<annotation cp="🇹🇫" type="tts">байрақ: Француз Қубла территориялары</annotation>
+		<annotation cp="🇹🇬">байрақ</annotation>
+		<annotation cp="🇹🇬" type="tts">байрақ: Того</annotation>
+		<annotation cp="🇹🇭">байрақ</annotation>
+		<annotation cp="🇹🇭" type="tts">байрақ: Таиланд</annotation>
+		<annotation cp="🇹🇯">байрақ</annotation>
+		<annotation cp="🇹🇯" type="tts">байрақ: Тәжикстан</annotation>
+		<annotation cp="🇹🇰">байрақ</annotation>
+		<annotation cp="🇹🇰" type="tts">байрақ: Токелау</annotation>
+		<annotation cp="🇹🇱">байрақ</annotation>
+		<annotation cp="🇹🇱" type="tts">байрақ: Шығыс Тимор</annotation>
+		<annotation cp="🇹🇲">байрақ</annotation>
+		<annotation cp="🇹🇲" type="tts">байрақ: Түркменстан</annotation>
+		<annotation cp="🇹🇳">байрақ</annotation>
+		<annotation cp="🇹🇳" type="tts">байрақ: Тунис</annotation>
+		<annotation cp="🇹🇴">байрақ</annotation>
+		<annotation cp="🇹🇴" type="tts">байрақ: Тонга</annotation>
+		<annotation cp="🇹🇷">байрақ</annotation>
+		<annotation cp="🇹🇷" type="tts">байрақ: Түркия</annotation>
+		<annotation cp="🇹🇹">байрақ</annotation>
+		<annotation cp="🇹🇹" type="tts">байрақ: Тринидад ҳәм Тобаго</annotation>
+		<annotation cp="🇹🇻">байрақ</annotation>
+		<annotation cp="🇹🇻" type="tts">байрақ: Тувалу</annotation>
+		<annotation cp="🇹🇼">байрақ</annotation>
+		<annotation cp="🇹🇼" type="tts">байрақ: Тайвань</annotation>
+		<annotation cp="🇹🇿">байрақ</annotation>
+		<annotation cp="🇹🇿" type="tts">байрақ: Танзания</annotation>
+		<annotation cp="🇺🇦">байрақ</annotation>
+		<annotation cp="🇺🇦" type="tts">байрақ: Украина</annotation>
+		<annotation cp="🇺🇬">байрақ</annotation>
+		<annotation cp="🇺🇬" type="tts">байрақ: Уганда</annotation>
+		<annotation cp="🇺🇲">байрақ</annotation>
+		<annotation cp="🇺🇲" type="tts">байрақ: АҚШ сыртқы атаўлары</annotation>
+		<annotation cp="🇺🇳">байрақ</annotation>
+		<annotation cp="🇺🇳" type="tts">байрақ: Бирлескен Миллетлер Шөлкеми</annotation>
+		<annotation cp="🇺🇸">байрақ</annotation>
+		<annotation cp="🇺🇸" type="tts">байрақ: Америка Қурама Штатлары</annotation>
+		<annotation cp="🇺🇾">байрақ</annotation>
+		<annotation cp="🇺🇾" type="tts">байрақ: Уругвай</annotation>
+		<annotation cp="🇺🇿">байрақ</annotation>
+		<annotation cp="🇺🇿" type="tts">байрақ: Өзбекстан</annotation>
+		<annotation cp="🇻🇦">байрақ</annotation>
+		<annotation cp="🇻🇦" type="tts">байрақ: Ватикан</annotation>
+		<annotation cp="🇻🇨">байрақ</annotation>
+		<annotation cp="🇻🇨" type="tts">байрақ: Сент-Винсент ҳәм Гренадин атаўлары</annotation>
+		<annotation cp="🇻🇪">байрақ</annotation>
+		<annotation cp="🇻🇪" type="tts">байрақ: Венесуэла</annotation>
+		<annotation cp="🇻🇬">байрақ</annotation>
+		<annotation cp="🇻🇬" type="tts">байрақ: Британия Виргин атаўлары</annotation>
+		<annotation cp="🇻🇮">байрақ</annotation>
+		<annotation cp="🇻🇮" type="tts">байрақ: Америка Виргин атаўлары</annotation>
+		<annotation cp="🇻🇳">байрақ</annotation>
+		<annotation cp="🇻🇳" type="tts">байрақ: Вьетнам</annotation>
+		<annotation cp="🇻🇺">байрақ</annotation>
+		<annotation cp="🇻🇺" type="tts">байрақ: Вануату</annotation>
+		<annotation cp="🇼🇫">байрақ</annotation>
+		<annotation cp="🇼🇫" type="tts">байрақ: Уоллис ҳәм Футуна</annotation>
+		<annotation cp="🇼🇸">байрақ</annotation>
+		<annotation cp="🇼🇸" type="tts">байрақ: Самоа</annotation>
+		<annotation cp="🇽🇰">байрақ</annotation>
+		<annotation cp="🇽🇰" type="tts">байрақ: Косово</annotation>
+		<annotation cp="🇾🇪">байрақ</annotation>
+		<annotation cp="🇾🇪" type="tts">байрақ: Йемен</annotation>
+		<annotation cp="🇾🇹">байрақ</annotation>
+		<annotation cp="🇾🇹" type="tts">байрақ: Майотта</annotation>
+		<annotation cp="🇿🇦">байрақ</annotation>
+		<annotation cp="🇿🇦" type="tts">байрақ: Қубла Африка Республикасы</annotation>
+		<annotation cp="🇿🇲">байрақ</annotation>
+		<annotation cp="🇿🇲" type="tts">байрақ: Замбия</annotation>
+		<annotation cp="🇿🇼">байрақ</annotation>
+		<annotation cp="🇿🇼" type="tts">байрақ: Зимбабве</annotation>
+		<annotation cp="¤" type="tts">Белгисиз валюта</annotation>
+		<annotation cp="֏" type="tts">Армения драмы</annotation>
+		<annotation cp="؋" type="tts">Аўғанстан афганиси</annotation>
+		<annotation cp="৳" type="tts">Бангладеш такасы</annotation>
+		<annotation cp="฿" type="tts">Тайланд баты</annotation>
+		<annotation cp="៛" type="tts">Камбоджа риели</annotation>
+		<annotation cp="₡" type="tts">Коста-Рика колоны</annotation>
+		<annotation cp="₦" type="tts">Нигерия найрасы</annotation>
+		<annotation cp="₪" type="tts">Израиль жаңа шекели</annotation>
+		<annotation cp="₫" type="tts">Вьетнам донгы</annotation>
+		<annotation cp="₭" type="tts">Лаос кипи</annotation>
+		<annotation cp="₮" type="tts">Моңғолия тугриги</annotation>
+		<annotation cp="₲" type="tts">Парагвай гуараниси</annotation>
+		<annotation cp="₴" type="tts">Украина гривнасы</annotation>
+		<annotation cp="₵" type="tts">Гана седиси</annotation>
+		<annotation cp="₸" type="tts">Қазақстан теңгеси</annotation>
+		<annotation cp="₺" type="tts">Түркия лирасы</annotation>
+		<annotation cp="₼" type="tts">Әзербайжан манаты</annotation>
+		<annotation cp="₾" type="tts">Грузия ларисы</annotation>
+	</annotations>
+</ldml>

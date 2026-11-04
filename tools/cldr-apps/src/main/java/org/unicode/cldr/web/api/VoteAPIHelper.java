@@ -22,6 +22,7 @@ import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPI.CheckStatusSummary;
 import org.unicode.cldr.web.api.VoteAPI.EntireLocaleStatusResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
@@ -110,9 +111,9 @@ public class VoteAPIHelper {
 
     static Response handleGetLocaleErrors(String loc) {
         final SurveyMain sm = CookieSession.sm;
-        final CLDRLocale locale = CLDRLocale.getInstance(loc);
+        final CLDRLocale locale = CLDRLocale.getExistingInstance(loc);
         final STFactory factory = sm.getSTFactory();
-        if (!factory.getAvailableCLDRLocales().contains(locale)) {
+        if (locale == null || !factory.getAvailableCLDRLocales().contains(locale)) {
             // locale not found
             return Response.status(404).build();
         }
@@ -340,6 +341,7 @@ public class VoteAPIHelper {
         row.xpstrid = XPathTable.getStringIDString(xpath);
         row.fixedCandidates = r.fixedCandidates();
         row.noEscaping = DisplayAndInputProcessor.hasUnicodeSetValue(xpath);
+        row.testsForMissingItem = CheckStatusSummary.of(r.getTestsForMissingItem());
         return row;
     }
 

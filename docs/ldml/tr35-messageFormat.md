@@ -8,13 +8,14 @@ editors:
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 9: MessageFormat
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 9: MessageFormat
 
 ### _Summary_
 
-This specification defines the data model, syntax, processing, and conformance requirements for the next generation of dynamic messages.
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers the data model, syntax, processing, and conformance requirements for the next generation of dynamic messages.
 
-This is a partial document, describing only those parts of the LDML that are relevant for message format. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -30,7 +31,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -4144,7 +4145,7 @@ the functions `:datetime`, `:date`, and `:time`.
 - `timeZone`
   - A valid time zone identifier
     (see [TZDB](https://www.iana.org/time-zones)
-    and [LDML](tr35-dates.md#Time_Zone_Names)
+    and [CLDR Time zone names](tr35-dates.md#Time_Zone_Names)
     for information on identifiers)
   - `input`
   - `UTC`

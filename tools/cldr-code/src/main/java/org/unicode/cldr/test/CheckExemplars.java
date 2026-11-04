@@ -117,14 +117,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
             // check for consistency with RTL
 
-            boolean localeIsRTL = false;
-            String charOrientation =
-                    getResolvedCldrFileToCheck()
-                            .getStringValue("//ldml/layout/orientation/characterOrder");
-            if (charOrientation.equals("right-to-left")) {
-                localeIsRTL = true;
-            }
-
+            boolean localeIsRTL = getResolvedCldrFileToCheck().isRTL();
             UnicodeSetIterator mi = new UnicodeSetIterator(mainSet);
             while (mi.next()) {
                 if (mi.codepoint != UnicodeSetIterator.IS_STRING
@@ -163,7 +156,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(getErrorTypeButWarningInBuildOrSubmission())
                                 .setSubtype(Subtype.auxiliaryExemplarsOverlap)
                                 .setMessage(
                                         "Auxiliary characters also exist in main: \u200E{0}\u200E",

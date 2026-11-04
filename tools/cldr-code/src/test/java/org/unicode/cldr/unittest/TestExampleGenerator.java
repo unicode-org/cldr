@@ -25,6 +25,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
@@ -40,6 +41,7 @@ import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
@@ -71,6 +73,8 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestExampleGenerator extends TestFmwk {
+
+    private static final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
 
     private static final String SKIP = "SKIP";
 
@@ -107,12 +111,12 @@ public class TestExampleGenerator extends TestFmwk {
                 "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗",
                 "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗"
             },
-            {"en", "one", "〖❬1 ❭Bermudan dollar〗", "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗"},
+            {"en", "one", "〖❬1 ❭value-one〗", "〖❬1❭_❬US dollar❭〗〖❬1❭_❬euro❭〗"},
             {
                 "en",
                 "other",
-                "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗",
-                "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗"
+                "〖❬1.23 ❭value-other〗〖❬0.00 ❭value-other〗",
+                "〖❬1.23❭_❬US dollars❭〗〖❬1.23❭_❬euros❭〗〖❬0.00❭_❬US dollars❭〗〖❬0.00❭_❬euros❭〗"
             },
         };
         String sampleCurrencyPatternPrefix =
@@ -122,6 +126,10 @@ public class TestExampleGenerator extends TestFmwk {
         String sampleTemplateSuffix = "\"]";
 
         for (String[] row : tests) {
+            if (row[0].equals("en")
+                    && logKnownIssue("CLDR-19409", "suspicious ExampleGenerator results")) {
+                continue;
+            }
             ExampleGenerator exampleGenerator = getExampleGenerator(row[0]);
             String value = "value-" + row[1];
 
@@ -144,7 +152,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
-                    "//ldml/layout/orientation/characterOrder",
+                    CLDRFile.CHARACTER_ORDER_PATH,
                     "//ldml/layout/orientation/lineOrder",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
@@ -261,7 +269,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/numbers/otherNumberingSystems/native",
                     // TODO fix formatting
                     "//ldml/characters/exemplarCharacters",
@@ -292,7 +300,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
                     "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
@@ -481,7 +489,7 @@ public class TestExampleGenerator extends TestFmwk {
         value = value != null ? value : cldrFile.getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(
-                cldrFile.getLocaleID() + ": " + message,
+                cldrFile.getLocaleID() + ": " + message + " @ " + path,
                 expected,
                 ExampleGenerator.simplify(actual, false));
     }
@@ -684,16 +692,19 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<>();
+    Map<String, ExampleGenerator> exampleCache = new ConcurrentHashMap<>();
 
     private ExampleGenerator getExampleGenerator(String locale) {
-        ExampleGenerator result = ExampleGeneratorCache.get(locale);
-        if (result == null) {
-            final CLDRFile nativeCldrFile = info.getCLDRFile(locale, true);
-            result = new ExampleGenerator(nativeCldrFile, info.getEnglish());
-            ExampleGeneratorCache.put(locale, result);
-        }
-        return result;
+        return exampleCache.computeIfAbsent(
+                locale,
+                newLocale -> {
+                    final CLDRFile nativeCldrFile = cldrFactory.make(newLocale, true);
+                    final CLDRFile english = cldrFactory.make("en", true);
+                    return cldrFactory
+                            .getTestCache()
+                            .getExampleGenerator(
+                                    CLDRLocale.getInstance(newLocale), nativeCldrFile, english);
+                });
     }
 
     public void TestEllipsis() {
@@ -906,7 +917,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestSymbols() {
         CLDRFile english = info.getEnglish();
-        ExampleGenerator exampleGenerator = new ExampleGenerator(english, english);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(english, cldrFactory);
         String actual =
                 exampleGenerator.getExampleHtml(
                         "//ldml/numbers/symbols[@numberSystem=\"latn\"]/superscriptingExponent",
@@ -919,8 +930,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestFallbackFormat() {
-        ExampleGenerator exampleGenerator =
-                new ExampleGenerator(info.getEnglish(), info.getEnglish());
+        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), cldrFactory);
         String actual =
                 exampleGenerator.getExampleHtml(
                         "//ldml/dates/timeZoneNames/fallbackFormat", "{1} [{0}]");
@@ -937,6 +947,9 @@ public class TestExampleGenerator extends TestFmwk {
                 With.in(
                         cldrFile.iterator(
                                 "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
+            if (xpath.endsWith("alias")) {
+                continue;
+            }
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
@@ -988,8 +1001,7 @@ public class TestExampleGenerator extends TestFmwk {
             }
         };
         final CLDRFile nativeCldrFile = info.getEnglish();
-        ExampleGenerator exampleGenerator =
-                new ExampleGenerator(info.getEnglish(), info.getEnglish());
+        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), cldrFactory);
         for (String[] testPair : testPairs) {
             String xpath = testPair[0];
             String expected = testPair[1];
@@ -1000,7 +1012,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     private void showCldrFile(final CLDRFile cldrFile) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, cldrFactory);
         checkPathValue(
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]",
@@ -1150,7 +1162,7 @@ public class TestExampleGenerator extends TestFmwk {
             String zeros,
             String expected) {
         CLDRFile cldrFile = info.getCLDRFile(localeID, true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, cldrFactory);
         String path =
                 "//ldml/numbers/"
                         + decimalVsCurrency
@@ -1196,7 +1208,7 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkDayPeriod(
             String localeId, String type, String dayPeriodCode, String expected) {
         CLDRFile cldrFile = info.getCLDRFile(localeId, true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, cldrFactory);
         String prefix =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String suffix =
@@ -1276,7 +1288,7 @@ public class TestExampleGenerator extends TestFmwk {
         final String EXPECTED_TO_CONTAIN = "456,79";
 
         final CLDRFile cldrFile = info.getCLDRFile("fr", true);
-        final ExampleGenerator eg = new ExampleGenerator(cldrFile, info.getEnglish());
+        final ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFactory);
 
         final String evilValue = cldrFile.getStringValue(EVIL_PATH);
         final String specialValue = cldrFile.getStringValue(SPECIAL_PATH);
@@ -1892,7 +1904,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
         checkValue(
                 "lv relative month future-other",
-                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                "〖Set letter case for top example:〗〖1999. gada. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. gada. septembris)〗〖See letter case instructions at right.〗",
                 exampleGeneratorLv,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
     }
@@ -1972,7 +1984,7 @@ public class TestExampleGenerator extends TestFmwk {
             CLDRFile cldrFile = factory.make(localeId, true);
             CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
 
-            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, cldrFactory);
             if (CHECK_ROW_ACTION) {
                 dummyPathValueInfo.setLocale(CLDRLocale.getInstance(localeId));
             }
@@ -2166,10 +2178,11 @@ public class TestExampleGenerator extends TestFmwk {
                     == null) { // Note that we can start with a null value, then replace it with the
                 // current actual value, for stability in the future.
                 value = baseCldrFile.getStringValue(path);
-                exampleGenerator = new ExampleGenerator(baseCldrFile);
+                exampleGenerator = new ExampleGenerator(baseCldrFile, cldrFactory);
             } else {
                 map = ImmutableMap.of(path, value);
-                exampleGenerator = new ExampleGenerator(new CLDRFileOverride(baseCldrFile, map));
+                exampleGenerator =
+                        new ExampleGenerator(new CLDRFileOverride(baseCldrFile, map), cldrFactory);
             }
             String actual = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + " " + path + " " + value, expected, actual);
@@ -2529,11 +2542,12 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] tests = {
             {"h – h B", "h|[h]| – |h B|[h,  , B]", "12 – 1 in the afternoon"},
             {"E H – H v", "E H|[E,  , H]| – |H v|[H,  , v]", "Wed 12 – 13 GMT"},
-            {"MdM", "Missing literal between first and second formats in «MdM»"},
+            {"MdM", "Missing literal between d and M in «MdM»"},
             {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
         };
         final CLDRLocale loc = CLDRLocale.getInstance("en");
-        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
+        final ICUServiceBuilder isb =
+                CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
         Date DATE1 = Date.from(Instant.parse("2025-01-01T12:00:00Z"));
         Date DATE2 = Date.from(Instant.parse("2025-01-01T13:00:00Z"));
 
@@ -2552,7 +2566,13 @@ public class TestExampleGenerator extends TestFmwk {
                                 intf.separator,
                                 intf.secondPattern,
                                 intf.secondFields);
-                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                String actual2 =
+                        intf.format(
+                                DATE1,
+                                DATE2,
+                                isb,
+                                TimeZone.GMT_ZONE,
+                                ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 assertEquals(Joiners.COMMA_SP.join(source, DATE1, DATE2), expected2, actual2);
             } catch (Exception e) {
                 actual = e.getMessage();

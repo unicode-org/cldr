@@ -12,6 +12,7 @@ package org.unicode.cldr.posix;
 import com.ibm.icu.text.NumberingSystem;
 import java.io.PrintWriter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 
 public class POSIX_LCTime {
     String abday[];
@@ -74,8 +75,8 @@ public class POSIX_LCTime {
 
         // alt_digits
         alt_digits[0] = "";
-        String numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
-        if (numsys != null && !numsys.equals("latn")) {
+        String numsys = doc.getWinningValue(CldrNumberingSystem.defaultSystem.path);
+        if (numsys != null && !numsys.equals(CldrNumberingSystem.LATN_SYSTEM)) {
             NumberingSystem ns = NumberingSystem.getInstanceByName(numsys);
             String nativeZeroDigit = ns.getDescription().substring(0, 1);
             // Character ThisDigit;

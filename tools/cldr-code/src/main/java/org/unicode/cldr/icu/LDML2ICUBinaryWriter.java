@@ -683,10 +683,10 @@ public class LDML2ICUBinaryWriter {
                         + BYTES_TAKEN_BY_MAGIC1
                         + BYTES_TAKEN_BY_MAGIC2;
         if (copyright != null && INCLUDE_COPYRIGHT) {
-            headSize += copyright.length() + 1;
+            headSize += (short) (copyright.length() + 1);
         }
         if ((pad = pad16Bytes(headSize)) != 0) {
-            headSize += pad;
+            headSize += (short) pad;
         }
 
         magics[0] = MAGIC1;

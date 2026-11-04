@@ -21,6 +21,10 @@ public enum Level {
     public static final Set<Level> CORE_TO_MODERN =
             ImmutableSortedSet.of(CORE, BASIC, MODERATE, MODERN);
 
+    public static final Set<Level> BASIC_TO_MODERN = ImmutableSortedSet.of(BASIC, MODERATE, MODERN);
+
+    public static final Set<Level> MODERATE_TO_MODERN = ImmutableSortedSet.of(MODERATE, MODERN);
+
     @Deprecated public static final Level POSIX = BASIC;
     @Deprecated public static final Level MINIMAL = BASIC;
     @Deprecated public static final Level OPTIONAL = COMPREHENSIVE;

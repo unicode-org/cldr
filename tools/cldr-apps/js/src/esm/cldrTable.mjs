@@ -11,11 +11,11 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrChar from "./cldrChar.mjs";
 import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrEscaper from "./cldrEscaper.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -773,7 +773,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     );
     // add possible <LRM>, etc escaped text to English
     if (!theRow.noEscaping) {
-      checkLRmarker(cell, theRow.displayName);
+      addTags(cell, theRow.displayName);
     }
   } else {
     cell.appendChild(document.createTextNode(""));
@@ -815,6 +815,9 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
  */
 function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   cldrDom.removeAllChildNodes(cell); // win
+  // reset these classes in case they were set below.
+  cldrDom.removeClass(cell, "d-item-err-noicon");
+  cldrDom.removeClass(cell, "d-item-warn");
   if (theRow.rowFlagged) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");
@@ -835,6 +838,26 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
       theRow,
       theRow.winningVhash,
       cldrSurvey.cloneAnon(protoButton)
+    );
+  } else if (theRow?.testsForMissingItem?.length) {
+    const errorMajorTypes = new Set(
+      theRow?.testsForMissingItem.map(({ type }) => type)
+    );
+    let worstType = "Unknown";
+    if (errorMajorTypes.has("Error")) {
+      worstType = "Error";
+    } else if (errorMajorTypes.has("Warning")) {
+      worstType = "Warning";
+    }
+    const icon = cldrSurvey.addIcon(
+      cell,
+      worstType === "Error" ? "i-stop" : "i-warn"
+    );
+    icon.setAttribute("dir", "ltr");
+    icon.title = cldrText.get("item_description_missing_tests");
+    cldrDom.addClass(
+      cell,
+      worstType === "Error" ? "d-item-err-noicon" : "d-item-warn"
     );
   }
 
@@ -939,7 +962,7 @@ function addVitem(td, tr, theRow, valueHash, newButton) {
     );
   }
   if (!theRow.noEscaping) {
-    checkLRmarker(choiceField, displayValue);
+    addTags(choiceField, displayValue);
   }
   if (item.votes && !isWinner) {
     if (
@@ -1008,13 +1031,14 @@ function setDivClass(div, testKind) {
 }
 
 /**
- * Check if we need LRM/RLM marker to display
- * @param field choice field to append if needed
- * @param value the value of votes (check &lrm; &rlm)
+ * If the value should be displayed with any tags (chits), add the tagged version
+ *
+ * @param {Element} el the DOM element to which the tagged version may be appended
+ * @param {String} value the candidate value
  */
-function checkLRmarker(field, value) {
-  if (value && cldrEscaper.needsEscaping(value)) {
-    cldrAddValue.addTagsReadyOnly(field, value);
+function addTags(el, value) {
+  if (value && cldrChar.containsTaggable(value)) {
+    cldrAddValue.addTagsReadyOnly(el, value);
   }
 }
 

@@ -95,6 +95,8 @@ public class GenerateLanguageContainment {
     static {
         System.out.println(
                 "See the class description for GenerateLanguageContainment.java about fixing problems.");
+        System.out.println(
+                "Note https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual#Query_limits if you get 429 errors.");
     }
 
     private static final boolean ONLY_LIVING = false;

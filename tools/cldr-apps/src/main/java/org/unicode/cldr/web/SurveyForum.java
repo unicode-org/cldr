@@ -316,25 +316,13 @@ public class SurveyForum {
      */
     private boolean userCanUsePostType(PostInfo postInfo) {
         User user = postInfo.getUser();
-        boolean isTC = UserRegistry.userIsTCOrStronger(user);
-        if (!isTC && SurveyMain.isPhaseReadonly()) {
-            return false;
-        }
+        if (user == null) return false;
         int replyTo = postInfo.getReplyTo();
+        boolean isFirstPost = replyTo == NO_PARENT;
+        boolean userIsOriginalPoster = getUserId(postInfo.getRoot()) == user.id;
         PostType postType = postInfo.getType();
-        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !isTC) {
-            return false; // only TC can initiate Discuss; others can reply
-        }
-        if (postType != PostType.CLOSE) {
-            return true;
-        }
-        if (replyTo == NO_PARENT) {
-            return false; // first post can't begin as closed
-        }
-        if (getUserId(postInfo.getRoot()) == user.id) {
-            return true;
-        }
-        return isTC;
+
+        return user.userCanForumPost(isFirstPost, userIsOriginalPoster, postType);
     }
 
     /**
@@ -1200,12 +1188,12 @@ public class SurveyForum {
      */
     private Integer doPostInternal(PostInfo postInfo) throws SurveyException {
         if (!postInfo.isValid()) {
-            logger.severe("Invalid postInfo in SurveyForum.doPostInternal");
-            return 0;
+            logger.severe("Invalid postInfo in SurveyForum.doPostInternal for " + postInfo);
+            return -1;
         }
         if (!userCanUsePostType(postInfo)) {
-            logger.severe("Post not allowed in SurveyForum.doPostInternal");
-            return 0;
+            logger.severe("Post not allowed in SurveyForum.doPostInternal for " + postInfo);
+            return -2;
         }
         int postId = savePostToDb(postInfo);
 
@@ -1342,6 +1330,13 @@ public class SurveyForum {
         private boolean couldFlag = false;
         private UserRegistry.User user = null;
         private boolean sendEmail = true;
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "{PostInfo u=%s locale=%s x=#%d reply=#%d sub=%s}",
+                    getUser(), getLocale(), getPath(), getReplyTo(), getSubj());
+        }
 
         public PostInfo(CLDRLocale locale, String postTypeStr, String text) {
             this.locale = locale;

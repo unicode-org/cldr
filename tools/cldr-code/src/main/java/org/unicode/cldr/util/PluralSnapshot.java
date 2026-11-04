@@ -22,6 +22,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class PluralSnapshot implements Comparable<PluralSnapshot> {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
 
     public enum Plurals {
         zero,
@@ -303,8 +304,8 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 }
                 SnapshotInfo info = PluralSnapshot.getInstance(pluralType, integral);
 
-                System.out.println("\n" + integral + "\n");
-                System.out.println(info.toOverview());
+                if (DEBUG) System.out.println("\n" + integral + "\n");
+                if (DEBUG) System.out.println(info.toOverview());
 
                 String title =
                         UCharacter.toTitleCase(pluralType.toString(), null)
@@ -324,9 +325,9 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 for (Entry<PluralSnapshot, Set<String>> ruleEntry : info) {
                     PluralSnapshot ss = ruleEntry.getKey();
                     Set<String> locales = ruleEntry.getValue();
-                    System.out.println();
-                    System.out.println(locales);
-                    System.out.println(ss);
+                    if (DEBUG) System.out.println();
+                    if (DEBUG) System.out.println(locales);
+                    if (DEBUG) System.out.println(ss);
                     // if (ss.count != lastCount) {
                     // out.println(info.toHtmlStringHeader());
                     // lastCount = ss.count;

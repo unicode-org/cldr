@@ -136,7 +136,7 @@ public class TestPerf extends TestFmwkPlus {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         AttributeValueComparator avc =

@@ -64,7 +64,7 @@ public class TestXMLSource extends TestFmwk {
         new TestXMLSource().run(args);
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestGetPathsWithValue() {
         XMLSource source = new DummyXMLSource();
         source.putValueAtDPath("//ldml/foo", "x");

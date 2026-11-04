@@ -75,7 +75,7 @@ public class TestCalculatedCoverageLevels {
     @CsvSource({
         "en_US, modern",
         "en, modern",
-        "mul, null",
+        "mul, undetermined",
         "root, modern",
         "sr_Cyrl, modern",
         "sr_Cyrl_XK, modern",
@@ -90,6 +90,6 @@ public class TestCalculatedCoverageLevels {
                 CalculatedCoverageLevels
                         .getInstance(); // TODO: data sensitivity.  Ideally would use a private
         // instance of CCL from a static file.
-        assertEquals(level, ccl.getEffectiveCoverageLevel(loc));
+        assertEquals(level, ccl.getEffectiveCoverageLevel(loc), loc);
     }
 }

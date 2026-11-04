@@ -8,6 +8,7 @@ import org.unicode.cldr.tool.GenerateDateTimeTestData.FieldStyleCombo;
 import org.unicode.cldr.tool.GenerateDateTimeTestData.SemanticSkeleton;
 import org.unicode.cldr.tool.GenerateDateTimeTestData.SemanticSkeletonLength;
 import org.unicode.cldr.tool.GenerateDateTimeTestData.YearStyle;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -38,7 +39,8 @@ public class GenerateDateTimeTestDataTest {
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
             final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
-            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder icuServiceBuilder =
+                    CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;
@@ -46,7 +48,7 @@ public class GenerateDateTimeTestDataTest {
 
             String actual =
                     GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
-                            icuServiceBuilder, localeCldrFile, fieldStyleCombo, calendarStr);
+                            localeCldrFile, fieldStyleCombo, calendarStr);
 
             assertEquals(
                     expected,
@@ -129,7 +131,8 @@ public class GenerateDateTimeTestDataTest {
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
             final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
-            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder icuServiceBuilder =
+                    CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;
@@ -138,7 +141,7 @@ public class GenerateDateTimeTestDataTest {
 
             String actual =
                     GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
-                            icuServiceBuilder, localeCldrFile, fieldStyleCombo, calendarStr);
+                            localeCldrFile, fieldStyleCombo, calendarStr);
 
             assertEquals(
                     expected,
@@ -153,6 +156,80 @@ public class GenerateDateTimeTestDataTest {
                             + semanticSkeletonLength.getLabel()
                             + ", year style length "
                             + yearStyle.getLabel());
+        }
+    }
+
+    @Test
+    public void testComputeSkeletonFromSemanticSkeleton_hourCycle() {
+        Object[][] casesData = {
+            {
+                "en",
+                "gregorian",
+                SemanticSkeleton.T,
+                SemanticSkeletonLength.SHORT,
+                GenerateDateTimeTestData.HourCycle.CLOCK12,
+                "hms"
+            },
+            {
+                "en",
+                "gregorian",
+                SemanticSkeleton.T,
+                SemanticSkeletonLength.SHORT,
+                GenerateDateTimeTestData.HourCycle.CLOCK24,
+                "Hms"
+            },
+            {
+                "ja",
+                "japanese",
+                SemanticSkeleton.T,
+                SemanticSkeletonLength.SHORT,
+                GenerateDateTimeTestData.HourCycle.CLOCK12,
+                "hms"
+            },
+            {
+                "ja",
+                "japanese",
+                SemanticSkeleton.T,
+                SemanticSkeletonLength.SHORT,
+                GenerateDateTimeTestData.HourCycle.CLOCK24,
+                "Hms"
+            },
+        };
+
+        for (Object[] caseDatum : casesData) {
+            String localeTag = (String) caseDatum[0];
+            String calendarStr = (String) caseDatum[1];
+            SemanticSkeleton semanticSkeleton = (SemanticSkeleton) caseDatum[2];
+            SemanticSkeletonLength semanticSkeletonLength = (SemanticSkeletonLength) caseDatum[3];
+            GenerateDateTimeTestData.HourCycle hourCycle =
+                    (GenerateDateTimeTestData.HourCycle) caseDatum[4];
+            String expected = (String) caseDatum[5];
+
+            ULocale locale = ULocale.forLanguageTag(localeTag);
+            String localeStr = locale.getName();
+            CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
+            assert localeCldrFile != null;
+
+            FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
+            fieldStyleCombo.semanticSkeleton = semanticSkeleton;
+            fieldStyleCombo.semanticSkeletonLength = semanticSkeletonLength;
+            fieldStyleCombo.hourCycle = hourCycle;
+
+            String actual =
+                    GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
+                            localeCldrFile, fieldStyleCombo, calendarStr);
+
+            assertEquals(
+                    expected,
+                    actual,
+                    "skeleton string for locale "
+                            + localeStr
+                            + ", calendar "
+                            + calendarStr
+                            + ", semantic skeleton "
+                            + semanticSkeleton.toString()
+                            + ", hourCycle "
+                            + hourCycle.getLabel());
         }
     }
 }

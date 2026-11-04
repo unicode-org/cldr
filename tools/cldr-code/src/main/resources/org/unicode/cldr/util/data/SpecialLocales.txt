@@ -16,6 +16,9 @@
 # Note: Also, see CLDRFileTransformer.java which has the algorithmic locales defined
 # such as sr_Latn, etc. Those are no longer listed here.
 #
+# Programmatically, use the SpecialLocales.java class to get the list. Do NOT read this file
+# directly.
+#
 
 root       ;  readonly  ; The Root locale is maintained by the CLDR-TC and may not be modified in the SurveyTool. Please file a ticket to make changes.
 en         ;  readonly  ; The English locale is maintained by the CLDR-TC and may not be modified in the SurveyTool. Please file a ticket to make changes.

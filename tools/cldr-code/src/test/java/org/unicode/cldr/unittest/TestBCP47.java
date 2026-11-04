@@ -310,6 +310,13 @@ public class TestBCP47 extends TestFmwk {
                     "VST",
                     "WET");
 
+    /**
+     * POSIX-style tzids that CLDR unmerged from the corresponding city ids (CLDR-19784). ICU still
+     * canonicalizes them to the city ids until it picks up the new CLDR data.
+     */
+    static final Set<String> POSIX_TZIDS =
+            ImmutableSet.of("CST6CDT", "EST5EDT", "MST7MDT", "PST8PDT");
+
     public void testBcp47IdsForAllTimezoneIds() {
         Map<String, String> aliasToId = new TreeMap<>();
         Set<String> missingAliases = new TreeSet<>();
@@ -363,6 +370,17 @@ public class TestBCP47 extends TestFmwk {
                 Set<String> aliasSet = bcp47keyType_aliases.get(row);
                 if (assertNotNull("alias for " + bcp47Id, aliasSet)) {
                     String first = aliasSet.iterator().next();
+                    if (!first.equals(canonical)
+                            && POSIX_TZIDS.contains(tzid)
+                            && logKnownIssue(
+                                    "CLDR-19784",
+                                    "ICU tz data predates the unmerging of the POSIX zones, so it"
+                                            + " still canonicalizes "
+                                            + tzid
+                                            + " to "
+                                            + canonical)) {
+                        continue;
+                    }
                     assertEquals("canonical == first alias", first, canonical);
                 }
             }

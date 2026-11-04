@@ -20,6 +20,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -95,7 +96,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeId = cldrFileToCheck.getLocaleID();
         CLDRLocale loc = CLDRLocale.getInstance(localeId);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
         SupplementalDataInfo supplementalData =
                 SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
@@ -106,10 +107,10 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         String defaultNumberingSystem =
-                resolvedFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                resolvedFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         if (defaultNumberingSystem == null
                 || !validNumberingSystems.contains(defaultNumberingSystem)) {
-            defaultNumberingSystem = "latn";
+            defaultNumberingSystem = CldrNumberingSystem.LATN_SYSTEM;
         }
         defaultTimeSeparatorPath =
                 "//ldml/numbers/symbols[@numberSystem=\""
@@ -969,9 +970,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
     /**
      * Produce a canonical pattern, which will vary according to type and whether it is posix or
      * not.
-     *
-     * @param count
-     * @param path
      */
     public static String getCanonicalPattern(
             String inpattern, NumericType type, int zeroCount, boolean isPOSIX) {

@@ -1,0 +1,55 @@
+# Tech Preview data for locale coverage levels. For the file format, see the README.md in this directory.
+
+import=zh
+
+# Variables
+
+%dateFormatItem42=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem52i=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,MMdd,Md,d,h,hmv,hv,ms,y,yM,yMEEEEd,yMEd,yMM,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
+%intervalFormatItem34a=Bh,Bhm,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hmv,Hv,M,MEd,MMM,MMMEd,MMMM,MMMMd,MMMd,Md,d,h,hm,hmv,hv,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMd,yMd
+%dateFormatItem50h=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,Ed,Gy,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,UM,UMMM,UMMMd,UMd,d,h,hm,hms,hv,ms,y,yMd,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMMEd,yyyyMMMMd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%currency98=AFN,AMD,AOA,ARS,AUD,AZN,BAM,BBD,BDT,BMD,BND,BOB,BRL,BSD,BWP,BYN,BZD,CAD,CHF,CLP,CNY,COP,CRC,CUC,CUP,CZK,DKK,DOP,EGP,EUR,FJD,FKP,GBP,GEL,GHS,GIP,GNF,GTQ,GYD,HKD,HNL,HRK,HUF,IDR,ILS,INR,ISK,JMD,JPY,KGS,KHR,KMF,KPW,KRW,KYD,KZT,LAK,LBP,LKR,LRD,MGA,MMK,MNT,MUR,MXN,MYR,NAD,NGN,NIO,NOK,NPR,NZD,PHP,PKR,PLN,PYG,RON,RUB,RWF,SBD,SEK,SGD,SHP,SRD,SSP,STN,SYP,THB,TOP,TTD,TWD,UAH,USD,UYU,VND,XCD,ZAR,ZMW
+
+# Rules
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem52i
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem42
+  level=moderate
+ attr0=chinese
+ attr1=%dateFormatItem50h
+  level=modern
+ attr0=generic
+ attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
+  level=modern
+ attr0=islamic,roc
+ attr1=E,Ed,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
+ attr0=gregorian
+ attr1=%intervalFormatItem34a
+  level=moderate
+ attr0=generic
+ attr1=Bh,Bhm,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,M,MEd,MMM,MMMEd,MMMM,MMMMd,MMMd,Md,d,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMd,yMd
+  level=moderate
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencies/currency[@type]/symbol[@alt]
+ attr0=%currency98
+ attr1=narrow
+  level=moderate
+ attr0=TRY
+ attr1=narrow,variant
+  level=moderate
+ attr0=AED,MVR,OMR,SAR
+ attr1=variant
+  level=moderate
+  elseLevel=comprehensive

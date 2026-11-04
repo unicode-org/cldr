@@ -27,7 +27,6 @@ public class CodeFallback {
         {"cakm", "numbers"},
         {"cham", "numbers"},
         {"chinese", "calendar"},
-        {"chis", "numbers"},
         {"compat", "collation"},
         {"coptic", "calendar"},
         {"cyrl", "numbers"},
@@ -223,11 +222,11 @@ public class CodeFallback {
         for (String[] typeDisplayName : typeDisplayNames) {
             constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
-                            + "[@key=\""
-                            + typeDisplayName[1]
-                            + "\"]"
                             + "[@type=\""
                             + typeDisplayName[0]
+                            + "\"]"
+                            + "[@key=\""
+                            + typeDisplayName[1]
                             + "\"]",
                     typeDisplayName[0]);
         }

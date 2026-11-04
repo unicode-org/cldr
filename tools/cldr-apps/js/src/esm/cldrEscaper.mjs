@@ -8,6 +8,7 @@ const staticInfo = {
     "\u0020": { name: "SP" },
     "\u200e": { name: "LRM" },
     "\u200f": { name: "RLM" },
+    "–": { name: "EN DASH" } /* Needed for tests */,
   },
   namesForMenu: ["LRM", "RLM", "SP"],
 }; // start from static info - useful for tests

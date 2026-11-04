@@ -1925,9 +1925,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (LocaleNames.ROOT.equals(locale)) {
                 continue;
             }
-            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
-                continue;
-            }
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             String baseLanguage = loc.getLanguage();
             String defaultScript = supp.getDefaultScript(baseLanguage);
@@ -1944,11 +1941,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     likely == null ? null : CLDRLocale.getInstance(likely).getScript();
             Map<Type, BasicLanguageData> scriptInfo = supp.getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                if (StandardCodes.isLocaleAtLeastBasic(locale)) {
-                    errln(loc + ": has no BasicLanguageData");
-                } else {
-                    logln(loc + ": has no BasicLanguageData (not a basic loc)");
-                }
+                errln(
+                        loc
+                                + ": has no BasicLanguageData - see https://cldr.unicode.org/development/updating-codes/update-language-script-info");
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
 
@@ -2190,11 +2185,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         if (unicodeDigits.size() > 0) {
             for (Integer i : unicodeDigits) {
+                final String script = UScript.getShortName(UScript.getScript(i));
+                if ("Chis".equals(script)
+                        && logKnownIssue(
+                                "CLDR-19756",
+                                "Chisoi (Chis) removed from CLDR in CLDR-19339 but present in new ICU4J")) {
+                    continue;
+                }
                 errln(
                         "Unicode digit: "
                                 + UCharacter.getName(i)
                                 + " is not in any numbering system. Script = "
-                                + UScript.getShortName(UScript.getScript(i)));
+                                + script);
             }
         }
     }

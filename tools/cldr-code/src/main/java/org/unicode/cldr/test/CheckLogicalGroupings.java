@@ -51,10 +51,11 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         return this;
     }
 
-    // remember to add this class to the list in CheckCLDR.getCheckAll
-    // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.*
-    // -t.*LogicalGroupings.*
-
+    /**
+     * remember to add this class to the list in {@link CheckCLDR#getCheckAll} <br>
+     * to run just this test, on just locales starting with 'nl', use CheckCLDR with <code>
+     * -fnl.* -t.*LogicalGroupings.*</code>
+     */
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {

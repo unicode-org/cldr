@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -11,9 +10,11 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.OutputInt;
 import com.ibm.icu.util.TimeZone;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -38,11 +39,11 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalPatternConstructor;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
-import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -146,7 +147,7 @@ public class TestDateOrder extends TestFmwk {
     static final String intervalFormatPathPrefix =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/";
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestIso8601() {
         List<String> printout = null;
         if (isVerbose()) {
@@ -155,11 +156,12 @@ public class TestDateOrder extends TestFmwk {
             warnln("Use -v to see a comparison between calendars");
         }
 
+        final org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         final CLDRLocale locEn = CLDRLocale.getInstance("en");
         final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
-        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(locEn);
-        final ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(locEnCan);
-        CLDRFile englishCan = CLDRConfig.getInstance().getCldrFactory().make("en_CA", true);
+        final ICUServiceBuilder isb = cldrFactory.getICUServiceBuilder(locEn);
+        final ICUServiceBuilder isbCan = cldrFactory.getICUServiceBuilder(locEnCan);
+        CLDRFile englishCan = cldrFactory.make("en_CA", true);
         Factory phf = PathHeader.getFactory();
 
         Set<PathHeader> paths = new TreeSet<>();
@@ -263,11 +265,17 @@ public class TestDateOrder extends TestFmwk {
 
                 sampleDate = neutralFormat.format(sample);
 
-                SimpleDateFormat gregFormat = isb.getDateFormat("gregorian", gregPat);
+                SimpleDateFormat gregFormat =
+                        isb.getDateFormat(
+                                "gregorian", gregPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 gregFormat.setTimeZone(TimeZone.GMT_ZONE);
-                SimpleDateFormat isoFormat = isb.getDateFormat("iso8601", isoPat);
+                SimpleDateFormat isoFormat =
+                        isb.getDateFormat(
+                                "iso8601", isoPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 isoFormat.setTimeZone(TimeZone.GMT_ZONE);
-                SimpleDateFormat caFormat = isbCan.getDateFormat("gregorian", gregPat);
+                SimpleDateFormat caFormat =
+                        isbCan.getDateFormat(
+                                "gregorian", gregPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 caFormat.setTimeZone(TimeZone.GMT_ZONE);
 
                 gregFormatted = gregFormat.format(sample);
@@ -366,10 +374,14 @@ public class TestDateOrder extends TestFmwk {
     public String formatInterval(
             ICUServiceBuilder isb, Date sample, Date sample2, String calendar, String pattern) {
         List<String> parts = splitIntervalPattern(pattern);
-        SimpleDateFormat gregFormat1 = isb.getDateFormat(calendar, parts.get(0));
+        SimpleDateFormat gregFormat1 =
+                isb.getDateFormat(
+                        calendar, parts.get(0), ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         gregFormat1.setTimeZone(TimeZone.GMT_ZONE);
 
-        SimpleDateFormat gregFormat2 = isb.getDateFormat(calendar, parts.get(2));
+        SimpleDateFormat gregFormat2 =
+                isb.getDateFormat(
+                        calendar, parts.get(2), ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         gregFormat2.setTimeZone(TimeZone.GMT_ZONE);
 
         return gregFormat1.format(sample) + parts.get(1) + gregFormat2.format(sample2);
@@ -568,32 +580,28 @@ public class TestDateOrder extends TestFmwk {
 
     public void testIntervalConstructor() {
         String calendar = "gregorian";
-        isVerbose();
+
         Collection<String> locales =
                 getInclusion() < 6
-                        ? List.of("en", "ja", "de")
+                        ? List.of("en", "ja", "de", "cs", "zh", "zh_Hant")
                         : getInclusion() < 7
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : cldrFactory.getAvailable();
+        warnln(
+                "\nAbbreviation\tDescription of the differences\n"
+                        + Arrays.asList(IntervalDiff.values()).stream()
+                                .map(x -> x + "\t" + x.description)
+                                .collect(Collectors.joining("\n"))
+                        + "\n\nLocale\tCalendar\tSkeleton\tGreatest Diff\tAvailable pattern\tInterval Pattern\tConstructed Interval Pattern\tStatus\tSample\tConstructed Sample\tComments");
         for (String locale : locales) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             DatePatternInfo datePatternInfo =
                     DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
-            IntervalPatternConstructor ipu = new IntervalPatternConstructor(cldrFile, calendar);
-            ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
-
+            CldrIntervalFormat.IntervalPatternConstructor ipu =
+                    new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, calendar);
+            ICUServiceBuilder isb =
+                    cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(locale));
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
-            Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
-            Map<String, Date> endDates =
-                    Map.of(
-                            "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
-                            "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
-                            "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
-                            "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
-                            "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
-                            "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
-                            "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
-                            "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
 
             Map2<String, String, String> formatted =
                     SHOW_CONSTRUCTED_INTERVALS
@@ -608,16 +616,33 @@ public class TestDateOrder extends TestFmwk {
                                                             DatetimeUtilities.PATTERN_COMPARATOR))
                             : null;
             Output<String> available = new Output<>();
+            Output<String> availablePath = new Output<>();
             {
                 // simple case for debugging
                 String greatestDifference = "H";
-                String constructedPattern = ipu.construct("Hv", greatestDifference, available);
+                String constructedPattern =
+                        ipu.construct("Hv", greatestDifference, availablePath, available);
+                try {
 
-                Date sampleEndDate = getEndDate(endDates, greatestDifference);
-                CldrIntervalFormat cif =
-                        CldrIntervalFormat.getInstance(calendar, constructedPattern);
-                String actualSample = cif.format(sampleStartDate, sampleEndDate, isb, timeZone);
+                    Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
+                    CldrIntervalFormat cif =
+                            CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                    String actualSample =
+                            cif.format(
+                                    CldrIntervalFormat.getSampleStartDate(),
+                                    sampleEndDate,
+                                    isb,
+                                    timeZone,
+                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
+                } catch (Exception e) {
+                    // TODO CLDR-18980 make this a JUnit parameterized test, so that each
+                    // locale can fail independently. For now, just fail the whole test, but give
+                    // some context.
+                    throw new RuntimeException(
+                            "In locale " + locale + " " + " with " + constructedPattern, e);
+                }
             }
+            OutputInt diffCount = new OutputInt();
 
             datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
                     .forEach(
@@ -629,7 +654,11 @@ public class TestDateOrder extends TestFmwk {
                                 String constructedPattern;
                                 try {
                                     constructedPattern =
-                                            ipu.construct(skeleton, greatestDifference, available);
+                                            ipu.construct(
+                                                    skeleton,
+                                                    greatestDifference,
+                                                    availablePath,
+                                                    available);
                                 } catch (Exception e) {
                                     errln(locale + "\t" + calendar + "\t" + e.getMessage());
                                     return;
@@ -642,13 +671,22 @@ public class TestDateOrder extends TestFmwk {
                                             CldrIntervalFormat.getInstance(
                                                     calendar, constructedPattern);
 
-                                    Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                                    Date sampleEndDate =
+                                            CldrIntervalFormat.getSampleEndDate(greatestDifference);
                                     String actualSample =
                                             actualIF.format(
-                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+                                                    CldrIntervalFormat.getSampleStartDate(),
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone,
+                                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                                     String constructedSample =
                                             constructedIF.format(
-                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+                                                    CldrIntervalFormat.getSampleStartDate(),
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone,
+                                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
 
                                     Set<IntervalDiff> status =
                                             IntervalDiff.compare(
@@ -656,7 +694,9 @@ public class TestDateOrder extends TestFmwk {
                                                     constructedPattern,
                                                     actualIF,
                                                     constructedIF);
-
+                                    if (!status.isEmpty()) {
+                                        diffCount.value++;
+                                    }
                                     String value =
                                             Joiners.TAB.join(
                                                     available,
@@ -681,7 +721,9 @@ public class TestDateOrder extends TestFmwk {
                             });
             if (formatted != null) {
                 warnln(
-                        "\n"
+                        "\nDiffs:\t"
+                                + diffCount
+                                + "\n"
                                 + formatted.stream()
                                         .map(
                                                 x ->
@@ -712,7 +754,7 @@ public class TestDateOrder extends TestFmwk {
         return result;
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDatetimeUtilities() {
         // basic test
 
@@ -728,12 +770,14 @@ public class TestDateOrder extends TestFmwk {
 
     // This is temporary; it will be modified to be a real test once the new data is solid.
 
+    @Disabled
     public void testAddSeparators() {
         Collection<String> locales =
                 getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();
         String calendar = "gregorian";
         System.out.println();
         for (String locale : locales) {
+            System.out.println(locale);
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
             for (IntervalSeparatorType separatorType : IntervalSeparatorType.values()) {
@@ -777,47 +821,17 @@ public class TestDateOrder extends TestFmwk {
     UnicodeSet others = new UnicodeSet();
     Set<String> oddities = new TreeSet<>();
 
-    // The following was built by the !matcher.matches() portion in clean()
-    Map<String, String> fixes =
-            ImmutableMap.<String, String>builder()
-                    .put(" 'lia' – ", " – ")
-                    .put(" تا ", " – ")
-                    .put("('a') – ", " – ")
-                    .put(". – ", " – ")
-                    .put(". – ", " – ")
-                    .put(".–", "–")
-                    .put(" تا ", " – ")
-                    .put(" 'г'. – ", " – ")
-                    .put("日 – ", " – ")
-                    .put("日至", "至")
-                    .put("日～", "～")
-                    .put("月至", "至")
-                    .put("月～", "～")
-                    .put("월~", "~")
-                    .put("일~", "~")
-                    .put(" 'a' ", " – ")
-                    .put(" 'al' ", " – ")
-                    .put("/", " – ")
-                    .put("ꑍ – ", " – ")
-                    .put("ꑍ–", "–")
-                    .build();
-
     private String clean(String locale, CldrIntervalFormat intPattern) {
         String result = intPattern.separatorString;
         Matcher matcher = ok.matcher(result);
         if (!matcher.matches()) {
-            String replacement = fixes.get(result);
-            if (replacement != null) {
-                result = replacement;
+            System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
+            others.addAll(result);
+            matcher.reset();
+            if (matcher.find()) {
+                oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
             } else {
-                System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
-                others.addAll(result);
-                matcher.reset();
-                if (matcher.find()) {
-                    oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
-                } else {
-                    oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
-                }
+                oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
             }
         }
         return result;
@@ -876,5 +890,57 @@ public class TestDateOrder extends TestFmwk {
         if (!Objects.equal(idNorm, id)) {
             warnln(Joiners.TAB.join(title, locale, calendar, "«" + pattern + "»", idNorm, id));
         }
+    }
+
+    public void testSpecialSeparators() {
+        String[][] tests = {
+            {"Gy年M月d日(E)～Gy年M月d日(E)", "～"},
+            {"E, dd. – E, dd.MM.y", " – "},
+            {"E, dd. – ?E, dd.MM.y", " – "}
+        };
+        for (String[] test : tests) {
+            String pattern = test[0];
+            String expected = test[1];
+            CldrIntervalFormat cif = CldrIntervalFormat.getInstance("gregorian", pattern);
+            assertEquals(pattern, expected, cif.separatorString);
+            assertEquals("roundtrip", pattern, cif.toString());
+        }
+    }
+
+    public void testIntervalInternal() {
+        CLDRFile cldrFile;
+        IntervalPatternConstructor ipu;
+
+        cldrFile = cldrFactory.make("de", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "d", "d. MMM y", "d.–d. MMM y");
+        checkIntervalInternal(ipu, "M", "d. MMM y", "d. MMM – d. MMM y");
+
+        cldrFile = cldrFactory.make("en", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "h", "h:mm\u202Fa", "h:mm – h:mm a");
+        checkIntervalInternal(ipu, "M", "E, MMM d, y G", "E, MMM d – E, MMM d, y G");
+
+        cldrFile = cldrFactory.make("ja", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "G", "Gy/M/d(E)", "Gy/M/d(E)～Gy/M/d(E)");
+        checkIntervalInternal(ipu, "a", "aK時 v", "aK時～aK時 v");
+    }
+
+    private void checkIntervalInternal(
+            CldrIntervalFormat.IntervalPatternConstructor ipu,
+            String availableGreatest,
+            String availablePattern,
+            String expectedInterval) {
+        String constructedPattern = ipu.constructInternal(availablePattern, availableGreatest);
+        expectedInterval = normalizeSpaces(expectedInterval);
+        constructedPattern = normalizeSpaces(constructedPattern);
+        assertEquals(
+                availablePattern + "/" + availableGreatest, expectedInterval, constructedPattern);
+    }
+
+    private String normalizeSpaces(String expectedInterval) {
+        // TODO Auto-generated method stub
+        return expectedInterval.replace('\u2009', ' ').replace('\u202F', ' ');
     }
 }

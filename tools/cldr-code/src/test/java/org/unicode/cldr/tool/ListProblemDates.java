@@ -117,7 +117,7 @@ public class ListProblemDates {
         for (String locale : targets) {
             final CLDRFile cldrFile = FACTORY.make(locale, true);
             final CLDRLocale loc = CLDRLocale.getInstance(locale);
-            final ICUServiceBuilder service = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder service = FACTORY.getICUServiceBuilder(loc);
             final Set<PathHeader> sortedPaths = new TreeSet<>();
 
             for (String path : cldrFile) {
@@ -210,7 +210,8 @@ public class ListProblemDates {
     }
 
     private static String formatDate(ICUServiceBuilder service, String calendar, String pattern) {
-        return service.getDateFormat(calendar, pattern).format(sampleDate);
+        return service.getDateFormat(calendar, pattern, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT)
+                .format(sampleDate);
     }
 
     private static boolean containsWithoutBridges(String container, String containee) {

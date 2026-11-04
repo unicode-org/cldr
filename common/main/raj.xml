@@ -131,6 +131,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, d MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
@@ -168,10 +170,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">यूटीसी {0}</gmtFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Coordinated Universal Time</standard>
+				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard>ग्रीन विच मीन टाइम</standard>

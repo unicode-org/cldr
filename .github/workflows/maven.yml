@@ -2,8 +2,9 @@ name: cldr-mvn
 
 env:
   ## uncomment only ONE of these
-  # CLDR_CHECK_MODE: FINAL_TESTING
-  CLDR_CHECK_MODE: BUILD
+  CLDR_CHECK_MODE: FINAL_TESTING
+  # CLDR_CHECK_MODE: BUILD
+  JDK_VERSION: 21
 
 on:
   push:
@@ -82,7 +83,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v4
@@ -161,7 +162,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v4
@@ -213,7 +214,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: JUnit Test Summary
-        uses: test-summary/action@v2
+        uses: test-summary/action@v2.6
         with:
           paths: "tools/*/target/surefire-reports/**/TEST-*.xml"
         if: always()
@@ -236,7 +237,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v4

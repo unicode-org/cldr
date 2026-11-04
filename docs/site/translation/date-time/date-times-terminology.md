@@ -6,7 +6,7 @@ title: Date & Time terminology
 
 This topic is **in-progress** and and **not finalized** yet for use.
 
-Following are terminology and definitions that are used for Date and Time structure and data in CLDR. The terminology used in CLDR have dependency on LDML Spec #35 and names of methods and objects in ICU.
+Following are terminology and definitions that are used for Date and Time structure and data in CLDR. The terminology used in CLDR have dependency on the CLDR Spec #35 and names of methods and objects in ICU.
 
 | Terminology |  Definition |  Examples |
 |---|---|---|

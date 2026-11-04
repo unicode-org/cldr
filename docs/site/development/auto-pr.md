@@ -49,6 +49,8 @@ Source: <https://github.com/unicode-org/cldr/blob/main/.github/workflows/cldr-mo
 This process runs CLDRModify against several directories.
 Search for "CLDRModify passes here" in the .yml file to update.
 
+Several other CLDR tools are also run by this action.
+
 ### SpecFix
 
 Source: <https://github.com/unicode-org/cldr/blob/main/.github/workflows/spec.yml>

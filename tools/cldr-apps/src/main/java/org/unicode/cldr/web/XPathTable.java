@@ -402,7 +402,7 @@ public class XPathTable {
         if (nid != null) {
             return nid.intValue();
         } else {
-            return addXpath(xpath, false, null).intValue();
+            return XPathTable.NO_XPATH;
         }
     }
 
@@ -418,21 +418,6 @@ public class XPathTable {
             return nid.intValue();
         } else {
             return addXpath(xpath, true, conn).intValue();
-        }
-    }
-
-    /**
-     * Look up xpath id by value. Return -1 if not found
-     *
-     * @param xpath
-     * @return id, or -1 if not found
-     */
-    public final int peekByXpath(String xpath, Connection conn) {
-        Integer nid = stringToId.get(xpath);
-        if (nid != null) {
-            return nid.intValue();
-        } else {
-            return addXpath(xpath, false, conn).intValue();
         }
     }
 

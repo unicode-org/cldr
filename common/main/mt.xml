@@ -863,15 +863,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="dangi">Kalendarju Dangi</type>
 			<type key="calendar" type="ethiopic">Kalendarju Etjopiku</type>
 			<type key="calendar" type="gregorian">Kalendarju Gregorjan</type>
+			<type key="calendar" type="gregorian" scope="core" draft="unconfirmed">Gregorjan</type>
 			<type key="calendar" type="hebrew">Kalendarju Ebrajk</type>
 			<type key="calendar" type="islamic" draft="provisional">Kalendarju Iżlamiku</type>
 			<type key="calendar" type="islamic-civil" draft="provisional">Kalendarju Islamiku-Ċivili</type>
 			<type key="calendar" type="iso8601">Kalendarju ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core" draft="unconfirmed">Gregorjan</type>
 			<type key="calendar" type="japanese">Kalendarju Ġappuniż</type>
 			<type key="collation" type="dictionary" draft="unconfirmed">Ordni tad-Dizzjunarju</type>
 			<type key="collation" type="phonebook">Ordni Telefonika</type>
 			<type key="collation" type="pinyin">Ordni tal-Pinjin</type>
 			<type key="collation" type="standard">Ordni Standard</type>
+			<type key="collation" type="standard" scope="core" draft="unconfirmed">Standard</type>
 			<type key="collation" type="stroke">Ordni Maħżuża</type>
 			<type key="collation" type="traditional">Tradizzjonali</type>
 			<type key="numbers" type="latn">Numri tal-Punent</type>
@@ -892,13 +895,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[c y]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B Ċ C D E F Ġ G {GĦ} H Ħ I {IE*} J K L M N O P Q R S T U V W X Y Ż Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . '‘’ &quot;“” ( ) \[ \] \{ \}]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 	</characters>
 	<delimiters>
@@ -1368,6 +1377,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">/</numericDateSeparator>
+						<numericTimeSeparator draft="unconfirmed">↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -1394,6 +1407,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
@@ -1436,6 +1450,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d 'ta'’ MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d 'ta'’ MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd" draft="unconfirmed">d 'ta'’ MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd" draft="unconfirmed">E, d 'ta'’ MMMM, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ - y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ - y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -1445,6 +1461,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other">w 'ġimgħa' 'ta''' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Day-Of-Week" draft="unconfirmed">{1}, {0}</appendItem>
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
@@ -1854,6 +1871,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
@@ -2162,12 +2182,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc" draft="unconfirmed">ĦUK{0}</gmtFormat>
 			<regionFormat>Ħin ta’ {0}</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">{0} Ħin Standard</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard draft="unconfirmed">Ħin Universali Koordinat</standard>
+				</long>
+				<short>
+					<standard draft="unconfirmed">ĦUK</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Belt Mhux Magħruf</exemplarCity>

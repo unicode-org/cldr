@@ -12,13 +12,13 @@ public class ZoneFormats {
     private final ICUServiceBuilder icuServiceBuilder;
     CLDRFile cldrFile;
 
-    public ZoneFormats(CLDRFile cldrFile) {
+    public ZoneFormats(Factory f, CLDRFile cldrFile) {
         this.cldrFile = cldrFile;
         this.gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
         this.hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
         this.hourFormatPlusMinus = hourFormat.split(";");
         CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = f.getICUServiceBuilder(loc);
     }
 
     public enum Length {
@@ -38,11 +38,11 @@ public class ZoneFormats {
         genericOrStandard
     }
 
-    public String formatGMT(TimeZone currentZone) {
+    public String formatGMT(TimeZone currentZone, String numberingSystem) {
         int tzOffset = currentZone.getRawOffset();
         SimpleDateFormat dateFormat =
                 icuServiceBuilder.getDateFormat(
-                        "gregorian", hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1]);
+                        "gregorian", hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1], numberingSystem);
         String hoursMinutes = dateFormat.format(tzOffset >= 0 ? tzOffset : -tzOffset);
         return MessageFormat.format(gmtFormat, hoursMinutes);
     }

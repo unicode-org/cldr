@@ -14,11 +14,6 @@ import AddValue from "../views/AddValue.vue";
 import ValueTags from "../views/ValueTags.vue";
 
 /**
- * Should ASCII space (U+0020) be displayed as a tag?
- */
-const SPACES_HAVE_TAGS = false;
-
-/**
  * Is the "Add Value" form currently visible?
  */
 let formIsVisible = false;
@@ -106,7 +101,7 @@ function getTrFromXpathStringId(xpstrid) {
  * @param {Array} tagArray - the given tag array
  * @returns the text string
  *
- * Example: ["abc", " ", "xyz"] becomes "abc xyz".
+ * Example: ["abc", "–", "xyz"] becomes "abc–xyz".
  */
 function convertTagsToText(tagArray) {
   return tagArray.join("");
@@ -118,15 +113,16 @@ function convertTagsToText(tagArray) {
  * @param {String} text - the given text string
  * @returns the tag array
  *
- * Each special character becomes a tag. Each sequence of other characters is combined into a tag.
- * Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
+ * Each special character becomes a tag. Each sequence of other characters is combined into a tag (although
+ * such a sequence is displayed as ordinary characters, not as a tag).
+ * Example: "abc–xyz" becomes three tags: ["abc", "–", "xyz"]. (Here "–" is U+2013 EN DASH.)
  */
 function convertTextToTags(text) {
   const tags = [];
   let combined = "";
   const charArray = cldrChar.split(text);
   for (let c of charArray) {
-    if (cldrChar.isSpecial(c)) {
+    if (cldrChar.shouldDisplayAsTag(c)) {
       if (combined.length != 0) {
         tags.push(combined);
         combined = "";
@@ -152,15 +148,6 @@ function addTagsReadyOnly(containerEl, value) {
   }
 }
 
-function shouldDisplayAsTag(tag) {
-  const c = cldrChar.firstChar(tag);
-  if (SPACES_HAVE_TAGS) {
-    return cldrChar.isSpecial(c);
-  } else {
-    return c !== " " && cldrChar.isSpecial(c);
-  }
-}
-
 function textForTag(tag) {
   const c = cldrChar.firstChar(tag);
   const shortName = cldrEscaper.getShortName(c);
@@ -176,12 +163,16 @@ function tagTooltipPlusClick(tag) {
 
 function tagTooltip(tag) {
   const c = cldrChar.firstChar(tag);
-  const info = cldrEscaper.getCharInfo(c);
   const codePoint = cldrChar.firstCodePoint(tag);
   const usv = cldrChar.uPlus(codePoint);
-  return (
-    info.name + " = " + info.shortName + " " + usv + ": " + info.description
-  );
+  const info = cldrEscaper.getCharInfo(c);
+  if (info) {
+    return (
+      info.name + " = " + info.shortName + " " + usv + ": " + info.description
+    );
+  } else {
+    return cldrChar.name(codePoint) + " = " + usv;
+  }
 }
 
 export {
@@ -194,7 +185,6 @@ export {
   isFormVisible,
   sendRequest,
   setFormIsVisible,
-  shouldDisplayAsTag,
   tagTooltip,
   tagTooltipPlusClick,
   textForTag,

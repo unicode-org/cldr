@@ -1,8 +1,11 @@
 package org.unicode.cldr.tool;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -31,11 +34,11 @@ public class CompareEn {
         // BOILERPLATE TO COPY
         final Option option;
 
-        private MyOptions(Params params) {
+        MyOptions(Params params) {
             option = new Option(this, params);
         }
 
-        private static Options myOptions = new Options();
+        private static final Options myOptions = new Options();
 
         static {
             for (MyOptions option : MyOptions.values()) {
@@ -52,6 +55,18 @@ public class CompareEn {
     static Factory annotationsFactory = CLDRConfig.getInstance().getAnnotationsFactory();
     private static boolean VERBOSE = false;
 
+    /** In addition to rule-based skipping of paths, skip any paths that are found in this file */
+    private static final String skipFileName = "CompareEnSkipPaths.txt";
+
+    private static final List<String> skipPaths = readSkipPaths(skipFileName);
+
+    /**
+     * For debugging and revising this code, in verbose mode, report any paths that are specified in
+     * skipFileName but not actually skipped on that basis (they might not have been found, or they
+     * might have been skipped according to a rule)
+     */
+    private static List<String> verboseConfirmSkipped = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         MyOptions.parse(args, true);
         VERBOSE = MyOptions.verbose.option.doesOccur();
@@ -60,11 +75,19 @@ public class CompareEn {
         } else {
             writeComparison();
         }
+        if (VERBOSE) {
+            for (String path : skipPaths) {
+                if (!verboseConfirmSkipped.contains(path)) {
+                    System.out.println("Path not skipped: " + path);
+                }
+            }
+        }
     }
 
     private static void uplevelEnGB() throws IOException {
         System.out.println("Copying values from en_GB to en_001");
         Values values = new Values();
+        int copiedCount = 0;
 
         for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
             String outDir =
@@ -100,12 +123,32 @@ public class CompareEn {
                                     + path);
                 }
                 en_001Out.add(fullPath, values.valueGBR);
+                ++copiedCount;
             }
 
             try (PrintWriter out = FileUtilities.openUTF8Writer(outDir, "en_001.xml")) {
                 en_001Out.write(out);
             }
         }
+        System.out.println("Copied " + copiedCount + " values from en_GB to en_001");
+    }
+
+    private static List<String> readSkipPaths(String fileName) {
+        ArrayList<String> list = new ArrayList<>();
+        int count = 0;
+        try (BufferedReader br = CldrUtility.getUTF8Data(fileName)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (!line.startsWith("#")) {
+                    list.add(line);
+                    ++count;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Read " + count + " paths from " + fileName);
+        return list;
     }
 
     static final class Values {
@@ -113,7 +156,7 @@ public class CompareEn {
         String value001R;
     }
 
-    static enum FilterStatus {
+    enum FilterStatus {
         /** don't make the change */
         skip,
         /** don't make the change, but note in the comparison file */
@@ -132,7 +175,7 @@ public class CompareEn {
      * @param values
      * @return
      */
-    public static FilterStatus failsFilter(
+    private static FilterStatus failsFilter(
             String path, CLDRFile en_GBR, CLDRFile en_001R, Values values) {
         if (path.startsWith("//ldml/identity")) {
             return FilterStatus.skip;
@@ -141,7 +184,7 @@ public class CompareEn {
                 || path.contains("/datetimeSkeleton")
                 || path.contains("/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")) {
             if (VERBOSE) {
-                System.out.println("Skipping\t" + path);
+                System.out.println("Skipping (per filter)\t" + path);
             }
             return FilterStatus.skipButNote;
         }
@@ -158,6 +201,13 @@ public class CompareEn {
         if (Objects.equals(values.valueGBR, values.value001R)) {
             return FilterStatus.skip;
         }
+        if (skipPaths.contains(path)) {
+            if (VERBOSE) {
+                System.out.println("Skipping (per " + skipFileName + ")\t" + path);
+                verboseConfirmSkipped.add(path);
+            }
+            return FilterStatus.skipButNote;
+        }
         return FilterStatus.accept;
     }
 
@@ -172,7 +222,6 @@ public class CompareEn {
             out.println(
                     "Proposed Disposition\tSection\tPage\tHeader\tCode\ten\ten_001\ten_GB\tPath");
             for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
-                CLDRFile en = factory.make("en", false);
                 CLDRFile en_001 = factory.make("en_001", false);
                 CLDRFile en_GB = factory.make("en_GB", false);
 
@@ -186,7 +235,6 @@ public class CompareEn {
                 en_GB.forEach(x -> paths.add(phf.fromPath(x)));
                 en_001.forEach(x -> paths.add(phf.fromPath(x)));
 
-                main:
                 for (PathHeader pathHeader : paths) {
                     String path = pathHeader.getOriginalPath();
                     String note = "";
@@ -198,7 +246,7 @@ public class CompareEn {
                         case accept:
                             break;
                         case skip:
-                            continue main;
+                            continue;
                     }
 
                     String valueR = enR.getStringValue(path);

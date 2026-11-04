@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestIcuPersonNames extends TestFmwk {
 
     /**

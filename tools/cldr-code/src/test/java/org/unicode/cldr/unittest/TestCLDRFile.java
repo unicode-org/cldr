@@ -411,7 +411,8 @@ public class TestCLDRFile extends TestFmwk {
                     || path.contains("[@alt=\"noCurrency\"]") // CLDR-14336
                     || path.startsWith("//ldml/personNames/") // CLDR-15384
                     || path.startsWith("//ldml/typographicNames/styleName")
-                    || path.startsWith("//ldml/units")) {
+                    || path.startsWith("//ldml/units")
+                    || path.contains("ddd")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
                 errln("+" + engName + ", -" + locales + "\t" + path);

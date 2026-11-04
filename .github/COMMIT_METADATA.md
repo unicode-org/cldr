@@ -68,3 +68,12 @@
 - 13db39076da1999260ad5ad85b6fc2bf8050756f CLDR-17141 kbd: fixed in 44
 - 09c8e1082808f97608c39062897a7b844d50c18e CLDR-17230 emoji: fixed in 44.1
 - 657e6e996b88b891132db29cc4fc61c36f174689 CLDR-17141 kbd: fixed in 44
+
+# SKIP v49
+
+- b4ab103ffb6baa02a6c970f04a237484d80ac19d CLDR-14086 Handle more raw quotes (change reverted)
+- 68b0098e39037a11b98be3feb7de280d27a00ff1 CLDR-14086 Handle more raw quotes (original change which was reverted)
+- e3050fd5afcd823f46e28e349c42832a4aeb50da CLDR-19006 v48 update spec internal links (v48.x)
+- 701a38704c192d5c5dd712ce6035bf33ac7f42f4 CLDR-19045 v48: skip rgScope in cldr-json (v48.x)
+- c7c38a0a928b13d018d623b6cf1336d7d1d92517 CLDR-19188 Fix the version 48 and 48.1 DTD delta charts (v48.x)
+- 9e214559995c2b6545bcefa4dd6b5379dab7df78 CLDR-19359 Revise instructions for generating charts (v48.x)

@@ -105,7 +105,7 @@ public class ListGrammarData {
 
             ExampleGenerator exampleGenerator = null;
             if (exampleHtml) {
-                exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish());
+                exampleGenerator = new ExampleGenerator(cldrFile, factory);
             }
             BestMinimalPairSamples bestMinimalPairSamples =
                     new BestMinimalPairSamples(cldrFile, null, true);

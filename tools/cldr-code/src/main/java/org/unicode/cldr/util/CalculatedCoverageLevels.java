@@ -43,12 +43,13 @@ public class CalculatedCoverageLevels {
         if (level != null) {
             return level;
         }
+        String lang = locale.getLanguage();
         // Otherwise, tail-recurse on parent, unless the parent is root
         final CLDRLocale parent = locale.getParent();
-        if (parent == CLDRLocale.ROOT) {
+        if (parent == CLDRLocale.ROOT || !lang.equals(parent.getLanguage())) {
             // not found: no level.
             // TODO: should this really be 'core'? if at least core? CLDR-16420
-            return null;
+            return Level.UNDETERMINED;
         }
         return getEffectiveCoverageLevel(parent);
     }
@@ -62,6 +63,15 @@ public class CalculatedCoverageLevels {
      */
     public boolean isLocaleAtLeastBasic(String locale) {
         return levels.containsKey(locale);
+        // return isLocaleReallyAtLeastBasic(locale);
+        // TODO: fix this function and/or its callers and/or the data. If this function
+        // is made the same as isLocaleReallyAtLeastBasic, four tests fail with current data.
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-19722
+    }
+
+    public boolean isLocaleReallyAtLeastBasic(String localeId) {
+        Level level = getEffectiveCoverageLevel(localeId);
+        return level != null && level.isAtLeast(Level.BASIC);
     }
 
     /** Read the coverage levels from the standard file */

@@ -185,6 +185,8 @@ const strings = {
     "This item is inherited from the root locale.",
   item_description_loser: "This item is currently losing.",
   item_description_fallback: "This item is inherited from the ${0} locale.",
+  item_description_missing_tests:
+    "This item is missing, but there are errors/warnings.",
   followAlias: "Jump to Original ⇒",
   noFollowAlias: "This item is constructed from other values.",
 
@@ -325,9 +327,6 @@ const strings = {
   section_forum: "Forum",
   section_subpages: "Subpages",
 
-  searchNoResults: "No results found.",
-  searchGuidance:
-    "This is a basic search facility. An exact word such as 'Monday' or 'Montag' can be entered, or an XPath or string ID like 'eeaf1f975877a5d'.  An optional locale ID can be prefixed to any search term, so 'mt:Monday' or 'mt:eeaf1f975877a5d'.",
   section_help:
     "Choose an item from the 'Subpages' menu to begin working with this section.",
 
@@ -541,7 +540,6 @@ const strings = {
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
   special_retry_inplace: "Retry",
-  special_search: "Search",
   special_statistics: "Statistics",
   special_transfervotes: "Copy Old Votes Tool",
   special_users: "Users",
@@ -671,6 +669,7 @@ function sub(k, map) {
  * @return the string with substitutions made, or an empty string for failure
  */
 function subTemplate(template, map) {
+  if (!map) return template; // if no map was provided
   if (template) {
     if (map instanceof Array) {
       return template.replace(/\${(\d)}/g, (blank, i) => map[i]);

@@ -8,13 +8,14 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 2: General
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers certain general parts of CLDR, including display names & transforms.
 
-This is a partial document, describing general parts of the LDML: display names & transforms, etc. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -30,7 +31,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -61,6 +62,7 @@ The LDML specification is divided into the following parts:
   * [Nested Bracket Replacement](#Character_Nested_Bracket_Replacement)
   * [More Information](#Character_More_Info)
   * [Parse Lenient](#Character_Parse_Lenient)
+  * [Boundary Spacing](#Character_Boundary_Spacing)
 * [Delimiter Elements](#Delimiter_Elements)
   * [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
 * [Measurement System Data](#Measurement_System_Data)
@@ -657,7 +659,7 @@ _Examples for zh.xml:_
 
 When determining the character repertoire needed to support a language, a reasonable initial set would include at least the characters in the main and punctuation exemplar sets, along with the digits and common symbols associated with the numberSystems supported for the locale (see _[Numbering Systems](tr35-numbers.md#Numbering_Systems)_).
 
-The _index_ characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. For details see the [Unicode LDML: Collation](tr35-collation.md#Collation_Indexes) document. The index set may only contain characters whose lowercase versions are in the main and auxiliary exemplar sets, though for cased languages the index exemplars are typically in uppercase. Characters from the auxiliary exemplar set may be necessary in the index set if it needs to properly handle items such as names which may require characters not included in the main exemplar set.
+The _index_ characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. For details see the [Unicode CLDR: Collation](tr35-collation.md#Collation_Indexes) document. The index set may only contain characters whose lowercase versions are in the main and auxiliary exemplar sets, though for cased languages the index exemplars are typically in uppercase. Characters from the auxiliary exemplar set may be necessary in the index set if it needs to properly handle items such as names which may require characters not included in the main exemplar set.
 
 Here is a sample of the XML structure:
 
@@ -692,11 +694,11 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 ### ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
 
-**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](tr35-general.md#Character_Mapping) section from the CLDR 27 version of the LDML Specification.
+**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](tr35-general.md#Character_Mapping) section from the CLDR 27 version of the CLDR specification.
 
 ### ~~<a name="IndexLabels" href="#IndexLabels">Index Labels</a>~~
 
-**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](tr35-general.md#IndexLabels) section from the CLDR 27 version of the LDML Specification.
+**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](tr35-general.md#IndexLabels) section from the CLDR 27 version of the CLDR specification.
 
 ```xml
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
@@ -778,6 +780,25 @@ Example:
 The `parseLenient` elements are used to indicate that characters within a particular UnicodeSet are normally to be treated as equivalent when doing a lenient parse. The `scope` attribute value defines where the lenient sets are intended for use. The `level` attribute value is included for future expansion; currently the only value is "lenient".
 
 The `sample` attribute value is a paradigm element of that UnicodeSet, but the only reason for pulling it out separately is so that different classes of characters are separated, and to enable inheritance overriding. The first version of this data is populated with the data used for lenient parsing from ICU.
+
+### <a name="Character_Boundary_Spacing" href="#Character_Boundary_Spacing">Boundary Spacing</a>
+
+```xml
+<!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
+<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
+```
+
+Example:
+
+```xml
+<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve"> </placeholderBoundarySpacing>
+```
+
+The `placeholderBoundarySpacing` element indicates a character to be inserted in some circumstances when placeholder substitution takes place.
+
+One such circumstance is to prevent inappropriate digit-digit concatenations that could result from placeholder substitution. This issue can occur in dates and times, especially in languages that don’t use spaces between words. For example, there are patterns like “vHH:mm” where a timezone placeholder (v symbol) is adjacent to an hour placeholder (h or H symbol). When the timezone value is a word this may be intended: “育空时间13:59”. However, when the timezone is represented by an offset format, the Placeholder Boundary Spacing value prevents inappropriate digit-digit concatenations such as “UTC+113:59”.
 
 ## <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter Elements</a>
 
@@ -862,7 +883,7 @@ The `paperSize` attribute gives the height and width of paper used for normal bu
 
 For both `measurementSystem` entries and `paperSize` entries, later entries for specific territories such as "US" will override the value assigned to that territory by earlier entries for more inclusive territories such as "001".
 
-The measurement information was formerly in the main LDML file, and had a somewhat different format.
+The measurement information was formerly in the main CLDR XML file, and had a somewhat different format.
 
 Again, for finer-grained detail about specific units for various usages, see **Part 6: Supplemental:** _[Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage)_.
 
@@ -872,7 +893,7 @@ Again, for finer-grained detail about specific units for various usages, see **P
 <!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) >
 ```
 
-The `measurement` element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to linguistic data. Instead, the `measurementData` element in the supplemental data file should be used.
+The `measurement` element is deprecated in the main CLDR XML files, because the data is more appropriately organized as connected to territories, not to linguistic data. Instead, the `measurementData` element in the supplemental data file should be used.
 
 ## <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a>
 
@@ -1205,7 +1226,7 @@ For example, `kilowatt-hour-per-3-meter-5-second` has the equivalent normalized 
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
-This was not true in previous versions of LDML: cup-metric overlapped with metric-ton.
+This was not true in previous versions of CLDR: cup-metric overlapped with metric-ton.
 That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous.
 
 The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler.
@@ -1884,7 +1905,7 @@ Note that the script and region codes are cased iff they are in the main subtag,
 
 ### <a name="Inheritance" href="#Inheritance">Inheritance</a>
 
-The CLDR transforms are built using the following locale inheritance. While this inheritance is not required of LDML implementations, the transforms supplied with CLDR may not otherwise behave as expected without some changes.
+The CLDR transforms are built using the following locale inheritance. While this inheritance is not required of CLDR implementations, the transforms supplied with CLDR may not otherwise behave as expected without some changes.
 
 For either the source or the target, the fallback starts from the maximized locale ID (using the likely-subtags data). It also uses the country for lookup before the base language is reached, and root is never accessed: instead the script(s) associated with the language are used. Where there are multiple scripts, the maximized script is tried first, and then the other scripts associated with the language (from supplemental data).
 
@@ -3017,7 +3038,7 @@ To find a localized subfamily name such as “Extraleicht Schmal” for a font c
 
 ## <a name="Grammatical_Features" href="#Grammatical_Features">Grammatical Features</a>
 
-LDML supplies grammatical information that can be used to distinguish localized forms on a per-locale basis. The current data is part of an initial phase; the longer term plan is to add structure to permit localized forms based on these features, starting with measurement units such as the dative form in Serbian of “kilometer”. That will allow unit values to be inserted as placeholders into messages and adopt the right forms for grammatical agreement.
+CLDR supplies grammatical information that can be used to distinguish localized forms on a per-locale basis. The current data is part of an initial phase; the longer term plan is to add structure to permit localized forms based on these features, starting with measurement units such as the dative form in Serbian of “kilometer”. That will allow unit values to be inserted as placeholders into messages and adopt the right forms for grammatical agreement.
 
 The current data includes the following:
 

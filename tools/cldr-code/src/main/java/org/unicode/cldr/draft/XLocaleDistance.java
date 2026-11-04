@@ -37,7 +37,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class XLocaleDistance {
 
-    static final boolean PRINT_OVERRIDES = true;
+    static final boolean PRINT_OVERRIDES = false;
 
     public static final int ABOVE_THRESHOLD = 100;
 
@@ -67,15 +67,16 @@ public class XLocaleDistance {
         CONTAINER_TO_CONTAINED = ImmutableMultimap.copyOf(containerToContainedTemp);
         // get hard-coded data because ICU fails to copy information
 
-        for (String container : SDI.getContainers()) {
-            Set<String> contained = SDI.getContained(container);
-            System.out.println(
-                    ".putAll(\""
-                            + container
-                            + "\", \""
-                            + Joiner.on("\", \"").join(contained)
-                            + "\")");
-        }
+        if (PRINT_OVERRIDES)
+            for (String container : SDI.getContainers()) {
+                Set<String> contained = SDI.getContained(container);
+                System.out.println(
+                        ".putAll(\""
+                                + container
+                                + "\", \""
+                                + Joiner.on("\", \"").join(contained)
+                                + "\")");
+            }
 
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder =
                 new ImmutableMultimap.Builder<>();

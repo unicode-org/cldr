@@ -1,10 +1,40 @@
 <template>
-  <div class="SearchPanel">
+  <a-drawer
+    placement="right"
+    @after-open-change="afterOpenChange"
+    v-model:open="searchShown"
+    title="Search"
+    :width="800"
+  >
+    <!--
+    class="custom-class"
+    root-class-name="root-class-name"
+    :root-style="{ color: 'blue' }"
+    style="color: red"
+
+  -->
+    <a
+      target="CLDR_ST_DOCS"
+      href="https://cldr.unicode.org/translation#searching-in-the-survey-tool"
+      title="Help"
+      >Help</a
+    >
+    | <a @click="searchHide" title="Close">Close</a>
+
     <a-input-search
       v-model:value="searchText"
       placeholder="Search…"
       v-model:loading="searchLoading"
     />
+    <a-alert
+      v-if="searchTruncated"
+      type="warning"
+      message="Too many results, so we’re only showing some of them."
+      show-icon
+    />
+
+    <a-spin v-if="searchProcessing != 0" />
+    <span v-if="searchProcessing != 0">{{ searchProcessing }} items found</span>
     <a-list
       v-if="searchResults"
       :pagination="pagination"
@@ -13,23 +43,33 @@
     >
       <template #renderItem="{ item }">
         <a-list-item>
-          <a-list-item-meta :description="item.xpath">
+          <a-list-item-meta :description="item.description">
+            <!-- item.xpath-->
             <template #title>
-              <li class="itemlink">
+              <div class="itemlink">
                 <a :href="item.link">{{ item.title }}</a>
-              </li>
-              <li
+              </div>
+              <div class="itemConfidence">
+                <a-progress
+                  :percent="item.confidence"
+                  :steps="5"
+                  size="small"
+                  :showInfo="false"
+                  stroke-color="#52c41a"
+                />
+              </div>
+              <div
                 class="otherlink"
                 v-if="item.link !== item.llink && item.locale !== 'root'"
               >
-                <a :href="item.llink">(See in {{ item.localeName }})</a>
-              </li>
+                <a :href="item.llink">(»{{ item.localeName }})</a>
+              </div>
             </template>
           </a-list-item-meta>
         </a-list-item>
       </template>
     </a-list>
-  </div>
+  </a-drawer>
 </template>
 
 <script lang="js">
@@ -37,8 +77,10 @@ import { ref } from "vue";
 import { getTheLocaleMap } from "../esm/cldrLoad.mjs";
 import { SearchClient } from "../esm/cldrSearch.mjs";
 import { getCurrentLocale } from "../esm/cldrStatus.mjs";
+import { getXpathMap } from "../esm/cldrSurvey.mjs";
 
-import { notification } from "ant-design-vue";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
+import { comparePathHeaders } from "../esm/cldrXpathMap.mjs";
 
 /**
  * The text being searched
@@ -48,6 +90,8 @@ const searchText = ref("");
  * True if we are loading
  */
 const searchLoading = ref(false);
+const searchProcessing = ref(0);
+const searchTruncated = ref(false);
 /**
  * Results!
  */
@@ -59,30 +103,20 @@ const pagination = ref(false);
  */
 let searchClient = null;
 
+const searchShown = ref(false);
+
 export default {
     setup() {
         searchClient = new SearchClient({
             onLoading: (v) => searchLoading.value = v,
-            onResults: (v) => {
+          onResults({ results, isTruncated }) {
+              searchTruncated.value = isTruncated;
+              const v = results;
               if (!v) {
                 searchResults.value = null;
                 return;
               }
-              searchResults.value = v.map(({
-                context, locale, xpstrid, xpath,
-              }) => ({
-                title: context,
-                // link to current locale
-                link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
-                // requested locale
-                locale,
-                // name of requested locale
-                localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
-                // link in the specified locale
-                llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
-                xpath,
-              }));
-              if (searchResults.value.length > 5) {
+              if (v.length > 5) {
                 pagination.value = {
                   pageSize: 5,
                   onChange: pageNo => {},
@@ -90,21 +124,27 @@ export default {
               } else {
                 pagination.value = false;
               }
+              mapSearchResults(v)
+              .then(results => searchResults.value=results)
+              .catch(e => {
+                cldrNotify.exception(e, `Processing Search Results`);
+                searchLoading.value = false;
+                searchProcessing.value = 0;
+              });
             },
           onError: (e) => {
             searchLoading.value = false;
-            notification.error({
-              message: 'Search error',
-              description: `${e}`,
-              placement: "topLeft",
-            });
+            cldrNotify.exception(e, `Search Error`);
           },
         });
         return {
-            searchText,
-            searchLoading,
-            searchResults,
             pagination,
+            searchLoading,
+            searchProcessing,
+            searchResults,
+            searchShown,
+            searchText,
+            searchTruncated,
         }
     },
     watch: {
@@ -114,23 +154,74 @@ export default {
     methods: {
         // TODO: needs to be an event from the parent?
         searchStop: () => searchClient.stop(),
+        searchHide: () => searchShown.value = false,
+        open: () => searchShown.value = true,
+        afterOpenChange: () => {/*console.log('open')*/},
     },
+}
+
+async function mapSearchResults(v) {
+  if (!v.length) return [];
+  // preload all xpath entries for sort
+  const xpathMap = getXpathMap();
+  searchProcessing.value = v.length;
+  console.log(`Updating PH for ${v.length} items`);
+  const seenXpath = new Set();
+  const lookups = [];
+  const newItems = [];
+  for (let i=0; i<v.length; i++) {
+    // skip duplicate xpaths
+    if (!seenXpath.has(v[i].xpath)) {
+      seenXpath.add(v[i].xpath);
+      lookups.push(new Promise((resolve,reject) =>
+      {
+        xpathMap.getPathHeader(v[i].xpath)
+        .then(ph => {
+          newItems.push({...v[i], ph});
+          resolve();
+        }, reject);
+      }));
+    }
+  }
+  // wait for all PH lookups
+  await(Promise.all(lookups));
+  // now we can sort
+  newItems.sort((a, b) => {
+    if (a.confidence !== b.confidence) {
+      return b.confidence - a.confidence;
+    }
+    return comparePathHeaders(a.ph, b.ph);
+  })
+  console.log(`PH updated for ${newItems.length} items (minus dup)`);
+  searchProcessing.value = 0;
+
+  return newItems.map(({
+    context, locale, xpstrid, xpath, ph, confidence,
+  }) => ({
+    title: context,
+    // link to current locale
+    link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
+    // requested locale
+    locale,
+    // name of requested locale
+    localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
+    // link in the specified locale
+    llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
+    xpath,
+    // ph: JSON.stringify(ph),
+    description: xpathMap.formatPathHeader(ph),
+    confidence,
+  }));
 }
 </script>
 
 <style scoped>
-div.SearchPanel {
-  padding-left: 1em;
-  width: 80%;
-}
-
-li.itemlink,
-li.otherlink {
-  list-style: none;
-}
-
 .itemlink a,
 .otherlink a {
   text-decoration: underline;
+}
+
+.itemConfidence {
+  float: right;
 }
 </style>

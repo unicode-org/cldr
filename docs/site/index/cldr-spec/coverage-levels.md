@@ -4,7 +4,7 @@ title: Coverage Levels
 
 # Coverage Levels
 
-There are four main coverage levels as defined in the [UTS \#35: Unicode Locale Data Markup Language (LDML) Part 6: Supplemental: 8 Coverage Levels](https://www.unicode.org/reports/tr35/tr35-info.html#Coverage_Levels). They are described more fully below.
+There are four main coverage levels as defined in the [UTS \#35: Unicode Common Locale Data & Rules (CLDR) Part 6: Supplemental: 8 Coverage Levels](https://www.unicode.org/reports/tr35/tr35-info.html#Coverage_Levels). They are described more fully below.
 
 ## Usage
 

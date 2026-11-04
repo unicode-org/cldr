@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -157,21 +158,16 @@ public class GeneratePluralRanges {
         Output<DecimalQuantity> minSample = new Output<>();
 
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
-        final ICUServiceBuilder icusb = ICUServiceBuilder.forLocale(loc);
+        final ICUServiceBuilder icusb =
+                CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
         DecimalFormat nf = icusb.getNumberFormat(1);
-        // String decimal =
-        // cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal");
         String defaultNumberingSystem =
-                cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                cldrFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         String range =
                 cldrFile.getWinningValue(
                         "//ldml/numbers/miscPatterns[@numberSystem=\""
                                 + defaultNumberingSystem
                                 + "\"]/pattern[@type=\"range\"]");
-
-        //            if (decimal == null) {
-        //                throw new IllegalArgumentException();
-        //            }
         for (Count s : counts) {
             for (Count e : counts) {
                 if (!pluralInfo.rangeExists(s, e, minSample, maxSample)) {

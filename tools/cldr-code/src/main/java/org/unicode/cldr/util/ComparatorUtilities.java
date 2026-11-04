@@ -25,8 +25,10 @@ public class ComparatorUtilities {
     public static Collator getCldrCollator(String localeId, int strength) {
         Collator col = null;
         try {
+            // TODO: This is only used for collation, so hang the ISB on getCldrFactory().
+            final Factory f = CLDRConfig.getInstance().getCldrFactory();
             final CLDRLocale loc = CLDRLocale.getInstance(localeId);
-            final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder isb = f.getICUServiceBuilder(loc);
             col = isb.getRuleBasedCollator().setStrength2(strength).freeze();
         } catch (Exception e) {
         }

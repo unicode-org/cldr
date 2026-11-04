@@ -3,9 +3,11 @@ import { onMounted, ref, reactive } from "vue";
 
 import * as cldrVettingParticipation from "../esm/cldrVettingParticipation.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
+import DownloadAllUserActivity from "./DownloadAllUserActivity.vue";
 
 const STATUS = cldrVettingParticipation.Status;
 
+const shownPanel = ref(["participation"]);
 let hasPermission = ref(false);
 let isTcOrg = ref(false);
 let message = ref("");
@@ -92,50 +94,57 @@ defineExpose({
       (Your organization is not enabled for Vetting Participation.)
     </span>
   </div>
-  <div v-else>
-    <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>
-    <p class="buttons">
-      <button v-if="canCancel()" @click="cancel()">Cancel</button>
-      <button v-else @click="start()">Generate Table Now</button>
-    </p>
-    <p class="progressBar">
-      <a-progress :percent="percent" :status="progressBarStatus()" />
-    </p>
-    <p v-if="message">{{ message }}</p>
-    <hr />
-    <div v-if="tableHeader && tableComments && tableBody">
+  <a-collapse v-model:activeKey="shownPanel" accordion v-else>
+    <a-collapse-panel key="participation" header="Vetting Participation Table">
+      <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>
       <p class="buttons">
-        <button @click="saveAsSheet">Save as Spreadsheet .xlsx</button>
+        <button v-if="canCancel()" @click="cancel()">Cancel</button>
+        <button v-else @click="start()">Generate Table Now</button>
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th v-for="(cell, index) of tableHeader" :key="cell">
-              <a-tooltip :title="tableComments[index]">
-                {{ cell }}
-              </a-tooltip>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="row of tableBody" :key="row">
-            <td v-for="(cell, index) of row" :key="cell">
-              <div v-if="accountColumnIndex == index">
-                <a-tooltip title="Show recent activity ↗">
-                  <a :href="accountRecentActivityLink(cell)" target="_blank">{{
-                    cell
-                  }}</a>
+      <p class="progressBar">
+        <a-progress :percent="percent" :status="progressBarStatus()" />
+      </p>
+      <p v-if="message">{{ message }}</p>
+      <hr />
+      <div v-if="tableHeader && tableComments && tableBody">
+        <p class="buttons">
+          <button @click="saveAsSheet">Save as Spreadsheet .xlsx</button>
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th v-for="(cell, index) of tableHeader" :key="cell">
+                <a-tooltip :title="tableComments[index]">
+                  {{ cell }}
                 </a-tooltip>
-              </div>
-              <div v-else>
-                {{ cell }}
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row of tableBody" :key="row">
+              <td v-for="(cell, index) of row" :key="cell">
+                <div v-if="accountColumnIndex == index">
+                  <a-tooltip title="Show recent activity ↗">
+                    <a
+                      :href="accountRecentActivityLink(cell)"
+                      target="_blank"
+                      >{{ cell }}</a
+                    >
+                  </a-tooltip>
+                </div>
+                <div v-else>
+                  {{ cell }}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </a-collapse-panel>
+    <a-collapse-panel key="download" header="Download all user activity">
+      <DownloadAllUserActivity />
+    </a-collapse-panel>
+  </a-collapse>
 </template>
 
 <style scoped>

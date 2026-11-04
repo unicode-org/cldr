@@ -21,7 +21,7 @@ import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestLanguageGroup extends TestFmwk {
     static CLDRConfig CONF = CLDRConfig.getInstance();
     static CLDRFile ENGLISH = CONF.getEnglish();

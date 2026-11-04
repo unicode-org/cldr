@@ -45,4 +45,20 @@ function asList(a) {
   return l;
 }
 
-export { minus, union, asList };
+/**
+ * Return an inverted map, xpath -> coverage
+ * In other words, this maps `{ A: [x,y], B: [z]}` to `{x: A, y: A, z: B}`
+ * @param {Object} map
+ * @internal
+ */
+function invertMap(map) {
+  const r = {};
+  for (const [k, vs] of Object.entries(map)) {
+    vs.forEach((v) => {
+      r[v] = k;
+    });
+  }
+  return r;
+}
+
+export { minus, union, asList, invertMap };

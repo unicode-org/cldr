@@ -56,7 +56,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testTiming() {
         List<Arguments> testArgs = new ArrayList<>();
         for (List<String> line : tfh.getLines()) {
@@ -166,7 +166,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDataDriven() throws IOException {
         tfh.test();
         if (REFORMAT) {

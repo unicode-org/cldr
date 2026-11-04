@@ -19,6 +19,7 @@
     <div>
       <a-config-provider :direction="dir">
         <span class="show-as-text">
+          <!-- https://www.antdv.com/components/input -->
           <a-input
             v-model:value="newValue"
             placeholder="Add a translation"
@@ -142,6 +143,7 @@ import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 const DEBUG = false;
@@ -204,18 +206,15 @@ function showModal(event) {
   setValue("");
   formIsVisible.value = true;
   cldrAddValue.setFormIsVisible(true, xpstrid.value);
+  if (DEBUG) {
+    console.log("AddValue.showModal: calling nextTick(focusInput)");
+  }
   nextTick(focusInput);
 }
 
 function setValue(s) {
   newValue.value = s;
   handleTextChange();
-}
-
-function focusInput() {
-  if (inputToFocus.value) {
-    inputToFocus.value.focus();
-  }
 }
 
 function onEnglish() {
@@ -272,7 +271,7 @@ function showHiddenIfSpecial() {
   if (!userTurnedOffTags.value && !useTags.value) {
     const charArray = cldrChar.split(newValue.value);
     for (let c of charArray) {
-      if (c != " " && cldrChar.isSpecial(c)) {
+      if (cldrChar.shouldDisplayAsTag(c)) {
         useTags.value = true;
         handleTagsCheckboxChange();
         break;
@@ -294,11 +293,13 @@ function handleTagsCheckboxChange() {
 }
 
 function openInsertMenu(event) {
-  console.log(
-    "openInsertMenu: insertMenuIsVisible.value = " +
-      insertMenuIsVisible.value +
-      "; setting to true"
-  );
+  if (DEBUG) {
+    console.log(
+      "openInsertMenu: insertMenuIsVisible.value = " +
+        insertMenuIsVisible.value +
+        "; setting to true"
+    );
+  }
   insertMenuIsVisible.value = true;
   componentKeyInsert.value++;
 }
@@ -307,23 +308,23 @@ function insertMenuOnChange() {
   if (!chosenChar.value) {
     if (DEBUG) {
       console.log(
-        "AddValue.insertMenuOnChange: doing nothing since chosenChar.value = " +
-          chosenChar.value
+        "AddValue.insertMenuOnChange: doing nothing since no chosenChar.value"
       );
     }
     return;
   }
-  // Note: inputToFocus.value.input.selectionStart works for getting the offset (in
-  // characters) of the insertion point (cursor) in the string the user is editing.
-  // This was determined by experimentation; it's not clear whether it is a documented
-  // feature of Ant Vue components.
-  const insertionPoint = inputToFocus.value.input.selectionStart;
+  const input = getInputElement();
+  if (!input) {
+    return;
+  }
   const textBefore = newValue.value;
   const textAfter =
-    textBefore.slice(0, insertionPoint) +
+    textBefore.slice(0, input.selectionStart) +
     chosenChar.value +
-    textBefore.slice(insertionPoint);
+    textBefore.slice(input.selectionEnd);
+  input.setRangeText(chosenChar.value);
   setValue(textAfter);
+  const insertionPoint = input.selectionStart + chosenChar.value.length;
   if (DEBUG) {
     console.log(
       "AddValue.insertMenuOnChange: insertionPoint = " +
@@ -334,6 +335,59 @@ function insertMenuOnChange() {
         chosenChar.value
     );
   }
+  nextTick(focusInputAndSetRange(insertionPoint));
+}
+
+function focusInput() {
+  const input = getInputElement();
+  if (input) {
+    input.focus();
+    if (DEBUG) {
+      console.log("AddValue.focusInput: called input.focus");
+    }
+  }
+}
+
+function focusInputAndSetRange(insertionPoint) {
+  const input = getInputElement();
+  if (input) {
+    input.focus();
+    if (DEBUG) {
+      console.log(
+        "AddValue.focusInputAndSetRange: before setSelectionRange, input.selectionStart = " +
+          input.selectionStart +
+          "; input.selectionEnd = " +
+          input.selectionEnd +
+          "; insertionPoint = " +
+          insertionPoint
+      );
+    }
+    input.setSelectionRange(insertionPoint, insertionPoint);
+    if (DEBUG) {
+      console.log(
+        "AddValue.focusInputAndSetRange: after setSelectionRange, input.selectionStart = " +
+          input.selectionStart +
+          "; input.selectionEnd = " +
+          input.selectionEnd +
+          "; insertionPoint = " +
+          insertionPoint
+      );
+    }
+  }
+}
+
+function getInputElement() {
+  // inputToFocus.value.input needs to support standard properties, methods, and
+  // events for HTMLInputElement. Since this support is not very clearly documented
+  // at https://www.antdv.com/components/input we confirm and encapsulate it here.
+  const input = inputToFocus.value?.input;
+  const errMessage = "Input implementation error";
+  if (!input) {
+    cldrNotify.error(errMessage, "Element not found");
+  } else if (!(input instanceof HTMLInputElement)) {
+    cldrNotify.error(errMessage, "Element is not an input element");
+  }
+  return input;
 }
 
 defineExpose({

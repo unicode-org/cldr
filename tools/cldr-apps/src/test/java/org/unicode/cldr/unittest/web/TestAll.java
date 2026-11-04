@@ -16,12 +16,17 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.ShimmedMain;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
 
 /** Top level test used to run all other tests as a batch. */
 public class TestAll extends TestGroup {
+    private static String[] getTestClassNames() {
+        return ShimmedMain.findAllTests(TestAll.class.getPackage());
+    }
+
     private static final Logger logger = SurveyLog.forClass(TestAll.class);
 
     private static final String CLDR_TEST_JDBC = TestAll.class.getPackage().getName() + ".jdbcurl";
@@ -100,18 +105,7 @@ public class TestAll extends TestGroup {
     }
 
     public TestAll() {
-        super(
-                new String[] {
-                    // use class.getName so we are in sync with name changes and
-                    // removals (if not additions)
-                    TestIntHash.class.getName(),
-                    TestXPathTable.class.getName(),
-                    TestMiscWeb.class.getName(),
-                    TestUserSettingsData.class.getName(),
-                    TestAnnotationVotes.class.getName(),
-                    TestUserRegistry.class.getName(),
-                },
-                "All tests in CLDR Web");
+        super(getTestClassNames(), "All tests in CLDR Web");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR.Web";

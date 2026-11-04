@@ -37,11 +37,11 @@ import org.unicode.cldr.rdf.TsvWriter;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.ExemplarSets.ExemplarType;
@@ -233,7 +233,7 @@ public final class WikiSubdivisionLanguages {
                     file.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
             UnicodeSet punctuation =
                     file.getExemplarSet(ExemplarType.punctuation, WinningChoice.WINNING);
-            UnicodeSet numbers = file.getExemplarsNumeric(NumberingSystem.defaultSystem);
+            UnicodeSet numbers = file.getExemplarsNumeric(CldrNumberingSystem.defaultSystem);
             exemplars =
                     new UnicodeSet()
                             .addAll(main)

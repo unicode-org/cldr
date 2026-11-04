@@ -86,8 +86,12 @@ public record Conversion(
     }
 
     String toTsv() {
+        return UnitsInfo.TAB.join(formatOnly, convertibleCells());
+    }
+
+    /** The cells after format_only, which unit_combinations.tsv has without format_only. */
+    String convertibleCells() {
         return UnitsInfo.TAB.join(
-                formatOnly,
                 quantityId,
                 quantity,
                 baseUnit,
@@ -107,8 +111,18 @@ public record Conversion(
                 formatOnly.equals("true") || formatOnly.equals("false"),
                 "format_only must be true or false, not %s",
                 formatOnly);
+        return withFormatOnly(formatOnly.equals("true"), cells.subList(1, cells.size()));
+    }
+
+    /** Parses the cells of {@link #convertibleCells()}. */
+    static Conversion parseConvertible(List<String> cells) {
+        return withFormatOnly(false, cells);
+    }
+
+    private static Conversion withFormatOnly(boolean formatOnly, List<String> cells) {
         return new Conversion(
-                formatOnly.equals("true"),
+                formatOnly,
+                cells.get(0),
                 cells.get(1),
                 cells.get(2),
                 cells.get(3),
@@ -118,7 +132,6 @@ public record Conversion(
                 cells.get(7),
                 cells.get(8),
                 cells.get(9),
-                cells.get(10),
-                cells.get(11));
+                cells.get(10));
     }
 }

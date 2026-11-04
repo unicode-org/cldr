@@ -15,8 +15,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CombinedRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
-import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
@@ -24,15 +24,16 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 /**
- * Generates {@code common/properties/units_info.tsv} (one row per unit that CLDR data names),
- * {@code unit_categories.tsv} (one row per unit category), and {@code unit_quantities.tsv} (one row
- * per quantity, such as length). ICU4C, ICU4J, and ICU4X generate their built-in units from these
- * files.
+ * Generates {@code common/properties/units_info.tsv} (one row per formattable unit), {@code
+ * unit_categories.tsv} (one row per unit category), {@code unit_quantities.tsv} (one row per
+ * quantity, such as length), and {@code unit_combinations.tsv} (one row per unit that CLDR data
+ * uses without display names of its own). ICU4C, ICU4J, and ICU4X generate their built-in units
+ * from units_info.tsv.
  *
- * <p>The rows are the units with display names of their own, plus the units that CLDR data uses
- * without them: the units in the unit preferences (such as foot-and-inch and millimeter-per-hour)
- * and the base unit of each quantity (such as kilogram-square-meter-per-square-second for energy).
- * The {@code display_name} column tells them apart.
+ * <p>The units in unit_combinations.tsv are the units in the unit preferences (such as
+ * foot-and-inch and millimeter-per-hour) and the base units of the other units (such as
+ * kilogram-square-meter-per-square-second for energy), if they have no display names of their own.
+ * They have no unit IDs: libraries build them from their parts.
  *
  * <p>The tool exists in CLDR for three things:
  *
@@ -55,6 +56,9 @@ import org.unicode.cldr.util.CldrUtility;
  * of that git clone (default: this checkout), still keeping existing IDs.
  */
 public class GenerateUnitsInfo {
+
+    /** A unit's first release and deprecating release ("" while active). */
+    private record Span(String since, String deprecatedIn) {}
 
     /** Each unit's base unit, or "" for a format-only unit: the history asks for it often. */
     private static final Map<String, String> BASE_UNITS = new HashMap<>();
@@ -109,27 +113,27 @@ public class GenerateUnitsInfo {
 
     /**
      * Applies a release with its units that have display names (unit ID → category) and the units
-     * in its unit preferences. The other units of the release are its preference units and the base
-     * unit of each unit, minus deprecated unit IDs.
+     * in its unit preferences. Its combined units are its preference units and the base unit of
+     * each unit, minus deprecated unit IDs and units with names.
      */
     private static void addRelease(
             UnitHistory history,
             String release,
             Map<String, String> namedUnits,
             Set<String> preferenceUnits) {
-        Set<String> deprecatedIds = CldrUnits.aliases().keySet();
-        Set<String> others = new TreeSet<>(preferenceUnits);
-        others.removeAll(deprecatedIds);
+        history.add(release, namedUnits);
+        Set<String> combined = new TreeSet<>(preferenceUnits);
+        combined.removeAll(CldrUnits.aliases().keySet());
         Set<String> users = new TreeSet<>(namedUnits.keySet());
-        users.addAll(others);
+        users.addAll(combined);
         for (String unit : users) {
             String baseUnit = baseUnitOf(unit);
             if (!baseUnit.isEmpty()) {
-                others.add(baseUnit);
+                combined.add(baseUnit);
             }
         }
-        others.removeAll(namedUnits.keySet());
-        history.add(release, namedUnits, others);
+        combined.removeAll(namedUnits.keySet());
+        history.addCombined(release, combined);
     }
 
     /** The base unit of {@code unit}, converting a deprecated ID like its replacement. */
@@ -164,64 +168,62 @@ public class GenerateUnitsInfo {
                             entry.replacement()));
         }
 
+        // Units with display names of their own.
+        List<String> unitOrder = history.unitOrder();
+        Map<String, Integer> unitIds = StableIds.assign(previous.unitIds(), unitOrder);
         Map<String, String> replacements = new HashMap<>();
         previous.units().forEach(row -> replacements.put(row.unit(), row.replacement()));
         replacements.putAll(CldrUnits.aliases());
         Map<String, Conversion> conversions = new HashMap<>();
         Map<String, Complexity> complexities = new HashMap<>();
-        for (String unit : history.units().keySet()) {
+        Map<String, Span> spans = new HashMap<>();
+        for (String unit : unitOrder) {
+            UnitHistory.UnitEntry entry = history.units().get(unit);
             String replacement = replacements.getOrDefault(unit, "");
             // A deprecated ID converts like its replacement (pound-per-square-inch meant
             // pound-force).
-            boolean deprecated = history.units().get(unit).status(release) == Status.DEPRECATED;
+            boolean deprecated = entry.status(release) == Status.DEPRECATED;
             String convertible = deprecated && !replacement.isEmpty() ? replacement : unit;
             conversions.put(unit, UnitConversions.of(convertible));
             complexities.put(unit, UnitConversions.complexityOf(unit, convertible));
+            spans.put(unit, new Span(entry.since(), entry.deprecatedIn()));
         }
+
+        // Units that CLDR data uses without names of their own.
+        history.combined()
+                .forEach(
+                        (unit, entry) -> {
+                            conversions.put(unit, UnitConversions.of(unit));
+                            complexities.put(unit, UnitConversions.complexityOf(unit, unit));
+                            spans.put(unit, new Span(entry.since(), entry.deprecatedIn()));
+                        });
         Map<String, String> unitCategories = unitCategories(history, conversions, release);
         Set<String> namedUnits = new HashSet<>();
         history.units()
                 .forEach(
                         (unit, entry) -> {
-                            if (entry.named() && entry.status(release) != Status.DEPRECATED) {
+                            if (entry.status(release) != Status.DEPRECATED) {
                                 namedUnits.add(unit);
                             }
                         });
 
-        // Rows by category (units without one last), then unit. New units get IDs in this order.
-        List<String> unitOrder =
-                history.units().keySet().stream()
-                        .sorted(
-                                Comparator.comparing(
-                                                (String unit) -> unitCategories.get(unit).isEmpty())
-                                        .thenComparing(unitCategories::get)
-                                        .thenComparing(Comparator.naturalOrder()))
-                        .toList();
-        Map<String, Integer> unitIds = StableIds.assign(previous.unitIds(), unitOrder);
         Map<String, String> reciprocals = reciprocalQuantities(unitCategories, conversions);
-        List<QuantityRow> quantities = quantityRows(history, conversions, previous, release);
+        List<QuantityRow> quantities = quantityRows(spans, conversions, previous, release);
         Map<String, Integer> quantityIds = new HashMap<>();
         quantities.forEach(row -> quantityIds.put(row.quantity(), row.id()));
 
         List<UnitRow> units = new ArrayList<>();
         for (String unit : unitOrder) {
             UnitHistory.UnitEntry entry = history.units().get(unit);
-            String category = unitCategories.get(unit);
-            Conversion conversion = conversions.get(unit);
-            if (!conversion.quantity().isEmpty()) {
-                conversion = conversion.withQuantityId(quantityIds.get(conversion.quantity()));
-            }
             String reciprocal = reciprocals.get(unit);
+            Conversion conversion = withQuantityId(conversions.get(unit), quantityIds);
             units.add(
                     new UnitRow(
                             unitIds.get(unit),
-                            category.isEmpty() ? UnitRow.NO_CATEGORY : categoryIds.get(category),
-                            category,
+                            categoryIds.get(entry.category()),
+                            entry.category(),
                             unit,
                             complexities.get(unit),
-                            entry.named()
-                                    ? DisplayName.OWN
-                                    : UnitConversions.displayNameOf(unit, namedUnits),
                             conversion,
                             entry.status(release),
                             entry.since(),
@@ -232,16 +234,57 @@ public class GenerateUnitsInfo {
                                     ? ""
                                     : UnitConversions.reciprocalOf(conversion.baseUnit())));
         }
-        UnitsInfo result = new UnitsInfo(categories, quantities, units);
+
+        // Combined units by category (units without one last), then unit.
+        List<String> combinedOrder =
+                history.combined().keySet().stream()
+                        .sorted(
+                                Comparator.comparing(
+                                                (String unit) -> unitCategories.get(unit).isEmpty())
+                                        .thenComparing(unitCategories::get)
+                                        .thenComparing(Comparator.naturalOrder()))
+                        .toList();
+        List<CombinedRow> combined = new ArrayList<>();
+        for (String unit : combinedOrder) {
+            UnitHistory.CombinedEntry entry = history.combined().get(unit);
+            String category = unitCategories.get(unit);
+            String reciprocal = reciprocals.get(unit);
+            Conversion conversion = withQuantityId(conversions.get(unit), quantityIds);
+            combined.add(
+                    new CombinedRow(
+                            category.isEmpty()
+                                    ? CombinedRow.NO_CATEGORY
+                                    : categoryIds.get(category),
+                            category,
+                            unit,
+                            complexities.get(unit),
+                            UnitConversions.displayNameOf(unit, namedUnits),
+                            conversion,
+                            entry.status(release),
+                            entry.since(),
+                            entry.deprecatedIn(),
+                            reciprocal,
+                            reciprocal.isEmpty()
+                                    ? ""
+                                    : UnitConversions.reciprocalOf(conversion.baseUnit())));
+        }
+        UnitsInfo result = new UnitsInfo(categories, quantities, units, combined);
         StableIds.verify(previous, result);
         return result;
     }
 
+    private static Conversion withQuantityId(
+            Conversion conversion, Map<String, Integer> quantityIds) {
+        return conversion.quantity().isEmpty()
+                ? conversion
+                : conversion.withQuantityId(quantityIds.get(conversion.quantity()));
+    }
+
     /**
-     * Each unit's category. A unit with display names has its own. Another unit gets the category
-     * of the active named units with its quantity; if they have several, the one named like the
-     * quantity (energy, not torque, for kilogram-square-meter-per-square-second). It gets "" if
-     * there is no such category, as for kilogram-per-cubic-meter (mass-density).
+     * Each unit's category. A unit with display names has its own. A combined unit gets the
+     * category of the active named units with its quantity; if they have several, the one named
+     * like the quantity (energy, not torque, for kilogram-square-meter-per-square-second). It gets
+     * "" if there is no such category, as for kilogram-per-cubic-meter (mass-density).
      */
     private static Map<String, String> unitCategories(
             UnitHistory history, Map<String, Conversion> conversions, String release) {
@@ -250,33 +293,23 @@ public class GenerateUnitsInfo {
                 .forEach(
                         (unit, entry) -> {
                             String quantity = conversions.get(unit).quantity();
-                            if (entry.named()
-                                    && entry.status(release) != Status.DEPRECATED
-                                    && !quantity.isEmpty()) {
+                            if (entry.status(release) != Status.DEPRECATED && !quantity.isEmpty()) {
                                 categoriesByQuantity
                                         .computeIfAbsent(quantity, q -> new TreeSet<>())
                                         .add(entry.category());
                             }
                         });
         Map<String, String> categories = new HashMap<>();
-        history.units()
-                .forEach(
-                        (unit, entry) -> {
-                            if (entry.named()) {
-                                categories.put(unit, entry.category());
-                                return;
-                            }
-                            String quantity = conversions.get(unit).quantity();
-                            Set<String> candidates =
-                                    categoriesByQuantity.getOrDefault(quantity, Set.of());
-                            categories.put(
-                                    unit,
-                                    candidates.contains(quantity)
-                                            ? quantity
-                                            : candidates.size() == 1
-                                                    ? candidates.iterator().next()
-                                                    : "");
-                        });
+        history.units().forEach((unit, entry) -> categories.put(unit, entry.category()));
+        for (String unit : history.combined().keySet()) {
+            String quantity = conversions.get(unit).quantity();
+            Set<String> candidates = categoriesByQuantity.getOrDefault(quantity, Set.of());
+            categories.put(
+                    unit,
+                    candidates.contains(quantity)
+                            ? quantity
+                            : candidates.size() == 1 ? candidates.iterator().next() : "");
+        }
         return categories;
     }
 
@@ -286,7 +319,7 @@ public class GenerateUnitsInfo {
      * active. A previous row keeps its since and base unit.
      */
     private static List<QuantityRow> quantityRows(
-            UnitHistory history,
+            Map<String, Span> spans,
             Map<String, Conversion> conversions,
             UnitsInfo previous,
             String release) {
@@ -310,13 +343,12 @@ public class GenerateUnitsInfo {
         unitsByQuantity.forEach(
                 (quantity, units) -> {
                     QuantityRow old = previousRows.get(quantity);
-                    List<UnitHistory.UnitEntry> entries =
-                            units.stream().map(history.units()::get).toList();
+                    List<Span> entries = units.stream().map(spans::get).toList();
                     String since =
                             old != null
                                     ? old.since()
                                     : entries.stream()
-                                            .map(UnitHistory.UnitEntry::since)
+                                            .map(Span::since)
                                             .min(byVersion)
                                             .orElse(release);
                     String deprecatedIn = "";
@@ -325,7 +357,7 @@ public class GenerateUnitsInfo {
                                 old != null && !old.deprecatedIn().isEmpty()
                                         ? old.deprecatedIn()
                                         : entries.stream()
-                                                .map(UnitHistory.UnitEntry::deprecatedIn)
+                                                .map(Span::deprecatedIn)
                                                 .max(byVersion)
                                                 .orElse(release);
                     }

@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
-import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CombinedRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
 
@@ -19,12 +19,8 @@ import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
  */
 public final class UnitHistory {
 
-    /**
-     * A unit's latest category ("" if it never had display names of its own), first release,
-     * deprecating release ("" while active), and whether it had display names of its own in the
-     * last release where it was active.
-     */
-    public record UnitEntry(String category, String since, String deprecatedIn, boolean named) {
+    /** A unit's latest category, first release, and deprecating release ("" while active). */
+    public record UnitEntry(String category, String since, String deprecatedIn) {
         public Status status(String release) {
             return Status.of(since, deprecatedIn, release);
         }
@@ -37,8 +33,19 @@ public final class UnitHistory {
         }
     }
 
+    /**
+     * A combined unit's first release and deprecating release ("" while CLDR data uses it). A
+     * combined unit is one that CLDR data uses without display names of its own.
+     */
+    public record CombinedEntry(String since, String deprecatedIn) {
+        public Status status(String release) {
+            return Status.of(since, deprecatedIn, release);
+        }
+    }
+
     private final Map<String, UnitEntry> units = new TreeMap<>();
     private final Map<String, CategoryEntry> categories = new TreeMap<>();
+    private final Map<String, CombinedEntry> combined = new TreeMap<>();
 
     /** The history recorded in existing files. */
     public static UnitHistory of(UnitsInfo info) {
@@ -49,59 +56,35 @@ public final class UnitHistory {
                     new CategoryEntry(row.since(), row.deprecatedIn(), row.replacement()));
         }
         for (UnitRow row : info.units()) {
-            boolean named = row.displayName() == DisplayName.OWN;
             history.units.put(
-                    row.unit(),
-                    new UnitEntry(
-                            named ? row.category() : "", row.since(), row.deprecatedIn(), named));
+                    row.unit(), new UnitEntry(row.category(), row.since(), row.deprecatedIn()));
+        }
+        for (CombinedRow row : info.combined()) {
+            history.combined.put(row.unit(), new CombinedEntry(row.since(), row.deprecatedIn()));
         }
         return history;
     }
 
-    /** Applies a release whose active units all have display names (unit ID → category). */
-    public void add(String release, Map<String, String> namedUnits) {
-        add(release, namedUnits, Set.of());
-    }
-
     /**
-     * Applies a release, given its active units with display names of their own (unit ID →
-     * category) and the other units that its data uses, such as foot-and-inch in the unit
-     * preferences. New units and categories start in this release, missing ones are deprecated in
-     * it, and returning ones are active again. Only units with names count for categories. A unit
-     * that gets names for the first time starts again in this release, so for a unit with names,
-     * {@code since} is the first release that names it, even if the data used it before (as part
-     * was the base unit of percent long before CLDR 48 named it).
+     * Applies a release, given its active units (unit ID → category). New units and categories
+     * start in this release, missing ones are deprecated in it, and returning ones are active
+     * again.
      */
-    public void add(String release, Map<String, String> namedUnits, Set<String> otherUnits) {
+    public void add(String release, Map<String, String> activeUnits) {
         Map<String, UnitEntry> before = new TreeMap<>(units);
         units.replaceAll(
                 (unit, e) ->
-                        namedUnits.containsKey(unit)
-                                        || otherUnits.contains(unit)
-                                        || !e.deprecatedIn().isEmpty()
+                        activeUnits.containsKey(unit) || !e.deprecatedIn().isEmpty()
                                 ? e
-                                : new UnitEntry(e.category(), e.since(), release, e.named()));
-        for (String unit : otherUnits) {
-            if (!namedUnits.containsKey(unit)) {
-                UnitEntry old = units.get(unit);
-                units.put(
-                        unit,
-                        old == null
-                                ? new UnitEntry("", release, "", false)
-                                : new UnitEntry(old.category(), old.since(), "", false));
-            }
-        }
-        namedUnits.forEach(
+                                : new UnitEntry(e.category(), e.since(), release));
+        activeUnits.forEach(
                 (unit, category) -> {
                     UnitEntry old = units.get(unit);
-                    // An entry without a category never had names.
-                    boolean firstNamed = old == null || old.category().isEmpty();
                     units.put(
-                            unit,
-                            new UnitEntry(category, firstNamed ? release : old.since(), "", true));
+                            unit, new UnitEntry(category, old == null ? release : old.since(), ""));
                 });
 
-        Set<String> activeCategories = new HashSet<>(namedUnits.values());
+        Set<String> activeCategories = new HashSet<>(activeUnits.values());
         categories.replaceAll(
                 (category, e) ->
                         activeCategories.contains(category) || !e.deprecatedIn().isEmpty()
@@ -112,6 +95,25 @@ public final class UnitHistory {
             categories.put(
                     category, new CategoryEntry(old == null ? release : old.since(), "", ""));
         }
+    }
+
+    /**
+     * Applies a release's combined units: the units that its data uses without display names of
+     * their own, such as foot-and-inch in the unit preferences. Apply {@link #add} first. New ones
+     * start in this release, missing ones are deprecated in it, and returning ones are active
+     * again. A unit that has had names is not a combined unit: it keeps its row in units_info.tsv.
+     */
+    public void addCombined(String release, Set<String> combinedUnits) {
+        combined.replaceAll(
+                (unit, e) ->
+                        combinedUnits.contains(unit) || !e.deprecatedIn().isEmpty()
+                                ? e
+                                : new CombinedEntry(e.since(), release));
+        for (String unit : combinedUnits) {
+            CombinedEntry old = combined.get(unit);
+            combined.put(unit, new CombinedEntry(old == null ? release : old.since(), ""));
+        }
+        combined.keySet().removeAll(units.keySet());
     }
 
     /** The one category that the units of {@code category} moved to, or "" if not just one. */
@@ -132,10 +134,7 @@ public final class UnitHistory {
         return List.copyOf(categories.keySet());
     }
 
-    /**
-     * Units by their category in this history ("" first), then ID. {@link GenerateUnitsInfo} orders
-     * the rows by their final category instead, which it finds for units without names too.
-     */
+    /** Units in file order, which is also the order that new ones get IDs: category, then ID. */
     public List<String> unitOrder() {
         return units.keySet().stream()
                 .sorted(
@@ -150,5 +149,9 @@ public final class UnitHistory {
 
     public Map<String, CategoryEntry> categories() {
         return Collections.unmodifiableMap(categories);
+    }
+
+    public Map<String, CombinedEntry> combined() {
+        return Collections.unmodifiableMap(combined);
     }
 }

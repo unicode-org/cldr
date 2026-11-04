@@ -99,7 +99,8 @@ public final class UnitConversions {
     /**
      * Whether CLDR's patterns can build display names for {@code unit}, which has none of its own:
      * {@link DisplayName#COMPOSED} if each of its parts is in {@code namedUnits} (or is a prefix on
-     * one) with a power of at most 3, and {@link DisplayName#NONE} if not.
+     * one) with a power of at most 3, and {@link DisplayName#NONE} if not. ICU fails the same way
+     * for a part that isn't built in or a power above 3.
      */
     public static DisplayName displayNameOf(String unit, Set<String> namedUnits) {
         for (String part : MIXED_PARTS.splitToList(unit)) {

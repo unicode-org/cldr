@@ -8,7 +8,8 @@ import org.unicode.cldr.util.Rational;
 /**
  * Whether and how a unit converts to its base unit, as TSV cells: {@code base = value × factorNum /
  * factorDen × 10^factorExp + offsetNum / offsetDen}. A format-only unit has no conversion, so its
- * other cells are empty. Cells that don't apply are empty too.
+ * other cells are empty. A mixed unit, such as foot-and-inch, has no single factor: it converts
+ * through its parts. Cells that don't apply are empty too.
  */
 public record Conversion(
         boolean formatOnly,
@@ -32,6 +33,11 @@ public record Conversion(
     static Conversion special(String quantity, String baseUnit, String special, String systems) {
         return new Conversion(
                 false, "", quantity, baseUnit, "", "", "", "", "", "", special, systems);
+    }
+
+    /** The conversion of a mixed unit, such as foot-and-inch, which goes through its parts. */
+    static Conversion mixed(String quantity, String baseUnit, String systems) {
+        return new Conversion(false, "", quantity, baseUnit, "", "", "", "", "", "", "", systems);
     }
 
     /**

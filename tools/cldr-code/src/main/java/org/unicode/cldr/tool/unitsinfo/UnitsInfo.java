@@ -45,6 +45,7 @@ public record UnitsInfo(
                     "category",
                     "unit",
                     "complexity",
+                    "display_name",
                     "format_only",
                     "quantity_id",
                     "quantity",
@@ -66,6 +67,9 @@ public record UnitsInfo(
     public static final String CATEGORIES_HEADER = "# " + String.join("\t", CATEGORY_COLUMNS);
     public static final String QUANTITIES_HEADER = "# " + String.join("\t", QUANTITY_COLUMNS);
     public static final String UNITS_HEADER = "# " + String.join("\t", UNIT_COLUMNS);
+
+    /** The display_name column, which files from before it was added don't have. */
+    private static final int DISPLAY_NAME_COLUMN = UNIT_COLUMNS.indexOf("display_name");
 
     static final Joiner TAB = Joiner.on('\t');
     private static final Splitter TAB_SPLITTER = Splitter.on('\t');
@@ -111,6 +115,32 @@ public record UnitsInfo(
         }
 
         private static Complexity parse(String cell) {
+            return valueOf(cell.toUpperCase(Locale.ROOT));
+        }
+    }
+
+    /**
+     * The {@code display_name} column: where a unit's display names come from. CLDR data also uses
+     * units without names of their own, such as foot-and-inch in the unit preferences and the base
+     * unit of each quantity.
+     */
+    public enum DisplayName {
+        /** CLDR's locale data has names for the unit: a {@code <unit type="...">} element. */
+        OWN,
+        /**
+         * No names of its own, but CLDR's patterns build them from its parts: each part has names,
+         * and each power is square or cubic. A mixed unit joins its parts with a list pattern.
+         */
+        COMPOSED,
+        /** CLDR can't build names for it, for example for a power above 3 (pow4-second). */
+        NONE;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+
+        private static DisplayName parse(String cell) {
             return valueOf(cell.toUpperCase(Locale.ROOT));
         }
     }
@@ -192,10 +222,11 @@ public record UnitsInfo(
     }
 
     /**
-     * A row of units_info.tsv. The {@code unit} is the unit ID without its category prefix. The
-     * reciprocal quantity is the quantity in the same category whose base unit is 1 / this unit's
-     * base unit (miles per gallon and liters per 100 km), or "" if there is none. Converting
-     * between the two takes 1/x.
+     * A row of units_info.tsv. The {@code unit} is the unit ID without its category prefix. A unit
+     * without names of its own gets the category of the named units with its quantity, or none
+     * ({@link #NO_CATEGORY}, written as empty cells). The reciprocal quantity is the quantity in
+     * the same category whose base unit is 1 / this unit's base unit (miles per gallon and liters
+     * per 100 km), or "" if there is none. Converting between the two takes 1/x.
      */
     public record UnitRow(
             int id,
@@ -203,6 +234,7 @@ public record UnitsInfo(
             String category,
             String unit,
             Complexity complexity,
+            DisplayName displayName,
             Conversion conversion,
             Status status,
             String since,
@@ -211,13 +243,22 @@ public record UnitsInfo(
             String reciprocalQuantity,
             String reciprocalBaseUnit) {
 
+        /** The {@code categoryId} of a unit without a category. */
+        public static final int NO_CATEGORY = -1;
+
+        /** The category_id cell: empty for a unit without a category. */
+        public String categoryIdCell() {
+            return categoryId == NO_CATEGORY ? "" : Integer.toString(categoryId);
+        }
+
         private String toTsv() {
             return TAB.join(
                     id,
-                    categoryId,
+                    categoryIdCell(),
                     category,
                     unit,
                     complexity,
+                    displayName,
                     conversion.toTsv(),
                     status,
                     since,
@@ -230,17 +271,18 @@ public record UnitsInfo(
         private static UnitRow parse(List<String> cells) {
             return new UnitRow(
                     Integer.parseInt(cells.get(0)),
-                    Integer.parseInt(cells.get(1)),
+                    cells.get(1).isEmpty() ? NO_CATEGORY : Integer.parseInt(cells.get(1)),
                     cells.get(2),
                     cells.get(3),
                     Complexity.parse(cells.get(4)),
-                    Conversion.parse(cells.subList(5, 17)),
-                    Status.parse(cells.get(17)),
-                    cells.get(18),
+                    DisplayName.parse(cells.get(5)),
+                    Conversion.parse(cells.subList(6, 18)),
+                    Status.parse(cells.get(18)),
                     cells.get(19),
                     cells.get(20),
                     cells.get(21),
-                    cells.get(22));
+                    cells.get(22),
+                    cells.get(23));
         }
     }
 
@@ -262,7 +304,23 @@ public record UnitsInfo(
                                 .map(QuantityRow::parse)
                                 .toList()
                         : List.of(),
-                readTsv(unitsFile, UNIT_COLUMNS.size()).stream().map(UnitRow::parse).toList());
+                readTsv(unitsFile, UNIT_COLUMNS.size(), UNIT_COLUMNS.size() - 1).stream()
+                        .map(UnitsInfo::withDisplayName)
+                        .map(UnitRow::parse)
+                        .toList());
+    }
+
+    /**
+     * Adds the display_name cell to a row from a file that predates it. Such files only have units
+     * with names of their own.
+     */
+    private static List<String> withDisplayName(List<String> cells) {
+        if (cells.size() == UNIT_COLUMNS.size()) {
+            return cells;
+        }
+        List<String> upgraded = new ArrayList<>(cells);
+        upgraded.add(DISPLAY_NAME_COLUMN, DisplayName.OWN.toString());
+        return upgraded;
     }
 
     public boolean isEmpty() {
@@ -312,7 +370,7 @@ public record UnitsInfo(
             String unit = row.unit();
             Conversion c = row.conversion();
             checkSize(problems, unit, "unit_id", Integer.toString(row.id()));
-            checkSize(problems, unit, "category_id", Integer.toString(row.categoryId()));
+            checkSize(problems, unit, "category_id", row.categoryIdCell());
             checkSize(problems, unit, "quantity_id", c.quantityId());
             checkSize(problems, unit, "factor_num", c.factorNum());
             checkSize(problems, unit, "factor_den", c.factorDen());
@@ -344,8 +402,12 @@ public record UnitsInfo(
         writeTsv(dir, UNITS_INFO_FILE, UNITS_HEADER, unitLines());
     }
 
-    /** The data lines of a TSV file, split into cells; each line must have {@code columns}. */
-    private static List<List<String>> readTsv(Path file, int columns) {
+    /**
+     * The data lines of a TSV file, split into cells; each line must have one of {@code
+     * columnCounts}.
+     */
+    private static List<List<String>> readTsv(Path file, Integer... columnCounts) {
+        List<Integer> allowed = List.of(columnCounts);
         List<List<String>> rows = new ArrayList<>();
         try {
             for (String line : Files.readAllLines(file, StandardCharsets.UTF_8)) {
@@ -354,11 +416,11 @@ public record UnitsInfo(
                 }
                 List<String> cells = TAB_SPLITTER.splitToList(line);
                 checkArgument(
-                        cells.size() == columns,
+                        allowed.contains(cells.size()),
                         "%s: %s cells instead of %s: %s",
                         file,
                         cells.size(),
-                        columns,
+                        allowed.get(0),
                         line);
                 rows.add(cells);
             }

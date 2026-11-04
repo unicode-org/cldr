@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -25,7 +26,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
  * Reads which units CLDR names: the active units (unit ID → category) in this checkout and at each
- * release tag, and the replacements of deprecated unit IDs.
+ * release tag, the units in the unit preferences, and the replacements of deprecated unit IDs.
  */
 final class CldrUnits {
 
@@ -38,6 +39,9 @@ final class CldrUnits {
     private static final Pattern DEPRECATED_UNITS =
             Pattern.compile(
                     "<id\\s+type=['\"]unit['\"]\\s+idStatus=['\"]deprecated['\"]>([^<]*)</id>");
+    private static final Pattern UNIT_PREFERENCE =
+            Pattern.compile("<unitPreference(?:\\s[^>]*)?>([^<]+)</unitPreference>");
+    private static final Pattern XML_COMMENT = Pattern.compile("(?s)<!--.*?-->");
 
     private CldrUnits() {}
 
@@ -91,6 +95,37 @@ final class CldrUnits {
                             }
                         });
         return aliases;
+    }
+
+    /** The units in this checkout's unit preferences, such as foot-and-inch. */
+    static Set<String> preferenceUnits() {
+        return preferenceUnits(read(Path.of(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "units.xml")));
+    }
+
+    /**
+     * The units in a release's unit preferences. They are in units.xml since CLDR 37, and in
+     * supplementalData.xml from CLDR 29 to 36, which wrote a mixed unit with spaces ("foot inch"
+     * for foot-and-inch). Earlier releases have none.
+     */
+    static Set<String> preferenceUnitsAtRelease(String gitDir, int release) {
+        String tag = "release-" + release;
+        String xml = gitFile(gitDir, tag, "common/supplemental/units.xml");
+        if (xml == null || !xml.contains("<unitPreference ")) {
+            xml = requiredGitFile(gitDir, tag, "common/supplemental/supplementalData.xml");
+        }
+        return preferenceUnits(xml);
+    }
+
+    private static Set<String> preferenceUnits(String xml) {
+        Set<String> units = new TreeSet<>();
+        Matcher preference = UNIT_PREFERENCE.matcher(XML_COMMENT.matcher(xml).replaceAll(""));
+        while (preference.find()) {
+            List<String> parts = WHITESPACE.splitToList(preference.group(1));
+            if (!parts.isEmpty()) {
+                units.add(String.join("-and-", parts));
+            }
+        }
+        return units;
     }
 
     /**

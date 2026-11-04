@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
 
@@ -18,8 +19,12 @@ import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
  */
 public final class UnitHistory {
 
-    /** A unit's latest category, first release, and deprecating release ("" while active). */
-    public record UnitEntry(String category, String since, String deprecatedIn) {
+    /**
+     * A unit's latest category ("" if it never had display names of its own), first release,
+     * deprecating release ("" while active), and whether it had display names of its own in the
+     * last release where it was active.
+     */
+    public record UnitEntry(String category, String since, String deprecatedIn, boolean named) {
         public Status status(String release) {
             return Status.of(since, deprecatedIn, release);
         }
@@ -44,32 +49,59 @@ public final class UnitHistory {
                     new CategoryEntry(row.since(), row.deprecatedIn(), row.replacement()));
         }
         for (UnitRow row : info.units()) {
+            boolean named = row.displayName() == DisplayName.OWN;
             history.units.put(
-                    row.unit(), new UnitEntry(row.category(), row.since(), row.deprecatedIn()));
+                    row.unit(),
+                    new UnitEntry(
+                            named ? row.category() : "", row.since(), row.deprecatedIn(), named));
         }
         return history;
     }
 
+    /** Applies a release whose active units all have display names (unit ID → category). */
+    public void add(String release, Map<String, String> namedUnits) {
+        add(release, namedUnits, Set.of());
+    }
+
     /**
-     * Applies a release, given its active units (unit ID → category). New units and categories
-     * start in this release, missing ones are deprecated in it, and returning ones are active
-     * again.
+     * Applies a release, given its active units with display names of their own (unit ID →
+     * category) and the other units that its data uses, such as foot-and-inch in the unit
+     * preferences. New units and categories start in this release, missing ones are deprecated in
+     * it, and returning ones are active again. Only units with names count for categories. A unit
+     * that gets names for the first time starts again in this release, so for a unit with names,
+     * {@code since} is the first release that names it, even if the data used it before (as part
+     * was the base unit of percent long before CLDR 48 named it).
      */
-    public void add(String release, Map<String, String> activeUnits) {
+    public void add(String release, Map<String, String> namedUnits, Set<String> otherUnits) {
         Map<String, UnitEntry> before = new TreeMap<>(units);
         units.replaceAll(
                 (unit, e) ->
-                        activeUnits.containsKey(unit) || !e.deprecatedIn().isEmpty()
+                        namedUnits.containsKey(unit)
+                                        || otherUnits.contains(unit)
+                                        || !e.deprecatedIn().isEmpty()
                                 ? e
-                                : new UnitEntry(e.category(), e.since(), release));
-        activeUnits.forEach(
+                                : new UnitEntry(e.category(), e.since(), release, e.named()));
+        for (String unit : otherUnits) {
+            if (!namedUnits.containsKey(unit)) {
+                UnitEntry old = units.get(unit);
+                units.put(
+                        unit,
+                        old == null
+                                ? new UnitEntry("", release, "", false)
+                                : new UnitEntry(old.category(), old.since(), "", false));
+            }
+        }
+        namedUnits.forEach(
                 (unit, category) -> {
                     UnitEntry old = units.get(unit);
+                    // An entry without a category never had names.
+                    boolean firstNamed = old == null || old.category().isEmpty();
                     units.put(
-                            unit, new UnitEntry(category, old == null ? release : old.since(), ""));
+                            unit,
+                            new UnitEntry(category, firstNamed ? release : old.since(), "", true));
                 });
 
-        Set<String> activeCategories = new HashSet<>(activeUnits.values());
+        Set<String> activeCategories = new HashSet<>(namedUnits.values());
         categories.replaceAll(
                 (category, e) ->
                         activeCategories.contains(category) || !e.deprecatedIn().isEmpty()
@@ -100,7 +132,10 @@ public final class UnitHistory {
         return List.copyOf(categories.keySet());
     }
 
-    /** Units in file order, which is also the order that new ones get IDs: category, then ID. */
+    /**
+     * Units by their category in this history ("" first), then ID. {@link GenerateUnitsInfo} orders
+     * the rows by their final category instead, which it finds for units without names too.
+     */
     public List<String> unitOrder() {
         return units.keySet().stream()
                 .sorted(

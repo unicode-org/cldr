@@ -1,6 +1,8 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.util.Output;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.unicode.cldr.tool.unitsinfo.Conversion;
@@ -23,22 +26,27 @@ import org.unicode.cldr.tool.unitsinfo.UnitConversions;
 import org.unicode.cldr.tool.unitsinfo.UnitHistory;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
+import org.unicode.cldr.util.UnitPreferences.UnitPreference;
 
 /** Tests units_info.tsv and unit_categories.tsv, and GenerateUnitsInfo, which writes them. */
 public class TestUnitsInfo extends TestFmwkPlus {
 
-    private static final UnitConverter CONVERTER =
-            CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
+    private static final SupplementalDataInfo SDI =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static final UnitConverter CONVERTER = SDI.getUnitConverter();
     private static final Path DIR = Path.of(UnitsInfo.PROPERTIES_DIR);
+    private static final Splitter MIXED_PARTS = Splitter.on("-and-");
 
     public static void main(String[] args) {
         new TestUnitsInfo().run(args);
@@ -60,10 +68,26 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertEquals("quantity IDs", idRange(info.quantities().size()), sorted(info.quantityIds()));
         assertEquals("unit IDs", idRange(info.units().size()), sorted(info.unitIds()));
 
+        Map<String, Integer> categoryIds = info.categoryIds();
         Map<String, QuantityRow> quantities = new HashMap<>();
         info.quantities().forEach(q -> quantities.put(Integer.toString(q.id()), q));
         for (UnitRow row : info.units()) {
             checkConversion(row);
+            // A unit's category_id is its category's ID. Only a unit without names of its own
+            // can lack a category.
+            if (row.category().isEmpty()) {
+                assertEquals(
+                        row.unit() + ": no category ID", UnitRow.NO_CATEGORY, row.categoryId());
+                assertNotEquals(
+                        row.unit() + ": a unit with names has a category",
+                        DisplayName.OWN,
+                        row.displayName());
+            } else {
+                assertEquals(
+                        row.unit() + ": category ID",
+                        categoryIds.get(row.category()),
+                        (Integer) row.categoryId());
+            }
             // A unit's quantity_id points to the row of its quantity, with the same base unit.
             Conversion c = row.conversion();
             QuantityRow quantity = quantities.get(c.quantityId());
@@ -87,6 +111,80 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertSameLines(UnitsInfo.UNITS_INFO_FILE, info.unitLines(), regenerated.unitLines());
     }
 
+    /**
+     * Units that CLDR data uses without display names of their own are rows too: every unit in the
+     * unit preferences, and every quantity's base unit. Their display_name says whether CLDR's
+     * patterns can build names for them.
+     */
+    public void TestCombinedUnits() {
+        UnitsInfo info = UnitsInfo.read(DIR);
+        Map<String, UnitRow> rows = new HashMap<>();
+        info.units().forEach(row -> rows.put(row.unit(), row));
+
+        Set<String> preferenceUnits = new TreeSet<>();
+        for (Map<String, Multimap<Set<String>, UnitPreference>> byUsage :
+                SDI.getUnitPreferences().getData().values()) {
+            for (Multimap<Set<String>, UnitPreference> byRegions : byUsage.values()) {
+                byRegions.values().forEach(preference -> preferenceUnits.add(preference.unit));
+            }
+        }
+        assertTrue("there are unit preferences", !preferenceUnits.isEmpty());
+        for (String unit : preferenceUnits) {
+            UnitRow row = rows.get(unit);
+            assertNotNull(unit + ": a unit in the unit preferences is a row", row);
+            if (row != null) {
+                assertNotEquals(unit + ": active", Status.DEPRECATED, row.status());
+            }
+        }
+        for (QuantityRow quantity : info.quantities()) {
+            assertTrue(
+                    quantity.quantity() + ": its base unit " + quantity.baseUnit() + " is a row",
+                    rows.containsKey(quantity.baseUnit()));
+        }
+
+        // A mixed unit converts through its parts, so it has no factor of its own.
+        UnitRow footAndInch = rows.get("foot-and-inch");
+        if (assertNotNull("foot-and-inch is a row", footAndInch)) {
+            assertEquals("foot-and-inch complexity", Complexity.MIXED, footAndInch.complexity());
+            assertEquals(
+                    "foot-and-inch display_name", DisplayName.COMPOSED, footAndInch.displayName());
+            assertEquals("foot-and-inch category", "length", footAndInch.category());
+            assertEquals("foot-and-inch base unit", "meter", footAndInch.conversion().baseUnit());
+            assertEquals("foot-and-inch factor", "", footAndInch.conversion().factorNum());
+            assertEquals(
+                    "foot-and-inch systems",
+                    "ussystem uksystem",
+                    footAndInch.conversion().systems());
+        }
+        UnitRow millimeterPerHour = rows.get("millimeter-per-hour");
+        if (assertNotNull("millimeter-per-hour is a row", millimeterPerHour)) {
+            assertEquals(
+                    "millimeter-per-hour display_name",
+                    DisplayName.COMPOSED,
+                    millimeterPerHour.displayName());
+            assertEquals("millimeter-per-hour category", "speed", millimeterPerHour.category());
+        }
+        // CLDR has display name patterns for square and cubic, not for pow4.
+        UnitRow capacitanceBase = rows.get("pow4-second-square-ampere-per-kilogram-square-meter");
+        if (assertNotNull("the base unit of electric-capacitance is a row", capacitanceBase)) {
+            assertEquals(
+                    "electric-capacitance base unit display_name",
+                    DisplayName.NONE,
+                    capacitanceBase.displayName());
+            assertEquals("its category", "electric", capacitanceBase.category());
+        }
+        // No unit with names measures mass-density, so its base unit has no category.
+        UnitRow massDensityBase = rows.get("kilogram-per-cubic-meter");
+        if (assertNotNull("kilogram-per-cubic-meter is a row", massDensityBase)) {
+            assertEquals("kilogram-per-cubic-meter category", "", massDensityBase.category());
+            assertEquals(
+                    "kilogram-per-cubic-meter quantity",
+                    "mass-density",
+                    massDensityBase.conversion().quantity());
+        }
+        assertEquals("meter display_name", DisplayName.OWN, rows.get("meter").displayName());
+    }
+
     /** Over two simulated releases, deprecated entries keep their IDs and new ones get the next. */
     public void TestFutureReleases() {
         UnitsInfo info = UnitsInfo.read(DIR);
@@ -97,12 +195,19 @@ public class TestUnitsInfo extends TestFmwkPlus {
         UnitHistory history = UnitHistory.of(info);
 
         // Release 50 deprecates a unit and a whole category, and adds a category with two units.
+        // The units without names of their own stay.
         Map<String, String> release50 = new TreeMap<>();
+        Set<String> others = new TreeSet<>();
         history.units()
                 .forEach(
                         (unit, entry) -> {
-                            if (entry.deprecatedIn().isEmpty()) {
+                            if (!entry.deprecatedIn().isEmpty()) {
+                                return;
+                            }
+                            if (entry.named()) {
                                 release50.put(unit, entry.category());
+                            } else {
+                                others.add(unit);
                             }
                         });
         String droppedUnit = release50.keySet().iterator().next();
@@ -115,7 +220,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
         release50.values().removeIf(droppedCategory::equals);
         release50.put("test-unit-a", "test-category");
         release50.put("test-unit-b", "test-category");
-        history.add("50", release50);
+        history.add("50", release50, others);
 
         Map<String, Integer> categoryIds50 = StableIds.assign(categoryIds, history.categoryOrder());
         Map<String, Integer> unitIds50 = StableIds.assign(unitIds, history.unitOrder());
@@ -137,11 +242,16 @@ public class TestUnitsInfo extends TestFmwkPlus {
                 "unit added in 50, status in 50",
                 Status.NEW,
                 history.units().get("test-unit-a").status("50"));
+        if (!others.isEmpty()) {
+            String other = others.iterator().next();
+            assertEquals(
+                    other + " stays active in 50", "", history.units().get(other).deprecatedIn());
+        }
 
         // Release 51 adds one more unit. Release 50's IDs and history stay.
         Map<String, String> release51 = new TreeMap<>(release50);
         release51.put("test-unit-c", "test-category");
-        history.add("51", release51);
+        history.add("51", release51, others);
         Map<String, Integer> unitIds51 = StableIds.assign(unitIds50, history.unitOrder());
         StableIds.verify("unit", unitIds50, unitIds51);
         assertEquals("unit added in 51", maxUnitId + 3, (int) unitIds51.get("test-unit-c"));
@@ -244,6 +354,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
                         "length",
                         "test-unit",
                         Complexity.SIMPLE,
+                        DisplayName.OWN,
                         conversion,
                         Status.REGULAR,
                         "24",
@@ -284,6 +395,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertEquals("kilowatt-hour", Complexity.CORE, byUnit.get("kilowatt-hour"));
         assertEquals("millimeter-ofhg", Complexity.CORE, byUnit.get("millimeter-ofhg"));
         assertEquals("part-per-1e6", Complexity.CORE, byUnit.get("part-per-1e6"));
+        assertEquals("foot-and-inch", Complexity.MIXED, byUnit.get("foot-and-inch"));
         assertEquals(
                 "foot-and-inch",
                 Complexity.MIXED,
@@ -348,6 +460,27 @@ public class TestUnitsInfo extends TestFmwkPlus {
                 row.status() == Status.DEPRECATED && !row.replacement().isEmpty()
                         ? row.replacement()
                         : unit;
+        if (row.complexity() == Complexity.MIXED) {
+            // A mixed unit converts through its parts, which share its quantity.
+            List<String> parts = MIXED_PARTS.splitToList(convertible);
+            assertEquals(
+                    unit + ": systems",
+                    Joiner.on(' ').join(CONVERTER.getSystemsEnum(String.join("-", parts))),
+                    c.systems());
+            assertTrue(
+                    unit + ": a mixed unit has no factor, offset, or special conversion",
+                    c.factorNum().isEmpty()
+                            && c.offsetNum().isEmpty()
+                            && c.exactness().isEmpty()
+                            && c.special().isEmpty());
+            for (String part : parts) {
+                assertEquals(
+                        unit + ": quantity of " + part,
+                        c.quantity(),
+                        CONVERTER.getQuantityFromUnit(part, false));
+            }
+            return;
+        }
         assertEquals(
                 unit + ": systems",
                 Joiner.on(' ').join(CONVERTER.getSystemsEnum(convertible)),

@@ -3,7 +3,9 @@ package org.unicode.cldr.tool.unitsinfo;
 import static com.google.common.base.Preconditions.checkArgument;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.ibm.icu.util.Output;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -11,6 +13,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnitConverter;
@@ -26,7 +29,14 @@ public final class UnitConversions {
      */
     private static final Set<String> FORMAT_ONLY_UNITS = Set.of("generic");
 
+    /**
+     * The largest power with a display name pattern in CLDR: {@code power2} (square) and {@code
+     * power3} (cubic).
+     */
+    private static final int MAX_NAMED_POWER = 3;
+
     private static final Joiner SPACE = Joiner.on(' ');
+    private static final Splitter MIXED_PARTS = Splitter.on("-and-");
     private static final Pattern EXPRESSION_TOKENS = Pattern.compile("[*/\\s]+");
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     private static final UnitConverter CONVERTER = SDI.getUnitConverter();
@@ -51,6 +61,9 @@ public final class UnitConversions {
         if (FORMAT_ONLY_UNITS.contains(unit)) {
             return Conversion.NONE;
         }
+        if (unit.contains("-and-")) {
+            return mixed(unit);
+        }
         Output<String> baseUnitId = new Output<>();
         ConversionInfo info = CONVERTER.parseUnitId(unit, baseUnitId, false);
         checkArgument(info != null && baseUnitId.value != null, "Can't convert %s", unit);
@@ -63,6 +76,49 @@ public final class UnitConversions {
         }
         return Conversion.linear(
                 quantity, baseUnit, info.factor, info.offset, isApproximate(unit), systems);
+    }
+
+    /**
+     * The conversion of a mixed unit, such as foot-and-inch. Its parts must have one quantity (UTS
+     * #35). Its systems are the ones its parts share, as for a product of units.
+     */
+    private static Conversion mixed(String unit) {
+        List<String> parts = MIXED_PARTS.splitToList(unit);
+        Conversion first = of(parts.get(0));
+        for (String part : parts) {
+            String quantity = of(part).quantity();
+            checkArgument(
+                    !quantity.isEmpty() && quantity.equals(first.quantity()),
+                    "The parts of %s don't have one quantity",
+                    unit);
+        }
+        String systems = SPACE.join(CONVERTER.getSystemsEnum(String.join("-", parts)));
+        return Conversion.mixed(first.quantity(), first.baseUnit(), systems);
+    }
+
+    /**
+     * Whether CLDR's patterns can build display names for {@code unit}, which has none of its own:
+     * {@link DisplayName#COMPOSED} if each of its parts is in {@code namedUnits} (or is a prefix on
+     * one) with a power of at most 3, and {@link DisplayName#NONE} if not.
+     */
+    public static DisplayName displayNameOf(String unit, Set<String> namedUnits) {
+        for (String part : MIXED_PARTS.splitToList(unit)) {
+            UnitId id = CONVERTER.createUnitId(part);
+            for (Map<String, Integer> unitsToPowers :
+                    List.of(id.numUnitsToPowers, id.denUnitsToPowers)) {
+                for (Map.Entry<String, Integer> single : unitsToPowers.entrySet()) {
+                    String prefixed = single.getKey();
+                    boolean named =
+                            namedUnits.contains(prefixed)
+                                    || namedUnits.contains(
+                                            UnitConverter.stripPrefix(prefixed, null));
+                    if (!named || Math.abs(single.getValue()) > MAX_NAMED_POWER) {
+                        return DisplayName.NONE;
+                    }
+                }
+            }
+        }
+        return DisplayName.COMPOSED;
     }
 
     /** The reciprocal of a base unit: cubic-meter-per-meter ↔ meter-per-cubic-meter. */

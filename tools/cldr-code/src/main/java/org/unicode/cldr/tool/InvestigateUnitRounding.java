@@ -5,6 +5,7 @@ import com.ibm.icu.impl.locale.XCldrStub.Splitter;
 import com.ibm.icu.impl.number.DecimalFormatProperties;
 import com.ibm.icu.impl.number.PatternStringParser;
 import com.ibm.icu.number.FormattedNumber;
+import com.ibm.icu.number.FractionPrecision;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
@@ -35,18 +36,22 @@ public class InvestigateUnitRounding {
 
     private static final boolean VERBOSE = true;
     private static final boolean MATCH_FORMATTED = true;
-    private static final int lineToBreakAt = 245;
+    private static final int lineToBreakAt = 411; // 0 for no lines
+    private static final int maxSigSamples = 14;
+    private static final double FUDGE_FACTOR = 1.000_000_000_001;
 
     private static final UnitConverter UNIT_CONVERTER =
             SupplementalDataInfo.getInstance().getUnitConverter();
 
     public static void main(String[] args) {
-
         checkRounding();
+        checkSamples();
+    }
 
+    private static void checkSamples() {
         final int minSigTesting = 1;
         String[][] samples = {
-            // first, some checks that errors are correctly thrown
+            // Deliberate errors
             {
                 "furlong",
                 "1",
@@ -55,9 +60,12 @@ public class InvestigateUnitRounding {
             },
             {"meter", "1", "foot-and-yard", "Bad mixed units: foot (381/1250) <= yard (1143/1250)"},
             {"meter", "1", "foot-and-foot", "Bad mixed units: foot (381/1250) <= foot (381/1250)"},
-            // now some real values
-            {"pound-force-per-square-inch", "2", "bar"},
-            {"meter", "3", "yard"},
+
+            // Unmixed units
+            {"pound-force-per-square-inch", "5", "bar"},
+            {"meter", "5", "yard"},
+
+            // Mixed units
             {"meter", "3", "yard-and-foot"},
             {"radian", "6", "degree-and-arc-minute-and-arc-second"},
             {"week", "5", "day-and-hour-and-minute"},
@@ -105,15 +113,18 @@ public class InvestigateUnitRounding {
                 double amount = sourceAmount * fuzzier;
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     // for now, min=max
-                    int errors = errorCount(line, converter, amount, minMax, minMax);
+                    int errors = 0;
+                    //errors += errorCount(line, converter, amount / FUDGE_FACTOR, minMax, minMax);
+                    errors += errorCount(line, converter, amount, minMax, minMax);
+                    //errors += errorCount(line, converter, amount * FUDGE_FACTOR, minMax, minMax);
                     ok += 1 - errors;
                     totalErrors += errors;
                 }
-                int errors = errorCount(line, converter, amount, 11, 11);
+                int errors = errorCount(line, converter, amount, maxSigSamples, maxSigSamples);
                 ok += 1 - errors;
                 totalErrors += errors;
 
-                if (VERBOSE) {
+                if (VERBOSE && lineToBreakAt <= 0) {
                     System.out.println();
                 }
             }
@@ -124,6 +135,20 @@ public class InvestigateUnitRounding {
     }
 
     private static void checkRounding() {
+        double source = Math.PI * 1000;
+
+        HackLocalizedNumberFormatter hackLnf =
+                new HackLocalizedNumberFormatter(
+                        NumberFormatter.with().locale(Locale.ENGLISH), 5, 5, Locale.ENGLISH);
+
+        for (int sig = 1; sig <= 15; ++sig) {
+            hackLnf = hackLnf.precision(sig, sig);
+            String lnfFormatted = hackLnf.format(source).toString();
+            double rounded = roundToSignificant(source, sig);
+            String roundedValue = BigDecimal.valueOf(rounded).toPlainString();
+            System.out.println(Joiners.COMMA_SP.join(sig, lnfFormatted, roundedValue));
+        }
+        int debug = 0;
 
         //		for (double multiplier : Arrays.asList(10d, 1d, 0.1d)) {
         //			for (int sd = 1; sd < 4; ++sd) {
@@ -147,51 +172,59 @@ public class InvestigateUnitRounding {
 
     private static int errorCount(
             OutputInt line, Converter converter, double sourceAmount, int minSig, int maxSig) {
-        Precision precision = Precision.minMaxSignificantDigits(minSig, minSig);
+        line.value++;
+        if (lineToBreakAt > 0 && lineToBreakAt != line.value) {
+            return 0;
+        }
 
         Locale locale = Locale.ENGLISH;
-        LocalizedNumberFormatter nf = NumberFormatter.with().locale(locale);
 
         // Unfortunately, the ICU APIs are more limited than we need, because:
         // You can't get the precision back out of a NumberFormatter
         // Nor the settings from a Precision (like minSigDigits)
         // nor can you get DecimalFormatProperties from a NumberFormatter!
 
-        LocalizedNumberFormatter lnf = nf.precision(precision);
-        // Use hack to get precision from LocalizedNumberFormatter
-        HackLocalizedNumberFormatter readablePrecision =
-                new HackLocalizedNumberFormatter(lnf, locale);
+        // Use hack to carry readable precision and locale with LocalizedNumberFormatter
+        HackLocalizedNumberFormatter hackLnf =
+                new HackLocalizedNumberFormatter(
+                        NumberFormatter.with().locale(locale), minSig, minSig, locale);
 
         // We have to guess that the parser parallels the formatter:
-        // toFormat() can't be used to build a DecimalFormat.
+        // because we can't build a DecimalFormat from a LocalizedNumberFormatter
 
         DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(locale);
 
         // example 1.1 meters => 1.20297 yards => 1 yard 0.60891 feet (but then rounded
-        String sourceFormatted = lnf.format(sourceAmount).toString();
-        Processed processed = converter.convert(sourceAmount, readablePrecision);
-        double roundTripUnrounded = converter.convertBackUnrounded(processed);
+        String sourceFormatted = hackLnf.format(sourceAmount).toString();
+        Processed processed = converter.convert(sourceAmount, hackLnf);
 
-        boolean approximatelyEqual =
-                approximatelyEqualRelative(sourceAmount, roundTripUnrounded, 0.000_000_000_000_001);
+        // Check the results
+        CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, processed);
+        String formattedWithUnits = converter.formatWithUnits(processed, hackLnf).toString();
 
-        List<String> numbers = converter.formattedNumbers(processed, lnf);
+        //        double roundTripUnrounded = converter.convertBackUnrounded(processed);
+        //
+        //        boolean approximatelyEqual =
+        //                approximatelyEqualRelative(sourceAmount, roundTripUnrounded,
+        // 0.000_000_000_000_001);
+        //
+        //        List<String> numbers = converter.formattedNumbers(processed, lnf);
+        //
+        //        String formattedWithUnits = converter.formatWithUnits(processed, lnf).toString();
+        //
+        //        double roundTrip = converter.convertBack(numbers, parser);
+        //        String roundTripFormatted = lnf.format(roundTrip).toString();
+        //
+        //        Processed rawProcessed = converter.convertRaw(sourceAmount);
+        //
+        //        boolean roundedEqual = roundTripFormatted.equals(sourceFormatted);
 
-        String formattedWithUnits = converter.formatWithUnits(processed, lnf).toString();
-
-        double roundTrip = converter.convertBack(numbers, parser);
-        String roundTripFormatted = lnf.format(roundTrip).toString();
-
-        Processed rawProcessed = converter.convertRaw(sourceAmount);
-
-        boolean roundedEqual = roundTripFormatted.equals(sourceFormatted);
-
-        if (VERBOSE || !approximatelyEqual || !roundedEqual) {
+        if (VERBOSE || !check.matches) {
             System.out.println(
                     Joiners.ES.join(
-                            line.value++,
+                            line.value,
                             "\t",
-                            readablePrecision,
+                            hackLnf,
                             "\t",
                             BigDecimal.valueOf(sourceAmount).toPlainString(),
                             "\t«",
@@ -202,35 +235,28 @@ public class InvestigateUnitRounding {
                             "\t→ «",
                             formattedWithUnits,
                             "»",
+                            "\t→ «",
+                            check.roundTripFormatted,
+                            "»",
                             "\tProcessed: ",
-                            processed,
-                            "\tRaw: ",
-                            rawProcessed));
+                            processed));
         }
-        if (false && !approximatelyEqual) {
-            converter.convert(sourceAmount, readablePrecision);
-            // showInfo1(converter, rawConverted);
-            System.out.println(
-                    Joiners.SP.join(
-                            "  FAILS NUMERIC ROUNDTRIP, source: ",
-                            sourceAmount,
-                            "result:",
-                            roundTripUnrounded));
-            return 1;
-        }
-        if (!roundedEqual) {
-            double delta = sourceAmount - roundTrip;
+        if (!check.matches) {
+            double delta =
+                    parseDouble(parser, check.sourceFormatted)
+                            - parseDouble(parser, check.roundTripFormatted);
             System.out.println(
                     Joiners.ES.join(
                             "  FAILS ROUNDING ROUNDTRIP, source: ",
                             "«" + sourceFormatted + "»",
                             " roundtripping: «",
-                            roundTripFormatted,
+                            check.roundTripFormatted,
                             "»",
                             " unrounded difference: ",
                             BigDecimal.valueOf(delta).toPlainString()));
             return 1;
         }
+
         return 0;
     }
 
@@ -240,27 +266,53 @@ public class InvestigateUnitRounding {
      * DecimalFormatProperties from a NumberFormatter!
      */
     public static class HackLocalizedNumberFormatter {
-        public final int minimumSignificantDigits;
-        public final int maximumSignificantDigits;
-        public final Locale locale;
-        public final LocalizedNumberFormatter lnf;
+        private final int minimumSignificantDigits;
+        private final int maximumSignificantDigits;
+        private final Locale locale;
+        private final LocalizedNumberFormatter lnf;
+
+        public int getMinimumSignificantDigits() {
+            return minimumSignificantDigits;
+        }
+
+        public int getMaximumSignificantDigits() {
+            return maximumSignificantDigits;
+        }
+
+        public Locale getLocale() {
+            return locale;
+        }
+
+        public LocalizedNumberFormatter getLnf() {
+            return lnf;
+        }
 
         public HackLocalizedNumberFormatter(
                 LocalizedNumberFormatter lnf,
                 int minimumSignificantDigits,
                 int maximumSignificantDigits,
                 Locale locale) {
+            if (minimumSignificantDigits < 1
+                    || minimumSignificantDigits > maximumSignificantDigits) {
+                throw new UnitException(
+                        "Bad sig digits: "
+                                + formatPrecision(
+                                        minimumSignificantDigits, maximumSignificantDigits));
+            }
             this.minimumSignificantDigits = minimumSignificantDigits;
             this.maximumSignificantDigits = maximumSignificantDigits;
             this.locale = locale;
-            this.lnf = lnf;
+            Precision precision =
+                    Precision.minMaxSignificantDigits(
+                            minimumSignificantDigits, maximumSignificantDigits);
+            this.lnf = lnf.withoutLocale().locale(locale).precision(precision);
         }
 
         public HackLocalizedNumberFormatter(LocalizedNumberFormatter lnf, Locale locale) {
             // Painful extraction; we have to convert to a skeleton and back;
-            // gotta be a waste of cycles.
-            String skeleton = lnf.toSkeleton();
+            // That's got to be a waste of cycles!
             DecimalFormatProperties dfp = new DecimalFormatProperties();
+            String skeleton = lnf.toSkeleton();
             PatternStringParser.parseToExistingProperties(skeleton, dfp);
             this.minimumSignificantDigits = dfp.getMinimumSignificantDigits();
             this.maximumSignificantDigits = dfp.getMaximumSignificantDigits();
@@ -284,6 +336,18 @@ public class InvestigateUnitRounding {
         public String toString() {
             return formatPrecision(minimumSignificantDigits, maximumSignificantDigits);
         }
+
+        public LocalizedNumberFormatter precision(FractionPrecision precision) {
+            return lnf.precision(precision);
+        }
+
+        public HackLocalizedNumberFormatter precision(int minSignificant, int maxSignificant) {
+            return new HackLocalizedNumberFormatter(lnf, minSignificant, maxSignificant, locale);
+        }
+
+        public FormattedNumber format(double finalValue) {
+            return lnf.format(finalValue);
+        }
     }
 
     public static String formatPrecision(
@@ -294,6 +358,56 @@ public class InvestigateUnitRounding {
                         ? ""
                         : "‥" + maximumSignificantDigits)
                 + "⟩";
+    }
+
+    public static class CheckResult {
+        final String sourceFormatted;
+        final List<String> numbers;
+        final double roundTrip;
+        final String roundTripFormatted;
+        final boolean matches;
+        final double rawConvertBack;
+        final double source;
+
+        public CheckResult(
+                Converter converter,
+                double source,
+                HackLocalizedNumberFormatter rp,
+                Processed processed) {
+            this.source = source;
+            sourceFormatted = rp.lnf.format(source).toString();
+
+            DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(rp.getLocale());
+
+            // get the formatted numbers from the processed value, with the hackLnf
+            // then convert to double
+            // then format that double
+
+            numbers = converter.formattedNumbers(processed, rp);
+            rawConvertBack = converter.convertBackRaw(processed);
+            roundTrip = converter.convertBack(numbers, parser);
+            roundTripFormatted = rp.lnf.format(roundTrip).toString();
+            matches = sourceFormatted.equals(roundTripFormatted);
+        }
+
+        @Override
+        public String toString() {
+            return Joiners.ES.join(
+                    "source:       \t",
+                    BigDecimal.valueOf(source).toPlainString(),
+                    "\nsourceForm.:\t",
+                    sourceFormatted,
+                    "\nnumbers:    \t",
+                    numbers,
+                    "\nroundTrip:  \t",
+                    BigDecimal.valueOf(roundTrip).toPlainString(),
+                    "\nrawCvttBack:\t",
+                    BigDecimal.valueOf(rawConvertBack).toPlainString(),
+                    "\nrtFormatted:\t",
+                    roundTripFormatted,
+                    "\nmatches:    \t",
+                    matches);
+        }
     }
 
     /**
@@ -357,7 +471,7 @@ public class InvestigateUnitRounding {
             Output<String> baseUnitId = new Output<>();
             ConversionInfo info = UNIT_CONVERTER.parseUnitId(sourceUnit, baseUnitId, false);
             if (baseUnitId.value == null) {
-                throw new IllegalArgumentException("Unit not recognized: " + sourceUnit);
+                throw new UnitException("Unit not recognized: " + sourceUnit);
             }
             String normalizedSourceUnitId = UNIT_CONVERTER.getReducedUnit(baseUnitId.value);
 
@@ -366,11 +480,11 @@ public class InvestigateUnitRounding {
             for (String unit : units) {
                 info = UNIT_CONVERTER.parseUnitId(unit, baseUnitId, false);
                 if (baseUnitId.value == null) {
-                    throw new IllegalArgumentException("Unit not recognized: " + unit);
+                    throw new UnitException("Unit not recognized: " + unit);
                 }
                 String normalizedBaseUnitID = UNIT_CONVERTER.getReducedUnit(baseUnitId.value);
                 if (!normalizedBaseUnitID.equals(normalizedSourceUnitId)) {
-                    throw new IllegalArgumentException(
+                    throw new UnitException(
                             "Mismatched baseUnitIds for "
                                     + sourceUnit
                                     + "&"
@@ -385,7 +499,7 @@ public class InvestigateUnitRounding {
                     lastFactor = info.factor;
                     lastUnit = unit;
                 } else if (info.factor.compareTo(lastFactor) >= 0) {
-                    throw new IllegalArgumentException(
+                    throw new UnitException(
                             "Bad mixed units: "
                                     + lastUnit
                                     + " ("
@@ -425,20 +539,16 @@ public class InvestigateUnitRounding {
         }
 
         public double convertBack(List<String> numbers, DecimalFormat df) {
-            try {
-                double result = 0;
-                for (int i = numbers.size() - 1; i >= 0; --i) {
-                    double parsed = df.parse(numbers.get(i)).doubleValue();
-                    double conversionFactor = conversionFactors[i];
-                    result = (result + parsed) / conversionFactor;
-                }
-                return result;
-            } catch (ParseException e) {
-                throw new ICUException("Illegal number", e);
+            double result = 0;
+            for (int i = numbers.size() - 1; i >= 0; --i) {
+                double parsed = parseDouble(df, numbers.get(i));
+                double conversionFactor = conversionFactors[i];
+                result = (result + parsed) / conversionFactor;
             }
+            return result;
         }
 
-        public double convertBackUnrounded(Processed roundResult) {
+        public double convertBackRaw(Processed roundResult) {
             double conversionFactor = conversionFactors[roundResult.leadingCount];
             double result = roundResult.finalValue / conversionFactor;
             for (int i = roundResult.leadingCount - 1; i >= 0; --i) {
@@ -471,8 +581,8 @@ public class InvestigateUnitRounding {
         public Processed convert(final double source_, HackLocalizedNumberFormatter rp) {
             Processed result = new Processed();
 
-            int minSig = rp.minimumSignificantDigits;
-            int maxSig = rp.maximumSignificantDigits;
+            final int minSig = rp.minimumSignificantDigits;
+            final int maxSig = rp.maximumSignificantDigits;
 
             if (source_ == 0) {
                 result.setDouble(0, minSig, maxSig);
@@ -494,20 +604,22 @@ public class InvestigateUnitRounding {
                and so on.
                */
 
-            // Determine the magnitude of the number
-            double magnitude = Math.floor(Math.log10(source));
+            // Determine the position of the lead digit.
+            // 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> -1; etc.
+            int firstDigit = firstDigit(source);
             // Calculate how many decimal places we need to keep
-            int scale = rp.maximumSignificantDigits - (int) magnitude;
-            double magnitude2 = Math.pow(10, scale);
+            double increment = getRoundingIncrement(rp.maximumSignificantDigits, firstDigit);
             // Fix the source and delta accordingly
 
             double converted;
             if (matchFormatted) {
-                converted = Math.round(source * magnitude2) / magnitude2;
+                converted = roundByIncrement(source, increment);
             } else {
                 converted = source;
             }
-            double convertedDelta = 0.5 / magnitude2; // get scaled 0.5;
+            // get the delta. Ideally it would be ±0.5 over the magnitude;
+            // but we scale down a bit further
+            double convertedDelta = 0.5 / increment;
             double lowerBound = converted - convertedDelta;
             double upperbound = converted + convertedDelta;
 
@@ -520,9 +632,9 @@ public class InvestigateUnitRounding {
                 upperbound = upperbound * conversionFactor;
                 if (i == last || converted > MAX_LONG_FROM_DOUBLE) {
                     // the final value is always a double
-                    maxSig = getBestDoubleScale(lowerBound, converted, upperbound);
-                    result.setDouble(converted, maxSig - deltaMaxToMin, maxSig);
-                    checkResult(source, rp, result);
+                    int bestScale = getBestDoubleScale(lowerBound, converted, upperbound);
+                    result.setDouble(converted, bestScale - deltaMaxToMin, bestScale);
+                    new CheckResult(this, source, rp, result);
                     break;
                 } else {
                     double lowerBoundCeiling = Math.floor(lowerBound) + 1;
@@ -536,6 +648,7 @@ public class InvestigateUnitRounding {
                                 bestLong.value,
                                 bestLong.significantDigits - deltaMaxToMin,
                                 bestLong.significantDigits);
+                        new CheckResult(this, source, rp, result);
                         break;
                     }
                     double floor = Math.floor(converted);
@@ -547,20 +660,6 @@ public class InvestigateUnitRounding {
                 result.negate();
             }
             return result;
-        }
-
-        private void checkResult(
-                double source, HackLocalizedNumberFormatter rp, Processed processed) {
-            List<String> numbers = formattedNumbers(processed, rp.lnf);
-
-            DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(rp.locale);
-            double roundTrip = convertBack(numbers, parser);
-
-            String sourceFormatted = rp.lnf.format(source).toString();
-            String roundTripFormatted = rp.lnf.format(roundTrip).toString();
-            if (!sourceFormatted.equals(roundTripFormatted)) {
-                int debug = 0;
-            }
         }
 
         static class BestLong {
@@ -581,7 +680,7 @@ public class InvestigateUnitRounding {
         private BestLong getBestLongScale(double lowerBound, double value, double upperbound) {
             // Estimate an upper limit for E to start the downward scan
             double span = upperbound - lowerBound;
-            int startE = (int) Math.floor(Math.log10(span));
+            int startE = firstDigit(span);
 
             // 3. Scan downwards from the top to guarantee finding the largest working E
             for (int E = startE + 1; E >= 0; E--) {
@@ -602,12 +701,12 @@ public class InvestigateUnitRounding {
                     long resultValue = bestK * (long) divisor;
                     int sigDigits = calculateSignificantDigits(bestK);
                     if (!(lowerBound < resultValue && resultValue < upperbound)) {
-                        throw new IllegalArgumentException("Result value fails: " + resultValue);
+                        throw new UnitException("Result value fails: " + resultValue);
                     }
                     return new BestLong(resultValue, sigDigits);
                 }
             }
-            throw new IllegalArgumentException("Should never happen");
+            throw new UnitException("Should never happen");
         }
 
         /** find number of significant digits */
@@ -620,12 +719,6 @@ public class InvestigateUnitRounding {
             }
             return length;
         }
-
-        /**
-         * Used to counteract loss of precision; nudge the value up very slightly in case it is very
-         * near a multiple of 10.
-         */
-        private static final double FUDGE_FACTOR = 1.000_000_000_000_01;
 
         /**
          * Returns the number of significant digits of value needed to get within
@@ -641,11 +734,11 @@ public class InvestigateUnitRounding {
                 return 1;
             }
 
-            int valueFirstSigDigitPlace = (int) Math.floor(Math.log10(value));
+            int valueFirstSigDigitPlace = firstDigit(value);
             // Find the place value of the most restrictive difference
-            int minFirstSigDigitPlace = (int) Math.floor(Math.log10(lowerDiff));
+            int minFirstSigDigitPlace = firstDigit(lowerDiff);
             if (lowerDiff != upperDiff) {
-                int upperFirstSigDigitPlace = (int) Math.floor(Math.log10(upperDiff));
+                int upperFirstSigDigitPlace = firstDigit(upperDiff);
                 minFirstSigDigitPlace = Math.min(minFirstSigDigitPlace, upperFirstSigDigitPlace);
             }
 
@@ -661,7 +754,8 @@ public class InvestigateUnitRounding {
          * This is just an example for now; real code would get the unit patterns and adjust for
          * plurals and case.
          */
-        public String formatWithUnits(Processed rountResult, LocalizedNumberFormatter sourceNf) {
+        public String formatWithUnits(
+                Processed rountResult, HackLocalizedNumberFormatter sourceNf) {
             List<String> numberStrings = formattedNumbers(rountResult, sourceNf);
 
             StringBuilder result = new StringBuilder();
@@ -683,7 +777,7 @@ public class InvestigateUnitRounding {
         }
 
         public List<String> formattedNumbers(
-                Processed rountResult, LocalizedNumberFormatter sourceNf) {
+                Processed rountResult, HackLocalizedNumberFormatter sourceNf) {
             List<String> result = new ArrayList<>();
             if (rountResult.leadingCount != 0) {
                 LocalizedNumberFormatter dfInteger = sourceNf.precision(Precision.integer());
@@ -691,10 +785,8 @@ public class InvestigateUnitRounding {
                     result.add(dfInteger.format(rountResult.leadingValues[i]).toString());
                 }
             }
-            Precision finalPrecision =
-                    Precision.minMaxSignificantDigits(
-                            rountResult.maxSignificant, rountResult.maxSignificant);
-            LocalizedNumberFormatter dfFinal = sourceNf.precision(finalPrecision);
+            HackLocalizedNumberFormatter dfFinal =
+                    sourceNf.precision(rountResult.maxSignificant, rountResult.maxSignificant);
             FormattedNumber formatted = dfFinal.format(rountResult.finalValue);
             result.add(formatted.toString());
             return result;
@@ -720,9 +812,9 @@ public class InvestigateUnitRounding {
 
             long[] leadingValues = null;
             int leadingCount = 0;
-            double finalValue;
-            int maxSignificant;
-            int minSignificant;
+            double finalValue = Double.MIN_VALUE;
+            int maxSignificant = Integer.MIN_VALUE;
+            int minSignificant = Integer.MIN_VALUE;
 
             @Override
             public String toString() {
@@ -767,8 +859,53 @@ public class InvestigateUnitRounding {
         }
     }
 
+    public static double roundToSignificant(double source, int significantDigits) {
+        // Calculate how many decimal places we need to keep,
+        // and get the right increment
+        int firstDigit = firstDigit(source);
+        double increment = getRoundingIncrement(significantDigits, firstDigit);
+        return roundByIncrement(source, increment);
+    }
+
+    private static double getRoundingIncrement(int significantDigits, int firstDigit) {
+        return Math.pow(10, afterLastDigit(significantDigits, firstDigit));
+    }
+
+    private static int afterLastDigit(int significantDigits, int firstDigit) {
+        return significantDigits - firstDigit;
+    }
+
+    /** Round to a multiple of the increment. For example, (13, 5) => 15 */
+    private static double roundByIncrement(double source, double increment) {
+        return Math.round(source * increment) / increment;
+    }
+
+    /**
+     * Determine the magnitude of the number; the position of the lead digit. 1..9.99… -> 1;
+     * 10..99.99… -> 2, 0.1..0.999… -> -1; etc.
+     */
+    public static int firstDigit(double value) {
+        return (int) Math.ceil(Math.log10(value));
+    }
+
+    public static double parseDouble(DecimalFormat df, String string) {
+        try {
+            return df.parse(string).doubleValue();
+        } catch (ParseException e) {
+            throw new ICUException("Illegal number", e);
+        }
+    }
+
     public static boolean approximatelyEqualRelative(double a, double b, double epsilon) {
         if (a == b) return true; // Handles infinities and exact matches
         return Math.abs(a - b) / Math.max(Math.abs(a), Math.abs(b)) < epsilon;
+    }
+
+    static class UnitException extends RuntimeException {
+        private static final long serialVersionUID = 302617249795260431L;
+
+        public UnitException(String message) {
+            super(message);
+        }
     }
 }

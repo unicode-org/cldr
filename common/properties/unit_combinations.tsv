@@ -1,0 +1,38 @@
+# category_id	category	unit	complexity	display_name	quantity_id	quantity	base_unit	factor_num	factor_den	factor_exp	offset_num	offset_den	exactness	special	systems	status	since	deprecated_in	reciprocal_quantity	reciprocal_base_unit
+1	angle	square-revolution	single	composed	35	solid-angle	square-revolution	1	1	0			exact		metric_adjacent ussystem uksystem	regular	48			
+3	concentr	item-per-cubic-meter	core	composed	4	concentration	item-per-cubic-meter	1	1	0			exact		metric_adjacent	regular	29			
+3	concentr	item-per-kilogram	core	composed	5	concentration-mass	item-per-kilogram	1	1	0			exact		metric_adjacent	regular	48			
+3	concentr	item-per-second	core	composed	3	catalytic-activity	item-per-second	1	1	0			exact		metric_adjacent ussystem uksystem	regular	48			
+4	consumption	cubic-meter-per-meter	core	composed	6	consumption	cubic-meter-per-meter	1	1	0			exact		si metric	regular	26		consumption-inverse	meter-per-cubic-meter
+4	consumption	kilometer-per-centiliter	core	composed	7	consumption-inverse	meter-per-cubic-meter	1	1	8			exact		si_acceptable metric	deprecated	37	39	consumption	cubic-meter-per-meter
+4	consumption	meter-per-cubic-meter	core	composed	7	consumption-inverse	meter-per-cubic-meter	1	1	0			exact		si metric	regular	26		consumption	cubic-meter-per-meter
+6	duration	minute-and-second	mixed	composed	9	duration	second								si_acceptable metric_adjacent ussystem uksystem astronomical	regular	29			
+6	duration	year-person-and-month-person	mixed	composed	42	year-duration	year								person_age	regular	29			
+7	electric	cubic-second-square-ampere-per-kilogram-square-meter	core	composed	12	electric-conductance	cubic-second-square-ampere-per-kilogram-square-meter	1	1	0			exact		si metric	regular	48		electric-resistance	kilogram-square-meter-per-cubic-second-square-ampere
+7	electric	kilogram-square-meter-per-cubic-second-ampere	core	composed	40	voltage	kilogram-square-meter-per-cubic-second-ampere	1	1	0			exact		si metric	regular	26			
+7	electric	kilogram-square-meter-per-cubic-second-square-ampere	core	composed	15	electric-resistance	kilogram-square-meter-per-cubic-second-square-ampere	1	1	0			exact		si metric	regular	26		electric-conductance	cubic-second-square-ampere-per-kilogram-square-meter
+7	electric	kilogram-square-meter-per-square-second-square-ampere	core	composed	14	electric-inductance	kilogram-square-meter-per-square-second-square-ampere	1	1	0			exact		si metric	regular	48			
+7	electric	pow4-second-square-ampere-per-kilogram-square-meter	core	none	10	electric-capacitance	pow4-second-square-ampere-per-kilogram-square-meter	1	1	0			exact		si metric	regular	48			
+7	electric	second-ampere	core	composed	11	electric-charge	second-ampere	1	1	0			exact		si metric	regular	48			
+8	energy	kilogram-square-meter-per-square-second	core	composed	16	energy	kilogram-square-meter-per-square-second	1	1	0			exact		si metric	regular	26			
+8	energy	per-second	core	composed	33	radioactivity	per-second	1	1	0			exact		si metric ussystem uksystem astronomical prefixable	regular	48			
+8	energy	square-meter-per-square-second	core	composed	21	ionizing-radiation	square-meter-per-square-second	1	1	0			exact		si metric	regular	48			
+9	force	kilogram-meter-per-square-second	core	composed	17	force	kilogram-meter-per-square-second	1	1	0			exact		si metric	regular	35			
+10	frequency	revolution-per-second	core	composed	18	frequency	revolution-per-second	1	1	0			exact		metric_adjacent ussystem uksystem	regular	26			
+11	graphics	pixel-per-meter	core	composed	34	resolution	pixel-per-meter	1	1	0			exact		metric_adjacent	regular	36			
+12	length	foot-and-inch	mixed	composed	22	length	meter								ussystem uksystem	regular	29			
+12	length	meter-and-centimeter	mixed	composed	22	length	meter								si metric	regular	29			
+13	light	candela-per-square-meter	core	composed	20	illuminance	candela-per-square-meter	1	1	0			exact		si metric	regular	26			
+13	light	candela-square-meter-per-square-meter	core	composed	23	luminous-flux	candela-square-meter-per-square-meter	1	1	0			exact		si metric	regular	38			
+14	magnetic	kilogram-per-square-second-ampere	core	composed	26	magnetic-induction	kilogram-per-square-second-ampere	1	1	0			exact		si metric	regular	48			
+14	magnetic	kilogram-square-meter-per-square-second-ampere	core	composed	25	magnetic-flux	kilogram-square-meter-per-square-second-ampere	1	1	0			exact		si metric	regular	48			
+15	mass	kilogram-and-gram	mixed	composed	27	mass	kilogram								si metric	deprecated	29	39		
+15	mass	pound-and-ounce	mixed	composed	27	mass	kilogram								ussystem uksystem	regular	29			
+15	mass	stone-and-pound	mixed	composed	27	mass	kilogram								uksystem	regular	29			
+16	power	kilogram-square-meter-per-cubic-second	core	composed	30	power	kilogram-square-meter-per-cubic-second	1	1	0			exact		si metric	regular	24			
+17	pressure	kilogram-per-meter-square-second	core	composed	31	pressure	kilogram-per-meter-square-second	1	1	0			exact		si metric	regular	24			
+17	pressure	kilogram-per-square-meter-square-second	core	composed	32	pressure-per-length	kilogram-per-square-meter-square-second	1	1	0			exact		si metric	regular	48			
+19	speed	centimeter-per-hour	core	composed	36	speed	meter-per-second	25	9	-6			exact		si_acceptable metric_adjacent	regular	43			
+19	speed	inch-per-hour	core	composed	36	speed	meter-per-second	635	9	-7			exact		ussystem uksystem	regular	43			
+19	speed	millimeter-per-hour	core	composed	36	speed	meter-per-second	25	9	-7			exact		si_acceptable metric_adjacent	regular	43			
+		kilogram-per-cubic-meter	core	composed	43	mass-density	kilogram-per-cubic-meter	1	1	0			exact		si metric	regular	37			

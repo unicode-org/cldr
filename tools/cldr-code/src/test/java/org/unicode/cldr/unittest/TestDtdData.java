@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +13,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
@@ -31,6 +35,8 @@ import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.MatchValue;
 import org.unicode.cldr.util.MatchValue.EnumParser;
+import org.unicode.cldr.util.NestedMap.ImmutableMultimap2;
+import org.unicode.cldr.util.NestedMap.Multimap2;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Validity;
@@ -39,6 +45,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestDtdData extends TestFmwk {
+    private static final boolean SHOW_DEPTH = System.getProperty("TestDtdData:depth") != null;
+    private static final boolean SHOW_PATH_CHASSIS =
+            System.getProperty("TestDtdData:chassis") != null;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
@@ -1069,4 +1078,249 @@ public class TestDtdData extends TestFmwk {
                             .compare(o1, o2);
                 }
             };
+
+    final ImmutableMultimap2<DtdType, Element, Element> PARENT_EXCEPTIONS;
+
+    {
+        Multimap2<DtdType, Element, Element> temp = Multimap2.create(LinkedHashMap::new);
+
+        // 2 parents, conflicting syntax (we are forced to share attributes that don't belong; the
+        // DTD doesn't annotate that)
+        addEx(temp, DtdType.ldml, "language", "languages", "identity");
+        addEx(temp, DtdType.ldml, "script", "identity", "scripts");
+        addEx(temp, DtdType.ldml, "territory", "territories", "identity");
+        addEx(temp, DtdType.ldml, "variant", "variants", "identity");
+
+        // 2 parents, dates
+        addEx(
+                temp,
+                DtdType.ldml,
+                "fields",
+                "calendar",
+                "dates"); // calendar/fields is deprecated, but the DTD doesn't annotate that
+        addEx(temp, DtdType.ldml, "datetimeSkeleton", "dateFormat", "timeFormat");
+        addEx(temp, DtdType.ldml, "long", "metazone", "zone");
+        addEx(temp, DtdType.ldml, "short", "metazone", "zone");
+        addEx(temp, DtdType.ldml, "generic", "long", "short");
+        addEx(temp, DtdType.ldml, "standard", "long", "short");
+        addEx(temp, DtdType.ldml, "daylight", "long", "short");
+
+        // 2 parents, numbers&currencies
+        addEx(temp, DtdType.ldml, "decimal", "currency", "symbols");
+        addEx(temp, DtdType.ldml, "group", "currency", "symbols");
+        addEx(temp, DtdType.ldml, "currencyMatch", "beforeCurrency", "afterCurrency");
+        addEx(temp, DtdType.ldml, "surroundingMatch", "beforeCurrency", "afterCurrency");
+        addEx(temp, DtdType.ldml, "insertBetween", "beforeCurrency", "afterCurrency");
+
+        // 2 parents, units
+        addEx(temp, DtdType.ldml, "unit", "unitLength", "units");
+        addEx(temp, DtdType.ldml, "unitPattern", "currencyFormats", "unit");
+
+        addEx(temp, DtdType.supplementalData, "metazoneInfo", "supplementalData", "metaZones");
+        addEx(temp, DtdType.supplementalData, "mapTimezones", "windowsZones", "metaZones");
+
+        // 3 parents
+        addEx(temp, DtdType.ldml, "era", "eraNames", "eraAbbr", "eraNarrow");
+
+        // 4+ parents
+        addEx(
+                temp,
+                DtdType.ldml,
+                "pattern",
+                "dateFormat",
+                "scientificFormat",
+                "percentFormat",
+                "currency",
+                "decimalFormat",
+                "currencyFormat",
+                "dateTimeFormat",
+                "miscPatterns",
+                "timeFormat");
+        addEx(
+                temp,
+                DtdType.ldml,
+                "displayName",
+                "dateFormat",
+                "currency",
+                "coordinateUnit",
+                "field",
+                "unit",
+                "dateTimeFormat",
+                "timeFormat");
+        addEx(
+                temp,
+                DtdType.keyboard3,
+                "import",
+                "transformGroup",
+                "transforms",
+                "displays",
+                "layers",
+                "variables",
+                "keyboard3",
+                "flicks",
+                "forms",
+                "keys");
+        PARENT_EXCEPTIONS = temp.createImmutable();
+    }
+
+    static void addEx(
+            Multimap2<DtdType, Element, Element> result,
+            DtdType dtdType,
+            String elementChild,
+            String... elementParents) {
+        Map<String, Element> elementFromName = DtdData.getInstance(dtdType).getElementFromName();
+        Element child = elementFromName.get(elementChild);
+        Arrays.stream(elementParents)
+                .forEach(x -> result.put(dtdType, child, elementFromName.get(x)));
+    }
+
+    static final Set<String> skip = Set.of("alias", "special");
+
+    /**
+     * In an ideal world, we would have only one parent per child element; or at least the child
+     * elements would all have the same semantics, no matter what the parent was. We didn't start
+     * with that principle, however, but we want to prevent any new exceptions from creeping in.
+     */
+    public void testDifferentParents() {
+        warnln(
+                "To see a list of possible path chassis, use -DTestDtdData:chassis; to see element depth use -DTestDtdData:depth");
+        if (SHOW_DEPTH) {
+            System.out.println(
+                    "-DTestDtdData:depth shows the depth of element in paths, with the parent(s)");
+        }
+        if (SHOW_PATH_CHASSIS) {
+            System.out.println(
+                    "-DTestDtdData:chassis shows all path chassis. Elements with more than 1 parent are marked with subscripts, optional attributes with ? (eg,  unitPattern₂[@count][@case]?[@alt]?)");
+        }
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldmlICU) {
+                continue;
+            }
+            DtdData dtdData = DtdData.getInstance(dtdType);
+
+            ImmutableMultimap2<Element, Integer, Element> depth = dtdData.getDepthAndParentsMap();
+            if (SHOW_DEPTH) {
+                System.out.println("DEPTH");
+                for (Element element : depth.keySet()) {
+                    Map<Integer, Map<Element, Boolean>> map = depth.getMapMap(element);
+                    for (Entry<Integer, Map<Element, Boolean>> entry : map.entrySet()) {
+                        System.out.println(
+                                dtdType
+                                        + "\t"
+                                        + element
+                                        + "\t"
+                                        + entry.getKey()
+                                        + "\t"
+                                        + entry.getValue().keySet());
+                    }
+                }
+            }
+
+            Multimap<Element, Element> childToParent = dtdData.getParentsMap();
+
+            for (Entry<Element, Collection<Element>> entry : childToParent.asMap().entrySet()) {
+                Element child = entry.getKey();
+                Collection<Element> parents = entry.getValue();
+                if (parents.size() > 1 && !skip.contains(child.getName())) {
+                    Map<Element, Boolean> exceptionsOk = PARENT_EXCEPTIONS.getMap(dtdType, child);
+                    if (exceptionsOk == null) {
+                        errln(
+                                "Element: "
+                                        + child
+                                        + " has multiple parents: "
+                                        + parents
+                                        + "\n\t\tFix the DTD, not the PARENT_EXCEPTIONS in TestDtdData!");
+                    } else if (exceptionsOk.keySet().containsAll(parents)) {
+                        continue; // OK!
+                    } else {
+                        errln(
+                                "Element: «"
+                                        + child
+                                        + "» has multiple parents, with some not covered by exceptions: "
+                                        + Sets.difference(
+                                                Sets.newLinkedHashSet(parents),
+                                                exceptionsOk.keySet())
+                                        + "\n\t\tFix the DTD, not the PARENT_EXCEPTIONS in TestDtdData!");
+                    }
+                }
+            }
+            if (SHOW_PATH_CHASSIS) {
+                System.out.println("PATH_CHASSIS");
+                List<List<Element>> list = getAllRootToLeafPaths(dtdData.ROOT);
+                list.stream().forEach(x -> System.out.println(pathize(x, childToParent)));
+            }
+        }
+    }
+
+    private String pathize(List<Element> x, Multimap<Element, Element> childToParent) {
+        StringBuilder sb = new StringBuilder("/");
+        for (int i = 0; i < x.size(); ++i) {
+            Element y = x.get(i);
+            formatElement(y, childToParent.get(y), i == x.size() - 1, sb);
+        }
+        return sb.toString();
+    }
+
+    private void formatElement(
+            Element element, Collection<Element> parents, boolean isFinal, StringBuilder sb) {
+        sb.append('/').append(element.toString()).append(sizeMarker(parents.size()));
+
+        // now attributes, if any
+        Set<Attribute> attributes = element.getAttributes().keySet();
+        if (attributes.isEmpty()) {
+            return;
+        }
+
+        // divide the attributes into required and optional
+        for (Attribute attribute : attributes) {
+            if (attribute.isDeprecated()
+                    || attribute.attributeStatus != AttributeStatus.distinguished
+                    || !isFinal && attribute.name.equals("alt")) {
+                continue;
+            }
+            boolean optional = attribute.mode == Mode.OPTIONAL;
+            sb.append("[@").append(attribute.name).append(']');
+
+            if (optional) {
+                sb.append('?');
+            }
+        }
+    }
+
+    private String sizeMarker(int i) {
+        return i <= 1 //  
+                ? "" //
+                : "₀₁₂₃₄₅₆₇₈₉".substring(i, i + 1);
+    }
+
+    /** At the top level, call with element:dtdData.ROOT */
+    public static List<List<Element>> getAllRootToLeafPaths(Element root) {
+        List<List<Element>> allPaths = new ArrayList<>();
+        List<Element> currentPath = new ArrayList<>();
+
+        dfsPaths(root, currentPath, allPaths);
+
+        return allPaths;
+    }
+
+    // 3. Helper DFS function with backtracking
+    private static void dfsPaths(
+            Element node, List<Element> currentPath, List<List<Element>> allPaths) {
+        if (node.isDeprecated() || skip.contains(node.toString())) {
+            return;
+        }
+        // Add the current node's value to the tracking path
+        currentPath.add(node);
+
+        Set<Element> children = node.getChildren().keySet();
+        if (children.isEmpty()) {
+            allPaths.add(List.copyOf(currentPath));
+        } else {
+            for (Element child : children) {
+                dfsPaths(child, currentPath, allPaths);
+            }
+        }
+        // Backtrack: remove the current node before shifting back up the tree
+        currentPath.remove(currentPath.size() - 1);
+    }
 }

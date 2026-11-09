@@ -15,20 +15,18 @@ title: Feature-Based Test Generation for CLDR Conformance Tests
 
 We need the test data organized by feature, so that we can make sure the spec is covered and that the data for each part of the spec tests what it should.
 
-Today the test data (`common/testData/decimal/`, and `common/testData/currency/` in [#5808](https://github.com/unicode-org/cldr/pull/5808)) is a cross product of dimensions, e.g. locales × currencies × styles × inputs. The decimal files alone have 8,925 rows. They catch regressions, but:
+Today the test data (`common/testData/decimal/`, and `common/testData/currency/` in [#5808](https://github.com/unicode-org/cldr/pull/5808)) is the Cartesian product of the dimension values, e.g. locales × currencies × styles × inputs. The decimal files alone have 8,925 rows. They catch regressions, but:
 
 - A failing row doesn't say which part of TR35 it tests.
 - Nothing proves that every part of TR35 is tested.
 - If CLDR data changes (e.g. PTE loses its own decimal separator in `pt_PT`), a row still passes but no longer tests that part of the spec.
 
-Related work: the TR35 test coverage docs (CLDR-19466) split the currency and decimal sections of TR35 into numbered clauses (e.g. S11.1a), and [unicode-org/conformance](https://github.com/unicode-org/conformance) runs test data against ICU4C, ICU4J, ICU4X, NodeJS and other implementations.
-
 ## 2. Goals
 
-1. A failure names the TR35 clause that the implementation (or the spec) gets wrong.
+1. When a test fails, it tells us which TR35 clause it tests. Then we can check whether the implementation or the spec is wrong.
 2. Every TR35 clause in scope has at least one feature, and every feature has tests (100% coverage).
 3. If CLDR data no longer has the case a test relies on, a CLDR unit test fails.
-4. Later, the same test cases measure performance per feature.
+4. Later, we use the same test cases to measure performance per feature.
 
 ## 3. Terms
 
@@ -36,31 +34,75 @@ Related work: the TR35 test coverage docs (CLDR-19466) split the currency and de
 |---|---|---|
 | **Category** | One formatter area with its own dimensions. | `currency`, `decimal`, unit formatting |
 | **Dimension** | One input of the formatter. | `locale`, `currency`, `currency_display`, `input` |
-| **Clause** | One part of a TR35 snippet, as split in the coverage doc (4.5). | S11.1a: currency-specific `decimal` |
+| **Coverage doc** | A doc per category that splits TR35 into numbered clauses (CLDR-19466). | `tr35_currency_test_coverage.md` |
+| **Clause** | One case of one TR35 sentence. S11.1a is section 11, sentence 1, case a. | S11.1a: a currency with its own `decimal` |
 | **Feature** | A behavior that a clause requires, with a stable ID (4.1). | `currency_decimal_separator_special_currency` |
 | **Core set** | The `(dimension = value)` pairs that exercise one feature. | `locale = pt_PT`, `currency = PTE` |
 | **Core TSV** | The test cases generated from one core set (4.3). | `core_currency_decimal_separator_special_currency.tsv` |
 | **Data guard** | A CLDR unit test that checks that the core set still exercises the feature (4.4). | `pt_PT` PTE `decimal` exists and ≠ `pt_PT` `decimal` |
 
+## 4. Design
+
+Each box below is one part of the design, with the section that describes it. Green boxes are test data files, blue boxes are CLDR code and tests, and grey boxes are the inputs and users of the test data.
+
 ```mermaid
 flowchart TD
-  snippet("TR35 snippet") -->|split into| clause("Clause (e.g. S11.1a)")
-  clause -->|1 or more, usually 1| feature("Feature ID (row in features.tsv)")
-  feature -->|has 1| coreset("Core set (dimension = value)")
-  coreset -->|generates| tsv("Core TSV (expected values)")
-  coreset -->|checked by| guard("Data guard (CLDR unit test)")
-  tsv -->|input to| conf("Conformance runs (ICU4C, ICU4J, ICU4X, …)")
-  tsv -.->|input to| perf("Performance runs (later)")
+  tr35("TR35 text"):::outside
+  covdoc("Coverage doc"):::outside
+  clauses["clauses.tsv: the clauses (4.5)"]:::file
+  cldr[("CLDR data")]:::outside
+  features["features.tsv: features and core sets (4.1, 4.2)"]:::file
+  icu("ICU4J, later a reference implementation (4.8)"):::outside
+  guards[["Data guards (4.4)"]]:::code
+  gen[["Generator (4.2)"]]:::code
+  core["Core TSVs, one per feature (4.3)"]:::file
+  coverage[["Coverage check (4.5)"]]:::code
+  conf("Conformance repo (4.6)"):::outside
+  perf("Performance runs, later (4.7)"):::outside
 
-  classDef nodeBox fill:#e8f0fe,stroke:#1a73e8,stroke-width:1.5px,color:#0d3b66;
-  class snippet,clause,feature,coreset,tsv,guard,conf,perf nodeBox;
+  tr35 -->|"split into clauses"| covdoc
+  covdoc -->|"one row per clause"| clauses
+  clauses -->|"1 or more features per clause"| features
+  cldr -->|"locale data"| guards
+  features -->|"core sets"| guards
+  features -->|"core sets"| gen
+  icu -->|"expected values"| gen
+  gen -->|"writes"| core
+  core -->|"test cases"| conf
+  core -->|"test cases"| perf
+  clauses -.-> coverage
+  features -.-> coverage
+  guards -.-> coverage
+  core -.-> coverage
+
+  classDef file fill:#188038,stroke:#81c995,stroke-width:2px,color:#ffffff
+  classDef code fill:#1967d2,stroke:#8ab4f8,stroke-width:2px,color:#ffffff
+  classDef outside fill:#5f6368,stroke:#bdc1c6,stroke-width:2px,color:#ffffff
 ```
-
-## 4. Design
 
 ### 4.1 Feature IDs
 
-- Format: `<category>_<area>_<detail>`, lowercase snake case, e.g. `currency_decimal_separator_special_currency`, `currency_no_currency_pattern`.
+A feature ID joins these parts with `_`, in this order. Only the first two are always there:
+
+| Part | What it says | Examples |
+|---|---|---|
+| Category | The test data folder. | `currency`, `decimal` |
+| Area | The behavior, in words close to its TR35 name. | `decimal_separator`, `alpha_next_to_number` |
+| Source | Where the value comes from, if that matters. | `locale`, `special_currency`, `regular` (no override) |
+| Format | The format, if the case needs its own feature. | `compact`, `name` |
+| Condition | The data that selects the case. | `currency_sign`, `combining_mark` |
+
+For example, `currency` + `decimal_separator` + `special_currency` + `compact` gives `currency_decimal_separator_special_currency_compact`. IDs use only lowercase letters, digits and `_`. `FeatureRegistry` rejects an ID that is used twice, doesn't start with its category, or has other characters.
+
+| Feature ID | Clause | Case |
+|---|---|---|
+| `currency_decimal_separator_locale` | S1.1a | The locale's `currencyDecimal` replaces its decimal separator. |
+| `currency_decimal_separator_regular` | S1.2 | Without `currencyDecimal`, the locale's decimal separator is used. |
+| `currency_decimal_separator_special_currency` | S11.1a | A currency's own `decimal` replaces the locale's. |
+| `currency_alpha_next_to_number_compact_currency_sign` | S2.2b | A compact symbol that ends with a currency sign keeps the regular pattern. |
+
+Rules:
+
 - An ID never changes and is never reused. If the data for a feature disappears, the core set changes, not the ID.
 - One feature per clause by default, and one feature can serve several clauses.
 
@@ -70,7 +112,7 @@ A sub-case of a clause (another display, length or format type) gets its own fea
 - its own data requirement (a different data guard), or
 - an unclear or disputed spec reading.
 
-Example: S11.1a (currency-specific `decimal`) is `currency_decimal_separator_special_currency`. Its compact case (`1$3 mil`) is still being discussed in [CLDR-19798](https://unicode-org.atlassian.net/browse/CLDR-19798), so it is a separate feature, `currency_decimal_separator_special_currency_compact`, and a compact failure doesn't mark the clear part of the clause as failing.
+Example: S11.1a (a currency with its own `decimal`) is `currency_decimal_separator_special_currency`. Its compact case (`1$3 mil`) is still being discussed in [CLDR-19798](https://unicode-org.atlassian.net/browse/CLDR-19798), so it is a separate feature, `currency_decimal_separator_special_currency_compact`, and a compact failure doesn't mark the clear part of the clause as failing.
 
 ### 4.2 Feature registry
 
@@ -88,11 +130,11 @@ Example: S11.1a (currency-specific `decimal`) is `currency_decimal_separator_spe
 - `core_set` has `dimension=value` pairs separated by `; `, and several values of one dimension separated by `,`.
 - Like the core TSVs, every line has the same number of tabs, and no cell contains `"` (4.3).
 
-A generator per category (`GenerateCurrencyFeatureTestData`, later `GenerateDecimalFeatureTestData`), separate from the existing cross-product generators, reads the registry and writes one core TSV per feature, with every combination of the core set's values. Where a feature needs its own generator code (usually a new dimension), that code has a comment with the feature ID and clause, for readers only.
+A generator per category (`GenerateCurrencyFeatureTestData`, later `GenerateDecimalFeatureTestData`), separate from the existing Cartesian-product generators, reads the registry and writes one core TSV per feature, with every combination of the core set's values. Where a feature needs its own generator code (usually a new dimension), that code has a comment with the feature ID and clause, for readers only.
 
 ### 4.3 Core TSV files
 
-- Path: `common/testData/<category>/core_<feature_id>.tsv`, in the same folder and README as the cross-product files.
+- Path: `common/testData/<category>/core_<feature_id>.tsv`, in the same folder and README as the Cartesian-product files.
 - Columns: every dimension of the category (empty = default), then `expected`, `main_feature` and `other_features`. All core TSVs of a category share this header, so one parser reads them all.
 - The generator only has the dimensions that some feature needs. Adding a dimension adds its column, before `expected`, to every core TSV of the category, so readers should find columns by their header name.
 - `main_feature` is the feature the core set was made for: the same in every row, and it matches the file name. `other_features` lists other features the row may affect (comma-separated, may be empty). The generator fills it from the formatted value and CLDR data, so nobody edits it by hand.
@@ -172,5 +214,5 @@ Later, a naive but correct reference implementation of the spec (written for cla
 
 ## 7. Alternatives considered
 
-- Tag the rows of the existing cross-product files with feature IDs. This needs no new files, but the cross product lacks many combinations that features need (no row in [#5808](https://github.com/unicode-org/cldr/pull/5808) uses `fr_CH` or `de_AT`, for example), and the files are too large to review by feature.
+- Tag the rows of the existing Cartesian-product files with feature IDs. This needs no new files, but those files lack many combinations that features need (no row in [#5808](https://github.com/unicode-org/cldr/pull/5808) uses `fr_CH` or `de_AT`, for example), and they are too large to review by feature.
 - One core file per category instead of one per feature. This means far fewer files (currency alone will likely have dozens of features), but every feature PR would edit the same file, and a failure couldn't point to one file with that feature's cases. Every row already has `main_feature`, so the files can still be merged later without losing anything.

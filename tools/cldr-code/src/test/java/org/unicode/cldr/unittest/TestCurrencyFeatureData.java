@@ -23,9 +23,11 @@ import org.unicode.cldr.util.CLDRFile;
  * that every feature has test data and a data guard (the coverage check).
  *
  * <p>A data guard fails when CLDR data changed, so that a feature's core set no longer exercises
- * the feature. To fix it, find a new core set, update the guard and the core set in {@code
+ * the feature. To fix it, find a new core set, update it in {@code
  * common/testData/currency/features.tsv}, and run {@link GenerateCurrencyFeatureTestData}. The
- * feature ID stays the same.
+ * guard changes only if the reason the core set works changes, and the feature ID stays the same.
+ * If a CLDR data change breaks a guard, it can mark the guard as a known issue ({@code
+ * logKnownIssue} with a ticket) until a follow-up finds the new core set.
  */
 public class TestCurrencyFeatureData extends TestFmwkPlus {
 
@@ -47,7 +49,7 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                             "currency_decimal_separator_locale_compact",
                             f -> {
                                 assertOwnSymbol(f, "currencyDecimal", "decimal");
-                                assertCompactPatterns(f, "1000", "1000000");
+                                assertCompactPatterns(f);
                             })
                     .put(
                             "currency_decimal_separator_locale_name",
@@ -68,8 +70,8 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
 
     /**
      * The coverage check: every feature has a data guard and a core TSV file with at least one row,
-     * and the core TSV files only name features in the registry. (The check that every clause of
-     * the TR35 coverage doc has a feature comes with the coverage doc.)
+     * and the core TSV files only name features in the registry and have no {@code "}. (The check
+     * that every in-scope clause has a feature comes later, with {@code clauses.tsv}.)
      */
     public void TestCoverage() throws IOException {
         Path directory = FeatureRegistry.directory(CATEGORY);
@@ -101,6 +103,8 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                 assertEquals(name + ": header", header, lines.isEmpty() ? "" : lines.get(0));
                 for (int i = 1; i < lines.size(); i++) {
                     String where = name + ":" + (i + 1);
+                    // GitHub's table view reads " as a quote and shows an error instead.
+                    assertFalse(where + ": no cell contains \"", lines.get(i).contains("\""));
                     List<String> cells = TAB.splitToList(lines.get(i));
                     if (!assertEquals(where + ": number of columns", columns, cells.size())) {
                         continue;
@@ -136,12 +140,15 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
         }
     }
 
-    /** Each locale of the core set has a compact currency pattern, not "0", for each type. */
-    private void assertCompactPatterns(Feature feature, String... types) {
+    /**
+     * Each locale of the core set has a compact currency pattern, not "0", for the compact type of
+     * each input of the core set.
+     */
+    private void assertCompactPatterns(Feature feature) {
         for (String locale : feature.coreSet().get("locale")) {
             CLDRFile file = CLDRConfig.getInstance().getCLDRFile(locale, true);
             String numberingSystem = file.getStringValue("//ldml/numbers/defaultNumberingSystem");
-            for (String type : types) {
+            for (String type : compactTypes(feature)) {
                 String pattern =
                         file.getStringValue(
                                 "//ldml/numbers/currencyFormats[@numberSystem=\""
@@ -157,5 +164,14 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                 }
             }
         }
+    }
+
+    /** Returns the compact types of the core set inputs, such as 1000 for -1230.05. */
+    private static List<String> compactTypes(Feature feature) {
+        return feature.coreSet().get("input").stream()
+                .map(input -> (int) Math.floor(Math.log10(Math.abs(Double.parseDouble(input)))))
+                .distinct()
+                .map(exponent -> "1" + "0".repeat(Math.max(0, exponent)))
+                .toList();
     }
 }

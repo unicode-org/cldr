@@ -4,12 +4,14 @@ Feature-based test data for currency formatting ([UTS #35 Part 3: Numbers](../..
 
 ## Files
 
-- `features.tsv`: one row per feature, with its ID, its UTS #35 link, its clauses, its core set, and a summary. The core set lists the `dimension=value` pairs that exercise the feature (several values of one dimension are separated by `,`).
-- `core_<feature_id>.tsv`: the test cases of one feature, one for each combination of its core set.
+- `features.tsv`: one row per feature, with the columns `feature_id`, `spec` (its UTS #35 link), `clause`, `core_set` and `summary`. The clause IDs come from the TR35 coverage doc (CLDR-19466): S1.1a is section 1, sentence 1, case a. The core set lists the `dimension=value` pairs that exercise the feature, separated by `; `, and several values of one dimension are separated by `,`.
+- `core_<feature_id>.tsv`: the test cases of one feature, one for each combination of its core set. These files are generated, so don't edit them by hand.
 
-## Core TSV Format
+Both are UTF-8 and tab-separated. Every line, including the `#` header, has the same number of tabs, and no cell contains `"`.
 
-UTF-8, tab-separated. Every line, including the `#` header, has the same number of tabs.
+## Core TSV Columns
+
+Find the columns by their header name: a new dimension adds a column before `expected`.
 
 | Column | Meaning |
 |---|---|

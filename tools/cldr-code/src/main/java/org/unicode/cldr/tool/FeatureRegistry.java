@@ -67,7 +67,8 @@ public final class FeatureRegistry {
     }
 
     /**
-     * Reads the registry of the category.
+     * Reads the registry of the category. Every line has the same number of tabs, and no cell
+     * contains {@code "}, so that GitHub shows the file as a table.
      *
      * @throws IllegalArgumentException if the file doesn't have the expected format
      */
@@ -82,6 +83,9 @@ public final class FeatureRegistry {
         Set<String> ids = new HashSet<>();
         for (int i = 1; i < lines.size(); i++) {
             String where = FILE_NAME + ":" + (i + 1);
+            if (lines.get(i).contains("\"")) {
+                throw new IllegalArgumentException(where + ": a cell contains \"");
+            }
             List<String> cells = TAB.splitToList(lines.get(i));
             if (cells.size() != COLUMNS.size()) {
                 throw new IllegalArgumentException(

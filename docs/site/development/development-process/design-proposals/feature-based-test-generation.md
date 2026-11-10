@@ -116,7 +116,7 @@ Example: S11.1a (a currency with its own `decimal`) is `currency_decimal_separat
 
 ### 4.2 Feature registry
 
-`common/testData/<category>/features.tsv` is the single source of truth for the features of a category. It is TSV like the test data, so GitHub shows it as a table and the CLDR tools need no new library.
+`common/testData/<category>/features/features.tsv` is the single source of truth for the features of a category. It is TSV like the test data, so GitHub shows it as a table and the CLDR tools need no new library.
 
 | Column | Example |
 |---|---|
@@ -134,7 +134,7 @@ A generator per category (`GenerateCurrencyFeatureTestData`, later `GenerateDeci
 
 ### 4.3 Core TSV files
 
-- Path: `common/testData/<category>/core_<feature_id>.tsv`, in the same folder and README as the Cartesian-product files.
+- Path: `common/testData/<category>/features/core_<feature_id>.tsv`. The `features/` subfolder has its own README, so these files don't mix with the Cartesian-product files.
 - Columns: every dimension of the category (empty = default), then `expected`, `main_feature` and `other_features`. All core TSVs of a category share this header, so one parser reads them all.
 - The generator only has the dimensions that some feature needs. Adding a dimension adds its column, before `expected`, to every core TSV of the category, so readers should find columns by their header name.
 - `main_feature` is the feature the core set was made for: the same in every row, and it matches the file name. `other_features` lists other features the row may affect (comma-separated, may be empty). The generator fills it from the formatted value and CLDR data, so nobody edits it by hand.
@@ -164,7 +164,7 @@ The same class also checks that:
 2. Every feature has a core TSV with at least one row and a data guard, and every data guard belongs to a feature.
 3. Every `main_feature` matches its file name, and every ID in `main_feature` and `other_features` is in the registry.
 
-`common/testData/<category>/clauses.tsv` lists the clauses of the category's coverage doc, one per row, with the columns `clause`, `spec`, `status` and `note`:
+`common/testData/<category>/features/clauses.tsv` lists the clauses of the category's coverage doc, one per row, with the columns `clause`, `spec`, `status` and `note`:
 
 - `status` is `in_scope`, `waiting` (4.8) or `out_of_scope`.
 - `note` gives the ticket or the reason for `waiting` and `out_of_scope`.

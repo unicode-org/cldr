@@ -33,12 +33,13 @@ import org.unicode.cldr.util.UnitConverter.ConversionInfo;
  * mixed units. The code is not intended to be final production code.
  */
 public class InvestigateUnitRounding {
-
     private static final boolean VERBOSE = true;
+
+    // Settings for investigation
     private static final boolean MATCH_FORMATTED = true;
-    private static final int lineToBreakAt = 411; // 0 for no lines
+    private static final int lineToBreakAt = 0; // 0 for no lines
     private static final int maxSigSamples = 14;
-    private static final double FUDGE_FACTOR = 1.000_000_000_001;
+    private static final boolean EXPERIMENTAL_ROUND = false;
 
     private static final UnitConverter UNIT_CONVERTER =
             SupplementalDataInfo.getInstance().getUnitConverter();
@@ -72,6 +73,10 @@ public class InvestigateUnitRounding {
             {"kilometer", "6", "mile-and-rod-and-foot-and-inch"},
             // not yet working right
             // {"radian", "3", "degree-and-arc-minute-and-arc-second"},
+
+            // Inverse units
+            {"meter-per-second", "5", "minute-per-mile"},
+            {"meter-per-second", "5", "minute-per-mile-and-second-per-mile"},
         };
 
         OutputInt line = new OutputInt(1);
@@ -114,9 +119,9 @@ public class InvestigateUnitRounding {
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     // for now, min=max
                     int errors = 0;
-                    //errors += errorCount(line, converter, amount / FUDGE_FACTOR, minMax, minMax);
+                    // errors += errorCount(line, converter, amount / FUDGE_FACTOR, minMax, minMax);
                     errors += errorCount(line, converter, amount, minMax, minMax);
-                    //errors += errorCount(line, converter, amount * FUDGE_FACTOR, minMax, minMax);
+                    // errors += errorCount(line, converter, amount * FUDGE_FACTOR, minMax, minMax);
                     ok += 1 - errors;
                     totalErrors += errors;
                 }
@@ -145,7 +150,7 @@ public class InvestigateUnitRounding {
             hackLnf = hackLnf.precision(sig, sig);
             String lnfFormatted = hackLnf.format(source).toString();
             double rounded = roundToSignificant(source, sig);
-            String roundedValue = BigDecimal.valueOf(rounded).toPlainString();
+            String roundedValue = getPlainString(rounded);
             System.out.println(Joiners.COMMA_SP.join(sig, lnfFormatted, roundedValue));
         }
         int debug = 0;
@@ -226,7 +231,7 @@ public class InvestigateUnitRounding {
                             "\t",
                             hackLnf,
                             "\t",
-                            BigDecimal.valueOf(sourceAmount).toPlainString(),
+                            getPlainString(sourceAmount),
                             "\t«",
                             sourceFormatted,
                             " ",
@@ -253,11 +258,17 @@ public class InvestigateUnitRounding {
                             check.roundTripFormatted,
                             "»",
                             " unrounded difference: ",
-                            BigDecimal.valueOf(delta).toPlainString()));
+                            getPlainString(delta)));
             return 1;
         }
 
         return 0;
+    }
+
+    private static String getPlainString(double sourceAmount) {
+        return Double.isFinite(sourceAmount)
+                ? BigDecimal.valueOf(sourceAmount).toPlainString()
+                : Double.toString(sourceAmount);
     }
 
     /**
@@ -394,15 +405,15 @@ public class InvestigateUnitRounding {
         public String toString() {
             return Joiners.ES.join(
                     "source:       \t",
-                    BigDecimal.valueOf(source).toPlainString(),
+                    getPlainString(source),
                     "\nsourceForm.:\t",
                     sourceFormatted,
                     "\nnumbers:    \t",
                     numbers,
                     "\nroundTrip:  \t",
-                    BigDecimal.valueOf(roundTrip).toPlainString(),
+                    getPlainString(roundTrip),
                     "\nrawCvttBack:\t",
-                    BigDecimal.valueOf(rawConvertBack).toPlainString(),
+                    getPlainString(rawConvertBack),
                     "\nrtFormatted:\t",
                     roundTripFormatted,
                     "\nmatches:    \t",
@@ -418,6 +429,7 @@ public class InvestigateUnitRounding {
         private static final double MAX_LONG_FROM_DOUBLE = Math.pow(2, 53);
 
         private final String sourceUnitId;
+        private final boolean invertSource;
         private final double[] conversionFactors;
         private final String[] unitIds;
         private final boolean matchFormatted;
@@ -465,8 +477,6 @@ public class InvestigateUnitRounding {
             List<Double> conversions = new ArrayList<>();
             List<String> units = Splitter.on("-and-").splitToList(targetUnit);
 
-            // Converter meterToYardAndFoot = new Converter(1d / 0.9144d, "yard", 3d, "foot");
-
             // Check units: must be value units, and if mixed, must be descending in value
             Output<String> baseUnitId = new Output<>();
             ConversionInfo info = UNIT_CONVERTER.parseUnitId(sourceUnit, baseUnitId, false);
@@ -477,6 +487,7 @@ public class InvestigateUnitRounding {
 
             Rational lastFactor = null;
             String lastUnit = null;
+            boolean invertSource = false;
             for (String unit : units) {
                 info = UNIT_CONVERTER.parseUnitId(unit, baseUnitId, false);
                 if (baseUnitId.value == null) {
@@ -484,15 +495,25 @@ public class InvestigateUnitRounding {
                 }
                 String normalizedBaseUnitID = UNIT_CONVERTER.getReducedUnit(baseUnitId.value);
                 if (!normalizedBaseUnitID.equals(normalizedSourceUnitId)) {
-                    throw new UnitException(
-                            "Mismatched baseUnitIds for "
-                                    + sourceUnit
-                                    + "&"
-                                    + unit
-                                    + ": "
-                                    + normalizedSourceUnitId
-                                    + "≠"
-                                    + normalizedBaseUnitID);
+                    // test to see if we can invert;
+                    if (lastFactor == null) {
+                        UNIT_CONVERTER.canConvertBetween(lastUnit);
+                        String reciprocalUnit = UNIT_CONVERTER.reciprocalOf(normalizedBaseUnitID);
+                        if (reciprocalUnit.equals(normalizedSourceUnitId)) {
+                            invertSource = true;
+                        }
+                    }
+                    if (!invertSource) {
+                        throw new UnitException(
+                                "Mismatched baseUnitIds for "
+                                        + sourceUnit
+                                        + "&"
+                                        + unit
+                                        + ": "
+                                        + normalizedSourceUnitId
+                                        + "≠"
+                                        + normalizedBaseUnitID);
+                    }
                 }
 
                 if (lastFactor == null) {
@@ -524,15 +545,17 @@ public class InvestigateUnitRounding {
 
                 conversions.add(conversion.doubleValue());
             }
-            return new Converter(sourceUnit, conversions, units, matchFormatted);
+            return new Converter(sourceUnit, invertSource, conversions, units, matchFormatted);
         }
 
         private Converter(
                 String sourceUnit,
+                boolean invertSource,
                 List<Double> conversions,
                 List<String> unitsIds,
                 boolean matchFormatted) {
             this.sourceUnitId = sourceUnit;
+            this.invertSource = invertSource;
             this.conversionFactors = Doubles.toArray(conversions);
             this.unitIds = unitsIds.toArray(String[]::new);
             this.matchFormatted = matchFormatted;
@@ -545,7 +568,7 @@ public class InvestigateUnitRounding {
                 double conversionFactor = conversionFactors[i];
                 result = (result + parsed) / conversionFactor;
             }
-            return result;
+            return invertSource ? 1 / result : result;
         }
 
         public double convertBackRaw(Processed roundResult) {
@@ -584,13 +607,18 @@ public class InvestigateUnitRounding {
             final int minSig = rp.minimumSignificantDigits;
             final int maxSig = rp.maximumSignificantDigits;
 
-            if (source_ == 0) {
-                result.setDouble(0, minSig, maxSig);
+            if (source_ == 0 || Double.isInfinite(maxSig)) {
+                if (invertSource) {
+                    result.setDouble(1 / source_, minSig, maxSig);
+                    return result;
+                }
+                result.setDouble(source_, minSig, maxSig);
                 return result;
             }
 
             boolean negative = source_ < 0;
             double source = negative ? -source_ : source_;
+
             int deltaMaxToMin = maxSig - minSig;
 
             /*
@@ -605,23 +633,29 @@ public class InvestigateUnitRounding {
                */
 
             // Determine the position of the lead digit.
-            // 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> -1; etc.
+            // 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> 0; etc.
             int firstDigit = firstDigit(source);
             // Calculate how many decimal places we need to keep
             double increment = getRoundingIncrement(rp.maximumSignificantDigits, firstDigit);
-            // Fix the source and delta accordingly
 
+            // Fix the source and upper/lowerbounds accordingly
             double converted;
             if (matchFormatted) {
                 converted = roundByIncrement(source, increment);
             } else {
                 converted = source;
             }
-            // get the delta. Ideally it would be ±0.5 over the magnitude;
-            // but we scale down a bit further
+            // get the bounds
             double convertedDelta = 0.5 / increment;
-            double lowerBound = converted - convertedDelta;
-            double upperbound = converted + convertedDelta;
+            double lowerBound, upperBound;
+            if (invertSource) {
+                lowerBound = 1 / (converted + convertedDelta);
+                upperBound = 1 / (converted - convertedDelta);
+                converted = 1 / converted;
+            } else {
+                lowerBound = converted - convertedDelta;
+                upperBound = converted + convertedDelta;
+            }
 
             int last = conversionFactors.length - 1;
 
@@ -629,21 +663,21 @@ public class InvestigateUnitRounding {
                 double conversionFactor = conversionFactors[i];
                 converted = converted * conversionFactor;
                 lowerBound = lowerBound * conversionFactor;
-                upperbound = upperbound * conversionFactor;
+                upperBound = upperBound * conversionFactor;
                 if (i == last || converted > MAX_LONG_FROM_DOUBLE) {
                     // the final value is always a double
-                    int bestScale = getBestDoubleScale(lowerBound, converted, upperbound);
+                    int bestScale = getBestDoubleScale(lowerBound, converted, upperBound);
                     result.setDouble(converted, bestScale - deltaMaxToMin, bestScale);
-                    new CheckResult(this, source, rp, result);
+                    CheckResult debug = new CheckResult(this, source, rp, result);
                     break;
                 } else {
                     double lowerBoundCeiling = Math.floor(lowerBound) + 1;
-                    double upperBoundFloor = Math.ceil(upperbound) - 1;
+                    double upperBoundFloor = Math.ceil(upperBound) - 1;
                     if (lowerBoundCeiling < upperBoundFloor) {
                         // It is precise enough; there is an integer that works
                         // find the ones with the longest sequence of zeros
                         // among those, find the one closest to converted.
-                        BestLong bestLong = getBestLongScale(lowerBound, converted, upperbound);
+                        BestLong bestLong = getBestLongScale(lowerBound, converted, upperBound);
                         result.setDouble(
                                 bestLong.value,
                                 bestLong.significantDigits - deltaMaxToMin,
@@ -651,9 +685,11 @@ public class InvestigateUnitRounding {
                         new CheckResult(this, source, rp, result);
                         break;
                     }
-                    double floor = Math.floor(converted);
+                    long floor = (long) Math.floor(converted);
                     result.addLong(floor);
-                    converted = converted - floor;
+                    lowerBound -= floor;
+                    converted -= floor;
+                    upperBound -= floor;
                 }
             }
             if (negative) {
@@ -678,6 +714,13 @@ public class InvestigateUnitRounding {
         }
 
         private BestLong getBestLongScale(double lowerBound, double value, double upperbound) {
+            if (!EXPERIMENTAL_ROUND) {
+                long round = Math.round(value);
+                if (lowerBound <= round && round <= upperbound) {
+                    int sig = round == 0 ? 1 : firstDigit(round);
+                    return new BestLong(round, sig);
+                }
+            }
             // Estimate an upper limit for E to start the downward scan
             double span = upperbound - lowerBound;
             int startE = firstDigit(span);
@@ -731,7 +774,7 @@ public class InvestigateUnitRounding {
 
             // Handle edge cases where value falls outside bounds or difference is 0
             if (lowerDiff <= 0 || upperDiff <= 0) {
-                return 1;
+                throw new UnitException("bounds problem");
             }
 
             int valueFirstSigDigitPlace = firstDigit(value);
@@ -828,7 +871,7 @@ public class InvestigateUnitRounding {
                 if (sb.length() != 0) {
                     sb.append(" : ");
                 }
-                sb.append(BigDecimal.valueOf(finalValue).toPlainString());
+                sb.append(getPlainString(finalValue));
                 sb.append(formatPrecision(minSignificant, maxSignificant));
                 return sb.toString();
             }
@@ -880,12 +923,9 @@ public class InvestigateUnitRounding {
         return Math.round(source * increment) / increment;
     }
 
-    /**
-     * Determine the magnitude of the number; the position of the lead digit. 1..9.99… -> 1;
-     * 10..99.99… -> 2, 0.1..0.999… -> -1; etc.
-     */
+    /** The position of the lead digit. 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> -1; etc. */
     public static int firstDigit(double value) {
-        return (int) Math.ceil(Math.log10(value));
+        return (int) Math.floor(Math.log10(value)) + 1;
     }
 
     public static double parseDouble(DecimalFormat df, String string) {

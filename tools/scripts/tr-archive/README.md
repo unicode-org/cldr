@@ -17,7 +17,7 @@ Node.js (Tested with v12)
 - To generate the .zip file: (Unix)
 
 ```shell
-$ bash make-tr-archive.sh
+$ npm run build
 ```
 
 You will end up with HTML files under `dist/` and a zipped up `./tr35.zip` archive.
@@ -56,7 +56,7 @@ $ npm run extract-link-targets
 
 ### Copyright
 
-Copyright &copy; 1991-2021 Unicode, Inc.
+Copyright &copy; 1991-2026 Unicode, Inc.
 All rights reserved.
 [Terms of use](https://www.unicode.org/copyright.html)
 

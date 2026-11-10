@@ -7,20 +7,23 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import org.unicode.cldr.tool.FeatureRegistry;
+import org.unicode.cldr.tool.FeatureRegistry.CoverageRow;
 import org.unicode.cldr.tool.FeatureRegistry.Feature;
+import org.unicode.cldr.tool.FeatureRegistry.Status;
 import org.unicode.cldr.tool.GenerateCurrencyFeatureTestData;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 
 /**
  * Checks the CLDR data that the feature-based currency test data relies on (the data guards), and
- * that every feature has test data and a data guard (the coverage check).
+ * that every clause and feature has what it needs (the coverage check).
  *
  * <p>A data guard fails when CLDR data changed, so that a feature's core set no longer exercises
  * the feature. To fix it, find a new core set, update it in {@code
@@ -69,9 +72,10 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
     }
 
     /**
-     * The coverage check: every feature has a data guard and a core TSV file with at least one row,
-     * and the core TSV files only name features in the registry and have no {@code "}. (The check
-     * that every in-scope clause has a feature comes later, with {@code clauses.tsv}.)
+     * The coverage check: a row of {@code coverage.tsv} names a feature in the registry only if it
+     * is {@code covered}, and every feature is in a {@code covered} row, has a data guard, and has
+     * a core TSV file with at least one row. The core TSV files only name features in the registry
+     * and have no {@code "}.
      */
     public void TestCoverage() throws IOException {
         Path directory = FeatureRegistry.directory(CATEGORY);
@@ -79,7 +83,21 @@ public class TestCurrencyFeatureData extends TestFmwkPlus {
                 FeatureRegistry.read(CATEGORY).stream()
                         .map(Feature::id)
                         .collect(Collectors.toSet());
+        Set<String> covered = new HashSet<>();
+        for (CoverageRow row : FeatureRegistry.readCoverage(CATEGORY)) {
+            if (row.status() == Status.COVERED) {
+                String where = row.clause() + ": the covered feature " + row.featureId();
+                if (assertTrue(where + " is in features.tsv", ids.contains(row.featureId()))) {
+                    covered.add(row.featureId());
+                }
+            } else {
+                String where = row.clause() + ": a " + row.status().label() + " row";
+                assertFalse(
+                        where + " names no feature in features.tsv", ids.contains(row.featureId()));
+            }
+        }
         for (String id : ids) {
+            assertTrue(id + " is in a covered row of coverage.tsv", covered.contains(id));
             assertTrue(id + " has a data guard", guards.containsKey(id));
             Path file = directory.resolve(FeatureRegistry.coreFileName(id));
             assertTrue(

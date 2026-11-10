@@ -31,8 +31,8 @@ import org.unicode.cldr.util.TempPrintWriter;
  * combination of the feature's core set and the value that ICU4J formats for it.
  *
  * <p>The generator only has the dimensions, and dimension values, that some feature needs. The code
- * that a feature needs has a comment with the feature ID and its clause in the TR35 currency
- * coverage doc (for example S1.1b).
+ * that a feature needs has a comment with the feature ID and its clause (for example S1.1b), and
+ * {@code coverage.tsv} links each clause to UTS #35.
  */
 public class GenerateCurrencyFeatureTestData {
     /** The test data category, which is also the name of its directory. */

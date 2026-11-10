@@ -4,10 +4,11 @@ Feature-based test data for currency formatting ([UTS #35 Part 3: Numbers](../..
 
 ## Files
 
-- `features.tsv`: one row per feature, with the columns `feature_id`, `spec` (its UTS #35 link), `clause`, `core_set` and `summary`. The clause IDs come from the TR35 coverage doc (CLDR-19466): S1.1a is section 1, sentence 1, case a. The core set lists the `dimension=value` pairs that exercise the feature, separated by `; `, and several values of one dimension are separated by `,`.
+- `features.tsv`: one row per feature, with the columns `feature_id`, `core_set` and `summary`. The core set lists the `dimension=value` pairs that exercise the feature, separated by `; `, and several values of one dimension are separated by `,`.
+- `coverage.tsv`: one row per clause and feature, with the columns `clause`, `spec` (its UTS #35 link), `summary`, `feature_id`, `status` and `note`. The clause IDs come from the TR35 coverage doc (CLDR-19466): S1.1a is section 1, sentence 1, case a. A clause with several features has a row for each, and a clause without a feature has one row with an empty `feature_id`. The status is `covered`, `todo`, `waiting` (for a second source of expected values) or `out_of_scope`, and `note` gives the ticket or the reason.
 - `core_<feature_id>.tsv`: the test cases of one feature, one for each combination of its core set. These files are generated, so don't edit them by hand.
 
-Both are UTF-8 and tab-separated. Every line, including the `#` header, has the same number of tabs, and no cell contains `"`.
+All three are UTF-8 and tab-separated. Every line, including the `#` header, has the same number of tabs, and no cell contains `"`.
 
 ## Core TSV Columns
 

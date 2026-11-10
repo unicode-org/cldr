@@ -49,7 +49,7 @@ Each box below is one part of the design, with the section that describes it. Gr
 flowchart TD
   tr35("TR35 text"):::outside
   covdoc("Coverage doc"):::outside
-  clauses["clauses.tsv: the clauses (4.5)"]:::file
+  covtsv["coverage.tsv: clauses and their features (4.5)"]:::file
   cldr[("CLDR data")]:::outside
   features["features.tsv: features and core sets (4.1, 4.2)"]:::file
   icu("ICU4J, later a reference implementation (4.8)"):::outside
@@ -61,8 +61,8 @@ flowchart TD
   perf("Performance runs, later (4.7)"):::outside
 
   tr35 -->|"split into clauses"| covdoc
-  covdoc -->|"one row per clause"| clauses
-  clauses -->|"1 or more features per clause"| features
+  covdoc -->|"one row per clause and feature"| covtsv
+  covtsv -->|"feature IDs"| features
   cldr -->|"locale data"| guards
   features -->|"core sets"| guards
   features -->|"core sets"| gen
@@ -70,7 +70,7 @@ flowchart TD
   gen -->|"writes"| core
   core -->|"test cases"| conf
   core -->|"test cases"| perf
-  clauses -.-> coverage
+  covtsv -.-> coverage
   features -.-> coverage
   guards -.-> coverage
   core -.-> coverage
@@ -121,14 +121,12 @@ Example: S11.1a (a currency with its own `decimal`) is `currency_decimal_separat
 | Column | Example |
 |---|---|
 | `feature_id` | `currency_decimal_separator_special_currency` |
-| `spec` | `tr35-numbers.md#currency-specific-decimal-and-grouping-overrides` |
-| `clause` | `S11.1a` |
 | `core_set` | `locale=pt_PT; currency=PTE; currency_display=symbol; input=1234565.0,-1230.05` |
 | `summary` | A currency's own `decimal` replaces the locale's `decimal`. |
 
-- `clause` lists every clause the feature serves, comma-separated.
 - `core_set` has `dimension=value` pairs separated by `; `, and several values of one dimension separated by `,`.
 - Like the core TSVs, every line has the same number of tabs, and no cell contains `"` (4.3).
+- The clauses that a feature serves, and their TR35 links, are in `coverage.tsv` (4.5), so each link is in one place.
 
 A generator per category (`GenerateCurrencyFeatureTestData`, later `GenerateDecimalFeatureTestData`), separate from the existing Cartesian-product generators, reads the registry and writes one core TSV per feature, with every combination of the core set's values. Where a feature needs its own generator code (usually a new dimension), that code has a comment with the feature ID and clause, for readers only.
 
@@ -150,7 +148,7 @@ Example, `core_currency_decimal_separator_special_currency.tsv` (`pt_PT` group i
 
 ### 4.4 Data guards
 
-A new test class per category, `TestCurrencyFeatureData` (later `TestDecimalFeatureData`), has one guard per feature, in a map keyed by feature ID. A guard gets the feature's registry row and checks the CLDR facts that make each locale (and currency) in its core set exercise the feature. It checks nothing about formatted output. For example, the guard of `currency_decimal_separator_special_currency` checks that PTE has its own `decimal` in `pt_PT`, and that it differs from the `pt_PT` `decimal`. A small shared class (`FeatureRegistry`) reads `features.tsv` for every category.
+A new test class per category, `TestCurrencyFeatureData` (later `TestDecimalFeatureData`), has one guard per feature, in a map keyed by feature ID. A guard gets the feature's registry row and checks the CLDR facts that make each locale (and currency) in its core set exercise the feature. It checks nothing about formatted output. For example, the guard of `currency_decimal_separator_special_currency` checks that PTE has its own `decimal` in `pt_PT`, and that it differs from the `pt_PT` `decimal`. A small shared class (`FeatureRegistry`) reads `features.tsv` and `coverage.tsv` for every category.
 
 The guards are kept apart from the tests that compare the TSVs with the generator's output, so a guard failure says that CLDR data changed. The fix is to find a new core set, update it in the registry, and regenerate the core TSV. The guard changes only if the reason the core set works changes, and the feature ID stays the same.
 
@@ -158,27 +156,35 @@ If a CLDR data PR breaks a guard, that PR can mark the guard as a known issue (`
 
 ### 4.5 Coverage check
 
-The same class also checks that:
+`common/testData/<category>/features/coverage.tsv` connects the clauses of the category's coverage doc to the features, with one row per clause and feature. Example rows:
 
-1. Every `in_scope` clause in `clauses.tsv` has a feature in the registry, and every clause in the registry is in `clauses.tsv`.
-2. Every feature has a core TSV with at least one row and a data guard, and every data guard belongs to a feature.
+| clause | spec | summary | feature_id | status | note |
+|---|---|---|---|---|---|
+| S2.1a | `tr35-numbers.md#Compact_Number_Formats` | The step applies to compact currency patterns. | `currency_alpha_next_to_number_compact` | `covered` | |
+| S2.2a | `tr35-numbers.md#Compact_Number_Formats` | A currency string that ends with a letter selects the alt pattern. | `currency_alpha_next_to_number_compact` | `covered` | |
+| S2.2c | `tr35-numbers.md#Compact_Number_Formats` | A string that ends with another non-letter keeps the regular pattern. | | `waiting` | ICU4J applies `currencySpacing` instead |
+
+- A clause with several features has a row for each, and a feature that serves several clauses is in a row for each (S2.1a and S2.2a above).
+- `status` is `covered`, `todo` (no feature yet), `waiting` (4.8) or `out_of_scope`. A row names a feature in the registry only if it is `covered`; other rows leave `feature_id` empty or name a planned feature.
+- `note` gives the ticket or the reason for `waiting` and `out_of_scope`, and the spec ticket for an unclear reading (4.8).
+- `spec` is the TR35 link, and `summary` says in one line, in our own words, what the clause requires. The table doesn't quote TR35, because its text often has `"` and quotes go out of date.
+
+`TestCurrencyFeatureData` also checks that:
+
+1. Every `covered` row names a feature in the registry, and no other row does.
+2. Every feature is in at least one `covered` row, has a core TSV with at least one row, and has a data guard, and every data guard belongs to a feature.
 3. Every `main_feature` matches its file name, and every ID in `main_feature` and `other_features` is in the registry.
 
-`common/testData/<category>/features/clauses.tsv` lists the clauses of the category's coverage doc, one per row, with the columns `clause`, `spec`, `status` and `note`:
+The check reads `coverage.tsv` rather than the coverage doc, so it works before that doc is on `main`.
 
-- `status` is `in_scope`, `waiting` (4.8) or `out_of_scope`.
-- `note` gives the ticket or the reason for `waiting` and `out_of_scope`.
-
-Check 1 reads this file rather than the coverage doc, so it works before that doc is on `main`.
-
-Goal 2 (100% coverage) is met when this check passes and no clause is `waiting`. Whether an implementation passes each feature is a separate question, answered by the conformance report (4.6).
+Goal 2 (100% coverage) is met when this check passes and every row is `covered` or `out_of_scope`. Whether an implementation passes each feature is a separate question, answered by the conformance report (4.6).
 
 ### 4.6 Conformance repo
 
 In [unicode-org/conformance](https://github.com/unicode-org/conformance):
 
 - `testgen` gets a currency test type (it has none today). It reads `core_*.tsv` and writes its JSON test and verify files, keeping `main_feature` and `other_features` on each test case.
-- `verifier` groups results by main feature, then by clause. A report row reads: *`currency_decimal_separator_special_currency` (S11.1a): ICU4C ✅, ICU4X ❌ 1/2*.
+- `verifier` groups results by main feature, and uses `coverage.tsv` to show the clauses of each feature. A report row reads: *`currency_decimal_separator_special_currency` (S11.1a): ICU4C ✅, ICU4X ❌ 1/2*.
 - A feature that fails in every implementation points to the spec or the expected value. A feature that fails in one implementation points to that implementation.
 
 ### 4.7 Performance (later)
@@ -189,24 +195,23 @@ The core TSVs are also the benchmark inputs. Each implementation reports the tim
 
 For now, ICU4J produces the expected values, as the current generators do. If ICU4J is wrong, the core TSV is wrong too, so until there is a second source, a conformance run can't catch an ICU4J bug, or a spec error that ICU4J shares. Two cases are known ahead of time:
 
-- **ICU4J differs from the spec:** the feature waits. It gets no core TSV, and its clauses are `waiting` in `clauses.tsv`, with the ICU ticket. For example, ICU4J applies `currencySpacing` instead of the `alt="alphaNextToNumber"` step of compact formatting, so the cases where the two give different results wait.
-- **The spec is unclear:** the feature follows the literal reading and links the spec ticket in its summary, so a failure there points to the spec first (4.1).
+- **ICU4J differs from the spec:** the feature waits. It gets no core TSV, and its rows in `coverage.tsv` are `waiting`, with the ICU ticket in `note`. For example, ICU4J applies `currencySpacing` instead of the `alt="alphaNextToNumber"` step of compact formatting, so the cases where the two give different results wait.
+- **The spec is unclear:** the feature follows the literal reading, and its rows in `coverage.tsv` link the spec ticket in `note`, so a failure there points to the spec first (4.1).
 
 Later, a naive but correct reference implementation of the spec (written for clarity, not speed) replaces ICU4J, one feature at a time, starting with the waiting features. Rows where the two differ are ICU4J bugs or spec ambiguities, reported against the row's feature and clause.
 
 ## 5. Adding a feature
 
-1. Pick a clause in `clauses.tsv` that has no feature yet, and assign a feature ID.
+1. Pick a `todo` row in `coverage.tsv` and assign a feature ID.
 2. Find a core set in CLDR data. If the core set needs a new dimension, add it to the generator.
 3. Write the data guard.
-4. Add the registry row and regenerate the core TSVs.
+4. Add the registry row, mark the coverage row `covered` with the feature ID, and regenerate the core TSVs.
 
 ## 6. Rollout
 
 1. Currency, as a stack of small PRs ([#6258](https://github.com/unicode-org/cldr/pull/6258), [#6259](https://github.com/unicode-org/cldr/pull/6259) and [#6261](https://github.com/unicode-org/cldr/pull/6261) so far):
-   - The first PR, based on `main`, adds the registry, the generator, the data guards and coverage checks 2 and 3, with the first features of section 1 and only the dimensions they need.
-   - Each later PR adds the features of one TR35 heading, or of part of a coverage section, and the dimensions they need.
-   - A later PR adds `clauses.tsv` and check 1 (4.5).
+   - The first PR, based on `main`, adds the registry, `coverage.tsv` with every clause of the currency coverage doc, the generator, the data guards and the coverage check, with the first features of section 1 and only the dimensions they need.
+   - Each later PR adds the features of one TR35 heading, or of part of a coverage section, marks their rows `covered`, and adds the dimensions they need.
 2. Conformance repo: the currency test type in `testgen`, and `verifier` support for `main_feature` and `other_features`.
 3. Decimal: sections 1–15, in the same way.
 4. Performance runs.
@@ -216,3 +221,4 @@ Later, a naive but correct reference implementation of the spec (written for cla
 
 - Tag the rows of the existing Cartesian-product files with feature IDs. This needs no new files, but those files lack many combinations that features need (no row in [#5808](https://github.com/unicode-org/cldr/pull/5808) uses `fr_CH` or `de_AT`, for example), and they are too large to review by feature.
 - One core file per category instead of one per feature. This means far fewer files (currency alone will likely have dozens of features), but every feature PR would edit the same file, and a failure couldn't point to one file with that feature's cases. Every row already has `main_feature`, so the files can still be merged later without losing anything.
+- Keep the clauses in a `clause` column of `features.tsv`, as a comma-separated list. This needs no extra file, but it can't list the clauses that have no feature yet, so it can't show what is left.

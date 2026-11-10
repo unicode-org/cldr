@@ -24,9 +24,9 @@ import org.unicode.cldr.util.CLDRFile;
  *
  * <p>A data guard fails when CLDR data changed, so that a feature's core set no longer exercises
  * the feature. To fix it, find a new core set, update it in {@code
- * common/testData/currency/features.tsv}, and run {@link GenerateCurrencyFeatureTestData}. The
- * guard changes only if the reason the core set works changes, and the feature ID stays the same.
- * If a CLDR data change breaks a guard, it can mark the guard as a known issue ({@code
+ * common/testData/currency/features/features.tsv}, and run {@link GenerateCurrencyFeatureTestData}.
+ * The guard changes only if the reason the core set works changes, and the feature ID stays the
+ * same. If a CLDR data change breaks a guard, it can mark the guard as a known issue ({@code
  * logKnownIssue} with a ticket) until a follow-up finds the new core set.
  */
 public class TestCurrencyFeatureData extends TestFmwkPlus {

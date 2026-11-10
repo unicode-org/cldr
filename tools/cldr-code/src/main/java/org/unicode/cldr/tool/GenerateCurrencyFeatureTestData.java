@@ -26,9 +26,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.TempPrintWriter;
 
 /**
- * Generates the feature-based currency test data in {@code common/testData/currency}: for each
- * feature in {@code features.tsv}, the file {@code core_<feature_id>.tsv} with every combination of
- * the feature's core set and the value that ICU4J formats for it.
+ * Generates the feature-based currency test data in {@code common/testData/currency/features}: for
+ * each feature in {@code features.tsv}, the file {@code core_<feature_id>.tsv} with every
+ * combination of the feature's core set and the value that ICU4J formats for it.
  *
  * <p>The generator only has the dimensions, and dimension values, that some feature needs. The code
  * that a feature needs has a comment with the feature ID and its clause in the TR35 currency

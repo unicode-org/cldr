@@ -1,6 +1,6 @@
-# CLDR Currency Format Test Data (`common/testData/currency`)
+# Feature-Based Currency Test Data (`common/testData/currency/features`)
 
-Feature-based test data for currency formatting ([UTS #35 Part 3: Numbers](../../../docs/ldml/tr35-numbers.md)). A feature is one behavior that a part of the spec requires.
+Feature-based test data for currency formatting ([UTS #35 Part 3: Numbers](../../../../docs/ldml/tr35-numbers.md)). A feature is one behavior that a part of the spec requires.
 
 ## Files
 

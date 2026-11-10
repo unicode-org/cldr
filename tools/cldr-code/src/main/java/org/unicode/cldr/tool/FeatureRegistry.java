@@ -17,7 +17,7 @@ import org.unicode.cldr.util.CLDRPaths;
 
 /**
  * Reads the feature registry of a test data category, {@code
- * common/testData/<category>/features.tsv}.
+ * common/testData/<category>/features/features.tsv}.
  *
  * <p>Each row is one feature: a behavior that a part of UTS #35 requires, with the {@code
  * (dimension = value)} pairs (the core set) that exercise it. The generator of the category writes
@@ -55,10 +55,12 @@ public final class FeatureRegistry {
     private FeatureRegistry() {}
 
     /**
-     * Returns the test data directory of the category, such as {@code common/testData/currency}.
+     * Returns the directory of the category's feature-based test data, such as {@code
+     * common/testData/currency/features}. It is a subdirectory, so that these files don't mix with
+     * the category's other test data.
      */
     public static Path directory(String category) {
-        return Path.of(CLDRPaths.TEST_DATA, category);
+        return Path.of(CLDRPaths.TEST_DATA, category, "features");
     }
 
     /** Returns the name of the core TSV file of a feature. */

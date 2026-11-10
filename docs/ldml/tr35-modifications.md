@@ -37,6 +37,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
       - bump spec date
       - changed spec to final
       - link fix in tr35-dates.md
+      - updated version
 -->
 
 ### Changes in CLDR Version 49 (Differences from Version 48.0)

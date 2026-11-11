@@ -26,6 +26,7 @@ import org.unicode.cldr.tool.unitsinfo.StableIds;
 import org.unicode.cldr.tool.unitsinfo.UnitConversions;
 import org.unicode.cldr.tool.unitsinfo.UnitHistory;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CombinedRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
@@ -75,6 +76,21 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertEquals("category IDs", idRange(info.categories().size()), sorted(info.categoryIds()));
         assertEquals("quantity IDs", idRange(info.quantities().size()), sorted(info.quantityIds()));
         assertEquals("unit IDs", idRange(info.units().size()), sorted(info.unitIds()));
+
+        // Rows are in ID order, so a new row goes at the end, and two pull requests that add rows
+        // at the same time conflict in git instead of taking the same ID.
+        assertEquals(
+                "categories in ID order",
+                idRange(info.categories().size()),
+                info.categories().stream().map(CategoryRow::id).toList());
+        assertEquals(
+                "quantities in ID order",
+                idRange(info.quantities().size()),
+                info.quantities().stream().map(QuantityRow::id).toList());
+        assertEquals(
+                "units in ID order",
+                idRange(info.units().size()),
+                info.units().stream().map(UnitRow::id).toList());
 
         Map<String, Integer> categoryIds = info.categoryIds();
         Map<String, QuantityRow> quantities = new HashMap<>();

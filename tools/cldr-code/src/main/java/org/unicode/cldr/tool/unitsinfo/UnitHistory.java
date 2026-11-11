@@ -134,7 +134,7 @@ public final class UnitHistory {
         return List.copyOf(categories.keySet());
     }
 
-    /** Units in file order, which is also the order that new ones get IDs: category, then ID. */
+    /** The order in which new units get IDs: by category, then by unit. */
     public List<String> unitOrder() {
         return units.keySet().stream()
                 .sorted(

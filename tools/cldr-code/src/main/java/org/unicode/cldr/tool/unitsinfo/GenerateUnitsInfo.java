@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
@@ -278,9 +279,23 @@ public class GenerateUnitsInfo {
                                     ? ""
                                     : UnitConversions.reciprocalOf(conversion.baseUnit())));
         }
-        UnitsInfo result = new UnitsInfo(categories, quantities, units, combined);
+        UnitsInfo result =
+                new UnitsInfo(
+                        byId(categories, CategoryRow::id),
+                        byId(quantities, QuantityRow::id),
+                        byId(units, UnitRow::id),
+                        combined);
         StableIds.verify(previous, result);
         return result;
+    }
+
+    /**
+     * The rows in ID order. New IDs are the largest, so a new row goes at the end of its file, and
+     * two pull requests that add rows at the same time conflict in git instead of taking the same
+     * ID without notice.
+     */
+    private static <T> List<T> byId(List<T> rows, ToIntFunction<T> id) {
+        return rows.stream().sorted(Comparator.comparingInt(id)).toList();
     }
 
     private static Conversion withQuantityId(

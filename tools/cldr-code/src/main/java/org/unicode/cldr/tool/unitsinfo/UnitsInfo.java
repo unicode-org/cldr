@@ -41,7 +41,15 @@ public record UnitsInfo(
     private static final List<String> CATEGORY_COLUMNS =
             List.of("category_id", "category", "status", "since", "deprecated_in", "replacement");
     private static final List<String> QUANTITY_COLUMNS =
-            List.of("quantity_id", "quantity", "base_unit", "status", "since", "deprecated_in");
+            List.of(
+                    "quantity_id",
+                    "quantity",
+                    "base_unit",
+                    "category_ids",
+                    "categories",
+                    "status",
+                    "since",
+                    "deprecated_in");
 
     /** The conversion columns of units_info.tsv and unit_combinations.tsv, after format_only. */
     private static final List<String> CONVERSION_COLUMNS =
@@ -220,17 +228,25 @@ public record UnitsInfo(
         }
     }
 
-    /** A row of unit_quantities.tsv: what a unit measures, such as length (base unit meter). */
+    /**
+     * A row of unit_quantities.tsv: what a unit measures, such as length (base unit meter). The
+     * categories are the ones of the units in units_info.tsv that measure the quantity, in category
+     * ID order and separated by spaces: "energy torque" for energy. They are empty for
+     * mass-density, which no unit with display names measures.
+     */
     public record QuantityRow(
             int id,
             String quantity,
             String baseUnit,
+            String categoryIds,
+            String categories,
             Status status,
             String since,
             String deprecatedIn) {
 
         private String toTsv() {
-            return TAB.join(id, quantity, baseUnit, status, since, deprecatedIn);
+            return TAB.join(
+                    id, quantity, baseUnit, categoryIds, categories, status, since, deprecatedIn);
         }
 
         private static QuantityRow parse(Map<String, String> cells) {
@@ -238,6 +254,8 @@ public record UnitsInfo(
                     Integer.parseInt(cells.get("quantity_id")),
                     cells.get("quantity"),
                     cells.get("base_unit"),
+                    cells.get("category_ids"),
+                    cells.get("categories"),
                     Status.parse(cells.get("status")),
                     cells.get("since"),
                     cells.get("deprecated_in"));

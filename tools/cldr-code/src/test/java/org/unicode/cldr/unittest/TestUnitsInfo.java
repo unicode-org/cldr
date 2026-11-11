@@ -111,6 +111,29 @@ public class TestUnitsInfo extends TestFmwkPlus {
             }
         }
 
+        // Each quantity lists the categories of the units in units_info.tsv that measure it, in ID
+        // order.
+        Map<String, Set<Integer>> categoriesByQuantity = new HashMap<>();
+        for (UnitRow row : info.units()) {
+            String quantity = row.conversion().quantity();
+            if (!quantity.isEmpty()) {
+                categoriesByQuantity
+                        .computeIfAbsent(quantity, q -> new TreeSet<>())
+                        .add(row.categoryId());
+            }
+        }
+        Map<Integer, String> categoryNames = new HashMap<>();
+        info.categories().forEach(row -> categoryNames.put(row.id(), row.category()));
+        for (QuantityRow row : info.quantities()) {
+            Set<Integer> ids = categoriesByQuantity.getOrDefault(row.quantity(), Set.of());
+            assertEquals(
+                    row.quantity() + ": category_ids", Joiner.on(' ').join(ids), row.categoryIds());
+            assertEquals(
+                    row.quantity() + ": categories",
+                    ids.stream().map(categoryNames::get).collect(Collectors.joining(" ")),
+                    row.categories());
+        }
+
         // Regenerating must not change the files. So a change to the CLDR unit data fails here
         // until the files are regenerated, and their diff shows ICU and ICU4X what changed.
         UnitsInfo regenerated = GenerateUnitsInfo.update(info);
@@ -204,6 +227,20 @@ public class TestUnitsInfo extends TestFmwkPlus {
                     massDensityBase.conversion().quantity());
         }
         assertNull("meter has names, so it isn't a combined unit", combined.get("meter"));
+    }
+
+    /**
+     * A quantity's categories are the ones of the units that measure it: one for most quantities,
+     * two for energy (torque units have joule's dimension), and none for mass-density.
+     */
+    public void TestQuantityCategories() {
+        Map<String, QuantityRow> quantities = new HashMap<>();
+        UnitsInfo.read(DIR).quantities().forEach(row -> quantities.put(row.quantity(), row));
+        assertEquals("length", "length", quantities.get("length").categories());
+        assertEquals("energy", "energy torque", quantities.get("energy").categories());
+        assertEquals("power", "light power", quantities.get("power").categories());
+        assertEquals("mass-density", "", quantities.get("mass-density").categories());
+        assertEquals("mass-density IDs", "", quantities.get("mass-density").categoryIds());
     }
 
     /** Over two simulated releases, deprecated entries keep their IDs and new ones get the next. */

@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CategoryRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CombinedRow;
@@ -208,7 +209,14 @@ public class GenerateUnitsInfo {
                         });
 
         Map<String, String> reciprocals = reciprocalQuantities(unitCategories, conversions);
-        List<QuantityRow> quantities = quantityRows(spans, conversions, previous, release);
+        List<QuantityRow> quantities =
+                quantityRows(
+                        spans,
+                        conversions,
+                        previous,
+                        release,
+                        quantityCategories(history, conversions, categoryIds),
+                        categoryIds);
         Map<String, Integer> quantityIds = new HashMap<>();
         quantities.forEach(row -> quantityIds.put(row.quantity(), row.id()));
 
@@ -314,15 +322,44 @@ public class GenerateUnitsInfo {
     }
 
     /**
-     * One row per quantity of a unit, with stable IDs (new ones in alphabetical order). A quantity
-     * starts in the first release of any of its units, and is deprecated once none of them is
-     * active. A previous row keeps its since and base unit.
+     * The categories of the units with display names that measure each quantity, in category ID
+     * order: energy and torque for energy. Deprecated units count too, since they keep their rows.
+     */
+    private static Map<String, Set<String>> quantityCategories(
+            UnitHistory history,
+            Map<String, Conversion> conversions,
+            Map<String, Integer> categoryIds) {
+        Map<String, Set<String>> categories = new HashMap<>();
+        history.units()
+                .forEach(
+                        (unit, entry) -> {
+                            String quantity = conversions.get(unit).quantity();
+                            if (!quantity.isEmpty()) {
+                                categories
+                                        .computeIfAbsent(
+                                                quantity,
+                                                q ->
+                                                        new TreeSet<>(
+                                                                Comparator.comparing(
+                                                                        categoryIds::get)))
+                                        .add(entry.category());
+                            }
+                        });
+        return categories;
+    }
+
+    /**
+     * One row per quantity of a unit, with stable IDs (new ones in alphabetical order) and the
+     * categories of its units. A quantity starts in the first release of any of its units, and is
+     * deprecated once none of them is active. A previous row keeps its since and base unit.
      */
     private static List<QuantityRow> quantityRows(
             Map<String, Span> spans,
             Map<String, Conversion> conversions,
             UnitsInfo previous,
-            String release) {
+            String release,
+            Map<String, Set<String>> quantityCategories,
+            Map<String, Integer> categoryIds) {
         Map<String, QuantityRow> previousRows = new HashMap<>();
         previous.quantities().forEach(row -> previousRows.put(row.quantity(), row));
         Map<String, List<String>> unitsByQuantity = new TreeMap<>();
@@ -365,11 +402,16 @@ public class GenerateUnitsInfo {
                             units.isEmpty()
                                     ? old.baseUnit()
                                     : conversions.get(units.get(0)).baseUnit();
+                    Set<String> categories = quantityCategories.getOrDefault(quantity, Set.of());
                     rows.add(
                             new QuantityRow(
                                     ids.get(quantity),
                                     quantity,
                                     baseUnit,
+                                    categories.stream()
+                                            .map(category -> categoryIds.get(category).toString())
+                                            .collect(Collectors.joining(" ")),
+                                    String.join(" ", categories),
                                     Status.of(since, deprecatedIn, release),
                                     since,
                                     deprecatedIn));

@@ -2,7 +2,7 @@ package org.unicode.cldr.tool.unitsinfo;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import java.util.List;
+import java.util.Map;
 import org.unicode.cldr.util.Rational;
 
 /**
@@ -105,33 +105,34 @@ public record Conversion(
                 systems);
     }
 
-    static Conversion parse(List<String> cells) {
-        String formatOnly = cells.get(0);
+    /** Parses the conversion cells of a units_info.tsv row (column name → cell). */
+    static Conversion parse(Map<String, String> cells) {
+        String formatOnly = cells.get("format_only");
         checkArgument(
                 formatOnly.equals("true") || formatOnly.equals("false"),
                 "format_only must be true or false, not %s",
                 formatOnly);
-        return withFormatOnly(formatOnly.equals("true"), cells.subList(1, cells.size()));
+        return withFormatOnly(formatOnly.equals("true"), cells);
     }
 
-    /** Parses the cells of {@link #convertibleCells()}. */
-    static Conversion parseConvertible(List<String> cells) {
+    /** Parses the conversion cells of a unit_combinations.tsv row, which has no format_only. */
+    static Conversion parseConvertible(Map<String, String> cells) {
         return withFormatOnly(false, cells);
     }
 
-    private static Conversion withFormatOnly(boolean formatOnly, List<String> cells) {
+    private static Conversion withFormatOnly(boolean formatOnly, Map<String, String> cells) {
         return new Conversion(
                 formatOnly,
-                cells.get(0),
-                cells.get(1),
-                cells.get(2),
-                cells.get(3),
-                cells.get(4),
-                cells.get(5),
-                cells.get(6),
-                cells.get(7),
-                cells.get(8),
-                cells.get(9),
-                cells.get(10));
+                cells.get("quantity_id"),
+                cells.get("quantity"),
+                cells.get("base_unit"),
+                cells.get("factor_num"),
+                cells.get("factor_den"),
+                cells.get("factor_exp"),
+                cells.get("offset_num"),
+                cells.get("offset_den"),
+                cells.get("exactness"),
+                cells.get("special"),
+                cells.get("systems"));
     }
 }

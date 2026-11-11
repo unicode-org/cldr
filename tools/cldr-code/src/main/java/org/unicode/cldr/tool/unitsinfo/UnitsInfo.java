@@ -85,10 +85,17 @@ public record UnitsInfo(
                             "deprecated_in",
                             "reciprocal_quantity",
                             "reciprocal_base_unit"));
-    public static final String CATEGORIES_HEADER = "# " + String.join("\t", CATEGORY_COLUMNS);
-    public static final String QUANTITIES_HEADER = "# " + String.join("\t", QUANTITY_COLUMNS);
-    public static final String UNITS_HEADER = "# " + String.join("\t", UNIT_COLUMNS);
-    public static final String COMBINATIONS_HEADER = "# " + String.join("\t", COMBINED_COLUMNS);
+
+    /** The start of the header line, which names the columns. */
+    private static final String HEADER_START = "# ";
+
+    public static final String CATEGORIES_HEADER =
+            HEADER_START + String.join("\t", CATEGORY_COLUMNS);
+    public static final String QUANTITIES_HEADER =
+            HEADER_START + String.join("\t", QUANTITY_COLUMNS);
+    public static final String UNITS_HEADER = HEADER_START + String.join("\t", UNIT_COLUMNS);
+    public static final String COMBINATIONS_HEADER =
+            HEADER_START + String.join("\t", COMBINED_COLUMNS);
 
     static final Joiner TAB = Joiner.on('\t');
     private static final Splitter TAB_SPLITTER = Splitter.on('\t');
@@ -202,14 +209,14 @@ public record UnitsInfo(
             return TAB.join(id, category, status, since, deprecatedIn, replacement);
         }
 
-        private static CategoryRow parse(List<String> cells) {
+        private static CategoryRow parse(Map<String, String> cells) {
             return new CategoryRow(
-                    Integer.parseInt(cells.get(0)),
-                    cells.get(1),
-                    Status.parse(cells.get(2)),
-                    cells.get(3),
-                    cells.get(4),
-                    cells.get(5));
+                    Integer.parseInt(cells.get("category_id")),
+                    cells.get("category"),
+                    Status.parse(cells.get("status")),
+                    cells.get("since"),
+                    cells.get("deprecated_in"),
+                    cells.get("replacement"));
         }
     }
 
@@ -226,14 +233,14 @@ public record UnitsInfo(
             return TAB.join(id, quantity, baseUnit, status, since, deprecatedIn);
         }
 
-        private static QuantityRow parse(List<String> cells) {
+        private static QuantityRow parse(Map<String, String> cells) {
             return new QuantityRow(
-                    Integer.parseInt(cells.get(0)),
-                    cells.get(1),
-                    cells.get(2),
-                    Status.parse(cells.get(3)),
-                    cells.get(4),
-                    cells.get(5));
+                    Integer.parseInt(cells.get("quantity_id")),
+                    cells.get("quantity"),
+                    cells.get("base_unit"),
+                    Status.parse(cells.get("status")),
+                    cells.get("since"),
+                    cells.get("deprecated_in"));
         }
     }
 
@@ -273,20 +280,20 @@ public record UnitsInfo(
                     reciprocalBaseUnit);
         }
 
-        private static UnitRow parse(List<String> cells) {
+        private static UnitRow parse(Map<String, String> cells) {
             return new UnitRow(
-                    Integer.parseInt(cells.get(0)),
-                    Integer.parseInt(cells.get(1)),
-                    cells.get(2),
-                    cells.get(3),
-                    Complexity.parse(cells.get(4)),
-                    Conversion.parse(cells.subList(5, 17)),
-                    Status.parse(cells.get(17)),
-                    cells.get(18),
-                    cells.get(19),
-                    cells.get(20),
-                    cells.get(21),
-                    cells.get(22));
+                    Integer.parseInt(cells.get("unit_id")),
+                    Integer.parseInt(cells.get("category_id")),
+                    cells.get("category"),
+                    cells.get("unit"),
+                    Complexity.parse(cells.get("complexity")),
+                    Conversion.parse(cells),
+                    Status.parse(cells.get("status")),
+                    cells.get("since"),
+                    cells.get("deprecated_in"),
+                    cells.get("replacement"),
+                    cells.get("reciprocal_quantity"),
+                    cells.get("reciprocal_base_unit"));
         }
     }
 
@@ -333,19 +340,20 @@ public record UnitsInfo(
                     reciprocalBaseUnit);
         }
 
-        private static CombinedRow parse(List<String> cells) {
+        private static CombinedRow parse(Map<String, String> cells) {
+            String categoryId = cells.get("category_id");
             return new CombinedRow(
-                    cells.get(0).isEmpty() ? NO_CATEGORY : Integer.parseInt(cells.get(0)),
-                    cells.get(1),
-                    cells.get(2),
-                    Complexity.parse(cells.get(3)),
-                    DisplayName.parse(cells.get(4)),
-                    Conversion.parseConvertible(cells.subList(5, 16)),
-                    Status.parse(cells.get(16)),
-                    cells.get(17),
-                    cells.get(18),
-                    cells.get(19),
-                    cells.get(20));
+                    categoryId.isEmpty() ? NO_CATEGORY : Integer.parseInt(categoryId),
+                    cells.get("category"),
+                    cells.get("unit"),
+                    Complexity.parse(cells.get("complexity")),
+                    DisplayName.parse(cells.get("display_name")),
+                    Conversion.parseConvertible(cells),
+                    Status.parse(cells.get("status")),
+                    cells.get("since"),
+                    cells.get("deprecated_in"),
+                    cells.get("reciprocal_quantity"),
+                    cells.get("reciprocal_base_unit"));
         }
     }
 
@@ -359,19 +367,17 @@ public record UnitsInfo(
             return new UnitsInfo(List.of(), List.of(), List.of(), List.of());
         }
         return new UnitsInfo(
-                readTsv(categoriesFile, CATEGORY_COLUMNS.size()).stream()
-                        .map(CategoryRow::parse)
-                        .toList(),
+                readTsv(categoriesFile, CATEGORY_COLUMNS).stream().map(CategoryRow::parse).toList(),
                 // unit_quantities.tsv and unit_combinations.tsv were added after the other files,
                 // so they may be missing.
                 Files.exists(quantitiesFile)
-                        ? readTsv(quantitiesFile, QUANTITY_COLUMNS.size()).stream()
+                        ? readTsv(quantitiesFile, QUANTITY_COLUMNS).stream()
                                 .map(QuantityRow::parse)
                                 .toList()
                         : List.of(),
-                readTsv(unitsFile, UNIT_COLUMNS.size()).stream().map(UnitRow::parse).toList(),
+                readTsv(unitsFile, UNIT_COLUMNS).stream().map(UnitRow::parse).toList(),
                 Files.exists(combinationsFile)
-                        ? readTsv(combinationsFile, COMBINED_COLUMNS.size()).stream()
+                        ? readTsv(combinationsFile, COMBINED_COLUMNS).stream()
                                 .map(CombinedRow::parse)
                                 .toList()
                         : List.of());
@@ -468,26 +474,46 @@ public record UnitsInfo(
         writeTsv(dir, UNIT_COMBINATIONS_FILE, COMBINATIONS_HEADER, combinedLines());
     }
 
-    /** The data lines of a TSV file, split into cells; each line must have {@code columns}. */
-    private static List<List<String>> readTsv(Path file, int columns) {
-        List<List<String>> rows = new ArrayList<>();
+    /**
+     * The data lines of a TSV file, as column name → cell. The header line names the columns, so a
+     * file written before a column was added still reads, with empty cells in that column. A column
+     * that isn't in {@code columns} is an error.
+     */
+    private static List<Map<String, String>> readTsv(Path file, List<String> columns) {
+        List<String> lines;
         try {
-            for (String line : Files.readAllLines(file, StandardCharsets.UTF_8)) {
-                if (line.isEmpty() || line.startsWith("#")) {
-                    continue;
-                }
-                List<String> cells = TAB_SPLITTER.splitToList(line);
-                checkArgument(
-                        cells.size() == columns,
-                        "%s: %s cells instead of %s: %s",
-                        file,
-                        cells.size(),
-                        columns,
-                        line);
-                rows.add(cells);
-            }
+            lines = Files.readAllLines(file, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
+        }
+        checkArgument(
+                !lines.isEmpty() && lines.get(0).startsWith(HEADER_START),
+                "%s: the first line must be the header",
+                file);
+        List<String> header =
+                TAB_SPLITTER.splitToList(lines.get(0).substring(HEADER_START.length()));
+        for (String column : header) {
+            checkArgument(columns.contains(column), "%s: unknown column %s", file, column);
+        }
+        List<Map<String, String>> rows = new ArrayList<>();
+        for (String line : lines.subList(1, lines.size())) {
+            if (line.isEmpty() || line.startsWith("#")) {
+                continue;
+            }
+            List<String> cells = TAB_SPLITTER.splitToList(line);
+            checkArgument(
+                    cells.size() == header.size(),
+                    "%s: %s cells instead of %s: %s",
+                    file,
+                    cells.size(),
+                    header.size(),
+                    line);
+            Map<String, String> row = new LinkedHashMap<>();
+            columns.forEach(column -> row.put(column, ""));
+            for (int i = 0; i < header.size(); i++) {
+                row.put(header.get(i), cells.get(i));
+            }
+            rows.add(row);
         }
         return rows;
     }

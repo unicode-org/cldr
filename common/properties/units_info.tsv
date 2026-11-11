@@ -95,12 +95,12 @@
 93	8	energy	kilowatt-hour	core			false	16	energy	kilogram-square-meter-per-square-second	36	1	5	int8_t	int8_t			exact		si_acceptable metric_adjacent	regular	26				
 94	8	energy	sievert	simple			false	21	ionizing-radiation	square-meter-per-square-second	1	1	0	int8_t	int8_t			exact		si metric prefixable	regular	48				
 95	8	energy	therm-us	simple			false	16	energy	kilogram-square-meter-per-square-second	1054804	1	2	int32_t	int8_t			exact		ussystem	regular	36				
-96	9	force	dyne	simple			false	17	force	kilogram-meter-per-square-second	1	1	-5	int8_t	int8_t			exact		metric_adjacent	new	49				
+96	9	force	dyne	simple			false	17	force	kilogram-meter-per-square-second	1	1	-5	int8_t	int8_t			exact		metric_adjacent	regular	49				
 97	9	force	kilogram-force	simple			false	17	force	kilogram-meter-per-square-second	980665	1	-5	int32_t	int8_t			exact		metric_adjacent	regular	48				
 98	9	force	kilowatt-hour-per-100-kilometer	core	100	int8_t	false	17	force	kilogram-meter-per-square-second	36	1	0	int8_t	int8_t			exact		si_acceptable metric_adjacent	regular	40				
 99	9	force	newton	simple			false	17	force	kilogram-meter-per-square-second	1	1	0	int8_t	int8_t			exact		si metric prefixable	regular	35				
 100	9	force	pound-force	simple			false	17	force	kilogram-meter-per-square-second	44482216152605	1	-13	int64_t	int8_t			exact		ussystem uksystem	regular	35				
-101	9	force	poundal	simple			false	17	force	kilogram-meter-per-square-second	138254954376	1	-12	int64_t	int8_t			exact		ussystem uksystem	new	49				
+101	9	force	poundal	simple			false	17	force	kilogram-meter-per-square-second	138254954376	1	-12	int64_t	int8_t			exact		ussystem uksystem	regular	49				
 102	10	frequency	gigahertz	prefixed			false	18	frequency	revolution-per-second	1	1	9	int8_t	int8_t			exact		si metric	regular	26				
 103	10	frequency	hertz	simple			false	18	frequency	revolution-per-second	1	1	0	int8_t	int8_t			exact		si metric prefixable	regular	26				
 104	10	frequency	kilohertz	prefixed			false	18	frequency	revolution-per-second	1	1	3	int8_t	int8_t			exact		si metric	regular	26				
@@ -130,7 +130,7 @@
 128	12	length	micrometer	prefixed			false	22	length	meter	1	1	-6	int8_t	int8_t			exact		si metric	regular	26				
 129	12	length	mile	simple			false	22	length	meter	1609344	1	-3	int32_t	int8_t			exact		ussystem uksystem	regular	24				
 130	12	length	mile-scandinavian	simple			false	22	length	meter	1	1	4	int8_t	int8_t			exact		metric_adjacent	regular	28				
-131	12	length	milliinch	prefixed			false	22	length	meter	254	1	-7	int16_t	int8_t			exact		ussystem uksystem	new	49				
+131	12	length	milliinch	prefixed			false	22	length	meter	254	1	-7	int16_t	int8_t			exact		ussystem uksystem	regular	49				
 132	12	length	millimeter	prefixed			false	22	length	meter	1	1	-3	int8_t	int8_t			exact		si metric	regular	24				
 133	12	length	nanometer	prefixed			false	22	length	meter	1	1	-9	int8_t	int8_t			exact		si metric	regular	26				
 134	12	length	nautical-mile	simple			false	22	length	meter	1852	1	0	int16_t	int8_t			exact		si_acceptable ussystem uksystem	regular	26				

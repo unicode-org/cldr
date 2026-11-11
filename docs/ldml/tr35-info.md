@@ -8,16 +8,17 @@ editors:
 
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
+# Unicode Common Locale Data & Rules (CLDR)<br/>Part 6: Supplemental
 
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers supplemental data.
 
-This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+For a general introduction see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ### _Status_
 
@@ -33,7 +34,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 ## Parts
 
-The LDML specification is divided into the following parts:
+The CLDR specification is divided into the following parts:
 
 *   Part 1: [Core](tr35.md#Contents) (languages, locales, basic structure)
 *   Part 2: [General](tr35-general.md#Contents) (display names & transforms, etc.)
@@ -1397,7 +1398,7 @@ The following is the algorithm for computing the preferred output unit from an i
 3. Let ranked units be the result of a lookup of **region** in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html).
     1. If the lookup fails, set **region** to its containing region and repeat. (This will always terminate because region `001` is always present.)
         * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
-        * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
+        * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in CLDR 45).
 4. If there is a **USM**, and the corresponding Fallback Region is different than **region**, and any of the ranked units don't match **USM**, then let ranked units be the result of a lookup of the Fallback Region in the category-usage preferences.
 
 #### Search the ranked units

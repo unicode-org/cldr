@@ -10,6 +10,8 @@ title: CLDR 48 Release Note
 |  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | n/a | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
 |  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 |  48.2.1 | 2026-07-08 | [v48.2.1] | n/a | n/a | n/a | n/a | n/a | n/a | [48.2.1] |
+|  48.2.2 | 2026-09-21 | [v48.2.2] | n/a | n/a | n/a | n/a | n/a | n/a | [48.2.2] |
+|  48.2.3 | 2026-09-30 | [v48.2.3] | n/a | n/a | n/a | n/a | n/a | n/a | [48.2.3] |
 
 ## Overview
 
@@ -389,6 +391,22 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 [CLDR-19588] Compatibility with TZDB 2026c
 
+## 48.2.2 Changes
+
+| No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
+|:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
+|  48.2.2 | 2026-09-21 | [v48.2.2] | n/a | n/a | n/a | n/a | n/a | n/a | [48.2.2] |
+
+[CLDR-19784] Compatibility with TZDB 2026d
+
+## 48.2.3 Changes
+
+| No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
+|:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
+|  48.2.3 | 2026-09-30 | [v48.2.3] | n/a | n/a | n/a | n/a | n/a | n/a | [48.2.3] |
+
+[CLDR-19827] Compatibility with TZDB 2026e
+
 ## V49 advance warnings
 
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
@@ -443,6 +461,8 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
 [CLDR-19316]: https://unicode-org.atlassian.net/browse/CLDR-19316
 [CLDR-19588]: https://unicode-org.atlassian.net/browse/CLDR-19588
+[CLDR-19784]: https://unicode-org.atlassian.net/browse/CLDR-19784
+[CLDR-19827]: https://unicode-org.atlassian.net/browse/CLDR-19827
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
@@ -450,6 +470,14 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely
 [Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
 [Delta Data]: https://unicode.org/cldr/charts/48/delta/index.html
+
+<!-- 48.2.3 release: 2026-09-30 -->
+[v48.2.3]: /downloads/cldr-48#4823-changes
+[48.2.3]: https://github.com/unicode-org/cldr-json/releases/tag/48.2.3
+
+<!-- 48.2.2 release: 2026-09-21 -->
+[v48.2.2]: /downloads/cldr-48#4822-changes
+[48.2.2]: https://github.com/unicode-org/cldr-json/releases/tag/48.2.2
 
 <!-- 48.2.1 release: 2026-07-08 -->
 [v48.2.1]: /downloads/cldr-48#4821-changes

@@ -4,7 +4,7 @@ title: 'Keyboard Intake Procedures in CLDR'
 
 > Editorial note: Please post feedback on this document to [CLDR-17254]
 
-The goal of this document is to clarify the CLDR TC procedures for onboarding keyboard layouts into the [Unicode Common Locale Data Repository](https://cldr.unicode.org/) (CLDR). The guide for contributing keyboards is currently in development.
+The goal of this document is to clarify the CLDR TC procedures for onboarding keyboard layouts into the [Unicode Common Locale Data & Rules](https://cldr.unicode.org/) (CLDR). The guide for contributing keyboards is currently in development.
 
 The keyboard section of the repository provides data for keyboard layouts in a stable and machine-readable format. The most significant benefit of hosting the keyboard data in CLDR for vendors is that they already use CLDR as a trusted source of locale data and will now be able to also have a trusted source for keyboard layouts. Through CLDR’s policies that establish the credibility of its data content, and its standardization of formats to represent the data, including the new LDML format for keyboard layouts, CLDR lowers the barrier for vendors to include keyboards in their products.
 

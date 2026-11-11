@@ -4,18 +4,21 @@ title: Modifications
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
+# Unicode Common Locale Data & Rules (CLDR)<br/>Appendix A: Modifications
 
-For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This is a partial document, describing only the changes to the LDML since the previous release. For the other parts of the LDML see the [main LDML document](tr35.md).
+The CLDR specification is presented in multiple Parts, each on its own web page.
+This Part covers the changes to the CLDR specification since the previous release.
+
+For the full header and a general introduction, see [Unicode Common Locale Data & Rules (CLDR): Part 1](tr35.md).
 
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Changes in LDML Version 49 (Differences from Version 48.0)](#changes-in-ldml-version-49-differences-from-version-480)
+  * [Changes in CLDR Version 49 (Differences from Version 48.0)](#changes-in-cldr-version-49-differences-from-version-480)
+  * [General](#general)
   * [Locales](#locales)
     * [Date and Time](#date-and-time)
     * [MessageFormat](#messageformat)
@@ -32,11 +35,20 @@ This is a partial document, describing only the changes to the LDML since the pr
 
       - regenerated ToC
       - bump spec date
-
+      - changed spec to final
+      - link fix in tr35-dates.md
+      - updated version
 -->
 
-### Changes in LDML Version 49 (Differences from Version 48.0)
+### Changes in CLDR Version 49 (Differences from Version 48.0)
 <!-- Updated spec date -->
+
+### General
+
+* Replaced “Common Locale Data Repository (CLDR)” by “Unicode Common Locale Data & Rules (CLDR)” 
+and the title of the specification “UTS #35: Unicode Locale Data Markup Language (LDML)” by “UTS #35: Unicode Common Locale Data & Rules (CLDR)”.
+    * The former names and the acronym “LDML” led to many misunderstandings and have been changed for clarity.
+    * Note that all references under the former names and the LDML acronym remain valid; such references on the Unicode site will be updated over time.
 
 ### Locales
 
@@ -83,8 +95,13 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`Currencies`](tr35-numbers.md#Currencies) Revised the `numberFormat` description for currencies.
 <!-- CLDR-18963 -->
+* [`Number Symbols`](tr35-numbers.md#Number_Symbols) Added a subsection heading for each number symbol.
+* [`Currency Formats`](tr35-numbers.md#Currency_Formats), [`Currencies`](tr35-numbers.md#Currencies), [`Supplemental Currency Data`](tr35-numbers.md#Supplemental_Currency_Data) Added subsection headings for currency formatting rules, pattern variants (`alt="alphaNextToNumber"`, `alt="noCurrency"`, `currencyPatternAppendISO`), currency placeholders (`¤`..`¤¤¤¤¤`), `unitPattern` display name formatting, `currencySpacing`, and supplemental currency fractions and region mappings.
+<!-- CLDR-19814 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [`Number Formats`](tr35-numbers.md#Number_Formats), [`Miscellaneous Patterns`](tr35-numbers.md#Miscellaneous_Patterns), [`Formatting`](tr35-numbers.md#Formatting) Added a subsection heading for each number format type (`decimalFormats`, `percentFormats`, `scientificFormats`), each miscellaneous pattern (`approximately`, `atMost`, `atLeast`, `range`), and special values.
+<!-- CLDR-19830 -->
 
 ### Units
 

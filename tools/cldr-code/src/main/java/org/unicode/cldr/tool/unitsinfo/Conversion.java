@@ -2,6 +2,7 @@ package org.unicode.cldr.tool.unitsinfo;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import java.math.BigInteger;
 import java.util.Map;
 import org.unicode.cldr.util.Rational;
 
@@ -89,7 +90,10 @@ public record Conversion(
         return UnitsInfo.TAB.join(formatOnly, convertibleCells());
     }
 
-    /** The cells after format_only, which unit_combinations.tsv has without format_only. */
+    /**
+     * The cells after format_only, which unit_combinations.tsv has without format_only. The
+     * factor_num_type and factor_den_type cells come from the factor.
+     */
     String convertibleCells() {
         return UnitsInfo.TAB.join(
                 quantityId,
@@ -98,11 +102,18 @@ public record Conversion(
                 factorNum,
                 factorDen,
                 factorExp,
+                integerType(factorNum),
+                integerType(factorDen),
                 offsetNum,
                 offsetDen,
                 exactness,
                 special,
                 systems);
+    }
+
+    /** The integer type cell for a number cell: empty if there is no number. */
+    private static String integerType(String number) {
+        return number.isEmpty() ? "" : UnitsInfo.IntegerType.of(new BigInteger(number)).toString();
     }
 
     /** Parses the conversion cells of a units_info.tsv row (column name → cell). */

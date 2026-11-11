@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -28,6 +29,7 @@ import org.unicode.cldr.tool.unitsinfo.UnitsInfo;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.CombinedRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Complexity;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.DisplayName;
+import org.unicode.cldr.tool.unitsinfo.UnitsInfo.IntegerType;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.QuantityRow;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.Status;
 import org.unicode.cldr.tool.unitsinfo.UnitsInfo.UnitRow;
@@ -444,6 +446,60 @@ public class TestUnitsInfo extends TestFmwkPlus {
                                 + twoTo63
                                 + " doesn't fit in a signed 64-bit integer (it has 64 bits)"),
                 new UnitsInfo(List.of(), List.of(), List.of(row), List.of()).integerProblems());
+    }
+
+    /**
+     * factor_num_type and factor_den_type name the smallest signed integer type that holds each
+     * number, in both files that have factors.
+     */
+    public void TestIntegerTypes() throws IOException {
+        assertEquals("127", IntegerType.INT8_T, IntegerType.of(BigInteger.valueOf(127)));
+        assertEquals("-128", IntegerType.INT8_T, IntegerType.of(BigInteger.valueOf(-128)));
+        assertEquals("128", IntegerType.INT16_T, IntegerType.of(BigInteger.valueOf(128)));
+        assertEquals("32767", IntegerType.INT16_T, IntegerType.of(BigInteger.valueOf(32767)));
+        assertEquals("32768", IntegerType.INT32_T, IntegerType.of(BigInteger.valueOf(32768)));
+        assertEquals(
+                "2^31 - 1",
+                IntegerType.INT32_T,
+                IntegerType.of(BigInteger.valueOf(Integer.MAX_VALUE)));
+        assertEquals("2^31", IntegerType.INT64_T, IntegerType.of(BigInteger.valueOf(1L << 31)));
+        assertEquals(
+                "2^63 - 1",
+                IntegerType.INT64_T,
+                IntegerType.of(BigInteger.valueOf(Long.MAX_VALUE)));
+        assertEquals("2^63", IntegerType.NONE_FIT_IN_INT, IntegerType.of(BigInteger.TWO.pow(63)));
+        assertEquals("cell", "none_fit_in_int", IntegerType.NONE_FIT_IN_INT.toString());
+
+        for (String file : List.of(UnitsInfo.UNITS_INFO_FILE, UnitsInfo.UNIT_COMBINATIONS_FILE)) {
+            for (Map<String, String> row : rowsByColumn(DIR.resolve(file))) {
+                for (String column : List.of("factor_num", "factor_den")) {
+                    String number = row.get(column);
+                    assertEquals(
+                            file + ", " + row.get("unit") + ": " + column + "_type",
+                            number.isEmpty()
+                                    ? ""
+                                    : IntegerType.of(new BigInteger(number)).toString(),
+                            row.get(column + "_type"));
+                }
+            }
+        }
+    }
+
+    /** The data rows of a TSV file as column name → cell, using the file's own header. */
+    private static List<Map<String, String>> rowsByColumn(Path file) throws IOException {
+        List<String> lines = Files.readAllLines(file);
+        Splitter tab = Splitter.on('\t');
+        List<String> header = tab.splitToList(lines.get(0).substring("# ".length()));
+        List<Map<String, String>> rows = new ArrayList<>();
+        for (String line : lines.subList(1, lines.size())) {
+            List<String> cells = tab.splitToList(line);
+            Map<String, String> row = new HashMap<>();
+            for (int i = 0; i < header.size(); i++) {
+                row.put(header.get(i), cells.get(i));
+            }
+            rows.add(row);
+        }
+        return rows;
     }
 
     /**

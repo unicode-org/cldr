@@ -60,6 +60,8 @@ public record UnitsInfo(
                     "factor_num",
                     "factor_den",
                     "factor_exp",
+                    "factor_num_type",
+                    "factor_den_type",
                     "offset_num",
                     "offset_den",
                     "exactness",
@@ -173,6 +175,41 @@ public record UnitsInfo(
 
         private static DisplayName parse(String cell) {
             return valueOf(cell.toUpperCase(Locale.ROOT));
+        }
+    }
+
+    /**
+     * The {@code factor_num_type} and {@code factor_den_type} columns: the smallest signed C
+     * integer type that holds the number. {@link #NONE_FIT_IN_INT} can't occur in the files today,
+     * because the tool won't write a factor that doesn't fit its size in {@link #INTEGER_BITS}.
+     */
+    public enum IntegerType {
+        INT8_T(8),
+        INT16_T(16),
+        INT32_T(32),
+        INT64_T(64),
+        /** Needs more than 64 bits. */
+        NONE_FIT_IN_INT(0);
+
+        private final int bits;
+
+        IntegerType(int bits) {
+            this.bits = bits;
+        }
+
+        /** The smallest type that holds {@code value}. */
+        public static IntegerType of(BigInteger value) {
+            for (IntegerType type : values()) {
+                if (type != NONE_FIT_IN_INT && value.bitLength() < type.bits) {
+                    return type;
+                }
+            }
+            return NONE_FIT_IN_INT;
+        }
+
+        @Override
+        public String toString() {
+            return name().toLowerCase(Locale.ROOT);
         }
     }
 

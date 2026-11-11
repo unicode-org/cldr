@@ -46,7 +46,9 @@ import org.unicode.cldr.util.CldrUtility;
  *       factor_num / factor_den × 10^factor_exp + offset_num / offset_den}. The tool won't write a
  *       number that doesn't fit its column's signed integer size ({@link UnitsInfo#INTEGER_BITS}:
  *       64 bits for the factor, 32 for the exponent and offset), and TestUnitsInfo fails with a big
- *       warning. A change in these columns tells ICU and ICU4X to update their data.
+ *       warning. A change in these columns tells ICU and ICU4X to update their data. The {@code
+ *       factor_num_type} and {@code factor_den_type} columns name the smallest signed integer type
+ *       (int8_t to int64_t) that holds each factor number.
  *   <li><b>History.</b> Each row has the release that first named the unit ({@code since}), and the
  *       release that deprecated it with its replacement.
  * </ol>

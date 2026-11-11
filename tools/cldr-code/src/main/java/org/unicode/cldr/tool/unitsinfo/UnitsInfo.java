@@ -76,6 +76,8 @@ public record UnitsInfo(
                             "category",
                             "unit",
                             "complexity",
+                            "constant_denominator",
+                            "constant_denominator_type",
                             "format_only"),
                     CONVERSION_COLUMNS,
                     List.of(
@@ -87,7 +89,14 @@ public record UnitsInfo(
                             "reciprocal_base_unit"));
     private static final List<String> COMBINED_COLUMNS =
             concat(
-                    List.of("category_id", "category", "unit", "complexity", "display_name"),
+                    List.of(
+                            "category_id",
+                            "category",
+                            "unit",
+                            "complexity",
+                            "constant_denominator",
+                            "constant_denominator_type",
+                            "display_name"),
                     CONVERSION_COLUMNS,
                     List.of(
                             "status",
@@ -121,6 +130,7 @@ public record UnitsInfo(
                     "unit_id", 16,
                     "category_id", 8,
                     "quantity_id", 16,
+                    "constant_denominator", 64,
                     "factor_num", 64,
                     "factor_den", 64,
                     "factor_exp", 32,
@@ -179,9 +189,10 @@ public record UnitsInfo(
     }
 
     /**
-     * The {@code factor_num_type} and {@code factor_den_type} columns: the smallest signed C
-     * integer type that holds the number. {@link #NONE_FIT_IN_INT} can't occur in the files today,
-     * because the tool won't write a factor that doesn't fit its size in {@link #INTEGER_BITS}.
+     * The {@code factor_num_type}, {@code factor_den_type}, and {@code constant_denominator_type}
+     * columns: the smallest signed C integer type that holds the number. {@link #NONE_FIT_IN_INT}
+     * can't occur in the files today, because the tool won't write a number that doesn't fit its
+     * size in {@link #INTEGER_BITS}.
      */
     public enum IntegerType {
         INT8_T(8),
@@ -205,6 +216,11 @@ public record UnitsInfo(
                 }
             }
             return NONE_FIT_IN_INT;
+        }
+
+        /** The type cell for a number cell: empty if there is no number. */
+        static String cell(String number) {
+            return number.isEmpty() ? "" : of(new BigInteger(number)).toString();
         }
 
         @Override
@@ -301,9 +317,11 @@ public record UnitsInfo(
 
     /**
      * A row of units_info.tsv: a unit with display names of its own. The {@code unit} is the unit
-     * ID without its category prefix. The reciprocal quantity is the quantity in the same category
-     * whose base unit is 1 / this unit's base unit (miles per gallon and liters per 100 km), or ""
-     * if there is none. Converting between the two takes 1/x.
+     * ID without its category prefix. The constant denominator is the constant in the unit ID (100
+     * for liter-per-100-kilometer), or "" if there is none; the factor already includes it. The
+     * reciprocal quantity is the quantity in the same category whose base unit is 1 / this unit's
+     * base unit (miles per gallon and liters per 100 km), or "" if there is none. Converting
+     * between the two takes 1/x.
      */
     public record UnitRow(
             int id,
@@ -311,6 +329,7 @@ public record UnitsInfo(
             String category,
             String unit,
             Complexity complexity,
+            String constantDenominator,
             Conversion conversion,
             Status status,
             String since,
@@ -326,6 +345,8 @@ public record UnitsInfo(
                     category,
                     unit,
                     complexity,
+                    constantDenominator,
+                    IntegerType.cell(constantDenominator),
                     conversion.toTsv(),
                     status,
                     since,
@@ -342,6 +363,7 @@ public record UnitsInfo(
                     cells.get("category"),
                     cells.get("unit"),
                     Complexity.parse(cells.get("complexity")),
+                    cells.get("constant_denominator"),
                     Conversion.parse(cells),
                     Status.parse(cells.get("status")),
                     cells.get("since"),
@@ -364,6 +386,7 @@ public record UnitsInfo(
             String category,
             String unit,
             Complexity complexity,
+            String constantDenominator,
             DisplayName displayName,
             Conversion conversion,
             Status status,
@@ -386,6 +409,8 @@ public record UnitsInfo(
                     category,
                     unit,
                     complexity,
+                    constantDenominator,
+                    IntegerType.cell(constantDenominator),
                     displayName,
                     conversion.convertibleCells(),
                     status,
@@ -402,6 +427,7 @@ public record UnitsInfo(
                     cells.get("category"),
                     cells.get("unit"),
                     Complexity.parse(cells.get("complexity")),
+                    cells.get("constant_denominator"),
                     DisplayName.parse(cells.get("display_name")),
                     Conversion.parseConvertible(cells),
                     Status.parse(cells.get("status")),
@@ -489,10 +515,12 @@ public record UnitsInfo(
         for (UnitRow row : units) {
             checkSize(problems, row.unit(), "unit_id", Integer.toString(row.id()));
             checkSize(problems, row.unit(), "category_id", Integer.toString(row.categoryId()));
+            checkSize(problems, row.unit(), "constant_denominator", row.constantDenominator());
             checkConversionSizes(problems, row.unit(), row.conversion());
         }
         for (CombinedRow row : combined) {
             checkSize(problems, row.unit(), "category_id", row.categoryIdCell());
+            checkSize(problems, row.unit(), "constant_denominator", row.constantDenominator());
             checkConversionSizes(problems, row.unit(), row.conversion());
         }
         return problems;

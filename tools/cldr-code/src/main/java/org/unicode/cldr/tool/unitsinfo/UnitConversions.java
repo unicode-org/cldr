@@ -5,6 +5,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.util.Output;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -125,6 +126,28 @@ public final class UnitConversions {
     /** The reciprocal of a base unit: cubic-meter-per-meter ↔ meter-per-cubic-meter. */
     static String reciprocalOf(String baseUnit) {
         return CONVERTER.reciprocalOf(baseUnit);
+    }
+
+    /**
+     * The constant in the denominator of {@code unit} as an integer, such as 100 for
+     * liter-per-100-kilometer and 1000000 for part-per-1e6, or "" if it has none (ICU's
+     * getConstantDenominator() returns 0 then). Like {@link #complexityOf}, it reads {@code
+     * convertible} for a deprecated alias with a hyphen. The conversion factor already includes it.
+     */
+    public static String constantDenominatorOf(String unit, String convertible) {
+        if (FORMAT_ONLY_UNITS.contains(unit) || unit.contains("-and-") || !unit.contains("-")) {
+            return "";
+        }
+        Rational factor = CONVERTER.createUnitId(convertible).factor;
+        if (factor.equals(Rational.ONE)) {
+            return "";
+        }
+        checkArgument(
+                factor.numerator.equals(BigInteger.ONE),
+                "%s has a constant that isn't one integer in the denominator: %s",
+                unit,
+                factor);
+        return factor.denominator.toString();
     }
 
     /**

@@ -476,6 +476,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
                         "length",
                         "test-unit",
                         Complexity.SIMPLE,
+                        "",
                         conversion,
                         Status.REGULAR,
                         "24",
@@ -495,8 +496,8 @@ public class TestUnitsInfo extends TestFmwkPlus {
     }
 
     /**
-     * factor_num_type and factor_den_type name the smallest signed integer type that holds each
-     * number, in both files that have factors.
+     * factor_num_type, factor_den_type, and constant_denominator_type name the smallest signed
+     * integer type that holds each number, in both files that have them.
      */
     public void TestIntegerTypes() throws IOException {
         assertEquals("127", IntegerType.INT8_T, IntegerType.of(BigInteger.valueOf(127)));
@@ -518,7 +519,7 @@ public class TestUnitsInfo extends TestFmwkPlus {
 
         for (String file : List.of(UnitsInfo.UNITS_INFO_FILE, UnitsInfo.UNIT_COMBINATIONS_FILE)) {
             for (Map<String, String> row : rowsByColumn(DIR.resolve(file))) {
-                for (String column : List.of("factor_num", "factor_den")) {
+                for (String column : List.of("factor_num", "factor_den", "constant_denominator")) {
                     String number = row.get(column);
                     assertEquals(
                             file + ", " + row.get("unit") + ": " + column + "_type",
@@ -546,6 +547,52 @@ public class TestUnitsInfo extends TestFmwkPlus {
             rows.add(row);
         }
         return rows;
+    }
+
+    /**
+     * constant_denominator is the constant in a unit ID as an integer (100 in
+     * liter-per-100-kilometer), only core units have one, and the factor already includes it.
+     */
+    public void TestConstantDenominators() {
+        Map<String, UnitRow> units = new HashMap<>();
+        UnitsInfo info = UnitsInfo.read(DIR);
+        info.units().forEach(row -> units.put(row.unit(), row));
+        assertEquals("liter-per-100-kilometer", "100", constant(units, "liter-per-100-kilometer"));
+        assertEquals(
+                "kilowatt-hour-per-100-kilometer",
+                "100",
+                constant(units, "kilowatt-hour-per-100-kilometer"));
+        assertEquals("part-per-1e6", "1000000", constant(units, "part-per-1e6"));
+        assertEquals("part-per-1e9", "1000000000", constant(units, "part-per-1e9"));
+        assertEquals("meter", "", constant(units, "meter"));
+        assertEquals("liter-per-kilometer", "", constant(units, "liter-per-kilometer"));
+
+        for (UnitRow row : info.units()) {
+            assertTrue(
+                    row.unit() + ": only a core unit has a constant",
+                    row.constantDenominator().isEmpty() || row.complexity() == Complexity.CORE);
+        }
+        for (CombinedRow row : info.combined()) {
+            assertTrue(
+                    row.unit() + ": only a core unit has a constant",
+                    row.constantDenominator().isEmpty() || row.complexity() == Complexity.CORE);
+        }
+
+        // liter-per-100-kilometer converts like liter-per-kilometer divided by 100.
+        assertEquals(
+                "liter-per-100-kilometer factor",
+                factor(units.get("liter-per-kilometer").conversion()).divide(Rational.of(100)),
+                factor(units.get("liter-per-100-kilometer").conversion()));
+    }
+
+    private static String constant(Map<String, UnitRow> units, String unit) {
+        UnitRow row = units.get(unit);
+        return row == null ? null : row.constantDenominator();
+    }
+
+    private static Rational factor(Conversion c) {
+        return Rational.of(new BigInteger(c.factorNum()), new BigInteger(c.factorDen()))
+                .multiply(Rational.pow10(Integer.parseInt(c.factorExp())));
     }
 
     /**

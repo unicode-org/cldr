@@ -183,6 +183,7 @@ public class GenerateUnitsInfo {
         replacements.putAll(CldrUnits.aliases());
         Map<String, Conversion> conversions = new HashMap<>();
         Map<String, Complexity> complexities = new HashMap<>();
+        Map<String, String> constants = new HashMap<>();
         Map<String, Span> spans = new HashMap<>();
         for (String unit : unitOrder) {
             UnitHistory.UnitEntry entry = history.units().get(unit);
@@ -193,6 +194,7 @@ public class GenerateUnitsInfo {
             String convertible = deprecated && !replacement.isEmpty() ? replacement : unit;
             conversions.put(unit, UnitConversions.of(convertible));
             complexities.put(unit, UnitConversions.complexityOf(unit, convertible));
+            constants.put(unit, UnitConversions.constantDenominatorOf(unit, convertible));
             spans.put(unit, new Span(entry.since(), entry.deprecatedIn()));
         }
 
@@ -202,6 +204,7 @@ public class GenerateUnitsInfo {
                         (unit, entry) -> {
                             conversions.put(unit, UnitConversions.of(unit));
                             complexities.put(unit, UnitConversions.complexityOf(unit, unit));
+                            constants.put(unit, UnitConversions.constantDenominatorOf(unit, unit));
                             spans.put(unit, new Span(entry.since(), entry.deprecatedIn()));
                         });
         Map<String, String> unitCategories = unitCategories(history, conversions, release);
@@ -238,6 +241,7 @@ public class GenerateUnitsInfo {
                             entry.category(),
                             unit,
                             complexities.get(unit),
+                            constants.get(unit),
                             conversion,
                             entry.status(release),
                             entry.since(),
@@ -272,6 +276,7 @@ public class GenerateUnitsInfo {
                             category,
                             unit,
                             complexities.get(unit),
+                            constants.get(unit),
                             UnitConversions.displayNameOf(unit, namedUnits),
                             conversion,
                             entry.status(release),

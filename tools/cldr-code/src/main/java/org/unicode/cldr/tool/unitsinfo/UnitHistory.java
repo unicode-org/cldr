@@ -116,6 +116,22 @@ public final class UnitHistory {
         combined.keySet().removeAll(units.keySet());
     }
 
+    /**
+     * Adds the entries of {@code other} that this history doesn't have. Rebuilding from the release
+     * tags uses it to keep the rows of units that were checked in and removed again between two
+     * releases, because an ID is permanent once it is checked in.
+     */
+    public void addMissing(UnitHistory other) {
+        other.units.forEach(units::putIfAbsent);
+        other.categories.forEach(categories::putIfAbsent);
+        other.combined.forEach(
+                (unit, entry) -> {
+                    if (!units.containsKey(unit)) {
+                        combined.putIfAbsent(unit, entry);
+                    }
+                });
+    }
+
     /** The one category that the units of {@code category} moved to, or "" if not just one. */
     private String movedTo(String category, Map<String, UnitEntry> before) {
         TreeSet<String> targets = new TreeSet<>();

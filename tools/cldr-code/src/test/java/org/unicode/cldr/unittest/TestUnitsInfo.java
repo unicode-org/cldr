@@ -261,6 +261,36 @@ public class TestUnitsInfo extends TestFmwkPlus {
         assertEquals("mass-density IDs", "", quantities.get("mass-density").categoryIds());
     }
 
+    /**
+     * Rebuilding the history from the release tags keeps the rows that no release has, such as a
+     * unit that was checked in and removed again before a release: its ID is permanent.
+     */
+    public void TestRebuildKeepsCheckedInRows() {
+        UnitsInfo info = UnitsInfo.read(DIR);
+        Map<String, UnitRow> rows = new HashMap<>();
+        Map<String, String> active = new TreeMap<>();
+        for (UnitRow row : info.units()) {
+            rows.put(row.unit(), row);
+            if (row.status() != Status.DEPRECATED) {
+                active.put(row.unit(), row.category());
+            }
+        }
+        // A rebuilt history without one unit, as if no release tag had it.
+        String missing = active.keySet().iterator().next();
+        active.remove(missing);
+        UnitHistory rebuilt = new UnitHistory();
+        rebuilt.add("24", active);
+        rebuilt.addMissing(UnitHistory.of(info));
+
+        UnitHistory.UnitEntry kept = rebuilt.units().get(missing);
+        if (assertNotNull(missing + " is kept", kept)) {
+            assertEquals(missing + " since", rows.get(missing).since(), kept.since());
+        }
+        Map<String, Integer> unitIds = StableIds.assign(info.unitIds(), rebuilt.unitOrder());
+        StableIds.verify("unit", info.unitIds(), unitIds);
+        assertEquals("no new IDs", info.unitIds().size(), unitIds.size());
+    }
+
     /** Over two simulated releases, deprecated entries keep their IDs and new ones get the next. */
     public void TestFutureReleases() {
         UnitsInfo info = UnitsInfo.read(DIR);

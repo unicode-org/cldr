@@ -96,7 +96,8 @@ public class GenerateUnitsInfo {
 
     /**
      * Rebuilds the history from the release tags in {@code gitDir} plus this checkout, keeping the
-     * IDs of {@code previous}. Fails if a release tag is missing.
+     * IDs of {@code previous}, and its rows that no release has (an ID is permanent once it is
+     * checked in). Fails if a release tag is missing.
      */
     public static UnitsInfo rebuild(String gitDir, UnitsInfo previous) {
         UnitHistory history = new UnitHistory();
@@ -107,6 +108,8 @@ public class GenerateUnitsInfo {
                     CldrUnits.atRelease(gitDir, release),
                     CldrUnits.preferenceUnitsAtRelease(gitDir, release));
         }
+        // Before this checkout, so that a kept row that is gone now gets deprecated.
+        history.addMissing(UnitHistory.of(previous));
         addRelease(
                 history,
                 ToolConstants.DEV_VERSION,

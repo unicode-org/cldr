@@ -105,6 +105,8 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 ### Units
 
+* [Unit Identifiers](tr35-general.md#Unit_Identifiers) Ordered the Unit Identifiers overview table from simplest to most complex and added a `Description` column.
+<!-- CLDR-19893 -->
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 

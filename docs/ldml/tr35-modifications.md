@@ -102,6 +102,8 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 <!-- CLDR-19012 -->
 * [`Number Formats`](tr35-numbers.md#Number_Formats), [`Miscellaneous Patterns`](tr35-numbers.md#Miscellaneous_Patterns), [`Formatting`](tr35-numbers.md#Formatting) Added a subsection heading for each number format type (`decimalFormats`, `percentFormats`, `scientificFormats`), each miscellaneous pattern (`approximately`, `atMost`, `atLeast`, `range`), and special values.
 <!-- CLDR-19830 -->
+* [`The alt="noCurrency" Pattern Variant`](tr35-numbers.md#the-altnocurrency-pattern-variant) Use the `alt="noCurrency"` pattern for standard and accounting symbol formatting when a currency's resolved `<symbol>` is `U+200B` (ZERO WIDTH SPACE).
+<!-- CLDR-19771 -->
 
 ### Units
 

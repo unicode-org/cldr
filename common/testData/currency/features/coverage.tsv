@@ -1,0 +1,166 @@
+# clause	spec	summary	feature_id	status	note
+S1.1a	tr35-numbers.md#currencydecimal	The locale's currencyDecimal replaces its decimal separator in currency formats.	currency_decimal_separator_locale	covered	
+S1.1b	tr35-numbers.md#currencydecimal	The locale's currencyDecimal is also used in compact currency formats.	currency_decimal_separator_locale_compact	covered	
+S1.1c	tr35-numbers.md#currencydecimal	The locale's currencyDecimal is also used with currency display names.	currency_decimal_separator_locale_name	covered	
+S1.1d	tr35-numbers.md#currencydecimal	Whether the locale's currencyDecimal is also used in the noCurrency format.		todo	Spec unclear: CLDR-19825
+S1.2	tr35-numbers.md#currencydecimal	Without currencyDecimal, currency formats use the locale's decimal separator.	currency_decimal_separator_regular	covered	
+S1.3a	tr35-numbers.md#currencygroup	The locale's currencyGroup replaces its grouping separator in currency formats.		todo	
+S1.3b	tr35-numbers.md#currencygroup	The locale's currencyGroup is also used in compact currency formats.		todo	
+S1.3c	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also used with currency display names.		todo	Spec unclear: CLDR-19825
+S1.3d	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also used in the noCurrency format.		todo	Spec unclear: CLDR-19825
+S1.4	tr35-numbers.md#currencygroup	Without currencyGroup, currency formats use the locale's grouping separator.		todo	
+S1.5	tr35-numbers.md#currencydecimal	currencyDecimal and currencyGroup also apply to parsing.		out_of_scope	The test data covers formatting only.
+S2.1a	tr35-numbers.md#Compact_Number_Formats	The alphaNextToNumber step applies to compact currency patterns.		todo	
+S2.1b	tr35-numbers.md#Compact_Number_Formats	The step also applies to a compact pattern of 0 that has an alt pattern.		todo	
+S2.1c	tr35-numbers.md#Compact_Number_Formats	The step doesn't apply to compact decimal formats.		out_of_scope	The test data covers currency formats only.
+S2.2a	tr35-numbers.md#Compact_Number_Formats	With the symbol left of a 0, a currency string that ends with a letter selects the alt pattern.		todo	
+S2.2b	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a currency sign keeps the regular pattern.		todo	
+S2.2c	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with another non-letter keeps the regular pattern.		waiting	ICU4J applies currencySpacing instead of this step
+S2.2d	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a letter and a combining mark selects the alt pattern.		todo	
+S2.3a	tr35-numbers.md#Compact_Number_Formats	With the symbol right of a 0, a currency string that starts with a letter selects the alt pattern.		out_of_scope	No CLDR data has this case.
+S2.3b	tr35-numbers.md#Compact_Number_Formats	With the symbol next to an abbreviation rather than a 0, the regular pattern is kept.		todo	
+S2.4a	tr35-numbers.md#Compact_Number_Formats	The alt pattern is used when the locale has one.		todo	
+S2.4b	tr35-numbers.md#Compact_Number_Formats	Without an alt pattern, the regular pattern is used.		waiting	ICU4J applies currencySpacing instead of this step
+S2.5	tr35-numbers.md#Compact_Number_Formats	A compact pattern of 0 uses the normal currency format, with the locale's grouping.		todo	
+S3.1a	tr35-numbers.md#standard-and-accounting-currency-format-types	A standard pattern without a negative subpattern shows negative amounts with a minus sign.		todo	
+S3.1b	tr35-numbers.md#standard-and-accounting-currency-format-types	A standard pattern with a negative subpattern uses it for negative amounts.		todo	
+S3.2a	tr35-numbers.md#standard-and-accounting-currency-format-types	The accounting format of en shows negative USD amounts in parentheses.		todo	
+S3.2b	tr35-numbers.md#standard-and-accounting-currency-format-types	The accounting format shows other amounts as the standard format does.		todo	
+S3.2c	tr35-numbers.md#standard-and-accounting-currency-format-types	A locale without a distinct accounting pattern shows negative amounts as in the standard format.		todo	
+S3.3a	tr35-numbers.md#standard-and-accounting-currency-format-types	The cf=account locale keyword selects the accounting format.		todo	
+S3.3b	tr35-numbers.md#standard-and-accounting-currency-format-types	The cf=standard locale keyword selects the standard format.		todo	
+S4.1a	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A symbol whose character next to the number is a letter, before the number, selects the alt pattern.		todo	
+S4.1b	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A symbol whose character next to the number is a letter, after the number, selects the alt pattern.		todo	
+S4.1c	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A symbol whose character next to the number is a currency sign keeps the standard pattern.		todo	
+S4.1d	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A symbol whose character next to the number is another non-letter keeps the standard pattern.		todo	
+S4.1e	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A symbol whose character next to the number is a combining mark keeps the standard pattern.		todo	
+S4.2a	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	The locale's own alt pattern is used.		todo	
+S4.2b	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	An alt pattern given as the inheritance marker resolves to the locale's own pattern.		todo	
+S4.2c	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	Without an alt pattern in the locale or its parents, the standard pattern is used.		todo	
+S4.3	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	The accounting format has its own alt pattern, used the same way.		todo	
+S4.4a	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	The alt pattern adds a no-break space between the symbol and the number.		todo	
+S4.4b	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	An alt pattern can also add no space, as in en_ZA.		todo	
+S4.4c	tr35-numbers.md#the-altalphanexttonumber-pattern-variant	A standard pattern that already has a space has the same alt pattern.		todo	
+S5.1a	tr35-numbers.md#the-altnocurrency-pattern-variant	The locale's own noCurrency pattern formats the amount without a symbol.		todo	
+S5.1b	tr35-numbers.md#the-altnocurrency-pattern-variant	The accounting format has its own noCurrency pattern for negative amounts.		todo	
+S5.1c	tr35-numbers.md#the-altnocurrency-pattern-variant	A locale without its own noCurrency pattern uses the one from root.		todo	
+S5.1d	tr35-numbers.md#the-altnocurrency-pattern-variant	Accounting noCurrency formatting in a locale that has no accounting noCurrency pattern.		todo	
+S5.1e	tr35-numbers.md#the-altnocurrency-pattern-variant	A currency with no decimals shows no decimals in the noCurrency format.		todo	
+S5.2	tr35-numbers.md#the-altnocurrency-pattern-variant	The noCurrency format suits columns of amounts in one currency.		out_of_scope	Nothing to test.
+S5.3a	tr35-numbers.md#the-altnocurrency-pattern-variant	Without a compact noCurrency pattern, compact noCurrency formats use the compact decimal format.		todo	
+S5.3b	tr35-numbers.md#the-altnocurrency-pattern-variant	A compact noCurrency pattern is used when present.		out_of_scope	No CLDR data has this case.
+S6.1a	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	currencyPatternAppendISO appends the ISO code to a symbol format.		todo	
+S6.1b	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	It also appends the ISO code to a narrow symbol format.		todo	
+S6.1c	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	It also works with a minus sign, parentheses, or a symbol after the number.		todo	
+S6.1d	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	It also applies to compact currency formats.		todo	
+S6.2a	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	Appending the ISO code is recommended for a narrow symbol that differs from the code.		todo	
+S6.2b	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	It is recommended for a symbol that equals the narrow symbol and differs from the code.		todo	
+S6.2c	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	It is not recommended for a symbol that differs from the narrow symbol or equals the code.		todo	
+S6.3a	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	Most locales use the currencyPatternAppendISO pattern from root.		todo	
+S6.3b	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	A locale can have its own pattern with another space, as in ar.		todo	
+S6.3c	tr35-numbers.md#combining-currency-symbols-and-iso-codes-currencypatternappendiso	A locale can have its own pattern that puts the ISO code first, as in hi.		todo	
+S7.1	tr35-numbers.md#Number_Pattern_Character_Definitions	The placeholder can be in the prefix or the suffix and is replaced by the currency's symbol or name.		todo	
+S7.2a	tr35-numbers.md#Number_Pattern_Character_Definitions	One placeholder is replaced by the standard currency symbol.		todo	
+S7.2b	tr35-numbers.md#Number_Pattern_Character_Definitions	Two placeholders are replaced by the ISO currency code.		todo	
+S7.2c	tr35-numbers.md#Number_Pattern_Character_Definitions	Three placeholders are replaced by the display name for the amount's plural category.		todo	
+S7.2d	tr35-numbers.md#Number_Pattern_Character_Definitions	Five placeholders are replaced by the narrow currency symbol.		todo	
+S7.2e	tr35-numbers.md#Number_Pattern_Character_Definitions	Patterns with four, or more than five, placeholders.		out_of_scope	No CLDR data has this case.
+S7.3a	tr35-numbers.md#Number_Pattern_Character_Definitions	A pattern with a placeholder uses the locale's monetary separators.		todo	
+S7.3b	tr35-numbers.md#Number_Pattern_Character_Definitions	Without monetary separators, a pattern with a placeholder uses the numeric ones.		todo	
+S7.3c	tr35-numbers.md#Number_Pattern_Character_Definitions	Display names use currencyDecimal, although the decimal pattern has no placeholder.		todo	
+S7.3d	tr35-numbers.md#Number_Pattern_Character_Definitions	Whether patterns without a placeholder use the monetary separators.		todo	Spec unclear: CLDR-19825
+S7.4a	tr35-numbers.md#Number_Pattern_Character_Definitions	A currency without a symbol in the locale falls back to its ISO code.		todo	
+S7.4b	tr35-numbers.md#Number_Pattern_Character_Definitions	A currency without a narrow symbol falls back to another form.		todo	
+S7.4c	tr35-numbers.md#Number_Pattern_Character_Definitions	A currency without a display name falls back to its ISO code.		todo	
+S7.5	tr35-numbers.md#Number_Pattern_Character_Definitions	Cross-reference to the steps for currency display names.		out_of_scope	Nothing to test.
+S7.6	tr35-numbers.md#Number_Pattern_Character_Definitions	Narrow symbols can be ambiguous and suit clear contexts only.		out_of_scope	Nothing to test.
+S8.1a	tr35-numbers.md#Special_Pattern_Characters	A currency pattern normally has a placeholder.		todo	
+S8.1b	tr35-numbers.md#Special_Pattern_Characters	The noCurrency pattern has no placeholder.		todo	
+S8.2a	tr35-numbers.md#Special_Pattern_Characters	The placeholder can come before the first digit.		todo	
+S8.2b	tr35-numbers.md#Special_Pattern_Characters	The placeholder can come after the last digit.		todo	
+S8.2c	tr35-numbers.md#Special_Pattern_Characters	The placeholder can take the place of the decimal separator, as in 12€50.		out_of_scope	No CLDR data has this case.
+S8.3a	tr35-numbers.md#Special_Pattern_Characters	Symbol right before the number (¤#,##0.00).		todo	
+S8.3b	tr35-numbers.md#Special_Pattern_Characters	Symbol and a space before the number (¤ #,##0.00).		todo	
+S8.3c	tr35-numbers.md#Special_Pattern_Characters	Symbol before the minus sign (¤-#,##0.00).		todo	
+S8.3d	tr35-numbers.md#Special_Pattern_Characters	Symbol and a space before the minus sign (¤ -#,##0.00).		todo	
+S8.3e	tr35-numbers.md#Special_Pattern_Characters	Minus sign before the symbol (-¤#,##0.00).		todo	
+S8.3f	tr35-numbers.md#Special_Pattern_Characters	Minus sign, symbol and a space before the number (-¤ #,##0.00).		todo	
+S8.4a	tr35-numbers.md#Special_Pattern_Characters	Symbol right after the number (#,##0.00¤).		todo	
+S8.4b	tr35-numbers.md#Special_Pattern_Characters	A space and the symbol after the number (#,##0.00 ¤).		todo	
+S8.4c	tr35-numbers.md#Special_Pattern_Characters	A minus sign after the number, before or after the symbol.		out_of_scope	No CLDR data has this case.
+S8.5	tr35-numbers.md#Special_Pattern_Characters	Symbol in place of the decimal separator (#,##0¤00).		out_of_scope	No CLDR data has this case.
+S9.1	tr35-numbers.md#formatting-currency-display-names-unitpattern	Display names and unit patterns depend on the plural count.		todo	
+S9.2	tr35-numbers.md#formatting-currency-display-names-unitpattern	The region part of a display name should match the territory name.		out_of_scope	Nothing to test.
+S9.3	tr35-numbers.md#formatting-currency-display-names-unitpattern	Formatting with the long display name follows the steps below.		todo	
+S9.4a	tr35-numbers.md#formatting-currency-display-names-unitpattern	An amount of exactly 0 first looks for an explicit 0 form.		todo	
+S9.4b	tr35-numbers.md#formatting-currency-display-names-unitpattern	An amount of exactly 1 first looks for an explicit 1 form.		todo	
+S9.4c	tr35-numbers.md#formatting-currency-display-names-unitpattern	Display names or unit patterns with count 0 or 1 are used.		out_of_scope	No CLDR data has this case.
+S9.5a	tr35-numbers.md#formatting-currency-display-names-unitpattern	Other amounts get their count from the plural rules: zero, one, many and other.		todo	
+S9.5b	tr35-numbers.md#formatting-currency-display-names-unitpattern	The plural rules give the count two.		todo	
+S9.5c	tr35-numbers.md#formatting-currency-display-names-unitpattern	The plural rules give the count few.		todo	
+S9.5d	tr35-numbers.md#formatting-currency-display-names-unitpattern	The plural rules of pt_PT give many for large amounts.		todo	
+S9.6a	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 3.1: the unit pattern for the count comes from the locale chain below root.		todo	
+S9.6b	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 3.2: without one, the unit pattern for other from root is used.		todo	
+S9.6c	tr35-numbers.md#formatting-currency-display-names-unitpattern	A unit pattern can put the display name before the number, as in si.		todo	
+S9.7a	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 4.1: the display name for the count comes from the locale chain.		todo	
+S9.7b	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 4.2: without a name for the count, the name for other is used.		todo	
+S9.7c	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 4.3: without either, the name without a count is used.		todo	
+S9.7d	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 4.4: without any name, the ISO code is used.		todo	
+S9.8a	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 5: the number uses the decimal pattern, not the currency pattern.		todo	
+S9.8b	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 5: the number uses the currency's number of decimals.		todo	
+S9.8c	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 5: the number uses the locale's currencyDecimal.		todo	
+S9.9	tr35-numbers.md#formatting-currency-display-names-unitpattern	The number of decimals can be overridden in an API.		todo	
+S9.10	tr35-numbers.md#formatting-currency-display-names-unitpattern	Step 6: the number and the display name are substituted into the unit pattern.		todo	
+S9.11	tr35-numbers.md#formatting-currency-display-names-unitpattern	A currency's names need not cover every plural category of the locale.		todo	
+S9.12	tr35-numbers.md#formatting-currency-display-names-unitpattern	Worked example: count other and a grouped amount in English.		todo	
+S10.1	tr35-numbers.md#currency-boundary-spacing-currencyspacing	Spacing can change when a symbol is substituted into a pattern.		todo	
+S10.2	tr35-numbers.md#currency-boundary-spacing-currencyspacing	Since CLDR 42, the alphaNextToNumber pattern is the preferred way to handle spacing.		out_of_scope	Nothing to test.
+S10.3	tr35-numbers.md#currency-boundary-spacing-currencyspacing	currencySpacing controls what is inserted between the symbol and the number.		todo	
+S10.4a	tr35-numbers.md#currency-boundary-spacing-currencyspacing	beforeCurrency: a digit before a symbol that starts with a letter gets a no-break space.		todo	
+S10.4b	tr35-numbers.md#currency-boundary-spacing-currencyspacing	beforeCurrency: nothing is inserted before a symbol that starts with a currency sign.		todo	
+S10.4c	tr35-numbers.md#currency-boundary-spacing-currencyspacing	beforeCurrency: nothing is inserted when the character before the symbol isn't a digit.		todo	
+S10.5a	tr35-numbers.md#currency-boundary-spacing-currencyspacing	afterCurrency: nothing is inserted after a symbol that ends with a currency sign.		todo	
+S10.5b	tr35-numbers.md#currency-boundary-spacing-currencyspacing	afterCurrency: a symbol that ends with a letter before a digit gets a no-break space.		todo	
+S10.5c	tr35-numbers.md#currency-boundary-spacing-currencyspacing	afterCurrency: nothing is inserted when the character after the symbol isn't a digit.		todo	
+S10.6	tr35-numbers.md#currency-boundary-spacing-currencyspacing	Reference to Unicode sets for currencyMatch and surroundingMatch.		out_of_scope	Nothing to test.
+S11.1a	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	A currency's own decimal replaces the locale's decimal.		todo	
+S11.1b	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	A currency's own group replaces the locale's group.		todo	
+S11.1c	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	A currency's own pattern replaces the locale's pattern.		todo	
+S11.2a	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	Elements that the currency doesn't have come from the locale's symbols.		todo	
+S11.2b	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	A currency element can come from a parent locale.		todo	
+S11.2c	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	A currency without its own elements uses the locale's, even if another currency has its own.		todo	
+S11.3	tr35-numbers.md#currency-specific-decimal-and-grouping-overrides	Reference to multiple inheritance.		out_of_scope	Nothing to test.
+S11.4	tr35-numbers.md#currency-codes-and-currency-amounts	Every amount has a known currency code.		todo	
+S11.5	tr35-numbers.md#currency-codes-and-currency-amounts	The currency code is independent of the locale.		todo	
+S11.6	tr35-numbers.md#currency-codes-and-currency-amounts	One locale formats many currencies.		todo	
+S11.7	tr35-numbers.md#currency-codes-and-currency-amounts	Guidance on currency codes in protocols.		out_of_scope	Nothing to test.
+S11.8a	tr35-numbers.md#currency-codes-and-currency-amounts	The currency's number of decimals overrides the pattern's, for fewer decimals.		todo	
+S11.8b	tr35-numbers.md#currency-codes-and-currency-amounts	The currency's number of decimals overrides the pattern's, for more decimals.		todo	
+S11.9	tr35-numbers.md#currency-codes-and-currency-amounts	Reference to background on currency names.		out_of_scope	Nothing to test.
+S12.1a	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A currency listed in the fractions data uses its own values.		todo	
+S12.1b	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A currency that isn't listed uses the defaults.		todo	
+S12.2a	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	An amount with fewer decimals is padded to the currency's digits.		todo	
+S12.2b	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	An amount with more decimals is rounded to the currency's digits.		todo	
+S12.2c	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A currency with 0 digits shows no decimals.		todo	
+S12.2d	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A currency with 3 digits shows three decimals.		todo	
+S12.3	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	The digits value comes from the ISO 4217 minor unit.		out_of_scope	Nothing to test.
+S12.4a	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A rounding of 0 means no rounding increment.		todo	
+S12.4b	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A rounding of 1 behaves like a rounding of 0.		todo	
+S12.4c	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A rounding increment of 5 with 2 digits rounds to multiples of 0.05.		todo	
+S12.4d	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A rounding increment of 50 with 0 digits rounds to multiples of 50.		todo	
+S12.5a	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	Cash amounts use cashDigits when the currency has it.		todo	
+S12.5b	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	Without cashDigits, cash amounts use the currency's digits.		todo	
+S12.6a	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A cash rounding increment of 5 with 2 digits.		todo	
+S12.6b	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A cash rounding increment of 50 with 2 digits.		todo	
+S12.6c	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A cash rounding increment of 5 with 0 digits.		todo	
+S12.6d	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	Without cashRounding, cash amounts use the currency's rounding.		todo	
+S12.6e	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	A cash rounding of 1 behaves like no cash rounding.		todo	
+S12.7	tr35-numbers.md#currency-fraction-digits-and-rounding-fractions	With 2 digits, a third decimal rounds the last digit, as 2.006 becomes 2.01.		todo	
+S13.1	tr35-numbers.md#regional-currency-mappings-region	XXX marks a region with no valid currency.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.2	tr35-numbers.md#regional-currency-mappings-region	A region can list several currencies, in order.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.3	tr35-numbers.md#regional-currency-mappings-region	from and to give the dates when a currency was valid.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.4	tr35-numbers.md#regional-currency-mappings-region	tz and to-tz give the time zones of those dates.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.5	tr35-numbers.md#regional-currency-mappings-region	tender says whether a currency is legal tender.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.6	tr35-numbers.md#regional-currency-mappings-region	The order of the list gives the primary currency at each time.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.7	tr35-numbers.md#regional-currency-mappings-region	from is limited by how far back ISO 4217 goes.		out_of_scope	Region data doesn't change how an amount is formatted.
+S13.8	tr35-numbers.md#regional-currency-mappings-region	How terminated, split and merged codes are recorded.		out_of_scope	Region data doesn't change how an amount is formatted.

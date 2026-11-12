@@ -105,6 +105,8 @@ and the title of the specification “UTS #35: Unicode Locale Data Markup Langua
 
 ### Units
 
+* [Mixed Units](tr35-info.md#Mixed_Units) Clarified that mixed units are single units of the same quantity.
+<!-- CLDR-19894 -->
 * [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 

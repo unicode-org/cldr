@@ -64,7 +64,7 @@ The CLDR specification is divided into the following parts:
   * [foreignSpaceReplacement Element](#foreignspacereplacement-element)
   * [nativeSpaceReplacement Element](#nativespacereplacement-element)
   * [initialPattern Element](#initialpattern-element)
-    * [Syntax](#syntax)
+    * [initialPattern Syntax](#initialpattern-syntax)
 * [Person Name Object](#person-name-object)
 * [Person Name Attributes](#person-name-attributes)
   * [order](#order)
@@ -93,7 +93,7 @@ The CLDR specification is divided into the following parts:
     * [Examples of space replacement](#examples-of-space-replacement)
   * [Formatting examples](#formatting-examples)
 * [Sample Name](#sample-name)
-  * [Syntax](#syntax)
+  * [sampleName Syntax](#samplename-syntax)
   * [Expected values](#expected-values)
 * [Person Name Validation](#person-name-validation)
   * [Letters](#letters)
@@ -330,7 +330,7 @@ The `<initialPattern>` element is used to specify how to format initials of name
 
 **_initial_** is a pattern used to display a single initial in the locale, while **_initialSequence_** is a pattern used to “glue” together multiple initials for multiword fields, for example with the given name “Mary Beth” in English.
 
-#### Syntax
+#### initialPattern Syntax
 
 ```xml
 <!ELEMENT initialPattern ( #PCDATA ) >
@@ -1080,7 +1080,7 @@ The output is:
 The sampleName element is used for test names in the personNames CLDR XML data for each locale to aid in testing and display in the CLDR Survey Tool.
 They are not intended to be used in production software as prompts or placeholders in a user interface and should not be displayed in a user interface.
 
-### Syntax
+### sampleName Syntax
 
 ```xml
 <!ELEMENT sampleName ( nameField+ )  >

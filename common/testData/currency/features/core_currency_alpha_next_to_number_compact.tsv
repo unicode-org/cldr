@@ -1,0 +1,5 @@
+# locale	currency	currency_format_length	currency_display	input	expected	main_feature	other_features
+en	USD	short	code	1234565.0	USD 1.2M	currency_alpha_next_to_number_compact	currency_decimal_separator_regular
+en	EUR	short	code	1234565.0	EUR 1.2M	currency_alpha_next_to_number_compact	currency_decimal_separator_regular
+ja	USD	short	code	1234565.0	USD 123万	currency_alpha_next_to_number_compact	
+ja	EUR	short	code	1234565.0	EUR 123万	currency_alpha_next_to_number_compact	

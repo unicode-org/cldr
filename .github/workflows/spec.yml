@@ -68,6 +68,13 @@ jobs:
         # Note: see CLDR-16526 for making this an error
         # see <tools/scripts/tr-archive/README.md> for instructions
         run: "cd tools/scripts/tr-archive/ && npm run extract-link-targets"
+      - name: "Check that similar anchors go to the same section"
+        # Similar: differing only in case or in "_" vs "-".
+        # Warn, don't fail yet: see CLDR-19840
+        # The script also writes the list, with links to the lines, to the job summary.
+        run: |
+          cd tools/scripts/tr-archive/
+          npm run --silent check-anchor-case || echo "::warning::Some similar anchors (differing only in case or in _ vs -) go to different sections (CLDR-19840). See the job summary."
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli docs/ldml/*.md || (echo Warning, please fix these ; true)

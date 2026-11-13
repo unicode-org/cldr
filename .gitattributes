@@ -1,0 +1,96 @@
+# The line "* text=auto !eol" means the following:
+#  For text files (auto-detected), EOLs will be converted on checkout to OS-dependent EOL (LF for Unix, CRLF for Windows).
+#  No EOL (end of line) conversion for binary files.
+* text=auto !eol
+
+# Note:
+#  "text" tells git the file is text.
+#  "-text" tells git the file is binary.
+#  The only difference between the two is that git will do EOL conversion for text files.
+#  "!eol" is the equivalent of "svneol=native".
+
+# Linux / macOS shell script files, always LF
+*.sh text eol=lf
+
+# Windows script files, always CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Windows, Wisual Studio projects. EOL probabky does not matter, but just in case
+*.dsp text eol=crlf
+*.dsw text eol=crlf
+*.sln text eol=crlf
+
+# Text files
+
+*.MF text !eol
+*.abnf text !eol
+*.cfg text !eol
+*.component text !eol
+*.conf text !eol
+*.container text !eol
+*.c text !eol
+*.cc text !eol
+*.cpp text !eol
+*.css text !eol
+*.csv text !eol
+*.dtd text !eol
+*.ent text !eol
+*.env text !eol
+*.factorypath text !eol
+*.gitattributes text !eol
+*.gitignore text !eol
+*.h text !eol
+*.htm text !eol
+*.html text !eol
+*.j2 text !eol
+*.java text !eol
+*.js text !eol
+*.jsdtscope text !eol
+*.json text !eol
+*.jsonc text !eol
+*.jsp text !eol
+*.jspf text !eol
+*.local text !eol
+*.log text !eol
+*.mak text !eol
+*.md text !eol
+*.mjs text !eol
+*.mk text !eol
+*.name text !eol
+*.node-version text !eol
+*.options text !eol
+*.pl text !eol
+*.prefs text !eol
+*.properties text !eol
+*.py text !eol
+*.pydevproject text !eol
+*.sample text !eol
+*.sed text !eol
+*.sparql text !eol
+*.sql text !eol
+*.ssv text !eol
+*.tab text !eol
+*.tag text !eol
+*.tsv text !eol
+*.txt text !eol
+*.vue text !eol
+*.xml text !eol
+*.xsd text !eol
+*.xslt text !eol
+*.yml text !eol
+*.zi text !eol
+
+# Binary files
+
+*.JPG -text
+*.PNG -text
+*.data -text
+*.gif -text
+*.ico -text
+*.intaglio -text
+*.jpeg -text
+*.jpg -text
+*.png -text
+*.ttf -text
+*.woff2 -text

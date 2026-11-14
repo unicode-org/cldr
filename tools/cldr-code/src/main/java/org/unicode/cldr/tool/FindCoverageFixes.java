@@ -52,7 +52,7 @@ public class FindCoverageFixes {
 
             CLDRFile cldrFileResolved = CONFIG.getCldrFactory().make(locale.toString(), true);
             Map<String, DatePatternInfo> calendarToDatePatternInfo =
-                    DatetimeUtilities.calendarToDatePatternInfo(cldrFileResolved);
+                    DatetimeUtilities.calendarToDatePatternInfo(cldrFileResolved, false);
 
             for (Entry<String, Collection<XPathParts>> entry :
                     calendarsWithMissingPaths.asMap().entrySet()) {

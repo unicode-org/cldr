@@ -258,12 +258,13 @@ public class ShowInconsistentAvailable {
         for (String locale : locales) {
             CLDRFile unresolvedCfile = MAIN_FACTORY.make(locale, false);
             Map<String, DatePatternInfo> unresolvedmap =
-                    DatetimeUtilities.calendarToDatePatternInfo(unresolvedCfile);
+                    DatetimeUtilities.calendarToDatePatternInfo(unresolvedCfile, false);
             if (unresolvedmap.isEmpty()) {
                 continue;
             }
             CLDRFile cfile = MAIN_FACTORY.make(locale, true);
-            Map<String, DatePatternInfo> map = DatetimeUtilities.calendarToDatePatternInfo(cfile);
+            Map<String, DatePatternInfo> map =
+                    DatetimeUtilities.calendarToDatePatternInfo(cfile, false);
             Map<String, SeparatorData> calendarToSeparatorData = new LinkedHashMap<>();
             for (String calendar :
                     unresolvedmap
@@ -509,7 +510,7 @@ public class ShowInconsistentAvailable {
         for (String locale : locales) {
             CLDRFile cldrFile = MAIN_FACTORY.make(locale, false);
             Map<String, DatePatternInfo> map =
-                    DatetimeUtilities.calendarToDatePatternInfo(cldrFile); // unresolved
+                    DatetimeUtilities.calendarToDatePatternInfo(cldrFile, false); // unresolved
             if (map.isEmpty()) continue;
 
             CLDRLocale clocale = CLDRLocale.getInstance(locale);
@@ -1007,7 +1008,7 @@ public class ShowInconsistentAvailable {
         for (String locale : locales) {
             CLDRFile cldrFile = MAIN_FACTORY.make(locale, true);
             Map<String, DatePatternInfo> map =
-                    DatetimeUtilities.calendarToDatePatternInfo(cldrFile); // unresolved
+                    DatetimeUtilities.calendarToDatePatternInfo(cldrFile, false); // unresolved
             if (map.isEmpty()) continue;
         }
         //    static class PatternData {

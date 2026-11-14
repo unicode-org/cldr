@@ -1,0 +1,75 @@
+# .github/CODEOWNERS
+# Proposal for: CLDR-19330 
+# File Format: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-location for
+
+# TEAMS
+#.@unicode-org/cldr-tc              All CLDR
+# - @unicode-org/cldr-dev           General Development Team
+#   - @unicode-org/cldr-dev-build   Build process: actions, workflows, dependencies
+#   - @unicode-org/cldr-dev-apps    SurveyTool Subteam
+#   - @unicode-org/cldr-dev-checks  Console Checks
+# - @unicode-org/cldr-spec          LDML spec team, including DTD
+# - @unicode-org/cldr-site          CLDR site team
+# - @unicode-org/cldr-collation     CLDR collation files
+# - @unicode-org/cldr-rbnf          CLDR rbnf files
+# - @unicode-org/cldr-transforms    CLDR transform files
+# - @unicode-org/cldr-segmentation  CLDR segmentation iles
+# - @unicode-org/cldr-annotations.  CLDR Annotations/Emoji
+# - @unicode-org/cldr-supplemental  CLDR Supplemental Data
+# - @unicode-org/cldr-data          CLDR All other data
+# @unicode-org/cldr-keyboards       CLDR keyboards team
+
+
+# This file. All CLDR should be aware of any changes.
+.github/CODEOWNERS                         @unicode-org/cldr
+
+# Data catch-all
+common/                                    @unicode-org/cldr-data
+exemplars/                                 @unicode-org/cldr-data
+
+# Spec/DTD
+docs/ldml/                                 @unicode-org/cldr-spec
+common/dtd/                                @unicode-org/cldr-spec
+# spec tooling
+tools/scripts/tr-archiver/                 @unicode-org/cldr-spec @unicode-org/cldr-dev-build
+
+# Site and site tooling
+docs/site/                                 @unicode-org/cldr-site
+tools/scripts/web/                         @unicode-org/cldr-site @unicode-org/cldr-dev-build
+
+
+# Specific data types
+common/annotations/                        @unicode-org/cldr-annotations
+common/annotationsDerived/                 @unicode-org/cldr-annotations
+common/collation/                          @unicode-org/cldr-collation
+common/rbnf/                               @unicode-org/cldr-rbnf
+common/segments/                           @unicode-org/cldr-segmentation
+common/transforms/                         @unicode-org/cldr-transforms
+common/uca/                                @unicode-org/cldr-collation
+
+# Skills
+tools/skills/add-rbnf/                     @unicode-org/cldr-rbnf @unicode-org/cldr-dev
+
+# Keyboards
+keyboards/                                 @unicode-org/cldr-keyboards
+tools/scripts/keyboard-abnf-tests/         @unicode-org/cldr-keyboards
+
+# Dev catch-alls
+tools/                                     @unicode-org/cldr-dev
+tools/cldr-apps/                           @unicode-org/cldr-dev-apps
+tools/cldr-apps-webdriver/                 @unicode-org/cldr-dev-apps
+
+# build process
+.github/                                   @unicode-org/cldr-dev-build
+
+# build and dependency files
+pom.xml                                    @unicode-org/cldr-dev-build
+package.json                               @unicode-org/cldr-dev-build
+package-lock.json                          @unicode-org/cldr-dev-build
+
+# configuration files
+.vscode                                    @unicode-org/cldr-dev
+.gitignore                                 @unicode-org/cldr-dev
+
+# Console Checks
+tools/cldr-code/src/main/java/org/unicode/cldr/test/    @unicode-org/cldr-dev-checks

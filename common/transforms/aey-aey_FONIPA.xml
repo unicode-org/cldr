@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="aey" target="aey_FONIPA" direction="forward" draft="contributed" alias="aey-fonipa-t-aey">
+			<tRule>
+# https://www.sil.org/resources/publications/entry/42321
+$bow = [-\ $] ;  # Beginning of word.
+
+::NFC;
+::Lower;
+a → æ;
+b → b;
+c → ʔ;
+d → d;
+e → ɛ;
+f → f;
+g → g;
+h → h;
+i → i;
+# Phonemic
+#$bow } j → ʒ;
+#i } j { [$] → ʒ;
+#[aeiou] } j { i → ʒ;
+j → j;
+k → k;
+l → l;
+m → m;
+n → n;
+o → ɔ;
+q → g͜b;
+s → s;
+t → t;
+u → u;
+#Phonemic
+#wi → ʋi;
+#we → ʋɛ;
+#i } w { [$] → ʋ;
+w → w;
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

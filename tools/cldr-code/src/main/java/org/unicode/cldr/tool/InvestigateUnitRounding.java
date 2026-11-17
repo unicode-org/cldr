@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import org.unicode.cldr.tool.InvestigateUnitRounding.Converter.BestLong;
-import org.unicode.cldr.tool.InvestigateUnitRounding.Converter.Processed;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -27,8 +26,8 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 
 /**
- * This is for investigating how we can handle unit conversion rounding, including both unmixed and
- * mixed units. The code is not intended to be final production code.
+ * This code is for investigating how we can handle unit conversion rounding, including both unmixed
+ * and mixed units. The code is not intended to be final production code, and is not optimized.
  */
 public class InvestigateUnitRounding {
     private static final boolean EXPERIMENTAL_ROUND = false;
@@ -128,10 +127,12 @@ public class InvestigateUnitRounding {
     }
 
     /**
-     * A value and its upper/lower bounds (which might not be symmetric!) For example, 2
-     * meter-per-second with 1 significant digit is 2±0.5 [1.5, 2, 2.5]. But inverted (to 0.5
-     * second-per-meter, it is [0.4, 0.5, 0.˙6] (where ˙ marks the start of the repeating decimal
-     * 0.6666…).
+     * A value and its upper/lower bounds, with the invariant that lower < value < upper.<br>
+     * The value is the absolute value of the source, with a 'negative' flag set if source < 0.<br>
+     * The bounds might not be symmetric.<br>
+     * For example, 2 meter-per-second with 1 significant digit is 2±0.5 [1.5, 2, 2.5].<br>
+     * But inverted to 0.5 second-per-meter, it is [0.4, 0.5, 0.˙6] <br>
+     * (where ˙ marks the start of the repeating decimal 0.6666…).
      */
     public static class BoundDouble {
         private int negative;
@@ -263,13 +264,20 @@ public class InvestigateUnitRounding {
     }
 
     /**
-     * Just an API for investigation; a real API would look different. Not optimized, and has extra
-     * API for checking steps.
+     * Code for converting from an unmixed unit to either an unmixed or mixed unit, and back.<br>
+     * A production API might look quite different, because there are extra APIs for investigation
+     * and testing.<br>
+     * Not optimized!
      */
     public static class Converter {
-        private final String sourceUnitId;
+        // used when the source needs to be inverted for compatibility
         private final boolean invertSource;
+        // the conversion from source to first unit (only unit if mixed)
+        // TODO for mixed to mixed have a second set for combining the source mixed units
         private final double[] conversionFactors;
+
+        // only used in testing and debugging
+        private final String sourceUnitId;
         private final String[] unitIds;
         private final boolean matchFormatted;
 
@@ -316,6 +324,10 @@ public class InvestigateUnitRounding {
                     + (Arrays.hashCode(conversionFactors) * 31 + Arrays.hashCode(unitIds)) * 31;
         }
 
+        /**
+         * Creating a converter is straightforward. For example, for converting meter to
+         * foot-and-inch, the result has two conversion factors: meter → foot and foot → inch.
+         */
         public static Converter getConverter(
                 final String sourceUnit, final String targetUnit, boolean matchFormatted) {
             List<Double> conversions = new ArrayList<>();
@@ -405,6 +417,7 @@ public class InvestigateUnitRounding {
             this.matchFormatted = matchFormatted;
         }
 
+        /** Convert formatted numeric strings back to the source unit */
         public double convertBack(List<String> numbers, DecimalFormat df) {
             double result = 0;
             for (int i = numbers.size() - 1; i >= 0; --i) {
@@ -415,7 +428,8 @@ public class InvestigateUnitRounding {
             return invertSource ? 1 / result : result;
         }
 
-        public double convertBackRaw(Processed roundResult) {
+        /** Convert the converted value(s) back to the source unit */
+        public double convertBackRaw(Converted roundResult) {
             double conversionFactor = conversionFactors[roundResult.leadingCount];
             double result = roundResult.finalValue / conversionFactor;
             for (int i = roundResult.leadingCount - 1; i >= 0; --i) {
@@ -425,8 +439,9 @@ public class InvestigateUnitRounding {
             return result;
         }
 
-        public Processed convertRaw(double source) {
-            Processed result = new Processed();
+        /** Convert a value, disregarding precision. */
+        public Converted convertRaw(double source) {
+            Converted result = new Converted();
             double converted = source;
             int last = conversionFactors.length - 1;
             for (int i = 0; i <= last; ++i) {
@@ -445,8 +460,9 @@ public class InvestigateUnitRounding {
             return result;
         }
 
-        public Processed convertOld(final double source_, HackLocalizedNumberFormatter rp) {
-            Processed result = new Processed();
+        /** Old code for converting, given a HackLocalizedNumberFormatter */
+        public Converted convertOld(final double source_, HackLocalizedNumberFormatter rp) {
+            Converted result = new Converted();
 
             final int minSig = rp.minimumSignificantDigits;
             final int maxSig = rp.maximumSignificantDigits;
@@ -540,8 +556,9 @@ public class InvestigateUnitRounding {
             return result;
         }
 
-        public Processed convertNew(final double source_, HackLocalizedNumberFormatter rp) {
-            Processed result = new Processed();
+        /** Version of converted with a simpler code flow */
+        public Converted convertNew(final double source_, HackLocalizedNumberFormatter rp) {
+            Converted result = new Converted();
             BoundDouble boundedDouble =
                     BoundDouble.fromDigits(
                             source_,
@@ -560,7 +577,8 @@ public class InvestigateUnitRounding {
                     result);
         }
 
-        public Processed convert(BoundDouble boundedDouble, int deltaMaxToMin, Processed result) {
+        /** Convert a boundedDouble, with the result in 'result' */
+        public Converted convert(BoundDouble boundedDouble, int deltaMaxToMin, Converted result) {
             if (invertSource) {
                 boundedDouble.invert();
             }
@@ -615,7 +633,7 @@ public class InvestigateUnitRounding {
          * plurals and case.
          */
         public String formatWithUnits(
-                Processed rountResult, HackLocalizedNumberFormatter sourceNf) {
+                Converted rountResult, HackLocalizedNumberFormatter sourceNf) {
             List<String> numberStrings = formattedNumbers(rountResult, sourceNf);
 
             StringBuilder result = new StringBuilder();
@@ -637,7 +655,7 @@ public class InvestigateUnitRounding {
         }
 
         public List<String> formattedNumbers(
-                Processed rountResult, HackLocalizedNumberFormatter sourceNf) {
+                Converted rountResult, HackLocalizedNumberFormatter sourceNf) {
             List<String> result = new ArrayList<>();
             if (rountResult.leadingCount != 0) {
                 LocalizedNumberFormatter dfInteger = sourceNf.precision(Precision.integer());
@@ -657,10 +675,11 @@ public class InvestigateUnitRounding {
         }
 
         /**
-         * Contains
+         * Container for the results of a conversion. Not immutable: successive operations can
+         * modify it.
          *
          * <ul>
-         *   <li>zero or more leading values,
+         *   <li>zero or more leading values (only used for mixed units),
          *   <li>a final double value, and
          *   <li>min/maxSignificant digits that apply to the final value.
          * </ul>
@@ -671,7 +690,7 @@ public class InvestigateUnitRounding {
          *   <li>123.45 yards, mxsd:4
          *   <li>15 degrees, 12 minutes, 42.39 seconds, mxsd:3
          */
-        public static class Processed {
+        public static class Converted {
             private static final int MAX_MIXED_UNITS = 3;
 
             long[] leadingValues = null;
@@ -731,9 +750,30 @@ public class InvestigateUnitRounding {
         }
     }
 
+    // UTILITIES for conversion
+    // These are not optimized, nor checked for double rounding issues.
+
+    /** Rounds to significant units. Unoptimized! */
+    public static double roundToSignificant(double source, int significantDigits) {
+        // Calculate how many decimal places we need to keep,
+        // and get the right increment, then round
+        int firstDigit = firstDigit(source);
+        double increment = getRoundingIncrement(significantDigits, firstDigit);
+        return roundByIncrement(source, increment);
+    }
+
+    /** Get a double value, centralized to avoid code clutter. */
+    public static double parseDouble(DecimalFormat df, String string) {
+        try {
+            return df.parse(string).doubleValue();
+        } catch (ParseException e) {
+            throw new ICUException("Illegal number", e);
+        }
+    }
+
     /**
      * Returns the number of significant digits of value needed to get within
-     * (lowerBound..upperbound)<br>
+     * (lowerBound..upperbound) Unoptimized! <br>
      */
     private static int getBestDoubleScale(double lowerBound, double value, double upperbound) {
         // Calculate differences from bounds
@@ -761,6 +801,7 @@ public class InvestigateUnitRounding {
         return result;
     }
 
+    /** Finds the best value for a long, used for leading units of a mixed unit. Unoptimized! */
     private static BestLong getBestLongScale(double lowerBound, double value, double upperbound) {
         if (!EXPERIMENTAL_ROUND) {
             long round = Math.round(value);
@@ -800,8 +841,8 @@ public class InvestigateUnitRounding {
         throw new UnitException("Should never happen");
     }
 
-    /** find number of significant digits. Can be optimized */
-    public static int calculateSignificantDigits(long bestK) {
+    /** Find number of significant digits. Unoptimized! */
+    private static int calculateSignificantDigits(long bestK) {
         // Avoid string allocation
         int length = 0;
         while (bestK > 0) {
@@ -811,18 +852,12 @@ public class InvestigateUnitRounding {
         return length;
     }
 
-    public static double roundToSignificant(double source, int significantDigits) {
-        // Calculate how many decimal places we need to keep,
-        // and get the right increment
-        int firstDigit = firstDigit(source);
-        double increment = getRoundingIncrement(significantDigits, firstDigit);
-        return roundByIncrement(source, increment);
-    }
-
+    /** Rounding increment */
     private static double getRoundingIncrement(int significantDigits, int firstDigit) {
         return Math.pow(10, afterLastDigit(significantDigits, firstDigit));
     }
 
+    /** Get the position of the first insignificant digit */
     private static int afterLastDigit(int significantDigits, int firstDigit) {
         return significantDigits - firstDigit;
     }
@@ -833,29 +868,26 @@ public class InvestigateUnitRounding {
     }
 
     /** The position of the lead digit. 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> -1; etc. */
-    public static int firstDigit(double value) {
+    private static int firstDigit(double value) {
         return (int) Math.floor(Math.log10(value)) + 1;
     }
 
-    public static double parseDouble(DecimalFormat df, String string) {
-        try {
-            return df.parse(string).doubleValue();
-        } catch (ParseException e) {
-            throw new ICUException("Illegal number", e);
-        }
-    }
-
+    /** Are two doubles within epsilon of each other? */
     public static boolean approximatelyEqualRelative(double a, double b, double epsilon) {
         if (a == b) return true; // Handles infinities and exact matches
-        return Math.abs(a - b) / Math.max(Math.abs(a), Math.abs(b)) < epsilon;
+        if (Double.isNaN(a) && Double.isNaN(b))
+            return true; // For our purposes all NaNs are equivalent
+        return Math.abs(a - b) < Math.max(Math.abs(a), Math.abs(b)) * epsilon;
     }
 
+    /** Get the value with all digits */
     public static String getPlainString(double sourceAmount) {
         return Double.isFinite(sourceAmount)
                 ? BigDecimal.valueOf(sourceAmount).toPlainString()
                 : Double.toString(sourceAmount);
     }
 
+    /** Format precision values, just for debugging */
     public static String formatPrecision(
             int minimumSignificantDigits, int maximumSignificantDigits) {
         return "⟨"

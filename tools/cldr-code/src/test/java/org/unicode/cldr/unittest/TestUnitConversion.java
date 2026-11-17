@@ -13,7 +13,7 @@ import org.unicode.cldr.tool.InvestigateUnitRounding;
 import org.unicode.cldr.tool.InvestigateUnitRounding.BoundDouble;
 import org.unicode.cldr.tool.InvestigateUnitRounding.BoundDouble.PrecisionType;
 import org.unicode.cldr.tool.InvestigateUnitRounding.Converter;
-import org.unicode.cldr.tool.InvestigateUnitRounding.Converter.Processed;
+import org.unicode.cldr.tool.InvestigateUnitRounding.Converter.Converted;
 import org.unicode.cldr.tool.InvestigateUnitRounding.HackLocalizedNumberFormatter;
 import org.unicode.cldr.util.Joiners;
 
@@ -23,7 +23,14 @@ public class TestUnitConversion extends TestFmwk {
     private static final boolean MATCH_FORMATTED = true;
     private static final int lineToBreakAt = 0; // 0 for no lines
     private static final int maxSigSamples = 14;
-    private static final boolean OLD_CODE = false;
+
+    private enum CodeChoice {
+        oldCode,
+        newCode,
+        both
+    }
+
+    private static final CodeChoice OLD_CODE = CodeChoice.oldCode;
 
     public static void main(String[] args) {
         new TestUnitConversion().run(args);
@@ -38,8 +45,8 @@ public class TestUnitConversion extends TestFmwk {
         Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
         OutputInt line = new OutputInt();
 
-        errorCount(line, converter, amount, sigDigit, sigDigit, true);
-        errorCount(line, converter, amount, sigDigit, sigDigit, false);
+        errorCount(line, converter, amount, sigDigit, sigDigit, CodeChoice.oldCode);
+        errorCount(line, converter, amount, sigDigit, sigDigit, CodeChoice.newCode);
     }
 
     public void testSamples() {
@@ -69,6 +76,7 @@ public class TestUnitConversion extends TestFmwk {
 
             // Inverse units
             {"meter-per-second", "5", "minute-per-mile"},
+            {"mile-per-gallon", "5", "liter-per-100-kilometer"},
             {"meter-per-second", "5", "minute-per-mile-and-second-per-mile"},
         };
 
@@ -139,7 +147,7 @@ public class TestUnitConversion extends TestFmwk {
             double sourceAmount,
             int minSig,
             int maxSig,
-            boolean old) {
+            CodeChoice codeChoice) {
         line.value++;
         if (lineToBreakAt > 0 && lineToBreakAt != line.value) {
             return 0;
@@ -165,12 +173,24 @@ public class TestUnitConversion extends TestFmwk {
         // example 1.1 meters => 1.20297 yards => 1 yard 0.60891 feet (but then rounded
         String sourceFormatted = hackLnf.format(sourceAmount).toString();
 
-        Processed processed = converter.convertOld(sourceAmount, hackLnf);
-        CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, processed);
-        if (!old) {
-            Processed processedNew = converter.convertNew(sourceAmount, hackLnf);
-            CheckResult check2 = new CheckResult(converter, sourceAmount, hackLnf, processed);
+        Converted converted;
+        switch (codeChoice) {
+            case newCode:
+                converted = converter.convertNew(sourceAmount, hackLnf);
+                break;
+            case oldCode:
+                converted = converter.convertOld(sourceAmount, hackLnf);
+                break;
+            case both:
+            default:
+                converted = converter.convertNew(sourceAmount, hackLnf);
+                Converted convertedOld = converter.convertOld(sourceAmount, hackLnf);
+                if (!assertEquals("new==old code", converted, convertedOld)) {
+                    convertedOld = converter.convertOld(sourceAmount, hackLnf); // for debugging
+                }
+                break;
         }
+        CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, converted);
 
         //        Processed processed2 = converter.convert2(sourceAmount, hackLnf);
         //        if (!processed.equals(processed2)) {
@@ -178,7 +198,7 @@ public class TestUnitConversion extends TestFmwk {
         //        }
 
         // Check the results
-        String formattedWithUnits = converter.formatWithUnits(processed, hackLnf).toString();
+        String formattedWithUnits = converter.formatWithUnits(converted, hackLnf).toString();
 
         if (isVerbose() || !check.matches) {
             System.out.println(
@@ -199,8 +219,8 @@ public class TestUnitConversion extends TestFmwk {
                             "\t→ «",
                             check.getRoundTripFormatted(),
                             "»",
-                            "\tProcessed: ",
-                            processed));
+                            "\tConverted: ",
+                            converted));
         }
         if (!check.matches) {
             double delta =
@@ -311,18 +331,18 @@ public class TestUnitConversion extends TestFmwk {
                 Converter converter,
                 double source,
                 HackLocalizedNumberFormatter rp,
-                Processed processed) {
+                Converted converted) {
             this.source = source;
             sourceFormatted = rp.lnf.format(source).toString();
 
             DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(rp.getLocale());
 
-            // get the formatted numbers from the processed value, with the hackLnf
+            // get the formatted numbers from the converted value, with the hackLnf
             // then convert to double
             // then format that double
 
-            numbers = converter.formattedNumbers(processed, rp);
-            rawConvertBack = converter.convertBackRaw(processed);
+            numbers = converter.formattedNumbers(converted, rp);
+            rawConvertBack = converter.convertBackRaw(converted);
             roundTrip = converter.convertBack(numbers, parser);
             roundTripFormatted = rp.lnf.format(roundTrip).toString();
             matches = getSourceFormatted().equals(getRoundTripFormatted());

@@ -90,9 +90,9 @@ public class GenerateCurrencyFeatureTestData {
     /** How the currency is shown. The default is {@code symbol}. */
     public enum CurrencyDisplay implements Labeled {
         SYMBOL("symbol", UnitWidth.SHORT),
-        // currency_decimal_separator_locale (S1.1a)
+        // currency_decimal_separator_locale (S1.1a), currency_group_separator_locale (S1.3a)
         SYMBOL_NARROW("symbolNarrow", UnitWidth.NARROW),
-        // currency_decimal_separator_locale (S1.1a)
+        // currency_decimal_separator_locale (S1.1a), currency_group_separator_locale (S1.3a)
         CODE("code", UnitWidth.ISO_CODE),
         // currency_decimal_separator_locale_name (S1.1c)
         NAME("name", UnitWidth.FULL_NAME);
@@ -205,19 +205,24 @@ public class GenerateCurrencyFeatureTestData {
 
     /**
      * Returns the registered features, other than the main one, that a test case exercises: a value
-     * with a decimal separator exercises the decimal separator feature that applies to the test
-     * case.
+     * with a decimal (or grouping) separator exercises the decimal (or group) separator feature
+     * that applies to the test case.
      */
     static List<String> otherFeatures(
             TestCase testCase, FormattedNumber value, String mainFeature, Set<String> registered) {
         boolean decimal = false;
+        boolean grouping = false;
         ConstrainedFieldPosition position = new ConstrainedFieldPosition();
         while (value.nextPosition(position)) {
             decimal |= position.getField() == NumberFormat.Field.DECIMAL_SEPARATOR;
+            grouping |= position.getField() == NumberFormat.Field.GROUPING_SEPARATOR;
         }
         Set<String> features = new LinkedHashSet<>();
         if (decimal) {
             features.add(decimalSeparatorFeature(testCase));
+        }
+        if (grouping) {
+            features.add(groupSeparatorFeature(testCase));
         }
         features.remove(mainFeature);
         features.retainAll(registered);
@@ -235,6 +240,19 @@ public class GenerateCurrencyFeatureTestData {
             return "currency_decimal_separator_locale_name"; // S1.1c
         }
         return "currency_decimal_separator_locale"; // S1.1a
+    }
+
+    private static String groupSeparatorFeature(TestCase testCase) {
+        if (localeSymbol(testCase.get(Dimension.LOCALE), "currencyGroup") == null) {
+            return "currency_group_separator_regular"; // S1.4
+        }
+        if (!testCase.get(Dimension.CURRENCY_FORMAT_LENGTH).isEmpty()) {
+            return "currency_group_separator_locale_compact"; // S1.3b, not a feature yet
+        }
+        if (testCase.get(Dimension.CURRENCY_DISPLAY).equals(CurrencyDisplay.NAME.label)) {
+            return "currency_group_separator_locale_name"; // S1.3c, not a feature yet
+        }
+        return "currency_group_separator_locale"; // S1.3a
     }
 
     /**

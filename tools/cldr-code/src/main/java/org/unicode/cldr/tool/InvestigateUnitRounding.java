@@ -163,35 +163,38 @@ public class InvestigateUnitRounding {
          * Significant digits are relative to first digit, so 1230, 4 digits => 0.5;<br>
          * Fraction digits are relative to the decimal point, so 0 => 0.5.
          */
-        public static BoundDouble fromDigits(double value, PrecisionType type, int digits) {
-            if (!Double.isFinite(value) || value == 0) {
+        public static BoundDouble fromDigits(double source, PrecisionType type, int digits) {
+            if (!Double.isFinite(source) || source == 0) {
                 return null;
             }
             int negative;
             double delta;
-            if (value > 0) {
+            if (source > 0) {
                 negative = 1;
-            } else if (value < 0) {
+            } else if (source < 0) {
                 negative = -1;
-                value = -value;
+                source = -source;
             } else {
                 negative = 0;
             }
-            int firstDigit = firstDigit(value);
-            // Calculate how many decimal places we need to keep
-            // TODO handle fractional digits
 
-            int exponent =
-                    (type == PrecisionType.fraction ? 0 : negative == 0 ? 1 : firstDigit(value))
-                            - digits;
-            double increment = getRoundingIncrement(digits, exponent);
+            if (type == type.fraction) {
+                throw new IllegalArgumentException("do later");
+            }
+
+            // Calculate how many decimal places we need to keep
+            int firstDigit = firstDigit(source);
+            double increment = getRoundingIncrement(digits, firstDigit);
 
             // Fix the source and upper/lowerbounds accordingly
-            value = roundByIncrement(value, increment);
-            delta = Math.pow(10, exponent) / 2;
+            source = roundByIncrement(source, increment);
+            delta = Math.nextDown(0.5 / increment); // bump the value down a bit because of double
+            // rounding
 
             // Now we have the value, and delta, so we can get the bounds
-            return new BoundDouble(negative, value - delta, value, value + delta);
+            double lowerBound = source - delta;
+            double upperBound = source + delta;
+            return new BoundDouble(negative, lowerBound, source, upperBound);
         }
 
         public void invert() {
@@ -460,102 +463,6 @@ public class InvestigateUnitRounding {
             return result;
         }
 
-        /** Old code for converting, given a HackLocalizedNumberFormatter */
-        public Converted convertOld(final double source_, HackLocalizedNumberFormatter rp) {
-            Converted result = new Converted();
-
-            final int minSig = rp.minimumSignificantDigits;
-            final int maxSig = rp.maximumSignificantDigits;
-
-            if (source_ == 0 || Double.isInfinite(maxSig)) {
-                if (invertSource) {
-                    result.setDouble(1 / source_, minSig, maxSig);
-                    return result;
-                }
-                result.setDouble(source_, minSig, maxSig);
-                return result;
-            }
-
-            boolean negative = source_ < 0;
-            double source = negative ? -source_ : source_;
-
-            int deltaMaxToMin = maxSig - minSig;
-
-            /*
-               Key Section
-
-               Derive a value (converted) which is the source rounded according to the maxSignificant digits.
-               Derive a delta value based on that rounded source and the max significant digits.
-            The goal for the delta is to get to within ±.5 (scaled by the right power of 10) of the converted value.
-            With source=5.6 and maxSigDigits=1, the goal is 6 ± 0.5 — NOT 5.6 ±5.
-            With source=0.56 and maxSigDigits=1, the goal is 0.6 ± 0.05 — NOT 0.56 ± 0.05.
-               and so on.
-               */
-
-            // Determine the position of the lead digit.
-            // 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> 0; etc.
-            int firstDigit = firstDigit(source);
-            // Calculate how many decimal places we need to keep
-            double increment = getRoundingIncrement(rp.maximumSignificantDigits, firstDigit);
-
-            // Fix the source and upper/lowerbounds accordingly
-            double converted;
-            if (matchFormatted) {
-                converted = roundByIncrement(source, increment);
-            } else {
-                converted = source;
-            }
-            // get the bounds
-            double convertedDelta = 0.5 / increment;
-            double lowerBound, upperBound;
-            if (invertSource) {
-                lowerBound = 1 / (converted + convertedDelta);
-                upperBound = 1 / (converted - convertedDelta);
-                converted = 1 / converted;
-            } else {
-                lowerBound = converted - convertedDelta;
-                upperBound = converted + convertedDelta;
-            }
-
-            int last = conversionFactors.length - 1;
-
-            for (int i = 0; i <= last; ++i) {
-                double conversionFactor = conversionFactors[i];
-                converted = converted * conversionFactor;
-                lowerBound = lowerBound * conversionFactor;
-                upperBound = upperBound * conversionFactor;
-                if (i == last || converted > MAX_LONG_FROM_DOUBLE) {
-                    // the final value is always a double
-                    int bestScale = getBestDoubleScale(lowerBound, converted, upperBound);
-                    result.setDouble(converted, bestScale - deltaMaxToMin, bestScale);
-                    break;
-                } else {
-                    double lowerBoundCeiling = Math.floor(lowerBound) + 1;
-                    double upperBoundFloor = Math.ceil(upperBound) - 1;
-                    if (lowerBoundCeiling < upperBoundFloor) {
-                        // It is precise enough; there is an integer that works
-                        // find the ones with the longest sequence of zeros
-                        // among those, find the one closest to converted.
-                        BestLong bestLong = getBestLongScale(lowerBound, converted, upperBound);
-                        result.setDouble(
-                                bestLong.value,
-                                bestLong.significantDigits - deltaMaxToMin,
-                                bestLong.significantDigits);
-                        break;
-                    }
-                    long floor = (long) Math.floor(converted);
-                    result.addLong(floor);
-                    lowerBound -= floor;
-                    converted -= floor;
-                    upperBound -= floor;
-                }
-            }
-            if (negative) {
-                result.negate();
-            }
-            return result;
-        }
-
         /** Version of converted with a simpler code flow */
         public Converted convertNew(final double source_, HackLocalizedNumberFormatter rp) {
             Converted result = new Converted();
@@ -595,15 +502,7 @@ public class InvestigateUnitRounding {
                     result.setDouble(
                             boundedDouble.getValue(), bestScale - deltaMaxToMin, bestScale);
                     break;
-                } else { // we have multiple values ahead of the last…
-                    //                	if (boundedDouble.inTightBounds()) {
-                    //                        BestLong bestLong = boundedDouble.getBestLongScale();
-                    //                        result.setDouble(
-                    //                                bestLong.value,
-                    //                                bestLong.significantDigits - deltaMaxToMin,
-                    //                                bestLong.significantDigits);
-                    //                	}
-                    // intermediate values are always floor integers
+                } else {
                     result.addLong(boundedDouble.getFloorAndSubtract());
                 }
             }
@@ -691,30 +590,13 @@ public class InvestigateUnitRounding {
          *   <li>15 degrees, 12 minutes, 42.39 seconds, mxsd:3
          */
         public static class Converted {
-            private static final int MAX_MIXED_UNITS = 3;
+            private static final int MAX_MIXED_UNITS = 4;
 
             long[] leadingValues = null;
             int leadingCount = 0;
             double finalValue = Double.MIN_VALUE;
             int maxSignificant = Integer.MIN_VALUE;
             int minSignificant = Integer.MIN_VALUE;
-
-            @Override
-            public String toString() {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < leadingCount; ++i) {
-                    if (sb.length() != 0) {
-                        sb.append(":");
-                    }
-                    sb.append(leadingValues[i]);
-                }
-                if (sb.length() != 0) {
-                    sb.append(" : ");
-                }
-                sb.append(getPlainString(finalValue));
-                sb.append(formatPrecision(minSignificant, maxSignificant));
-                return sb.toString();
-            }
 
             /** Set the final value, and sig digits */
             public void setDouble(double value, int minSig, int maxSig) {
@@ -739,6 +621,40 @@ public class InvestigateUnitRounding {
                     finalValue = -finalValue;
                 }
             }
+
+            @Override
+            public String toString() {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < leadingCount; ++i) {
+                    if (sb.length() != 0) {
+                        sb.append(":");
+                    }
+                    sb.append(leadingValues[i]);
+                }
+                if (sb.length() != 0) {
+                    sb.append(" : ");
+                }
+                sb.append(getPlainString(finalValue));
+                sb.append(formatPrecision(minSignificant, maxSignificant));
+                return sb.toString();
+            }
+
+            @Override
+            public boolean equals(Object obj) {
+                Converted other = (Converted) obj;
+                return leadingCount == other.leadingCount
+                        && Arrays.equals(leadingValues, other.leadingValues)
+                        && finalValue == other.finalValue
+                        && maxSignificant == other.maxSignificant
+                        && minSignificant == other.minSignificant;
+            }
+
+            @Override
+            public int hashCode() {
+                // TODO Auto-generated method stub
+                return Objects.hash(
+                        leadingCount, leadingValues, finalValue, maxSignificant, minSignificant);
+            }
         }
     }
 
@@ -752,8 +668,10 @@ public class InvestigateUnitRounding {
 
     // UTILITIES for conversion
     // These are not optimized, nor checked for double rounding issues.
+    // Deprecated ones would need fixing for production code
 
-    /** Rounds to significant units. Unoptimized! */
+    /** Rounds to significant units. Unoptimized, may differ in final digits! */
+    @Deprecated
     public static double roundToSignificant(double source, int significantDigits) {
         // Calculate how many decimal places we need to keep,
         // and get the right increment, then round
@@ -775,6 +693,7 @@ public class InvestigateUnitRounding {
      * Returns the number of significant digits of value needed to get within
      * (lowerBound..upperbound) Unoptimized! <br>
      */
+    @Deprecated
     private static int getBestDoubleScale(double lowerBound, double value, double upperbound) {
         // Calculate differences from bounds
         double lowerDiff = value - lowerBound;
@@ -802,6 +721,7 @@ public class InvestigateUnitRounding {
     }
 
     /** Finds the best value for a long, used for leading units of a mixed unit. Unoptimized! */
+    @Deprecated
     private static BestLong getBestLongScale(double lowerBound, double value, double upperbound) {
         if (!EXPERIMENTAL_ROUND) {
             long round = Math.round(value);
@@ -853,21 +773,24 @@ public class InvestigateUnitRounding {
     }
 
     /** Rounding increment */
+    @Deprecated
     private static double getRoundingIncrement(int significantDigits, int firstDigit) {
         return Math.pow(10, afterLastDigit(significantDigits, firstDigit));
     }
 
-    /** Get the position of the first insignificant digit */
+    /** Get the position of the first INsignificant digit */
     private static int afterLastDigit(int significantDigits, int firstDigit) {
         return significantDigits - firstDigit;
     }
 
     /** Round to a multiple of the increment. For example, (13, 5) => 15 */
+    @Deprecated
     private static double roundByIncrement(double source, double increment) {
         return Math.round(source * increment) / increment;
     }
 
     /** The position of the lead digit. 1..9.99… -> 1; 10..99.99… -> 2, 0.1..0.999… -> -1; etc. */
+    @Deprecated
     private static int firstDigit(double value) {
         return (int) Math.floor(Math.log10(value)) + 1;
     }

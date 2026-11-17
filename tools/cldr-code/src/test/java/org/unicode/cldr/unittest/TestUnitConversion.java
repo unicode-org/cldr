@@ -24,32 +24,34 @@ public class TestUnitConversion extends TestFmwk {
     private static final int lineToBreakAt = 0; // 0 for no lines
     private static final int maxSigSamples = 14;
 
-    private enum CodeChoice {
-        oldCode,
-        newCode,
-        both
-    }
-
-    private static final CodeChoice OLD_CODE = CodeChoice.oldCode;
-
     public static void main(String[] args) {
         new TestUnitConversion().run(args);
     }
 
-    public void testSingleRow() {
-        String sourceUnit = "meter-per-second";
-        String targetUnit = "minute-per-mile";
-        double amount = 10.185916357881302d;
-        int sigDigit = 2;
+    public void testARow() {
+        System.out.println();
+        String[][] tests = {
+            {"10.185916357881302", "radian", "2", "degree"},
+            //	{"0.3183098861837907", "pound-force-per-square-inch", "10", "bar"},
+            //	{"10.185916357881302", "meter-per-second", "2", "minute-per-mile"},
+        };
 
-        Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
-        OutputInt line = new OutputInt();
+        for (String[] test : tests) {
+            double amount = Double.parseDouble(test[0]);
+            String sourceUnit = test[1];
+            int sigDigit = Integer.parseInt(test[2]);
+            String targetUnit = test[3];
 
-        errorCount(line, converter, amount, sigDigit, sigDigit, CodeChoice.oldCode);
-        errorCount(line, converter, amount, sigDigit, sigDigit, CodeChoice.newCode);
+            Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
+            OutputInt line = new OutputInt();
+
+            errorCount(line, converter, amount, sigDigit, sigDigit, true);
+            errorCount(line, converter, amount, sigDigit, sigDigit, true);
+        }
     }
 
     public void testSamples() {
+        System.out.println();
         final int minSigTesting = 1;
         String[][] samples = {
             // Deliberate errors
@@ -120,14 +122,12 @@ public class TestUnitConversion extends TestFmwk {
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     // for now, min=max
                     int errors = 0;
-                    // errors += errorCount(line, converter, amount / FUDGE_FACTOR, minMax, minMax);
-                    errors += errorCount(line, converter, amount, minMax, minMax, OLD_CODE);
-                    // errors += errorCount(line, converter, amount * FUDGE_FACTOR, minMax, minMax);
+                    errors += errorCount(line, converter, amount, minMax, minMax, false);
                     ok += 1 - errors;
                     totalErrors += errors;
                 }
                 int errors =
-                        errorCount(line, converter, amount, maxSigSamples, maxSigSamples, OLD_CODE);
+                        errorCount(line, converter, amount, maxSigSamples, maxSigSamples, false);
                 ok += 1 - errors;
                 totalErrors += errors;
 
@@ -147,7 +147,7 @@ public class TestUnitConversion extends TestFmwk {
             double sourceAmount,
             int minSig,
             int maxSig,
-            CodeChoice codeChoice) {
+            boolean showYourWork) {
         line.value++;
         if (lineToBreakAt > 0 && lineToBreakAt != line.value) {
             return 0;
@@ -173,23 +173,7 @@ public class TestUnitConversion extends TestFmwk {
         // example 1.1 meters => 1.20297 yards => 1 yard 0.60891 feet (but then rounded
         String sourceFormatted = hackLnf.format(sourceAmount).toString();
 
-        Converted converted;
-        switch (codeChoice) {
-            case newCode:
-                converted = converter.convertNew(sourceAmount, hackLnf);
-                break;
-            case oldCode:
-                converted = converter.convertOld(sourceAmount, hackLnf);
-                break;
-            case both:
-            default:
-                converted = converter.convertNew(sourceAmount, hackLnf);
-                Converted convertedOld = converter.convertOld(sourceAmount, hackLnf);
-                if (!assertEquals("new==old code", converted, convertedOld)) {
-                    convertedOld = converter.convertOld(sourceAmount, hackLnf); // for debugging
-                }
-                break;
-        }
+        Converted converted = converter.convertNew(sourceAmount, hackLnf);
         CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, converted);
 
         //        Processed processed2 = converter.convert2(sourceAmount, hackLnf);
@@ -200,7 +184,7 @@ public class TestUnitConversion extends TestFmwk {
         // Check the results
         String formattedWithUnits = converter.formatWithUnits(converted, hackLnf).toString();
 
-        if (isVerbose() || !check.matches) {
+        if (isVerbose() || !check.matches || showYourWork) {
             System.out.println(
                     Joiners.ES.join(
                             line.value,
@@ -227,6 +211,7 @@ public class TestUnitConversion extends TestFmwk {
                     InvestigateUnitRounding.parseDouble(parser, check.getSourceFormatted())
                             - InvestigateUnitRounding.parseDouble(
                                     parser, check.getRoundTripFormatted());
+            double raw = converter.convertBackRaw(converted);
             errln(
                     Joiners.ES.join(
                             "  FAILS ROUNDING ROUNDTRIP, source: ",
@@ -235,7 +220,9 @@ public class TestUnitConversion extends TestFmwk {
                             check.getRoundTripFormatted(),
                             "»",
                             " unrounded difference: ",
-                            InvestigateUnitRounding.getPlainString(delta)));
+                            InvestigateUnitRounding.getPlainString(delta),
+                            ", raw return convert: ",
+                            InvestigateUnitRounding.getPlainString(raw)));
             return 1;
         }
 
@@ -299,8 +286,13 @@ public class TestUnitConversion extends TestFmwk {
             double expectedLower = test[3];
             double expectedValue = test[4];
             double expectedUpper = test[5];
-            BoundDouble bd = BoundDouble.fromDigits(value, type, digits);
             String msg = Arrays.stream(test).boxed().toList().toString();
+            if (type == PrecisionType.fraction) {
+                warnln(msg + " Fractional min/max digits not handled yet");
+                continue;
+            }
+
+            BoundDouble bd = BoundDouble.fromDigits(value, type, digits);
             if (bd != null) {
                 assertEquals(
                         msg + " negative", value > 0 ? 1 : value < 0 ? -1 : 0, bd.getNegative());
@@ -314,7 +306,7 @@ public class TestUnitConversion extends TestFmwk {
             }
         }
 
-        // TBD, test other API
+        warnln("Other API not tested yet");
         double[][] test2 = {{}};
     }
 

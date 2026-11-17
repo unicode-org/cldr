@@ -10,16 +10,16 @@ S1.3c	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also u
 S1.3d	tr35-numbers.md#currencygroup	Whether the locale's currencyGroup is also used in the noCurrency format.		todo	Spec unclear: CLDR-19825
 S1.4	tr35-numbers.md#currencygroup	Without currencyGroup, currency formats use the locale's grouping separator.	currency_group_separator_regular	covered	
 S1.5	tr35-numbers.md#currencydecimal	currencyDecimal and currencyGroup also apply to parsing.		out_of_scope	The test data covers formatting only.
-S2.1a	tr35-numbers.md#Compact_Number_Formats	The alphaNextToNumber step applies to compact currency patterns.		todo	
+S2.1a	tr35-numbers.md#Compact_Number_Formats	The alphaNextToNumber step applies to compact currency patterns.	currency_alpha_next_to_number_compact	covered	
 S2.1b	tr35-numbers.md#Compact_Number_Formats	The step also applies to a compact pattern of 0 that has an alt pattern.		todo	
 S2.1c	tr35-numbers.md#Compact_Number_Formats	The step doesn't apply to compact decimal formats.		out_of_scope	The test data covers currency formats only.
-S2.2a	tr35-numbers.md#Compact_Number_Formats	With the symbol left of a 0, a currency string that ends with a letter selects the alt pattern.		todo	
-S2.2b	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a currency sign keeps the regular pattern.		todo	
+S2.2a	tr35-numbers.md#Compact_Number_Formats	With the symbol left of a 0, a currency string that ends with a letter selects the alt pattern.	currency_alpha_next_to_number_compact	covered	
+S2.2b	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a currency sign keeps the regular pattern.	currency_alpha_next_to_number_compact_currency_sign	covered	
 S2.2c	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with another non-letter keeps the regular pattern.		waiting	ICU4J applies currencySpacing instead of this step
-S2.2d	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a letter and a combining mark selects the alt pattern.		todo	
+S2.2d	tr35-numbers.md#Compact_Number_Formats	A currency string that ends with a letter and a combining mark selects the alt pattern.	currency_alpha_next_to_number_compact_combining_mark	covered	
 S2.3a	tr35-numbers.md#Compact_Number_Formats	With the symbol right of a 0, a currency string that starts with a letter selects the alt pattern.		out_of_scope	No CLDR data has this case.
-S2.3b	tr35-numbers.md#Compact_Number_Formats	With the symbol next to an abbreviation rather than a 0, the regular pattern is kept.		todo	
-S2.4a	tr35-numbers.md#Compact_Number_Formats	The alt pattern is used when the locale has one.		todo	
+S2.3b	tr35-numbers.md#Compact_Number_Formats	With the symbol next to an abbreviation rather than a 0, the regular pattern is kept.	currency_alpha_next_to_number_compact_abbreviation	covered	Spec unclear: the literal reading only checks for a 0
+S2.4a	tr35-numbers.md#Compact_Number_Formats	The alt pattern is used when the locale has one.	currency_alpha_next_to_number_compact	covered	
 S2.4b	tr35-numbers.md#Compact_Number_Formats	Without an alt pattern, the regular pattern is used.		waiting	ICU4J applies currencySpacing instead of this step
 S2.5	tr35-numbers.md#Compact_Number_Formats	A compact pattern of 0 uses the normal currency format, with the locale's grouping.		todo	
 S3.1a	tr35-numbers.md#standard-and-accounting-currency-format-types	A standard pattern without a negative subpattern shows negative amounts with a minus sign.		todo	

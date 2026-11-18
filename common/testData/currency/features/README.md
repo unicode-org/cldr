@@ -8,6 +8,8 @@ Test data for currency formatting ([UTS #35 Part 3: Numbers](../../../../docs/ld
 - `coverage.tsv`: one row per spec clause and feature.
     - `clause`: an ID from the TR35 coverage doc (CLDR-19466). S1.1a is section 1, sentence 1, case a.
     - `spec`: the UTS #35 link, relative to `docs/ldml`.
+    - `snippet`: the UTS #35 text of the clause, with `<<` and `>>` in place of straight double quotes. `↑↑↑↑↑` means the same snippet as in the row above.
+    - `summary`: what the clause requires, in our own words.
     - `feature_id`: empty if no feature tests the clause.
     - `status`: `covered`, `todo`, `waiting` (for a second source of expected values) or `out_of_scope`. `note` gives the ticket or the reason.
 - `core_<feature_id>.tsv`: the test cases of one feature, one per combination of its core set. Generated, so don't edit by hand.

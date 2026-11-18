@@ -37,7 +37,11 @@ public final class FeatureRegistry {
 
     /** The coverage columns, in order. The header line is "# " followed by these, tab-separated. */
     public static final List<String> COVERAGE_COLUMNS =
-            ImmutableList.of("clause", "spec", "summary", "feature_id", "status", "note");
+            ImmutableList.of(
+                    "clause", "spec", "snippet", "summary", "feature_id", "status", "note");
+
+    /** In the snippet column of {@code coverage.tsv}: the same snippet as in the row above. */
+    public static final String SAME_SNIPPET = "↑↑↑↑↑";
 
     private static final Pattern FEATURE_ID = Pattern.compile("[a-z][a-z0-9]*(?:_[a-z0-9]+)+");
     private static final Pattern CLAUSE = Pattern.compile("S\\d+\\.\\d+[a-z]?");
@@ -83,6 +87,8 @@ public final class FeatureRegistry {
      *
      * @param clause the clause ID of the TR35 coverage doc, such as {@code S1.1a}
      * @param spec the UTS #35 link, such as {@code tr35-numbers.md#currencydecimal}
+     * @param snippet the UTS #35 text of the clause, with {@code <<} and {@code >>} in place of
+     *     straight double quotes
      * @param summary one sentence that says what the clause requires
      * @param featureId the feature that tests the clause, or "" if there is none
      * @param status the status of the row
@@ -91,6 +97,7 @@ public final class FeatureRegistry {
     public record CoverageRow(
             String clause,
             String spec,
+            String snippet,
             String summary,
             String featureId,
             Status status,
@@ -131,31 +138,39 @@ public final class FeatureRegistry {
 
     /**
      * Reads the coverage file of the category. A {@code covered} row names a feature, and a {@code
-     * waiting} or {@code out_of_scope} row has a note.
+     * waiting} or {@code out_of_scope} row has a note. A row with {@link #SAME_SNIPPET} gets the
+     * snippet of the row above.
      *
      * @throws IllegalArgumentException if the file doesn't have the expected format
      */
     public static List<CoverageRow> readCoverage(String category) throws IOException {
         ImmutableList.Builder<CoverageRow> rows = ImmutableList.builder();
         Set<String> pairs = new HashSet<>();
+        String snippet = null;
         for (Line line : lines(category, COVERAGE_FILE_NAME, COVERAGE_COLUMNS)) {
             String where = line.where();
             String clause = line.cell(0);
-            String featureId = line.cell(3);
-            String note = line.cell(5);
+            String featureId = line.cell(4);
+            String note = line.cell(6);
             if (!CLAUSE.matcher(clause).matches()) {
                 throw new IllegalArgumentException(where + ": invalid clause ID: " + clause);
             }
             if (!SPEC.matcher(line.cell(1)).matches()) {
                 throw new IllegalArgumentException(where + ": invalid spec link: " + line.cell(1));
             }
-            if (line.cell(2).isEmpty()) {
+            if (!line.cell(2).equals(SAME_SNIPPET)) {
+                snippet = line.cell(2);
+            }
+            if (snippet == null || snippet.isEmpty()) {
+                throw new IllegalArgumentException(where + ": no snippet");
+            }
+            if (line.cell(3).isEmpty()) {
                 throw new IllegalArgumentException(where + ": empty summary");
             }
             if (!featureId.isEmpty()) {
                 checkFeatureId(featureId, category, where);
             }
-            Status status = status(line.cell(4), where);
+            Status status = status(line.cell(5), where);
             if (status == Status.COVERED && featureId.isEmpty()) {
                 throw new IllegalArgumentException(where + ": a covered row needs a feature ID");
             }
@@ -166,7 +181,9 @@ public final class FeatureRegistry {
             if (!pairs.add(clause + " " + featureId)) {
                 throw new IllegalArgumentException(where + ": duplicate row for " + clause);
             }
-            rows.add(new CoverageRow(clause, line.cell(1), line.cell(2), featureId, status, note));
+            rows.add(
+                    new CoverageRow(
+                            clause, line.cell(1), snippet, line.cell(3), featureId, status, note));
         }
         return rows.build();
     }

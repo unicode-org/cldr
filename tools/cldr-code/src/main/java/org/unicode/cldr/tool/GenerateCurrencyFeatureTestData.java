@@ -31,9 +31,8 @@ import org.unicode.cldr.util.CLDRFile;
  * each feature in {@code features.tsv}, the file {@code core_<feature_id>.tsv} with every
  * combination of the feature's core set and the value that ICU4J formats for it.
  *
- * <p>The generator only has the dimensions, and dimension values, that some feature needs. The code
- * that a feature needs has a comment with the feature ID and its clause (for example S1.1b), and
- * {@code coverage.tsv} links each clause to UTS #35.
+ * <p>The generator only has the dimensions and values that some feature needs. Comments name the
+ * features and clauses (such as S1.1b) that need them.
  */
 public class GenerateCurrencyFeatureTestData {
     /** The test data category, which is also the name of its directory. */

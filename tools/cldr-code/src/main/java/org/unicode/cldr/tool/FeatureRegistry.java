@@ -16,14 +16,13 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRPaths;
 
 /**
- * Reads the feature-based test data files of a test data category, in {@code
- * common/testData/<category>/features}: {@code features.tsv}, with one row per feature, and {@code
- * coverage.tsv}, with one row per clause and feature.
+ * Reads {@code features.tsv} (one row per feature) and {@code coverage.tsv} (one row per clause and
+ * feature) of a test data category, in {@code common/testData/<category>/features}.
  *
- * <p>A feature is a behavior that a part of UTS #35 requires, with the {@code (dimension = value)}
- * pairs (the core set) that exercise it. The generator of the category writes one core TSV file per
- * feature, {@code core_<feature_id>.tsv}. {@code coverage.tsv} links each clause of the TR35
- * coverage doc to its features, or says why it has none.
+ * <p>A feature is a behavior that UTS #35 requires, and its core set is the {@code dimension=value}
+ * pairs that exercise it. The category's generator writes the test cases of each core set to {@code
+ * core_<feature_id>.tsv}. {@code coverage.tsv} says which features test each clause, or why none
+ * does.
  */
 public final class FeatureRegistry {
     /** The name of the registry file in the category's feature directory. */
@@ -100,9 +99,7 @@ public final class FeatureRegistry {
     private FeatureRegistry() {}
 
     /**
-     * Returns the directory of the category's feature-based test data, such as {@code
-     * common/testData/currency/features}. It is a subdirectory, so that these files don't mix with
-     * the category's other test data.
+     * Returns the category's feature directory, such as {@code common/testData/currency/features}.
      */
     public static Path directory(String category) {
         return Path.of(CLDRPaths.TEST_DATA, category, "features");

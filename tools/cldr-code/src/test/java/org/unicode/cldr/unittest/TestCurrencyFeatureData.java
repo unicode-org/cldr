@@ -25,12 +25,10 @@ import org.unicode.cldr.util.CLDRFile;
  * Checks the CLDR data that the feature-based currency test data relies on (the data guards), and
  * that every clause and feature has what it needs (the coverage check).
  *
- * <p>A data guard fails when CLDR data changed, so that a feature's core set no longer exercises
- * the feature. To fix it, find a new core set, update it in {@code
- * common/testData/currency/features/features.tsv}, and run {@link GenerateCurrencyFeatureTestData}.
- * The guard changes only if the reason the core set works changes, and the feature ID stays the
- * same. If a CLDR data change breaks a guard, it can mark the guard as a known issue ({@code
- * logKnownIssue} with a ticket) until a follow-up finds the new core set.
+ * <p>A data guard fails when CLDR data changes so that a feature's core set no longer exercises the
+ * feature. To fix it, put a new core set in {@code features.tsv} and run {@link
+ * GenerateCurrencyFeatureTestData}; the feature ID stays the same. A data PR that breaks a guard
+ * can mark it with {@code logKnownIssue} and leave the new core set to a follow-up.
  */
 public class TestCurrencyFeatureData extends TestFmwkPlus {
 

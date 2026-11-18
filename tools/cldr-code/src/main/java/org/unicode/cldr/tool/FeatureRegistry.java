@@ -42,7 +42,7 @@ public final class FeatureRegistry {
 
     private static final Pattern FEATURE_ID = Pattern.compile("[a-z][a-z0-9]*(?:_[a-z0-9]+)+");
     private static final Pattern CLAUSE = Pattern.compile("S\\d+\\.\\d+[a-z]?");
-    private static final Pattern SPEC = Pattern.compile("tr35(?:-[a-z]+)?\\.md#\\S+");
+    private static final Pattern SPEC = Pattern.compile("tr35(?:-[A-Za-z]+)?\\.md#\\S+");
     private static final Splitter TAB = Splitter.on('\t');
     private static final Splitter COMMA = Splitter.on(',').trimResults();
     private static final Splitter SEMICOLON = Splitter.on(';').trimResults().omitEmptyStrings();

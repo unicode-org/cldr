@@ -158,7 +158,8 @@ public class TestFullConversion extends TestFmwk {
                     System.out.println(
                             Joiners.ES.join(
                                     "Rational: \t",
-                                    sourceAmount, "/PI = \t",
+                                    sourceAmount,
+                                    "/PI = \t",
                                     FullUnitConverter.getPlainString(amount),
                                     "\nDecimal:\t",
                                     FullUnitConverter.getDecimalString(amount)));

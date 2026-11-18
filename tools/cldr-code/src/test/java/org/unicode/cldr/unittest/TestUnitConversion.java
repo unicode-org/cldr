@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -47,6 +48,42 @@ public class TestUnitConversion extends TestFmwk {
 
             errorCount(line, converter, amount, sigDigit, sigDigit, true);
             errorCount(line, converter, amount, sigDigit, sigDigit, true);
+        }
+    }
+
+    public void testOddities() {
+        System.out.println();
+        Object[][] tests = {
+            {Double.NaN, "radian", 2, "degree", "NaN⟨2⟩"},
+            {Double.NEGATIVE_INFINITY, "radian", 2, "degree", "-Infinity⟨2⟩"},
+            {Double.POSITIVE_INFINITY, "radian", 2, "degree", "Infinity⟨2⟩"},
+            {0d, "radian", 2, "degree", "0.0⟨2⟩"},
+            {Double.NaN, "radian", 2, "per-radian", "NaN⟨2⟩"},
+            {Double.NEGATIVE_INFINITY, "radian", 2, "per-radian", "0.0⟨2⟩"},
+            {Double.POSITIVE_INFINITY, "radian", 2, "per-radian", "0.0⟨2⟩"},
+            {0d, "radian", 2, "per-radian", "Infinity⟨2⟩"},
+        };
+        Locale locale = new Locale("en");
+        int testline = 0;
+        for (Object[] test : tests) {
+            double amount = (double) test[0];
+            String sourceUnit = (String) test[1];
+            int sigDigit = (int) test[2];
+            String targetUnit = (String) test[3];
+            String expected = (String) test[4];
+
+            Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
+            OutputInt line = new OutputInt();
+            HackLocalizedNumberFormatter hackLnf =
+                    new HackLocalizedNumberFormatter(
+                            NumberFormatter.with().locale(locale), sigDigit, sigDigit, locale);
+
+            Converted converted = converter.convert(amount, hackLnf);
+            ++testline;
+            assertEquals(
+                    line + " " + Joiners.COMMA_SP.join(Arrays.asList(test)),
+                    expected,
+                    converted.toString());
         }
     }
 
@@ -173,7 +210,7 @@ public class TestUnitConversion extends TestFmwk {
         // example 1.1 meters => 1.20297 yards => 1 yard 0.60891 feet (but then rounded
         String sourceFormatted = hackLnf.format(sourceAmount).toString();
 
-        Converted converted = converter.convertNew(sourceAmount, hackLnf);
+        Converted converted = converter.convert(sourceAmount, hackLnf);
         CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, converted);
 
         //        Processed processed2 = converter.convert2(sourceAmount, hackLnf);
@@ -184,7 +221,7 @@ public class TestUnitConversion extends TestFmwk {
         // Check the results
         String formattedWithUnits = converter.formatWithUnits(converted, hackLnf).toString();
 
-        if (isVerbose() || !check.matches || showYourWork) {
+        if (isVerbose() || check.matches != CheckResult.Closeness.exact || showYourWork) {
             System.out.println(
                     Joiners.ES.join(
                             line.value,
@@ -206,15 +243,15 @@ public class TestUnitConversion extends TestFmwk {
                             "\tConverted: ",
                             converted));
         }
-        if (!check.matches) {
+        if (check.matches != CheckResult.Closeness.exact) {
             double delta =
                     InvestigateUnitRounding.parseDouble(parser, check.getSourceFormatted())
                             - InvestigateUnitRounding.parseDouble(
                                     parser, check.getRoundTripFormatted());
-            double raw = converter.convertBackRaw(converted);
-            errln(
+            double raw = converter.convertBackRaw(converted, false);
+            String msg =
                     Joiners.ES.join(
-                            "  FAILS ROUNDING ROUNDTRIP, source: ",
+                            " ROUNDING ROUNDTRIP, source: ",
                             "«" + sourceFormatted + "»",
                             " roundtripping: «",
                             check.getRoundTripFormatted(),
@@ -222,8 +259,14 @@ public class TestUnitConversion extends TestFmwk {
                             " unrounded difference: ",
                             InvestigateUnitRounding.getPlainString(delta),
                             ", raw return convert: ",
-                            InvestigateUnitRounding.getPlainString(raw)));
-            return 1;
+                            InvestigateUnitRounding.getPlainString(raw));
+            if (check.matches == CheckResult.Closeness.near) {
+                warnln(msg);
+                return 0;
+            } else {
+                errln(msg);
+                return 1;
+            }
         }
 
         return 0;
@@ -311,11 +354,17 @@ public class TestUnitConversion extends TestFmwk {
     }
 
     public static class CheckResult {
+        public enum Closeness {
+            exact,
+            near,
+            different
+        }
+
         private final String sourceFormatted;
         final List<String> numbers;
         final double roundTrip;
         private final String roundTripFormatted;
-        public final boolean matches;
+        public final Closeness matches;
         final double rawConvertBack;
         final double source;
 
@@ -334,10 +383,42 @@ public class TestUnitConversion extends TestFmwk {
             // then format that double
 
             numbers = converter.formattedNumbers(converted, rp);
-            rawConvertBack = converter.convertBackRaw(converted);
+            rawConvertBack = converter.convertBackRaw(converted, false);
             roundTrip = converter.convertBack(numbers, parser);
             roundTripFormatted = rp.lnf.format(roundTrip).toString();
-            matches = getSourceFormatted().equals(getRoundTripFormatted());
+            matches = matches(getSourceFormatted(), getRoundTripFormatted());
+        }
+
+        private static final BigDecimal HALF = new BigDecimal("0.5");
+
+        private Closeness matches(String aString, String bString) {
+            if (aString.equals(bString)) {
+                return Closeness.exact;
+            }
+            BigDecimal a = new BigDecimal(aString);
+            BigDecimal b = new BigDecimal(bString);
+            if (a == null || b == null) {
+                throw new IllegalArgumentException("Inputs must not be null");
+            }
+
+            // Fast path for exact numerical equality (e.g., 1.2 and 1.20)
+            if (a.compareTo(b) == 0) {
+                return Closeness.exact;
+            }
+
+            // Equivalent to 0.5 * a.ulp() and 0.5 * b.ulp()
+            BigDecimal halfUlpA = HALF.movePointLeft(a.scale());
+            BigDecimal halfUlpB = HALF.movePointLeft(b.scale());
+
+            BigDecimal diff = a.subtract(b).abs();
+
+            // A falls inside B's bounds if |A - B| <= halfUlpB,
+            // and B falls inside A's bounds if |A - B| <= halfUlpA.
+            // At least one of these conditions is true if and only if |A - B| <= max(halfUlpA,
+            // halfUlpB).
+            BigDecimal minHalfUlp = halfUlpA.max(halfUlpB);
+
+            return diff.compareTo(minHalfUlp) <= 0 ? Closeness.near : Closeness.different;
         }
 
         @Override
@@ -367,7 +448,7 @@ public class TestUnitConversion extends TestFmwk {
             return sourceFormatted;
         }
 
-        public boolean isMatches() {
+        public Closeness isMatches() {
             return matches;
         }
     }

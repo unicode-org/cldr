@@ -273,6 +273,9 @@ public class InvestigateUnitRounding {
      * Not optimized!
      */
     public static class Converter {
+        // for testing
+        private static final boolean DOUBLE_CHECK = false;
+
         // used when the source needs to be inverted for compatibility
         private final boolean invertSource;
         // the conversion from source to first unit (only unit if mixed)
@@ -304,7 +307,7 @@ public class InvestigateUnitRounding {
                     sb.append(" rem");
                 }
                 double conversionFactor = conversionFactors[i];
-                sb.append("÷").append(conversionFactor).append("→").append(unitIds[i]);
+                sb.append(" ÷ ").append(conversionFactor).append(" → ").append(unitIds[i]);
                 current *= conversionFactor;
                 convertBoth[i] = current;
             }
@@ -431,13 +434,17 @@ public class InvestigateUnitRounding {
             return invertSource ? 1 / result : result;
         }
 
-        /** Convert the converted value(s) back to the source unit */
-        public double convertBackRaw(Converted roundResult) {
-            double conversionFactor = conversionFactors[roundResult.leadingCount];
-            double result = roundResult.finalValue / conversionFactor;
-            for (int i = roundResult.leadingCount - 1; i >= 0; --i) {
+        /** Convert the converted value(s) back to the source unit, either rounding or unrounded */
+        public double convertBackRaw(Converted converted, boolean rounding) {
+            double conversionFactor = conversionFactors[converted.leadingCount];
+            double finalValue =
+                    !rounding
+                            ? converted.finalValue
+                            : roundToSignificant(converted.finalValue, converted.maxSignificant);
+            double result = finalValue / conversionFactor;
+            for (int i = converted.leadingCount - 1; i >= 0; --i) {
                 conversionFactor = conversionFactors[i];
-                result = (result + roundResult.leadingValues[i]) / conversionFactor;
+                result = (result + converted.leadingValues[i]) / conversionFactor;
             }
             return result;
         }
@@ -464,7 +471,7 @@ public class InvestigateUnitRounding {
         }
 
         /** Version of converted with a simpler code flow */
-        public Converted convertNew(final double source_, HackLocalizedNumberFormatter rp) {
+        public Converted convert(final double source_, HackLocalizedNumberFormatter rp) {
             Converted result = new Converted();
             BoundDouble boundedDouble =
                     BoundDouble.fromDigits(
@@ -486,6 +493,11 @@ public class InvestigateUnitRounding {
 
         /** Convert a boundedDouble, with the result in 'result' */
         public Converted convert(BoundDouble boundedDouble, int deltaMaxToMin, Converted result) {
+            double originalLowerBound, originalUpperBound;
+            if (DOUBLE_CHECK) {
+                originalLowerBound = boundedDouble.lowerBound;
+                originalUpperBound = boundedDouble.upperBound;
+            }
             if (invertSource) {
                 boundedDouble.invert();
             }
@@ -498,9 +510,18 @@ public class InvestigateUnitRounding {
                         || boundedDouble.getValue() > MAX_LONG_FROM_DOUBLE
                         || boundedDouble.inTightBounds()) { // check this out later) {
                     // the final value is always a double
-                    int bestScale = boundedDouble.toSignificantDigits();
+                    int sigDigits = boundedDouble.toSignificantDigits();
                     result.setDouble(
-                            boundedDouble.getValue(), bestScale - deltaMaxToMin, bestScale);
+                            boundedDouble.getValue(), sigDigits - deltaMaxToMin, sigDigits);
+
+                    // double check to see that the rounding is reasonable
+                    if (DOUBLE_CHECK) {
+                        double trial = convertBackRaw(result, true);
+                        if (trial <= originalLowerBound || trial >= originalUpperBound) {
+                            // add to sigDigits
+                            result.incrementSignificantDigits();
+                        }
+                    }
                     break;
                 } else {
                     result.addLong(boundedDouble.getFloorAndSubtract());
@@ -603,6 +624,11 @@ public class InvestigateUnitRounding {
                 this.finalValue = value;
                 this.minSignificant = minSig < 1 ? 1 : minSig;
                 this.maxSignificant = maxSig < minSig ? minSig : maxSig;
+            }
+
+            public void incrementSignificantDigits() {
+                this.minSignificant++;
+                this.maxSignificant++;
             }
 
             /** Add a long if we know there will be another value to carry the sig digits */
@@ -731,10 +757,11 @@ public class InvestigateUnitRounding {
             }
         }
         // Estimate an upper limit for E to start the downward scan
+        // Normally this won't take more than a couple of iterations
         double span = upperbound - lowerBound;
         int startE = firstDigit(span);
 
-        // 3. Scan downwards from the top to guarantee finding the largest working E
+        // Scan downwards from the top to guarantee finding the largest working E
         for (int E = startE + 1; E >= 0; E--) {
             double divisor = Math.pow(10, E);
 

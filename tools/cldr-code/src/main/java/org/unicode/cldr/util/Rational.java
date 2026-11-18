@@ -319,7 +319,7 @@ public final class Rational extends Number implements Comparable<Rational> {
             return new BigDecimal(numerator).divide(new BigDecimal(denominator), mathContext);
         } catch (Exception e) {
             throw new IllegalArgumentException(
-                    "Wrong math context for divide: " + this + ", " + mathContext);
+                    "Wrong math context for divide: " + this + ", " + mathContext, e);
         }
     }
 
@@ -772,5 +772,21 @@ public final class Rational extends Number implements Comparable<Rational> {
     @Override
     public long longValue() {
         return toBigDecimal().longValue();
+    }
+
+    public boolean isFinite() {
+        return denominator != BigInteger.ZERO;
+    }
+    
+    public Rational roundByIncrement(Rational increment) {
+        Rational scaled = multiply(increment);
+        BigInteger num = scaled.numerator.abs();
+        BigInteger den = scaled.denominator;
+
+        // Exact HALF_UP integer rounding: (2 * |num| + den) / (2 * den)
+        BigInteger roundedAbs = num.multiply(BigInteger.TWO).add(den).divide(den.multiply(BigInteger.TWO));
+        BigInteger rounded = scaled.numerator.signum() < 0 ? roundedAbs.negate() : roundedAbs;
+
+        return Rational.of(rounded).divide(increment);
     }
 }

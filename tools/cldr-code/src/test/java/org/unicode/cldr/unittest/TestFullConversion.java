@@ -2,32 +2,28 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.NumberFormatter;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.OutputInt;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational.BoundRational;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational.BoundRational.PrecisionType;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational.Converter;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational.Converter.Converted;
-import org.unicode.cldr.tool.InvestigateUnitRoundingRational.HackLocalizedNumberFormatter;
+import org.unicode.cldr.tool.FullUnitConverter;
+import org.unicode.cldr.tool.FullUnitConverter.BoundRational;
+import org.unicode.cldr.tool.FullUnitConverter.BoundRational.PrecisionType;
+import org.unicode.cldr.tool.FullUnitConverter.Converted;
+import org.unicode.cldr.tool.FullUnitConverter.HackLocalizedNumberFormatter;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Rational;
 
-public class TestUnitConversionRational extends TestFmwk {
+public class TestFullConversion extends TestFmwk {
 
     // Settings for investigation
-    private static final boolean MATCH_FORMATTED = true;
     private static final int lineToBreakAt = 0; // 0 for no lines
     private static final int maxSigSamples = 14;
 
     public static void main(String[] args) {
-        new TestUnitConversionRational().run(args);
+        new TestFullConversion().run(args);
     }
 
     public void testARow() {
@@ -44,7 +40,7 @@ public class TestUnitConversionRational extends TestFmwk {
             int sigDigit = Integer.parseInt(test[2]);
             String targetUnit = test[3];
 
-            Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
+            FullUnitConverter converter = FullUnitConverter.getConverter(sourceUnit, targetUnit);
             OutputInt line = new OutputInt();
             errorCount(line, converter, amount, sigDigit, sigDigit, true);
             errorCount(line, converter, amount, sigDigit, sigDigit, true);
@@ -74,7 +70,7 @@ public class TestUnitConversionRational extends TestFmwk {
             String targetUnit = (String) test[3];
             String expected = (String) test[4];
 
-            Converter converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
+            FullUnitConverter converter = FullUnitConverter.getConverter(sourceUnit, targetUnit);
             OutputInt line = new OutputInt();
 
             HackLocalizedNumberFormatter hackLnf =
@@ -129,11 +125,11 @@ public class TestUnitConversionRational extends TestFmwk {
 
             System.out.println("Sample: " + Arrays.asList(sample));
 
-            Converter converter = null;
+            FullUnitConverter converter = null;
             String errorMessage = null;
 
             try {
-                converter = Converter.getConverter(sourceUnit, targetUnit, MATCH_FORMATTED);
+                converter = FullUnitConverter.getConverter(sourceUnit, targetUnit);
             } catch (Exception e) {
                 errorMessage = e.getMessage();
             }
@@ -184,7 +180,7 @@ public class TestUnitConversionRational extends TestFmwk {
 
     private int errorCount(
             OutputInt line,
-            Converter converter,
+            FullUnitConverter converter,
             Rational sourceAmount,
             int minSig,
             int maxSig,
@@ -200,8 +196,6 @@ public class TestUnitConversionRational extends TestFmwk {
                 new HackLocalizedNumberFormatter(
                         NumberFormatter.with().locale(locale), minSig, minSig, locale);
 
-        DecimalFormat parser = (DecimalFormat) NumberFormat.getInstance(locale);
-
         String sourceFormatted = hackLnf.formatToString(sourceAmount);
         Converted converted = converter.convert(sourceAmount, hackLnf);
         CheckResult check = new CheckResult(converter, sourceAmount, hackLnf, converted);
@@ -215,9 +209,9 @@ public class TestUnitConversionRational extends TestFmwk {
                             "\t",
                             hackLnf,
                             "\t",
-                            InvestigateUnitRoundingRational.getDecimalString(sourceAmount),
+                            FullUnitConverter.getDecimalString(sourceAmount),
                             "\t",
-                            InvestigateUnitRoundingRational.getPlainString(sourceAmount),
+                            FullUnitConverter.getPlainString(sourceAmount),
                             "\t«",
                             sourceFormatted,
                             " ",
@@ -246,9 +240,9 @@ public class TestUnitConversionRational extends TestFmwk {
                             check.getRoundTripFormatted(),
                             "»",
                             " unrounded difference: ",
-                            InvestigateUnitRoundingRational.getPlainString(delta),
+                            FullUnitConverter.getPlainString(delta),
                             ", raw return convert: ",
-                            InvestigateUnitRoundingRational.getPlainString(raw));
+                            FullUnitConverter.getPlainString(raw));
             if (check.matches == CheckResult.Closeness.near) {
                 warnln(msg);
                 return 0;
@@ -269,8 +263,8 @@ public class TestUnitConversionRational extends TestFmwk {
         for (int sig = 1; sig <= 15; ++sig) {
             hackLnf = hackLnf.precision(sig, sig);
             String lnfFormatted = hackLnf.formatToString(source);
-            Rational rounded = InvestigateUnitRoundingRational.roundToSignificant(source, sig);
-            String roundedValue = InvestigateUnitRoundingRational.getPlainString(rounded);
+            Rational rounded = FullUnitConverter.roundToSignificant(source, sig);
+            String roundedValue = FullUnitConverter.getPlainString(rounded);
             System.out.println(Joiners.COMMA_SP.join(sig, lnfFormatted, roundedValue));
         }
     }
@@ -365,7 +359,7 @@ public class TestUnitConversionRational extends TestFmwk {
         final Rational source;
 
         public CheckResult(
-                Converter converter,
+                FullUnitConverter converter,
                 Rational source,
                 HackLocalizedNumberFormatter rp,
                 Converted converted) {
@@ -409,15 +403,15 @@ public class TestUnitConversionRational extends TestFmwk {
         public String toString() {
             return Joiners.ES.join(
                     "source:       \t",
-                    InvestigateUnitRoundingRational.getPlainString(source),
+                    FullUnitConverter.getPlainString(source),
                     "\nsourceForm.:\t",
                     getSourceFormatted(),
                     "\nnumbers:    \t",
                     numbers,
                     "\nroundTrip:  \t",
-                    InvestigateUnitRoundingRational.getPlainString(roundTrip),
+                    FullUnitConverter.getPlainString(roundTrip),
                     "\nrawCvttBack:\t",
-                    InvestigateUnitRoundingRational.getPlainString(rawConvertBack),
+                    FullUnitConverter.getPlainString(rawConvertBack),
                     "\nrtFormatted:\t",
                     getRoundTripFormatted(),
                     "\nmatches:    \t",

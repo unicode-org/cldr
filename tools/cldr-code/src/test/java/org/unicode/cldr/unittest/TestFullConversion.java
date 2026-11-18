@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.tool.FullUnitConverter;
-import org.unicode.cldr.tool.FullUnitConverter.BoundRational;
-import org.unicode.cldr.tool.FullUnitConverter.BoundRational.PrecisionType;
-import org.unicode.cldr.tool.FullUnitConverter.Converted;
-import org.unicode.cldr.tool.FullUnitConverter.HackLocalizedNumberFormatter;
+import org.unicode.cldr.util.FullUnitConverter;
+import org.unicode.cldr.util.FullUnitConverter.BoundRational;
+import org.unicode.cldr.util.FullUnitConverter.BoundRational.PrecisionType;
+import org.unicode.cldr.util.FullUnitConverter.Converted;
+import org.unicode.cldr.util.FullUnitConverter.HackLocalizedNumberFormatter;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Rational;
 
@@ -154,6 +154,15 @@ public class TestFullConversion extends TestFmwk {
 
             for (int sourceAmount = start; sourceAmount <= limit; sourceAmount += increment) {
                 Rational amount = Rational.of(sourceAmount).multiply(fuzzier);
+                if (isVerbose()) {
+                    System.out.println(
+                            Joiners.ES.join(
+                                    "Rational: \t",
+                                    sourceAmount, "/PI = \t",
+                                    FullUnitConverter.getPlainString(amount),
+                                    "\nDecimal:\t",
+                                    FullUnitConverter.getDecimalString(amount)));
+                }
 
                 for (int minMax = minSigTesting; minMax <= topPrecision; ++minMax) {
                     int errors = 0;
@@ -208,10 +217,6 @@ public class TestFullConversion extends TestFmwk {
                             line.value,
                             "\t",
                             hackLnf,
-                            "\t",
-                            FullUnitConverter.getDecimalString(sourceAmount),
-                            "\t",
-                            FullUnitConverter.getPlainString(sourceAmount),
                             "\t«",
                             sourceFormatted,
                             " ",

@@ -1,4 +1,4 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
 import com.google.common.math.BigIntegerMath;
@@ -17,10 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import org.unicode.cldr.util.Joiners;
-import org.unicode.cldr.util.Rational;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 
 /**
@@ -354,7 +350,7 @@ public class FullUnitConverter {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < leadingCount; ++i) {
                 if (sb.length() != 0) {
-                    sb.append(":");
+                    sb.append(" : ");
                 }
                 sb.append(leadingValues[i]);
             }

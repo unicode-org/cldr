@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
-import com.google.common.math.BigIntegerMath;
 import com.ibm.icu.impl.number.DecimalFormatProperties;
 import com.ibm.icu.impl.number.PatternStringParser;
 import com.ibm.icu.number.FractionPrecision;
@@ -180,7 +179,7 @@ public class FullUnitConverter {
         Rational finalValue =
                 !rounding
                         ? converted.finalValue
-                        : roundToSignificant(converted.finalValue, converted.maxSignificant);
+                        : converted.finalValue.roundToSignificant(converted.maxSignificant);
         Rational result = finalValue.divide(conversionFactor);
         for (int i = converted.leadingCount - 1; i >= 0; --i) {
             conversionFactor = conversionFactors[i];
@@ -214,10 +213,10 @@ public class FullUnitConverter {
      */
     public Converted convert(final Rational source, HackLocalizedNumberFormatter rp) {
         Converted result = new Converted();
-        BoundRational boundedRational =
-                BoundRational.fromDigits(
+        BoundedNumber boundedRational =
+                BoundedNumber.fromDigits(
                         source,
-                        BoundRational.PrecisionType.significant,
+                        BoundedNumber.PrecisionType.significant,
                         rp.getMaximumSignificantDigits());
         if (boundedRational == null) { // handles special cases like non-finite or zero
             result.setRational(
@@ -233,7 +232,7 @@ public class FullUnitConverter {
     }
 
     /** Convert a BoundRational, storing the result in 'result' */
-    public Converted convert(BoundRational boundedRational, int deltaMaxToMin, Converted result) {
+    public Converted convert(BoundedNumber boundedRational, int deltaMaxToMin, Converted result) {
         Rational originalLowerBound = boundedRational.getLowerBound();
         Rational originalUpperBound = boundedRational.getUpperBound();
 
@@ -380,8 +379,11 @@ public class FullUnitConverter {
         }
     }
 
-    /** A Rational value and its exact upper/lower bounds, with lower < value < upper. */
-    public static class BoundRational {
+    /**
+     * A Rational value and its exact upper/lower bounds, with lower < value < upper. It is mutable
+     * so that it can be altered in-place, without having to create new objects.
+     */
+    public static class BoundedNumber {
 
         private int negative;
         private Rational lowerBound;
@@ -397,7 +399,7 @@ public class FullUnitConverter {
             }
         }
 
-        private BoundRational(
+        private BoundedNumber(
                 int negative, Rational lowerBound, Rational value, Rational upperBound) {
             if (negative < -1
                     || negative > 1
@@ -411,8 +413,11 @@ public class FullUnitConverter {
             this.upperBound = upperBound;
         }
 
-        /** Significant digits relative to first digit. */
-        public static BoundRational fromDigits(Rational source, PrecisionType type, int digits) {
+        /**
+         * Given a source, precision type, and digits, produce the upper and lower bounds. This can
+         * then feed into the lower-level conversion method.
+         */
+        public static BoundedNumber fromDigits(Rational source, PrecisionType type, int digits) {
             // we should never be called with these values, but just in case…
             if (source == null || source.equals(Rational.ZERO) || !source.isFinite()) {
                 return null;
@@ -432,8 +437,7 @@ public class FullUnitConverter {
                 throw new IllegalArgumentException("do later");
             }
 
-            int firstDigit = firstDigit(source);
-            Rational increment = Rational.pow10(afterLastDigit(digits, firstDigit));
+            Rational increment = Rational.getIncrement(digits, source.firstDigitPosition());
 
             source = source.roundByIncrement(increment);
 
@@ -443,7 +447,7 @@ public class FullUnitConverter {
             Rational lowerBound = source.subtract(delta);
             Rational upperBound = source.add(delta);
 
-            return new BoundRational(negative, lowerBound, source, upperBound);
+            return new BoundedNumber(negative, lowerBound, source, upperBound);
         }
 
         public void invert() {
@@ -477,7 +481,23 @@ public class FullUnitConverter {
         }
 
         public int toSignificantDigits() {
-            return getBestRationalScale(lowerBound, value, upperBound);
+            Rational lowerDiff = value.subtract(lowerBound);
+            Rational upperDiff = upperBound.subtract(value);
+
+            if (lowerDiff.compareTo(Rational.ZERO) <= 0
+                    || upperDiff.compareTo(Rational.ZERO) <= 0) {
+                throw new UnitException("bounds problem");
+            }
+
+            int valueFirstSigDigitPlace = value.firstDigitPosition();
+            int minFirstSigDigitPlace = lowerDiff.firstDigitPosition();
+            if (!lowerDiff.equals(upperDiff)) {
+                int upperFirstSigDigitPlace = upperDiff.firstDigitPosition();
+                minFirstSigDigitPlace = Math.min(minFirstSigDigitPlace, upperFirstSigDigitPlace);
+            }
+
+            int result = valueFirstSigDigitPlace - minFirstSigDigitPlace + 1;
+            return Math.max(result, 1);
         }
 
         public long getFloorAndSubtract() {
@@ -521,57 +541,7 @@ public class FullUnitConverter {
         }
     }
 
-    // UTILITIES for Rational conversion
-
-    public static Rational roundToSignificant(Rational source, int significantDigits) {
-        int firstDigit = firstDigit(source);
-        Rational increment = Rational.pow10(afterLastDigit(significantDigits, firstDigit));
-        return source.roundByIncrement(increment);
-    }
-
-    private static int getBestRationalScale(
-            Rational lowerBound, Rational value, Rational upperBound) {
-        Rational lowerDiff = value.subtract(lowerBound);
-        Rational upperDiff = upperBound.subtract(value);
-
-        if (lowerDiff.compareTo(Rational.ZERO) <= 0 || upperDiff.compareTo(Rational.ZERO) <= 0) {
-            throw new UnitException("bounds problem");
-        }
-
-        int valueFirstSigDigitPlace = firstDigit(value);
-        int minFirstSigDigitPlace = firstDigit(lowerDiff);
-        if (!lowerDiff.equals(upperDiff)) {
-            int upperFirstSigDigitPlace = firstDigit(upperDiff);
-            minFirstSigDigitPlace = Math.min(minFirstSigDigitPlace, upperFirstSigDigitPlace);
-        }
-
-        int result = valueFirstSigDigitPlace - minFirstSigDigitPlace + 1;
-        return Math.max(result, 1);
-    }
-
-    private static int afterLastDigit(int significantDigits, int firstDigit) {
-        return significantDigits - firstDigit;
-    }
-
-    private static int firstDigit(Rational value) {
-        if (value == null || value.equals(Rational.ZERO) || !value.isFinite()) return 0;
-
-        BigInteger num = value.numerator.abs();
-        BigInteger den = value.denominator;
-
-        // 1. Calculate floor(log10) for numerator and denominator independently
-        int logNum = BigIntegerMath.log10(num, RoundingMode.FLOOR);
-        int logDen = BigIntegerMath.log10(den, RoundingMode.FLOOR);
-        int logDiff = logNum - logDen;
-
-        // 2. Adjust boundary if (num / 10^logNum) < (den / 10^logDen)
-        BigInteger lhs = num.multiply(BigInteger.TEN.pow(logDen));
-        BigInteger rhs = den.multiply(BigInteger.TEN.pow(logNum));
-        if (lhs.compareTo(rhs) < 0) {
-            logDiff--;
-        }
-        return logDiff + 1;
-    }
+    // Utilities that probably should be moved to Rational
 
     public static String getPlainString(Rational sourceAmount) {
         if (sourceAmount == null) return null;

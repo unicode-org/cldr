@@ -790,4 +790,33 @@ public final class Rational extends Number implements Comparable<Rational> {
 
         return Rational.of(rounded).divide(increment);
     }
+
+    public Rational roundToSignificant(int significantDigits) {
+        Rational increment = getIncrement(significantDigits, firstDigitPosition());
+        return roundByIncrement(increment);
+    }
+
+    public static Rational getIncrement(int significantDigits, int firstDigit) {
+        return Rational.pow10(significantDigits - firstDigit);
+    }
+
+    public int firstDigitPosition() {
+        if (this.equals(Rational.ZERO) || !isFinite()) return 0;
+
+        BigInteger num = numerator.abs();
+        BigInteger den = denominator;
+
+        // 1. Calculate floor(log10) for numerator and denominator independently
+        int logNum = BigIntegerMath.log10(num, RoundingMode.FLOOR);
+        int logDen = BigIntegerMath.log10(den, RoundingMode.FLOOR);
+        int logDiff = logNum - logDen;
+
+        // 2. Adjust boundary if (num / 10^logNum) < (den / 10^logDen)
+        BigInteger lhs = num.multiply(BigInteger.TEN.pow(logDen));
+        BigInteger rhs = den.multiply(BigInteger.TEN.pow(logNum));
+        if (lhs.compareTo(rhs) < 0) {
+            logDiff--;
+        }
+        return logDiff + 1;
+    }
 }

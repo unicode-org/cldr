@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.Objects;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.FullUnitConverter;
-import org.unicode.cldr.util.FullUnitConverter.BoundRational;
-import org.unicode.cldr.util.FullUnitConverter.BoundRational.PrecisionType;
+import org.unicode.cldr.util.FullUnitConverter.BoundedNumber;
+import org.unicode.cldr.util.FullUnitConverter.BoundedNumber.PrecisionType;
 import org.unicode.cldr.util.FullUnitConverter.Converted;
 import org.unicode.cldr.util.FullUnitConverter.HackLocalizedNumberFormatter;
 import org.unicode.cldr.util.Joiners;
@@ -269,7 +269,7 @@ public class TestFullConversion extends TestFmwk {
         for (int sig = 1; sig <= 15; ++sig) {
             hackLnf = hackLnf.precision(sig, sig);
             String lnfFormatted = hackLnf.formatToString(source);
-            Rational rounded = FullUnitConverter.roundToSignificant(source, sig);
+            Rational rounded = source.roundToSignificant(sig);
             String roundedValue = FullUnitConverter.getPlainString(rounded);
             System.out.println(Joiners.COMMA_SP.join(sig, lnfFormatted, roundedValue));
         }
@@ -330,7 +330,7 @@ public class TestFullConversion extends TestFmwk {
                 continue;
             }
 
-            BoundRational bd = BoundRational.fromDigits(value, type, digits);
+            BoundedNumber bd = BoundedNumber.fromDigits(value, type, digits);
             if (bd != null) {
                 int expectedNeg =
                         value.compareTo(Rational.ZERO) > 0

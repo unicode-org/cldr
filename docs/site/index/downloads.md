@@ -172,6 +172,10 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [main]: https://github.com/unicode-org/cldr.git
 [dev-delta-dtd]: https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html
 
+<!-- Warning, on each release make sure to update the fixVersion 
+in https://unicode-org.atlassian.net/issues/?filter=10838 = latest version 
+in https://unicode-org.atlassian.net/issues/?filter=10837 = dev version -->
+
 <!-- 49 release: 2026-03-22 -->
 [v49]: /downloads/cldr-49
 [CLDR49]: https://unicode.org/Public/cldr/49/

@@ -1,12 +1,13 @@
 ---
-title: CLDR 50 Release Note
+title: CLDR 50 Release Note — DRAFT
 ---
 
-# CLDR 50 Release Note
+# CLDR 50 Release Note _— DRAFT_
+## <span style="color: red">This version is in development, and has not yet been released.</span>
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  50 | 2026-10-22 | [v50] | [CLDR50] | [Charts50] | [Spec50] | [Δ50] | [release-50] | [ΔDtd50] | [JSON50] |
+|  50 | **2026-03-XX** | [v50] | [CLDR50] | [Charts50] | [Spec50] | [Δ50] | [release-50] | [ΔDtd50] | [JSON50] |
 
 ## Overview
 
@@ -138,7 +139,8 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [v50]: /index/downloads/cldr-50
 [CLDR50]: https://unicode.org/Public/cldr/50/
 [Charts50]: https://unicode.org/cldr/charts/50
-[Spec50]: https://www.unicode.org/reports/tr35/tr35-79/tr35.html
+<!-- Spec should be 'dev' during development -->
+[Spec50]: https://www.unicode.org/reports/tr35/dev/tr35.html
 [Δ50]: https://unicode-org.atlassian.net/issues?jql=project%3DCLDR%0AAND%20status%3DDone%0AAND%20resolution%3DFixed%0AAND%20fixversion%3D50%0AORDER%20BY%20priority%20DESC
 [release-50]: https://github.com/unicode-org/cldr/releases/tag/release-50
 [ΔDtd50]: https://www.unicode.org/cldr/charts/50/supplemental/dtd_deltas.html

@@ -319,7 +319,7 @@ public final class Rational extends Number implements Comparable<Rational> {
             return new BigDecimal(numerator).divide(new BigDecimal(denominator), mathContext);
         } catch (Exception e) {
             throw new IllegalArgumentException(
-                    "Wrong math context for divide: " + this + ", " + mathContext);
+                    "Wrong math context for divide: " + this + ", " + mathContext, e);
         }
     }
 
@@ -772,5 +772,51 @@ public final class Rational extends Number implements Comparable<Rational> {
     @Override
     public long longValue() {
         return toBigDecimal().longValue();
+    }
+
+    public boolean isFinite() {
+        return denominator != BigInteger.ZERO;
+    }
+
+    public Rational roundByIncrement(Rational increment) {
+        Rational scaled = multiply(increment);
+        BigInteger num = scaled.numerator.abs();
+        BigInteger den = scaled.denominator;
+
+        // Exact HALF_UP integer rounding: (2 * |num| + den) / (2 * den)
+        BigInteger roundedAbs =
+                num.multiply(BigInteger.TWO).add(den).divide(den.multiply(BigInteger.TWO));
+        BigInteger rounded = scaled.numerator.signum() < 0 ? roundedAbs.negate() : roundedAbs;
+
+        return Rational.of(rounded).divide(increment);
+    }
+
+    public Rational roundToSignificant(int significantDigits) {
+        Rational increment = getIncrement(significantDigits, firstDigitPosition());
+        return roundByIncrement(increment);
+    }
+
+    public static Rational getIncrement(int significantDigits, int firstDigit) {
+        return Rational.pow10(significantDigits - firstDigit);
+    }
+
+    public int firstDigitPosition() {
+        if (this.equals(Rational.ZERO) || !isFinite()) return 0;
+
+        BigInteger num = numerator.abs();
+        BigInteger den = denominator;
+
+        // 1. Calculate floor(log10) for numerator and denominator independently
+        int logNum = BigIntegerMath.log10(num, RoundingMode.FLOOR);
+        int logDen = BigIntegerMath.log10(den, RoundingMode.FLOOR);
+        int logDiff = logNum - logDen;
+
+        // 2. Adjust boundary if (num / 10^logNum) < (den / 10^logDen)
+        BigInteger lhs = num.multiply(BigInteger.TEN.pow(logDen));
+        BigInteger rhs = den.multiply(BigInteger.TEN.pow(logNum));
+        if (lhs.compareTo(rhs) < 0) {
+            logDiff--;
+        }
+        return logDiff + 1;
     }
 }

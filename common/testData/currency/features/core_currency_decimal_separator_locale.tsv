@@ -1,0 +1,13 @@
+# locale	currency	currency_format_length	currency_display	input	expected	main_feature	other_features
+fr_CH	EUR		symbol	1.2	1.20 €	currency_decimal_separator_locale	
+fr_CH	EUR		symbol	-1230.05	-1'230.05 €	currency_decimal_separator_locale	
+fr_CH	EUR		symbolNarrow	1.2	1.20 €	currency_decimal_separator_locale	
+fr_CH	EUR		symbolNarrow	-1230.05	-1'230.05 €	currency_decimal_separator_locale	
+fr_CH	EUR		code	1.2	1.20 EUR	currency_decimal_separator_locale	
+fr_CH	EUR		code	-1230.05	-1'230.05 EUR	currency_decimal_separator_locale	
+fr_CH	USD		symbol	1.2	1.20 $US	currency_decimal_separator_locale	
+fr_CH	USD		symbol	-1230.05	-1'230.05 $US	currency_decimal_separator_locale	
+fr_CH	USD		symbolNarrow	1.2	1.20 $	currency_decimal_separator_locale	
+fr_CH	USD		symbolNarrow	-1230.05	-1'230.05 $	currency_decimal_separator_locale	
+fr_CH	USD		code	1.2	1.20 USD	currency_decimal_separator_locale	
+fr_CH	USD		code	-1230.05	-1'230.05 USD	currency_decimal_separator_locale	

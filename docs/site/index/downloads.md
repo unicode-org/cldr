@@ -166,7 +166,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- Dev release -->
 [dev-version]: /index/downloads/dev
-[dev-charts]: https://unicode.org/cldr/charts/dev
+[dev-charts]: https://unicode.org/cldr/charts/dev/index.html
 [dev-ldml]: https://www.unicode.org/reports/tr35/proposed.html
 [dev-tickets]: https://unicode-org.atlassian.net/issues/?filter=10837
 [main]: https://github.com/unicode-org/cldr.git

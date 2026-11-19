@@ -33,8 +33,8 @@ For more details, see below.
 Count | Level | Usage | Examples
 -- | -- | -- | --
 **TBD** | Modern | Suitable for full UI internationalization | Afrikaans, shqip, አማርኛ, ‫العربية‬, հայերեն, অসমীয়া, azərbaycan
-**TBD** | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ
-**TBD** | Basic | Suitable for locale selection, eg. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
+**TBD** | Moderate | Suitable for “document content” internationalization, e.g. in spreadsheets | Akan, Cebuano, Māori, тоҷикӣ
+**TBD** | Basic | Suitable for locale selection, e.g. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
 
 Note: This includes just the base language and script. There are many more regional variants.
 
@@ -104,7 +104,7 @@ For a full listing, see [Delta Data].
 #### Spec Tooling improvements
 - **TBD**
 
-####  Survey Tool improvements
+#### Survey Tool improvements
 
 - **TBD**
 
@@ -115,7 +115,7 @@ The following changes have been made in CLDR 50. Please plan accordingly to avoi
 
 - **TBD**
 
-### Advanced warnings CLDR 51 and beyond
+### Advanced warnings for CLDR 51 and beyond
 
 The following changes are planned for CLDR 51. Please plan accordingly to avoid disruption.
 

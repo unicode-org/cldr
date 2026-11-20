@@ -80,6 +80,12 @@ However, any changes to the [CLDR BRS][] need to be approved by the CLDR TC if t
 It was formerly known as the CLDR Infrastructure Working Group,
 but was renamed to disambiguate from the Unicode Infrastructure group since both groups were sometimes referred to as ‘Infrastructure’ as shorthand.
 
+### CLDR Orthographic Sequences Working Group
+
+The [Orthographic Sequences WG][] will explore development of technical documents and machine-readable data that describe valid orthographic character sequences for particular languages, potentially leading to development and publication of such documents. These documents could potentially be published as Technical Reports or as Technical Standards.
+
+It is expected that initial work will focus primarily on languages written with Indic scripts that have complex grapheme cluster behaviors. Future work could also encompass related scripts such as South East Asian scripts (Burmese, Thai, Lao, etc.) as well as other scripts with related characteristics (Arabic, Hebrew, etc.).
+
 ### CLDR Person Name Working Group
 
 The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data.
@@ -115,6 +121,7 @@ including but not limited to evaluating requests of [new locale Core data reques
 [UTS 35 Part 7: Keyboards]: https://www.unicode.org/reports/tr35/tr35-keyboards.html
 [UTS 35 Part 8: Person Names]: https://www.unicode.org/reports/tr35/tr35-personNames.html
 [UTS 35 Part 9: MessageFormat]: https://www.unicode.org/reports/tr35/tr35-messageFormat.html
+[Orthographic Sequences WG]: /cldr-tc/orthographic-sequences-wg
 [Person Name WG]: /cldr-tc/person-name-wg
 [CLDR Conformance Testing WG]: /cldr-tc/conformance_wg
 [Unicode Technical Group Leadership]: https://www.unicode.org/consortium/techcommittees.html

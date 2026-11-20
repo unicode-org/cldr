@@ -48,8 +48,8 @@ CLDR's [exemplar character sets](/translation/core-data/exemplars#exemplar-chara
 
 To look up a particular character:
 
-1. Open the [UnicodeSet utility](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%C3%A9&i=exemplar), which uses `é` as an example.
-2. Replace **Input** with your character, enter `exemplar` in **Info**, and click **Show Set**.
+1. Open the [UnicodeSet utility](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp).
+2. Enter your character (for example, `é`) in **Input**, enter `exemplar` in **Info**, and click **Show Set**.
 3. Read the locale IDs after `exem=` next to the character. For example, the result for `é` includes `fr` (French).
 
 Use these **Info** values to select an exemplar category:
@@ -60,8 +60,8 @@ Use these **Info** values to select an exemplar category:
 | `exemplar_aux` | Auxiliary characters, such as letters used in foreign words | `exema=` |
 | `exemplar_punct` | Punctuation | `exemp=` |
 
-For example, the [auxiliary result for `é`](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%C3%A9&i=exemplar_aux) includes `en` (English). For punctuation, try [the result for a comma](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%2C&i=exemplar_punct).
+For example, enter `é` in **Input** and `exemplar_aux` in **Info** to find `en` (English) among the auxiliary results. For punctuation, try `,` in **Input** and `exemplar_punct` in **Info**.
 
 Main and auxiliary exemplars generally use lowercase letters, so look up `é` when checking the uppercase `É`. The results reflect the exemplar data for locales covered by the utility.
 
-A set such as [`[éñ]`](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%C3%A9%C3%B1%5D&i=exemplar) gives a separate locale list for each character; it does not find the languages that use every character in the set.
+Entering `[éñ]` in **Input** with `exemplar` in **Info** gives a separate locale list for each character; it does not find the languages that use every character in the set.

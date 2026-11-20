@@ -29,3 +29,22 @@ The format of the files in the directory is either in the individual data files,
 * units — generated data (TestUnits)
   * unitPreferencesTest.txt
   * unitsTest.txt
+* currency — generated data (GenerateCurrencyFormatTestData)
+  * currencies.tsv
+  * currencies_modern_locales.tsv
+  * currencies_\<display\>_modern_currencies.tsv
+  * currencies_\<display\>_extended_numbers.tsv
+
+## Currency test data
+
+GenerateTestData calls GenerateCurrencyFormatTestData. To regenerate only the currency test data, run from the repository root:
+
+```bash
+mvn compile exec:java -Dexec.mainClass="org.unicode.cldr.tool.GenerateCurrencyFormatTestData" -pl tools/cldr-code
+```
+
+To run the unit test that checks the generated files:
+
+```bash
+mvn test -pl tools/cldr-code -Dtest=TestShim -Dsurefire.failIfNoSpecifiedTests=false "-Dorg.unicode.cldr.unittest.testArgs=-f:TestCurrencyFormat -n"
+```

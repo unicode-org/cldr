@@ -49,19 +49,20 @@ x.x: << кома >>;
 70: седумдесет[ и >>];
 80: осумдесет[ и >>];
 90: деведесет[ и >>];
-100: <%spellout-cardinal-feminine<сто[ >>];
-1000: <%spellout-cardinal-feminine< илјада[ >>];
-1000000: <%spellout-cardinal-masculine< милион[ >>];
-1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
-1000000000000: <%spellout-cardinal-masculine< билион[ >>];
-1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+100: <%%hundreds<[ >%%and-masculine>];
+1000: илјада[ >%%and-masculine>];
+2000: <%spellout-cardinal-feminine< $(cardinal,one{илјада}other{илјади})$[ >%%and-masculine>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{милион}other{милиони})$[ >%%and-masculine>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{милијарда}other{милијарди})$[ >%%and-masculine>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{билион}other{билиони})$[ >%%and-masculine>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{билијарда}other{билијарди})$[ >%%and-masculine>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-neuter:
 -x: минус >>;
 x.x: << кома >>;
 0: нула;
 1: едно;
-2: два;
+2: две;
 3: =%spellout-cardinal-masculine=;
 20: дваесет[ и >>];
 30: триесет[ и >>];
@@ -71,12 +72,13 @@ x.x: << кома >>;
 70: седумдесет[ и >>];
 80: осумдесет[ и >>];
 90: деведесет[ и >>];
-100: <%spellout-cardinal-feminine<сто[ >>];
-1000: <%spellout-cardinal-feminine< илјада[ >>];
-1000000: <%spellout-cardinal-masculine< милион[ >>];
-1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
-1000000000000: <%spellout-cardinal-masculine< билион[ >>];
-1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+100: <%%hundreds<[ >%%and-neuter>];
+1000: илјада[ >%%and-neuter>];
+2000: <%spellout-cardinal-feminine< $(cardinal,one{илјада}other{илјади})$[ >%%and-neuter>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{милион}other{милиони})$[ >%%and-neuter>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{милијарда}other{милијарди})$[ >%%and-neuter>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{билион}other{билиони})$[ >%%and-neuter>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{билијарда}other{билијарди})$[ >%%and-neuter>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-feminine:
 -x: минус >>;
@@ -93,13 +95,48 @@ x.x: << кома >>;
 70: седумдесет[ и >>];
 80: осумдесет[ и >>];
 90: деведесет[ и >>];
-100: <%spellout-cardinal-feminine<сто[ >>];
-1000: <%spellout-cardinal-feminine< илјада[ >>];
-1000000: <%spellout-cardinal-masculine< милион[ >>];
-1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
-1000000000000: <%spellout-cardinal-masculine< билион[ >>];
-1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+100: <%%hundreds<[ >%%and-feminine>];
+1000: илјада[ >%%and-feminine>];
+2000: <%spellout-cardinal-feminine< $(cardinal,one{илјада}other{илјади})$[ >%%and-feminine>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{милион}other{милиони})$[ >%%and-feminine>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{милијарда}other{милијарди})$[ >%%and-feminine>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{билион}other{билиони})$[ >%%and-feminine>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{билијарда}other{билијарди})$[ >%%and-feminine>];
 1000000000000000000: =#,##0=;
+%%and-masculine:
+1: и =%spellout-cardinal-masculine=;
+20: [<%%tens< и >%spellout-cardinal-masculine>|и <%%tens<];
+100: [<%%hundreds< >%%and-masculine>|и <%%hundreds<];
+1000: =%spellout-cardinal-masculine=;
+%%and-feminine:
+1: и =%spellout-cardinal-feminine=;
+20: [<%%tens< и >%spellout-cardinal-feminine>|и <%%tens<];
+100: [<%%hundreds< >%%and-feminine>|и <%%hundreds<];
+1000: =%spellout-cardinal-feminine=;
+%%and-neuter:
+1: и =%spellout-cardinal-neuter=;
+20: [<%%tens< и >%spellout-cardinal-neuter>|и <%%tens<];
+100: [<%%hundreds< >%%and-neuter>|и <%%hundreds<];
+1000: =%spellout-cardinal-neuter=;
+%%tens:
+2: дваесет;
+3: триесет;
+4: четириесет;
+5: педесет;
+6: шеесет;
+7: седумдесет;
+8: осумдесет;
+9: деведесет;
+%%hundreds:
+1: сто;
+2: двесте;
+3: триста;
+4: четиристотини;
+5: петстотини;
+6: шестотини;
+7: седумстотини;
+8: осумстотини;
+9: деветстотини;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

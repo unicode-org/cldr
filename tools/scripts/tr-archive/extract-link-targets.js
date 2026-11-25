@@ -148,7 +148,7 @@ async function extractAnchors(infile) {
           addAnchorQuietly(
             gfm_id,
             ANCHOR_TYPE3,
-            `gfm_id=${gfm_id} name=${name}, quietly)`
+            `gfm_id=${gfm_id} name=${name}, quietly`
           );
         }
       }

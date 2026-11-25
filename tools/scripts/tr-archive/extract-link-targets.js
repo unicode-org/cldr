@@ -4,6 +4,13 @@ const { JSDOM } = jsdom;
 const path = require("path");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
 
+const DEBUG_VERBOSE = true;
+
+const ANCHOR_TYPE1 = "Type1";
+const ANCHOR_TYPE2 = "Type2";
+const ANCHOR_TYPE3 = "Type3";
+const ANCHOR_TYPE4 = "Type4";
+
 const elementSet = new Set(ELEMENTS);
 
 function isAutoElement(e) {
@@ -20,10 +27,7 @@ function isAutoElement(e) {
 // But that might introduce duplicate code.
 const DONE_ICON = "✅";
 const GEAR_ICON = "⚙️";
-const NONE_ICON = "∅";
-const PACKAGE_ICON = "📦";
 const SECTION_ICON = "📍";
-const TYPE_ICON = "📂";
 const WARN_ICON = "⚠️";
 const POINT_ICON = "👉";
 const MISSING_ICON = "❌";
@@ -62,26 +66,44 @@ async function extractAnchors(infile) {
 
   // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
-  const document = dom.window.document;
 
   const anchors = new Set();
   const targets = new Set();
 
+  const debugAnchorTypes = {};
+  const debugAnchorDetails = {};
+
   /** add an explicit anchor. warn if duplicates. */
-  function addAnchor(n) {
+  function addAnchor(n, anchorType, debugDetails) {
     if (!n) return;
     if (anchors.has(n)) {
+      // It appears that some "duplicate anchor" errors do not indicate real duplicates.
+      // For example, if the current type is Type1 or Type2, and the previous type is Type4,
+      // then possibly the error message here serves no purpose.
       console.error(
-        `${WARN_ICON} ${constructLink(basename)}: Duplicate anchor: #${n}`
+        `${WARN_ICON} ${constructLink(basename)}: Duplicate anchor: #${n}` +
+          ", Current type: " +
+          anchorType +
+          ", Previous type: " +
+          debugAnchorTypes[n] +
+          ", Current details: " +
+          debugDetails +
+          ", Previous details: " +
+          debugAnchorDetails[n]
       );
     } else {
       anchors.add(n);
+      debugAnchorTypes[n] = anchorType;
+      debugAnchorDetails[n] = debugDetails;
     }
   }
+
   /** add an anchor, but no warning on duplicate. this for implicit anchors */
-  function addAnchorQuietly(n) {
+  function addAnchorQuietly(n, anchorType, debugDetails) {
     if (!n) return;
     anchors.add(n); // no warning on dup
+    debugAnchorTypes[n] = anchorType;
+    debugAnchorDetails[n] = debugDetails;
   }
 
   function addTarget(href) {
@@ -111,21 +133,25 @@ async function extractAnchors(infile) {
   // extract anchors
   for (const a of dom.window.document.getElementsByTagName("*")) {
     const id = a.getAttribute("id");
-    addAnchor(id);
+    addAnchor(id, ANCHOR_TYPE1, `id=${id}`);
 
     if (a.tagName === "A") {
       const name = a.getAttribute("name");
       const href = a.getAttribute("href");
       if (id != name) {
         // don't care if id and name match
-        addAnchor(name);
+        addAnchor(name, ANCHOR_TYPE2, `name=${name} id=${id}`);
       }
       if (!id && !name && !href) {
         const txt = a.textContent.trim();
         if (!txt) continue;
         const gfm_id = gfmurlify(txt);
         if (gfm_id !== name) {
-          addAnchorQuietly(gfm_id);
+          addAnchorQuietly(
+            gfm_id,
+            ANCHOR_TYPE3,
+            `gfm_id=${gfm_id} name=${name}, quietly)`
+          );
         }
       }
     } else if (isAutoElement(a.tagName)) {
@@ -139,7 +165,7 @@ async function extractAnchors(infile) {
         continue;
       }
       const gfm_id = gfmurlify(txt);
-      addAnchorQuietly(gfm_id);
+      addAnchorQuietly(gfm_id, ANCHOR_TYPE4, `gfm_id=${gfm_id}, quietly`);
     }
   }
   // extract targets

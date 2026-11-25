@@ -222,12 +222,16 @@ async function renderit(infile, info) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.log(`${infile}: H6 element does not start with Table (fixing up captions in archive.js): ${h6.innerHTML}`);
+      console.log(
+        `${infile}: H6 element does not start with Table (fixing up captions in archive.js): ${h6.innerHTML}`
+      );
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
     if (next.tagName !== "TABLE") {
-      console.log(`${infile}: H6 element does not have a following table (fixing up captions in archive.js): ${h6.innerHTML}`);
+      console.log(
+        `${infile}: H6 element does not have a following table (fixing up captions in archive.js): ${h6.innerHTML}`
+      );
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");
@@ -330,7 +334,7 @@ async function renderit(infile, info) {
     const someDiv = document.createElement("div");
     someDiv.innerHTML = `<!-- \n from ${info.statusFile} -->\n\n\n${info.statusHtml}\n\n<!-- end ${info.statusFile} -->\n`;
     statusA.appendChild(someDiv);
-    statusA.id='';
+    statusA.id = "";
   } else if (data.part) {
     console.error(`${infile} Missing <div id='currentStatus'/>`);
   }

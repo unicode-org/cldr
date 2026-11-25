@@ -39,6 +39,7 @@ For the full header and a general introduction, see [Unicode Common Locale Data 
       - link fix in tr35-dates.md
       - updated version
       - revised Part_7_Links in tr35.md
+      - fix duplicate anchors
 -->
 
 ### Changes in CLDR Version 49 (Differences from Version 48.0)

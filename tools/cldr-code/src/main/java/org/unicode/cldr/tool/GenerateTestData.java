@@ -12,6 +12,5 @@ public class GenerateTestData {
         GenerateDateSkeletonTestData.main(args);
         GenerateRBNFTestData.main(args);
         GenerateDecimalFormatTestData.main(args);
-        GenerateCurrencyFormatTestData.main(args);
     }
 }

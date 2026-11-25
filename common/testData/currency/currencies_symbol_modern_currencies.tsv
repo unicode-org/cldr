@@ -66,9 +66,9 @@ en	ALL		accounting	symbol	-1230.05	(ALL 1,230)
 en	ALL	short	standard	symbol	1.2	ALL 1.2
 en	ALL	short	standard	symbol	-1230.05	-ALL 1.2K
 gl	ALL		standard	symbol	1.2	1 ALL
-gl	ALL		standard	symbol	-1230.05	-1.230 ALL
+gl	ALL		standard	symbol	-1230.05	-1 230 ALL
 gl	ALL		accounting	symbol	1.2	1 ALL
-gl	ALL		accounting	symbol	-1230.05	(1.230 ALL)
+gl	ALL		accounting	symbol	-1230.05	(1 230 ALL)
 gl	ALL	short	standard	symbol	1.2	1,2 ALL
 gl	ALL	short	standard	symbol	-1230.05	-1230 ALL
 ar	AMD		standard	symbol	1.2	‏1.20 AMD
@@ -432,9 +432,9 @@ en	BRL		accounting	symbol	-1230.05	(R$1,230.05)
 en	BRL	short	standard	symbol	1.2	R$1.2
 en	BRL	short	standard	symbol	-1230.05	-R$1.2K
 gl	BRL		standard	symbol	1.2	1,20 R$
-gl	BRL		standard	symbol	-1230.05	-1.230,05 R$
+gl	BRL		standard	symbol	-1230.05	-1 230,05 R$
 gl	BRL		accounting	symbol	1.2	1,20 R$
-gl	BRL		accounting	symbol	-1230.05	(1.230,05 R$)
+gl	BRL		accounting	symbol	-1230.05	(1 230,05 R$)
 gl	BRL	short	standard	symbol	1.2	1,2 R$
 gl	BRL	short	standard	symbol	-1230.05	-1230 R$
 ar	BSD		standard	symbol	1.2	‏1.20 BSD
@@ -577,8 +577,8 @@ en	CAD	short	standard	symbol	1.2	CA$1.2
 en	CAD	short	standard	symbol	-1230.05	-CA$1.2K
 fa	CAD		standard	symbol	1.2	‎$CA ۱٫۲۰
 fa	CAD		standard	symbol	-1230.05	‎−‎$CA ۱٬۲۳۰٫۰۵
-fa	CAD		accounting	symbol	1.2	‎$CA ۱٫۲۰
-fa	CAD		accounting	symbol	-1230.05	‎($CA ۱٬۲۳۰٫۰۵)
+fa	CAD		accounting	symbol	1.2	۱٫۲۰ $CA
+fa	CAD		accounting	symbol	-1230.05	(۱٬۲۳۰٫۰۵ $CA)
 fa	CAD	short	standard	symbol	1.2	‎$CA ۱٫۲
 fa	CAD	short	standard	symbol	-1230.05	‎−‎$CA ۱٫۲ هزار
 ar	CDF		standard	symbol	1.2	‏1.20 CDF
@@ -682,7 +682,7 @@ ha	CNY		standard	symbol	-1230.05	-CN¥ 1,230.05
 ha	CNY		accounting	symbol	1.2	CN¥ 1.20
 ha	CNY		accounting	symbol	-1230.05	-CN¥ 1,230.05
 ha	CNY	short	standard	symbol	1.2	CN¥ 1.2
-ha	CNY	short	standard	symbol	-1230.05	-CN¥ 1.2K
+ha	CNY	short	standard	symbol	-1230.05	-CN¥1.2K
 ar	COP		standard	symbol	1.2	‏1 COP
 ar	COP		standard	symbol	-1230.05	‏‎-1,230 COP
 ar	COP		accounting	symbol	1.2	؜1 COP
@@ -775,8 +775,8 @@ en	CVE	short	standard	symbol	1.2	CVE 1.2
 en	CVE	short	standard	symbol	-1230.05	-CVE 1.2K
 fa	CVE		standard	symbol	1.2	‎CVE ۱٫۲۰
 fa	CVE		standard	symbol	-1230.05	‎−‎CVE ۱٬۲۳۰٫۰۵
-fa	CVE		accounting	symbol	1.2	‎CVE ۱٫۲۰
-fa	CVE		accounting	symbol	-1230.05	‎(CVE ۱٬۲۳۰٫۰۵)
+fa	CVE		accounting	symbol	1.2	۱٫۲۰ CVE
+fa	CVE		accounting	symbol	-1230.05	(۱٬۲۳۰٫۰۵ CVE)
 fa	CVE	short	standard	symbol	1.2	‎CVE ۱٫۲
 fa	CVE	short	standard	symbol	-1230.05	‎−‎CVE ۱٫۲ هزار
 ar	CZK		standard	symbol	1.2	‏1.20 CZK
@@ -1375,8 +1375,8 @@ en	IQD	short	standard	symbol	1.2	IQD 1.2
 en	IQD	short	standard	symbol	-1230.05	-IQD 1.2K
 fa	IQD		standard	symbol	1.2	‎IQD ۱
 fa	IQD		standard	symbol	-1230.05	‎−‎IQD ۱٬۲۳۰
-fa	IQD		accounting	symbol	1.2	‎IQD ۱
-fa	IQD		accounting	symbol	-1230.05	‎(IQD ۱٬۲۳۰)
+fa	IQD		accounting	symbol	1.2	۱ IQD
+fa	IQD		accounting	symbol	-1230.05	(۱٬۲۳۰ IQD)
 fa	IQD	short	standard	symbol	1.2	‎IQD ۱٫۲
 fa	IQD	short	standard	symbol	-1230.05	‎−‎IQD ۱٫۲ هزار
 ar	IRR		standard	symbol	1.2	‏1 ر.إ.
@@ -1402,7 +1402,7 @@ ta	IRR		standard	symbol	-1230.05	-IRR 1,230
 ta	IRR		accounting	symbol	1.2	IRR 1
 ta	IRR		accounting	symbol	-1230.05	(IRR 1,230)
 ta	IRR	short	standard	symbol	1.2	IRR 1.2
-ta	IRR	short	standard	symbol	-1230.05	-IRR 1.2ஆ
+ta	IRR	short	standard	symbol	-1230.05	-IRR 1.2K
 ar	ISK		standard	symbol	1.2	‏1 ISK
 ar	ISK		standard	symbol	-1230.05	‏‎-1,230 ISK
 ar	ISK		accounting	symbol	1.2	؜1 ISK
@@ -1686,9 +1686,9 @@ en	KZT		accounting	symbol	-1230.05	(KZT 1,230.05)
 en	KZT	short	standard	symbol	1.2	KZT 1.2
 en	KZT	short	standard	symbol	-1230.05	-KZT 1.2K
 gl	KZT		standard	symbol	1.2	1,20 KZT
-gl	KZT		standard	symbol	-1230.05	-1.230,05 KZT
+gl	KZT		standard	symbol	-1230.05	-1 230,05 KZT
 gl	KZT		accounting	symbol	1.2	1,20 KZT
-gl	KZT		accounting	symbol	-1230.05	(1.230,05 KZT)
+gl	KZT		accounting	symbol	-1230.05	(1 230,05 KZT)
 gl	KZT	short	standard	symbol	1.2	1,2 KZT
 gl	KZT	short	standard	symbol	-1230.05	-1230 KZT
 ar	LAK		standard	symbol	1.2	‏1 LAK
@@ -1975,8 +1975,8 @@ en	MNT	short	standard	symbol	1.2	MNT 1.2
 en	MNT	short	standard	symbol	-1230.05	-MNT 1.2K
 uz	MNT		standard	symbol	1.2	1,20 MNT
 uz	MNT		standard	symbol	-1230.05	-1 230,05 MNT
-uz	MNT		accounting	symbol	1.2	MNT 1,20
-uz	MNT		accounting	symbol	-1230.05	(MNT 1 230,05)
+uz	MNT		accounting	symbol	1.2	1,20 MNT
+uz	MNT		accounting	symbol	-1230.05	(1 230,05 MNT)
 uz	MNT	short	standard	symbol	1.2	1,2 MNT
 uz	MNT	short	standard	symbol	-1230.05	-1,2 ming MNT
 ar	MOP		standard	symbol	1.2	‏1.20 MOP
@@ -2214,9 +2214,9 @@ en	NGN		accounting	symbol	-1230.05	(NGN 1,230.05)
 en	NGN	short	standard	symbol	1.2	NGN 1.2
 en	NGN	short	standard	symbol	-1230.05	-NGN 1.2K
 gl	NGN		standard	symbol	1.2	1,20 NGN
-gl	NGN		standard	symbol	-1230.05	-1.230,05 NGN
+gl	NGN		standard	symbol	-1230.05	-1 230,05 NGN
 gl	NGN		accounting	symbol	1.2	1,20 NGN
-gl	NGN		accounting	symbol	-1230.05	(1.230,05 NGN)
+gl	NGN		accounting	symbol	-1230.05	(1 230,05 NGN)
 gl	NGN	short	standard	symbol	1.2	1,2 NGN
 gl	NGN	short	standard	symbol	-1230.05	-1230 NGN
 ar	NIO		standard	symbol	1.2	‏1.20 NIO
@@ -2290,7 +2290,7 @@ ta	NPR		standard	symbol	-1230.05	-NPR 1,230.05
 ta	NPR		accounting	symbol	1.2	NPR 1.20
 ta	NPR		accounting	symbol	-1230.05	(NPR 1,230.05)
 ta	NPR	short	standard	symbol	1.2	NPR 1.2
-ta	NPR	short	standard	symbol	-1230.05	-NPR 1.2ஆ
+ta	NPR	short	standard	symbol	-1230.05	-NPR 1.2K
 ar	NZD		standard	symbol	1.2	‏1.20 NZ$
 ar	NZD		standard	symbol	-1230.05	‏‎-1,230.05 NZ$
 ar	NZD		accounting	symbol	1.2	؜1.20 NZ$
@@ -2362,7 +2362,7 @@ ta	PAB		standard	symbol	-1230.05	-PAB 1,230.05
 ta	PAB		accounting	symbol	1.2	PAB 1.20
 ta	PAB		accounting	symbol	-1230.05	(PAB 1,230.05)
 ta	PAB	short	standard	symbol	1.2	PAB 1.2
-ta	PAB	short	standard	symbol	-1230.05	-PAB 1.2ஆ
+ta	PAB	short	standard	symbol	-1230.05	-PAB 1.2K
 ar	PEN		standard	symbol	1.2	‏1.20 PEN
 ar	PEN		standard	symbol	-1230.05	‏‎-1,230.05 PEN
 ar	PEN		accounting	symbol	1.2	؜1.20 PEN
@@ -2435,28 +2435,28 @@ es_419	PHP		accounting	symbol	1.2	PHP 1.20
 es_419	PHP		accounting	symbol	-1230.05	-PHP 1,230.05
 es_419	PHP	short	standard	symbol	1.2	PHP 1.2
 es_419	PHP	short	standard	symbol	-1230.05	-PHP 1.2 K
-ar	PKR		standard	symbol	1.2	‏1 PKR
-ar	PKR		standard	symbol	-1230.05	‏‎-1,230 PKR
-ar	PKR		accounting	symbol	1.2	؜1 PKR
-ar	PKR		accounting	symbol	-1230.05	(؜1,230 PKR)
+ar	PKR		standard	symbol	1.2	‏1.20 PKR
+ar	PKR		standard	symbol	-1230.05	‏‎-1,230.05 PKR
+ar	PKR		accounting	symbol	1.2	؜1.20 PKR
+ar	PKR		accounting	symbol	-1230.05	(؜1,230.05 PKR)
 ar	PKR	short	standard	symbol	1.2	‏1.2 PKR
 ar	PKR	short	standard	symbol	-1230.05	‎-‏1.2 ألف PKR
-de	PKR		standard	symbol	1.2	1 PKR
-de	PKR		standard	symbol	-1230.05	-1.230 PKR
-de	PKR		accounting	symbol	1.2	1 PKR
-de	PKR		accounting	symbol	-1230.05	-1.230 PKR
+de	PKR		standard	symbol	1.2	1,20 PKR
+de	PKR		standard	symbol	-1230.05	-1.230,05 PKR
+de	PKR		accounting	symbol	1.2	1,20 PKR
+de	PKR		accounting	symbol	-1230.05	-1.230,05 PKR
 de	PKR	short	standard	symbol	1.2	1,2 PKR
 de	PKR	short	standard	symbol	-1230.05	-1230 PKR
-en	PKR		standard	symbol	1.2	PKR 1
-en	PKR		standard	symbol	-1230.05	-PKR 1,230
-en	PKR		accounting	symbol	1.2	PKR 1
-en	PKR		accounting	symbol	-1230.05	(PKR 1,230)
+en	PKR		standard	symbol	1.2	PKR 1.20
+en	PKR		standard	symbol	-1230.05	-PKR 1,230.05
+en	PKR		accounting	symbol	1.2	PKR 1.20
+en	PKR		accounting	symbol	-1230.05	(PKR 1,230.05)
 en	PKR	short	standard	symbol	1.2	PKR 1.2
 en	PKR	short	standard	symbol	-1230.05	-PKR 1.2K
-no	PKR		standard	symbol	1.2	1 PKR
-no	PKR		standard	symbol	-1230.05	−1 230 PKR
-no	PKR		accounting	symbol	1.2	PKR 1
-no	PKR		accounting	symbol	-1230.05	(PKR 1 230)
+no	PKR		standard	symbol	1.2	1,20 PKR
+no	PKR		standard	symbol	-1230.05	−1 230,05 PKR
+no	PKR		accounting	symbol	1.2	PKR 1,20
+no	PKR		accounting	symbol	-1230.05	(PKR 1 230,05)
 no	PKR	short	standard	symbol	1.2	1,2 PKR
 no	PKR	short	standard	symbol	-1230.05	−1,2k PKR
 ar	PLN		standard	symbol	1.2	‏1.20 PLN
@@ -2911,8 +2911,8 @@ en	SYP	short	standard	symbol	1.2	SYP 1.2
 en	SYP	short	standard	symbol	-1230.05	-SYP 1.2K
 uz	SYP		standard	symbol	1.2	1 SYP
 uz	SYP		standard	symbol	-1230.05	-1 230 SYP
-uz	SYP		accounting	symbol	1.2	SYP 1
-uz	SYP		accounting	symbol	-1230.05	(SYP 1 230)
+uz	SYP		accounting	symbol	1.2	1 SYP
+uz	SYP		accounting	symbol	-1230.05	(1 230 SYP)
 uz	SYP	short	standard	symbol	1.2	1,2 SYP
 uz	SYP	short	standard	symbol	-1230.05	-1,2 ming SYP
 ar	SZL		standard	symbol	1.2	‏1.20 SZL

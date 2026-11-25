@@ -652,12 +652,15 @@ public final class Rational extends Number implements Comparable<Rational> {
         if (!isFinite()) {
             throw new ArithmeticException("Infinite value or NaN");
         }
-        return numerator.divideAndRemainder(denominator)[0];
-    }
+        BigInteger[] divRem = numerator.divideAndRemainder(denominator);
+        BigInteger quotient = divRem[0];
+        BigInteger remainder = divRem[1];
 
-    /** If NaN (0/0) returns Integer.MIN_VALUE, otherwise returns regular signum (-1, 0, 1). */
-    public int signum() {
-        return denominator.signum() == 0 ? Integer.MIN_VALUE : numerator.signum();
+        // If remainder != 0 && negative, round down
+        if (remainder.signum() != 0 && numerator.signum() < 0) {
+            return quotient.subtract(BigInteger.ONE);
+        }
+        return quotient;
     }
 
     /** Standard math ceil(), smallest integer greater than or equal to this */
@@ -669,11 +672,16 @@ public final class Rational extends Number implements Comparable<Rational> {
         BigInteger quotient = divRem[0];
         BigInteger remainder = divRem[1];
 
-        // If remainder != 0 round up
-        if (remainder.signum() != 0) {
+        // If remainder != 0 && positive round up
+        if (remainder.signum() != 0 && numerator.signum() > 0) {
             return quotient.add(BigInteger.ONE);
         }
         return quotient;
+    }
+
+    /** If NaN (0/0) returns Integer.MIN_VALUE, otherwise returns regular signum (-1, 0, 1). */
+    public int signum() {
+        return denominator.signum() == 0 ? Integer.MIN_VALUE : numerator.signum();
     }
 
     /** The symmetric difference of a and b is 2 * abs(a - b) / (a + b) */

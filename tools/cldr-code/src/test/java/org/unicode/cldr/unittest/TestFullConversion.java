@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.util.OutputInt;
+import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -629,5 +630,18 @@ public class TestFullConversion extends TestFmwk {
         public Closeness isMatches() {
             return matches;
         }
+    }
+
+    public void testFloor() {
+        assertEquals("ceil 1.5", BigInteger.valueOf(2), Rational.of("1.5").ceil());
+        assertEquals("floor 1.5", BigInteger.valueOf(1), Rational.of("1.5").floor());
+        assertEquals("ceil 1", BigInteger.valueOf(1), Rational.of(1).ceil());
+        assertEquals("floor 1", BigInteger.valueOf(1), Rational.of(1).floor());
+        assertEquals("ceil 0", BigInteger.valueOf(0), Rational.of(0).ceil());
+        assertEquals("floor 0", BigInteger.valueOf(0), Rational.of(0).floor());
+        assertEquals("ceil -1", BigInteger.valueOf(-1), Rational.of(-1).ceil());
+        assertEquals("floor -1", BigInteger.valueOf(-1), Rational.of(-1).floor());
+        assertEquals("ceil -1.5", BigInteger.valueOf(-1), Rational.of("-1.5").ceil());
+        assertEquals("floor -1.5", BigInteger.valueOf(-2), Rational.of("-1.5").floor());
     }
 }

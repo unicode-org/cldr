@@ -811,28 +811,108 @@ public final class Rational extends Number implements Comparable<Rational> {
         return denominator != BigInteger.ZERO;
     }
 
-    public Rational roundByIncrement(Rational increment) {
-        Rational scaled = divide(increment);
-        BigInteger num = scaled.numerator.abs();
-        BigInteger den = scaled.denominator;
-
-        // Exact HALF_UP integer rounding: (2 * |num| + den) / (2 * den)
-        BigInteger roundedAbs =
-                num.multiply(BigInteger.TWO).add(den).divide(den.multiply(BigInteger.TWO));
-        BigInteger rounded = scaled.numerator.signum() < 0 ? roundedAbs.negate() : roundedAbs;
-
-        return Rational.of(rounded).multiply(increment);
+    /**
+     * Rounds this Rational to the specified number of significant digits using HALF_EVEN rounding.
+     */
+    public Rational roundToSignificant(int significantDigits) {
+        return roundToSignificant(significantDigits, RoundingMode.HALF_EVEN);
+        //        int firstDigitPosition = firstDigitPosition();
+        //        Rational increment = getIncrement(firstDigitPosition, significantDigits);
+        //        return roundByIncrement(increment);
     }
 
-    public Rational roundToSignificant(int significantDigits) {
+    /**
+     * Rounds this Rational to the specified number of significant digits using the given
+     * RoundingMode. Supports HALF_UP, HALF_DOWN, and HALF_EVEN.
+     */
+    public Rational roundToSignificant(int significantDigits, RoundingMode roundingMode) {
         int firstDigitPosition = firstDigitPosition();
         Rational increment = getIncrement(firstDigitPosition, significantDigits);
-        return roundByIncrement(increment);
+        return roundByIncrement(increment, roundingMode);
     }
 
-    /** The increment is the power of 10 that is just below the last significant digit. */
+    /**
+     * The increment is the power of 10 that is just below the last significant digit. So with
+     * 345.67 and 2 significant digits, the value is 1. So with 4 significant digit, the value is
+     * 0.01.
+     */
     public static Rational getIncrement(int firstDigit, int significantDigits) {
         return Rational.pow10(firstDigit - significantDigits);
+    }
+
+    /**
+     * The rounding basically does a floor(this / increment) * increment. So 23 rounded by increment
+     * 10 rounds to floor(23/10)*10 = 23
+     *
+     * @param increment
+     * @return
+     */
+    public Rational roundByIncrement(Rational increment) {
+        return roundByIncrement(increment, RoundingMode.HALF_EVEN);
+        //        Rational scaled = divide(increment);
+        //        BigInteger num = scaled.numerator.abs();
+        //        BigInteger den = scaled.denominator;
+        //        if (den.equals(BigInteger.ONE)) {
+        //            return scaled.multiply(increment);
+        //        }
+        //
+        //        // Exact HALF_UP integer rounding: (2 * |num| + den) / (2 * den)
+        //        BigInteger roundedAbs =
+        //
+        // num.multiply(BigInteger.TWO).add(den).divide(den.multiply(BigInteger.TWO));
+        //        BigInteger rounded = scaled.numerator.signum() < 0 ? roundedAbs.negate() :
+        // roundedAbs;
+        //
+        //        return Rational.of(rounded).multiply(increment);
+    }
+
+    public Rational roundByIncrement(Rational increment, RoundingMode roundingMode) {
+        Rational scaled = divide(increment);
+        BigInteger num = scaled.numerator;
+        BigInteger den = scaled.denominator; // den > 0
+
+        if (den.equals(BigInteger.ONE)) {
+            return scaled.multiply(increment);
+        }
+
+        BigInteger absNum = num.abs();
+        BigInteger[] divRem = absNum.divideAndRemainder(den);
+        BigInteger q = divRem[0];
+        BigInteger r = divRem[1];
+
+        // Compare 2*r with den:
+        // comp < 0: strictly closer to q
+        // comp > 0: strictly closer to q + 1
+        // comp == 0: exactly halfway between q and q + 1
+        int comp = r.shiftLeft(1).compareTo(den); // 2 * r - den
+
+        boolean roundUp;
+        if (comp < 0) {
+            roundUp = false;
+        } else if (comp > 0) {
+            roundUp = true;
+        } else {
+            // Halfway tie-breaking
+            switch (roundingMode) {
+                case HALF_UP:
+                    roundUp = true;
+                    break;
+                case HALF_DOWN:
+                    roundUp = false;
+                    break;
+                case HALF_EVEN:
+                    roundUp = q.testBit(0); // true if odd, rounding to even neighbor
+                    break;
+                default:
+                    throw new UnsupportedOperationException(
+                            "Unsupported rounding mode: " + roundingMode);
+            }
+        }
+
+        BigInteger roundedMagnitude = roundUp ? q.add(BigInteger.ONE) : q;
+        BigInteger roundedInt = (num.signum() < 0) ? roundedMagnitude.negate() : roundedMagnitude;
+
+        return Rational.of(roundedInt).multiply(increment);
     }
 
     public int firstDigitPosition() {

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.FullUnitConverter.BoundedNumber;
 import org.unicode.cldr.util.FullUnitConverter.BoundedNumber.PrecisionType;
 import org.unicode.cldr.util.FullUnitConverter.Converted;
 import org.unicode.cldr.util.FullUnitConverter.HackLocalizedNumberFormatter;
+import org.unicode.cldr.util.FullUnitConverter.Sign;
 import org.unicode.cldr.util.FullUnitConverter.UnitConverterPU;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Rational;
@@ -304,6 +305,8 @@ public class TestFullConversion extends TestFmwk {
             String msg =
                     Joiners.ES.join(
                             " ROUNDTRIP to source format",
+                            "\n\tconverter: ",
+                            converter,
                             "\n\tlog: ",
                             converted.getLog() + "\n\tsource: ",
                             "«" + sourceFormatted + "»",
@@ -367,10 +370,7 @@ public class TestFullConversion extends TestFmwk {
 
             BoundedNumber bd = BoundedNumber.from(value, type, digits);
             if (bd != null) {
-                int expectedNeg =
-                        value.compareTo(Rational.ZERO) > 0
-                                ? 1
-                                : value.compareTo(Rational.ZERO) < 0 ? -1 : 0;
+                Sign expectedNeg = value.signum() < 0 ? Sign.negative : Sign.positive;
                 assertEquals(msg + " negative", expectedNeg, bd.getNegative());
                 assertEquals(msg + " lowerBound", expectedLower, bd.getLowerBound());
                 assertEquals(msg + " value", expectedValue, bd.getValue());
@@ -537,10 +537,7 @@ public class TestFullConversion extends TestFmwk {
     }
 
     private String roundWithBigDecimal(Rational sourceValue, int sourceSigDigits) {
-        return sourceValue
-                .toBigDecimal(MathContext.DECIMAL128)
-                .round(new MathContext(sourceSigDigits, RoundingMode.HALF_DOWN))
-                .toPlainString();
+        return sourceValue.roundToSignificant(sourceSigDigits).toString();
     }
 
     public static class CheckResult {
@@ -548,7 +545,7 @@ public class TestFullConversion extends TestFmwk {
         public enum Closeness {
             exact,
             near,
-            different
+            far
         }
 
         private final String sourceFormatted;
@@ -597,7 +594,7 @@ public class TestFullConversion extends TestFmwk {
             BigDecimal diff = a.subtract(b).abs();
 
             BigDecimal minHalfUlp = halfUlpA.max(halfUlpB);
-            return diff.compareTo(minHalfUlp) <= 0 ? Closeness.near : Closeness.different;
+            return diff.compareTo(minHalfUlp) <= 0 ? Closeness.near : Closeness.far;
         }
 
         @Override
@@ -643,5 +640,31 @@ public class TestFullConversion extends TestFmwk {
         assertEquals("floor -1", BigInteger.valueOf(-1), Rational.of(-1).floor());
         assertEquals("ceil -1.5", BigInteger.valueOf(-1), Rational.of("-1.5").ceil());
         assertEquals("floor -1.5", BigInteger.valueOf(-2), Rational.of("-1.5").floor());
+    }
+
+    public void testRoundingModes() {
+        String[][] tests = {
+            // value, increment, mode, expectedResult
+            {"1.5", "1", "HALF_UP", "2"},
+            {"1.5", "1", "HALF_EVEN", "2"},
+            {"1.5", "1", "HALF_DOWN", "1"},
+            {"2.5", "1", "HALF_UP", "3"},
+            {"2.5", "1", "HALF_EVEN", "2"},
+            {"2.5", "1", "HALF_DOWN", "2"},
+            {"-1.5", "1", "HALF_UP", "-2"},
+            {"-1.5", "1", "HALF_EVEN", "-2"},
+            {"-1.5", "1", "HALF_DOWN", "-1"},
+            {"-2.5", "1", "HALF_UP", "-3"},
+            {"-2.5", "1", "HALF_EVEN", "-2"},
+            {"-2.5", "1", "HALF_DOWN", "-2"},
+        };
+        for (String[] test : tests) {
+            Rational value = Rational.of(test[0]);
+            int significant = Integer.parseInt(test[1]);
+            RoundingMode mode = RoundingMode.valueOf(test[2]);
+            Rational expected = Rational.of(test[3]);
+            Rational actual = value.roundToSignificant(significant, mode);
+            assertEquals(Joiners.COMMA_SP.join(test), expected, actual);
+        }
     }
 }

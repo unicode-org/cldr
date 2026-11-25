@@ -4,8 +4,6 @@ const { JSDOM } = jsdom;
 const path = require("path");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
 
-const DEBUG_VERBOSE = true;
-
 const ANCHOR_TYPE1 = "Type1";
 const ANCHOR_TYPE2 = "Type2";
 const ANCHOR_TYPE3 = "Type3";

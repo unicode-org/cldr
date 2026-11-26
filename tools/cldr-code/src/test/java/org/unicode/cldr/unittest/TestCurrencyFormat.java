@@ -1,33 +1,28 @@
 package org.unicode.cldr.unittest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.junit.jupiter.api.Test;
 import org.unicode.cldr.tool.GenerateCurrencyFormatTestData;
 import org.unicode.cldr.tool.GenerateCurrencyFormatTestData.Dimensions;
 import org.unicode.cldr.util.CLDRPaths;
 
-public class TestCurrencyFormat extends TestFmwkPlus {
+public class TestCurrencyFormat {
 
-    public static void main(String[] args) {
-        new TestCurrencyFormat().run(args);
-    }
-
-    @org.junit.jupiter.api.BeforeEach
-    public void initTestParams() {
-        params = TestParams.create(new String[0], new java.io.PrintWriter(System.out));
-    }
-
-    @org.junit.jupiter.api.Test
-    public void TestCurrenciesTsv() {
+    @Test
+    public void TestCurrenciesTsv() throws IOException {
         runTsvTestFileName("currencies.tsv");
     }
 
-    @org.junit.jupiter.api.Test
-    public void TestCurrenciesModernCurrenciesTsv() {
+    @Test
+    public void TestCurrenciesModernCurrenciesTsv() throws IOException {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                 continue; // Exclude NO_CURRENCY from extended suites
@@ -40,13 +35,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
         }
     }
 
-    @org.junit.jupiter.api.Test
-    public void TestCurrenciesModernLocalesTsv() {
+    @Test
+    public void TestCurrenciesModernLocalesTsv() throws IOException {
         runTsvTestFileName("currencies_modern_locales.tsv");
     }
 
-    @org.junit.jupiter.api.Test
-    public void TestCurrenciesExtendedNumbersTsv() {
+    @Test
+    public void TestCurrenciesExtendedNumbersTsv() throws IOException {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                 continue; // Exclude NO_CURRENCY from extended suites
@@ -59,27 +54,20 @@ public class TestCurrencyFormat extends TestFmwkPlus {
         }
     }
 
-    private void runTsvTestFileName(String filename) {
-        Path filePath = Path.of(CLDRPaths.TEST_DATA + "currency", filename);
-        try {
-            runTsvTest(filePath);
-        } catch (IOException e) {
-            errln("IOException running test for file " + filename + ": " + e.getMessage());
-        }
+    private void runTsvTestFileName(String filename) throws IOException {
+        runTsvTest(Path.of(CLDRPaths.TEST_DATA + "currency", filename));
     }
 
     private void runTsvTest(Path filePath) throws IOException {
         String filename = filePath.getFileName().toString();
         if (!Files.exists(filePath)) {
-            errln("Test data file not found: " + filePath);
-            return;
+            fail("Test data file not found: " + filePath);
         }
 
         try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
             String line = reader.readLine(); // Header
             if (line == null) {
-                errln("Empty test data file: " + filePath);
-                return;
+                fail("Empty test data file: " + filePath);
             }
 
             int lineNum = 1;
@@ -91,8 +79,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
                 String[] parts = line.split("\t");
                 if (parts.length < 7) {
-                    errln(filename + ":" + lineNum + " - Invalid line: " + line);
-                    continue;
+                    fail(filename + ":" + lineNum + " - Invalid line: " + line);
                 }
 
                 String localeStr = parts[0];
@@ -130,13 +117,12 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 if (currencyFormatLength == null
                         || currencyFormatType == null
                         || currencyDisplay == null) {
-                    errln(
+                    fail(
                             filename
                                     + ":"
                                     + lineNum
                                     + " - Unrecognized dimension label in line: "
                                     + line);
-                    continue;
                 }
 
                 String actual =
@@ -148,6 +134,8 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                                 currencyDisplay,
                                 input);
                 assertEquals(
+                        expected,
+                        actual,
                         filename
                                 + ":"
                                 + lineNum
@@ -162,9 +150,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                                 + ", "
                                 + currencyDisplayStr
                                 + ") with input "
-                                + input,
-                        expected,
-                        actual);
+                                + input);
             }
         }
     }

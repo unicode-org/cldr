@@ -46,5 +46,5 @@ mvn compile exec:java -Dexec.mainClass="org.unicode.cldr.tool.GenerateCurrencyFo
 To run the unit test that checks the generated files:
 
 ```bash
-mvn test -pl tools/cldr-code -Dtest=TestShim -Dsurefire.failIfNoSpecifiedTests=false "-Dorg.unicode.cldr.unittest.testArgs=-f:TestCurrencyFormat -n"
+mvn test -pl tools/cldr-code -Dtest=TestCurrencyFormat
 ```

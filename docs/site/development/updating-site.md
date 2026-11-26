@@ -179,6 +179,28 @@ flowchart LR
   hasSymbol -->|no| iso("ISO code<br>RUB in de: RUB")
 ```
 
+### Code blocks
+
+A code block with a language after the opening fence, such as `xml`, `java` or `md`, is shown with syntax colors, as on GitHub. For example, this block with the Canadian dollar symbols from `common/main/root.xml`:
+
+````md
+```xml
+<currency type="CAD">
+    <symbol>CA$</symbol>
+    <symbol alt="narrow">$</symbol>
+</currency>
+```
+````
+
+It is shown as:
+
+```xml
+<currency type="CAD">
+    <symbol>CA$</symbol>
+    <symbol alt="narrow">$</symbol>
+</currency>
+```
+
 ## Techniques and Procedures
 
 ### Testing Locally

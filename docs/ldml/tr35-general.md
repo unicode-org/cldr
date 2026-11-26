@@ -996,13 +996,33 @@ Units of measurement, such as _meter_, have defined programmatic identifiers as 
 The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows.
 A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
-| Name             | Examples |
-| ---------------- | -------- |
-| core unit ID     | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
-| single unit ID   | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
-| prefixed unit ID | kilometer, centigram, … <br/> _plus simple unit IDs_ |
-| simple unit ID   | meter, foot, inch, pound, pound-force, … |
-| mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
+| Name             | Description | Examples |
+| ---------------- | ----------- | -------- |
+| simple unit ID   | A single pure unit ID without a prefix or power | meter, foot, inch, pound, pound-force, … |
+| prefixed unit ID | A single simple unit ID with an SI or binary prefix | kilometer, centigram, … <br/> _plus simple unit IDs_ |
+| single unit ID   | A single prefixed unit ID with a power prefix (`square-`, `cubic-`, …) | square-foot, cubic-centimeter, … <br/> _plus prefixed unit IDs_ |
+| core unit ID     | Single unit IDs combined by multiplication (`-`) or division (`-per-`) | kilometer-per-hour, kilogram-meter, kilogram-meter-per-square-second, … <br/> _plus single unit IDs_ |
+| mixed unit ID    | Single unit IDs of the same quantity joined by `-and-` | foot-and-inch, degree-and-arc-minute-and-arc-second |
+
+Note: Each identifier type includes the simpler type above it as a special case:
+* A _prefixed unit ID_ can be a _simple unit ID_ as a special case (with no prefix, such as _foot_).
+* A _single unit ID_ can be a _prefixed unit ID_ as a special case (with no power). Because a _prefixed unit ID_ includes _simple unit IDs_ as a special case, adding a power to a _prefixed unit ID_ covers both _cubic-centimeter_ (power + prefixed unit) and _square-foot_ (power + simple unit).
+* A _core unit ID_ can be a _single unit ID_ as a special case (with a single unit and no `-` or `-per-`).
+* A _mixed unit ID_ can be a _single unit ID_ as a special case (in the EBNF grammar `single_unit ("-" and "-" single_unit)*`).
+
+```mermaid
+flowchart TD
+    simple["simple unit ID\n(e.g. meter, foot)"]
+    prefixed["prefixed unit ID\n(e.g. kilometer)"]
+    single["single unit ID\n(e.g. square-foot, cubic-centimeter)"]
+    core["core unit ID\n(e.g. kilometer-per-hour)"]
+    mixed["mixed unit ID\n(e.g. foot-and-inch)"]
+
+    simple -->|"+ prefix (optional)"| prefixed
+    prefixed -->|"+ power (optional)"| single
+    single -->|"combine with '-' or '-per-'"| core
+    single -->|"join with '-and-'"| mixed
+```
 
 
 There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below.

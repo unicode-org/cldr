@@ -39,4 +39,7 @@ kilocandela;	1;	default;	en;	candela;	1,000	# an input unit whose quantity has n
 candela-per-byte;	1;	default;	en;	candela-per-bit;	0.125	# an input unit that has no quantity should get base units
 candela-per-cubic-foot;	1;	default;	en;	candela-per-cubic-meter;	1,953,125,000/55306341	# an input unit that has no quantity should get base units
 foot;	1;	default;	de-u-mu-celsius;	centimeter;	30.48	# a -mu unit that is not convertible from the input unit should get ignored
+meter;	304.8;	road;	en-LR;	foot;	1,000
+meter;	304.8;	road;	en-VI;	foot;	1,000
+meter;	304.8;	road;	my-MM;	yard;	1,000/3
 #pound;	28;	default;	en-u-mu-stone;	stone;	2 # only temperature units are supported

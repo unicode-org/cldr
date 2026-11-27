@@ -399,22 +399,22 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001">hectare</unitPreference>
             <unitPreference regions="001">square-meter</unitPreference>
             <unitPreference regions="001">square-centimeter</unitPreference>
-            <unitPreference regions="US GB">square-mile</unitPreference>
-            <unitPreference regions="US GB">acre</unitPreference>
-            <unitPreference regions="US GB">square-foot</unitPreference>
-            <unitPreference regions="US GB">square-inch</unitPreference>
+            <unitPreference regions="GB LR MM US">square-mile</unitPreference>
+            <unitPreference regions="GB LR MM US">acre</unitPreference>
+            <unitPreference regions="GB LR MM US">square-foot</unitPreference>
+            <unitPreference regions="GB LR MM US">square-inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="area" usage="geograph">
             <unitPreference regions="001">square-kilometer</unitPreference>
-            <unitPreference regions="US GB">square-mile</unitPreference>
+            <unitPreference regions="GB LR MM US">square-mile</unitPreference>
         </unitPreferences>
         <unitPreferences category="area" usage="land">
             <unitPreference regions="001">hectare</unitPreference>
-            <unitPreference regions="US GB">acre</unitPreference>
+            <unitPreference regions="GB LR MM US">acre</unitPreference>
         </unitPreferences>
         <unitPreferences category="area" usage="floor">
             <unitPreference regions="001">square-meter</unitPreference>
-            <unitPreference regions="CA US GB MM">square-foot</unitPreference>
+            <unitPreference regions="CA GB LR MM US">square-foot</unitPreference>
         </unitPreferences>
         <unitPreferences category="concentration" usage="blood-glucose">
             <unitPreference regions="AG AI AO AU BA BG BH BM BN BW BY CA CH CM CN CZ DK DM EE FI FJ GB GD HK HR HU IE IM IS KE KN KW KZ LC LI LT LU LV ME MG MK MO MS MT MU MY MZ NA NL NO NZ OM PG RS RU SE SG SI SK TC TO UA UG VC VG VN VU ZA">millimole-per-liter</unitPreference>
@@ -429,8 +429,8 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="consumption" usage="vehicle-fuel">
             <unitPreference regions="001">liter-per-100-kilometer</unitPreference>
             <unitPreference regions="BR IT JP KR MX MY NL TH TR">liter-per-kilometer</unitPreference>
-            <unitPreference regions="US">mile-per-gallon</unitPreference>
-            <unitPreference regions="CA GB">mile-per-gallon-imperial</unitPreference>
+            <unitPreference regions="LR US">mile-per-gallon</unitPreference>
+            <unitPreference regions="CA GB MM">mile-per-gallon-imperial</unitPreference>
         </unitPreferences>
         <unitPreferences category="duration" usage="default">
             <unitPreference regions="001">day</unitPreference>
@@ -449,33 +449,33 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001">kilowatt-hour</unitPreference>
         </unitPreferences>
         <unitPreferences category="energy" usage="food">
-            <unitPreference regions="US">foodcalorie</unitPreference>
+            <unitPreference regions="LR US">foodcalorie</unitPreference>
             <unitPreference regions="001">kilocalorie</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="default">
             <unitPreference regions="001">kilometer</unitPreference>
             <unitPreference regions="001">meter</unitPreference>
             <unitPreference regions="001">centimeter</unitPreference>
-            <unitPreference regions="US GB">mile</unitPreference>
-            <unitPreference regions="US GB">foot</unitPreference>
-            <unitPreference regions="US GB">inch</unitPreference>
+            <unitPreference regions="GB LR MM US">mile</unitPreference>
+            <unitPreference regions="GB LR MM US">foot</unitPreference>
+            <unitPreference regions="GB LR MM US">inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="focal-length">
             <unitPreference regions="001">millimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="person">
             <unitPreference regions="001">centimeter</unitPreference>
-            <unitPreference regions="CA GB IN US">inch</unitPreference>
+            <unitPreference regions="CA GB IN LR MM US">inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="person-height">
             <unitPreference regions="001">centimeter</unitPreference>
-            <unitPreference regions="CA GB IN US" geq="3.0">foot-and-inch</unitPreference>
-            <unitPreference regions="CA GB IN US">inch</unitPreference>
+            <unitPreference regions="CA GB IN LR MM US" geq="3.0">foot-and-inch</unitPreference>
+            <unitPreference regions="CA GB IN LR MM US">inch</unitPreference>
             <unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN">meter-and-centimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="rainfall">
             <unitPreference regions="BR">centimeter</unitPreference>
-            <unitPreference regions="US">inch</unitPreference>
+            <unitPreference regions="LR US">inch</unitPreference>
             <unitPreference regions="001">millimeter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="road">
@@ -483,14 +483,14 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
             <unitPreference regions="001" geq="10" skeleton="precision-increment/10">meter</unitPreference>
             <unitPreference regions="001" skeleton="precision-increment/1">meter</unitPreference>
-            <unitPreference regions="US" geq="0.5">mile</unitPreference>
-            <unitPreference regions="US" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
-            <unitPreference regions="US" geq="10" skeleton="precision-increment/10">foot</unitPreference>
-            <unitPreference regions="US" skeleton="precision-increment/1">foot</unitPreference>
-            <unitPreference regions="GB" geq="0.5">mile</unitPreference>
-            <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
-            <unitPreference regions="GB" geq="10" skeleton="precision-increment/10">yard</unitPreference>
-            <unitPreference regions="GB" skeleton="precision-increment/1">yard</unitPreference>
+            <unitPreference regions="LR US VI" geq="0.5">mile</unitPreference>
+            <unitPreference regions="LR US VI" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
+            <unitPreference regions="LR US VI" geq="10" skeleton="precision-increment/10">foot</unitPreference>
+            <unitPreference regions="LR US VI" skeleton="precision-increment/1">foot</unitPreference>
+            <unitPreference regions="GB MM" geq="0.5">mile</unitPreference>
+            <unitPreference regions="GB MM" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
+            <unitPreference regions="GB MM" geq="10" skeleton="precision-increment/10">yard</unitPreference>
+            <unitPreference regions="GB MM" skeleton="precision-increment/1">yard</unitPreference>
             <unitPreference regions="SE">mile-scandinavian</unitPreference>
             <unitPreference regions="SE">kilometer</unitPreference>
             <unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
@@ -499,18 +499,18 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="length" usage="snowfall">
             <unitPreference regions="001">centimeter</unitPreference>
-            <unitPreference regions="US">inch</unitPreference>
+            <unitPreference regions="LR US">inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="vehicle">
-            <unitPreference regions="GB US">foot-and-inch</unitPreference>
+            <unitPreference regions="GB LR MM US">foot-and-inch</unitPreference>
             <unitPreference regions="001">meter</unitPreference>
         </unitPreferences>
         <unitPreferences category="length" usage="visiblty">
             <unitPreference regions="001" geq="0.1">kilometer</unitPreference>
             <unitPreference regions="001">meter</unitPreference>
             <unitPreference regions="DE NL">meter</unitPreference>
-            <unitPreference regions="GB US">mile</unitPreference>
-            <unitPreference regions="GB US">foot</unitPreference>
+            <unitPreference regions="GB LR MM US">mile</unitPreference>
+            <unitPreference regions="GB LR MM US">foot</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass" usage="default">
             <unitPreference regions="001">tonne</unitPreference>
@@ -518,17 +518,17 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="001">gram</unitPreference>
             <unitPreference regions="001">milligram</unitPreference>
             <unitPreference regions="001">microgram</unitPreference>
-            <unitPreference regions="US GB">ton</unitPreference>
-            <unitPreference regions="US GB">pound</unitPreference>
-            <unitPreference regions="US GB">ounce</unitPreference>
+            <unitPreference regions="GB LR MM US">ton</unitPreference>
+            <unitPreference regions="GB LR MM US">pound</unitPreference>
+            <unitPreference regions="GB LR MM US">ounce</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass" usage="person">
             <unitPreference regions="001">kilogram</unitPreference>
             <unitPreference regions="001">gram</unitPreference>
-            <unitPreference regions="US">pound</unitPreference>
-            <unitPreference regions="US">pound-and-ounce</unitPreference>
-            <unitPreference regions="GB">stone-and-pound</unitPreference>
-            <unitPreference regions="GB">pound-and-ounce</unitPreference>
+            <unitPreference regions="LR US">pound</unitPreference>
+            <unitPreference regions="LR US">pound-and-ounce</unitPreference>
+            <unitPreference regions="GB MM">stone-and-pound</unitPreference>
+            <unitPreference regions="GB MM">pound-and-ounce</unitPreference>
             <unitPreference regions="HK">pound-and-ounce</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass-density" usage="default">
@@ -543,43 +543,43 @@ For terms of use, see http://www.unicode.org/copyright.html
         </unitPreferences>
         <unitPreferences category="power" usage="engine">
             <unitPreference regions="001">kilowatt</unitPreference>
-            <unitPreference regions="US GB">horsepower</unitPreference>
+            <unitPreference regions="GB LR MM US">horsepower</unitPreference>
         </unitPreferences>
          <unitPreferences category="force" usage="default">
             <unitPreference regions="001">newton</unitPreference>
         </unitPreferences>
         <unitPreferences category="pressure" usage="baromtrc">
             <unitPreference regions="001">hectopascal</unitPreference>
-            <unitPreference regions="US">inch-ofhg</unitPreference>
-            <unitPreference regions="BR EG GB IL TH">millibar</unitPreference>
+            <unitPreference regions="LR US">inch-ofhg</unitPreference>
+            <unitPreference regions="BR EG GB IL MM TH">millibar</unitPreference>
             <unitPreference regions="MX RU">millimeter-ofhg</unitPreference>
         </unitPreferences>
         <unitPreferences category="pressure" usage="default">
             <unitPreference regions="001">megapascal</unitPreference>
             <unitPreference regions="001">pascal</unitPreference>
-            <unitPreference regions="US GB">pound-force-per-square-inch</unitPreference>
+            <unitPreference regions="GB LR MM US">pound-force-per-square-inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="speed" usage="default">
             <unitPreference regions="001">kilometer-per-hour</unitPreference>
-            <unitPreference regions="GB US">mile-per-hour</unitPreference>
+            <unitPreference regions="GB LR MM US">mile-per-hour</unitPreference>
         </unitPreferences>
         <unitPreferences category="speed" usage="rainfall">
             <unitPreference regions="001">millimeter-per-hour</unitPreference>
             <unitPreference regions="BR">centimeter-per-hour</unitPreference>
-            <unitPreference regions="US">inch-per-hour</unitPreference>
+            <unitPreference regions="LR US">inch-per-hour</unitPreference>
         </unitPreferences>
         <unitPreferences category="speed" usage="snowfall">
             <unitPreference regions="001">centimeter-per-hour</unitPreference>
-            <unitPreference regions="US">inch-per-hour</unitPreference>
+            <unitPreference regions="LR US">inch-per-hour</unitPreference>
         </unitPreferences>
         <unitPreferences category="speed" usage="wind">
             <unitPreference regions="001">kilometer-per-hour</unitPreference>
             <unitPreference regions="CN DK FI JP KR NO PL RU SE">meter-per-second</unitPreference>
-            <unitPreference regions="GB US">mile-per-hour</unitPreference>
+            <unitPreference regions="GB LR MM US">mile-per-hour</unitPreference>
         </unitPreferences>
         <unitPreferences category="temperature" usage="default">
             <unitPreference regions="001">celsius</unitPreference>
-            <unitPreference regions="US">fahrenheit</unitPreference>
+            <unitPreference regions="BS BZ KY PR PW US">fahrenheit</unitPreference>
         </unitPreferences>
         <unitPreferences category="temperature" usage="weather">
             <unitPreference regions="001">celsius</unitPreference>
@@ -588,27 +588,27 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitPreferences category="volume" usage="default">
             <unitPreference regions="001">cubic-meter</unitPreference>
             <unitPreference regions="001">cubic-centimeter</unitPreference>
-            <unitPreference regions="US GB">cubic-foot</unitPreference>
-            <unitPreference regions="US GB">cubic-inch</unitPreference>
+            <unitPreference regions="GB LR MM US">cubic-foot</unitPreference>
+            <unitPreference regions="GB LR MM US">cubic-inch</unitPreference>
         </unitPreferences>
         <unitPreferences category="volume" usage="fluid">
             <unitPreference regions="001">liter</unitPreference>
             <unitPreference regions="001">milliliter</unitPreference>
-            <unitPreference regions="US">gallon</unitPreference>
-            <unitPreference regions="US">quart</unitPreference>
-            <unitPreference regions="US">pint</unitPreference>
-            <unitPreference regions="US">cup</unitPreference>
-            <unitPreference regions="US">fluid-ounce</unitPreference>
-            <unitPreference regions="US">tablespoon</unitPreference>
-            <unitPreference regions="US">teaspoon</unitPreference>
-            <unitPreference regions="GB">gallon-imperial</unitPreference>
-            <unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
+            <unitPreference regions="LR US">gallon</unitPreference>
+            <unitPreference regions="LR US">quart</unitPreference>
+            <unitPreference regions="LR US">pint</unitPreference>
+            <unitPreference regions="LR US">cup</unitPreference>
+            <unitPreference regions="LR US">fluid-ounce</unitPreference>
+            <unitPreference regions="LR US">tablespoon</unitPreference>
+            <unitPreference regions="LR US">teaspoon</unitPreference>
+            <unitPreference regions="GB MM">gallon-imperial</unitPreference>
+            <unitPreference regions="GB MM">fluid-ounce-imperial</unitPreference>
         </unitPreferences>
         <unitPreferences category="volume" usage="oil">
             <unitPreference regions="001">barrel</unitPreference>
         </unitPreferences>
         <unitPreferences category="volume" usage="vehicle">
-            <unitPreference regions="US">gallon</unitPreference>
+            <unitPreference regions="LR US">gallon</unitPreference>
             <unitPreference regions="001">liter</unitPreference>
         </unitPreferences>
         <unitPreferences category="year-duration" usage="default">

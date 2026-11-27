@@ -2591,9 +2591,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day">
 				<displayName>दीस</displayName>
+				<relative type="-4">तेवेरि</relative>
+				<relative type="-3">एवेरि</relative>
+				<relative type="-2">पयर</relative>
 				<relative type="-1">काल</relative>
 				<relative type="0">आयज</relative>
 				<relative type="1">फाल्यां</relative>
+				<relative type="2">परां</relative>
+				<relative type="3">एरवां</relative>
+				<relative type="4">तेरवां</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} दिसान</relativeTimePattern>
 					<relativeTimePattern count="other">{0} दिसानीं</relativeTimePattern>

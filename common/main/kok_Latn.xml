@@ -1875,9 +1875,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day">
 				<displayName>dis</displayName>
+				<relative type="-4">tever</relative>
+				<relative type="-3">over</relative>
+				<relative type="-2">poir</relative>
 				<relative type="-1">kal</relative>
 				<relative type="0">aiz</relative>
 				<relative type="1">faleam</relative>
+				<relative type="2">porvam</relative>
+				<relative type="3">yervam</relative>
+				<relative type="4">tervam</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} disan</relativeTimePattern>
 					<relativeTimePattern count="other">{0} disanim</relativeTimePattern>

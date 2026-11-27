@@ -100,11 +100,11 @@ The CLDR specification is divided into the following parts:
     * [Compute  regions](#compute--regions)
     * [Compute the category](#compute-the-category)
   * [Unit Preferences Data](#Unit_Preferences_Data)
-    * [Examples:](#examples)
+    * [Unit Preferences Data Examples](#unit-preferences-data-examples)
     * [Compute the preferred output unit](#compute-the-preferred-output-unit)
     * [Search the ranked units](#search-the-ranked-units)
   * [Constraints](#constraints)
-    * [Examples](#examples)
+    * [Constraints Examples](#constraints-examples)
 * [Unit APIs](#unit-apis)
 
 ## Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a>
@@ -1354,7 +1354,7 @@ Logically, the unit preferences data is a map from categories to a map of usages
 
 **Note:** As of CLDR 37, the `<unitPreference>` `geq` attribute replaces the now-deprecated `<unitPreferences>` `scope` attribute.
 
-#### Examples:
+#### Unit Preferences Data Examples
 
 ```xml
 <unitPreferences category="length" usage="default">
@@ -1437,7 +1437,7 @@ at least 2 significant digits. However, the client can also override or tune the
 * For a given category, usage, and region-set:
   * The `<unitPreference>` elements are in descending order.
 
-#### Examples
+#### Constraints Examples
 
 **Example A: xx-SE-u-ms-metric, length, road**
 1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE

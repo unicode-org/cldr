@@ -583,6 +583,8 @@ The `alt="alphaNextToNumber"` pattern, if available, should be used instead of t
 
 The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
 
+It is also used for standard and accounting symbol formatting when the currency's resolved `<symbol>` is `U+200B` (ZERO WIDTH SPACE).
+
 ##### Combining Currency Symbols and ISO Codes (`currencyPatternAppendISO`)
 
 ```xml

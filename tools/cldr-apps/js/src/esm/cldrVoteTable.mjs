@@ -5,7 +5,6 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSurvey from "../esm/cldrSurvey.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 import * as cldrUserLevels from "./cldrUserLevels.mjs";
-import * as cldrVue from "./cldrVue.mjs";
 
 function construct(votingResults, item, value, totalVoteCount) {
   try {

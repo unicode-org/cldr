@@ -13,6 +13,7 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
@@ -31,6 +32,7 @@ class PostInfo {
     this.locale = null;
     this.xpstrid = null;
     this.value = null;
+    this.valueHash = null;
     this.subject = "";
     this.willFlag = false;
     this.replyTo = -1;
@@ -53,14 +55,16 @@ class PostInfo {
       rootPost.locale,
       rootPost.xpath,
       rootPost.value,
+      rootPost.valueHash,
       rootPost.subject
     );
   }
 
-  setLocalePathValueSubject(locale, xpstrid, value, subject) {
+  setLocalePathValueSubject(locale, xpstrid, value, valueHash, subject) {
     this.locale = locale;
     this.xpstrid = xpstrid;
     this.value = value;
+    this.valueHash = valueHash;
     this.subject = subject;
   }
 
@@ -388,6 +392,14 @@ function parseContent(posts, context) {
             "postTopicInfo"
           );
           topicDiv.appendChild(requestInfo);
+          // If this is displayed in the Info Panel, add a hover to this item, so that it
+          // points (maybe draws a line) to the corresponding item in the vetting table
+          // "Winning" or "Others" column if present.
+          cldrTable.pointToCandidateAddListener(
+            requestInfo,
+            post.xpath,
+            rootPost.valueHash
+          );
         }
       }
       topicDivs[post.threadId] = topicDiv;
@@ -695,8 +707,17 @@ function addReplyButtonsToEachTopic(topicDivs) {
  * @param xpstrid the xpath string id
  * @param code the "code" for the xpath
  * @param value the value the current user voted for, or null
+ * @param valueHash the hash of the value the current user voted for, or null
  */
-function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
+function addNewPostButtons(
+  el,
+  locale,
+  couldFlag,
+  xpstrid,
+  code,
+  value,
+  valueHash
+) {
   if (!userCanPost) {
     return;
   }
@@ -730,7 +751,13 @@ function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
       },
       function (o) {
         const subject = makeSubject(code, xpstrid, o, xpathMap, willFlag);
-        pi.setLocalePathValueSubject(locale, xpstrid, value, subject);
+        pi.setLocalePathValueSubject(
+          locale,
+          xpstrid,
+          value,
+          valueHash,
+          subject
+        );
         if (willFlag) {
           pi.setWillFlagTrue();
         }

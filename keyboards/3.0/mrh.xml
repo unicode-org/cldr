@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<keyboard3 locale="mrh" conformsTo="46">
+    <info name="Mara" author="Mara Language Preservation" layout="QWERTY"/>
+
+    <keys>
+        <import base="cldr" path="46/keys-Zyyy-punctuation.xml"/>
+        <import base="cldr" path="46/keys-Zyyy-currency.xml"/>
+
+        <!-- Latin letters a-z / A-Z (including q, x, j) are implied keys -->
+        <key id="a-circumflex" output="â"/>
+        <key id="A-circumflex" output="Â"/>
+        <key id="o-circumflex" output="ô"/>
+        <key id="O-circumflex" output="Ô"/>
+        <key id="ch" output="ch"/>
+        <key id="ch-title" output="Ch"/>
+        <key id="ch-upper" output="CH"/>
+    </keys>
+
+    <layers formId="us">
+        <layer modifiers="none">
+            <row keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+            <row keys="a-circumflex w e r t y u i o p open-square close-square backslash"/>
+            <row keys="a s d f g h ch k l semi-colon apos"/>
+            <row keys="z o-circumflex c v b n m comma period slash"/>
+            <row keys="space"/>
+        </layer>
+
+        <layer modifiers="shift">
+            <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+            <row keys="A-circumflex W E R T Y U I O P open-curly close-curly pipe"/>
+            <row keys="A S D F G H ch-title K L colon double-quote"/>
+            <row keys="Z O-circumflex C V B N M open-angle close-angle question"/>
+            <row keys="space"/>
+        </layer>
+
+        <!-- Caps Lock affects letters only; numbers and punctuation stay unshifted -->
+        <layer modifiers="caps">
+            <row keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+            <row keys="A-circumflex W E R T Y U I O P open-square close-square backslash"/>
+            <row keys="A S D F G H ch-upper K L semi-colon apos"/>
+            <row keys="Z O-circumflex C V B N M comma period slash"/>
+            <row keys="space"/>
+        </layer>
+
+        <layer modifiers="caps shift">
+            <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+            <row keys="a-circumflex w e r t y u i o p open-curly close-curly pipe"/>
+            <row keys="a s d f g h ch k l colon double-quote"/>
+            <row keys="z o-circumflex c v b n m open-angle close-angle question"/>
+            <row keys="space"/>
+        </layer>
+
+        <!-- Right Alt: original q, j, x. Caps Lock inverts case, as on the base layers. -->
+        <layer modifiers="altR">
+            <row keys="gap"/>
+            <row keys="q"/>
+            <row keys="gap gap gap gap gap gap j"/>
+            <row keys="gap x"/>
+        </layer>
+
+        <layer modifiers="altR shift">
+            <row keys="gap"/>
+            <row keys="Q"/>
+            <row keys="gap gap gap gap gap gap J"/>
+            <row keys="gap X"/>
+        </layer>
+
+        <layer modifiers="altR caps">
+            <row keys="gap"/>
+            <row keys="Q"/>
+            <row keys="gap gap gap gap gap gap J"/>
+            <row keys="gap X"/>
+        </layer>
+
+        <layer modifiers="altR caps shift">
+            <row keys="gap"/>
+            <row keys="q"/>
+            <row keys="gap gap gap gap gap gap j"/>
+            <row keys="gap x"/>
+        </layer>
+    </layers>
+
+    <!-- Backspace after â, Â, ô, Ô removes only the circumflex -->
+    <transforms type="backspace">
+        <transformGroup>
+            <transform from="â" to="a"/>
+            <transform from="Â" to="A"/>
+            <transform from="ô" to="o"/>
+            <transform from="Ô" to="O"/>
+        </transformGroup>
+    </transforms>
+</keyboard3>

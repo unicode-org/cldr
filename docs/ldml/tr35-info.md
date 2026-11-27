@@ -1426,7 +1426,7 @@ The ranked units will be of the following form:
   * The syntax and semantics for the skeleton value are defined by the [ICU Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html) document.
 * If the `skeleton` is missing, the default is **precision-integer/@@\*** for rounding to the nearest integer while guaranteeing
 at least 2 significant digits. However, the client can also override or tune the number formatting.
-* If the unit is mixed (e.g. “foot-and-inch”), the skeleton applies to the final subunit; higher subunits are formatted as integers.
+* If the unit is mixed (e.g. “foot-and-inch”), the skeleton applies to the final subunit; higher subunits are formatted as integers. If the `skeleton` is missing, the final subunit is rounded to the nearest integer (**precision-integer**), as described in [Mixed Units](#mixed-units).
 
 ### Constraints
 

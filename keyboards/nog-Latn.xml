@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nogai Latin Keyboard Specification -->
+<!DOCTYPE keyboard3 SYSTEM "https://www.unicode.org/cldr/dtd/production/keyboard3.dtd">
+<keyboard3 locale="nog-Latn">
+    <info name="Nogai (Latin)" layout="QWERTY" indicator="Nog"/>
+
+    <keys>
+        <key id="q" output="q"/>
+        <key id="w" output="w"/>
+        <key id="e" output="e"/>
+        <key id="r" output="r"/>
+        <key id="t" output="t"/>
+        <key id="y" output="y"/>
+        <key id="u" output="u" longpress="ü û"/>
+        <key id="ı" output="ı" longpress="i İ î"/>
+        <key id="o" output="o" longpress="ö"/>
+        <key id="p" output="p"/>
+        <key id="ğ" output="ğ"/>
+        <key id="ü" output="ü"/>
+
+        <key id="a" output="a" longpress="ä â"/>
+        <key id="s" output="s" longpress="ş"/>
+        <key id="d" output="d"/>
+        <key id="f" output="f"/>
+        <key id="g" output="g" longpress="ğ"/>
+        <key id="h" output="h"/>
+        <key id="j" output="j"/>
+        <key id="k" output="k"/>
+        <key id="l" output="l"/>
+        <key id="ş" output="ş"/>
+        <key id="i" output="i" longpress="ı I î"/>
+        <key id="ä" output="ä"/>
+
+        <key id="z" output="z"/>
+        <key id="x" output="x"/>
+        <key id="c" output="c" longpress="ç"/>
+        <key id="v" output="v"/>
+        <key id="b" output="b"/>
+        <key id="n" output="n" longpress="ñ ŋ"/>
+        <key id="m" output="m"/>
+        <key id="ö" output="ö"/>
+        <key id="ç" output="ç"/>
+        <key id="ñ" output="ñ"/>
+    </keys>
+
+    <formFactors>
+        <formFactor type="phone">
+            <default>
+                <row r="1" keys="q w e r t y u ı o p ğ ü"/>
+                <row r="2" keys="a s d f g h j k l ş i ä"/>
+                <row r="3" keys="z x c v b n m ö ç ñ"/>
+            </default>
+        </formFactor>
+    </formFactors>
+</keyboard3>

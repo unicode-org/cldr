@@ -1296,7 +1296,7 @@ Otherwise FR is not used. In either case continue with step 2.
 |-------------|-----------------------------|--------------------------------------|
 | ms-metric   | metric OR metric_adjacent   | 001                                  |
 | ms-ussystem | ussystem                    | US                                   |
-| ms-uksystem | uksystem                    | UK                                   |
+| ms-uksystem | uksystem                    | GB                                   |
 
 #### Compute the category
 

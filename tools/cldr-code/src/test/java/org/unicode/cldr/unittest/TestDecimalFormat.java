@@ -1,57 +1,46 @@
 package org.unicode.cldr.unittest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.junit.jupiter.api.Test;
 import org.unicode.cldr.tool.GenerateDecimalFormatTestData;
 import org.unicode.cldr.tool.GenerateDecimalFormatTestData.Dimensions;
 import org.unicode.cldr.util.CLDRPaths;
 
-public class TestDecimalFormat extends TestFmwkPlus {
+public class TestDecimalFormat {
 
-    public static void main(String[] args) {
-        new TestDecimalFormat().run(args);
+    @Test
+    public void TestDecimalsTsv() throws IOException {
+        runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals.tsv"));
     }
 
-    public void TestDecimalsTsv() {
-        try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals.tsv"));
-        } catch (IOException e) {
-            errln("IOException: " + e.getMessage());
-        }
+    @Test
+    public void TestDecimalsModernLocalesTsv() throws IOException {
+        runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_modern_locales.tsv"));
     }
 
-    public void TestDecimalsModernLocalesTsv() {
-        try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_modern_locales.tsv"));
-        } catch (IOException e) {
-            errln("IOException: " + e.getMessage());
-        }
-    }
-
-    public void TestDecimalsExtendedNumbersTsv() {
-        try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_extended_numbers.tsv"));
-        } catch (IOException e) {
-            errln("IOException: " + e.getMessage());
-        }
+    @Test
+    public void TestDecimalsExtendedNumbersTsv() throws IOException {
+        runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_extended_numbers.tsv"));
     }
 
     private void runTsvTest(Path filePath) throws IOException {
         String filename = filePath.getFileName().toString();
         if (!Files.exists(filePath)) {
-            errln("Test data file not found: " + filePath);
-            return;
+            fail("Test data file not found: " + filePath);
         }
 
         try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
             String line = reader.readLine(); // Header
             if (line == null) {
-                errln("Empty test data file: " + filePath);
-                return;
+                fail("Empty test data file: " + filePath);
             }
 
             int lineNum = 1;
@@ -63,8 +52,7 @@ public class TestDecimalFormat extends TestFmwkPlus {
 
                 String[] parts = line.split("\t");
                 if (parts.length < 5) {
-                    errln(filename + ":" + lineNum + " - Invalid line: " + line);
-                    continue;
+                    fail(filename + ":" + lineNum + " - Invalid line: " + line);
                 }
 
                 String localeStr = parts[0];
@@ -83,6 +71,8 @@ public class TestDecimalFormat extends TestFmwkPlus {
 
                 String actual = GenerateDecimalFormatTestData.format(locale, format, length, input);
                 assertEquals(
+                        expected,
+                        actual,
                         filename
                                 + ":"
                                 + lineNum
@@ -93,9 +83,7 @@ public class TestDecimalFormat extends TestFmwkPlus {
                                 + ", "
                                 + formatLengthStr
                                 + ") with input "
-                                + input,
-                        expected,
-                        actual);
+                                + input);
             }
         }
     }

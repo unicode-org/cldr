@@ -41,3 +41,27 @@ Other Data
 For more details on the locale data collection process, please see the [CLDR process](/index/process). For filing or viewing bug reports, see [CLDR Bug Reports](/requesting_changes).
 
 For how to generate or update the charts, see [Generating Charts](/development/cldr-big-red-switch/generating-charts)
+
+### Which languages use a character?
+
+CLDR's [exemplar character sets](/translation/core-data/exemplars#exemplar-characters) record commonly used characters for a locale. You can browse the main sets by language in the [Main Exemplars chart](https://www.unicode.org/cldr/charts/latest/by_type/core_data.alphabetic_information.main.html).
+
+To look up a particular character:
+
+1. Open the [UnicodeSet utility](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp).
+2. Enter your character (for example, `é`) in **Input**, enter `exemplar` in **Info**, and click **Show Set**.
+3. Read the locale IDs after `exem=` next to the character. For example, the result for `é` includes `fr` (French).
+
+Use these **Info** values to select an exemplar category:
+
+| Info value | Exemplar category | Result label |
+|---|---|---|
+| `exemplar` | Main letters | `exem=` |
+| `exemplar_aux` | Auxiliary characters, such as letters used in foreign words | `exema=` |
+| `exemplar_punct` | Punctuation | `exemp=` |
+
+For example, enter `é` in **Input** and `exemplar_aux` in **Info** to find `en` (English) among the auxiliary results. For punctuation, try `,` in **Input** and `exemplar_punct` in **Info**.
+
+Main and auxiliary exemplars generally use lowercase letters, so look up `é` when checking the uppercase `É`. The results reflect the exemplar data for locales covered by the utility.
+
+Entering `[éñ]` in **Input** with `exemplar` in **Info** gives a separate locale list for each character; it does not find the languages that use every character in the set.

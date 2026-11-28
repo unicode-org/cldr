@@ -115,7 +115,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
 
-    public static final String GEN_VERSION = "49";
+    public static final String GEN_VERSION = "50";
     public static final List<String> SUPPLEMENTAL_NAMES =
             Arrays.asList(
                     "characters",

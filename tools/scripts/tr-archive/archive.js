@@ -222,12 +222,12 @@ async function renderit(infile, info) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.error(`${infile}: Does not start with Table: ${h6.innerHTML}`);
+      console.log(`${infile}: H6 element does not start with Table (fixing up captions in archive.js): ${h6.innerHTML}`);
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
     if (next.tagName !== "TABLE") {
-      console.error(`${infile}: Not a following table for ${h6.innerHTML}`);
+      console.log(`${infile}: H6 element does not have a following table (fixing up captions in archive.js): ${h6.innerHTML}`);
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");

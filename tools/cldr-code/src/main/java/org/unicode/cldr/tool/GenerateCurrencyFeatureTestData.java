@@ -12,6 +12,8 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -23,16 +25,14 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.tool.FeatureRegistry.Feature;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.TempPrintWriter;
 
 /**
  * Generates the feature-based currency test data in {@code common/testData/currency/features}: for
  * each feature in {@code features.tsv}, the file {@code core_<feature_id>.tsv} with every
  * combination of the feature's core set and the value that ICU4J formats for it.
  *
- * <p>The generator only has the dimensions, and dimension values, that some feature needs. The code
- * that a feature needs has a comment with the feature ID and its clause (for example S1.1b), and
- * {@code coverage.tsv} links each clause to UTS #35.
+ * <p>The generator only has the dimensions and values that some feature needs. Comments name the
+ * features and clauses (such as S1.1b) that need them.
  */
 public class GenerateCurrencyFeatureTestData {
     /** The test data category, which is also the name of its directory. */
@@ -140,13 +140,13 @@ public class GenerateCurrencyFeatureTestData {
     public static void main(String[] args) throws IOException {
         List<Feature> features = FeatureRegistry.read(CATEGORY);
         Set<String> registered = features.stream().map(Feature::id).collect(Collectors.toSet());
-        String directory = FeatureRegistry.directory(CATEGORY).toString();
+        Path directory = FeatureRegistry.directory(CATEGORY);
         for (Feature feature : features) {
-            try (TempPrintWriter out =
-                    TempPrintWriter.openUTF8Writer(
-                            directory, FeatureRegistry.coreFileName(feature.id()))) {
-                coreFileLines(feature, registered).forEach(out::println);
-            }
+            // Not TempPrintWriter: it keeps the old file if only the # header or trailing tabs
+            // differ.
+            Files.write(
+                    directory.resolve(FeatureRegistry.coreFileName(feature.id())),
+                    coreFileLines(feature, registered));
         }
         System.out.println("Wrote " + features.size() + " core files to " + directory);
     }

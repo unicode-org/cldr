@@ -113,9 +113,9 @@ public final class Rational extends Number implements Comparable<Rational> {
             switch (input) {
                 case "NaN":
                     return NaN;
-                case "INF":
+                case "∞":
                     return INFINITY;
-                case "-INF":
+                case "-∞":
                     return NEGATIVE_INFINITY;
             }
             if (input.startsWith(APPROX)) {
@@ -221,13 +221,13 @@ public final class Rational extends Number implements Comparable<Rational> {
     }
 
     public static Rational of(BigInteger numerator, BigInteger denominator) {
-        int dComparison = denominator.compareTo(BigInteger.ZERO);
+        int dComparison = denominator.signum();
         if (dComparison == 0) {
             // catch equivalents to NaN, -INF, +INF
             // 0/0 => NaN
             // +/0 => INF
             // -/0 => -INF
-            int nComparison = numerator.compareTo(BigInteger.ZERO);
+            int nComparison = numerator.signum();
             return nComparison < 0 ? NEGATIVE_INFINITY : nComparison > 0 ? INFINITY : NaN;
         } else {
             // reduce to lowest form
@@ -256,7 +256,7 @@ public final class Rational extends Number implements Comparable<Rational> {
     }
 
     private Rational(BigInteger numerator, BigInteger denominator) {
-        if (denominator.compareTo(BigInteger.ZERO) < 0) {
+        if (denominator.signum() < 0) {
             numerator = numerator.negate();
             denominator = denominator.negate();
         }
@@ -319,7 +319,7 @@ public final class Rational extends Number implements Comparable<Rational> {
             return new BigDecimal(numerator).divide(new BigDecimal(denominator), mathContext);
         } catch (Exception e) {
             throw new IllegalArgumentException(
-                    "Wrong math context for divide: " + this + ", " + mathContext);
+                    "Wrong math context for divide: " + this + ", " + mathContext, e);
         }
     }
 
@@ -411,6 +411,20 @@ public final class Rational extends Number implements Comparable<Rational> {
 
     static final String THIN_SPACE = "\u2009";
     static final String DIVIDER = "/";
+
+    public String toString(MathContext mathContext) {
+        if (denominator.signum() == 0) {
+            switch (numerator.signum()) {
+                case 0:
+                    return "NaN";
+                case 1:
+                    return "∞";
+                case -1:
+                    return "-∞";
+            }
+        }
+        return toBigDecimal(mathContext).toString();
+    }
 
     public String toString(FormatStyle style) {
         boolean denIsOne = denominator.equals(BigInteger.ONE);
@@ -577,7 +591,7 @@ public final class Rational extends Number implements Comparable<Rational> {
             List<BigInteger> _sequence = new ArrayList<>();
             while (true) {
                 BigInteger floor = source.floor();
-                if (floor.compareTo(BigInteger.ZERO) < 0) {
+                if (floor.signum() < 0) {
                     floor = floor.subtract(BigInteger.ONE);
                 }
                 Rational remainder = source.subtract(Rational.of(floor, BigInteger.ONE));
@@ -647,8 +661,41 @@ public final class Rational extends Number implements Comparable<Rational> {
         }
     }
 
+    /** Standard math floor(), largest integer less than or equal to this */
     public BigInteger floor() {
-        return numerator.divide(denominator);
+        if (!isFinite()) {
+            throw new ArithmeticException("Infinite value or NaN");
+        }
+        BigInteger[] divRem = numerator.divideAndRemainder(denominator);
+        BigInteger quotient = divRem[0];
+        BigInteger remainder = divRem[1];
+
+        // If remainder != 0 && negative, round down
+        if (remainder.signum() != 0 && numerator.signum() < 0) {
+            return quotient.subtract(BigInteger.ONE);
+        }
+        return quotient;
+    }
+
+    /** Standard math ceil(), smallest integer greater than or equal to this */
+    public BigInteger ceil() {
+        if (!isFinite()) {
+            throw new ArithmeticException("Infinite value or NaN");
+        }
+        BigInteger[] divRem = numerator.divideAndRemainder(denominator);
+        BigInteger quotient = divRem[0];
+        BigInteger remainder = divRem[1];
+
+        // If remainder != 0 && positive round up
+        if (remainder.signum() != 0 && numerator.signum() > 0) {
+            return quotient.add(BigInteger.ONE);
+        }
+        return quotient;
+    }
+
+    /** If NaN (0/0) returns Integer.MIN_VALUE, otherwise returns regular signum (-1, 0, 1). */
+    public int signum() {
+        return denominator.signum() == 0 ? Integer.MIN_VALUE : numerator.signum();
     }
 
     /** The symmetric difference of a and b is 2 * abs(a - b) / (a + b) */
@@ -663,9 +710,9 @@ public final class Rational extends Number implements Comparable<Rational> {
         StringBuilder s = new StringBuilder();
 
         // Edge cases
-        final int pTo0 = p.compareTo(BigInteger.ZERO);
-        if (q.compareTo(BigInteger.ZERO) == 0) {
-            return pTo0 == 0 ? "NaN" : pTo0 > 0 ? "INF" : "-INF";
+        final int pTo0 = p.signum();
+        if (q.signum() == 0) {
+            return pTo0 == 0 ? "NaN" : pTo0 > 0 ? "∞" : "-∞";
         }
         if (pTo0 == 0) {
             return "0";
@@ -681,7 +728,7 @@ public final class Rational extends Number implements Comparable<Rational> {
             BigInteger intPart = p.divide(q);
             s.append(formatNoGroup.format(intPart));
             p = p.remainder(q);
-            if (p.compareTo(BigInteger.ZERO) == 0) {
+            if (p.signum() == 0) {
                 return s.toString();
             }
         } else {
@@ -711,22 +758,22 @@ public final class Rational extends Number implements Comparable<Rational> {
     }
 
     public boolean isPowerOfTen() {
-        Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
-        final BigInteger newDenominator = minimalDenominator(newNumerator, denominator);
-        if (!newDenominator.equals(BigInteger.ONE)) {
+        if (numerator.signum() == 0 || denominator.signum() == 0) {
             return false;
         }
-        // hack, figure out later
-        String str = newNumerator.value.unscaledValue().toString();
-        if (INT_POWER_10.matcher(str).matches()) {
-            return true;
+
+        if (denominator.equals(BigInteger.ONE)) {
+            return isPowerOfTen(numerator);
+        }
+        if (numerator.equals(BigInteger.ONE)) {
+            return isPowerOfTen(denominator);
         }
         return false;
     }
 
     public String getIntPowerOfTen() {
         // HACK, figure out better later
-        if (numerator.compareTo(BigInteger.ZERO) < 0) {
+        if (numerator.signum() < 0) {
             throw new IllegalArgumentException("Prefix label must be positive: " + this);
         }
         if (!numerator.equals(BigInteger.ONE) && !denominator.equals(BigInteger.ONE)) {
@@ -772,5 +819,142 @@ public final class Rational extends Number implements Comparable<Rational> {
     @Override
     public long longValue() {
         return toBigDecimal().longValue();
+    }
+
+    public boolean isFinite() {
+        return denominator.signum() != 0;
+    }
+
+    /**
+     * Rounds this Rational to the specified number of significant digits using HALF_EVEN rounding.
+     */
+    public Rational roundToSignificant(int significantDigits) {
+        return roundToSignificant(significantDigits, RoundingMode.HALF_EVEN);
+        //        int firstDigitPosition = firstDigitPosition();
+        //        Rational increment = getIncrement(firstDigitPosition, significantDigits);
+        //        return roundByIncrement(increment);
+    }
+
+    /**
+     * Rounds this Rational to the specified number of significant digits using the given
+     * RoundingMode. Supports HALF_UP, HALF_DOWN, and HALF_EVEN.
+     */
+    public Rational roundToSignificant(int significantDigits, RoundingMode roundingMode) {
+        int firstDigitPosition = firstDigitPosition();
+        Rational increment = getIncrement(firstDigitPosition, significantDigits);
+        return roundByIncrement(increment, roundingMode);
+    }
+
+    /**
+     * The increment is the power of 10 that is just below the last significant digit. So with
+     * 345.67 and 2 significant digits, the value is 1. So with 4 significant digit, the value is
+     * 0.01.
+     */
+    public static Rational getIncrement(int firstDigit, int significantDigits) {
+        return Rational.pow10(firstDigit - significantDigits);
+    }
+
+    /**
+     * The rounding basically does a floor(this / increment) * increment. So 23 rounded by increment
+     * 10 rounds to floor(23/10)*10 = 23
+     *
+     * @param increment
+     * @return
+     */
+    public Rational roundByIncrement(Rational increment) {
+        return roundByIncrement(increment, RoundingMode.HALF_EVEN);
+        //        Rational scaled = divide(increment);
+        //        BigInteger num = scaled.numerator.abs();
+        //        BigInteger den = scaled.denominator;
+        //        if (den.equals(BigInteger.ONE)) {
+        //            return scaled.multiply(increment);
+        //        }
+        //
+        //        // Exact HALF_UP integer rounding: (2 * |num| + den) / (2 * den)
+        //        BigInteger roundedAbs =
+        //
+        // num.multiply(BigInteger.TWO).add(den).divide(den.multiply(BigInteger.TWO));
+        //        BigInteger rounded = scaled.numerator.signum() < 0 ? roundedAbs.negate() :
+        // roundedAbs;
+        //
+        //        return Rational.of(rounded).multiply(increment);
+    }
+
+    public Rational roundByIncrement(Rational increment, RoundingMode roundingMode) {
+        Rational scaled = divide(increment);
+        BigInteger num = scaled.numerator;
+        BigInteger den = scaled.denominator; // den > 0
+
+        if (den.equals(BigInteger.ONE)) {
+            return scaled.multiply(increment);
+        }
+
+        BigInteger absNum = num.abs();
+        BigInteger[] divRem = absNum.divideAndRemainder(den);
+        BigInteger q = divRem[0];
+        BigInteger r = divRem[1];
+
+        // Compare 2*r with den:
+        // comp < 0: strictly closer to q
+        // comp > 0: strictly closer to q + 1
+        // comp == 0: exactly halfway between q and q + 1
+        int comp = r.shiftLeft(1).compareTo(den); // 2 * r - den
+
+        boolean roundUp;
+        if (comp < 0) {
+            roundUp = false;
+        } else if (comp > 0) {
+            roundUp = true;
+        } else {
+            // Halfway tie-breaking
+            switch (roundingMode) {
+                case HALF_UP:
+                    roundUp = true;
+                    break;
+                case HALF_DOWN:
+                    roundUp = false;
+                    break;
+                case HALF_EVEN:
+                    roundUp = q.testBit(0); // true if odd, rounding to even neighbor
+                    break;
+                default:
+                    throw new UnsupportedOperationException(
+                            "Unsupported rounding mode: " + roundingMode);
+            }
+        }
+
+        BigInteger roundedMagnitude = roundUp ? q.add(BigInteger.ONE) : q;
+        BigInteger roundedInt = (num.signum() < 0) ? roundedMagnitude.negate() : roundedMagnitude;
+
+        return Rational.of(roundedInt).multiply(increment);
+    }
+
+    public int firstDigitPosition() {
+        if (this.equals(Rational.ZERO)) {
+            return 1;
+        } else if (!isFinite()) {
+            return 0;
+        }
+
+        BigInteger num = numerator.abs();
+        BigInteger den = denominator;
+
+        // 1. Calculate floor(log10) for numerator and denominator independently
+        int logNum = BigIntegerMath.log10(num, RoundingMode.FLOOR);
+        int logDen = BigIntegerMath.log10(den, RoundingMode.FLOOR);
+        int logDiff = logNum - logDen;
+
+        // 2. Adjust boundary if (num / 10^logNum) < (den / 10^logDen)
+        BigInteger lhs = num.multiply(BigInteger.TEN.pow(logDen));
+        BigInteger rhs = den.multiply(BigInteger.TEN.pow(logNum));
+        if (lhs.compareTo(rhs) < 0) {
+            logDiff--;
+        }
+        return logDiff + 1;
+    }
+
+    public static boolean isPowerOfTen(BigInteger n) {
+        int exponent = BigIntegerMath.log10(n, RoundingMode.FLOOR);
+        return BigInteger.TEN.pow(exponent).equals(n);
     }
 }

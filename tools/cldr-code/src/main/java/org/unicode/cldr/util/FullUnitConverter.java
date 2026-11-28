@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
-import org.unicode.cldr.util.Rational.FormatStyle;
+import org.unicode.cldr.util.FullUnitConverter.BoundedNumber.PrecisionType;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 
 /**
@@ -213,7 +213,7 @@ public class FullUnitConverter {
         Rational finalValue =
                 !rounding
                         ? converted.finalValue
-                        : converted.finalValue.roundToSignificant(converted.maxSignificant);
+                        : converted.finalValue.roundToSignificant(converted.finalMaxSignificant);
         Rational result = finalValue.divide(conversionFactor);
         for (int i = converted.leadingCount - 1; i >= 0; --i) {
             conversionFactor = conversionFactors[i];
@@ -230,7 +230,11 @@ public class FullUnitConverter {
         for (int i = 0; i <= last; ++i) {
             converted = converted.multiply(conversionFactors[i]);
             if (i == last) {
-                result.setRational(converted, 14, 14);
+                result.setRational(
+                        converted,
+                        14,
+                        14,
+                        BoundedNumber.from(converted, PrecisionType.significant, 1));
                 break;
             } else {
                 BigInteger floor = converted.floor();
@@ -246,24 +250,35 @@ public class FullUnitConverter {
      * converts the input into a BoundRational, and processes from there.
      */
     public Converted convert(final Rational source, HackLocalizedNumberFormatter rp) {
+        return convert(
+                source,
+                BoundedNumber.PrecisionType.significant,
+                rp.getMinimumSignificantDigits(),
+                rp.getMaximumSignificantDigits());
+    }
+
+    /**
+     * Convert a rational source, using the precision from a HackLocalizedNumberFormatter. This
+     * converts the input into a BoundRational, and processes from there.
+     */
+    public Converted convert(
+            final Rational source,
+            PrecisionType significant,
+            int minimumSignificantDigits,
+            int maximumSignificantDigits) {
         Converted result = new Converted();
         BoundedNumber boundedRational =
-                BoundedNumber.from(
-                        source,
-                        BoundedNumber.PrecisionType.significant,
-                        rp.getMaximumSignificantDigits());
-        if (boundedRational == null) { // handles special cases like non-finite or zero
-            result.setRational(
-                    invertSource ? source.reciprocal() : source,
-                    rp.getMinimumSignificantDigits(),
-                    rp.getMaximumSignificantDigits());
+                BoundedNumber.from(source, significant, maximumSignificantDigits);
+        if (boundedRational.getValue().signum() == 0 && invertSource
+                || !boundedRational
+                        .getValue()
+                        .isFinite()) { // handles special cases like non-finite or zero
+            result.setRational(invertSource ? source.reciprocal() : source, 1, 1, boundedRational);
             return result;
         }
-        result.log("source bounded", boundedRational);
+        result.log("source", boundedRational);
         return convert(
-                boundedRational,
-                rp.getMaximumSignificantDigits() - rp.getMinimumSignificantDigits(),
-                result);
+                boundedRational, maximumSignificantDigits - minimumSignificantDigits, result);
     }
 
     /** Convert a BoundRational, storing the result in 'result' */
@@ -273,22 +288,26 @@ public class FullUnitConverter {
 
         if (invertSource) {
             boundedRational.invert();
-            result.log("invert", boundedRational);
+            result.log("1/x", boundedRational);
         }
 
         int last = conversionFactors.length - 1;
         for (int i = 0; i <= last; ++i) {
             Rational conversionFactor = conversionFactors[i];
             boundedRational.multiply(conversionFactor);
-            result.log("multiply" + i, boundedRational);
+            String item = i + ") ";
+            result.log(item + "×CF", boundedRational);
 
             if (i == last
                     || boundedRational.getValue().compareTo(MAX_LONG_FROM_RATIONAL) > 0
                     || boundedRational.boundsContainInteger()) {
-                int sigDigits = boundedRational.toSignificantDigits();
-                result.log("toSD" + i, sigDigits);
+                int sigDigits = boundedRational.toSignificantDigits(result.getLog());
+                result.log("SD", sigDigits);
                 result.setRational(
-                        boundedRational.getValue(), sigDigits - deltaMaxToMin, sigDigits);
+                        boundedRational.getValue(),
+                        sigDigits - deltaMaxToMin,
+                        sigDigits,
+                        boundedRational);
                 if (DOUBLE_CHECK) {
                     Rational trial = convertBackRaw(result, true);
                     if (trial.compareTo(originalLowerBound) <= 0
@@ -299,9 +318,9 @@ public class FullUnitConverter {
                 break;
             } else {
                 long floor = boundedRational.getFloorAndSubtract();
+                result.log(item + "⌊x⌋", floor);
                 result.addLong(floor);
-                result.log("remainder" + i, boundedRational);
-                result.log("floor" + i, boundedRational);
+                result.log(item + "rem", boundedRational);
             }
         }
 
@@ -341,7 +360,8 @@ public class FullUnitConverter {
             }
         }
         HackLocalizedNumberFormatter dfFinal =
-                sourceNf.precision(rountResult.maxSignificant, rountResult.maxSignificant);
+                sourceNf.precision(
+                        rountResult.finalMaxSignificant, rountResult.finalMaxSignificant);
         result.add(dfFinal.formatToString(rountResult.finalValue));
         return result;
     }
@@ -357,14 +377,34 @@ public class FullUnitConverter {
         private long[] leadingValues = null;
         private int leadingCount = 0;
         private Rational finalValue = Rational.ZERO;
-        private int maxSignificant = Integer.MIN_VALUE;
-        private int minSignificant = Integer.MIN_VALUE;
+        private int finalMaxSignificant = Integer.MIN_VALUE;
+        private int finalMinSignificant = Integer.MIN_VALUE;
         private Map<String, String> log = new LinkedHashMap<>();
 
-        public void setRational(Rational value, int minSig, int maxSig) {
-            this.finalValue = value;
-            this.minSignificant = minSig < 1 ? 1 : minSig;
-            this.maxSignificant = maxSig < minSig ? minSig : maxSig;
+        private BoundedNumber finalBoundedNumber;
+
+        public void setRational(
+                Rational finalValue, int minSig, int maxSig, BoundedNumber finalBoundedNumber) {
+            this.finalValue = finalValue;
+            this.finalMinSignificant = minSig < 1 ? 1 : minSig;
+            this.finalMaxSignificant = maxSig < minSig ? minSig : maxSig;
+            this.finalBoundedNumber = finalBoundedNumber.clone(); // for safety
+        }
+
+        public BoundedNumber getFinalBoundedNumber() {
+            return finalBoundedNumber.clone(); // for safety
+        }
+
+        public int getFinalMaxSignificant() {
+            return finalMaxSignificant;
+        }
+
+        public int getFinalMinSignificant() {
+            return finalMinSignificant;
+        }
+
+        public Rational getFinalValue() {
+            return finalValue;
         }
 
         public void log(String string, Object object) {
@@ -376,8 +416,8 @@ public class FullUnitConverter {
         }
 
         public void incrementSignificantDigits() {
-            this.minSignificant++;
-            this.maxSignificant++;
+            this.finalMinSignificant++;
+            this.finalMaxSignificant++;
         }
 
         public void addLong(long source) {
@@ -414,7 +454,7 @@ public class FullUnitConverter {
                 sb.append("=");
                 sb.append(decimalString);
             }
-            sb.append(formatPrecision(minSignificant, maxSignificant));
+            sb.append(formatPrecision(finalMinSignificant, finalMaxSignificant));
             return sb.toString();
         }
 
@@ -425,14 +465,18 @@ public class FullUnitConverter {
             return leadingCount == other.leadingCount
                     && Arrays.equals(leadingValues, other.leadingValues)
                     && Objects.equals(finalValue, other.finalValue)
-                    && maxSignificant == other.maxSignificant
-                    && minSignificant == other.minSignificant;
+                    && finalMaxSignificant == other.finalMaxSignificant
+                    && finalMinSignificant == other.finalMinSignificant;
         }
 
         @Override
         public int hashCode() {
             return Objects.hash(
-                    leadingCount, leadingValues, finalValue, maxSignificant, minSignificant);
+                    leadingCount,
+                    leadingValues,
+                    finalValue,
+                    finalMaxSignificant,
+                    finalMinSignificant);
         }
     }
 
@@ -443,6 +487,10 @@ public class FullUnitConverter {
 
         private Sign(String name) {
             this.symbol = name;
+        }
+
+        public static Sign from(int i) {
+            return i < 0 ? Sign.negative : Sign.positive;
         }
 
         @Override
@@ -495,14 +543,13 @@ public class FullUnitConverter {
          * Given a source, precision type, and digits, produce the upper and lower bounds. This can
          * then feed into the lower-level conversion method.
          */
-        public static BoundedNumber from(Rational source, PrecisionType type, int digits) {
-            // we should never be called with these values, but just in case…
-            if (source == null || source.equals(Rational.ZERO) || !source.isFinite()) {
-                return null;
+        public static BoundedNumber from(Rational source, PrecisionType type, int maxDigits) {
+            if (!source.isFinite()) {
+                return from(Sign.from(source.signum()), source, source, source);
             }
 
             Sign negative;
-            if (source.compareTo(Rational.ZERO) < 0) {
+            if (source.signum() < 0) {
                 negative = Sign.negative;
                 source = source.abs();
             } else {
@@ -515,34 +562,24 @@ public class FullUnitConverter {
 
             // So for 1234, with 2 sig digits, the value is 10;
             // For 1.234 with 2 sig digits, the value is 0.01
-            Rational increment = Rational.getIncrement(source.firstDigitPosition(), digits);
+            Rational increment = Rational.getIncrement(source.firstDigitPosition(), maxDigits);
 
             source = source.roundByIncrement(increment);
+            Rational delta = increment.divide(Rational.TWO);
 
-            // Exact delta = 0.5 * increment = 1 / (2 * increment)
-            Rational delta =
-                    increment.divide(
-                            Rational.TWO); // Rational.TWO.multiply(increment).reciprocal(); //
-            // 1/(2*increment)
-
-            // find out if the last non-zero digit of rounded value below
-            String str = source.divide(increment).floor().abs().toString();
-            boolean isLastNonZeroOne = false;
-            for (int i = str.length() - 1; i >= 0; i--) {
-                char c = str.charAt(i);
-                if (c != '0') {
-                    isLastNonZeroOne = (c == '1');
-                    break;
-                }
-            }
-
-            Rational lowerBound = isLastNonZeroOne ? source : source.subtract(delta);
+            Rational lowerBound = source.isPowerOfTen() ? source : source.subtract(delta);
             Rational upperBound = source.add(delta);
 
             return from(negative, lowerBound, source, upperBound);
         }
 
         public BoundedNumber invert() {
+            if (value.signum() == 0) {
+                this.lowerBound = Rational.INFINITY;
+                this.value = Rational.INFINITY;
+                this.upperBound = Rational.INFINITY;
+                return this;
+            }
             Rational temp = lowerBound;
             this.lowerBound = upperBound.reciprocal();
             this.value = value.reciprocal();
@@ -569,23 +606,37 @@ public class FullUnitConverter {
             return lowerBoundCeiling.compareTo(upperBound.floor()) <= 0;
         }
 
-        public int toSignificantDigits() {
+        public int toSignificantDigits(Map<String, String> log) {
             Rational lowerDiff = value.subtract(lowerBound);
             Rational upperDiff = upperBound.subtract(value);
+            boolean deltasSame = lowerDiff.equals(upperDiff);
+            if (deltasSame) {
+                log.put("U/LBΔ", lowerDiff.toString(MathContext.DECIMAL32));
+            } else {
+                log.put("LBΔ", lowerDiff.toString(MathContext.DECIMAL32));
+                log.put("UBΔ", upperDiff.toString(MathContext.DECIMAL32));
+            }
 
-            if (lowerDiff.compareTo(Rational.ZERO) < 0 || upperDiff.compareTo(Rational.ZERO) < 0) {
+            if (lowerDiff.signum() < 0 || upperDiff.signum() < 0) {
+                if (!value.isFinite()) {
+                    return 1;
+                }
                 throw new UnitException("bounds problem");
             }
 
-            int valueFirstSigDigitPlace = value.firstDigitPosition();
             int minFirstSigDigitPlace = lowerDiff.firstDigitPosition();
-            if (!lowerDiff.equals(upperDiff)) {
+            log.put("LBΔ dig1p", String.valueOf(minFirstSigDigitPlace));
+            int valueFirstSigDigitPlace = value.firstDigitPosition();
+            log.put("val dig1p", String.valueOf(valueFirstSigDigitPlace));
+            if (!deltasSame) {
                 int upperFirstSigDigitPlace = upperDiff.firstDigitPosition();
                 minFirstSigDigitPlace = Math.min(minFirstSigDigitPlace, upperFirstSigDigitPlace);
+                log.put("minΔ digit1Pos", String.valueOf(minFirstSigDigitPlace));
             }
 
             int result = valueFirstSigDigitPlace - minFirstSigDigitPlace + 1;
-            return Math.max(result, 1);
+            result = Math.max(result, 1);
+            return result;
         }
 
         public long getFloorAndSubtract() {
@@ -619,11 +670,11 @@ public class FullUnitConverter {
                     "⟪",
                     negative,
                     ", ",
-                    lowerBound.toString(FormatStyle.repeating),
+                    lowerBound.toString(MathContext.DECIMAL32),
                     ", ",
-                    value.toString(FormatStyle.repeating),
+                    value.toString(MathContext.DECIMAL32),
                     ", ",
-                    upperBound.toString(FormatStyle.repeating),
+                    upperBound.toString(MathContext.DECIMAL32),
                     "⟫");
         }
     }
@@ -644,7 +695,7 @@ public class FullUnitConverter {
         if (sourceAmount.denominator == BigInteger.ZERO) {
             return sourceAmount == Rational.INFINITY
                     ? "INF"
-                    : sourceAmount == Rational.NEGATIVE_INFINITY ? "-INF" : "NaN";
+                    : sourceAmount == Rational.NEGATIVE_INFINITY ? "-∞" : "NaN";
         }
         return sourceAmount.toString();
     }
@@ -654,7 +705,7 @@ public class FullUnitConverter {
         if (sourceAmount.denominator == BigInteger.ZERO) {
             return sourceAmount == Rational.INFINITY
                     ? "INF"
-                    : sourceAmount == Rational.NEGATIVE_INFINITY ? "-INF" : "NaN";
+                    : sourceAmount == Rational.NEGATIVE_INFINITY ? "-∞" : "NaN";
         }
         return new BigDecimal(sourceAmount.numerator)
                 .divide(new BigDecimal(sourceAmount.denominator), mathContext)
@@ -831,8 +882,8 @@ public class FullUnitConverter {
         public String formatToString(Rational finalValue) {
             if (finalValue.denominator == BigInteger.ZERO) {
                 return finalValue == Rational.INFINITY
-                        ? "INF"
-                        : finalValue == Rational.NEGATIVE_INFINITY ? "-INF" : "NaN";
+                        ? "∞"
+                        : finalValue == Rational.NEGATIVE_INFINITY ? "-∞" : "NaN";
             }
             return lnf.format(finalValue.toBigDecimal(MathContext.DECIMAL128)).toString();
         }

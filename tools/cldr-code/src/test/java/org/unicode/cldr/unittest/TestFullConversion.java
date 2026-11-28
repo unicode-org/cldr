@@ -61,14 +61,14 @@ public class TestFullConversion extends TestFmwk {
     public void testOddities() {
         System.out.println();
         Object[][] tests = {
-            {Rational.NaN, "radian", 2, "degree", "NaN⟨2⟩"},
-            {Rational.NEGATIVE_INFINITY, "radian", 2, "degree", "-INF⟨2⟩"},
-            {Rational.INFINITY, "radian", 2, "degree", "INF⟨2⟩"},
-            {Rational.ZERO, "radian", 2, "degree", "0⟨2⟩"},
-            {Rational.NaN, "radian", 2, "per-radian", "NaN⟨2⟩"},
-            {Rational.NEGATIVE_INFINITY, "radian", 2, "per-radian", "0⟨2⟩"},
-            {Rational.INFINITY, "radian", 2, "per-radian", "0⟨2⟩"},
-            {Rational.ZERO, "radian", 2, "per-radian", "INF⟨2⟩"},
+            {Rational.NEGATIVE_INFINITY, "radian", 2, "degree", "-∞⟨1⟩"},
+            {Rational.INFINITY, "radian", 2, "degree", "∞⟨1⟩"},
+            {Rational.NaN, "radian", 2, "degree", "NaN⟨1⟩"},
+            {Rational.ZERO, "radian", 2, "degree", "0⟨1⟩"},
+            {Rational.NaN, "radian", 2, "per-radian", "NaN⟨1⟩"},
+            {Rational.NEGATIVE_INFINITY, "radian", 2, "per-radian", "0⟨1⟩"},
+            {Rational.INFINITY, "radian", 2, "per-radian", "0⟨1⟩"},
+            {Rational.ZERO, "radian", 2, "per-radian", "∞⟨1⟩"},
         };
 
         Locale locale = Locale.ENGLISH;
@@ -351,8 +351,10 @@ public class TestFullConversion extends TestFmwk {
             {"1234.5", "fraction", "1", "1234.45", "1234.5", "1234.55"},
             {"-1234.5", "significant", "5", "1234.45", "1234.5", "1234.55"},
             {"-1234.5", "fraction", "1", "1234.45", "1234.5", "1234.55"},
+            {"10", "significant", "2", "10", "10", "10.5"},
+            {"0", "fraction", "2", "10", "10", "10.5"},
             {"0", "significant", "5", "-0.00005", "0", "0.00005"},
-            {"0", "fraction", "1", "-0.05", "0", "0.05"}
+            {"0", "fraction", "1", "-0.05", "0", "0.05"},
         };
         for (String[] test : tests) {
             Rational value = Rational.of(test[0]);
@@ -370,7 +372,7 @@ public class TestFullConversion extends TestFmwk {
 
             BoundedNumber bd = BoundedNumber.from(value, type, digits);
             if (bd != null) {
-                Sign expectedNeg = value.signum() < 0 ? Sign.negative : Sign.positive;
+                Sign expectedNeg = Sign.from(value.signum());
                 assertEquals(msg + " negative", expectedNeg, bd.getNegative());
                 assertEquals(msg + " lowerBound", expectedLower, bd.getLowerBound());
                 assertEquals(msg + " value", expectedValue, bd.getValue());
@@ -434,7 +436,7 @@ public class TestFullConversion extends TestFmwk {
 
                 BoundedNumber targetBounded = sourceBounded.clone().multiply(conversion);
 
-                int targetSigDig = targetBounded.toSignificantDigits();
+                int targetSigDig = targetBounded.toSignificantDigits(result.getLog());
 
                 String targetBDRounded =
                         roundWithBigDecimal(targetBounded.getValue(), targetSigDig);
@@ -666,5 +668,87 @@ public class TestFullConversion extends TestFmwk {
             Rational actual = value.roundToSignificant(significant, mode);
             assertEquals(Joiners.COMMA_SP.join(test), expected, actual);
         }
+    }
+
+    public void testShane() {
+        String[][] tests = {
+            // meters, feet
+            {"0", "0"},
+            {"0.1", "0.3"},
+            {"0.2", "0.7"},
+            {"0.3", "1"},
+            {"0.4", "1.3"},
+            {"0.5", "1.6"},
+            {"0.6", "2"},
+            {"0.7", "2.3"},
+            {"0.8", "2.6"},
+            {"0.9", "3.0"},
+            {"1", "3"},
+            {"1.0", "3.3"},
+            {"1.1", "3.6"},
+            {"1.2", "4"},
+            {"1.3", "4.3"},
+            {"1.4", "4.6"},
+            {"1.5", "5"},
+            {"1.6", "5.2"},
+            {"1.7", "5.6"},
+            {"1.8", "6"},
+            {"1.9", "6.2"},
+            {"2", "7"},
+            {"2.0", "6.6"},
+            {"2.1", "6.9"},
+            {"2.2", "7.2"},
+            {"2.3", "7.5"},
+            {"2.4", "8"},
+            {"2.5", "8.2"},
+            {"2.6", "8.5"},
+            {"2.7", "9"},
+            {"2.8", "9.2"},
+            {"2.9", "9.5"},
+            {"3", "10"},
+            {"3.0", "10"},
+            {"3.1", "10.2"},
+        };
+        FullUnitConverter converter = FullUnitConverter.getConverter("meter", "foot");
+        HackLocalizedNumberFormatter hackLnf =
+                new HackLocalizedNumberFormatter(
+                        NumberFormatter.with().locale(Locale.ENGLISH), Locale.ENGLISH, 1, 1);
+
+        System.out.println(
+                "\nMeters\tSD\tS-Feet\tSD\t≠?\tM-Feet\tSD\tLog details: ⟪value sign, LB, value, UB⟫, diglp=digit 1 position, SD=sig dig.");
+        for (String[] test : tests) {
+            String metersString = test[0];
+            Rational metersValue = Rational.of(metersString);
+            String feetString = test[1];
+            Rational feetValue = Rational.of(feetString);
+            int meterSig = sigDigitsFromString(metersString);
+            int footSig = sigDigitsFromString(feetString);
+            Converted converted =
+                    converter.convert(
+                            metersValue,
+                            BoundedNumber.PrecisionType.significant,
+                            meterSig,
+                            meterSig);
+            hackLnf.precision(
+                    converted.getFinalMinSignificant(), converted.getFinalMinSignificant());
+            String feetString2 = converter.formattedNumbers(converted, hackLnf).getFirst();
+            BoundedNumber finalBoundedNumber = converted.getFinalBoundedNumber();
+            boolean feetValuesEqual = feetString.equals(feetString2);
+            System.out.println(
+                    Joiners.TAB.join(
+                            metersString,
+                            meterSig,
+                            feetString,
+                            footSig,
+                            feetValuesEqual ? "" : "≠",
+                            feetString2,
+                            converted.getFinalMaxSignificant(),
+                            converted.getLog()));
+        }
+    }
+
+    private int sigDigitsFromString(String test) {
+        String temp = test.replace(".", "").replaceFirst("^0+", "");
+        return temp.isEmpty() ? 1 : temp.length();
     }
 }

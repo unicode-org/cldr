@@ -19,9 +19,9 @@ x.x: =0.0=;
 %spellout-numbering:
 0: =%spellout-cardinal=;
 %spellout-cardinal:
--x: ลบ​>>;
-x.x: <<​จุด​>>>;
-0: ศูนย์;
+-x: ລົບ​>>;
+x.x: <<​ຈຸດ​>>>;
+0: ສູນ;
 1: ໜຶ່ງ;
 2: ສອງ;
 3: ສາມ;
@@ -34,25 +34,25 @@ x.x: <<​จุด​>>>;
 10: ສິບ[​>%%alt-ones>];
 20: ຊາວ[​>%%alt-ones>];
 30: <<​ສິບ[​>%%alt-ones>];
-100: <<​ร้อย[​>>];
-1000: <<​พัน[​>>];
-10000: <<​หมื่น[​>>];
-100000: <<​แสน[​>>];
-1000000: <<​ล้าน[​>>];
+100: <<​ຮ້ອຍ[​>>];
+1000: <<​ພັນ[​>>];
+10000: <<​ໝື່ນ[​>>];
+100000: <<​ແສນ[​>>];
+1000000: <<​ລ້ານ[​>>];
 1000000000000000000: =#,##0=;
 %%alt-ones:
 1: ເອັດ;
 2: =%spellout-cardinal=;
 %spellout-ordinal:
 x.x: =#,##0.#=;
-0: ที่​=%spellout-cardinal=;
+0: ທີ​=%spellout-cardinal=;
 ]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
 %digits-ordinal:
--x: ที่−>#,##0>;
-0: ที่​=#,##0=;
+-x: ທີ−>#,##0>;
+0: ທີ​=#,##0=;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

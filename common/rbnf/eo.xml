@@ -48,6 +48,15 @@ x.x: << komo >>;
 1000000000000000000: =#,##0=;
 %spellout-ordinal:
 0: =%spellout-cardinal=a;
+1000000: [miliono >>|miliona];
+2000000: <%spellout-cardinal<[ milionoj >>|-miliona];
+1000000000: [miliardo >>|miliarda];
+2000000000: <%spellout-cardinal<[ miliardoj >>|-miliarda];
+1000000000000: [biliono >>|biliona];
+2000000000000: <%spellout-cardinal<[ bilionoj >>|-biliona];
+1000000000000000: [biliardo >>|biliarda];
+2000000000000000: <%spellout-cardinal<[ biliardoj >>|-biliarda];
+1000000000000000000: =%spellout-cardinal=a;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

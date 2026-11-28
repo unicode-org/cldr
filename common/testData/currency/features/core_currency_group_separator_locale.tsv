@@ -1,0 +1,13 @@
+# locale	currency	currency_format_length	currency_display	input	expected	main_feature	other_features
+de_AT	EUR		symbol	-1230.05	-€ 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	EUR		symbol	1234565.0	€ 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	EUR		symbolNarrow	-1230.05	-€ 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	EUR		symbolNarrow	1234565.0	€ 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	EUR		code	-1230.05	-EUR 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	EUR		code	1234565.0	EUR 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		symbol	-1230.05	-$ 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		symbol	1234565.0	$ 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		symbolNarrow	-1230.05	-$ 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		symbolNarrow	1234565.0	$ 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		code	-1230.05	-USD 1.230,05	currency_group_separator_locale	currency_decimal_separator_regular
+de_AT	USD		code	1234565.0	USD 1.234.565,00	currency_group_separator_locale	currency_decimal_separator_regular

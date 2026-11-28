@@ -26,6 +26,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -224,6 +225,12 @@ public class Ldml2JsonConverter {
                             "false",
                             "Include redundant data from code-fallback and constructed")
                     .add(
+                            "minimizePlurals",
+                            'z',
+                            "(true|false)",
+                            "true",
+                            "With resolved data, omit plural forms whose values are the same as the count=\"other\" form")
+                    .add(
                             "draftstatus",
                             's',
                             "(approved|contributed|provisional|unconfirmed)",
@@ -337,6 +344,7 @@ public class Ldml2JsonConverter {
                         Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue()),
                         Boolean.parseBoolean(options.get("Modern").getValue()),
                         Boolean.parseBoolean(options.get("Redundant").getValue()),
+                        Boolean.parseBoolean(options.get("minimizePlurals").getValue()),
                         Optional.ofNullable(options.get("license-file").getValue())
                                 .filter(s -> !s.isEmpty()));
 
@@ -363,6 +371,8 @@ public class Ldml2JsonConverter {
     private final RunType type;
     // include Redundant data such as apc="apc", en_US="en (US)"
     private boolean includeRedundant;
+    // Whether to drop plural forms that are the same as count="other" (resolved data only)
+    private boolean minimizePlurals;
 
     static class JSONSection implements Comparable<JSONSection> {
         public String section;
@@ -400,6 +410,7 @@ public class Ldml2JsonConverter {
             boolean skipBcp47LocalesWithSubtags,
             boolean writeModernPackage,
             boolean includeRedundant,
+            boolean minimizePlurals,
             Optional<String> licenseFile) {
         this.writeModernPackage = writeModernPackage;
         this.strictBcp47 = strictBcp47;
@@ -428,6 +439,7 @@ public class Ldml2JsonConverter {
         this.sections = configFileReader.getSections();
         this.packages = new ConcurrentSkipListSet<>();
         this.includeRedundant = includeRedundant;
+        this.minimizePlurals = minimizePlurals;
         this.licenseFile = licenseFile;
     }
 
@@ -685,6 +697,14 @@ public class Ldml2JsonConverter {
             }
         }
 
+        // Resolved output has no inheritance, so a plural form that is the same as the
+        // count="other" form of the same item is redundant.
+        if (minimizePlurals && file.isResolved()) {
+            for (List<CldrItem> items : sectionItems.values()) {
+                removeRedundantPluralForms(items);
+            }
+        }
+
         // TODO: move matcher out of inner loop
         final Matcher versionInfoMatcher = VERSION_INFO_PATTERN.matcher("");
         // Automatically copy the version info to any sections that had real data in them.
@@ -723,6 +743,34 @@ public class Ldml2JsonConverter {
 
     static final Pattern VERSION_INFO_PATTERN = PatternCache.get(".*/(identity|version).*");
     static final Pattern HAS_SUBTAG = PatternCache.get(".*-[a-z]-.*");
+
+    /**
+     * Plural keyword counts. Explicit counts such as count="1" are excluded: they take precedence
+     * over the keyword, so dropping one could change the result even if it equals "other".
+     */
+    static final Pattern PLURAL_KEYWORD_COUNT =
+            PatternCache.get("\\[@count=\"(zero|one|two|few|many)\"]");
+
+    /**
+     * Remove items with a plural keyword count whose value is the same as the item with
+     * count="other" that is otherwise identical. Consumers fall back to "other" for missing plural
+     * forms. The count="other" item must itself be present, so it is never lost.
+     */
+    private static void removeRedundantPluralForms(List<CldrItem> items) {
+        Map<String, String> valueByPath = new HashMap<>();
+        for (CldrItem item : items) {
+            valueByPath.put(item.getUntransformedPath(), item.getValue());
+        }
+        items.removeIf(
+                item -> {
+                    Matcher m = PLURAL_KEYWORD_COUNT.matcher(item.getUntransformedPath());
+                    if (!m.find()) {
+                        return false;
+                    }
+                    String otherPath = m.replaceFirst("[@count=\"other\"]");
+                    return item.getValue().equals(valueByPath.get(otherPath));
+                });
+    }
 
     /**
      * Convert CLDR's XML data to JSON format.

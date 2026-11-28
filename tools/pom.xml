@@ -7,7 +7,7 @@
 
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
-	<version>49.0</version>
+	<version>50.0</version>
 	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
 	<licenses>
@@ -62,8 +62,9 @@
 		       between CLDR and the updated version of ICU, which would need to be fixed as part
 		       of the PR.
 			-->
-		<!--<icu4j.version>79.0.1-20260723.162400-4</icu4j.version>--> <!-- before ICU rc, specific dated version -->
-		<icu4j.version>79.1-SNAPSHOT</icu4j.version> <!-- after ICU rc, latest published version -->
+		<!--<icu4j.version>79.0.1-20260723.162400-4</icu4j.version>--> <!-- before ICU rc,
+		specific dated version -->
+		<icu4j.version>79.1</icu4j.version> <!-- after ICU rc, latest published version -->
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.3.1</maven-surefire-plugin-version>
 		<assertj-version>3.26.3</assertj-version>
@@ -72,9 +73,10 @@
 		<mysql.version>8.0.30</mysql.version>
 		<!-- jsonwebtoken.io -->
 		<jjwt.version>0.11.5</jjwt.version>
-        <spotless.version>2.43.0</spotless.version>
+		<spotless.version>2.43.0</spotless.version>
 		<google-java-style.version>1.27.0</google-java-style.version>
-		<!-- Note: java-release (applied in the compiler plugin) replaces maven.compiler.source and maven.compiler.target -->
+		<!-- Note: java-release (applied in the compiler plugin) replaces maven.compiler.source and
+		maven.compiler.target -->
 		<java-release>21</java-release>
 	</properties>
 
@@ -240,34 +242,36 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-                <plugin>
-                    <groupId>com.diffplug.spotless</groupId>
-                    <artifactId>spotless-maven-plugin</artifactId>
-                    <version>${spotless.version}</version>
-                    <configuration>
-                        <!-- optional: limit format enforcement to just the files changed by this feature branch -->
-                        <!-- You can explicitly disable ratchet functionality by providing the value 'NONE': -->
-                        <ratchetFrom>NONE</ratchetFrom>
-                        <!-- define a language-specific format -->
-                        <java>
-                            <toggleOffOn />
-                            <!-- no need to specify files, inferred automatically, but you can if you want -->
-                            <!-- apply a specific flavor of google-java-format and reflow long strings -->
-                            <googleJavaFormat>
-                                <!-- version of google-java-style -->
-                                <version>${google-java-style.version}</version>
-                                <style>AOSP</style>
-                                <reflowLongStrings>false</reflowLongStrings>
-                            </googleJavaFormat>
-                        </java>
-                    </configuration>
-                </plugin>
-				<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+				<plugin>
+					<groupId>com.diffplug.spotless</groupId>
+					<artifactId>spotless-maven-plugin</artifactId>
+					<version>${spotless.version}</version>
+					<configuration>
+						<!-- optional: limit format enforcement to just the files changed by this feature branch -->
+						<!-- You can explicitly disable ratchet functionality by providing the value 'NONE': -->
+						<ratchetFrom>NONE</ratchetFrom>
+						<!-- define a language-specific format -->
+						<java>
+							<toggleOffOn />
+							<!-- no need to specify files, inferred automatically, but you can if you want -->
+							<!-- apply a specific flavor of google-java-format and reflow long strings -->
+							<googleJavaFormat>
+								<!-- version of google-java-style -->
+								<version>${google-java-style.version}</version>
+								<style>AOSP</style>
+								<reflowLongStrings>false</reflowLongStrings>
+							</googleJavaFormat>
+						</java>
+					</configuration>
+				</plugin>
+				<!-- clean lifecycle, see
+				https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>3.2.0</version>
 				</plugin>
-				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+				<!-- default lifecycle, jar packaging: see
+				https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>3.3.1</version>
@@ -284,29 +288,33 @@
 					<version>${maven-surefire-plugin-version}</version>
 					<configuration>
 						<systemPropertyVariables>
-							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps -->
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and
+							tools/cldr-apps -->
 							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
 							<java.awt.headless>true</java.awt.headless>
 						</systemPropertyVariables>
 						<argLine>-Xmx6g -enableassertions</argLine>
-						<statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
-						  <disable>false</disable>
-						  <version>3.0</version>
-						  <usePhrasedFileName>false</usePhrasedFileName>
-						  <usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
-						  <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
-						  <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+						<statelessTestsetReporter
+							implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+							<disable>false</disable>
+							<version>3.0</version>
+							<usePhrasedFileName>false</usePhrasedFileName>
+							<usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
+							<usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
+							<usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
 						</statelessTestsetReporter>
-						<consoleOutputReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5ConsoleOutputReporter">
-						  <disable>false</disable>
-						  <encoding>UTF-8</encoding>
-						  <usePhrasedFileName>false</usePhrasedFileName>
+						<consoleOutputReporter
+							implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5ConsoleOutputReporter">
+							<disable>false</disable>
+							<encoding>UTF-8</encoding>
+							<usePhrasedFileName>false</usePhrasedFileName>
 						</consoleOutputReporter>
-						<statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoReporter">
-						  <disable>false</disable>
-						  <usePhrasedFileName>false</usePhrasedFileName>
-						  <usePhrasedClassNameInRunning>true</usePhrasedClassNameInRunning>
-						  <usePhrasedClassNameInTestCaseSummary>true</usePhrasedClassNameInTestCaseSummary>
+						<statelessTestsetInfoReporter
+							implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoReporter">
+							<disable>false</disable>
+							<usePhrasedFileName>false</usePhrasedFileName>
+							<usePhrasedClassNameInRunning>true</usePhrasedClassNameInRunning>
+							<usePhrasedClassNameInTestCaseSummary>true</usePhrasedClassNameInTestCaseSummary>
 						</statelessTestsetInfoReporter>
 					</configuration>
 				</plugin>
@@ -356,11 +364,12 @@
 					<version>3.6.0</version>
 				</plugin>
 				<plugin>
-			        <groupId>org.apache.maven.plugins</groupId>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>3.2.4</version>
 				</plugin>
-				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+				<!-- site lifecycle, see
+				https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>3.7.1</version>

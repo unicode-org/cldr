@@ -1,29 +1,35 @@
 # Feature-Based Currency Test Data (`common/testData/currency/features`)
 
-Feature-based test data for currency formatting ([UTS #35 Part 3: Numbers](../../../../docs/ldml/tr35-numbers.md)). A feature is one behavior that a part of the spec requires.
+Test data for currency formatting ([UTS #35 Part 3: Numbers](../../../../docs/ldml/tr35-numbers.md)), organized by feature. A feature is one behavior that the spec requires.
 
 ## Files
 
-- `features.tsv`: one row per feature, with the columns `feature_id`, `core_set` and `summary`. The core set lists the `dimension=value` pairs that exercise the feature, separated by `; `, and several values of one dimension are separated by `,`.
-- `coverage.tsv`: one row per clause and feature, with the columns `clause`, `spec` (its UTS #35 link), `summary`, `feature_id`, `status` and `note`. The clause IDs come from the TR35 coverage doc (CLDR-19466): S1.1a is section 1, sentence 1, case a. A clause with several features has a row for each, and a clause without a feature has one row with an empty `feature_id`. The status is `covered`, `todo`, `waiting` (for a second source of expected values) or `out_of_scope`, and `note` gives the ticket or the reason.
-- `core_<feature_id>.tsv`: the test cases of one feature, one for each combination of its core set. These files are generated, so don't edit them by hand.
+- `features.tsv`: one row per feature. Its `core_set` has the `dimension=value` pairs that exercise the feature, separated by `; `, with `,` between the values of one dimension.
+- `coverage.tsv`: one row per spec clause and feature.
+    - `clause`: an ID from the TR35 coverage doc (CLDR-19466). S1.1a is section 1, sentence 1, case a.
+    - `spec`: the UTS #35 link, relative to `docs/ldml`.
+    - `snippet`: the UTS #35 text of the clause, with `<<` and `>>` in place of straight double quotes. `↑↑↑↑↑` means the same snippet as in the row above.
+    - `summary`: what the clause requires, in our own words.
+    - `feature_id`: empty if no feature tests the clause.
+    - `status`: `covered`, `todo`, `waiting` (for a second source of expected values) or `out_of_scope`. `note` gives the ticket or the reason.
+- `core_<feature_id>.tsv`: the test cases of one feature, one per combination of its core set. Generated, so don't edit by hand.
 
-All three are UTF-8 and tab-separated. Every line, including the `#` header, has the same number of tabs, and no cell contains `"`.
+All files are UTF-8 and tab-separated. Every line, including the `#` header, has the same number of tabs, and no cell contains `"`.
 
 ## Core TSV Columns
 
-Find the columns by their header name: a new dimension adds a column before `expected`.
+Find columns by their header name: a new dimension adds a column before `expected`.
 
 | Column | Meaning |
 |---|---|
 | `locale` | CLDR locale ID |
 | `currency` | ISO 4217 currency code |
-| `currency_format_length` | `short` for the compact format; empty for the non-compact format |
+| `currency_format_length` | `short` for the compact format; empty otherwise |
 | `currency_display` | `symbol`, `symbolNarrow`, `code` or `name`; empty means `symbol` |
 | `input` | The amount to format |
-| `expected` | The expected result |
-| `main_feature` | The feature that the row was made for (the same as in the file name) |
-| `other_features` | Other features that the row exercises, comma-separated |
+| `expected` | The expected result, from ICU4J |
+| `main_feature` | The feature the row was made for, as in the file name |
+| `other_features` | Other features the row exercises, comma-separated |
 
 ## Regenerating and Testing
 
